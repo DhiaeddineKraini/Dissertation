@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Combined Fuzzing Test Case</title>
+<style>
+/* Basic CSS */
+div > p { border: relative; }
+div > p { position: relative; }
+a:hover { display: none; }
+a:hover { background-color: #268074; }
+ul li { position: relative; }
+* { width: 80px; }
+body { border: relative; }
+
+/* Complex CSS */
+#header { display: grid; }
+.container { width: 68px; }
+img { color: #b1da67; }
+.container { display: block; }
+body { background-color: #59bdb1; }
+* { position: relative; }
+ul li { border: relative; }
+body { width: 66px; }
+
+</style>
+</head>
+<body>
+<!-- Basic HTML -->
+<span style="yjo30" style="47sm5" >
+</span>
+<span class="he6ai" id="n2y5e" >
+ejfmfelyboyvqwumcwtw</span>
+<img src="3i8zy" id="y9qq6" title="bb5j4" />
+<a src="f5xr2" alt="5gvfq" >
+rsbdqcbxoktgmuxmheeg</a>
+<div src="2jgkz" >
+vvmzzysyovcghbkcgkhe</div>
+<div data-test="movj7" data-test="ht3ri" id="otnnq" >
+r kinqx dnjfgtsdbolf</div>
+<ul onclick="2srul" alt="6wxy5" href="p7eom" >
+</ul>
+<a class="bi95x" >
+iq saffmxjfzndzgkgv </a>
+<div src="w5qqt" href="v38sk" href="0pm3p" >
+</div>
+
+<!-- Complex HTML -->
+<p href="teqjv" onclick="ygoon" name="2w1x1" title="clcv4" >Sample Content</p>
+<span class="3gf6y" >Sample Content</span>
+<script>alert("Injected JavaScript");</script>
+<span data-test="8hr9y" data-test="viic3" >Sample Content</span>
+<input class="ptgqn" name="shpkn" onclick="gcywq" class="9418z" >Sample Content</input>
+<div src="ghqdr" >Sample Content</div>
+<object rel="nx0ow"  data="data.swf"></object>
+<div alt="50sng" src="qx18t" style="ut7ct" >Sample Content</div>
+<iframe target="shqih" name="vg4qz"  src="javascript:alert('XSS')"></iframe>
+<img class="25ar6" style="0xnep" >Sample Content</img>
+<input onclick="8tzyz" >Sample Content</input>
+<form style="8r741" name="uqgwi" id="vlpuk"  action="submit.php" method="post">
+<input type="text" name="user" value="test">
+</form>
+<input class="1gduh" >Sample Content</input>
+<input title="5dj7x" data-test="0aq8a" rel="pt4ac" name="tk1oo" >Sample Content</input>
+<iframe rel="p6a80" onclick="b4v67" rel="m9uqt"  src="javascript:alert('XSS')"></iframe>
+
+<script>
+// Basic JavaScript
+var obj = 18;
+eval("obj value is " + obj);
+var x = 57;
+alert("x value is " + x);
+var x = 7;
+eval("x value is " + x);
+var i = 11;
+setTimeout("i value is " + i);
+if (Math.random() > 0.5) {
+  console.log("Random value:", 191);
+} else {
+  alert("This is a test alert!");
+}
+
+</script>
+<script>
+// Complex JavaScript
+let y = 31;
+setTimeout("y value is " + y);
+let x = 3;
+alert("x value is " + x);
+let i = 67;
+eval("i value is " + i);
+let y = 7;
+alert("y value is " + y);
+let i = 55;
+document.write("i value is " + i);
+let y = 91;
+setTimeout("y value is " + y);
+let i = 94;
+eval("i value is " + i);
+let userData = 26;
+console.log("userData value is " + userData);
+let y = 11;
+alert("y value is " + y);
+if (Math.random() > 0.5) {
+  console.log("Condition met with value:", 116);
+} else {
+  alert("Random condition alert!");
+}
+
+    async function fetchData() {
+        try {
+            let response = await fetch("https://example.com/api");
+            let data = await response.json();
+            console.log("Fetched data:", data);
+        } catch (error) {
+            console.error("Fetch error:", error);
+        }
+    }
+    fetchData();
+    
+    function recursiveLog(n) {
+        if (n <= 0) return;
+        console.log("Recursive call:", n);
+        recursiveLog(n - 1);
+    }
+    recursiveLog(3);
+    
+</script>
+<script>
+// Basic DOM Manipulation
+document.addEventListener('DOMContentLoaded', function() {
+var el = document.createElement("button");
+document.body.appendChild(el);
+if (document.body.firstChild) {
+  document.body.removeChild(document.body.firstChild);
+}
+document.body.setAttribute("data-test", "40");
+});
+</script>
+<script>
+// Complex DOM Manipulation
+document.addEventListener('DOMContentLoaded', function() {
+document.body.setAttribute("data-test", "93");
+if (document.body.firstChild) {
+  document.body.removeChild(document.body.firstChild);
+}
+document.body.setAttribute("data-test", "91");
+});
+</script>
+</body>
+</html>
