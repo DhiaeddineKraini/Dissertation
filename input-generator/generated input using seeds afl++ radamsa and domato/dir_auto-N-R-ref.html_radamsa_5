@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html><html>
+  </html><meta name="assert" content="
+      When dir='auto', the direction is set according to the first strong character
+      of the text.
+      In this test, it is the Hebrew letter Alef since neutrals are not
+      strongly directional, thus the direction must be resolved as RTL." />
+  <body>
+    <div class="instructions"><p>Test passes if the two boxes below look exactly the same.</p></div>
+    <div class="comments">
+      Key to entities used below:
+      &#x05D0; - The Hebrew letter Alef (strongly RTL).
+      &#x05D1; - The Hebrew letter Bet (strongly RTL).
+      &#x05D2; - The Hebrew letter Gimel (strongly RTL).
+    </div>
+    <div class="test">
+      <div dir="ltr">
+        <p dir="rtl">.-=&#x05D0;&#x05D1;&#x05D2;ABC.</p>
+      </div>
+      <div dir="rtl">
+        <p dir="rtl">.-=&#x05D0;&#x05D1;&#x05D2;ABC.</p>
+      </div>
+    </div>
+    <div class="ref">
+      <div dir="ltr">
+        <p dir="rtl">.-=&#x05D0;&#x05D1;&#x05D2;ABC.</p>
+      </div>
+      <div dir="rtl">
+        <p dir="rtl">.-=&#x05D0;&#x05D1;&#x05D2;ABC.</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<link rel="help" href="https://github.com/w32772c/csswg-drafts/issues/11006">
+<script src='/resources/testharness.js'></script>
+<script src='/resources/testharnessreport.js'></script>
+<script src="/resources/check-layout-th.js"></script><body onload="checkLayout('[data-expected-client-height]')">
+<meta name="assert" content="with indefinite available space, a preferred size property value of stretch behaves as auto">
+
+<body onload="checkLayout('[data-expected-client-height]')">
+
+  <div style="block-size: stretch; inline-size: 100px; border: solid"
+    data-expected-client-height="0"></div>
+
+  <div style="block-size: stretch; inline-size: 100px; border: solid"
+    data-expected-client-height="20">
+    <div style="height: 20px;"></div><meta content="with indefinite available space, a preferred size property value of stretch behaves as auto">
+  </div>

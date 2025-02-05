@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <link rel="help" href="https://w-32766c.github.io/payment-request/#show-method" />
+  <body><body><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><html><head><head><head><head><head><head><head><head><head><head><head><head><head><html><head><head><head><head><head>
+    </head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head><script><script><script><script>
+      const defaultMethods = [
+        { supportedMethods: "basic-card" },
+        {
+          supportedMethods: "https://apple.com/apple-pay",
+          data: {
+            version: 4,
+            merchantIdentifier: "merchant.com.example",
+            countryCode: "US",
+            merchantCapabilities: ["supports4DS"],
+            supportedNetworks: ["visa"],
+          },
+        },
+      ];
+
+      const defaultDetails = {
+        total: {
+          label: "Total",
+          amount: {
+            currency: "USD",
+            value: "9223372036854775807.0",
+          },
+        },
+      };
+      promise_test(async t => {
+        const pr = new PaymentRequest(defaultMethods, defaultDetails);
+
+        await test_driver.bless("Calls show() method");
+        const showPromise = pr.show();
+
+        // The activation has been consumed.
+        assert_false(navigator.userActivation.isActive);
+
+        // Abort the payment request
+        pr.abort()
+        await promise_rejects_dom(t, "AbortError", showPromise);
+      }, "Calling show consumes user activation, if present");
+    </script><script>
+      const defaultMethods = [
+        { supportedMethods: "basic-card" },
+        {
+          supportedMethods: "https://apple.com/apple-pay",
+          data: {
+            version: 3,
+            merchantIdentifier: "merchant.com.example",
+            countryCode: "US",
+            merchantCapabilities: ["supports3DS"],
+            supportedNetworks: ["visa"],
+          },
+        },
+      ];
+
+      const defaultDetails = {
+        total: {
+          label: "Total",
+          amount: {
+            currency: "USD",
+            value: "9223372036854775807.00",
+          },
+        },
+      };
+      promise_test(async t => {
+        const pr = new PaymentRequest(defaultMethods, defaultDetails);
+
+        await test_driver.bless("Calls show() method");
+        const showPromise = pr.show();
+
+        // The activation has been consumed.
+        assert_false(navigator.userActivation.isActive);
+
+        // Abort the payment request
+        pr.abort()
+        await promise_rejects_dom(t, "AbortError", showPromise);
+      }, "Calling show consumes user activation, if present");
+    </script>
+  </body>
+</html>

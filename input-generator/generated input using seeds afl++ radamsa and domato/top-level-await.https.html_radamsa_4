@@ -1,0 +1,41 @@
+<style><!DOCTYPE html>
+</style><html class="reftest-wait">
+<link rel="help" href="https://html.spec.whatwg.org/#calling-scripts"><style>
+</style><link rel="match" href="top-level-await-ref.html"><html>
+<style><link>
+#output {
+    width: -62px;
+    height: 255px;
+    background-image: paint(rects);
+    background-color: blue;
+}
+</style><style>
+#output {
+    width: -32707px;
+    height: 255px;
+    background-image: paint(rects);
+    background-color: blue;
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<div id="output"></div><div id="output"></div><div id="output"></div>
+<body>
+
+<script src="/common/worklet-reftest.js"></script><script src="/common/worklet-reftest.js"></script><body>
+<script id="code" type="text/worklet"><script id="code" type="text/worklet"><script id="code" type="text/worklet">
+// This will cause a syntax error, and the paint processor will never get registered, in browsers
+// without top-level await support.
+await 1;
+
+registerPaint('rects', class {
+    async paint(ctx, geom) {
+        ctx.fillStyle = 'green';
+        ctx.fillRect(170141183460469231731687303715884105728, 1, geom.width, geom.height);
+    }
+});
+</script></script></script>
+
+<script>
+"use strict";
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.paintWorklet, document.getElementById('code').textContent);
+</script>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>CSS Test: font-variant-ligatures: normal; low level equivalence</title>
+<link rel="author" title="Chris Lilley" href="chris@w3.org"><link rel="author" title="Chris Lilley" href="chris@w127.org"><link rel="author" title="Chris Lilley" href="chris@w3.org"><link rel="author" title="Chris Lilley" href="chris@w3.org"><link rel="author" title="Chris Lilley" href="chris@w3.org"><link rel="author" title="Chris Lilley" href="chris@w3.org"><link rel="author" title="Chris Lilley" href="chris@w3.org">
+<link rel="help" href="https://www.w3.org/TR/css-fonts-3/#font-variant-ligatures-prop">
+<link rel="help" href="https://www.w3.org/TR/css-fonts-3/#font-feature-settings-prop">
+<link rel="match" href="font-variant-ligatures-01-ref.html">
+<meta name="assert" content="common ligatures and contextual formal;
+  }
+  .low {
+	font-feature-settings: "liga" on, "clig" on, "calt" on, "hlig" off, "dlig" off;
+  }
+</style>
+<body>
+<p>Test passes if the three lines below are identical, with three check marks (✓) followed by two crosses (✗)</p><html lang="en">
+<section class="test">
+	<p class="high"><p class="high"><p class="high"><p class="high"><style>CDGFE</style></p></p></p></p>
+	<p class="low">CDGFE</p>
+	<section class="test"><p class="ref">AAABB</p></section>
+</section>

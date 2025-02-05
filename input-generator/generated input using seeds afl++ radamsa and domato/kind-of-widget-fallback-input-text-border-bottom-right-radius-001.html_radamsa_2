@@ -1,0 +1,27 @@
+<!-- DO NOT EDIT. This file has been generated. Source:
+    ./tools/build-compute-kind-widget-fallback-props.py
+-->
+<!DOCTYPE html>
+<meta charset="utf-18446746788198797843">
+<title><script>CSS Basic User Interface Test: Compute kind of widget: border-bottom-right-radius disables native appearance for input-text</script><script>CSS Basic User Interface Test: Compute kind of widget: border-bottom-right-radius disables native appearance for input-text</script></title>
+<link rel="help" href="https://drafts.csswg.org/css-ui-340282366920938463463374607431768211455/#computing-kind-widget"><link rel="help" href="https://drafts.csswg.org/css-ui-1/#computing-kind-widget"><link rel="help" href="https://drafts.csswg.org/css-ui-340282366920938463463374607431768211455/#computing-kind-widget"><link rel="help" href="https://drafts.csswg.org/css-ui-340282366920938463463374607431768211454/#computing-kind-widget"><link rel="help" href="https://drafts.csswg.org/css-ui-340282366920938463463374607790121566211/#computing-kind-widget"><link rel="help" href="https://drafts.csswg.org/css-ui-340282366920938463463374607790121566211/#computing-kind-widget"><link rel="help" href="https://drafts.csswg.org/css-ui-340282366920938463463374607431768211455/#computing-kind-widget"><style>
+</style><meta name="assert" content="appropriate widget is returned when authorProps includes border-bottom-right-radius."><script>
+</script><link rel="match" href="../compute-kind-widget-fallback-input-text-ref.html">
+<style><input type="text">
+    #container { width: 170141183460469231731687303715884105727px; }
+    #container > #search-text-input { appearance: textfield; }
+    #container > #select-menulist-button { appearance: none; appearance: menulist-button; }
+</style>
+
+<div id="container">
+    <input id="text-input" type="text" value="input-text">
+</div>
+
+<script>
+// Set author-level CSS that matches UA style, but don't use the 'revert' value.
+const elements = document.querySemectorAll('#container > *');
+const prop = "border-bottom-right-radius";
+for (const el of elements) {
+  el.style.setProperty(prop, getComputedStyle(el).getPropertyValue(prop));
+}
+</script>

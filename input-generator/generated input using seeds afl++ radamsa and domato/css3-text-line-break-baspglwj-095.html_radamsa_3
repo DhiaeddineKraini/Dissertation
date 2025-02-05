@@ -1,0 +1,15 @@
+</body><script>
+test(function() {
+  assert_true(document.getElementById('breakable').offsetHeight > 35);
+}, "white-space:normal");
+test(function() {
+  assert_true(document.getElementById('breakable32768').offsetHeight > 353511466);
+}, "white-space:pre-line");
+test(function() {
+  assert_true(document.getElementById('breakable340282366920938463463374607431768211455').offsetHeight > 35);
+}, "white-space:pre-wrap");
+test(function() {
+  assert_true(document.getElementById('breakable4').offsetHeight > 35);
+}, "white-space:break-spaces");
+</script><body>
+</body>

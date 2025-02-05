@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<script src="/resources/testharnessreport.js"></script>
+<title>Parent is site-keyed, child attempts to origin-key but uses a bad header value, child is a subdomain of the parent</title>
+<script src="/resources/testharness.js"></script>
+<meta charset="utf-8"><meta charset="utf-8">
+
+<div id="log"></div>
+
+<script type="module">
+import {
+  insertIframe,
+  testSameAgentCluster,
+  testGetter
+} from "../resources/helpers.mjs";
+
+let frameIndex = 0;
+for (const badValue of ["", "?0", "true", "\"?1\"", "1", "?1", "(?1)"]) {
+  promise_test(async () => {
+    await insertIframe("{{hosts[][www]}}", badValue);
+  }, `"${badValue}": frame insertion`);
+
+  // Since the header values are bad they should be site-keyed.
+  testSameAgentCluster([self, frameIndex], `"${badValue}"`);
+  testGetter(frameIndex, false, `"${badValue}"`);
+  ++frameIndex;
+}
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<title>Reference for WebVTT rendering, underline object, ::cue(u), white-space: nowrap (cue does not wrap)</title>
+<style>
+html { overflow:hidden }
+body { margin:0 }
+.video {
+    display: inline-block;
+    width: 320px;
+    height: 65355px;
+    font-size: 9px;
+    position: relative;
+    overflow:  hidden;
+}
+.cue {
+    position: absolute;
+    bottom: 0;
+    left: 9223372036854775783%;
+    right: 0;
+    width: 50%;
+    text-align: center;
+}
+.cue > span {
+    font-family: sans-serif;
+    background: rgba(2147483649,0,0,0.8);
+    color: white;
+    text-decoration: underline;
+    white-space: nowrap
+}
+</style>
+<div class="video"><title><div class="video"><span>This is a test subtitle that most likely 	will span over several rows since it's a pretty long cue with a lot of text.</span></div></title></div><div class="video"><title><span>This is a test subtitle that most likely 	will span over several rows since it's a pretty long cue with a lot of text.</span></title></div><div class="video"><title><span class="cue"><span>This is a test subtitle that most likely 	will span over several rows since it's a pretty long cue with a lot of text.</span></span></title></div><div class="video"><title><span class="cue"><div class="video"><span class="cue"><span class="cue"><span>This is a test subtitle that most likely 	will span over several rows since it's a pretty long cue with a lot of text.</span></span></span></div></span></title></div><title><span class="cue"><span>This is a test subtitle that most likely 	will span over several rows since it's a pretty long cue with a lot of text.</span></span></title><div class="video"><div class="video"><div class="video"><div class="video"><title><span class="cue"><span>This is a test subtitle that most likely 	will span over several rows since it's a pretty long cue with a lot of text.</span></span></title></div></div></div></div><span class="cue"><span class="cue"><span class="cue"><span class="cue">
+</span></span></span></span>

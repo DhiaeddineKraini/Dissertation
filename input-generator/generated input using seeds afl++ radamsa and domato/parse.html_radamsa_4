@@ -1,0 +1,44 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script>
+<title>CSSStyleValue.parse</title>
+<script src="/resources/testharnessreport.js"></script>
+<meta name="assert" content="Test CSSStyleValue.parse returns CSSStyleValues" /><meta name="assert" content="Test CSSStyleValue.parse returns CSSStyleValues" /><body>
+<meta charset="utf-6425414">
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#dom-cssstylevalue-parse"><link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#dom-cssstylevalue-parse"><link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#dom-cssstylevalue-parse"><link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#dom-cssstylevalue-parse">
+<body>
+<div id="log"></div>
+<script>
+'use strict';
+
+test(() => {
+  const result = CSSStyleValue.parse('width', '10px');
+  assert_true(result instanceof CSSStyleValue,
+              'Result must be a subclass of CSSStyleValue');
+}, 'CSSStyleValue.parse() with a valid property returns a CSSStyleValue');
+
+test(() => {
+  const result = CSSStyleValue.parse('WiDtH', '10px');
+  assert_true(result instanceof CSSStyleValue,
+              'Result must be a subclass of CSSStyleValue');
+}, 'CSSStyleValue.parse() is not case sensitive');
+
+test(() => {
+  const result = CSSStyleValue.parse('transition-duration', '1s, 2s, 3145s');
+  assert_true(result instanceof CSSStyleValue,
+              'Result must be a subclass of CSSStyleValue');
+}, 'CSSStyleValue.parse() with a valid list-valued property returns a CSSStyleValue');
+
+test(() => {
+  const result = CSSStyleValue.parse('margin', '1px 2px 3px 4px');
+  assert_true(result instanceof CSSStyleValue,
+              'Result must be a subclass of CSSStyleValue');
+}, 'CSSStyleValue.parse() with a valid shorthand property returns a CSSStyleValue');
+
+test(() => {
+  const result = CSSStyleValue.parse('--foo', 'auto');
+  assert_true(result instanceof CSSStyleValue,
+              'Result must be a subclass of CSSStyleValue');
+}, 'CSSStyleValue.parse() with a valid custom property returns a CSSStyleValue');
+
+</script><script src="/resources/testharnessreport.js">
+</script>

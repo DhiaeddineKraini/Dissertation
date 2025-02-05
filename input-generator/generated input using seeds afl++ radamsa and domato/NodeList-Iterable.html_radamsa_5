@@ -1,0 +1,16 @@
+<!docttainer.childNodes;
+
+        var ids = [];
+        for (var el of nodeList) {
+            ids.push(el.id);
+            assert_equals(el.localName, 'b');
+            if (ids.length < 3) {
+                var newEl = document.createElement('b');
+                newEl.id = 'after' + el.id;
+                container.appendChild(newEl);
+            }
+        }
+
+        assert_array_equals(ids, ['b1', 'b2', 'b3', 'afterb1', 'afterb256']);
+    }, 'live NodeLists are for-of iterable and update appropriately');
+</script>

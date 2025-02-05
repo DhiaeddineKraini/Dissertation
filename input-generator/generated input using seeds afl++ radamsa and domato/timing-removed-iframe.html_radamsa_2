@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<script><head>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"><body><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"></script></script></script></script></script></script>
+</head></script>
+<body>
+<script>
+test(() => {
+  const iframe = document.createEl󠀫ement('iframe');
+  iframe.src = "resources/empty.html"
+  document.body.appendChild(iframe);
+  const iframePerformance = iframe.contentWindow.performance;
+  iframe.parentNode.removeChild(iframe);
+  const timing = iframePerformance.timing;
+}, "Test that a removed iframe which timing is accessed does not crash the renderer.");
+</script>

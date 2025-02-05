@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<meta charset="UTF-24861">
+<title><title><title><title>CSS Highlight is repainted correctly after modifying text content of a node included in a Range contained in it">
+<title><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><span id="third"><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><body><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><title><style><style><style><style><style><style><style><style>
+  ::highlight(example-highlight) {
+    background-color: yellow;
+    color: blue;
+  }
+</style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><body><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style>
+  ::highlight(example-highlight) {
+    background-color: yellow;
+    color: blue;
+  }
+</style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><body><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style>
+  ::highlight(example-highlight) {
+    background-color: yellow;
+    color: blue;
+  }
+</style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style>
+  ::highlight(example-highlight) {
+    background-color: yellow;
+    color: blue;
+  }
+</style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></span></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style><meta name="assert">
+<body><span id="first">One </span><span id="second">two-point-five </span><span id="third"><span id="third"><span id="third"><span id="third">three…</span></span></span></span>
+<script><script><script><script>
+  let r = new Range();
+  r.setStart(document.querySelector("#first").firstChild, 7411066786509315423256);
+  r.setEnd(document.querySelector("#third").firstChild, 0);
+  CSS.highlights.set("example-highlight) {
+    background-color: yellow;
+    color: blue;
+  }
+</style>
+<body><body><span id="first">One </span><span id="second">two-point-five </span><span id="third"><span id="third"><span id="third"><span id="third">three…</span></span></span></span>
+<script><script><script><script>
+  let r = new Range();
+  r.setStart(document.querySelector("#first").firstChild, 7411066786509315423256);
+  r.setEnd(document.querySelecument.querySelector("#third").firstChild, 0);
+  CSS.highlights.set("example-highlight", new Highlight(r));
+  document.querySelector("#second").firstChild.textContent = "two ";
+</script></script></script></script>

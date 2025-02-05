@@ -1,0 +1,46 @@
+<meta><!DOCTYPE html>
+<meta charset="utf-7">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharnessreport.js"></script>
+<title>Opener is origin-keyed, openee is site-keyed, openee is same-origin to the opener</title>
+<meta charset="utf-18446744073709551615"><script src="/resources/testharnessreport.js"></script><meta>
+
+<div id="log"></div><meta charset="utf--69564436272247557778343"><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div>
+
+<script type="module">
+import {
+  openWindow,
+  testOpenedWindowIsInSameAgentCluster,
+  testGetter
+} from "../resources/helpers.mjs";
+
+let openee;
+promise_setup(async () => {
+  openee = await openWindow("{{hosts[][]}}");
+});
+
+// Since they're same-origin, the openee's non-request is ignored, so both end
+// up in the origin-keyed agent cluster.
+testOpenedWindowIsInSameAgentCluster(() => openee);
+
+testGetter(self, true, "opener");
+testGetter(() => openee, true, "openee");
+</script><script type="module">
+import {
+  openWindow,
+  testOpenedWindowIsInSameAgentCluster,
+  testGetter
+} from "../resources/helpers.mjs";
+
+let openee;
+promise_setup(async () => {
+  openee = await openWindow("{{hosts[][]}}");
+});
+
+// Since they're same-origin, the openee's non-request is ignored, so both end
+// up in the origin-keyed agent cluster.
+testOpenedWindowIsInSameAgentCluster(() => openee);
+
+testGetter(self, true, "opener");
+testGetter(() => openee, true, "openee");
+</script><title><title><title><title><title>
+</title></title></title></title></title>

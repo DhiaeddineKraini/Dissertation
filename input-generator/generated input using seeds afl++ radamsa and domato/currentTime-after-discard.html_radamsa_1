@@ -1,0 +1,26 @@
+<html>
+<head>
+  <title>
+    Test currentTime after browsing context discard
+  </title>
+</head><head>
+  <title>
+    Test currentTime after browsing context discard
+  </title>
+</head><head>
+  <title>
+    Test currentTime after browsing context discard
+  </title>
+</head><head>
+  <title>
+    Test currentTime after browsing context dtTime after browsing context discard
+  </title>
+</head>
+<script>
+  const frame = document.createElement('frame');
+  document.documentElement.appendChild(frame);
+  const ctx = new frame.contentWindow.AudioContext();
+  frame.remove();
+  ctx.currentTime;
+</script>
+</html>

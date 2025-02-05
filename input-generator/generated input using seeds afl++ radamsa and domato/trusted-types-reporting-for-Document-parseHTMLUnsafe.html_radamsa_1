@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script src="support/csp-violations.js"></script><script src="support/csp-violations.js"></script><script src="support/csp-violations.js"></script><script src="support/csp-violations.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="support/csp-violations.js"></script><script>
+<meta http-equiv="Content-Security-Policy"
+      content="require-trusted-types-for 'script'; connect-src 'none';">
+</script><body>
+  <script>
+    const policy = trustedTypes.createPolicy("dummy", { createHTML: x => x });
+    const input = `<p><p><p><p>${'A'.repeat(100)}</p></p></p></p>`;
+
+    promise_test(async t => {
+      await no_trusted_type_violation_for(_ =>
+        Document.parseHTMLUnsafe(policy.createHTML(input))
+      );
+    }, "No violation reported for TrustedHTML.");
+
+    promise_test(async t => {
+      let violation = await trusted_type_violation_for(TypeError, _ =>
+        Document.parseHTMLUnsafe(input)
+      );
+      assert_equals(violation.blockedURI, "trusted-types-sink");
+      assert_equals(violation.sample, `Document parseHTMLUnsafe|${clipSampleIfNeeded(input)}`)<body>;
+    }, "Violation report for plain string.");
+  </body></script>
+</body>

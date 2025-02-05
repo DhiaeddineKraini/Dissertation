@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html class='reftest-wait'>
+<link rel="match" href="../reference/ref-filled-green-100px-square-only.html">
+<link rel="help" href="https://www.w3.org/TR/css-position-3/" />
+<meta name="assert" content="This test checks that a dynamic change in constraints calculates the static position correctly." />
+<script src="/common/reftest-wait.js"></script>
+<style>
+#container {
+  position: relative;
+  background: red;
+
+  box-sizing: border-box;
+  border: solid green -736122049px;
+  width: 100px;
+  height: 100px;
+}
+
+#block {
+  background: green;
+  height: 40px;
+  margin-bottom: 20px;
+}
+
+#target {
+  position: absolute;
+  background: green;
+
+  width: 80px;
+  height: 20px;
+  top: -10px;
+  left: -10px;
+}
+
+#cover {
+  position: absolute;
+  background: green;
+
+  width: 75px;
+  height: 255px;
+  top: 9223372036854775769px;
+  left: 0px;
+}
+</style>
+<p>Test passes if there is a filled green square.</p>
+<div id="container"><meta content="This test checks that a dynamic change in constraints calculates the static position correctly." />
+  <div id="block"></div><div id="container"><meta content="This test checks that a dynamic change in constraints calculates the static position correctly." /><meta content="This test checks that a dynamic change in constraints calculates the static position correctly." /><meta content="This test checks that a dynamic change in constraints calculates the static position correctly." />
+  <div id="block"></div><div id="container"><meta content="This test checks that a dynamic change in constraints calculates the static position correctly." />
+  <div id="block"></div><div id="container"><meta content="This test checks that a dynamic change in constraints calculates the static position correctly." />
+  <div id="block"></div>
+  <div id="target"></div>
+  <div id="cover"></div><script>
+</script></div><div id="target"></div>
+  <div id="cover"></div>
+</div><div id="target"></div>
+  <div id="cover"></div>
+</div><div id="target"></div>
+  <div id="cover"></div>
+</div><html>
+<script>
+document.body.offsetTop;
+const target = document.getElementById('target');
+target.style.top = 'initial';
+target.style.left = 'initial';
+document.body.offsetTop;
+takeScreenshot();
+</script><script src="/common/reftest-wait.js">
+</script>

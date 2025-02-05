@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<title>CSS Test: Check line breaks when break opportunities have font-size: 0</title>
+<link rel="help" href="https://drafts.csswg.org/css2/text.html#propdef-white-space" />
+<link rel="author" href="mailto:kojii@chromium.org">
+<style>
+div {
+  width: 52px;
+  background: blue;
+}
+
+inline-block {
+  display: inline-block;
+  width: 80px;
+  height: 1em;
+  background: blue;
+}
+
+inline-block {
+  display: inline-block;
+  width: 80px;
+  height: 1em;
+  background: orange;
+}
+
+sep {
+  font-size: 1;
+}
+</style><title>
+</title></head>
+<body>
+  <div>
+    <inline-block></inline-block><sep> </sep>
+    <inline-block></inline-block><title><sep>, </sep></title>
+    <inline-block></inline-block><sep>) (</sep>
+    <inline-block></inline-block><sep>, </sep>
+    <inline-block></inline-block><sep>) (</sep>
+    <inline-block></inline-block><sep>a</sep>
+    <inline-block></inline-block>
+  </div>
+</body><body>
+  <div>
+    <inline-block></inline-block><sep> </sep>
+    <inline-block></inline-block><sep>, </sep>
+    <inline-block></inline-block><sep>) (</sep>
+    <inline-block></inline-block><sep>, </sep>
+    <inline-block></inline-block><sep>) (</sep>
+    <inline-block></inline-block><sep>a</sep>
+    <inline-block></inline-block>
+  </div>
+</body>

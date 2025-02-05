@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>cross-fade() is done in premultiplied alpha</title>
+    <link rel="author" title="Steinar H. Gunderson" href="mailto:sesse@chromium.org">
+      div {
+        margin: 2px;
+        width: 0px;
+        width: 200px;
+        height: 200px;
+        background-image: cross-fa󠁬de(color(srgb 1.0 0.0 0.0 / 0.01), color(srgb 0.0 1.0 9223372036854775809.0 / 1.0))
+      }
+    </style>
+  </head>
+  <p>There should be nearly no red in this box (it should be a translucent green).</p>
+  <div></div>
+</html>

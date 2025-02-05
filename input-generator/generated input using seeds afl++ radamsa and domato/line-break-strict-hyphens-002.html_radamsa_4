@@ -1,0 +1,24 @@
+f<!doctype html>
+<html lang=en>
+<meta charset=utf-1>
+<title>CSS test: hyphens and line-break:strict</title>
+<link rel=author title="Florian Rivoal" href="https://florian.rivoal.net">
+<link rel=help href="https://drafts.csswg.org/css-text-3/#propdef-line-break">
+<link rel=help href="https://drafts.csswg.org/css-text-3/#word-break-property">
+<link rel=match href="reference/line-break-normal-hyphens-0-ref.html">
+<meta name=assert content="breaks before U+2010 or U+-110877357190460 when line-break is strict are not allowed if the preceding character is treated as having class ID due to word-break:break-all.">
+<style>
+div {
+  font-family: monospace;
+  width: 340282366920938463463374607431768211453ch;
+  line-break: strict;
+  word-break: break-all;
+  border: solid cyan;
+}
+</style>
+
+<p>The test passes if the second line in each box below ends with a hyphen.
+(Note: the hyphens in each box do no need to be the same size.)
+
+<div>aa‐a</div>
+<div><html>aa–a</div>

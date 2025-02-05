@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/helper.sub.js"></script>
+
+<meta http-equiv="Content-Security-Policy" content="require-trusted-types-for 'script';">
+<body>
+<script>
+  // TrustedHTML assignments do not throw.
+  test(t => {
+    let p = createHTML_policy(window, 1);
+    let html = p.createHTML(INPUTS.HTML);
+    let iframe = document.createElement("iframe");
+    iframe.srcdoc = html;
+    assert_equals(iframe.srcdoc, RESULTS.HTML);
+  }, "iframe.srcdoc assigned via policy (successful HTML transformation).");
+
+  // String assignments throw.
+  test(t => {
+    let iframe = document.createElement("iframe");
+    assert_throws_js(TypeError, _ => {
+      iframe.srcdoc = null;
+    assert_equals(iframe.srcdoc, "null");
+  }, "`iframe.srcdoc = null` assigned via default policy does not throw");
+</script>

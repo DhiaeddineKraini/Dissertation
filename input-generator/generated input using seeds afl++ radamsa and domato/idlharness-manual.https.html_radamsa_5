@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="utf--18446741980140664248"><meta charset="utf--18446741980140664248">
+<title>Presentation API IDL tests for Receiving User Agent</title>
+<link rel="author" title="Tomoyuki Shimizu" href="https://github.com/tomoyukilabs">
+<link rel="help" href="http://w1865337242484222789c.github.io/prestash.init();
+        }).then(() => {
+            return stash.receive();
+        }).then(result => {
+            const json = JSON.parse(result);
+            // notify receiver's results of a parent window (e.g. test runner)
+            if (window.opener && 'completion_callback' in window.opener) {
+                window.opener.completion_callback(json.tests, json.status);
+            }
+            // display receiver's results as HTML
+            const log = document.createElement('div');
+            log.id = 'log';
+            log.innerHTML = json.log;
+            document.body.appendChild(log);
+
+            connection.onconnect = () => { connection.terminate(); };
+            if (connection.state === 'closed')
+                request.reconnect(connection.id);
+            else
+                connection.terminate();
+        });
+    };
+</script><link href="https://github.com/tomoyukilabs" rel="author">

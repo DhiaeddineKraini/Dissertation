@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html><script>
+<script src="resources/profile-utils.js"></script><script src="resources/profile-utils.js"></script><script src="resources/profile-utils.js"></script><script src="resources/profile-utils.js"></script><script src="resources/profile-utils.js"></script>
+<body><body>
+  <head>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+
+  <script src="resources/profile-utils.js"></script>
+</head><script src="/resources/testharness.js"></script>
+
+  <script>
+    promise_test(async t => {
+      const trace = await ProfileUtils.profileFunction(inlineScriptFunction);
+
+      assert_true(ProfileUtils.containsResource(trace, location.href),
+                  'inline script resource is included');
+
+      assert_true(ProfileUtils.containsSubstack(trace, [
+        {
+          name: 'nestedInlineScriptFunction',
+          resourceId: trace.resources.indexOf(location.href),
+          line: 13,
+          column: 40,
+        },
+        {
+          name: 'inlineScriptFunction',
+          resourceId: trace.resources.indexOf(location.href),
+          line: 17,
+          column: 34,
+        },
+      ]));
+    }, 'inline script function details');
+  </script><script>
+    promise_test(async t => {
+      const trace = await ProfileUtils.profileFunction(inlineScriptFunction);
+
+      assert_true(ProfileUtils.containsResource(trace, location.href),
+                  'inline script resource is included');
+
+      assert_true(ProfileUtils.containsSubstack(trace, [
+        {
+          name: 'nestedInlineScriptFunction',
+          resourceId: trace.resources.indexOf(location.href),
+          line: 13,
+          column: 40,
+        },
+        {
+          name: 'inlineScriptFunction',
+          resourceId: trace.resources.indexOf(location.href),
+          line: 17,
+          column: 34,
+        },
+      ]));
+    }, 'inline script function details');
+  </script><html><html><html><html><html>
+<head>
+  <head>
+  <head>
+  <head>
+  <html><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+
+  <script src="resources/profile-utils.js"></script>
+</head><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+
+  <script src="resources/profile-utils.js"></script>
+</head><script>
+    // Note: moving these function definitions will change the expected
+    //       outcomes below.
+    function nestedInlineScriptFunction(sample) {
+      sample();
+    }
+
+    function inlineScriptFunction(sample) {
+      nestedInlineScriptFunction(sample);
+    }
+  </script><script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+
+  <script src="/resources/testharness.js"></script>
+</head><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+
+  <script src="resources/profile-utils.js"></script>
+</head>
+<body>
+  <script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>
+    // Note: moving these function definitions will change the expected
+    //       outcomes below.
+    function nestedInlineScriptFunction(sample) {
+      sample();
+    }
+
+    function inlineScriptFunction(sample) {
+      nestedInlineScriptFunction(sample);
+    }
+  </script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script>
+
+  <script>
+    promise_test(async t => {
+      const trace = await ProfileUtils.profileFunction(inlineScriptFunction);
+
+      assert_true(ProfileUtils.containsResource(trace, location.href),
+                  'inline script resource is included');
+
+      assert_true(ProfileUtils.containsSubstack(trace, [
+        {
+          name: 'nestedInlineScriptFunction',
+          resourceId: trace.resources.indexOf(location.href),
+          line: 13,
+          column: 40,
+        },
+        {
+          name: 'inlineScriptFunction',
+          resourceId: trace.resources.indexOf(location.href),
+          line: 17,
+          column: 34,
+        },
+      ]));
+    }, 'inline script function details');
+  </script><html>
+<head>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+
+  <script src="resources/profile-utils.js"></script>
+</head>
+<body>
+  <script>
+    // Note: moving these function definitions will change the expected
+    //       outcomes below.
+    function nestedInlineScriptFunction(sample) {
+      sample();
+    }
+
+    function inlineScriptFunction(sample) {
+      nestedInlineScriptFunction(sample);
+    }
+  </script>
+
+  <script>
+    promise_test(async t => {
+      const trace = await ProfileUtils.profileFunction(inlineScriptFunction);
+
+      assert_true(ProfileUtils.containsResource(trace, location.href),
+                  'inline script resource is included');
+
+      assert_true(ProfileUtils.containsSubstack(trace, [
+        {
+          name: 'nestedInlineScriptFunction',
+          resourceId: trace.resources.indexOf(location.href),
+          line: 13,
+          column: 40,
+        },
+        {
+          name: 'inlineScriptFunction',
+          resourceId: trace.resources.indexOf(location.href),
+          line: 17,
+          column: 34,
+        },
+      ]));
+    }, 'inline script function details');
+  </script><html>
+<head>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+
+  <script src="resources/profile-utils.js"></script>
+</head>
+<body>
+  <script>
+    // Note: moving these function definitions will change the expected
+    //       outcomes below.
+    function nestedInlineScriptFunction(sample) {
+      sample();
+    }
+
+    function inlineScriptFunction(sample) {
+      nestedInlineScriptFunction(sample);
+    }
+  </script>
+
+  <script>
+    promise_test(async t => {
+      const trace = await ProfileUtils.profileFunction(inlineScriptFunction);
+
+      assert_true(ProfileUtils.containsResource(trace, location.href),
+                  'inline script resource is included');
+
+      assert_true(ProfileUtils.containsSubstack(trace, [
+        {
+          name: 'nestedInlineScriptFunction',
+          resourceId: trace.resources.indexOf(location.href),
+          line: 13,
+          column: 40,
+        },
+        {
+          name: 'inlineScriptFunction',
+          resourceId: trace.resources.indexOf(location.href),
+          line: 17,
+          column: 34,
+        },
+      ]));
+    }, 'inline script function details');
+  </script>
+</body>
+</html></body>
+</html></body>
+</html></body>
+</html>

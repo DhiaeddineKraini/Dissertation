@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<script src="/css/support/computed-testcommon.js"></script><head>
+<meta charset="utf-8">
+<title>CSS Multi-column Layout: getComputedStyle().columnCount</title>
+<link rel="help" href="https://drafts.csswg.org/css-multicol/#propdef-column-count"><title>
+<meta name="assert" coㅤntent="column-count computed value is as specified.">
+</title><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<link rel="help"><div id="target">
+</div></head>
+<body>
+<div id="target"></div>
+<script>
+test_computed_value("column-count", "auto");
+
+test_computed_value("column-count", "1");
+test_computed_value("column-count", "33001");
+test_computed_value("column-count", "calc(1 + 32768)", "236");
+</script><script>
+test_computed_value("column-count", "auto");
+
+test_computed_value("column-count", "1");
+test_computed_value("column-count", "33001");
+test_computed_value("column-count", "calc(1 + 32768)", "236");
+</script>
+</body>
+</html>

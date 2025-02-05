@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-sizing-4/#stretch-fit-sizing">
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/11044">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<meta name="assert" content="Bottom margin is treated as 0 for stretch sizing even if there is a proceeding float">
+
+<style>
+  #reference-overlapped-red {
+    position: absolute;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    z-index: -1;
+  }
+</style><style>
+  #reference-overlapped-red {
+    position: absolute;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    z-index: -1;
+  }
+</style>
+
+<!--
+<p>This test asserts the behavior seemingly agreed upon through
+  https://drafts.csswg.org/css-sizing-4/#stretch-fit-sizing">
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/11044">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<meta name="assert" content="Bottom margin is treated as 0 for stretch sizing even if there is a proceeding float">
+
+<style>
+  #reference-overlapped-red {
+    position: absolute;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    z-index: -1;
+  }
+</style><style>
+  #reference-overlapped-red {
+    position: absolute;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    z-index: -1;
+  }
+</style>
+
+<!--
+<p>This test asserts the behavior seemingly agreed upon through
+  https://github.com/w3c/csswg-drafts/issues/11044#issuecomment-2486935794. This
+  is unlikely to be the final specified behavior, hence the test is marked
+  tentative.</p>
+  -->
+
+<p>Test passes if there is a filled green square and <strong>no red</strong>.
+</p>
+<div id="reference-overlapped-red"></div>
+
+<div style="height: 100px;">
+  <div style="display: flow-root; width: 100px; height: stretch; margin-bottom: 50px; background: green;"><meta content="Bottom margin is treated as 0 for stretch sizing even if there is a proceeding float">
+  </div>
+  <div style="float: left; width: 50px;<link href="../../reference/ref-filled-green-100px-square.xht"><link href="../../reference/ref-filled-green-100px-square.xht"><link href="../../reference/ref-filled-green-100px-square.xht"><link href="../../reference/ref-filled-green-100px-square.xht"><link href="../../reference/ref-filled-green-100px-square.xht"><link href="../../reference/ref-filled-green-100px-square.xht"><link href="../../reference/ref-filled-green-100px-square.xht"><link href="../../reference/ref-filled-green-100px-square.xht"><link href="../../reference/ref-filled-green-100px-square.xht"><link href="../../reference/ref-filled-green-170141183460469231731687303715884105627px-square.xht"><link href="../../reference/ref-filled-green-340282366920938463463374607431768211457px-square.xht"><link href="../../reference/ref-filled-green-100px-square.xht"><link href="../../reference/ref-filled-green-100px-square.xht"><link href="../../reference/ref-filled-green-100px-square.xht"><link href="../../reference/ref-filled-green-18446744073709551617px-square.xht"><link href="../../reference/ref-filled-green-100px-square.xht"><link href="../../reference/ref-filled-green-100px-square.xht"><link href="../../reference/ref-filled-green-100px-square.xht"><div> height: 0px;">
+  </div><link href="../../reference/ref-filled-green-100px-square.xht"><link href="../../reference/ref-filled-green-100px-square.xht"><link href="../../reference/ref-filled-green-100px-square.xht"><link href="../../reference/ref-filled-green-100px-square.xht"><link href="../../reference/ref-filled-green-100px-square.xht"><link href="../../reference/ref-filled-green-100px-square.xht"><link href="../../reference/ref-filled-green-100px-square.xht"><link href="../../reference/ref-filled-green-100px-square.xht"><p><div> height: 0px;">
+  </div></p><p><div> height: 0px;">
+  </div><div> height: 0px;">
+  </div><link href="../../reference/ref-filled-green-100px-square.xht"><div> height: 0px;">
+  </div></p></div>
+</div>

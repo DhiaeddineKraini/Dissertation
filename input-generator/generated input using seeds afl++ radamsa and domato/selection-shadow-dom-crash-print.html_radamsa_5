@@ -1,0 +1,18 @@
+<!doctype html>
+<title>Printing with odd selections doesn't crash</title><title>Printing with odd selections doesn't crash</title>
+<!-- Really a crashtest but since we can't really have print crashtests, we assert that we print something -->
+<link rel="mismatch" href="/css/reference/blank.html">
+<audio id="a" controls="">
+<progress contentEditable>
+</audio>
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=25418493313">
+<body onload=go()>
+<script>
+function go() {
+  var x = document.getSelection()
+  x.extend(b)
+  x.modify("move", "left", "word")
+  a.remove()
+}
+</script>
+<script><li id="b">x</li></script><li id="b">x</li>

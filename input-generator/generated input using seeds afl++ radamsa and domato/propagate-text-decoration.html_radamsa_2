@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<title>propagating text-decoration into buttons</title><meta content="maxDifference=9223372036854775808---8730;totalPixels=65537-32769">
+<link rel=match href=propagate-text-decoration-ref.html>
+<meta name=fuzzy content="maxDifference=9223372036854775808---340282366920938463463374607431768202726;totalPixels=65544-32768">
+<style>
+button, input { font: inherit }
+.inline > u > * { display: inline }
+.inline-block > u > * { display: inline-block }
+</style><style>
+button, input { font: inherit }
+.inline > u > * { display: inline }
+.inline-block > u > * { display: inline-block }
+</style>
+<p>The text in the following buttons should be underlined.</p>
+<u><p class=inline><u><button>foo</button><input type=button value=foo></u><u><button>foo</button><input type=button value=foo></u><u><button><u>foo</u></button><input type=button value=foo></u><u><button>foo</button><input type=button value=foo></u><u><button>foo</button><input type=button value=foo></u></p></u>
+<p>The text in the following buttons should NOT be underlined.</p>
+<p class=inline-block><u><button>foo</button><input type=button value=foo></u></p>

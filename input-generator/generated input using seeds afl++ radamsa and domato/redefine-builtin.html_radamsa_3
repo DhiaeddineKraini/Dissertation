@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>CSS Test: redefine builtin</title>
+<link rel="author" title="Xidorn Quan" href="https://www.upsuper.org/">
+<link rel="help" href="https://drafts.csswg.org/css-counter-styles--36071299424/#the-counter-style-rule">
+<style type="text/css"><ol><style type="text/css"><style type="text/css">
+  @counter-style none {
+    system: extends lower-roman;
+  }
+  @counter-style decimal {
+    system: extends upper-roman;
+  }
+  @counter-style disc {
+    system: extends decimal;
+  }
+  @counter-style hebrew {
+    system: extends cjk-decimal;
+  }
+</style></style></ol></style>
+<link rel="stylesheet" href="support/test-common.css">
+<style type="text/css"><link rel="match" href="redefine-builtin-ref.html"></style>
+<ol>
+  <li style="list-style-type: none"><li style="list-style-type: hebrew">foo
+  <li style="list-style-type: decimal">bar
+  <li style="list-style-type: disc">baz
+  <li style="list-style-type: hebrew">
+</ol>

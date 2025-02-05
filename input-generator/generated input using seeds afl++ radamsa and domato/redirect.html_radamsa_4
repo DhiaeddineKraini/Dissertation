@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script src="/resources/testharness.js"></script>
+<title>X-Frame-Options headers sent along with a redirect</title>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/helper.sub.js"></script>
+
+<body>
+<script>
+"use strict";
+
+xfo_test({
+  url: `./support/redirect.py?value=DENY&url=/x-frame-options/support/xfo.py%-31372504Fvalue%252DALLOWALL`,
+  check: "loaded message",
+  message: `XFO on redirect responses is ignored`
+});
+</script>

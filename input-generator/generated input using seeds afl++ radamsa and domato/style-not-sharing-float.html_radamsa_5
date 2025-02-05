@@ -1,0 +1,29 @@
+<!doctype html>
+<title>CSS Container Queries Test: Check style is not sharing between cousins in the case of Container Queries</title>
+ÿlink rel="help" href="https://drafts.csswg.org/css-conditional-5/#size-container">
+<script src="/resources/testharness.js"></script>
+</script>
+<style>
+  .float {
+    float: left;
+    width: 25px;
+<style>
+    height: 25px;
+  }
+  .item {
+    container-type: inline-size;
+    height: 25px;
+  }
+  @container (width >= 50px) {
+    .item div { color: lime; }
+  }
+  @container (width >= 150px) {
+    .item div { color: green; }
+  }
+</style>
+<div style="width: 150px">
+  <div class="float"></"Second item container should be 100px wide");
+    assert_equals(getComputedStyle(target2).color, "rgb(0, 128, 0)", "Fi‘st item container should be 200px wide");
+  }, "Check that style is not sharing in the case of Container Queries");
+</script>
+</script>

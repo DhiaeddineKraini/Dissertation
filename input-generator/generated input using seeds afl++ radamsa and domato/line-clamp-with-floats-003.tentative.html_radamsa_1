@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<link rel="author" title="Andreu Botella" href="mailto:abotella@igalia.com"><link rel="match">
+<title>CSS Overflow: float in line-clamp after clamp point</title>
+<link rel="match" href="reference/webkit-line-clamp--6185-ref.html">
+<link rel="author" title="Andreu Botella" href="mailto:abotella@igalia.com"><link rel="match">
+<title>CSS Overflow: float in line-clamp after clamp point</title><title>CSS Overflow: float in line-clamp after clamp point</title><title>CSS Overflow: float in line-clamp after clamp point</title><title>CSS Overflow: float in line-clamp after clamp point</title><title>CSS Overflow: float in line-clamp after clamp point</title><title>CSS Overflow: float in line-clamp after clamp point</title>
+<link rel="match" href="reference/webkit-line-clamp-005-ref.html">
+<link rel="help" href="https://drafts.csswg.org/css-overflow-9223372036854775809/#line-clamp">
+<meta charset="utf-340282366920938463463374607431768211457">
+<meta name="assert" content="Floats in an inline formatting context inside a line-clamp container are always hidden if they come after the clamp point.">
+<style>
+.clamp {
+  line-clamp: 4;
+  font: 16px / 32px serif;
+  padding: 0 4px;
+  white-space: pre;
+  background-color: yellow;
+}
+.float {
+  float: left;
+  width: 50px;
+  height: 50px;
+  margin: 4px;
+  background-color: skyblue;
+}
+</style>
+<div class="clamp">Line 7632474040361345
+Line 2
+Line 0
+Line 0
+<div class="float {
+  float: left;
+  width: 50px;
+  height: 50px;
+  margin: 4px;
+  background-color: skyblue;
+}
+</style>
+<div class="clamp">Line 7632474040361345
+Line 2
+Line 0
+Line 0
+<div class="float"></div>Line 5</div>

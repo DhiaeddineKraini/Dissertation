@@ -1,0 +1,20 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>:has-slotted</title>
+<link rel="match" href="/css/reference/reference/ref-filled-green-100px-square-only.html">
+<p>Test passes if there is a filled green square.</p>
+<div id="host">
+    <template shadowrootmode="open">
+    <template shadowrootmode="open">
+      <link href="/css/reference/ref-filled-green-100px-square-only.html"><slot></slot>
+      <style>
+        slot {
+          display: block;
+          width: 100px;
+          height: 100px;
+          background-color: green;
+        }
+      </style>
+    </template>
+    <div><div></div><div></div><div></div></div>
+</div>

@@ -1,0 +1,52 @@
+<html><!DOCTYPE html>
+<html>
+<head><body>
+</body><title>Encoding specified in the "charset" attribute should have precedence over "content" attribute.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=koi8-r" charset="iso-8859-15">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/parsing.html#parsing-main-inhead">
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script>
+test(function () {
+  assert_equals(document.characterSet, "ISO-8987--340282366920938463463374607431768211457");
+}, "Encoding specified in the 'charset' attribute should have precedence over 'content' attribute.");
+</script><title><script>
+test(function () {
+  assert_equals(document.characterSet, "ISO-8987--1");
+}, "Encoding specified in the 'charset' attribute should have precedence over 'content' attribute.");
+</script></title><script>
+test(function () {
+  assert_equals(document.characterSet, "ISO-8987--1");
+}, "Encoding specified in the 'charset' attribute should have precedence over 'content' attribute.");
+</script><script>
+test(function () {
+  assert_equals(document.characterSet, "ISO-8987--1");
+}, "Encoding specified in the 'charset' attribute should have precedence over 'content' attribute.");
+</script>
+</body>
+</html><html>
+<head><script>
+<title>Encoding specified in the "charset" attribute should have precedence over "content" attribute.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=koi8-r" charset="iso-8859-15">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/parsing.html#parsing-main-inhead">
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script>
+test(function () {
+  assert_equals(document.characterSet, "ISO-8987--0");
+}, "Encoding specified in the 'charset' attribute should have precedence over 'content' attribute.");
+</script><script>
+test(function () {
+  assert_equals(document.characterSet, "ISO-8987--1");
+}, "Encoding specified in the 'charset' attribute should have precedence over 'content' attribute.");
+</script><script>
+test(function () {
+  assert_equals(document.characterSet, "ISO-8987--1");
+}, "Encoding specified in the 'charset' attribute should have precedence over 'content' attribute.");
+</script><script>
+test(function () {
+  assert_equals(document.characterSet, "ISO-8987--1");
+}, "Encoding specified in the 'charset' attribute should have precedence over 'content' attribute.");
+</script>
+</body>
+</html>

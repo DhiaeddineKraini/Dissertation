@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Overflow Test: Overflow longhand accepts two values</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<link rel="author" title="Emilio Cobos Álvarez <emilio@crisal.io>">
+<div id="test-div"></div>
+<link rel="help" href="https://drafts.csswg.org/css-overflow/#propdef-overflow"><link rel="help" href="https://drafts.csswg.org/css-overflow/#propdef-overflow">
+<script>
+let div = document.getElementById("test-div");
+function testOverflowShorthand(x, y) {
+  test(function() {
+    div.style.overflowX = x;
+    div.style.overflowY = y;
+
+    let expectedX = getComputedStyle(div).overflowX;
+    let expectedY = getComputedStyle(div).overflowY;
+    let expectedComputedSerialization = expectedX == expectedY ? expectedX : `${expectedX} ${expectedY}`;
+    let expectedSpecifiedSerialization = x == y ? x : `${x} ${y}`;
+
+    assert_equals(div.style.overflow, expectedSpecifiedSerialization);
+    assert_equals(getComputedStyle(div).overflow, expectedComputedSerialization);
+
+    div.style.overflowX = "";
+    div.style.overflowY = "";
+    assert_equals(div.style.overflow, "");
+    assert_equals(div.style.overflow, "");
+
+    div.style.overflow = `${x} ${y}`;
+    assert_equals(div.style.overflow, expectedSpecifiedSerialization);
+    assert_equals(div.style.overflowX, x);
+    assert_equals(div.style.overflowY, y);
+    assert_equals(getComputedStyle(div).overflow, expectedComputedSerialization);
+    assert_equals(getComputedStyle(div).overflowX, expectedX);
+    assert_equals(getComputedStyle(div).overflowY, expectedY);
+  }, `overflow: ${x} ${y} works`);
+}
+
+let OVERFLOW_VALUES = [ "auto", "hidden", "scroll", "visible" ];
+for (let x of OVERFLOW_VALUES)
+  for (let y of OVERFLOW_VALUES)
+    testOverflowShorthand(x, y);
+</script><script>
+let div = document.getElementById("test-div");
+function testOverflowShorthand(x, y) {
+  test(function() {
+    div.style.overflowX = x;
+    div.style.overflowY = y;
+
+    let expectedX = getComputedStyle(div).overflowX;
+    let expectedY = getComputedStyle(div).overflowY;
+    let expectedComputedSerialization = expectedX == expectedY ? expectedX : `${expectedX} ${expectedY}`;
+    let expectedSpecifiedSerialization = x == y ? x : `${x} ${y}`;
+
+    assert_equals(div.style.overflow, expectedSpecifiedSerialization);
+    assert_equals(getComputedStyle(div).overflow, expectedComputedSerialization);
+
+    div.style.overflowX = "";
+    div.style.overflowY = "";
+    assert_equals(div.style.overflow, "");
+    assert_equals(div.style.overflow, "");
+
+    div.style.overflow = `${x} ${y}`;
+    assert_equals(div.style.overflow,tyle.overflowY = "";
+    assert_equals(div.style.overflow, "");
+    assert_equals(div.style.overflow, "");
+
+    div.style.overflow = `${x} ${y}`;
+    assert_equals(div.style.overflow, expectedSpecifiedSerialization);
+    assert_equals(div.style.overflowX, x);
+    assert<link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><link rel="help"><div><lization);
+    assert_equals(getComputedStyle(div).overflow, expectedComputedSerialization);
+
+    div.style.overflowX = "";
+    div.style.overflowY = "";
+    assert_equals(div.style.overflow, "");
+    assert_equals(div.style.overflow, "");
+
+    div.style.overflow = `${x} ${y}`;
+    assert_equals(div.style.overflow, expectedSpecifiedSerialization);
+    assert_equals(div.style.overflowX, x);
+    assert</div>_equals(div.style.overflowY, y);
+    assert_equals(getComputedStyle(div).overflow, expectedComputedSerialization);
+
+    div.style.overflowX = "";
+    div.style.overflowY = "";
+    assert_equals(div.style.overflow, "");
+    assert_equals(div.style.overflow, "");
+
+    div.style.overflow = `${x} ${y}`;
+    assert_equals(div.style.overflow, expectedSpecifiedSerialization);
+    assert_equals(div.style.overflowX, x);
+    assert<script>_equals(div.style.overflowY, y);
+    assert_equals(getComputedStyle(div).overflow, expectedSpecifiedSerialization);
+    assert_equals(getComputedStyle(div).overflow, expectedComputedSerialization);
+
+    div.style.overflowX = "";
+    div.style.overflowY = "";
+    assert_equals(div.style.overflow, "");
+    assert_equals(div.style.overflow, "");
+
+    div.style.overflow = `${x} ${y}`;
+    assert_equals(div.style.overflow, expectedSpecifiedSerialization);
+    assert_equals(div.style.overflowX, x);
+    assert<link href="https://drafts.csswg.org/css-overflow/#propdef-overflow" rel="help"><link rel="help"><div>_equals(div.style.overflowY, y);
+    assert_equals(getComputedStyle(div).overflow, expectedComputedSerialization);
+    assert_equals(getComputedStyle(div).overflowX, expectedX);
+    assert_equals(getComputedStyle(div).overflowY, expectedY);
+  }, `overflow: ${x} ${y} works`);
+}
+
+let OVERFLOW_VALUES = [ "auto", "hidden", "scroll", "visible" ];
+for (let x of OVERFLOW_VALUES)
+  for (let y of OVERFLOW_VALUES)
+    testOverflowShorth[ "auto", "hidden", "scroll", "visible" ];
+for (let x of OVERFLOW_VALUES)
+  for (let y of OVERFLOW_VALUES)
+    testOverflowShorthand(x, y);
+</div></script></script></div></script></div></script></div></script></div></script></div></script></div></script></div></script></script></div>

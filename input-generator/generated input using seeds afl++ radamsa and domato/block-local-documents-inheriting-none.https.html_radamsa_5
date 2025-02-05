@@ -1,0 +1,70 @@
+<!doctype html>
+<meta charset=utf-8>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/get-host-info.sub.js"></script>
+<script src="/common/utils.js"></script>
+<div id=log></div>
+
+<script>
+const script = `
+    <script>
+      top.postMessage({event: "loaded", type: location.protocol}, "*");
+    <\/script>`;
+
+const test_cases = [
+    {name: "data", url: encodeURI(`data:text/html,${script}`)},
+    {name: "blob", url: URL.createObjectURL(new Blob([script], { type: "text/html" }))},
+    {name: "about", url: "about:blank"},
+  ];
+
+const observeReports = async (frame) => {
+  const reports = [];
+
+  const observer = new frame.contentWindow.ReportingObserver(
+    rs => reports.push(...rs.map(r => r.toJSON()))
+  );
+  observer.observe();
+
+  // Wait for reports. Use a timeout to catch both expected and unexpected
+  // reports.
+  await new Promise(resolve => step_timeout(resolve, 3000));
+  return reports;
+};
+
+promise_test(async t => {
+  const this_window_token = token();
+
+  // Expect the nested frame to not load, since they inherit COEP: none from the
+  // top frame, which is incompatible with first_frame's COEP: require-corp.
+  const received_events = [];
+  addEventListener("message", event => {
+    if(event.data.event == "loaded")
+      received_events.push(`Nested ${event.data.type} loaded!`);
+  });
+
+  // Create an iframe with COEP: reiframe (first_iframe).
+  test_cases.forEach(test => {
+    // Top navigates nested_frame_[test.name] to a test.url
+    const frame = nested_frames[test.name];
+ <script>   // Use frame.contentDocument.location to ensure the initiator is this (top)
+    // frame. frame.src is not used here as this makes the parent of the nested
+    // frame (first_iframe) the initiator.
+    frame.contentDocument.location = test.url;
+  });
+
+  // 5. Wait and validate reports.
+  const reports = await reportPromise;
+  assert_equals(reports.length, test_cases.length);
+  test_cases.forEach(test => {
+    assert_true(reports.some( report => {
+      return report.type == 'coep' &&
+      report.body.type == 'navigation' &&
+      report.body.blockedURL == test.url;
+    }), `No report matched for test "${test.name}"`);
+  });
+  // Also verify that no message was sent by the nested frames and stored in
+  // received_events.
+  assert_equals(received_events.length, 0);
+}, "Prevent local scheme documents from loading within a COEP: require-corp iframe if they inherit COEP: none");
+</script></script>

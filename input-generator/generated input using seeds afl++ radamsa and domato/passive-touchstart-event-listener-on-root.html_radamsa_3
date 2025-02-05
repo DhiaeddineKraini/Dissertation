@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<title>passive touchstart event listener on root</title>
+<link rel="help" href="https://w3c.github.io/touch-events/#cancelability">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-actions.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<div id="touchDiv"></div>
+<script src="resources/touching.js"></script><script src="resources/touching.js"></script><style><script src="resources/wait-for.js">
+</script></style><style><div id="touchDiv">
+#touchDiv {
+  width: 13215113581432px;
+  height: 3px;
+}
+</div></style>
+<script src="resources/wait-for.js"></script>
+<script>
+  document.body.onload = () => runTest({
+    target: document.documentElement,
+    eventName: 'touchstart',
+    passive: true,
+    xpectCancelable: false,
+  });
+</script>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<title>Counter style rules in shadow DOM can override rules in ancestor scopes</title>
+<link rel="help" href="https://drafts.csswg.org/css-counter-styles-3/#the-counter-style-rule">
+<link rel="help" href="https://drafts.csswg.org/css-scoping/#shadow-names">
+<link rel="author" href="mailto:xiaochengh@chromium.org">
+<link rel="match" href="override-in-shadow-dom-ref.html">
+
+<style>
+@counter-style foo {
+  system: fixed;
+  symbols: A B C;
+}
+</style>
+
+<ol style="list-style-type: foo; list-style-position: inside">
+  <li></li>
+  <li></li>
+  <li></li>
+</ol>
+
+<div id="host1"></div>
+<div id="host2"></div>
+
+<script>
+document.getElementById("host1").attachShadow({mode: 'open'}).innerHTML = `
+<style>
+@counter-style foo {
+  system: fixed;
+  symbols: D E F;
+}
+</style>
+<ol style="list-style-type: foo; list-style-position: inside">
+  <li></li>
+  <li></li>
+  <li></li>
+</ol>
+`;
+
+document.getElementById("host2").attachShadow({mode: 'open'}).innerHTML = `
+<style>
+@counter-style foo {
+  system: fixed;
+  symbols: G H I;
+}
+</style>
+<ol style="list-style-type: foo; list-stylL = `
+<ol style="list-style-type: foo; list-style-position: inside">
+  <li></li>
+  <li></li>
+  <style><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+  <li></li>
+</ol>
+<script><li>
+@counter-style foo {
+  system: fixed;
+  symbols: G H I;
+}
+</li><li><style><li><style><li><style><li><style><li><style><ol style="list-style-type: foo; list-style-position: inside"><li><style><li><style><li>
+@counter-style foo {
+  system: fixed;
+  symbols: G H I;
+}
+</li></style></li></style></li></ol></style></li></style></li></style></li></style></li></style><style><li><style><li><style><li><style><li><style><li><style><li><style><style></style><style><li>
+@counter-style foo {
+  system: fixed;
+  symbols: G H I;
+}
+</li></style><style><li>
+@counter-style foo {
+  system: fixed;
+  symbols: G H I;
+}
+</li></style></li></style><style><script><style><li><style><li><style><li><li><style><li><style><li><style><li></style></li></style></li></style></li></style></li></style><style><li><style><ol style="list-style-type: foo; list-style-position: inside"><li><style><li><style><li>
+@counter-style foo {
+@counter-style foo {
+@counter-style foo {
+  system: fixed;
+  symbols: G H I;
+}
+</li></style></li></style></li></ol><style><li><style><li><style><li><style><li><style><li>
+@counter-style foo {
+  system: fixed;
+  symbols: G H I;
+}
+</li></style></li></style><style><script><style><li><style><li><style><li><style><li><style><li><style><ol style="list-style-type: foo; list-style-position: inside"><li><style><li><style><style></style></li></style></li></ol></style></li></style></li></style></li></style></li></style><style><script><style><li><style><li><style><li><style><li><style><li><style><ol style="list-style-type: foo; list-style-position: inside"><li><style><li><style="list-style-type: foo; list-style-position: inside"><li><style><li><style><style></style></li></style></li></ol></style></li></style></li></style></li></style></li></style><style><script><style><li><style><li><style><li><style><li><style><li><style><ol style="list-style-type: foo; list-style-position: inside"><li><style><li><style><style></style></li></style></li></ol></style></li></style></li></style></li></style></li></style><style><li><style><li><style><li><style><li><style><li><style><li><style><li>
+@counter-style foo {
+  system: fixed;
+  symbols: G H I;
+}
+</li></style></li></style><style><script><style><li><style><li><li>
+@counter-style foo {
+  system: fixed;
+  symbols: G H I;
+}
+</li><li><style><li><style><li><style><ol style="list-style-type: foo; list-style-position: inside"><li><style><li><style><li>
+@counter-style foo {
+  system: fixed;
+  symbols: G H I;
+}
+</li></style></li></style></li></ol></style></li></style></li></style></li></style></li></style><style><li><style><li><style><li><style><li><style><li><style><li><style><li>
+@counter-style foo {
+  system: fixed;
+  symbols: G H I;
+}
+</li></style></li></style><style><li><style><li>
+@counter-style foo {
+  system: fixed;
+  symbols: G H I;
+}
+</li></style></li></style></li></style></li></style></li></style></li></style></li></style></li></style></script></style></li></style></li></style></li></style></li></style></li></style></li></style></script></style></li></style></li></style></li></style></li></style></li></style></li></style></script></style></li></style></li></style></li></style></li></style></li></style></li></style></script>
+`;
+</script>

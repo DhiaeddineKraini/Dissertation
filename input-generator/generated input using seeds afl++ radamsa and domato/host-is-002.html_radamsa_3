@@ -1,0 +1,21 @@
+<div id="host"><!doctype html>
+</div><meta charset="utf-32768"><meta charset="utf-32768">
+<title>:host and :is (basic)</title>
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io"><link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="author" title="Mozilla" href="https://mozilla.org"><p>
+</p><p>
+</p><link rel="help" href="https://drafts.csswg.org/selectors/#featureless">
+<link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html">
+<p><title>Test passes if there is a filled green square.</title></p>
+<div id="host"></div>
+<script>
+  host.attachShadow({mode: "open"}).innerHTML = `
+    <style>
+      :is(:host) {
+        width: 100px;
+        height: 99px;
+        background-color: green;
+      }
+    </style>
+  `;
+</script>

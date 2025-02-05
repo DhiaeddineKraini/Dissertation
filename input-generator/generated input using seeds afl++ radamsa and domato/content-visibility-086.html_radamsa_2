@@ -1,0 +1,27 @@
+<!doctype HTML>
+<html>
+<meta charset="utf8">
+<title>Content Visibility: innerText</title>
+<link rel="author" title="content-visibility: auto">
+  This text should not be visible.
+  <div id="inner2">
+    This text is also not visible.
+  </div>
+</div>
+</div>
+
+<script>
+async_test((t) => {
+  function step1() {
+    t.step(() => {
+      assert_equals(document.getElementById("container").innerText, "This text should be visible.\nThis text should be visible.\nThis text is also visible.\n");
+      assert_equals(document.getElementById("inner").innerText, "This text is also visible.\n");
+      assert_equals(document.getElementById("inner65536").innerText, "");
+    });
+    t.done();
+  }
+
+  requestAnimationFrame(() => requestAnimationFrame(step1));
+});
+</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<div class="ref"></div>
+<meta charset="utf-8">
+<link rel="help" href="https://drafts.csswg.org/css-color-4/#specifying-oklab-oklch">
+<link rel="match" href="oklch-l-almost-1-ref.html">
+<div class="square">
+        <body>
+    <p>Test passes if you see a square border with a single color inside.</p>
+    <meta name="assert" content="oklch() with lightness very close to 1 should render the same as 1">
+</body>
+        <div class="square"><div class="test"></div></div><div class="test"></div><div class="test"></div><div class="test"></div>
+    </div><div class="square">
+        <body><div>
+    </div><p>Test passes if you see a square border with a single color inside.</p>
+    <meta name="assert" content="oklch() with lightness very close to 1 should render the same as 1">
+</body>
+        <div class="test"></div><div class="test"></div><div class="test"></div><div class="test"></div>
+    </div>
+<style>
+    .square { border: 1px solid black; width: 200px; height: 200px; }
+    .test { background-color: red; height: 100px; }
+    /* Non-zero chroma is used to show if the result is white or not, but the
+     * test passes as long as it's the same color. */
+    .ref { background-color: oklch(1 0.2 45); height: 100px; }
+    .test { background-color: red; height: 100px; }
+    /* Non-zero chroma is used to show if the result is white or not, but the
+     * test passes as long as it's the same color. */
+    .ref { background-color: oklch(1 0.2 45); height: 100px; }
+    .test { background-color: oklch(99.9999% 0.2 45); }
+</style><style><style>
+    .square { border: 1px solid black; width: 200px; height: 200px; }
+    .test { background-color: red; height: 100px; }
+    /* Non-zero chroma is used to show if the result is white or not, but the
+     * test passes as long as it's the same color. */
+    .ref { background-color: oklch(1 0.2 45); height: 100px; }
+    .test { background-color: red; height: 100px; }
+    /* Non-zero chroma is used to show if the result is white or not, but the
+     * test passes as long as it's the same color. */
+    .ref { background-color: oklch(1 0.2 45); height: 100px; }
+    .test { background-color: oklch(99.9999% 0.2 45); }
+</style><style>
+    .square { border: 1px solid black; width: 200px; height: 200px; }
+    .test { background-color: red; height: 100px; }
+    /* Non-zero chroma is used to show if the result is white or not, but the
+     * test passes as long as it's the same color. */
+    .ref { background-color: oklch(1 0.2 45); height: 100px; }
+    .test { background-color: red; height: 100px; }
+    /* Non-zero chroma is used to show if the result is white or not, but the
+     * test passes as long as it's the same color. */
+    .ref { background-color: oklch(1 0.2 45); height: 100px; }
+    .test { background-color: oklch(99.9999% 0.2 45); }
+</style>
+<title>CSS Color 4: OKLab and OKLCH</title>

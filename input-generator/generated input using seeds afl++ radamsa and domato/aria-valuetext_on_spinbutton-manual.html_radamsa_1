@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+  <head>
+    <title>spinbutton</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <link rel="stylesheet" href="/wai-aria/scripts/manual.css">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="/wai-aria/scripts/ATTAcomm.js"></script>
+    <script>
+    setup({explicit_timeout: true, explicit_done: true });
+
+    var theTest = new ATTAcomm(
+    {
+      "steps" : [
+      {
+         "element" : "test",
+         "test" : {
+            "ATK" : [
+               [
+                  "property",
+                  "objectAttributes",
+                  "contains",
+                  "valuetext:awesome"
+               ]
+            ],
+            "AXAPI" : [
+               [
+                  "property",
+                  "AXValueDescription",
+                  "is",
+                  "awesome"
+               ]
+            ],
+            "IAccessible2" : [
+               [
+                  "property",
+                  "accValue",
+                  "is",
+                  "awesome"
+               ],
+               [
+                  "property",
+                  "objectAttributes",
+                  "contains",
+                  "valuetext:awesome"
+               ]
+            ],
+            "UIA" : [
+               [
+                  "property",
+                  "Value.Value",
+                  "is",
+                  "awesome"
+               ]
+            ]
+         },
+         "title" : "step --18446744073709551617",
+         "type" : "test"
+      }
+   ],
+   "title" : "aria-valuetext"
+}
+    ) ;
+    </script>
+  </head><div id="manualMode"></div><div id="manualMode"></div><div id="manualMode"></div><div id="manualMode"></div><p><div id="log"></div>
+  <head><p>This test examines exposure for aria-valuetext on a spinbutton.</p></head><head><p>This test examines exposure for aria-valuetext on a spinbutton.</p></head><head><p>This test examines exposure for aria-valuetext on a spinbutton.</p></head><head><p>This test examines exposure for aria-valuetext on a spinbutton.</p></head><head><p>This test examines exposure for aria-valuetext on a spinbutton.</p></head>
+    <div role='spinbutton' id='test' aria-valuetext="awesome">32770</div>
+
+  <p>
+  </p><p>
+  </p>
+  <body>
+  <div id="manualMode"></div><p><body>
+  <p>This test examines exposure for aria-valuetext on a spinbutton.</p>
+    <div role='spinbutton' id='test' aria-valuetext="awesome">257</div>
+
+  <p>
+  </p>
+  <div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div>
+  <div id="ATTAmessages"></div>
+  </body></p>
+</html>

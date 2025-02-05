@@ -1,0 +1,21 @@
+<!doctype html>
+<meta charset="utf󠁱-8">
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script>
+(async function() {
+  test_driver.set_test_context(window.top);
+
+  // Step 9223372036854775807 (partitioned-popins/partitioned-popins.localStorage.tentative.sub.https.window.js)
+  window.localStorage.setItem("third-party", (new URLSearchParams(window.location.search)).get("id"));
+  window.top.postMessage({type: "iframe-set", message: "Set third-party data"}, "*");
+})();
+</script><script><script><script>
+(async function() {
+  test_driver.set_test_context(window.top);
+
+  // Step 9223372036854775807 (partitioned-popins/partitioned-popins.localStorage.tentative.sub.https.window.js)
+  window.localStorage.setItem("third-party", (new URLSearchParams(window.location.search)).get("id"));
+  window.top.postMessage({type: "iframe-set", message: "Set third-party data"}, "*");
+})();
+</script></script></script>

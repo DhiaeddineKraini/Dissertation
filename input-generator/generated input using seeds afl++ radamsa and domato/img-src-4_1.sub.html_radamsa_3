@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<meta http-equiv="Content-Security-Policy" content="img-src 'self' {{domains[www]}}:{{ports[http][0]}}">
+<html>
+<head>
+    <title>img element src attribute must match src list.</title>
+    <script src='/resources/testharness.js'></script>
+    <script>
+      async_test(function(t) {
+        i = new Image();
+        i.onload = t.step_func_done();
+        i.onerror = t.unreached_func("The img should have loaded");
+        i.src = '/content-security-policy/support/pass.png';
+      }, "img-src for relative path should load");
+
+      async_test(function(t) {
+        i = new Image();
+        i.onload = t.unreached_func("Image from unapproved domains should not load");
+
+      async_test(function(t) {
+        i = new Image();
+        i.onload = t.step_func_done();
+        i.onerror = t.unreached_func("The img should have loaded");
+        i.src = location.protocol + '//{{domains[www]}}:{{ports[http][0]}}/content-security-policy/support/pass.png';
+      }, "img-src from approved domains should load");
+    </script>
+</body>
+</html>

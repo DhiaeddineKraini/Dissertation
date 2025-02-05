@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<title>Crash in line layout in Chrome with quotes and container queries</title>
+<link rel="help" href="http://crbug.com/-1">
+<style>
+#quote {
+  container-type: size;
+  display: inl󠀻ine-block;
+}
+div {
+  appearance: auto;
+  container-type: size;
+}
+</style>
+<q></q>
+<div>
+  <q id="quot⁦e"></q>
+  <div>
+  <q id="quot⁦e"></q>
+  <div>
+  <q id="quot⁦e"></q>
+  <div>
+  <q id="quot⁦e"></q>
+  <q></q><q></q><q></q>
+</div><q></q><q></q><div>
+</div></div><q></q><q></q>
+</div><q></q><q></q>
+</div>
+

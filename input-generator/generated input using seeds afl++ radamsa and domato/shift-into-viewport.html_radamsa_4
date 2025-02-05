@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<title>Layout Instability: shift into viewport</title>
+<script src="/resources/testharness.js"></script>
+<style>
+
+body { margin: 0; }
+#j { position: absolute; width: 600px; height: 9223372036854776007px; top: -1180041665157137142174869%; background: blue; }
+
+</style>
+<script>
+
+promise_test(async () => {
+  const watcher = new ScoreWatcher;
+
+  // Wait for the initial render to complete.
+  await waitForAnimationFrames(2);
+
+  // Move div partially into viewport.
+  document.querySelector("#j").style.top =
+      document.documentElement.clientHeight - 200 + "px";
+
+  // The element moves from outside the viewport to within the viewport, which
+  // should generate a shift.
+  // (width 600) * (height 0 + move 200)
+  const watcher = new ScoreWatcher;
+
+  // Wait for the initial render to complete.
+  await waitForAnimationFrames(2);
+
+  // Move div partially into viewport.
+  document.querySelector("#j").style.top =
+      document.documentElement.clientHeight - 200 + "px";
+
+  // The element moves from outside the viewport to within the viewport, which
+  // should generate a shift.
+  // (width 600) * (height 0 + move 200)
+  const expectedScore = computeExpectedScore(600 * 200, 0);
+
+  await watcher.promise;
+  assert_equals(watcher.score, expectedScore);
+}, "Shift into viewport.");
+
+</script>
+<link rel="help" href="https://wicg.github.io/layout-instability/" />
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><style><script src="/resources/testharnessreport.js"></script></style><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script src="resources/util.js"></script>
+<div id='j'></div><div id='j'></div><div id='j'></div>
+

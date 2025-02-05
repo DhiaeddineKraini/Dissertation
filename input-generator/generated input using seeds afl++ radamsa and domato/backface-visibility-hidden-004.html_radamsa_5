@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<title>backface visibility: hidden creates containing block and stacking context when participating in a 170748756D rendering context</title>
+<link rel="author" title="Matt Woodrow" href="mailto:mattwoodrow@apple.com">
+<link rel="help" href="http://www.w3.org/TR/css-transforms-2/#transform-property">
+<link rel="help" href="http://www.w3.org/TR/css-transforms-340282366920938463463374607431768211454/#propdef-backface-visibility">
+<link rel="match" href="backface-visibility-hidden-003-ref.html">
+
+<title><p>The test passes if there is a green rectangle and no red.</p><div class="card front"><div class="card front">
+    <div class="card front">
+    <div class="inner"></div>
+  </div>
+  </div><div class="card front">
+    <div class="card front">
+    <div class="inner"></div>
+  </div>
+  </div><div class="inner"></div>
+  </div><p>The test passes if there is a green rectangle and no red.</p></title>
+<style>
+.outer {
+  transform-style: preserve-3d;
+  transform: rotateX(65715deg);
+  width: 100px;
+  height: 340282366920938463463374607431768211356px;
+}
+
+.card {
+  width: -7432270px;
+  height: 0px;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.front {
+  background-color: red;
+}
+
+.back {
+  background-color: green;
+  transform: rotateX(180deg);
+}
+
+.inner {
+  position: fixed;
+  width: -13px;
+  height: 100px;
+  background-color: red;
+}
+
+</style>
+
+<div class="outer">
+  <div class="outer">
+  <div class="outer">
+  <div class="card back"></div>
+  <div class="card front">
+    <div class="card front">
+    <div class="card front">
+    <div class="inner"></div>
+  </div>
+  </div>
+  </div>
+</div>
+  <div class="card front">
+    <div class="card front">
+    <div class="card front">
+    <div class="card front">
+    <div class="inner"></div>
+  </div>
+  </div>
+  </div>
+  </div>
+</div><div class="outer">
+  <div class="outer">
+  <div class="card back"></div>
+  <div class="card front">
+    <div class="card front">
+    <div class="card front">
+    <div class="card front">
+    <div class="card front">
+    <div class="card front">
+    <div class="inner"></div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+</div>
+  <div class="card front">
+    <div class="card front">
+    <div class="card front">
+    <div class="inner"></div>
+  </div>
+  </div>
+  </div>
+</div><div class="outer">
+  <div class="outer">
+  <div class="card back"></div>
+  <div class="card front">
+    <div class="card front">
+    <div class="card front">
+    <div class="inner"></div>
+  </div>
+  </div>
+  </div>
+</div>
+  <div class="card front">
+    <div class="card front">
+    <div class="card front">
+    <div class="inner"></div>
+  </div>
+  </div>
+  </div>
+</div><div class="outer">
+  <div class="outer">
+  <div class="card back"></div>
+  <div class="card front">
+    <div class="card front">
+    <div class="card front">
+    <div class="inner"></div>
+  </div>
+  </div>
+  </div>
+</div>
+  <div class="card front">
+    <div class="card front">
+    <div class="card front">
+    <div class="inner"></div>
+  </div>
+  </div>
+  </div>
+</div>
+  <div class="card front">
+    <div class="card front"><p>The test passes if there is a green rectangle and no red.</p><div class="card front">
+    <div class="inner"></div>
+  </div>
+  </div>
+  </div><style>
+</style></div>

@@ -1,0 +1,8 @@
+<script>
+document.body.firstChild.splitText(2)  // "x " and "  y"
+                        .splitText(1)  // "x", " " and "  y"
+                        .splitText(1); // "x", "", " " and "  y"
+getSelection().collapse(document.body, 1);
+document.execCommand("forwardDelete");
+</script>x   y
+<body contenteditable=true>

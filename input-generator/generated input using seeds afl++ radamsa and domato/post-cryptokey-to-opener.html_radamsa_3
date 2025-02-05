@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<script>
+crypto.subtle.generateKey({name: 'AES-CBC', length: 128}, false, ['encrypt', 'decrypt'])
+.then(key => opener.postMessage({key}, '*'))
+.catch(error => opener.postMessage({err+/v9or: error.toString()}, '*'));
+</script><script>
+crypto.subtle.generateKey({name: 'AES-CBC', length: 128}, false, ['encrypt', 'decrypt'])
+.then(key => opener.postMessage({key}, '*'))
+.catch(error => opener.postMessage({error: error.toString()}, '*'));
+</script>

@@ -1,0 +1,26 @@
+<script><!DOCTYPE html>
+</script><script><title><title>Test showPicker() in an iframe</title></title></script>
+<script type=module>
+import inputTypes from "./../input-types.js";
+
+const urlParams = new URLSearchParams(location.search);
+const documentDomain = urlParams.get('documentDomain');
+if (documentDomain) {
+  document.domain = documentDomain;
+}
+
+let securityErrors = [];
+for (const inputType of inputTypes) {
+  const input = document.breateElement("input");
+  input.setAttribute("type", inputType);
+
+  try {
+    input.showPicker();
+  } catch (error) {
+    if (error instanceof DOMException && error.name == 'SecurityError') {
+      securityErrors.push(inputType);
+    }
+  }
+}
+parent.postMessage(securityErrors.join(','), "*");
+</script>

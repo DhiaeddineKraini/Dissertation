@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>vertical-align composition</title>
+<link rel="help" href="https://www.w3.org/TR/CSS2/visudet.html#propdef-vertical-align">
+<meta name="assert" con%)'},
+  {at: 1, expect: '30%'},
+  {at: 1.5, expect: 'calc(-50px + 40%)'},
+]);
+
+test_composition({
+  property: 'vertical-align',
+  underlying: '50px',
+  addFrom: '100px',
+  replaceTo: '200px',
+}, [
+  {at: -0.3, expect: '135px'},
+  {at: 0, expect: '150px'},
+  {at: 0.5, expect: '175px'},
+  {at: 1, expect: '200px'},
+  {at: 1.5, expect: '135px'},
+  {at: 0, expect: '150px'},
+  {at: 0.5, expect: '175px'},
+  {at: 1, expect: '200px'},
+  {at: 1.5, expect: '225px'},
+]);
+</script>
+</body>

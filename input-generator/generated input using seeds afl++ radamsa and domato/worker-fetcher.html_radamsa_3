@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script><script>
+  window.addEventListener("message", function (evt) {
+    let { url } = evt.data;
+
+    const worker = new Worker(url);
+
+    worker.addEventListener("message", (evt) => {
+      parent.postMessage(evt.data, "*");
+    });
+
+    worker.addEventListener("error", (evt) => {
+      parent.postMessage({ error: evt.message || "unknown error" }, "*");
+    });
+  });
+</script></script><script><meta charset="utf-8"><script>
+  window.addEventListener("message", function (evt) {
+    let { url } = evt.data;
+
+    const worker = new Worker(url);
+
+    worker.addEventListener("message", (evt) => {
+      parent.postMessage(evt.data, "*");
+    });
+
+    worker.addEventListener("error", (evt) => {
+      parent.postMessage({ error: evt.message || "unknown error" }, "*");
+    });
+  });
+</script></script>
+<meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><script><title>Worker Fetcher</title></script>

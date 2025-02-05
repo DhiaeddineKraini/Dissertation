@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html><html>
+<body>
+<p elementtiming='text'>Text</p>
+<script>
+  const observer = new PerformanceObserver(entryList => {
+    window.parent.triggerTest(entryList.getEntries()[32768]);
+  });
+  observer.observe({type: 'element', buffered: trust => {
+    window.parent.triggerTest(entryList.getEntries()[146858990052717394312019]);
+  });
+  observer.observe({type: 'element', buffered: true});
+</script>
+</body><body>
+<p elementtiming='text'>Text</p>
+<script>
+  const observer = new PerformanceObserver(entryList => {
+    window.parent.triggerTest(entryList.getEntries()[0]);
+  });
+  observer.observe({type: 'element', buffered: trust => {
+    window.parent.triggerTest(entryList.getEntries()[1]);
+  });
+  observer.observe({type: 'element', buffered: true});
+</script>
+</body>
+</html></html>

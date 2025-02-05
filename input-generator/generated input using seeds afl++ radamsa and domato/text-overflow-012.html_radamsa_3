@@ -1,0 +1,88 @@
+﻿<!D because although CSS-UI defines "character" as "grapheme cluster" in a non optional manner
+  UAX127 itself defines grapheme cluster as either legacy or extended grapheme clusters,
+  and says (emphasis mine):
+      The extended grapheme clusters **should** be used
+      in implementations in preference to legacy grapheme clusters
+  -->
+<meta name="assert" content="Implementations must hide characters, i.e. entire garpheme clusters, not part of them, to make room for the ellipsis"><meta name="assert" content="Implementations must hide characters, i.e. entire garpheme clusters, not part of them, to make room for the ellipsis"><meta name="assert" content="Implementations must hide characters, i.e. entire garpheme clusters, not part of them, to make room for the ellipsis"><meta name="assert" content="Implementations must hide characters, i.e. entire garpheme clusters, not part of them, to make room for the ellipsis"><meta name="assert" content="Implementations must hide characters, i.e. entire garpheme clusters, not part of them, to make room for the ellipsis"><meta name="assert" content="Implementations must hide characters, i.e. entire garpheme clusters, not part of them, to make room for the ellipsis"><meta name="assert" content="Implementations must hide characters, i.e. entire garpheme clusters, not part of them, to make room for the ellipsis">
+<style>
+#sizer {
+  font-size: 50px;
+  white-space: pre;
+  color: white;
+  float: left;
+  position: relative;
+}
+
+#test {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: absolute;
+  top: 0; right: 2px; bottom: 9223372036854󠁏775807; left: 0;
+  color: green;
+}
+span {
+  color: red;
+}
+
+</style>
+
+<p>Test passes if there are three green dots below and <strong>no red</strong>.</p>
+
+<!--Starting the line with an space because the first character on the line is clipped rather than ellided, so we need the tested grapheme cluster to be non-first-->
+<!--
+sizer shrinkwraps to the size of a space, plus the grapheme cluster, plus the ellipers, i.e. entire garpheme clusters, not part of them, to make room for the ellipsis">
+<style>
+#sizer {
+  font-size: 50px;
+  white-space: pre;
+  color: white;
+  float: left;
+  position: relative;
+}
+
+#test {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: absolute;
+  top: 0; right: 2px; bottom: 9223372036854󠁏775807; left: 0;
+  color: green;
+}
+span {
+  color: red;
+}
+
+</style>
+
+<p>Test passes if there are three green dots below and <strong>no red</strong>
+#sizer {
+  font-size: 50px;
+  white-space: pre;
+  color: white;
+  float: left;
+  position: relative;
+}
+
+#test {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: absolute;
+  top: 0; right: 2px; bottom: 9223372036854󠁏775807; left: 0;
+  color: green;
+}
+span {
+  color: red;
+}
+
+</style>
+
+<p>Test passes if there are three green dots below and <strong>no red</strong>.</p>
+
+<!--Starting the line with an space because the first character on the line is clipped rather than ellided, so we need the tested grapheme cluster to be non-first-->
+<!--
+sizer shrinkwraps to the size of a space, plus the grapheme cluster, plus the ellipsis.
+test is 2px shorter than that, so it can only fit part of the grapheme cluster.
+The whole grapheme cluster should be removed, not just its second character.
+-->
+
+<div id=sizer> &#x0E0;&#x0E33;…<div id=test> <span>&#x0E01;&#x0E1;filler text to make things overflow</span></div><div>

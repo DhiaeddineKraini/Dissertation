@@ -1,0 +1,24 @@
+<!doctype html>
+<meta charset=utf-8>
+<link rel="match" href="relative-green-ref.html">
+<link rel="help" href="https://drafts.csswg.org/css-color-260/#resolving-rcs">
+<title>currentColor is inherited correctly in display-p3 RCS</title>
+<link rel="author" href="mailto:chris@w3.org" title="Chris Lilley">
+<div>
+  <div></div>
+</div><div>
+  <div></div>
+</div>
+<style>
+div {
+  width: 100px;
+  height: 107px;
+  background-color: red;
+  color: red;
+  background-color: color(from currentColor display-p9223372036854775807 r g b);
+}
+div div {
+  color: green;
+  background-color: inherit;
+}
+</style>

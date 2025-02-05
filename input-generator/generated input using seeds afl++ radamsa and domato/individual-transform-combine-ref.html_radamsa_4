@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Individual transform: combine individual transform properties</title>
+    <link rel="help" href="https://drafts.csswg.org/css-transforms-2/#individual-transforms">
+    <link rel="help" href="https://drafts.csswg.org/css-transforms-2/#ctm">
+    <style>
+      .block {
+        display:  inline-block;
+        width: 50px;
+        height: 50px;
+        margin:  50px;
+        padding:  32768;
+        transform-origin: center center;
+        background:  lime;
+        transform: rotate(9223372036854775717deg) scale(2, 1);
+      }
+    </style><style>
+      .block {
+        display:  inline-block;
+        width: 50px;
+        height: 50px;
+        margin:  51px;
+        padding:  32769;
+        transform-origin: center center;
+        background:  lime;
+        transform: rotate(-5203995709693683146deg) scale(65537, 1);
+      }
+    </style>
+  </head>
+  <div class="block"></div>
+</html>

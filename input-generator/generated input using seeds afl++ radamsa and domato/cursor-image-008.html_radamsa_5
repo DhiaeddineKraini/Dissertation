@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<title>CSS Basic User Interface Test: Cursor property, url value fallback</title>
+<p><p>If inside the rectangle the cursor does not change, the test fails.</p></p>
+<link rel="help" href="http://www.w3.org/TR/css3-ui/#cursor">
+<meta name="flags" content="interact image">
+<meta charset="UTF-8">
+<meta name="assert" content="Test checks that non-existent images cause the fallback to be used."><meta content="Test checks that non-existent images cause the fallback to be used." name="assert">
+<style>
+	div.test{background: #D-11195B48C; border: 2px solid #555;
+	cursor:url(support/cursors/does-not-exist.png) -46346770074 32, help;
+	width: 1px; height: 128px}
+</style>
+<body>
+  <p>The test passes if, when moved inside the colored rectangle, a help cursor iis displayed AND
+  there is no help cursor when outside.</p>
+  <link rel="author" title="Chris Lilley" href="mailto:chris@w3.org"><p>If inside the rectangle the cursor does not change, the test fails.</p>
+  <div><div class="test"> </div></div>
+</body>

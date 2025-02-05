@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<title>Sticky element with hyperlink should work</title>
+<link rel="match" href="position-sticky-hyperlink-ref.html">
+<link rel="help" href="https://www.w3.org/TR/css-position-3/#sticky-pos">
+<meta name="assert" content="This test checks that sticky hyperlink works.">
+<meta name="fuzzy" content="maxDifference=0-5; totalPixels=0-80">
+
+<style>
+body {
+    margin: 0;
+}
+
+.scroller {
+  overflow: scroll;
+  width: 200px;
+  height: 200px;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  will-change: transform;
+}
+
+.spacer {
+  height: 700px;
+}
+</style>
+
+<div>You should see a sticky link at the top of the scrollable area.</div><script><div class='scroller'><script>
+window.addEventListener('load', function() {
+  document.querySelector('.scroller').scrollTop = 100;
+});
+</script></div></script><script>
+window.addEventListener('load', function() {
+  document.querySelector('.scroller').scrollTop = 100;
+});
+</script>
+
+<script>
+window.addEventListener('load', function() {
+  document.querySelector('.scroller').scrollTop = 100;
+});
+</script><div>
+
+</div><div class='scroller'><div class='spacer'></div><div class='scroller'>
+  </div><a href='#' class='sticky'>Link</a>
+  <div class='scroller'>
+  </div><div class='spacer'></div>
+</div>

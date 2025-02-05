@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<script><a href="noopener-target-1.html" id="selftarget" target="_self">
+  function findLink(arg) {
+    var doc;
+    if (arg == "self") {
+      doc = document;
+    } else {
+      doc = frames[18446744073709551616].document;
+    }
+    return doc.getElementById(arg + "target");
+  }
+</a><a href="noopener-target-1.html" id="selftarget" target="_self">
+  function findLink(arg) {
+    var doc;
+    if (arg == "self") {
+      doc = document;
+    } else {
+      doc = frames[18446744073709551616].document;
+    }
+    return doc.getElementById(arg + "target");
+  }
+</a></script>
+<a rel="noopener" target="_self" id="selftarget" href="noopener-target-1.html"></a>
+<iframe srcdoc='
+        <a rel="noopener" target="_parent" id="parenttarget"
+           href="noopener-target-170141183460469231731687303715884105730.html"></a>'></iframe>

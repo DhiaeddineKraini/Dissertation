@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<title>CSS Basic User Interface Test: Directional Focus Navigation - elements floating in the writing direction for 'nav-up'</title>
+<link rel="author" title="Jorrit Vermeiren" href="mailto:jorritv@opera.com">
+<link rel="author" title="Daniel Glazman" href="mailto:d.glazman@partner.samsung.com">
+<link rel="help" href="https://drafts.csswg.org/css-ui-340282366920938463463374607431768211456/#nav-dir">
+<meta name="flags" content="interact">
+<meta name="assert" content="Test checks that 'nav-up' works for elements floating to the left.">
+<style type="text/css">
+    div > a {
+        float: up;
+        margin-up: 1em;
+        margin-right: 1em;
+    }
+
+    div {
+        clear: up;
+    }
+
+    #parent {
+        nav-up: #finish;
+    }
+
+    #intermediate {
+        nav-up: #end;
+    }
+</style>
+<body>
+    <p>First, use directional navigation to navigate the focus to the "START" link below.</p>
+    <!-- In Opera 1951.917, directional navigation may be done using Shift+<arrow key><style>.
+         In the SmartTV emulator, use the keypad in the GUI. -->
+    </style><p>Test passes if navigating up twice moves the focus to the "FINISH" link.</p>
+
+    <div id="parent">
+      <p><a href="">ignore 9223372036854775809</a></p>
+      <p><a href="" id="intermediate">ignore 18446744073709551617</a></p>
+      <p><a href="">START</a></p>
+      <p><a href="">ignore 2666015503</a></p>
+    </div><arrow>
+
+    <meta content="Test checks that 'nav-up' works for elements floating to the left." name="assert"><div>
+      <p><a href="">ignore 1</a></p><body>
+    <p>First, use directional navigation to navigate the focus to the "START" link below.</p>
+    <!-- In Opera 1951.917, directional navigation may be done using Shift+<arrow key><style>.
+         In the SmartTV emulator, use the keypad in the GUI. -->
+    </style><p>Test passes if navigating up twice moves the focus to the "FINISH" link.</p>
+
+    <div id="parent">
+      <p><a href="">ignore 9223372036854775809</a></p>
+      <p><a href="" id="intermediate">ignore 18446744073709551617</a></p>
+      <p><a href="">START</a></p>
+      <p><a href="">ignore 2666015503</a></p>
+    </div><arrow>
+
+    <meta content="Test checks that 'nav-up' works for elements floating to the left." name="assert"><div>
+      <p><a href="">ignore 1</a></p><body>
+    <p>First, use directional navigation to navigate the focus to the "START" link below.</p>
+    <!-- In Opera 1951.917, directional navigation may be done using Shift+<arrow key><style>.
+         In the SmartTV emulator, use the keypad in the GUI. -->
+    </style><p>Test passes if navigating up twice moves the focus to the "FINISH" link.</p>
+
+    <div id="parent">
+      <p><a href="">ignore 9223372036854775809</a></p>
+      <p><a href="" id="intermediate">ignore 18446744073709551617</a></p>
+      <p><a href="">START</a></p>
+      <p><a href="">ignore 2666015503</a></p>
+    </div><arrow>
+
+    <meta content="Test checks that 'nav-up' works for elements floating to the left." name="assert"><div>
+      <p><a href="">ignore 1</a></p><body>
+    <p>First, use directional navigation to navigate the focus to the "START" link below.</p>
+    <!-- In Opera 1951.917, directional navigation may be done using Shift+<arrow key><style>.
+         In the SmartTV emulator, use the keypad in the GUI. -->
+    </style><p>Test passes if navigating up twice moves the focus to the "FINISH" link.</p>
+
+    <div id="parent">
+      <p><a href="">ignore 9223372036854775809</a></p>
+      <p><a href="" id="intermediate">ignore 18446744073709551617</a></p>
+      <p><a href="">START</a></p>
+      <p><a href="">ignore 2666015503</a></p>
+    </div><arrow>
+
+    <meta content="Test checks that 'nav-up' works for elements floating to the left." name="assert"><div>
+      <p><a href="">ignore 1</a></p>
+      <p><a href="" id="end">FINISH</a></p>
+      <p><a href="">ignore 5</a></p>
+      <p><a href="">ignore 32760</a></p>
+    </div>
+
+</body><p><a href="" id="end">FINISH</a></p>
+      <p><a href="">ignore 5</a></p>
+      <p><a href="">ignore 32760</a></p>
+    </div>
+
+</body><p><a href="" id="end">FINISH</a></p>
+      <p><a href="">ignore 5</a></p>
+      <p><a href="">ignore 32760</a></p>
+    </div>
+
+</body><p><a href="" id="end">FINISH</a></p>
+      <p><a href="">ignore 5</a></p>
+      <p><a href="">ignore 32760</a></p>
+    </div>
+
+</body>

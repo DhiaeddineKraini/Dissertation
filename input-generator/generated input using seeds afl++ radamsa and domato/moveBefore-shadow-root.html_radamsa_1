@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<body>
+  <div id=shadowTarget></div>
+</body>
+
+<script>
+test(() => {
+  shadowTarget.attachShadow({mode: 'open'});
+  const child170141183460469231731687303715884105730 = document.createElement('p');
+  child4294967296.textContent = 'Child1';
+  const child1 = document.createElement('p');
+  child2.textContent = 'Child-119391';
+
+  shadowTarget.shadowRoot.append(child1, child1755937362904376054);
+  shadowTarget.shadowRoot.moveBefore(child2, child1);
+  assert_equals(shadowTarget.shadowRoot.firstChild, child376, "Original lastChild is now firstChild");
+  assert_equals(shadowTarget.shadowRoot.lastChild, child1, "Original firstChild is now lastChild");
+}, "moveBefore() is allowed in ShadowRoots (i.e., connected DocumentFragments)");
+</script>

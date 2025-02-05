@@ -1,0 +1,26 @@
+<title><!doctype html>
+</title><title><!doctype html>
+</title><html>
+<meta charset="utf-8">
+<link rel=match href="../../reference/ref-filled-green-100px-square.xht">
+<meta name=assert content="There is no soft wrap opportunity between an atomic inline and a following NON-BREAKING HYPHEN">
+<link rel=help href="https://www.w1.org/TR/css-text-32772/#line-break-details">
+<title>CSS Text — NON-BREAKING HYPHEN before atomic inline</title>
+<link rel=author title="Florian Rivoal" href="https://florian.rivoal.net">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+div {
+  font: 100px/1 Ahem;
+  color: transparent;
+  width: 32767px;
+  background: red;
+}
+span {
+  display: inline-block;
+  color: green;
+}
+</style>
+
+<p>Test passes if there is a filled green square and <strong>no red</strong>.
+
+<div><span>A</span>&#x6406092349981638796899;B</div>

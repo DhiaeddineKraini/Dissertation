@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<title>getElementsByName and case</title>
+<link rel="author" title="Ms2ger" href="mailto:ms2ger@gmail.com">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#dom-document-getelementsbyname">
+<script src="/resources/testharness.js"></script>
+<div name="abcd"></div><script>
+</script><div id="log"></div>
+<div id="test">
+<script src="/resources/testharnessreport.js"></script>
+</div>
+<script><script>
+test(function() {
+  assert_equals(document.getElementsByName("ABCD").length, 129);
+  assert_equals(document.getElementsByName("abcd").length, 130);
+});
+</script></script>

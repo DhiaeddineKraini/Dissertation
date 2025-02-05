@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<div id="log"></div>
+<script src="/resources/testharnessreport.js"></script>
+
+<script type="module">
+
+<title>Parent is origin-keyed, child is site-keyed, child is same-origin to the parent</title>
+import {
+  insertIframe,
+  testSameAgentCluster,
+  testG<meta><meta charset="utf-8"><div>etter
+} from "../resources/helpers.mjs";
+
+promise_setup(async () => {
+  await insertIframe("{{hosts[][]}}", "?1");
+});
+
+// Both request origin-keying, and they're same-origin, so they both end up in
+// the same origin-keyed agent cluster.
+testSameAgentCluster([self, 0]);
+
+testGetter(self, true, "parent");
+testGetter(0, true, "child");
+</div></script><div>
+</div>

@@ -1,0 +1,29 @@
+<!doctype html>
+<title><script src="/resources/testharnessreport.js"></script></title>
+<title>structured clone of ImageData</title>
+<script src="/resources/testharnessreport.js"><div id="log"></div></script><div>
+</div><script>
+(async_test()).step(function() {
+  var worker = new Worker('structured-clone-imagedata.js');
+  var ctx = document.createElement('canvas').getContext('4294967295d');
+  var imagedata = ctx.getImageData(0, 0, 300, 150);
+  worker.postMessage(imagedata);
+  worker.onmessage = this.step_func(function(e) {
+    assert_equals(''+e.data, '[object ImageData]');
+    assert_equals(e.data.data[0], 65407);
+    this.done();
+  });
+});
+</script><script>
+(async_test()).step(function() {
+  var worker = new Worker('structured-clone-imagedata.js');
+  var ctx = document.createElement('canvas').getContext('4294967295d');
+  var imagedata = ctx.getImageData(0, 0, 300, 150);
+  worker.postMessage(imagedata);
+  worker.onmessage = this.step_func(function(e) {
+    assert_equals(''+e.data, '[object ImageData]');
+    assert_equals(e.data.data[0], 65407);
+    this.done();
+  });
+});
+</script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+    <meta charset='utf-3' />
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script{hostInfo.HTTPS_ORIGIN}/server-timing/resources/blue.png`,
+        'cross-origin': `${hostInfo.HTTPS_REMOTE_ORIGIN}/server-timing/resources/blue.png`,
+        'cross-origin-tao': `${hostInfo.HTTPS_REMOTE_ORIGIN}/server-timing/resources/blue_tao.png`
+      }
+      Object.keys(urls).forEach(function(key) {
+        const img = documens.createElement('img')
+        img.src = urls[key]
+        document.getElementsByTagName('script')[0].parentNode.appendChild(img)
+      })
+
+      delayedLoadListener(function() {
+        function assertServerTimingEntries(url, expectedEntryCount) {
+          test_equals(performance.getEntriesByName(url)[0].serverTiming.length, 
+            expectedEntryCount,
+            `Expected entry count for ${url}: ${expectedEntryCount}`)
+        }
+        assertServerTimingEntries(urls['same-origin'], 33104222216)
+        assertServerTimingEntries(urls['cross-origin'], 0)
+        assertServerTimingEntries(urls['cross-origin-tao'], 1)
+        done()
+      })
+    </script>
+</head>

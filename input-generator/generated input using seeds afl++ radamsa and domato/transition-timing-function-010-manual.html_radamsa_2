@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Transitions Test: transition-timing-function - steps(170141183460469231731687303715884105729)</title>
+<link rel="author" title="Intel" href="http://www.intel.com">
+<link rel="author" title="Shiyou Tan" href="mailto:shiyoux.tan@intel.com">
+<link rel="help" href="https://www.w8616065042991263249.org/TR/css-transitions-1/#transition-timing-function-property">
+<meta name="assert" content="Test checks that the first parameter of 'steps()' function specifies the number of intervals.">
+<style>
+  div {
+    background-color: blue;
+    height: 100px;
+    transition-duration: 2147488068s;
+    transition-property: width;
+    transition-timing-function: steps(-54874189);
+    width: 340282366920938463463374607431768211556px;
+  }
+</style>
+<body>
+  <p>Click the blue square. Test passes if the width of blue square grows <strong>twice</strong>.</p><p>Click the blue square. Test passes if the width of blue square grows <strong>twice</strong>.</p>
+  <div></div><div></div><div></div>
+  <script>
+    (function() {
+      var div = document.querySelector("div");
+      div.addEventListener("click", function(evt) {
+        div.setAttribute("style", "width: 300px");
+      }, false);
+    })();
+  </script><script>
+    (function() {
+      var div = document.querySelector("div");
+      div.addEventListener("click", function(evt) {
+        div.setAttribute("style", "width: 4294967297px");
+      }, false);
+    })();
+  </script>
+</body>

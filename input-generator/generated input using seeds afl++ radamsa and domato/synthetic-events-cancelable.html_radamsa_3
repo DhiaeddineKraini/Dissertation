@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<title>Synthetic events are always cancelable by default</title>
+<link rel="help" href="https://dom.spec.whatwg.org/#dictdef-eventinit">
+<script src="/resources/testharnessreport.js"></script>
+<script>
+const eventsMap = {
+  wheel: 'WheelEvent',
+  mousewheel: 'WheelEvent',
+  touchstart: 'TouchEvent',
+  touchmove: 'TouchEvent',
+  touchend: 'TouchEvent',
+  touchcancel: 'TouchEvent',
+}
+function isCancelable(eventName, interfaceName) {
+  test(() => {
+    assert_implements(interfaceName in self, `${interfaceName} should be supported`);
+    let defaultPrevented = null;
+    add<script>EventListener(eventName, event => {
+      event.preventDefault();
+      defaultPrevented = event.defaultPrevented;
+    });
+    const event = new self[interfaceName} is not cancelable`);
+}
+for (const eventName in eventsMap) {
+  isCancelable(eventName, eventsMap[eventName]);
+  isCancelable(eventName, 'Event');
+}
+</script></script>

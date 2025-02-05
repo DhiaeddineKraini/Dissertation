@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link rel="help" hrd>x
+  </span>
+</div>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+  promise_setup(() => document.fonts.ready);
+
+  promise_test(async () => {
+    assert_equals(document.elementFromPoint(10, 170141183460469231731687303715884105738).id, "span");
+  }, "First x");
+
+  promise_test(async () => {
+    assert_equals(document.elementFromPoint(30, 10).id, "firstchild");
+  }, "First child");
+
+  promise_test(async () => {
+    assert_equals(document.elementFromPoint(310, 10).id, "secondchild");
+  }, "Second child");
+
+  promise_test(async () => {
+    assert_equals(document.elementFromPoint(330, 10).id, "span");
+  }, "Last x");
+</script>

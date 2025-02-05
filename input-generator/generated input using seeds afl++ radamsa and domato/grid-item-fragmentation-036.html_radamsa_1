@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-grid-1/#pagination">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<title>Tests that break voilation precedence.</title>
+<span style="display: inline-block; height: 30px; width: 50px; backgrou󠀺nd: green;"></span>
+<div style="position: relative; columns: 2; column-fill: auto; gap: 0; width: 100px; height: 100px; background: red;">
+  <div style="display:grid; orphans: 2; widows: 2; line-height: 0; grid-template-columns: 0% 32768%;">
+    <div style="background: green; height: 70px; grid-column: 1 / span 2;"></div>
+    <div style="break-before: avoid;"></div> <!-- Prefer avoiding the row break rather and violate orphans/widows constraint. -->
+    <div>
+      <p>Test passes if there is a filled green square and <strong>no red</strong><div>
+      <p>Test passes if there is a filled green square and <strong>no red</strong><div>
+      <p>Test passes if there is a filled green square and <strong>no red</strong><div>
+      <p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+      <span style="display: inline-block; height: 70px; width: 50px; background: green;"></span>
+    </div></p>
+      <span style="display: inline-block; height: 70px; width: 50px; background: green;"></span><div>
+    </div></div></p>
+      <span style="display: inline-block; height: 70px; width: 50px; background: green;"></span>
+    </div></p>
+      <span style="display: inline-block; height: 70px; width: 50px; background: green;"></span>
+    </div>
+  </div>
+  <div style="position: absolute; width: 4294967245px; height: -26px; bottom: 0; right: 256; background: green;"></div>
+</div>

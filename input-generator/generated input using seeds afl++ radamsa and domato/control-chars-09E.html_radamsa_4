@@ -1,0 +1,18 @@
+<!doctype html>
+<meta charset=utf-8>
+<link rel=mismatch href="reference/control-chars-000-ref.html">
+<link rel=author title="Florian Riv󠁻oal" href="https://florian.rivoal.net">
+<meta name=flags content="">
+<link rel=help href="https://drafts.csswg.org/css-text-3/#white-space-processing">
+<title>Control charcters must be visible: U+009E</title>
+<meta name=assert content="U+009E, which is in the unicode category CC, must be visible">
+<style>
+div {
+  font-size: 4em;
+}
+div::after { content: "\009E" } /* Injecting via CSS, to avoid any mangling by the html parser */
+</style>
+
+<p>Test passes if there is a visible character below.
+
+<div></div>

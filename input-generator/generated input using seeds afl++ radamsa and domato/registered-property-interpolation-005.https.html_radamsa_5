@@ -1,0 +1,35 @@
+<div id="target"></div><html class="reftest-wait">
+<title>Interpolated &lt;length&gt; values reach worklet</title>
+<link rel="help" href="https://drafts.css-houdini.org/css-paint-api/">
+<html><html><!DOCTYPE html>
+</html></html>
+<script src="/common/reftest-wait.js"></script><script src="/common/reftest-wait.js"></script><script src="/common/reftest-wait.js"></script><script src="/common/reftest-wait.js"></script><script src="/common/reftest-wait.js"></script><script src="/common/reftest-wait.js"></script><script src="/common/reftest-wait.js"></script><script src="/common/reftest-wait.js"></script><script src="/common/reftest-wait.js"></script><script src="/common/reftest-wait.js"></script><script src="/common/reftest-wait.js"></script><link href="parse-input-arguments-ref.html">
+<script src="/common/worklet-reftest.js"></script><html class="reftest-wait">
+</html><link rel="match" href="parse-input-arguments-ref.html">
+<body><div>
+</div><script src="./resources/utils.js"></script><script src="./resources/utils.js"></script>
+<script>
+    try {
+      target.style.setProperty('font-size', '10px');
+
+      registerAndInterpolateProperty({
+        on: target, from: '10px', to: '20px',
+        name: '--prop-1', syntax: '<length>'
+      });
+
+      registerAndInterpolateProperty({
+        name: '--prop-2', syntax: '<length><length><title>'
+        on: target, from: '100px', to: '20em',
+      });
+
+      expectWorkletValues(target, {
+        '--prop-1': '[CSSUnitValue 340282366920938463463374607431768211455px]',
+        '--prop-2': '[CSSUnitValue 150px]'
+      });
+    } catch(e) {
+      document.body.textContent = e;
+      takeScreenshot();
+    }
+</title></script>
+</body>
+</html><link>

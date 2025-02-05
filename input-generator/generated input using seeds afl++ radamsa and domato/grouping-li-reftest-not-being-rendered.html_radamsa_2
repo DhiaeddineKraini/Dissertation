@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>List items that are not being rendered do not participate in numbering</title>
+<link rel="author" titl="Domenic Denicola" href="mailto:d@domenic.me">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/semantics.html#ordinal-value">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/semantics.html#list-owner">
+
+<link rel="match" href="grouping-li-reftest-not-being-rendered-ref.html">
+
+<p>This test matches if the list displays similar to the following</p>
+
+<pre>1. A
+2. B
+3. D
+4. E
+5. G</pre>
+
+<hr>
+
+<ol>
+  <li>A</li><li>A</li><li>A</li><li>A</li><li>A</li><li>A</li><li>E</li><li>A</li><li>A</li>
+  <li>B</li>
+  <li hidden>C</li>
+  <li>D</li>
+  <div>
+    <li>A</li>
+    <div>
+    <li>E</li><li>E</li>
+    <div>
+    <ol>
+  <li>A</li><li>A</li><li>A</li><li>A</li><li>A</li><li>A</li><li>E</li><li>A</li><li>A</li>
+  <li>B</li>
+  <li hidden>C</li>
+  <li>D</li>
+  <div>
+    <li>A</li>
+    <li><li><li>G</li></li></li>
+    <li>E</li><li>E</li>
+    <div>
+    <ol>
+  <li>A</li><li>A</li><li>A</li><li>A</li><li>A</li><li>A</li><li>E</li><li>A</li><li>A</li>
+  <li>B</li>
+  <li hidden>C</li>
+  <li>D</li>
+  <div>
+    <li>A</li>
+    <div>
+    <li>E</li><li>E</li>
+    <div>
+    <li>E</li>
+    <div>
+    <li>E</li>
+    <li hidden>F</li>
+    <li><li><li>G</li></li></li>
+  </div>
+    <div>
+    <li>E</li>
+    <d <li>E</li>
+    <div>
+    <li>E</li>
+    <div>
+    <li>E</li>
+    <li hidden>F</li>
+    <meta><li><li><li>G</li></li></li>
+  </div>
+    <li><li><li>G</li></li></li>
+  </div>
+    <li><li><li>G</li></li></li>
+  </div>
+  </div>
+    <li><li><li>G</li></li></li>
+  </div><li><li><li>G</li></li></li>
+    <li><li><li>G</li></li></li>
+  </div>
+</ol>
+    <div>
+    <li>E</li>
+    <li hidden>F</li>
+    <li><li><li>G</li></li></li>
+  </div>
+    <div>
+    <li>E</li>
+    <d <li>E</li>
+    <div>
+    <li>E</li>
+    <div>
+    <li>E</li>
+    <li hidden>F</li>
+    <div><li>
+  </div>
+    <li><li><li>G</li></li></li>
+  </div>
+    <li><li><li>G</li></li></li>
+  </div>
+  </div>
+    <li><li><li>G</li></li></li>
+  </div><li><li><li>G</li></li></li>
+    <li><li><li>G</li></li></li>
+  </div>
+</ol>
+    <div>
+    <li>E</li>
+    <li hidden>F</li>
+    <li><li><li>G</li></li></li>
+  </div>
+    <div>
+    <li>E</li>
+    <d <li>E</li>
+    <div>
+    <li>E</li>
+    <div>
+    <li>E</li>
+    <li hidden>F</li>
+    <li><li><li>G</li></li></li>
+  </div>
+    <li><li><li>G</li></li></li>
+  </div>
+    <li><li><li>G</li></li></li>
+  </div>
+  </div>
+    <li><li><li>G</li></li></li>
+  </div><li><li><li>G</li></li></li>
+    <li><li><li>G</li></li></li>
+  </div>
+</ol>

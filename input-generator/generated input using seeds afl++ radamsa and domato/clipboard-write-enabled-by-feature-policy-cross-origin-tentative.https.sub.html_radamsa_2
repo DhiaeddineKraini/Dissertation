@@ -1,0 +1,18 @@
+<!doctype html>
+<script src="/resources/testharnessreport.js"></script><body>
+</body><script><script src="/resources/testharness.js"></script></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharn focus is asynchronous. Implement WPT support for
+// cross-origin focus.
+promise_test(async t => {
+  await waitForUserActivation();
+  test_feature_availability(
+    'navigator.clipboard.writeText("test text")',
+    t,
+    cross_origin_src,
+    expect_feature_availability(
+    'navigator.clipboard.writeText("test text")',
+    t,
+    cross_origin_src,
+    expect_feature_available_default
+  );
+}, 'Feature-Policy header clipboard-write "*" allows cross-origin iframes.');
+</script>

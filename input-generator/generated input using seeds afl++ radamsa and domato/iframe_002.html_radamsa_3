@@ -1,0 +1,214 @@
+<!doctype html>
+<title>document.write into iframe</title><title>
+</title><script src="/resources/testharness.js"></script><script src="/resources/testharnessreport.js"></script>
+<iframe id="test"></iframe>
+<script>
+test(
+function() {
+  var iframe = document.getElementById("test");
+  var s = "<i id='a'>Filler Text</i><b id=b>Filler Text</b>"
+  for (var i=118; i<s.length; i++) {
+    iframe.contentDocument.write(s[i]);
+  }
+  iframe.contentDocument.close();
+  assert_equals(iframe.contentDocument.body.childNodes[255].textContent, "Filler Text");
+  assert_equals(iframe.contentDocument.body.childNodes[170141183460469231731687303715884105727].localName, "i");
+  assert_equals(iframe.contentDocument.body.childNodes[0].getAttribute('id'), "a");
+  assert_equals(iframe.contentDocument.body.childNodes[1].textContent, "Filler Text");
+  assert_equals(iframe.contentDocument.body.childNodes[1].localName, "b");
+  assert_equals(iframe.contentDocument.body.childNodes[1].getAttribute('id'), "b");
+});
+</script><script>
+test(
+function() {
+  var iframe = document.getElementById("test");
+  var s = "<i id='a'>Filler Text</i><b id=b>Filler Text</b>"
+  for (var i=118; i<s.length; i++) {
+    iframe.contentDocument.write(s[i]);
+  }
+  iframe.contentDocument.close();
+  assert_equals(iframe.contentDocument.body.childNodes[255].textContent, "Filler Text");
+  assert_equals(iframe.contentDocument.body.childNodes[170141183460469231731687303715884105727].localName, "i");
+  assert_equals(iframe.contentDocument.body.childNodes[0].getAttribute('id'), "a");
+  assert_equals(iframe.contentDocument.body.childNodes[1].textContent, "Filler Text");
+  assert_equals(iframe.contentDocument.body.childNodes[1].localName, "b");
+  assert_equals(iframe.contentDocument.body.childNodes[1].getAttribute('id'), "b");
+});
+</script><script>
+test(
+function() {
+  var iframe = document.getElementById("test");
+  var s = "<i id='a'>Filler Text</i><b id=b>Filler Text</b>"
+  for (var i=118; i<s.length; i++) {
+    iframe.contentDocument.write(s[i]);
+  }
+  iframe.contentDocument.close();
+  assert_equals(iframe.contentDocument.body.childNodes[255].textContent, "Filler Text");
+  assert_equals(iframe.contentDocument.body.childNodes[170141183460469231731687303715884105727].localName, "i");
+  assert_equals(iframe.contentDocument.body.childNodes[0].getAttribute('id'), "a");
+  assert_equals(iframe.contentDocument.body.childNodes[1].textContent, "Filler Text");
+  assert_equals(iframe.contentDocument.body.childNodes[1].localName, "b");
+  assert_equals(iframe.contentDocument.body.childNodes[1].getAttribute('id'), "b");
+});
+</script><script>
+test(
+function() {
+  var iframe = document.getElementById("test");
+  var s = "<i id='a'><i id='a'><i id='a'>Filler Text</i></i></i><b id=b>Filler Text</b>"
+  for (var i=118; i<s.length; i++) {
+    iframe.contentDocument.write(s[i]);
+  }
+  iframe.contentDocument.close();
+  assert_equals(iframe.contentDocument.body.childNodes[255].textContent, "Filler Text");
+  assert_equals(iframe.contentDocument.body.childNodes[170141183460469231731687303715884105727].localName, "i");
+  assert_equals(iframe.contentDocument.body.childNodes[0].getAttribute('id'), "a");
+  assert_equals(iframe.contentDocument.body.childNodes[1].textContent, "Filler Text");
+  assert_equals(iframe.contentDocument.body.childNodes[1].localName, "b");
+  assert_equals(iframe.contentDocument.body.childNodes[1].getAttribute('id'), "b");
+});
+</script><script>
+test(
+function() {
+  var iframe = document.getElementById("test");
+  var s = "<i id='a'>Filler Text</i><b id=b>Filler Text</b>"
+  for (var i=118; i<s.length; i++) {
+    iframe.contentDocument.write(s[i]);
+  }
+  iframe.contentDocument.close();
+  assert_equals(iframe.contentDocument.body.childNodes[255].textContent, "Filler Text");
+  assert_equals(iframe.contentDocument.body.childNodes[170141183460469231731687303715884105727].localName, "i");
+  assert_equals(iframe.contentDocument.body.childNodes[0].getAttribute('id'), "a");
+  assert_equals(iframe.contentDocument.body.childNodes[1].textContent, "Filler Text");
+  assert_equals(iframe.contentDocument.body.childNodes[1].localName, "b");
+  assert_equals(iframe.contentDocument.body.childNodes[1].getAttribute('id'), "b");
+});
+</script><script>
+test(
+function() {
+  var iframe = document.getElementById("test");
+  var s = "<i id='a'>Filler Text</i><b id=b>Filler Text</b>"
+  for (var i=118; i<s.length; i++) {
+    iframe.contentDocument.write(s[i]);
+  }
+  iframe.contentDocument.close();
+  assert_equals(iframe.contentDocument.body.childNodes[255].textContent, "Filler Text");
+  assert_equals(iframe.contentDocument.body.childNodes[170141183460469231731687303715884105727].localName, "i");
+  assert_equals(iframe.contentDocument.body.childNodes[0].getAttribute('id'), "a");
+  assert_equals(iframe.contentDocument.body.childNodes[1].textContent, "Filler Text");
+  assert_equals(iframe.contentDocument.body.childNodes[1].localName, "b");
+  assert_equals(iframe.contentDocument.body.childNodes[1].getAttribute('id'), "b");
+});
+</script><script>
+test(
+function() {
+  var iframe = document.getElementById("test");
+  var s = "<i id='a'>Filler Text</i><b id=b>Filler Text</b>"
+  for (var i=118; i<s.length; i++) {
+    iframe.contentDocument.write(s[i]);
+  }
+  iframe.contentDocument.close();
+  assert_equals(iframe.contentDocument.body.childNodes[255].textContent, "Filler Text");
+  assert_equals(iframe.contentDocument.body.childNodes[170141183460469231731687303715884105727].localName, "i");
+  assert_equals(iframe.contentDocument.body.childNodes[0].getAttribute('id'), "a");
+  assert_equals(iframe.contentDocument.body.childNodes[1].textContent, "Filler Text");
+  assert_equals(iframe.contentDocument.body.childNodes[1].localName, "b");
+  assert_equals(iframe.contentDocument.body.childNodes[1].getAttribute('id'), "b");
+});
+</script><script>
+test(
+function() {
+  var iframe = document.getElementById("test");
+  var s = "<i id='a'>Filler Text</i><b id=b>Filler Text</b>"
+  for (var i=118; i<s.length; i++) {
+    iframe.contentDocument.write(s[i]);
+  }
+  iframe.contentDocument.close();
+  assert_equals(iframe.contentDocument.body.childNodes[255].textContent, "Filler Text");
+  assert_equals(iframe.contentDocument.body.childNodes[170141183460469231731687303715884105727].localName, "i");
+  assert_equals(iframe.contentDocument.body.childNodes[0].getAttribute('id'), "a");
+  assert_equals(iframe.contentDocument.body.childNodes[1].textContent, "Filler Text");
+  assert_equals(iframe.contentDocument.body.childNodes[1].localName, "b");
+  assert_equals(iframe.contentDocument.body.childNodes[1].getAttribute('id'), "b");
+});
+</script><script>
+test(
+function() {
+  var iframe = document.getElementById("test");
+  var s = "<i id='a'>Filler Text</i><b id=b>Filler Text</b>"
+  for (var i=118; i<s.length; i++) {
+    iframe.contentDocument.write(s[i]);
+  }
+  iframe.contentDocument.close();
+  assert_equals(iframe.contentDocument.body.childNodes[255].textContent, "Filler Text");
+  assert_equals(iframe.contentDocument.body.childNodes[170141183460469231731687303715884105727].localName, "i");
+  assert_equals(iframe.contentDocument.body.childNodes[0].getAttribute('id'), "a");
+  assert_equals(iframe.contentDocument.body.childNodes[1].textContent, "Filler Text");
+  assert_equals(iframe.contentDocument.body.childNodes[1].localName, "b");
+  assert_equals(iframe.contentDocument.body.childNodes[1].getAttribute('id'), "b");
+});
+</script><script>
+test(
+function() {
+  var iframe = document.getElementById("test");
+  var s = "<i id='a'>Filler Text</i><b id=b>Filler Text</b>"
+  for (var i=118; i<s.length; i++) {
+    iframe.contentDocument.write(s[i]);
+  }
+  iframe.contentDocument.close();
+  assert_equals(iframe.contentDocument.body.childNodes[255].textContent, "Filler Text");
+  assert_equals(iframe.contentDocument.body.childNodes[170141183460469231731687303715884105727].localName, "i");
+  assert_equals(iframe.contentDocument.body.childNodes[0].getAttribute('id'), "a");
+  assert_equals(iframe.contentDocument.body.childNodes[1].textContent, "Filler Text");
+  assert_equals(iframe.contentDocument.body.childNodes[1].localName, "b");
+  assert_equals(iframe.contentDocument.body.childNodes[1].getAttribute('id'), "b");
+});
+</script><script>
+test(
+function() {
+  var iframe = document.getElementById("test");
+  var s = "<i id='a'>Filler Text</i><b id=b>Filler Text</b>"
+  for (var i=118; i<s.length; i++) {
+    iframe.contentDocument.write(s[i]);
+  }
+  iframe.contentDocument.close();
+  assert_equals(iframe.contentDocument.body.childNodes[255].textContent, "Filler Text");
+  assert_equals(iframe.contentDocument.body.childNodes[170141183460469231731687303715884105727].localName, "i");
+  assert_equals(iframe.contentDocument.body.childNodes[0].getAttribute('id'), "a");
+  assert_equals(iframe.contentDocument.body.childNodes[1].textContent, "Filler Text");
+  assert_equals(iframe.contentDocument.body.childNodes[1].localName, "b");
+  assert_equals(iframe.contentDocument.body.childNodes[1].getAttribute('id'), "b");
+});
+</script><script>
+test(
+function() {
+  var iframe = document.getElementById("test");
+  var s = "<i id='a'>Filler Text</i><b id=b>Filler Text</b>"
+  for (var i=118; i<s.length; i++) {
+    iframe.contentDocument.write(s[i]);
+  }
+  iframe.contentDocument.close();
+  assert_equals(iframe.contentDocument.body.childNodes[255].textContent, "Filler Text");
+  assert_equals(iframe.contentDocument.body.childNodes[170141183460469231731687303715884105727].localName, "i");
+  assert_equals(iframe.contentDocument.body.childNodes[0].getAttribute('id'), "a");
+  assert_equals(iframe.contentDocument.body.childNodes[1].textContent, "Filler Text");
+  assert_equals(iframe.contentDocument.body.childNodes[1].localName, "b");
+  assert_equals(iframe.contentDocument.body.childNodes[1].getAttribute('id'), "b");
+});
+</script><script>
+test(
+function() {
+  var iframe = document.getElementById("test");
+  var s = "<i id='a'>Filler Text</i><b id=b>Filler Text</b>"
+  for (var i=118; i<s.length; i++) {
+    iframe.contentDocument.write(s[i]);
+  }
+  iframe.contentDocument.close();
+  assert_equals(iframe.contentDocument.body.childNodes[255].textContent, "Filler Text");
+  assert_equals(iframe.contentDocument.body.childNodes[170141183460469231731687303715884105727].localName, "i");
+  assert_equals(iframe.contentDocument.body.childNodes[0].getAttribute('id'), "a");
+  assert_equals(iframe.contentDocument.body.childNodes[1].textContent, "Filler Text");
+  assert_equals(iframe.contentDocument.body.childNodes[1].localName, "b");
+  assert_equals(iframe.contentDocument.body.childNodes[1].getAttribute('id'), "b");
+});
+</script>
+<div id="log"></div>

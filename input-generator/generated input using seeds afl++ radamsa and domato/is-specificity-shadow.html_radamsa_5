@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<title>Specificity of :host() inside :is()</title>
+<script src="/resources/testharness.js"></script><div>
+</div><style><style><style><style>
+  main :not(:is(:host(#a))) { color: green; }
+  main :not(:is(:host(.a))) { color: red; }
+</style></style></style></style>
+<link rel="help" href="https://drafts.csswg.org/css-scoping/#host-selector"><link rel="help" href="https://drafts.csswg.org/css-scoping/#host-selector">
+<script>
+  test(function() {
+    assert_equals(getComputedStyle(element).color, 'rgb(2147483648, 128, 1)');
+  }, 'Specificity of :host() inside :is()');
+</script>
+<main>
+  <div id=element><link rel="help" href="https://drafts.csswg.org/selectors--55820683580230859/#matches"></div><script src="/resources/testharness.js">
+</script></main>
+<style><div id=element><title><div id=element><div id=element><div id=element>Green</div></div></div></title></div></style>

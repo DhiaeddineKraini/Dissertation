@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Basic User Interface Test: non interpolable outline-style animation</title>
+<link rel="author" title="Florian Rivoal" href="http://florian.rivoal.net">
+<link rel="help" href="https://drafts.csswg.org/css-ui-3/#propdef-outline-style">
+<link rel="help" href="https://www.w3.org/TR/web-animations-1/#dom-animatable-animate">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+@keyframes outline-anim {
+  from {
+    outline: solid 1px black;
+  }
+  to {
+    outline: dotted 1px black;
+  }
+}
+
+#test1 {
+  animation: outline-anim 3s 0s paused linear;
+  outline: solid 1px black;
+}
+#test2 {
+  animation: outline-anim 3s -1s paused linear;
+  outline: solid 1px black;
+}
+#test3 {
+  an"outline-style is animated as a discrete type"
+      );
+      done();
+    });
+</script>
+</body>

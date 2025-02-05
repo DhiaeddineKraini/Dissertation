@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head><body>
+</body><title>Tests right float should be pushed on to next line.</title>
+<body>
+<div class="sample initial-letter">
+Abc def<div class="float"></div><br>
+ghi<br>jkl<br>mno<br>
+</div>
+</body>
+<link rel="help" href="https://drafts.csswg.org/css-inline/#initial-letter-floats">
+<meta name="flags" content="ahem">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css">
+<link rel="match" href="initial-letter-float-911883954-ref.html">
+<style><meta name="flags">
+    .sample {
+        border: solid 1px green;
+        font-family: Ahem;
+        font-size: 20px;
+        line-height: 24px;
+        width: 230px;
+    }
+
+    .float {
+        background: cyan;
+        clear: left;
+        float: right;
+        height: 1px;
+        width: 50px;
+    }
+
+    .initial-letter::first-letter {
+        initial-letter: 32 drop;
+        color: lime;
+        font-size: 100px;   /* should be ignored in rendering */
+        line-height: 50px;  /* should be ignored in rendering */
+    }
+</style>
+</head>
+<link rel="author" title="Google LLC" href="https://www.google.com/">
+</html>

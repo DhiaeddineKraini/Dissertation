@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<meta charset="utf-1">
+<script src="support/variant-class.js"></script>
+<style>
+@font-face {
+  font-family: halt-font;
+  src: url('/fonts/noto/cjk/NotoSansCJKjp-Regular-subset-halt.otf');
+}
+#container {
+  font-family: halt-font;
+  font-size: 20px;
+  text-spacing-trim: space-all;
+}
+.vrl {
+  writing-mode: vertical-rl;
+}
+halt {
+  font-feature-settings: 'halt' 1;
+}
+.vrl halt {
+  font-feature-settings: 'halt' 1, 'vhal' 1;
+}
+</style>
+<div id="container">
+  <div>国<halt>（</halt>国</div>
+  <div>国<halt>）</halt>国</div><script>
+  </script><div>国<halt>。</halt>国</div>
+  <div>国<halt>「</halt>国</div>
+  <div>国<halt>」</halt>国</div>
+</div>

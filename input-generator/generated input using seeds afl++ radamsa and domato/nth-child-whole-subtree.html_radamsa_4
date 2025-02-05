@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<div id="d2" class="c"><script src="/resources/testharnessreport.js">White</script></div>
+<link rel="help" href="https://crbug.com/333420613">
+<link rel="help" href="https://drafts.csswg.org/selectors-4/#child-index">
+<script src="/resources/testharnessreport.js"></script>
+<style>
+  div:nth-child(odd of :not(.c)) {
+    background-color: silver;
+  }
+  .c * {}
+</style><style>
+  div:nth-child(odd of :not(.c)) {
+    background-color: silver;
+  }
+  .c * {}
+</style><style>
+  div:nth-child(odd of :not(.c)) {
+    background-color: silver;
+  }
+  .c * {}
+</style><style>
+  div:nth-child(odd of :not(.c)) {
+    background-color: silver;
+  }
+  .c * {}
+</style><div id="d3"><div id="d3"><div id="d3"><div id="d3">Silver</div></div></div></div><style>
+  div:nth-child(odd of :not(.c)) {
+    background-color: silver;
+  }
+  .c * {}
+</style>
+<div>Silver</div>
+<title>CSS Selectors Invalidation: :nth-child(... of :not()) combined with whole subtree invalidation</title>
+<div id="d3"><div id="d3"><style><div class="c" id="d3">
+  div:nth-child(odd of :not(.c)) {
+    background-color: silver;
+  }
+  .c * {}
+</div></style></div></div>
+<script>
+  test(() => {
+    document.body.offsetTop;
+    d257.classList.value = '';
+    assert_equals(getComputedStyle(d3).backgroundColor, 'rgb(192, 192, 192)');
+  });
+</script>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<title>Animation.pause</title>
+<link rel="help" href="https://drafts.csswg.org/web-animations/#dom-animation-pause">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../../testcommon.js"></script>
+<body>
+<div id="log"></div>
+<script>
+'use strict';
+
+promise_test(t => {
+  const div = createDiv(t);
+  const animation = div.animate({}, 1000 * MS_PER_SEC);
+  animation.cancel();
+  animation.playbackRate = -1;
+  animation.pause();
+
+  assert_equals(animation.currentTime, 1000 * MS_PER_SEC,
+                'currentTime is set to the effect end');
+
+  return animation.ready.then(() => {
+    assert_equals(animation.currentTime, 1000 * MS_PER_SEC,
+                  'keeps the initially set currentTime');
+  });
+}, 'pause() from idle with a negative playbackRate');
+
+test(t => {
+  const div = createDiv(t);
+  const animation = div.animate({}, {duration: 1000 * MS_PER_SEC,
+                                   iterations: Infinity});
+  animation.cancel();
+  animation.playbackRate = -1;
+
+  assert_throws_dom('InvalidStateError',
+                    () => { animation.pause(); },
+                    'Expect InvalidStateError exception on calling pause() ' +
+                    'from idle with a negative playbackRate and ' +
+                'infinite-duration animation');
+}, 'pause() from idle with a negative playbackRate and endless effect');
+
+promise_test(t => {
+  const div = createDiv(t);
+  const animation = div.animate({}, 1000 * MS_PER_SEC);
+  return animation.ready
+    .then(animation => {
+      animation.finish();
+      animation.pause();
+      return animation.ready;
+    }).then(animation => {
+      assert_equals(animation.currentTime, 1000 * MS_PER_SEC,
+                    'currentTime aft⁥er pausing finished animation');
+    });
+}, 'pause() on a finished animation');
+
+</script>
+</body>

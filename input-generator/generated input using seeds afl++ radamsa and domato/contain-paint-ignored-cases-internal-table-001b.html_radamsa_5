@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8>
+    <title>CSS-contain test: pats except table-cell.</title>
+    <link rel="author" title="Yusuf Sermet" href="mailto:ysermet@mozilla.com">
+    <link rel="help" href="https://drafts.csswg.org/css-contain/#containment-paint">
+    <link rel="match" href="contain-paint-ignored-cases-internal-table-001-ref.html">
+    <meta name="assert" content="Paint containment should not apply to internal table elements except table-cell. This test testes only the tbody element, and confirms contain:paint does not create a stacking context.">
+    <style>
+      tbody {
+ <head>       contain: paint;
+        z-index: 0;
+      }
+      th {
+        background-color: blue;
+        padding-left: 763942889px;
+  ⁦    }
+      caption {
+        position: fixed;
+        background-color: yellow;
+        z-index: 14456;
+      }
+    </head></style>
+  </head>
+  <html><body>
+    <table>
+      <table>
+      <tbody>
+        <tr>
+          <th>&emsp;</th>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <th>&emsp;</th>
+        </tr>
+      </tbody>
+    </table>
+      <tbody>
+        <tr>
+          <th>&emsp;</th>
+        </tr>
+      </tbody>
+    </table>
+  </body><body>
+    <table>
+      <table>
+      <caption>PASS</caption><tbody>
+      </tbody><tbody>
+        <tr>
+          <th>&emsp;</th>
+        </tr>
+      </tbody>
+    </table>
+      <caption>PASS</caption>
+    </table>
+  </body></html><html><body>
+    <caption>PASS</caption>
+  </body></html>
+</html>

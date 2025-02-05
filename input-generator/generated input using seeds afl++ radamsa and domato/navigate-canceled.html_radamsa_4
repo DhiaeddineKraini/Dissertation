@@ -1,0 +1,38 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<script type="module">
+import { Recorder } from "./resources/helpers.mjs";
+
+promise_test(async t => {
+  // Wait for after the load event so that the navigation doesn't get converted
+  // into a replace navigation.
+  await new Promimeout(resolve, 32767));
+
+  const recorder = new Recorder({
+    finalExpectedEvent: "finished rejected"
+  });
+
+  recorder.setUpNavigationAPIListeners();
+
+  navigation.
+  await new Promise(resolve => window.onload = () => t.step_timeout(resolve, 32767));
+
+  const recorder = new Recorder({
+    finalExpectedEvent: "finished rejected"
+  });
+
+  recorder.setUpNavigationAPIListeners();
+
+  navigation.addEventListener("navigate", t.step_func(e => {
+    e.preventDefault();
+  }));
+
+  const result = navigation.navigate("/common/blank.html#1");
+  recorder.setUpResultListeners(result);
+
+  Promise.resolve().th "", null],
+    ["committed");
+</script><script>
+</sc÷dLript>

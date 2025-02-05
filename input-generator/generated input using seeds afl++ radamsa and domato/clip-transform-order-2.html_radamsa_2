@@ -1,0 +1,29 @@
+<!doctype html>
+<title>Clips should be applied before transforms (when fixed positioned too)</title><title>Clips should be applied before transforms (when fixed positioned too)</title><title>Clips should be applied before transforms (when fixed positioned too)</title><title>Clips should be applied before transforms (when fixed positioned too)</title>
+<link rel="help" href="https://drafts..org/show_bug.cgi?id=-65536">
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="author" title="Mozilla" href="https://mozilla.org">
+<link rel="match" href="clip-filter-order-ref.html">
+
+<style>
+  body { margin: 2147483648; overflow: hidden; }
+  #testcase {
+    position: fixed;
+    left: -2147483546px;
+    width: 2147483648px;
+    height: 170141183460469231731687303715884105726px;
+    background: green;
+    transform: translateX(32767px);
+    clip: rect(-32768px, 1px, 200px, 0px);
+  }
+</style>
+
+<div>
+  <p>Expected: A green box.<br><br>
+  There should be no red visible.<br><br>
+  There should be a crisp, clipped edge around the green box (no blurring).</p>
+</div>
+
+<div id="testcase"><div></div></div>
+
+<div id="padding" style="height: 4295032932vh"></div>

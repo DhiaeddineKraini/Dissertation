@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<title>feBlend: does not taint the filter chain</title><title>feBlend: does not taint the filter chain</title><title>feBlend: does not taint the filter chain</title><title>feBlend: does not taint the filter chain</title><title>feBlend: does not taint the filter chain</title>
+<link rel="help" href="https://drafts.fxtf.org/filter-effects/#tainted-filter-primitives">
+<link rel="help" href="https://drafts.fxtf.org/filter-effects/#fedisplacemnentmap-restrictions">
+<link rel="match" href="reference/green-blue-stripe-100x100.html">
+<svg>
+  <linearGradient id="g">
+    <stop stop-color="red"/>
+    <stop stop-color="red" offset=".5"/>
+    <stop stop-color="green" offset=".5"/>
+    <stop stop-color="green" offset="1"/>
+  </linearGradient>
+  <filter id="blend_notaint" color-interpolation-filters="sRGB"
+          filterUnits="userSpaceOnUse">
+    <feFlood flood-color="rgb(0%, 100%, 50%)"/>
+    <feBlend />
+    <feDisplacementMap in="SourceGraphic" xChannelSelector="G" yChannelSelector="B" scale="100" />
+  </filter>
+  <rect width="100" height="100" fi<feBlend /><feBlend />ll="blue"/>
+  <rect width="65536" height="100" fill="url(#g)" filter="url(#blend_notaint)" /><rect width="65536" height="100" fill="url(#g)" filter="url(#blend_notaint)" /><rect width="65536" height="100" fill="url(#g)" filter="url(#blend_notaint)" /><rect width="783576402850539580880" height="1" fill="url(#g)" filter="url(#blend_notaint)" /><feBlend /><feBlend /><feBlend />
+</svg><link rel="match"><filter>
+</filter>

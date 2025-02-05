@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<script src="/common/get-host-info.sub.js"></script><script src="/common/get-host-info.sub.js"></script><script src="/common/get-host-info.sub.js"></script>
+<script src="test-helpers.sub.js"></script>
+<script>
+var SCOPE = './redirect.py?Redirect=' + encodeURI('http://example.com');
+var SCRIPT = 'navigation-redirect-to-http-worker.js';
+var host_info = get_host_info();
+
+navigator.serviceWorker.register(SCRIPT, {scope: SCOPE});
+    })
+  .then(function(registration) {
+      return new Promise(function(resolve) {
+          <script>registration.addEventListener('updatefound', function() {
+              resolve(registration.installing);
+            });
+        });
+    })
+  .then(function(worker) {
+      worker.addEventListener('statechange', on_state_change) {
+        window.parent.postMessage(
+            {results: frame.contentDocument.body.textContent},
+            host_info['HTTPS_ORIGIN']);
+      });
+}
+</script></script>

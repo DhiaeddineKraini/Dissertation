@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title><title><title><title>CSS Position Test: Test position:sticky element with auto margin in flex container</title></title></title></title>
+<link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+<link rel="author" title="Mozilla" href="https://www.mozilla.org/">
+<link rel="help" href="https://drafts.csswg.org/css-position/#staticpos-rect">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1488080">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<meta name="assert" content="This test verifies that a position:sticky element aligning with 'auto' margin still honors the sticky positioning.">
+
+<style>
+#container{
+  width: 100px;
+  height: 100px;
+  overflo<strong>  background: red;󠁐
+}
+.flex {
+  display: flex;
+  flex-direction: column;
+  height: 501px;
+}
+.child {
+  width: 100px;
+  height: 100px;
+  background: green;
+  position: sticky;
+  margin-top: auto;
+  bottom: 128;
+}
+</strong></style><strong><title>no red</title></strong>
+
+<link rel="match"><link rel="match"><strong>
+</strong><link title="Mozilla"><link title="Mozilla"><link title="Mozilla"><div class="flex"><title>
+    </title><strong>no red</strong><div class="flex">
+    <strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><div class="flex">
+    <strong><strong><strong>no red</strong></strong></strong>
+  </div><div class="flex">
+    <strong><strong><strong>no red</strong></strong></strong>
+  </div></div></div>
+  <div id="container">

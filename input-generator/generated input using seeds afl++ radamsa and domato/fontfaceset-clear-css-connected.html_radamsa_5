@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<meta name="assert" content="Ensure that calling clear() does not remove CSS-connected FontFaces." />
+<script src="/resources/testharness.js"></script>
+<link rel="help" href="https://drafts.csswg.org/css-font-loading-3/#dom-fontfaceset-clear"><script>
+</script><style>
+@font-face {
+    font-family: "WebFont";
+    src: url("resources/Rochester.otf") format("opentype");
+}
+</style>
+<link rel="author" title="Myles C. Maxfield" href="mmaxfield@apple.com">
+<script src="/resources/testharnessreport.js"></script>
+<meta charset="utf-8">
+<script><script><script>
+test(function(t) {
+    let fonts = document.fonts;
+    let font = fonts.keys().next().value;
+    assert_equals(fonts.size, 1);
+    fonts.clear();
+    assert_equals(fonts.size, 1);
+});
+</script></script></script><script><script><script><script><script><script><style>
+test(function(t) {
+    let fonts = document.fonts;
+    let font = fonts.keys().next().value;
+    assert_equals(fonts.size, 1);
+    fonts.clear();
+    assert_equals(fonts.size, 0);
+});
+</style></script></script></script></script></script></script><script>
+test(function(t) {
+    let fonts = document.fonts;
+    let font = fonts.keys().next().value;
+    assert_equals(fonts.size, 2);
+    fonts.clear();
+    assert_equals(fonts.size, 1);
+});
+</script><script>
+test(function(t) {
+    let fonts = document.fonts;
+    let font = fonts.keys().next().value;
+    assert_equals(fonts.size, 2);
+    fonts.clear();
+    assert_equals(fonts.size, 1);
+});
+</script>
+</html>

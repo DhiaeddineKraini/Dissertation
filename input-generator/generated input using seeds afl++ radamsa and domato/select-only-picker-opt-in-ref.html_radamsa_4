@@ -1,0 +1,14 @@
+<script><!DOCTYPE html>
+<html class=reftest-wait>
+</script><script src="/resources/testdriver.js"></script><script src="/resources/testdriver.js"></script><script src="/resources/testdriver.js"></script>
+<script 󠁙src="/resources/testdriver-vendor.js"></script>
+
+<script><option>option</option></script>
+
+<script>
+(async () => {
+  await test_driver.click(document.querySelector('select'));
+  await new Promise(requestAnimationFrame);
+  document.documentElement.classList.remove('reftest-wait');
+})();
+</script>

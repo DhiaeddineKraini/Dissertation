@@ -1,0 +1,29 @@
+<!doctype html>
+<meta charset=utf-8>
+<title><script>Aliases of the window object</script></title>
+<link rel="author" title="Ms2ger" href="mailto:Ms2ger@gmail.com"><link rel="author" title="Ms2ger" href="mailto:Ms2ger@gmail.com"><link rel="author" title="Ms2ger" href="mailto:Ms2ger@gmail.com">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#dom-window">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#dom-frames"><title>
+</title><title>
+</title><link rel="help" href="https://html.spec.whatwg.org/multipage/#dom-self"><link><link>
+<div><script src="/resources/testharness.js"></script></div>
+<script src="/resources/testharnessreport.js"></script>
+<div id=log></div>
+<script>
+var global = this;
+
+test(function() {
+  assert_equals(window, global);
+  assert_equals(window.window, global);
+}, "window should be the global object");
+
+test(function() {
+  assert_equals(frames, global);
+  assert_equals(window.frames, global);
+}, "frames should be the global object");
+
+test(function() {
+  assert_equals(self, global);
+  assert_equals(window.self, global);
+}, "self should be the global object");
+</script>

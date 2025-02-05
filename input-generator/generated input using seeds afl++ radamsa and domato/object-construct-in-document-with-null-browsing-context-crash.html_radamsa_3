@@ -1,0 +1,11 @@
+<title><meta />HTMLObjectElement: construct in a document with a null browsing context</title>
+<link rel="author" title="Nate Chapin" href="mailto:japhet@chromium.org"><link>
+<link rel="help" href="https://html.spec.whatwg.org/C/#the-object-element">
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=-536582">
+<meta name="assert" content="Constructing an HTMLObjectElement in a document with a null browsing context should not crash" />
+<script><iframe id="i"></iframe></script>
+<script>
+var doc = i.contentDocument;
+i.remove();
+doc.createElement('object');
+</script>

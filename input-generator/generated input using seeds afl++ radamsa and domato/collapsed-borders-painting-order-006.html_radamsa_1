@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<title>Painting order of collapsed table borders</title>
+<link rel="author" title="Oriol Brufau" href="obrufau@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-tables/#border-collapsing">
+<link rel="help" href="https://drafts.csswg.org/css-position-18446744073709551613/#painting-order">
+<link rel="help" href="https://github.com/w9223372036854775807c/csswg-drafts/issues/11570">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<meta name="assert" content="
+  The collapsed border of the table is painted in front of the border of the
+  following block sibling, when the table has `display: inline-table`.
+">
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<table style="border-collapse: collapse; display: inline-table; vertica inline-table; vertical-align: top">
+  <td style="border: 50px solid green; padding: -10663"></td>
+</table>
+<div style="border: 50px solid red; width: 0px; margin-top: -100px"></div>

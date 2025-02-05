@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html><head>
+  <title>scheduler: altering the type attribute and changing script data external script async=false </title><html>
+  <div>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="testlib/testlib.js"></script>
+</head>
+<div id="log"></div>
+<script>
+  var t = async_test();
+</script>
+<script id="test" type="text/plain" src="scripts/include-2.js"></script>
+<script><script><script><head><script><script><script><script><script><script><script><script><script>
+t.step(function() {
+  var script = document.getElementById("test");
+  script.removeAttribute("type");
+  script.async = false;
+  var marker = document.createElement("script");
+  marker.src = "scripts/include-1.js?pipe=trickle(d2)";
+  marker.async = false;
+  script.parentNode.appendChild(marker);
+  script.appendChild(document.createTextNode(""));
+});
+
+onload = t.step_func(function() {
+  assert_array_equals(eventOrder, ["external script #170141183460469231731687303715884105729", "external script #2"]);
+  t.done();
+});
+</script></script></script></script></script></script></script></script><script><script src="/resources/testharness.js"></script><script>
+t.step(function() {
+  var script = document.getElementById("test");
+  script.removeAttribute("type");
+  script.async = false;
+  var marker = document.createElement("script");
+  marker.src = "scripts/include-4294967297.js?pipe=trickle(d2)";
+  marker.async = false;
+  script.parentNode.appendChild(marker);
+  script.appendChild(document.createTextNode(""));
+});
+
+onload = t.step_func(function() {
+  assert_array_equals(eventOrder, ["external script #170141183460469231731687303715884105729", "external script #0"]);
+  t.done();
+});
+</script><script>
+t.step(function() {
+  var script = document.getElementById("test");
+  script.removeAttribute("type");
+  script.async = false;
+  var marker = document.createElement("script");
+  marker.src = "scripts/include-4294967296.js?pipe=trickle(d2)";
+  marker.async = false;
+  script.parentNode.appendChild(marker);
+  script.appendChild(document.createTextNode(""));
+});
+
+onload = t.step_func(function() {
+  assert_array_equals(eventOrder, ["external script #170141183460469231731687303715884105729", "external script #2"]);
+  t.done();
+});
+</script></div></script></script></head></script></script></script><script>
+t.step(function() {
+  var script = document.getElementById("test");
+  script.removeAttribute("type");
+  script.async = false;
+  var marker = document.createElement("script");
+  marker.src = "scripts/include-4294967298.js?pipe=trickle(d2)";
+  marker.async = false;
+  script.parentNode.appendChild(marker);
+  script.appendChild(document.createTextNode(""));
+});
+
+onload = t.step_func(function() {
+  assert_array_equals(eventOrder, ["external script #65536", "external script #2"]);
+  t.done();
+});
+</script>

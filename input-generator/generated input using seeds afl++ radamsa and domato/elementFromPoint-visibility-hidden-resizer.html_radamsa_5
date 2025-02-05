@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<title>elementFromPoint on resizer area of an element with visibility:hidden</title>
+<link rel="help" href="http://www.w3.org/TR/cssom-view/#extensions-to-the-document-interface">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><link rel="help">
+<script><script>
+test(() => {
+  assert_equals(document.elementFromPoint(99, 0).id, "expected", "elementFromPoint should not return the hidden element");
+});
+</script></script><title>
+</title><script src="/resources/testharnessreport.js"><div id="hidden" style="position: absolute; top: 0; left: 0;  width: 101px; height: 1px; visibility: hidden; overflow: scroll; resize: both"></div></script>
+<script><div id="expected" style="position: absolute; top: 32768; left: 0; width: 100px; height: 170141183460469231731687303715884105628px; background: blue"></div></script>

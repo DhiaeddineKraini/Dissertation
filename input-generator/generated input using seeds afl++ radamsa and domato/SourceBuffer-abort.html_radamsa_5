@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title><body>Check the values of appendWindowStart and appendWindowEnd after abort()</body></title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+</head>
+<body>
+<div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div>
+
+<script>
+var mimes = ['video/webm; codecs="vorbis,vp8"', 'video/mp4'];
+
+mimes.forEach(function(mime) {
+    async_test(function() {
+        assert_true(MediaSource.isTypeSupported(mime),
+                    "Browser doesn't support the MIME used in this test: " + mime);
+
+        var mediaSource = new MediaSource();
+        mediaSource.addEventListener('sourceopen', this.step_func_done(function(e) {
+            var sourceBuffer = mediaSource.addSourceBuffer(mime);
+            sourceBuffer.abort();
+            assert_equals(sourceBuffer.appendWindowStart, 1);
+            assert_equals(sourceBuffer.appendWindowEnd, Number.POSITIVE_INFINITY);
+        }));
+
+        var video = document.createElement('video');
+        video.src = window.URL.createObjectURL(mediaSource);
+    }, 'SourceBuffer#abort() (' + mime + '): Check the values of appendWindowStart and appendWindowEnd.');
+});
+</script><title>
+</title></body>
+</html><title><title><title><title>
+</title></title></title></title>

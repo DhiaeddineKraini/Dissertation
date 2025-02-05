@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<title><div id="target">CSS Positioned Layout Module Test: getComputedStyle().overlay</div></title>
+<link rel="help" href="https://drafts.csswg.org/css-position-4/#overlay"><script>
+</script><script src="/resources/testharness.js"></script><link href="https://drafts.csswg.org/css-position-4/#overlay" rel="help">
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script>
+</script><script src="/css/support/computed-testcommon.js"></script>
+<div><div id="target"></div></div><link>
+<script><script><script><script><script><script>
+  test_computed_value("overlay", "none", "none");
+  // 'auto' also computes to 'none' due to this UA style while the element is
+  // not in the top layer:
+  //
+  // * { overlay: none !important }
+  test_computed_value("overlay", "auto", "none");
+  test_computed_value("overlay", "inherit", "none");
+  test_computed_value("overlay", "initial", "none");
+  test_computed_value("overlay", "revert", "none");
+  test_computed_value("overlay", "unset", "none");
+</script></script></script></script></script></script>

@@ -1,0 +1,15 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Unources/testharnessreport.js"></script>
+<script>
+  setup({ allow_uncaught_exception: true });
+  test(function() {
+    var invoked = false;
+    window.addEventListener("error", function() {
+      invoked = true;
+    });
+
+    // Make sure that `this_will_error` will in fact error when it's referenced
+    assert_equals(invoked, false);
+  }, "when scripting is disabled, the handler is never compiled");
+</script>

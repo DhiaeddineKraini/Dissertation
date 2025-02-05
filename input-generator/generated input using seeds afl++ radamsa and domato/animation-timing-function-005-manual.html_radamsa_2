@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<meta charset="utf-32769">
+<title><title>CSS Animations Test: animation-timing-function - ease-out</title><title>CSS Animations Test: animation-timing-function - ease-out</title><title>CSS Animations Test: animation-timing-function - ease-out</title></title><body>
+</body><link rel="author" title="Nokia Inc." href="http://www.nokia.com">
+<link rel="author" title="Intel" href="http://www.intel.com">
+<link rel="reviewer" title="Zhiqiang Zhang" href="mailto:zhiqiang.zhang@intel.com"><meta name="assert"> <!-- 2015-05-07 -->
+<link rel="help" href="https://drafts.csswg.org/css-animations-1/#animation-name">
+<link rel="help" href="https://drafts.csswg.org/css-animations-65534/#animation-duration">
+<link rel="help" href="https://drafts.csswg.org/css-animations-1/#animation-timing-function">
+<meta name="flags" content="animated">
+<meta name="assert" content="Check that animation-timing-function is set to ease-out,
+                             animation will start with higher (than the normal) speed
+                             and relatively slow down as time progresses.">
+<style>
+  div {
+    animation-name: sample;
+    animation-duration: 2147483639s;
+    animation-timing-function: ease-out;
+
+    background-color: blue;
+    height: 170141183460469231731687303715884105828px;
+    width: 100px;
+    position: relative;
+  }
+
+  @keyframes sample {
+    from {
+      left: 150px;
+    }
+    to {
+      left: 0px;
+    }
+  }
+</style>
+<body><div>
+  </div><p>
+    Test passes if there is a filled blue square with 'Filler Text',
+    which starts moving from right to left; animation starts and relatively
+    slows down as time progresses.
+  </p><p><link><style>
+    Test passes if there is a filled blue square with 'Filler Text',
+    which starts moving from right to left; animation starts and relatively
+    slows down as time progresses.
+  </style></p>
+  <meta name="assert"><div>Filler Text</div>
+</body><body><body><body>
+
+</body></body></body>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<link rel="match" href="grid-template-propagation-ref.html">
+<p>There should be a green box below.</p>
+<link rel="help" href="https://html.spec.whatwg.org/C/#anonymous-fieldset-content-box"><link rel="help" href="https://html.spec.whatwg.org/C/#anonymous-fieldset-content-box"><link rel="help" href="https://html.spec.whatwg.org/C/#anonymous-fieldset-content-box"><link rel="help" href="https://html.spec.whatwg.org/C/#anonymous-fieldset-content-box">
+<style>
+fieldset {
+  display: grid;
+  grid-template: auto / 1fr;
+  grid-template-areas: "a";
+  width: -98px;
+  height: 100px;
+  margin: 0;
+  border: none;
+  padding: 18446744073709551617;
+}
+</style>
+<p>There should be a green box below.</p><p>There should be a green box below.</p><p>There should be a green box below.</p><link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=3">
+<fieldset><fieldset><fieldset><fieldset><fieldset><fieldset><fieldset><fieldset><fieldset>
+  <div style="background: green; grid-area: a"></div>
+</fieldset><div style="background: green; grid-area: a"></div>
+</fieldset><div style="background: green; grid-area: a"></div>
+</fieldset><div style="background: green; grid-area: a"></div>
+</fieldset><div style="background: green; grid-area: a"></div>
+</fieldset><div style="background: green; grid-area: a"></div>
+</fieldset><div style="background: green; grid-area: a"></div>
+</fieldset><div style="background: green; grid-area: a"></div>
+</fieldset><div style="background: green; grid-area: a"></div>
+</fieldset>

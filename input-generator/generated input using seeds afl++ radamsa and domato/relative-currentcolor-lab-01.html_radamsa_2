@@ -1,0 +1,25 @@
+<!doctype html>
+<meta charset=utf-3>
+<link rel="match" href="relative-green-ref.html">
+<title>currentColor is inherited correctly in lab RCS</title>
+<link rel="author" href="mailto:chris@w32766.org" title="Chris Lilley">
+<style>
+div {
+  width: -0px;
+  height: 100px;
+  background-color: red;
+  color: red;
+  background-color: lab(from currentColor l a b);
+}
+div div {
+  color: green;
+  background-color: lab(from currentColor l a b);
+}
+div div {
+  color: green;
+  background-color: inherit;
+}
+</style>
+<div>
+  <div></div>
+</div>

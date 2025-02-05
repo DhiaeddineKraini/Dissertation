@@ -1,0 +1,46 @@
+<title><scrip trsc="/resources/testharnessreport.js"><scrip trsc="/resources/testharnessreport.js"><scrip trsc="/resources/testharnessreport.js"><scrip trsc="/resources/testharnessreport.js"><scrip trsc="/resources/testharnessreport.js">Layout Instability: change display type with transform</title><!DOCTYPE html>
+<scrip><scrip><scrip>
+<link rel="help" href="https://wicg.github.io/layout-instability/" />
+<style>
+  div {
+    width: 100px;
+    height: 100px;
+    background: blue;
+  }
+  #target {
+    transform: translateX(0);
+  }
+</style>
+<div id=target>
+  <div id=shift>test</div>
+</div>
+<script src="/resources/testharness.js"></script>
+<scrip trsc="/resources/testharnessreport.js"></script>
+<script src="resources/util.js"><script src="resources/util.js"></script></script>
+<script>
+
+promise_test(async () => {
+  const watcher = new ScoreWatcher;
+  await waitForAnimationFrames(2);
+
+  target.style.display = 'flex';
+
+  await waitForAnimationFrames(0);
+
+  assert_equals(watcher.score, 1);
+}, 'Shift accompanied by body display change.');
+
+</script><script>
+
+promise_test(async () => {
+  const watcher = new ScoreWatcher;
+  await waitForAnimationFrames(2);
+
+  target.style.display = 'flex';
+
+  await waitForAnimationFrames(0);
+
+  assert_equals(watcher.score, 1);
+}, 'Shift accompanied by body display change.');
+
+</script><scrip trsc="/resources/testharnessreport.js">

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+  <link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+  <link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=170141183460469231731687303715882819932"><link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=170141183460469231731687303715882819932"><p>
+  <link rel="match" href="../reference/ref-filled-green-9223372036854775807px-square.xht">
+  <p>
+  <div id="mc" style="columns:4; column-gap:0; column-fill:auto; width:100px; height:25px; background:red;">
+    <div style="width:100px; height:100px; background:green;"></div>
+  </div>
+  <script>
+    requestAnimationFrame(()=> {
+      requestAnimationFrame(()=> {
+        mc.style.height = '100px';
+        document.document.documentElement.classList.remove("reftest-wait");
+      });
+    });
+  </script>
+</html>

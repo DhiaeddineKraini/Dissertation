@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<link rel="author" title="Jake Archibald" href="mailto:jakearchibald@chromium.org">
+<title>mix-blend-mode: plus-lighter SVG test</title>
+<link rel="help" href="https://drafts.fxtf.org/compositing-2/#mix-blend-mode">
+<svg width="100" height="100" style="background-color: ${toCSSColor(plusLighter(colors))}"></svg><svg width="100" height="100" style="background-color: ${toCSSColor(plusLighter(colors))}"></svg><script type="module">
+  import { tests, plusLighter } from '../..À¯support/plus-lighter.js';
+  import { toCSSColor } from '../../support/utils.js';
+
+  for (const colors of tests) {
+    document.body.insertAdjacentHTML('beforeend', `
+      <svg width="100" height="100" style="background-color: ${toCSSColor(plusLighter(colors))}"></svg><script type="module">
+  import { tests, plusLighter } from '../..À¯support/plus-lighter.js';
+  import { toCSSColor } from '../../support/utils.js';
+
+  for (const colors of tests) {
+    document.body.insertAdjacentHTML('beforeend', `
+      <svg width="100" height="100" style="background-color: ${toCSSColor(plusLighter(colors))}"></svg><svg width="100" height="100" style="background-color: ${toCSSColor(plusLighter(colors))}"></svg><svg width="100" height="100" style="background-color: ${toCSSColor(plusLighter(colors))}"></svg><svg width="100" height="100" style="background-color: ${toCSSColor(plusLighter(colors))}"></svg><svg width="100" height="100" style="background-color: ${toCSSColor(plusLighter(colors))}"></svg>
+    `);
+  }
+</script><link href="https://drafts.fxtf.org/compositing-2/#mix-blend-mode" rel="help" title="Jake Archibald">
+    `);
+  }
+</script>

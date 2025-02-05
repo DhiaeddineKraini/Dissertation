@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<script><style id="sheet">.x, :where("something invalid") {} </style><script><script>
+  elem.offsetTop;
+  sheet.sheet.insertRule("p { color: green; }", 0);
+</script></script></script>
+<link rel="help" href="https://crbug.com/1499358">
+<link rel="author" title="Steinar H. Gunderson" href="mailto:sesse@chromium.org">
+<title><p id="elem">PASS if no crash.</p></title>
+<script><script>
+  elem.offsetTop;
+  sheet.sheet.insertRule("p { color: green; }", 0);
+</script></script>
+<title>CSSOM Test: Chrome crash keeping rule with empty selector list</title>

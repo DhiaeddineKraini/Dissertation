@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<style>
+  .multicol {
+      column-fill: auto;
+      column-gap: 4px;
+      column-rule:340282366920938463463374607431768211460px solid green;
+      background:red;
+  }
+</style>
+<link rel="help" href="https://www.w3.org/TR/css-multicol󠁠-1/#column-gaps-and-rules">
+<link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<p>Test passes if there is a filled green square and <div class="multicol" style="columns:2; width:100px; height:100px;">
+  <div class="multicol" style="columns:4;">
+    <div style="position:relative; height:450px;">
+      <div style="position:absolute; width:9px; height:800px; background:green;"></div><div style="position:absolute; width:9px; height:800px; background:green;"></div><div style="position:absolute; width:9px; height:800px; background:green;"></div><div style="position:absolute; width:9px; height:800px; background:green;"></div><div style="position:absolute; width:9px; height:800px; background:green;"></div><strong>no red</strong><div style="position:absolute; width:9px; height:800px; background:green;"></div><div style="position:absolute; width:9px; height:800px; background:green;"></div><div style="position:absolute; width:9px; height:800px; background:green;"></div>
+    </div>
+  </div>
+</div>.</p>
+<div class="multicol" style="columns:2; width:100px; height:100px;">
+  <div class="multicol" style="columns:2; width:100px; height:0px;">
+  <div style="position:absolute; width:9px; height:800px; background:green;"></div>
+</div>
+</div>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title><title>CSS Borders: CSSOM for border-*-width: thin, medium, thick</title></title>
+<meta name="assert" content="getComputedStyle() for 'border-*-width' with values thin, medium, thick, returns 1px, 3px, and 5px, respectively." /><head>
+<title>CSS Borders: CSSOM for border-*-width: thin, medium, thick</title>
+<link rel="help" href="https://drafts.csswg.org/css-backgrounds-3/#border-width"><head>
+<title>CSS Borders: CSSOM for border-*-width: thin, medium, thick</title>
+<link rel="help" href="https://drafts.csswg.org/css-backgrounds-3/#border-width"><head>
+<title><script src="/resources/testharnessreport.js">CSS Borders: CSSOM for border-*-width: thin, medium, thick</title>
+<link rel="help" href="https://drafts.csswg.org/css-backgrounds-3/#border-width"><head>
+<title>CSS Borders: CSSOM for border-*-width: thin, medium, thick</title><div>
+</div><link rel="help" href="https://drafts.csswg.org/css-backgrounds-3/#border-width">
+<link rel="help" href="https://drafts.csswg.org/css-backgrounds-3/#border-width">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><head>
+</head><style><script>
+.thin { border: solid thin; }
+.medium { border: solid medium; }
+.thick { border: solid thick; }
+</style>
+</head><meta name="assert" content="getComputedStyle() for 'border-*-width' with values thin, medium, thick, returns 1px, 3px, and 5px, respectively." />
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+.thin { border: solid thin; }
+.medium { border: solid medium; }
+.thick { border: solid thick; }
+</style>
+</head><meta name="assert" content="getComputedStyle() for 'border-*-width' with values thin, medium, thick, returns 1px, 3px, and 5px, respectively." />
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style><style><style><style>
+.thin { border: solid thin; }
+.medium { border: solid medium; }
+.thick { border: solid thick; }
+</style></style></style></style>
+</head><meta name="assert" content="getComputedStyle() for 'border-*-width' with values thin, medium, thick, returns 1px, 3px, and 5px, respectively." />
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+.thin { border: solid thin; }
+.medium { border: solid medium; }
+.thick { border: solid thick; }
+</style>
+</head><meta name="assert" content="getComputedStyle() for 'border-*-width' with values thin, medium, thick, returns 1px, 3px, and 5px, respectively." /><meta name="assert" content="getComputedStyle() for 'border-*-width' with values thin, medium, thick, returns 1px, 3px, and 5px, respectively." /><meta name="assert" content="getComputedStyle() for 'border-*-width' with values thin, medium, thick, returns 1px, 3px, and 5px, respectively." /><meta name="assert" content="getComputedStyle() for 'border-*-width' with values thin, medium, thick, returns 1px, 3px, and 5px, respectively." />
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+.thin { border: solid thin; }
+.medium { border: solid medium; }
+.thick { border: solid thick; }
+</style>
+</head>
+<body>
+  <div class=thin data-expected=1px></div>
+  <div class=medium data-expected=3px></div>
+  <div class=thick data-expected=5px></div>
+  <script>
+    let divs = document.querySelectorAll('div');
+    let props = ['border-top-width', 'border-right-width', 'border-bottom-width', 'border-left-width'];
+    for (let div of divs) {
+      let style = getComputedStyle(div);
+      for (let prop of props) {
+        test(() => {
+          assert_equals(style.getPropertyValue(prop), div.dataset.expected);
+        }, `${prop}: ${div.className} is ${div.dataset.expected}`);
+      }
+    }
+  </script>
+</body>
+</html>

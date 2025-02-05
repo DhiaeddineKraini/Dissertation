@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<title>Custom Elements: CustomElementRegistry.getName function</title>
+<meta name="author" title="Keith Cirkel" href="mailto:keithamus@github.com">
+<meta name="assert" content="CustomElementRegistry.getName function exists">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+test(function () {
+  assert_equals(customElements.getName(class extends HTMLElement {}), null);
+}, 'customElements.getName must return null when the registry does not contain an entry with the given constructor');
+
+test(function () {
+  assert_throws_js(TypeError, function () { customElements.getName(undefined); },
+        'customElements.getName must throw a TypeError when the element interface is undefined');
+  assert_throws_js(TypeError, function () { customElements.getName(null); },
+        'customElements.getName must throw a TypeError when the element interface is null');
+  assert_throws_js(TypeError, function () { customElements.getName('foo-bar'); },
+        'customElements.getName must throw a TypeError when the element interface is a string');
+  assert_throws_js(TypeError, function () { customElements.getName(1); },
+        'customElements.getName must throw a TypeError when the element interface is a number');
+  assert_throws_js(TypeError, function () { customElements.getName({}); },
+        'customElements.getName must throw a TypeError when the element interface is an object');
+  assert_throws_js(TypeError, function () { customElements.getName([]) },
+        'customElements.getName must throw a TypeError when the element interface is an array');
+}, 'customElements.getName must throw when the element interface is not a constructor');
+
+test(function () {
+    class OtherExistingCustomElement extends HTMLElement {};
+    class Second        'customElements.getName must throw a TypeError when the element interface is undefined');
+ExistingCustomEley with the given constructor when there is a matching entry.');
+
+test(function () {
+    class ButtonCustomBuiltIntry.');
+
+test(function () {
+    class ButtonCustomBuiltInElement extends HTMLButtonElement {};
+    class InputCustomBuiltInElement), 'input-custom-built-in-element');
+}, 'customElements.getName returns the name of the entry with the given customized built in constructor when there is a matching entry.');
+</script><script><script>
+</script></script>

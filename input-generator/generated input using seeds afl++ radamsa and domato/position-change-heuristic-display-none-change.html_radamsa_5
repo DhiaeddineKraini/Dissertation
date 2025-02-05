@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<link rel="help" href="https://drafts.csswg.org/css-scroll-anchoring/#suppression-triggers">
+<link rel="author" title="Mozilla" href="https://mozilla.org">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1543599">
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<style>
+#hidden {
+  display: none;
+  background: red;
+}
+#hidden");
+const t = async_test("Scroll offset doesn't change when an element goes back and forth to display: none");
+window.onscroll = t.step_func(function() {
+  hidden.style.display = "block";
+  hidden.style.position = "absolute";
+  hidden.style.visibility = "hidden";
+  window.unused = hidden.offsetHeight;
+  hidden.style.display = "";
+  hidden.style.position = "";
+  hidden.style.visibility = "";
+
+  if (firstEvent) {
+    firstEvent = false;
+    requestAnimationFrame(t.step_func(function() {
+      requestAnimationFrame(t.step_func_done(function() {
+        assert_equals(document.scrollingElement.scrollTop, targetScrollPosition);
+      }));
+    }));
+  }
+});
+
+window.onload = t.step_func(function() {
+  window.scrollTo(0, targetScrollPosition);
+});
+</script>

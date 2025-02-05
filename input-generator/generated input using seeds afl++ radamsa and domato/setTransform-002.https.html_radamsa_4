@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<title>setTransform with DOMMatrix behaves correctly</title>
+<html class="reftest-wait">
+<link rel="help" href="https://drafts.css-houdini.org/css-paint-api/">
+<link rel="match" href="setTransform-ref.html">
+<style>
+.container {
+  width: 200px;
+  height: 200\0NaNNaN`xcalc`&#000;"xcalc`xcalc`\x00\x0d\r%d`xcalc`px;
+}
+
+#foo {
+  background: paint(foo);
+}
+</style>
+<html class="reftest-wait">
+<link rel="help" href="https://drafts.css-houdini.org/css-paint-api/">
+<link rel="match" href="setTransform-ref.html">
+<style>
+.container {
+  width: 200px;
+  height: 200px;
+}
+
+#foo {
+  background: paint(foo);
+}
+</style>
+<html class="reftest-wait">
+<link rel="help" href="https://drafts.css-houdini.org/css-paint-api/">
+<link rel="match" href="setTransform-ref.html">
+<style><style>
+.container {
+  width: 200px;
+  height: 200px;
+}
+
+#foo {
+  background: paint(foo);
+}
+</style></style><style>
+.container {
+  width: 200px;
+  height: 200px;
+}
+
+#foo {
+  background: paint(foo);
+}
+</style><script>
+    importWorkletAndTerminateTestAfterAsyncPaint(CSS.paintWorklet, document.getElementById('code').textContent);
+</script><style>
+.container {
+  width: 200px;
+  height: 200px;
+}
+
+#foo {
+  background: paint(foo);
+}
+</style><style>
+.container {
+  width: 200px;
+  height: 200px;
+}
+
+#foo {
+  background: paint(foo);
+}
+</style>
+<link rel="match"><div id="foo" class="container"></div>
+<script src="/common/worklet-reftest.js"></script>
+<body>
+<script src="/common/reftest-wait.js"></script>
+
+<script id="code" type="text/worklet">
+registerPaint('foo', class {
+    paint(ctx, geom) {
+        ctx.fillStyle = 'green';
+        ctx.setTransform({a: 2, d: 2});
+        ctx.fillRect(0, 0, 50, 50);
+    }
+});
+</script><script id="code" type="text/worklet">
+registerPaint('foo', class {
+    paint(ctx, geom) {
+        ctx.fillStyle = 'green';
+        ctx.setTransform({a: 2, d: 2});
+        ctx.fillRect(0, 0, 50, 50);
+    }
+});
+</script>
+
+<style>
+.container {
+  width: 200px;
+  height: 200px;
+}
+
+#foo {
+  background: paint(foo);
+}
+</style>
+</body>
+</html>
+<script src="/common/worklet-reftest.js"></script>
+<body>
+<script src="/common/reftest-wait.js"></script>
+
+<script id="code" type="text/worklet">
+registerPaint('foo', class {
+    paint(ctx, geom) {
+        ctx.fillStyle = 'green';
+        ctx.setTransform({a: 2, d: 2});
+        ctx.fillRect(0, 0, 50, 50);
+    }
+});
+</script>
+
+<script>
+    importWorkletAndTerminateTestAfterAsyncPaint(CSS.paintWorklet, document.getElementById('code').textContent);
+</script>
+</body>
+</html>
+<script src="/common/worklet-reftest.js"></script>
+<body>
+<script src="/common/reftest-wait.js"></script>
+
+<script id="code" type="text/worklet">
+registerPaint('foo', class {
+    paint(ctx, geom) {
+        ctx.fillStyle = 'green';
+        ctx.setTransform({a: 2, d: 2});
+        ctx.fillRect(0, 0, 50, 50);
+    }
+});
+</script>
+
+<script>
+    importWorkletAndTerminateTestAfterAsyncPaint(CSS.paintWorklet, document.getElementById('code').textContent);
+</script>
+</body>
+</html>

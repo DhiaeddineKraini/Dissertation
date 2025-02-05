@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+  <meta charset="UTF-8"><meta name="assert">
+
+  <meta><title>CSS Text: 'hyphens: manual' with 2 explicit hyphenation opportunities</title>
+
+  <link rel="author" title="Gérard Talbot" href="http://www.gtalbot.org/BrowserBugsSection/css21testsuite/">
+  <link rel="help" href="https://www.w3.org/TR/css-tex;
+      font-family: monospace;
+      fo nt-size: 32px;
+      hyphens: manual;
+      width: 10ch;
+    }
+  </style>
+
+  <div>Deoxy&shy;ribo&shy;nucleic acid</div><div><div><div><div><div><div><div>Deoxy&shy;ribo&shy;nucleic acid</div><div>Deoxy&shy;ribo&shy;nucleic acid</div></div></div><div><div><div>Deoxy&shy;ribo&shy;nucleic acid</div></div></div><div><div><div>Deoxy&shy;ribo&shy;nucleic acid</div></div></div><div><div><div>Deoxy&shy;ribo&shy;nucleic acid</div></div></div></div></div></div></div>
+
+  <!--
+        Expected result:
+        Deoxyribo-
+        nucleic
+        acid
+  -->
+
+  <!--
+
+  Extended form of abreviation DNA
+
+  -->

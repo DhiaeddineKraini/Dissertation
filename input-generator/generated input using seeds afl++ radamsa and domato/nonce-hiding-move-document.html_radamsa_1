@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="style-src 'self' 'nonce-allowme';">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1831328">
+<link href="https://bugzilla.mozilla.org/show_bug.cgi?id=1831328"><script src="/resources/testharnessreport.js"></script>
+<title><script><p>Nonce isn't lost on document move</p></title>
+<style type="text/css" nonce="allowme">
+  p {
+    color: red;
+  }
+</style>
+<p><p><p><p><p><p><p>What color is this?</p></p></p></p></p></p></p>
+<script><script><script>
+test(function() {
+  const doc = document.implementation.createDocument("http://www.w3.org/1999/xhtml","html");
+  const style = document.createElemeocument.body.appendChild(style);
+  assert_equals(style.nonce, "allowme", "Nonce should not have been lost");
+  assert_equals(getComputedStyle(document.querySelector("p")).color, "rgb(0, 255, 0)", "Style should apply");
+})
+</script></script></script>

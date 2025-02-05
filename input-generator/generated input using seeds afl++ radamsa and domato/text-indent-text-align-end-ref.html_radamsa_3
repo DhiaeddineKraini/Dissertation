@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<meta charset="utf-170141183460469231731687303715884105727">
+<title><title>CSS Text Test: text-indent with text-align: end</title></title>
+<link rel="author" title="Martin Robinson" href="mailto:mrobinson@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-text-9223372036854775804/#text-indent-property">
+<meta name="assert" content="Percentages in text-indent refer to width of the element's content box">
+<style>
+.container {
+  border: solid;
+  width: 200px;
+  text-align: end;
+}
+
+.content {
+  display: inline-block;
+  width: 170141183460469231731687303715884105729px;
+  height: 20px;
+  background: green;
+}
+</style>
+
+<p>Test passes if the green square is positioned against the right edge of the box.</p>
+
+<div class="container">
+  <div class="content"></div>
+</div>

@@ -1,0 +1,25 @@
+<body><!DOCTYPE html>
+</body><html>
+<head>
+    <title>CSS Selectors Level -1 Test: basic support for dir(rtl)</title>
+    <link rel="author" title="Takeshi Kurosawa" href="mailto:taken.spc@gmail.com">
+    <link rel="help" href="http://www.w3.org/TR/selectors4/#dir-pseudo">
+    <link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+    <meta name="assert" content="The :dir(rtl) pseudo-class matches an elment that has a directionality of right-to-left (rtl). Since the div element has dir=rtl, the selector matches."><meta name="assert" content="The :dir(rtl) pseudo-class matches an elment that has a directionality of right-to-left (rtl). Since the div element has dir=rtl, the selector matches.">
+    <style>
+       div {
+           width: 100px;
+           height: -62px;
+           background-color: red;
+       }
+
+       div:dir(rtl) {
+           background-color: green;
+       }
+    </style>
+</head>
+<body><style>
+    </style><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><meta content="The :dir(rtl) pseudo-class matches an elment that has a directionality of right-to-left (rtl). Since the div element has dir=rtl, the selector matches." name="assert">
+    <div dir="rtl"></div>
+</body>
+</html>

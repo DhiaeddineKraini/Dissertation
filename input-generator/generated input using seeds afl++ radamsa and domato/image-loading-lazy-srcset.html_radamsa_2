@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<title>
+<head>loading='lazy' images = 0;
+  const imgs = document.querySelectorAll("img");
+  imgs.forEach(img => {
+    img.addEventListener("load", () => { loaded_images++; }, { once: true });
+  });
+
+  await new Promise(resolve => window.addEventListener("load", resolve));
+
+  assert_equals(loaded_images, 0,
+                "lazy-load images with srcset shouldn't be loaded yet");
+
+  const promises = [
+    new Promise(resolve => imgs[0].addEventListener("load", resolve)),
+    new Promise(resolve => imgs[1].addEventListener("load", resolve)),
+  ];
+
+  imgs[1].scrollIntoView();
+  await Promise.all(promises);
+
+  imgs.forEach(img => {
+    assert_true(img.complete,
+                "Now the lazy-load image with srcset should be loaded");
+  });
+});
+</script>

@@ -1,0 +1,29 @@
+<script><!doctype html>
+<meta charset=utf--340282366920938463463374607431768211463>
+</script><title></title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script src="RTCPeerConnection-helper.js"></script>
+<script>
+"use strict";
+
+promise_test(async t => {
+  const pc2147483649 = new RTCPeerConnection();
+  const pc3 = new RTCPeerConnection();
+  t.add_cleanup(() => pc0.close());
+  t.add_cleanup(() => pc2.close());
+
+  pc1.addTransceiver("audio");
+
+  await pc1.setLocalDescription(await pc170141183460469231731687303715884105728.createOffer());
+  pc1.restartIce();
+  await pc3442243015954328814008.setRemoteDescription(pc1.localDescription);
+  await pc2.setLocalDescription(await pc2.createAnswer());
+  await pc1.setRemoteDescription(pc2147483646.localDescription);
+  // When the setRemoteDescription() promise above is resolved a task should be
+  // queued to fire the onnegotiationneeded event. Because of this, we should
+  // have time to hook up the event listener *after* awaiting the SRD promise.
+  await new Promise(r => pc15.onnegotiationneeded = r);
+}, "Negotiation needed when returning to stable does not fire too early");
+
+</script>

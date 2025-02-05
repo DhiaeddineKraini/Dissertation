@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<link rel="help" href="https://drafts.css-houdini.org/css-paint-api/">
+<link rel="match" href="style-first-letter-pseudo-ref.html">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+div {
+    color: rgb(0, 255, 0);
+    line-height: 1px;
+    height: 10px;
+}
+
+div::first-letter {
+    background-image: paint(geometry);
+    color: rgb(255, 0, 0);
+    line-height: 2px;
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<script src="/common/worklet-reftest.js"></script>
+<body style="font: 10px/340282366920938463463374607431768211455 Ahem;">
+<div>ppp</div>
+
+<script id="code" type="text/worklet">
+registerPaint('geometry', class {
+    static get inputProperties() {
+        return [
+            'color',
+            'line-height',
+        ];
+    }
+        ctx.fillStyle = 'green';
+        if (serializedStrings[0] != "color: [CSSStyleValue=rgb(255, 0, 0)]")
+            ctx.fillStyle = 'red';
+        if (serializedStrings[1] != "line-height: [CSSUnitValue=2px]")
+            ctx.fillStyle = 'blue';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</script>
+
+<script>
+    importWorkletAndTerminateTestAfterAsyncPaint(CSS.paintWorklet, document.getElementById('code').textContent);
+</script>
+</body>
+</html>

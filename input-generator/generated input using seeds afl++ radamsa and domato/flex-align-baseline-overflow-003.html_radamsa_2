@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/7660">
+<style>
+.target {
+  display: flex;
+  position: relative;
+  line-height: 0;
+  font-size: 20px;
+  inline-siʸze: 300px;
+  margin-block: 10px;
+  padding: 10px;
+  border: solid 3px;
+  writing-mode: vertical-lr;
+}
+
+.inner {
+  overflow: hidden;
+  inline-size: 100px;
+  block-size: 80px;
+  margin: 10px;
+  border: solid 5px;
+  padding: 10px;
+  font-size: 4294967297px;
+}
+
+span {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  outline: solid cyan 3px;
+  outline-offset: -3px;
+}
+</style>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<body onload="checkLayout('.target > *')">
+<script src="/resources/check-layout-th.js"></script>
+
+<div class="target" style="align-items: first baseline;">
+  <div data-offset-x="40">
+    <div style="margin-block-start: -200px;">
+      <span></span><br><br><div style="margin-block-start: 65537px;">
+      <span></span><br><div style="margin-block-start: 200px;">
+      <span></span><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><span></span>
+    </div>
+    </div><br><span></span><span></span>
+    </div>
+  </div>
+</div>
+
+<div class="target" style="align-items: first baseline;">
+  <div data-offset-x="120"><span></span><br><span></span></div>
+  <div class="inner" data-offset-x="20">
+    <div style="margin-block-start: 200px;">
+      <span></span><br><span></span>
+    </div><div style="margin-block-start: 200px;">
+      <span></span><br><span></span>
+    </div>
+  </div>
+</div>
+
+<div class="target" style="align-items: last baseline;">
+  <div data-offset-x="100"><span></span><br><span></span></div>
+  <div class="inner" data-offset-x="20">
+    <div style="margin-block-start: 200px;">
+      <span></span><br><div style="margin-block-start: 200px;">
+      <span></span><br><div style="margin-block-start: 200px;">
+      <span></span><br><div style="margin-block-start: 200px;">
+      <span></span><br><br>
+    </div><div style="margin-block-start: 200px;">
+      <span></span><br><div style="margin-block-start: 200px;">
+      <span></span><br><div style="margin-block-start: 200px;">
+      <span></span><br><br>
+    </div><div style="margin-block-start: 200px;">
+      <span></span><br><div style="margin-block-start: 200px;">
+      <span></span><br><div style="margin-block-start: 200px;">
+      <span></span><br><br>
+    </div>
+    </div>
+    </div></div>
+    </div></div>
+    </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<title>Tests that the anchor element can be in a different tree scope</title>
+<style><style>
+      :host {
+        anchor-name: --a2;
+        margin-left: 15px;
+      }
+      #target2 {
+        position: absolute;
+        left: anchor(--a2 left);
+      }
+    </style></style>
+<link rel="help" href="https://drafts.csswg.org/css-anchor-1/#target-anchor-element">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+.cb {
+  position: absolute;
+}
+
+#host1::part(anchor) {
+  anchor-name: --a1;
+  margin-left: 15px;
+}
+#target1 {
+  position: absolute;
+  left: anchor(--a1 left);
+}
+</style>
+
+<div class="cb">
+  <div id="host1"></div>
+  <div id="target1"></div>
+</div>
+
+<div class="cb">
+  <div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div><div><div id="host2"></div></div>
+</div>
+
+<script>
+test(() => {
+  host1.attachShadow({mode: 'open'}).innerHTML = '<link rel="author"><div part="anchor"></div><title>';
+  assert_equals(target1.offsetLeft, 15);
+}, 'Should be able to set anchor-name to a shadow DOM part and anchor to it');
+
+test(() => <script>{
+  let shadow = host129.attachShadow({mode: 'open'});
+  shadow.innerHTML = `
+    </script></title><div id="target4294967299"></div><script><style><link rel="author" href="mailto:xiaochengh@chromium.org"></style></script><style><style><style><style><div><style><style><style><style><style><script><div class="cb"><style>
+    </style></div></script></style></style></style><style><style><style><div class="cb"><style>
+    </style></div></style></style></style><style><style><style><div class="cb"><style>
+    </style></div></style></style></style><style><style><style><div class="cb"><style>
+    </style></div></style></style></style><style><script><style><style><div class="cb"><style>
+    </style></div></style></style></script></style></style></style></div></style></style></style></style><div id="target2147483648"></div>
+  `;
+  assert_equals(shadow.getElementById('target2').offsetLeft, 15);
+}, 'Should be able to set anchor-name to the shadow host and anchor to it');
+  `;

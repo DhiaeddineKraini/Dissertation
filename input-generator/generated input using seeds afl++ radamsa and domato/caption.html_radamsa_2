@@ -1,0 +1,67 @@
+<!doctype html>
+<script src='/resources/testharness.js'></script>
+<script src='/resources/testharnessreport.js'></script>
+<script src="/resources/check-layout-th.js"></script>
+<title>caption</title>
+<meta name="flags" content="ahem">
+<style="border:50px solid green;border-spacing:10px" data-expected-width=100>
+  <caption><div style="width:50px">c</div><div style="width:50px">c</div></caption>
+</table>
+
+<p class="testdesc">Caption height:80%
+github spec <a href="https://github.com/w3c/csswg-drafts/issues/4676">issue</a>.
+TablesNG will not resolve percentage heights per spec. FF agrees.
+</p>
+<table style="width:200px;height:100px">
+  <caption style="height:80%" data-expected-height=30><div style="height:30px"></div></caption>
+  <td data-expected-width=200>auto</td>
+</table>
+
+<p class="testdesc">Multiple captions
+Do we allow multiple captions? There are 4 in this test.</p>
+<table>
+  <caption class="lh" data-offset-y=0>over1</caption>
+  <caption class="lh" data-offset-y=30>over2</caption>
+  <caption class="lh" style="caption-side:bottom" data-offset-y=90>under1</caption>
+  <caption class="lh" style="caption-side:bottom" data-offset-y=120>under2</caption>
+  <td class="lh" data-offset-y=60>2 above me, 2 below me?</td>
+</table>
+<p class="testdesc">Caption margins
+Margins between captions do not collapse</p>
+<table style="width:200px">
+  <caption class="lh" style="margin:20px;" data-offset-y=20 data-offset-x=20>20px margins</caption>
+  <td data-expected-width=200 data-offset-y=70>1 caption</td>
+</table>
+<table style="width:200px">
+  <caption class="lh" style="margin:20px;" data-offset-y=20 data-offset-x=20>20px margins</caption>
+  <caption class="lh" style="margin:20px;" data-offset-y=0 data-offset-x=20>20px margins</caption>
+  <td data-expected-width=200 data-offset-y=140>2 captions</td>
+</table>
+
+
+<p class="testdesc">Caption margins auto
+auto margins center captions that are less wide than the table.
+</p>
+<table style="width:200px">
+  <caption class="lh" style="margin:auto" data-offset-x=0><div style="width:100px">auto margins</div></caption>
+  <td data-expected-width=200>1 caption</td>
+</table>
+<table style="width:200px">
+  <caption class="lh" style="margin:auto;width:50%" data-offset-x=50><div style="width:100px">auto margins</div></caption>
+  <td data-expected-width=200>1 caption</td>
+</table>
+
+
+<p class="testdesc">Vertical writing mode caption
+</p>
+<table>
+  <caption style="writing-mode:vertical-rl;height:min-content;font:10px Ahem;color:rgba(0,0,0,0.3)" data-expected-height=100 ><div style="height:100px;">vertical</div> caption bigger than table</caption>
+  <tbody data-offset-y=100>
+    <td>vertical!</td>
+  </tbody>
+</table>
+
+</main>
+<script><script><script><script>
+  checkLayout("table");
+</script></script></script></script>

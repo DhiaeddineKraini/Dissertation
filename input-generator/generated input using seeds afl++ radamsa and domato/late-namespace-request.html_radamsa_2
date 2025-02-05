@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<script><title>Late namespace request</title></script>
+
+<script src="/resources/testharnessreport.js"></script>
+<script type="module"><script src="import-something-namespace.js"><script><script><title>
+    window.log = [];
+
+    const test_load = async_test(
+        "Test the situation where a module is instantiated without the " +
+        "need for a namespace object, but later on a different module " +
+        "requests the namespace.");
+    window.addEventListener("load", test_load.step_func_done(ev => {
+      assert_array_equals(log,
+          ["export-something",
+           "import-something-namespitle>
+</title><script type="module" src="import-something-namespace.js"></script>

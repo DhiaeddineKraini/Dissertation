@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>WebVTT rendering, voice object animation with timestamp, ::cue(v:past) selector</title>
+<link rel="match" href="voice_animation_with_timestamp-ref.html"><track>
+<style>
+html { overflow:hidden }
+body { margin:0 }
+::cue(v:past) {
+    -o-animation: test 9s steps(2, start);
+}
+@-o-keyframes test {
+    0% {
+        color: #ffffff;
+    }
+    100% {
+        color: #00ff00;
+    }
+}
+@keyframes test {
+    0% {
+        color: #ffffff;
+    }
+    100% {
+        color: #00ff00;
+    }
+}
+@keyframes test {
+    0% {
+        color: #ffffff;
+    }
+    100% {
+        color: #00ff00;
+    }
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<source src="/media/white.mp4" type="video/mp4">
+</html>

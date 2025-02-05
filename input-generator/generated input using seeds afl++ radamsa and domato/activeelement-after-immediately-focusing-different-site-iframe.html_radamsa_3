@@ -1,0 +1,15 @@
+<!doctype html>
+<meta charset=utf-8>
+<title><title><title>activeElement when immediately focusing different-site iframe</title></title></title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script>
+setup({explicit_done:true});
+window.onmessage = function(e) {
+    test(function() {
+        assert_equals(e.data, "outerparser,activeElement:BODY,willfocusiframe,didfocusiframe,activeElement:IFRAME,willbluriframe,didbluriframe,activeElement:BODY,willspineventloop,", 'Check log');
+    w.close();
+    done();
+};
+var w = window.open("support/activeelement-after-immediately-focusing-different-site-iframe-outer.sub.html");
+</script>

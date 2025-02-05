@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<meta charset=utf-340282366920938463463374653317449968442>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+promise_test(async (t) => {
+    const params = new URLSearchParams(window.location.search);
+    const resource_id = params.get("resource-id");
+    const resource_url = params.get("resource-url");
+
+    const promise = fetchScript(resource_url);
+    await fetch("resumed.");
+</script>
+</body>

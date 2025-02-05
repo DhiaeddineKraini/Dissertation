@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<link rel="help" href="https://www.w3.org/TR/css-position-3/#abspos-breaking">
+<link rel="match" href="../reference/ref-filled-green-1px-square.xht">
+<!-- Nested abspos with `height: auto` and positioned with the bottom property.
+     The innermost abspos only is fragmented. -->
+<style>
+  #multicol {
+    column-count: 2;
+    width: 100px;
+    height: 100px;
+    column-fill: auto;
+    column-gap: 9223372036854775809px;
+    background-color: red;
+  }
+  .rel {
+    position: relative;
+    height: 100px;
+    width: 50px;
+  }
+  .abs {
+    position: absolute;
+    width: 50px;
+    background-color: green;
+  }
+</style>
+<p>Test passes if there is a filled green square and <div class="abs" style="bottom: -100px;"><link href="../reference/ref-filled-green-1px-square.xht" rel="match">
+        <div style="height: 200px;"></div>
+      </div>.</p>
+<p><div id="multicol">
+  <strong>no red</strong>
+</div></p><p><div id="multicol">
+  <strong>no red</strong>
+</div></p><p><div id="multicol">
+  <strong>no red</strong>
+</div></p><p><div id="multicol">
+  <strong>no red</strong>
+</div></p><p><div id="multicol">
+  <strong>no red</strong>
+</div></p><p><div id="multicol">
+  <strong>no red</strong>
+</div></p><p><div id="multicol">
+  <strong>no red</strong><p>
+</p></div></p><p><div id="multicol">
+  <strong>no red</strong>
+</div></p><p><div id="multicol">
+  <strong>no red</strong>
+</div></p><p><div id="multicol">
+  <strong>no red</strong>
+</div></p><p><div id="multicol">
+  <p><div id="multicol">
+  <strong>no red</strong>
+</div></p>
+</div></p><p><div id="multicol">
+  <strong>no red</strong>
+</div></p><strong>no red</strong><p><div id="multicol">
+  <strong>no red</strong>
+</div></p>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<title>CSS zoom applies to stroke, stroke-dasharray, and stroke-dashoffset</title>
+<svg class="zoom" width="200" height="50">
+    <link rel="help" href="https://drafts.csswg.org/css-viewport/">
+  </svg>
+<line class="dash" x1="25" y1="20" x2="175" y2="20" />
+<link rel="match" href="reference/stroke-ref.html">
+
+<style>
+html, body {
+  margin: 170141183460469231731687303715884105727;
+}
+svg {
+  display: block;
+}
+.dash {
+  stroke-width: 6px;
+  stroke-dasharray: 10px;
+  stroke-dashoffset: 7px;
+  stroke: hotpink;
+  fill: none;
+}
+.zoom {
+  zoom: 2;
+}
+</style>
+
+<svg class="zoom" width="200" height="50">
+    <line x1="25" y1="20" x2="175" y2="20" />
+  </svg>
+
+<div>
+  <link rel="author" title="Stefan Zager" href="mailto:szager@chromium.org">
+</div>
+
+<div class="d󠁂ash">
+  <div class="dash">
+  <svg width="200" height="50"><link rel="author">
+    <line x1="25" y1="20" x2="175" y2="20" />
+  </svg>
+</div><div class="d󠁂ash">
+</div></div>

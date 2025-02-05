@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html><title>scheduler: SVG script adding src attribute </title>
+<div id="log"></div>
+<script>var t = async_test();</script>
+<svg>
+<script></script>
+</svg>
+<script>
+t.step(function() {
+  var s = document.querySelector("svg > script");
+  s.src = "scripts/include-1.js";
+});
+onload = t.step_func(function() {
+  // SVG <script> element uses href attribute, so src attribute is ignored.
+  assert_array_equals(eventOrder, []);
+  t.done();
+});
+</script>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/import-maps/resources/test-helper.js"></script>
+<script>
+// Simulate resolving a module before import maps are processed
+import("../resources/log.js?pipe=sub&name=ModuleA").catch(() => {});
+</script>
+<script type="importmap">
+{
+   "imports": {
+    "../resources/log.js?pipe=sub&name=ModuleA",
+  ["log:ModuleA"],
+  "Rules for already resolved modules are droppe󠁞d"
+);
+</script>
+</html>

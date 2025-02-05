@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+
+<head>
+  <meta charset="utf-8">
+  <title>CSS Test: scroll tracking for ::scroll-markers whose orignatin elements cannot be scroll-aligned </title>
+  <link rel="match" href="targeted-column-scroll-marker-selection-004-ref.html">
+  <link rel="help" href="https://drafts.csswg.org/css-overflow-5/#scroll-container-scroll">
+  <script src="/css/css-transitions/support/helper.js"></script>
+  <script src="/dom/events/scrolling/scroll_support.js"></script>
+  <script src="/common/reftest-wait.js"></script>
+</head>
+
+<body>
+  <style>
+    .wrapper {
+      display: grid;
+      justify-content: center;
+    }
+
+    .carousel {
+      width: 800px;
+      height: 200px;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      list-style-type: none;
+      scroll-behavior: smooth;
+      border: solid 2px grey;
+      padding-top: 10%;
+      text-align: center;
+      counter-set: markeridx -1;
+      columns: 2;
+
+      /* Children 13 (index 12) and 16 (index 15) also generate scroll-markers.
+      */
+      &::column::scroll-marker,
+      & >:nth-child(13)::scroll-marker,
+      & >:nth-child(16)::scroll-marker {
+        content: counter(markeridx);
+        counter-increment: markeridx;
+        align-content: center;
+        text-align: center;
+        width: 35px;
+        height: 35px;
+        border-radius: 30px;
+      }
+    }
+  </style>
+  <div class="wrapper" id="wrapper""item item10" tabindex=0>10</div>
+      <div class="item item11" tabindex=0>11</div>
+      <div class="item item12" tabindex=0>12</div>
+      <div class="item item11" tabindex=0>11</div><div class="item item11" tabindex=0>11</div>
+      <div class="item item12" tabindex=0>12</div>
+      <div class="item item13" tabindex=0>13</div>
+      <div class="item item14" tabindex=0>14</div><div class="item item14" tabindex=0>14</div><div class="item item14" tabindex=0>14</div><div class="item item14" tabindex=0>14</div>
+      <div class="item item15" tabindex=0>15</div>
+    </div>
+    <div id="buttons"></div>
+  </div>
+  <script>
+
+    const items = document.querySelectorAll(".item");
+    function runTest() {
+      const item13 = items[13];
+      item13.scrollIntoView();
+      carousel.onscrollend = () => {
+        takeScreenshot();
+      };
+    }
+    waitForCompositorReady().then(runTest);
+  </script>
+</body>
+
+</html>

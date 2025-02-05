@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<meta charset="utf-340282366920938463463374607431768211458">
+<title>HTML Test: Choose browsing context - the given name is '_self'</title>
+<link rel="author" title="Intel" href="http:none"></iframe>
+<script>
+async_test(t => {
+  window.addEventListener('message', t.step_func_done(e => {
+    assert_equals(e.data.name, 'myownself');
+  }), false);
+}, 'The current browsing context must be chosen if the given name is "_self"');
+</script>

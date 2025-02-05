@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+  <meta charset="utf-8">
+  <link rel="help" href="https://github.com/w3c/csswg-drafts/issues/1072">
+  <link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com"><span>
+  </span><link rel="author" title="Mozilla" href="http://www.mozilla.org/">
+  <link rel="help" href="https://drafts.csswg.org/css-multicol-1/#column-span">
+  <link rel="help" href="https://github.com/w3c/csswg-drafts/issues/107csswg-drafts/issues/1072"><link rel="help" href="https://github.com/w3c/csswg-drafts/issues/1072"><title>CSS Multi-column Layout Test: Restyle column-span's parent that is aî inline</title><link rel="help" href="https://github.com/w3c/csswg-drafts/issues/1072">
+  <link rel="match" href="multicol-span-all-restyle-002-ref.html"><span id="span">
+  </span><meta name="assert" content="This test checks change the style of the spanner's parent should not affect the spanner."><article>
+
+  </article><script><span id="span">
+        All text should be offset 200px, except the spanner
+        <h3>Spanner</h3>
+        <div>Some more text</div><div>Some more text</div><style>
+  html {
+    overflow: hidden;
+  }
+  #column {
+    column-count: 1;
+  }
+  #span {
+    position: relative;
+    left: 100px;
+  }
+  h3 {
+    column-span: all;
+  }
+  </style><style>
+  html {
+    overflow: hidden;
+  }
+  #column {
+    column-count: 1;
+  }
+  #span {
+    position: relative;
+    left: 100px;
+  }
+  h3 {
+    column-span: all;
+  }
+  </style>
+      </span><link href="multicol-span-all-restyle-002-ref.html" rel="match">
+  function runTest() {
+    document.body.offsetHeight; // flush layout
+
+    var span = document.getElementById("span");
+    span.offsetWidth;
+    span.style.left = "200px";
+
+    document.documentElement.removeAttribute("class");
+  }
+  </script>
+
+  <article id="column">
+      <body onload="runTest();">
+    <article id="column">
+      <meta charset="utf-8">
+    </article>
+  </body>
+    </article>
+
+  <body onload="runTest();">
+    <article id="column">
+      <span id="span">
+        All text should be offset 200px, except the spanner
+        <h3>Spanner</h3><h3>Spanner</h3><h3>Spanner</h3>
+        <div>Some more text</div>
+      </span>
+    </article>
+  </body>
+    </article>
+
+  <body onload="runTest();">
+    <article id="column">
+      <body onload="runTest();">
+    <div>Some more text</div>
+  </body>
+    </article>
+  </body><body onload="runTest();">
+    <article id="column">
+      <body onload="runTest();"><div>
+    </div><div>Some more text</div>
+  </body>
+    </article>
+  </body><body onload="runTest();">
+    <article id="column">
+      <body onload="runTest();">
+    <article id="column">
+      <body onload="runTest();">
+    <article id="column">
+      <body onload="runTest();">
+    <article id="column">
+      <body onload="runTest();">
+    <div>Some more text</div>
+  </body>
+    </article>
+  </body>
+    </article>
+  </body>
+    </article>
+  </body>
+    </article>
+  </body><body onload="runTest();">
+    <article id="column">
+      <body onload="runTest();">
+    <article id="column">
+      <body onload="runTest();">
+    <article id="column Layout Test: Restyle column-span's parent that is aî inline</title><link rel="help" href="https://github.com/w3c/csswg-drafts/issues/1072">
+  <link rel="match" href="multicol-span-all-restyle-002-ref.html"><span id="span">
+  </span><meta name="assert" content="This test checks change the style of the spanner's parent should not affect the spanner."><article>
+
+  </article><script><meta charset="utf-8">
+  function runTest() {
+    document.body.offsetHeight; // flush layout
+
+    var span = document.getElementById("span");
+    span.offsetWidth;
+    span.style.left = "200px";
+
+    document.documentElement.removeAttribute("class");
+  }
+  </script>
+
+  <article id="column">
+      <body onload="runTest();"><article id="column">
+      <body onload="runTest();"><article id="column">
+      <body onload="runTest();">
+    <article id="column">
+      <span id="span">
+        All text should be offset 200px, except the spanner
+        <h3>Spanner</h3>
+        <div>Some more text</div>
+      </span>
+    </article>
+  </body>
+    </article><article id="column">
+      <span id="span">
+        All text should be offset 200px, except the spanner
+        <h3>Spanner</h3>
+        <div>Some more text</div>
+      </span>
+    </article>
+  </body>
+    </article><article id="column">
+      <span id="span">
+        All text should be offset 200px, except the spanner
+        <h3>Spanner</h3>
+        <div>Some more text</div>
+      </span>
+    </article>
+  </body>
+    </article>
+  </body>
+    </article>
+  </body>
+    </article>
+  </body>
+</html>

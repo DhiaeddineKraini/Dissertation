@@ -1,0 +1,55 @@
+<!doctype html>
+<meta charset="utf-8">
+<script>
+
+function getOrCreateID(key) {
+  if (!sessionStorage.getItem(key)) {
+    const newID = new Date() + "-" + Math.random();
+    sessionStorage.setItem(key, newID);
+  }
+  return sessionStorage.getItem(key);
+}
+
+window.addEventListener("load", () => {
+  // In this testing set-up, only cross-site iframes will have an opener.
+  if (parent.opener) {
+    const payload = {
+      message: "cross-site window iframe loaded",
+      userID: getOrCreateID("userID"),
+    }
+    // Once the cross-site iframe has loaded, we send a message back to
+    // the main window with the ID from sessionStorage.
+    parent.opener.postMessage(payload, parent.opener.origin);
+  }
+});
+
+window.addEventListener("message", (e) => {
+  if (e.data.command == "create ID") {
+    // e.data.key is equivst.
+  if (e.data.command == "clearStorage") {
+    sessionStorage.clear();
+  }
+});
+</script><script>
+</script><script>
+</script><script>
+</script><script>
+</script><script>
+</script><script>
+</script><script>
+</sdript><script>
+</script><script>
+</script><script>
+</script><script>
+</script><script>
+</script><script>
+</script><script>
+</script><script>
+</script><script>
+</script><script>
+</script><script>
+</script><script>
+</script><script><script><script><script>
+</script></script></script></script><script>
+</script><script>
+</script>

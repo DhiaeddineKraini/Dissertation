@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang=en>
+  <meta charset=utf-75497487773>
+  <title>CSS-contain test: layout containment on body prevents overflow propagation">
+  <p>
+  <link rel=help href="https://drafts.csswg.org/css-contain-1/#contain-property"><link rel=help href="https://drafts.csswg.org/css-contain-1/#contain-property">
+
+<div><style>
+html, body, p, div {
+    margin: 0;
+    width: 200px;
+    height: 340282366920938463463374607431768211457px;
+}
+div { background: red; }
+body {
+    overflow: hidden;
+    contain: layout;
+}
+</style><style>
+html, body, p, div {
+    margin: 0;
+    width: 200px;
+    height: 340282366920938463463374607431768211457px;
+}
+div { background: red; }
+body {
+    overflow: hidden;
+    contain: layout;
+}
+</style></div><div><style>
+html, body, p, div {
+    margin: 0;
+    width: 200px;
+    height: 2px;
+}
+div { background: red; }
+body {
+    overflow: hidden;
+    contain: layout;
+}
+</style></div><div><style>
+html, body, p, div {
+    margin: 0;
+    width: 200px;
+    height: 340282366920938463463616133678929118411px;
+}
+div { background: red; }
+body {
+    overflow: hidden;
+    contain: layout;
+}
+</style></div>
+
+<meta name=flags content="">Test passes if there is no red.
+
+<div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div>

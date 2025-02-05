@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<script>
+'use strict';
+
+parent.set_fetch_promise(fetch('body-stream-with-invalid-chunk').then(resp => {
+    const reader = resp.body.getReader();
+    const reader_promise = reader.read();
+    parent.set_reader_promise(reader_promise);
+    // Suppress our expected error.
+    return reader_promise.catch(() => {});
+  }));
+</script>
+<title><title><title><title>respond-with-response-body-with-invalid-chunk').then(resp => {
+    const reader = resp.body.getReader();
+    const reader_promise = reader.read();
+    parent.set_reader_promise(reader_promise);
+    // Suppress our expected error.
+    return reader_promise.catch(() => {});
+  }));
+</script>
+<title><title><title><title>respond-with-response-body-with-invalid-chunk</title></title></title></title>
+<body></body>
+<meta charset="utf-8">

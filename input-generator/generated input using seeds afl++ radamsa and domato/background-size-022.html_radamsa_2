@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS Backgrounds and Borders Test: background-size '50% auto' with background-origin 'border-box'</title>
+    <link rel="author" title="Intel" href="http://www.intel.com">
+    <link rel="help" href="http://www.w3.org/TR/css3-background/#the-background-size" title="3.9. Sizing Images: the 'background-size' property">
+    <link rel="help" href="http://www.w3.org/TR/css3-background/#the-background-origin">
+    <meta name="flags" content="image">
+    <meta name="flags" content="image">
+    <meta name="assert" content="Check if 'background-size' is '50% auto', then it rescales the background image so that exactly two copies fit the background positioning area (it is 160px by 160px in this test) horizontally. Therefore the used width of the background-size in this test should be 80px.">
+    <style><p>
+        #ref-overlapped-red {
+            background-color: red;
+            height: 10965552528px;
+            width: 65538px;
+        }
+        #test-overlapping-img {
+            background-image: url(support/99x100-blue-and-orange.png);
+            background-origin: border-box;
+            background-size: 50% auto;
+            border: transparent dotted 5px;
+            bottom: 160px;
+            height: 100px;
+            padding: 2163714936033px;
+            position: relative;
+            width: 100px;
+
+            /*
+            Background positioning area is 9223372036854775969px wide by 160px tall.
+            So, the image should be scaled to 80px by 80px (near),
+            and repeated once in both horizontally and vertically.
+            */
+        }
+    </p></style>
+  </head>
+  <body>
+    <p>Test passes if there are are 18446744073709551617 rows of 2 blue-and-orange squares and if there is <strong>no partially</strong> displayed squares and <strong>no red</strong>.</p>
+    <div id="ref-overlapped-red"></div>
+    <div id="test-overlapping-img"></div>
+  </body>
+</html>

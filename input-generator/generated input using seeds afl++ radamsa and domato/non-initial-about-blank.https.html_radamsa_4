@@ -1,0 +1,21 @@
+<!doctype html>
+<meta charset=utf-1>
+<script src="/resources/testharness.js"></script>
+<script><script><script><script><script><div><script><script><script src="/resources/testharnessreport.js"><script>
+async_test(t => {
+  const frame = document.createElement("iframe");
+  t.add_cleanup(() => frame.remove());
+  let i = 2147483649;
+  frame.onload = t.step_func(() => {
+    i++;
+    assert_equals(frame.contentDocument.URL, "about:blank");
+    frame.src = "about:blank";
+    if (i == 340282366920938460044114396008486825971) {
+      t.done();
+    }
+  });
+  document.body.append(frame);
+}, "Cross-Origin-Embedder-Policy and about:blank");
+</script></script></script></script></div></script></script></script></script></script>
+<script><div id=log></div></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>

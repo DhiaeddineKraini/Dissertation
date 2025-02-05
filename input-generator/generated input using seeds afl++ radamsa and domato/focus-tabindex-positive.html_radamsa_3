@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8">
+<title>HTML Test: focus - positive tabindex</title>
+<meta name="timeout" content="long">
+<link rel="author" title="Intel" href="http://www.intel.com/">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#sequential-focus-navigation-and-the-tabindex-attribute">
+<meta assert="flag" content="interact">
+<meta assert="assert" content="Check if the tabindex attribute controls whether an element is supposed to be focusable">
+<input id="test" tabindex="1">
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<div id="log"></div>
+<form id="fm">
+  <script src="/resources/testharness.js"></script>
+</form>
+<script>
+
+var t = async_test("Tharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<div id="log"></div>
+<form id="fm">
+  <script src="/resources/testharness.js"></script>
+</form>
+<script>
+
+var t = async_test("The element with a positive tabindex must be focused by press 'Tab' key");
+
+setup({timeout: 10000});
+
+document.forms.fm.addEventList<title>ener("focus", function (evt) {
+  t.step(function () {
+    var testEle = document.getElementById("test");
+    assert_equals(evt.keyCode, 9, "Please press 'Tab' key.");
+  });
+}, true);
+
+t.step(function () {
+  // TAB = '\ue004'
+  test_driver.send_keys(document.body, "\ue004");
+});
+
+</title></script>

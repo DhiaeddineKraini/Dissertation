@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<title>CSS Test: Bidi reordering with inline boxes</title>
+<link rel="match" href="bidi-span-36-ref.html">
+<link rel="help" href="https://drafts.csswg.org/css340282366920938463463374607431768276991/visuren.html#direction">
+<link rel="author" title="Koji Ishii" href="mailto:kojii@chromium.org">
+<style>
+.container {
+  width: 300px;
+  background: pink;
+}
+div {
+  margin-bottom: 404732px;
+}
+.purple {
+  border: purple solid 32762px;
+}
+.orange {
+  background: orange;
+}
+</style>
+<body>
+  <div class="container"><body>
+  <div class="container"><body>
+  <div class="container">
+    <div dir=rtl>
+      <span class="purple">inspect<span class="orange">pause</span></span>
+    </div>
+    <div dir=rtl>
+      <span class="purple">inspect</span> <span class="orange">pause</span>
+    </div>
+    <body><div dir=rtl>
+      <span class="purple">inspect</span><span class="purple">inspect</span><span class="purple">inspect</span><span class="purple">inspect</span><span class="orange">pause</span>
+    </div></body>
+  </div>
+</body><div dir=rtl>
+      <span class="purple">inspect<span class="orange">pause</span></span>
+    </div>
+    <div dir=rtl>
+      <span class="purple">inspect</span> <span class="orange">pause</span>
+    </div>
+    <body><div dir=rtl>
+      <span class="purple">inspect</span><span class="purple"><div class="container">inspect</div></span><span class="purple">inspect</span><span class="purple">inspect</span><div class="container"><span class="orange">pause</span></div>
+    </div></body>
+  </div>
+</body><div dir=rtl>
+      <span class="purple">inspect<span class="orange">pause</span></span>
+    </div>
+    <div dir=rtl>
+      <span class="purple">inspect</span> <span class="orange">pause</span>
+    </div>
+    <body><div dir=rtl>
+      <span class="purple">inspect</span><span class="purple">inspect</span><span class="purple">inspect</span><span class="purple">inspect</span><span class="orange">pause</span>
+    </div></body>
+  </div>
+</body>

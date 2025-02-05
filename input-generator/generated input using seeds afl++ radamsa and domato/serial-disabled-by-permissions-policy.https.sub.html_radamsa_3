@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<body>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/test-only-api.js"></script>
+<script src="/permissions-policy/resources/permissions-policy.js"></script>
+<script>
+'use strict';
+const sub = 'https://{{domains[www]}}:{{ports[https][0]}}';
+const same_origin_src = '/permissions-policy/resources/permissions-policy-serial.html';
+const cross_origin_src = sub + same_origin_src;
+const same_origin_worker_frame_src =
+    '/permissions-policy/resources/permissions-policy-serial-worker.html';
+const cross_origin_src,
+      expect_feature_unavailable_default);
+}, header + ' di    'resources/serial-disabled-by-permissions.policy-worker.js'));
+
+fetch_tests_from_worker(new Worker(
+    'resources/serial-disabled-by-permissions.policy-worker.js'));
+
+</script>
+</body><script><script>

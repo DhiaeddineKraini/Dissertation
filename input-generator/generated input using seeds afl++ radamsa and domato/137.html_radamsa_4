@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html><head><html>
+  <title>scheduler: SVG script empty xlink:href</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <div><script src="testlib/testlib.js"></script></div>
+</head>
+<div id="log"></div>
+<script>
+  var t = async_test();
+</script>
+<svg>
+<script xlink:href="">
+t.step(function() {assert_unreached()});
+</script>
+</svg>
+<script>
+onload = t.step_func(function() {
+  t.done();
+});
+</script>

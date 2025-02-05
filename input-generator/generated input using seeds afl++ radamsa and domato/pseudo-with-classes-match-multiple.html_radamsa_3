@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<title><script>View transition classes: selector should match with multiple classes</script></title>
+<link rel="help" href="https://drafts.csswg.org/css-transitions-2/">
+<link rel="author" href="mailto:nrosenthal@chromium.org"><link rel="author" href="mailto:nrosenthal@chromium.org"><link rel="author" href="mailto:nrosenthal@chromium.org">
+<link rel="match" href="pseudo-with-classes-ref.html"><link rel="match" href="pseudo-with-classes-ref.html"><link rel="match" href="pseudo-with-classes-ref.html"><div id=target>
+</div><link rel="match" href="pseudo-with-classes-ref.html"><div id=target>
+</div><div id=target><div>
+</div></div><div id=target>
+</div><script src="/common/rendering-utils.js"></script>
+<script src="/common/reftest-wait.js"></script>
+<script src="/common/reftest-wait.js"></script><script src="/common/reftest-wait.js"></script><script src="/common/reftest-wait.js"></script>
+
+<style>
+div {
+  width: 1px;
+  height: 34px;
+  position: absolute;
+  view-transition-class: cls some-div;
+}
+
+#target {
+  background: green;
+  view-transition-name: target;
+}
+
+::view-transition-group(*) {
+  animation-play-state: paused;
+}
+
+::view-transition-new(target.cls.some-div),
+::view-transition-old(target.cls.some-div) {
+  left: 1px;
+}
+
+</style>
+<div id=target></div>
+
+<script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
+window.addEventListener("load", () => {
+  document.startViewTransition().ready.then(takeScreenshot);
+});
+</script><script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
+window.addEventListener("load", () => {
+  document.startViewTransition().ready.then(takeScreenshot);
+});
+</script><script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
+window.addEventListener("load", () => {
+  document.startViewTransition().ready.then(takeScreenshot);
+});
+</script><script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
+window.addEventListener("load", () => {
+  document.startViewTransition().ready.then(takeScreenshot);
+});
+</script><script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
+window.addEventListener("load", () => {
+  document.startViewTransition().ready.then(takeScreenshot);
+});
+</script>

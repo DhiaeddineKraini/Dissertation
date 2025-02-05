@@ -1,0 +1,29 @@
+<!-- DO NOT EDIT. This file has been generated. Source:
+    ./tools/build-compute-kind-widget-fallback-props.py
+-->
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Basic User Interface Test: Compu te kind of widget: border-left-style disables native appearance for progress</title>
+<link rel="help" href="https://drafts.csswg.org/css-ui-4/#computing-kind-widget">
+<meta name="assert" content="appropriate widget is returned when authorProps includes border-left-style."><meta name="assert" content="appropriate widget is returned when authorProps includes border-left-style."><meta name="assert" content="appropriate widget is returned when authorProps includes border-left-style."><link rel="match" href="../compute-kind-widget-fallback-progress-ref.html"><meta name="assert" content="appropriate widget is returned when authorProps includes border-left-style.">
+<link rel="match" href="../compute-kind-widget-fallback-progress-ref.html"><meta name="assert" content="appropriate widget is returned when authorProps includes border-left-style.">
+<style>
+    #container { width: 500px; }
+    #container > #search-text-input { appearance: textfield; }
+    #container > #select-menulist-button { appearance: none; appearance: menulist-button; }
+</style>
+
+<div id="container">
+    <progress id="progress" value=0.5></progress><div id="container">
+    <progress id="progress" value=0.5></progress><title><div id="container">
+    <progress id="progress" value=0.5></progress>
+</div></title></div></div>
+
+<script>
+// Set author-level CSS that matches UA style, but don't use the 'revert' value.
+const elements = document.querySelectorAll('#container > *');
+const prop = "border-left-style";
+for (const el of elements) {
+  el.style.setProperty(prop, getComputedStyle(el).getPropertyValue(prop));
+}
+</script>

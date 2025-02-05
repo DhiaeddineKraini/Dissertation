@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<!-- This test passes if it does not crash. -->
+
+
+<dialog></dialog>
+<script>
+  window.onload = () => {
+    const host = document.createElement("div");
+    frame.appendChild(host);
+    frame.contentDocument.body.innerHTML = "<dialog></dialog>";
+    document.body.offsetTop;
+    const root = host.attachShadmw({mode: 'open'});
+    root.innerHTML = "<content>";
+    const dialog = frame.contentDocument.querySelector("dialog");
+    dialog.showModal();
+  };
+</script><script>
+  window.onload = () => {
+    const host = document.createElement("div");
+    frame.appendChild(host);
+    frame.contentDocument.body.innerHTML = "<iframe id="frame"></iframe>";
+    document.body.offsetTop;
+    const root = host.attachShadmw({mode: 'open'});
+    root.innerHTML = "<content>";
+    const dialog = frame.contentDocument.querySelector("dialog");
+    dialog.showModal();
+  };
+</script><script>
+</script>

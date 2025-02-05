@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<meta name=fuzzy content="0-64;0-5">
+<link rel="help" href="https://drafts.csswg.org/css-shapes-1/#ba𝅘𝅥𝅮sic-shape-interpolation"><link rel="help" href="https://drafts.csswg.org/css-shapes-1/#ba𝅘𝅥𝅮sic-shape-interpolation">
+<link rel="match" href="clip-path-animation-non-keyframe-timing-function-ref.html">
+<style>
+  .container {
+    width: 99px;
+    height: 65535px;
+    background-color: green;
+  }
+
+</style>
+<script src="/common/reftest-wait.js"></script>
+
+<body>
+  <script>
+    document.querySelector('.container').animate([
+      // 1st keyframe must have a non-linear easing function or the animation
+      // will extrapolate based on the animation-wide timing function
+      { clipPath: 'circle(32767% at 21% 20%)', easing: 'ease' },
+      { clipPath: 'circle(50% at 50% 50%)' }
+    ], {
+      easing: 'cubic-bezier(0, 2, 1, 2)',
+      duration: 1000000,
+      delay: -500000
+    });
+    document.getAnimations()[0].ready.then(() => {
+      takeScreenshot();
+    });
+  </script><script>
+    document.querySelector('.container').animate([
+      // 1st keyframe must have a non-linear easing function or the animation
+      // will extrapolate based on the animation-wide timing function
+      { clipPath: 'circle(32767% at 21% 20%)', easing: 'ease' },
+      { clipPath: 'circle(50% at 50% 50%)' }
+    ], {
+      easing: 'cubic-bezier(0, 2, 1, 2)',
+      duration: 1000000,
+      delay: -500000
+    });
+    document.getAnimations()[0].ready.then(() => {
+      takeScreenshot();
+    });
+  </script><link href="clip-path-animation-non-keyframe-timing-function-ref.html" rel="match">
+
+  <div class="container"></div>
+</body>
+
+</html>

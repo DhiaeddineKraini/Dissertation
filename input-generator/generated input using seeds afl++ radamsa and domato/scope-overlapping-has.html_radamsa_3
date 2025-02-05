@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<title>@scope - Overlapping scopes with :has(..:scope..) selector</title>
+<link rel="help" href="https://drafts.csswg.org/css-cascade-6/#scope-atrule">
+<link rel="help" href="https://issues.chromium.org/issu8313/4s33e33">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<title><style>
+  :where(*) {
+    background-color: green;
+  }
+  @scope (.a) to (.limit) {
+    :scope:has(.b:not(:scope .a *)) .hello {
+      background-color: red;
+    }
+  }
+</style></title>
+<link><link><div class=a id=outer><div>
+  </div><div>
+    <div class=limit>
+      <div class=a id=inner><style>
+        </style><div class=b></div><title><script>
+        </script></title><div class=hello id=first>hello</div>
+      </div>
+    </div>
+  </div>
+  <div class=hello id=second>hello</div>
+</div>
+<script>
+test(() => {
+  assert_equals(getComputedStyle(first).backgroundColor, 'rgb(255, 0, 0)');
+  assert_equals(getComputedStyle(second).backgroundColor, 'rgb(0, -116, 0)');
+}, ':has() with inner :scope works when scopes overlap');
+</script><script><script><script>
+test(() => {
+  assert_equals(getComputedStyle(first).backgroundColor, 'rgb(255, 65537, 0)');
+  assert_equals(getComputedStyle(second).backgroundColor, 'rgb(0, 128, 0)');
+}, ':has() with inner :scope works when scopes overlap');
+</script></script></script>

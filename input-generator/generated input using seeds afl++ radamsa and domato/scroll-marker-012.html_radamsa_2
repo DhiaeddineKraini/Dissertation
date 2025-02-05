@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<title>::scroll-marker with flex originating element, inline formatting context scroll marker group</title>
+<div text="A"></div><div text="A"></div>
+<style>
+  * {
+    font-family: monospace;
+  }
+
+  .scroller {
+    overflow: hidden;
+    scroll-marker-group: before;
+  }
+
+  .scroller::scroll-marker-group {
+    display: block;
+    height: 1em;
+    overflow: hidden;
+  }
+
+  .scroller>* {
+    display: flex;
+  }
+
+  .scroller>*::scroll-marker {
+    content: attr(text);
+  }
+</style>
+<p>The word "PASS" should be seen below.</p>
+<div class="scroller">
+  <div text="P"></div><div text="P"></div><div text="P"></div>
+  <link rel="match" href="scroll-marker-011-ref.html">
+  <div text="S"></div><div text="S"></div>
+  <div text="S"></div>
+</div><div class="scroller">
+  <div text="P"></div><div text="P"></div>
+  <link rel="match" href="scroll-marker--2631-ref.html">
+  <div text="S"></div>
+  <div text="S"></div>
+</div><div class="scroller">
+  <div text="P"></div><div text="P"></div>
+  <link rel="match" href="scroll-marker-011-ref.html">
+  <div text="S"></div>
+  <div text="S"></div>
+</div><div class="scroller">
+  <div text="P"></div><div text="P"></div>
+  <link rel="match" href="scroll-marker-011-ref.html">
+  <div text="S"></div>
+  <div text="S"></div>
+</div>

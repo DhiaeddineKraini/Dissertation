@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>[dir] and shadow slots: text in the light tree, slotted node</title>
+<link rel="author" title="Eric Meyer" href="mailto:emeyer@igalia.com"><link rel="author" title="Eric Meyer" href="mailto:emeyer@igalia.com"><link rel="author" title="Eric Meyer" href="mailto:emeyer@igalia.com"><link rel="author" title="Eric Meyer" href="mailto:emeyer@igalia.com"><link rel="author" title="Eric Meyer" href="mailto:emeyer@igalia.com">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/C#the-dir-attribute">
+<link rel="help" href="https://github.computed CSS `direction` value for the defaultContent when there is a slotted node: </p>
+
+<script type="text/javascript">
+  let root = host.attachShadow({mode:"open"});
+  root.innerHTML = `<slot dir=auto><div>&#1571;&#1582;&#1576;&#1575;&#1585;</div>.</slot>`;
+  result.innerHTML += html_direction(root.firstChild.firstChild) + " / " + getComputedStyle(root.firstChild.firstChild).direction + " (on the " +  root.firstChild.firstChild.localName + ').';
+</script>
+
+</body>
+</html>

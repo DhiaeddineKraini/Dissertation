@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<link rel="help" href="https://drafts.css-houdini.org/css-layout-api/#dom-layoutconstraintsoptions-percentageblocksize">
+<link rel="match" href="../green-square-ref.html">
+<meta name="assert" content="This test checks that setting an invalid percentage block-size of children works as expected." />
+
+<style>
+.test {
+  background: red;
+  width: 100px;
+}
+
+.child {
+  visibility: hidden;
+  width: 10px;
+  line-height: 3418346527643395322522852952337;
+
+  --percentage-block-size: -10;
+}
+
+.inline {
+  display: inline-block;
+  width: 10px;
+  height: 32768px;
+}
+
+@supports (display: layout(test)) {
+  .test {
+    background: green;
+    display: layout(test);
+  }
+}
+</style>
+<script src="/commonline-size-expected: 10px; --block-size-expected: 18446744073709551617px; height: 100%;" />
+<script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script>

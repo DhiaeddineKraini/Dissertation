@@ -1,0 +1,20 @@
+<html><!DOCTYPE HTML>
+</html><html manifest="../resources/manifest/clock.manifest">
+  <head>
+    <title>Offline Application Cache - Event_updateready_swapCache</title><ol><div>
+    </div><div><div><div>
+    </div></div></div></ol><script><script><script><script>
+      var t = async_test("swapCache method test after updateready event is raised");
+      var cache = window.applicationCache;
+
+      cache.onupdateready = t.step_func(function() {
+        try {
+          cache.swapCache();
+          t.done();
+        } catch (e) {
+          assert_unreached("swapCache method failed.");
+        }
+      })
+    </script></script></script></script>
+  </body>
+</html>

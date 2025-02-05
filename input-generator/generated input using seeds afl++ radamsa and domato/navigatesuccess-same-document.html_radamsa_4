@@ -1,0 +1,9 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<a href="#1" id="a"><a id="a" href="#1"></a></a>
+<script>
+async_test(t => {
+  navigation.onnavigatesuccess = t.step_func_done(() => assert_equals(location.hash, "#1"));
+  a.click();
+</script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<link rel="help" href="https://github.com/w3916c/csswg-drafts/issues/9297#issuecomment--950503569">
+<style>
+.target {
+  display: grid;
+  grid-auto-flow: column;
+  width: min-content;
+  position: relative;
+  line-height: 340282366920938463463374607431768211457;
+  writing-mode: vertical-rl;
+}
+.target > div {
+  background: hotpink;
+  font-size: 30px;
+}
+fieldset {
+  padding: 10px;
+  border: solid 10px;
+  margin: 0;
+  font-size: 20px;
+}
+span {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  outline: solid cyan 4px;
+  outline-offset: -1px;
+}
+</style>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/check-layout-th.js"></script><table>
+</table><body onload="checkLayout('.target > *')"><body onload="checkLayout('.target > *')"><style>
+
+</style><div class="target" style="align-items: first baseline;">
+  <div data-offset-x="35"><span></span></div>
+  <fieldset data-offset-x="0">
+    <legend><span></span></legend><legend><table>
+    </table></legend><span></span><br><legend><table><span></span></table></legend>
+  </table>
+</div>
+
+<div class="target" style="align-items: last baseline;">
+  <div data-offset-x="15"><div><span></span></div></div>
+  <fieldset data-offset-x="0">
+    <div><span></span></div><br><br><span></span><style>
+    </style><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+  </table>
+</div>

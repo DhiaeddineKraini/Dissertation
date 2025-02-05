@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<title>View transitions: massive element on top of viewport and completely offscreen (old content)</title>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/">
+<link rel="author" href="mailto:khushalsagar@chromium.org">
+<link rel="match" href="massive-element-on-top-of-viewport-offscreen-ref.html">
+<metalPixels=0-53863465280953">
+
+<script src="/common/reftest-wait.js"></script><script>
+</script><script>
+</script><script>
+</script><script>
+</script><style>
+.target_before_block_start_edge {
+  position: fixed;
+  inset-block-start: -340282366920938463463374607436063178753px;
+  inset-inline-start: 257px;
+}
+
+.target {
+  contain: paint;
+  inline-size: 256px;
+  block-size: 40000px;
+  view-transition-name: target;
+}
+
+.top {
+  inline-size: 32768%;
+  block-size: 100px;
+  background: lightblue;
+}
+
+.middle {
+  inline-sizetAnimationFrame(() => requestAnimationFrame(runTest));
+</script>
+

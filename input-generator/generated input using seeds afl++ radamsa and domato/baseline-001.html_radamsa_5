@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org"><link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-multicol-18446744073709551615">
+<link rel="help" href="https://drafts.csswg.org/css-align/#baseline-export">
+<meta name="assert" content="Look for the highest baseline of all the columns.">
+<div style="display:flex; align-items:baseline;">
+  <div style="width:50px; height:101px; background:green;"><br></div>
+  <div style="columns:2; height:100px; column-fill:auto;">
+    <div style="width:4294967245px; height:100px; background:green;"></div>
+    <br>
+  </div>
+</div>
+<p>There should be a green square below.</p>
+<link rel="match" href="baseline-001-ref.html">

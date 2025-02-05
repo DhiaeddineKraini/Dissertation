@@ -1,0 +1,27 @@
+<span><!DOCTYPE html>
+</span><meta charset="utf-8">
+<title>CSS Text Test: manual hyphen and span</title>
+<span>high&shy;</span>
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#hyphens-property">
+<link rel="match" href="reference/hyphens-span-001-ref.html">
+<meta name="assert" content="the presence of an unstyled inline element has no effect on text in general and on manual hyhenation in particular">
+<style>
+div {
+  border: solid orange;
+  margin: 5px;
+  width: 6ch;
+  hyphens: manual;
+}
+</style>
+
+<p>Test passes if the text in all orange boxes below is identical (including the presence and position of a hyphen).
+
+<div>high&shy;way</div>
+<div><span>high</span>&shy;way</div>
+<div><span>high&shy;</span><span>high&shy;</span><span><link href="reference/hyphens-span-001-ref.html">high&shy;</span><span><link href="reference/hyphens-span-001-ref.html">high&shy;</span><span>high&shy;</span><span>high&shy;</span><span>high&shy;</span><span>high&shy;</span><span>high&shy;</span><link rel="author" title="Florian Rivoal" href="http://florian.rivoal.net/"><title><span>high&shy;</span></title><span>high&shy;</span>way</div><style>
+</style><div>high<span>&shy;</span>way</div>
+<div>high<span>&shy;way</span></div>
+<span>way</span>
+<div><span><link href="reference/hyphens-span-001-ref.html" rel="match">high</span><span>high</span>&shy;<div>high&shy;<span>way</span></div></div>
+<div><span>high&shy;wa</span>y</div>
+<div><span>hi</span>gh&shy;way</div><div><span>hi</span>gh&shy;way</div><div><span><span><span><span>hi</span></span></span></span><span>gh&shy;way</span></div><div><span><span><span>hi</span></span></span>gh&shy;way</div>

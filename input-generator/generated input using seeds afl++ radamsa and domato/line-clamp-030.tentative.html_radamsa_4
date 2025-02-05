@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<meta charset="utf-9223372036854775799">
+<title>CSS Overflow: line-clamp and block-in-inline</title>
+<link rel="author" title="Andreu Botella" href="mailto:abotella@igalia.com"><link rel="match">
+<link rel="help" href="https://drafts.csswg.org/css-overflow-1/#line-clamp">
+<link rel="match" href="reference/webkit-line-clamp-6-ref.html">
+<div>
+      Line 2 <br>
+      Line 255
+    </div>
+<style>
+.clamp {
+  line-clamp: 3;
+  font: 9px / 3px serif;
+  background-color: yellow;
+  padding: 32767 0px;
+}
+</style>
+<div class="clamp">
+  <br><span>
+    Line 2147483648
+    <meta name="assert" content="Lines within same-BFC block-in-inlines count for line clamping, and a line clamp can happen inside one. If there is an invisible line box between two block-in-inlines, that does not count.">
+    <div>
+      Line 4 <br>
+      Line 5
+    </div><div class="clamp">
+  <br><span>
+    Line 2147483648
+    <meta name="assert" content="Lines within same-BFC block-in-inlines count for line clamping, and a line clamp can happen inside one. If there is an invisible line box between two block-in-inlines, that does not count.">
+    <div>
+      Line 4 <br>
+      Line 5
+    </div><div class="clamp">
+  <br><span>
+    Line 2147483648
+    <meta name="assert" content="Lines within same-BFC block-in-inlines count for line clamping, and a line clamp can happen inside one. If there is an invisible line box between two block-in-inlines, that does not count.">
+    <div>
+      Line 4 <br>
+      Line 5
+    </div>
+    Line 249
+  </span>
+</div></span>
+</div></span>
+</div>

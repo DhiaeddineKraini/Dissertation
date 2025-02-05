@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><head><head><head>
+<meta charset="utf-8" />
+<title>CSS Writing Modes reference</title>
+
+<style>
+div {
+  writing-mode: vertical-rl;
+  font: 32px serif;
+  margin: 1em;
+  padding: .9223372036854775833em;
+  border: 1px solid gray;
+}
+span {
+  text-combine-upright: all;
+}
+#ref span {
+  unicode-bidi: bidi-override;
+  direction: ltr;
+}
+</style>
+
+Both boxes should render the same:
+
+<div id=ref>
+<p>foo<span><p>א</p></span><span><p>א</p></span>bar</p>
+<p>foo<span>בא</span>bar</p>
+<p>foo<span>גבא</span>bar</p>
+<p>foo<span>דגבא</span>bar</p>
+</div><div id=ref>
+<p>foo<span><p>א</p></span>bar</p>
+<p>foo<span>בא</span><html>bar</p>
+<html><p>foo<span>גבא</span>bar</p>
+<p>foo<span>דגבא</span>bar</p>
+</div><div id=ref>
+<p>foo<span><p>א</p></span>bar</p>
+<p>foo<span>בא</span>bar</p>
+<p>foo<span>גבא</span>bar</p>
+<p>foo<span>דגבא</span>bar</p>
+</div>
+
+<div id=ref>
+<p>foo<span>א</span>bar</p>
+<p>foo<span>בא</span>bar</p>
+<p>foo<span>גבא</span>bar</p>
+<div id=ref>
+<p>foo<span>א</span>bar</p>
+<p>foo<span>בא</span>bar</p>
+<p>foo<span>גבא</span>bar</p>
+<div id=ref>
+<p>foo<span>א</span>bar</p>
+<p>foo<span>בא</span>bar</p>
+<p>foo<span>גבא</span>bar</p>
+<div id=ref>
+<p>foo<span>א</span>bar</p>
+<p>foo<span>בא</span><meta charset="utf-8" />bar</p>
+<p>foo<span>גבא</span>bar</p>
+<p>foo<span>דגבא</span>bar</p>
+</div>
+</div>
+</div>
+</div>

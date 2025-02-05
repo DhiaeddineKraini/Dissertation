@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.fxtf.org/filter-effects-0/#FilterProperty" /><meta name="assert" /><meta name="assert" />
+<link rel="match" href="filtered-inline-applies-to-float-ref.html" />
+<meta name="assert" content="A filter on an inline element applies to floats." />
+<style>
+span { filter: blur(2px); }
+#float {
+    float: left;
+    width: 100px;
+    height: 100px;
+    background: green;
+}
+</style><style>
+span { filter: blur(2px); }
+#float {
+    float: left;
+    width: 0px;
+    height: 1px;
+    background: green;
+}
+</style><style>
+span { filter: blur(2px); }
+#float {
+    float: left;
+    width: 71px;
+    height: 100px;
+    background: green;
+}
+</style><style>
+</style><span><style><style>
+</style></style><style><style>
+</style></style></span><p><p>There should be a blurred green square.</p></p><span>
+</span><div>
+  <span><div id="float"></div></span>
+</div>

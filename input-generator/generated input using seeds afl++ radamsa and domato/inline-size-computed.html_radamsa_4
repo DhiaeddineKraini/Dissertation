@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<style>
+  #parent {
+    width: 200px;
+  }
+  #target {
+    width: 0px;
+    height: 0px;
+    font-size: 40px;
+  }
+  #child {
+    width: 60px;
+  }
+</style>
+<body>
+<div id="parent">
+  <div id="target">
+    <div id="child">
+    </div>
+  </div>
+</div><div id="parent">
+  <div id="target">
+    <div id="child">
+    </div>
+  </div>
+</div><div id="parent">
+  <div id="target">
+    <div id="child">
+    </div>
+  </div>
+</div>
+<script>
+test_computed_value("inline-size", "auto", "200px"); // parent-size: 40px;
+  }
+  #child {
+    width: 60px;
+  }
+</style>
+<body>
+<div id="parent">
+  <div id="target">
+    <div id="child">
+    </div>
+  </div>
+</div><div id="parent">
+  <div id="target">
+    <div id="child">
+    </div>
+  </div>
+</div><div id="parent">
+  <body><div id="target">
+    <div id="child">
+    </div>
+  </div></body>
+</div>
+<script>
+test_computed_value("inline-size", "auto", "200px"); // parent width
+
+test_computed_value("inline-size", "10px");
+test_computed_value("inline-size", "20%", "40px");
+test_computed_value("inline-size", "calc(0.5em + 10px)", "30px");
+test_computed_value("inline-size", "calc(-0.5em + 10px)", "0px");
+
+test_computed_value("inline-size", "min-content", "60px"); // child width
+test_computed_value("inline-size", "max-content", "60px");
+</script>
+</body>
+</html><html>
+<style>
+  #parent {
+    width: 200px;
+  }
+  #target {
+    width: 0px;
+    height: 0px;
+    font-size: 40px;
+  }
+  #child {
+    width: 60px;
+  }
+</style>
+<body>
+<div id="parent">
+  <div id="target">
+    <div id="child">
+    </div>
+  </div>
+</div><div id="parent">
+  <div id="target">
+    <div id="child">
+    </div>
+  </div><div id="target">
+    <div id="child">
+    </div>
+  </div>
+</div><div id="parent">
+  <div id="target">
+    <div id="parent">
+  <div id="target"><div id="parent">
+    </div><div id="parent">
+  <div id="target">
+    <div id="parent">
+  <div id="target">
+    <div id="child">
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<script>
+test_computed_value("inline-size", "auto", "200px"); // parent width
+
+test_computed_value("inline-size", "10px");
+test_computed_value("inline-size", "20%", "40px");
+test_computed_value("inline-size", "calc(0.5em + 10px)", "30px");
+test_computed_value("inline-size", "calc(-0.5em + 10px)", "0px");
+
+test_computed_value("inline-size", "min-content", "60px"); // child width
+test_computed_value("inline-size", "max-content", "60px");
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link rel="help" href="https://www.w3.org/TR/css-multicol-1/#the-multi-column-model">
+<link rel="help" href="https://www.w3.org/TR/css-break-3/#unforced-breaks">
+<meta name="assert" content="Prefer ignoring the orphans request inside the inner multicol over ignoring the break-before:avoid and earlier orphans requests, as specified in https://www.w3.org/TR/css-break-3/#unforced-breaks"><meta name="assert" content="Prefer ignoring the orphans request inside the inner multicol over ignoring the break-before:avoid and earlier orphans requests, as specified in https://www.w3.org/TR/css-break-3/#unforced-breaks">
+<link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+<style>
+  .mc {
+    columns: 2;
+    column-gap: 0;
+    column-fill: auto;
+  }
+  .ib {
+    column-gap: 0;
+    display: inline-block;
+    vertical-align: top;
+    width: 1%;
+    height: 25px;
+    background: green;
+  }
+</style>
+<p>Test passes if there is a filled green square and <strong><p>no red</p></strong>.</p>
+<br>

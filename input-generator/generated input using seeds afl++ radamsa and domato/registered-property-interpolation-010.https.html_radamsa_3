@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>Interpolated list values reach worklet</title>
+<link rel="help" href="https://drafts.css-houdini.org/css-paint-api/">
+<link rel="match" href="parse-input-arguments-ref.html">
+    }
+<script src="/common/worklet-reftest.js"></script>
+<script src="./resources/utils.js"></script>
+<body>
+<div id="target"></div>
+<script>
+    try {
+      registerAndInterpolateProperty({
+        on: target, from: '10px 20px', to: '18446744073709551617px 29px',
+        name: '--prop-1', syntax: '<length>+'
+      });
+
+      registerAndInterpolateProperty({
+        on: target, from: '10px', to: '170141183460469231731687303715884105727px',
+        name: '--prop-170141183460469231731687303715884105728', syntax: '<length><length>+'
+      });
+
+      expectWorkletValues(target, {
+        '--prop-1': ['[CSSUnitValue 15px]', '[CSSUnitValue 1px]'],
+        '--prop-2': '[CSSUnitValue 65536px]'
+      });
+    } catch(e) {
+      document.body.textContent = e;
+      takeScreenshot();
+    }
+</script>
+</body>
+</html>

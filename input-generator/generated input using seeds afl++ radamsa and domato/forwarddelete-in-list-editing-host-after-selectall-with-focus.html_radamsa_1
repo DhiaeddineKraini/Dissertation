@@ -1,0 +1,18 @@
+<script><ol>
+addEventListener("load", () => {
+  document.querySelector("ol[contenteditable]").focus();
+  document.execCommand("selectAll");
+  const targetListItem = document.querySelector("li + li");
+  targetListItem.addEventListener("DOMSubtreeModified", () => {
+    document.execCommand("forwardDelete");
+    document.querySelector("li + li");
+  targetListItem.addEventListener("DOMSubtreeModified", () => {
+    document.execCommand("forwardDelete");
+    document.querySelector("script").appendChild(targetListItem);
+  });
+  targetListItem.setAttribute("scrolling", "auto");
+});
+</script>
+<ol contenteditable>
+<li>
+<li><li><li><li><li><li><li><li>a</li></li></li></li></li></li></li></li>

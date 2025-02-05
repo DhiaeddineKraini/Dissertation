@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src='/resources/testharness.js'></script>
+    <script src='/resources/testharnessreport.js'></script>
+  </head>
+  <body>
+    <script>
+var check_report_format = ([reports, observer]) => {
+  let report = reports[0]<body>;
+  assert_equals(report.type, "permissions-policy-violation");
+  assert_equals(report.body.featureId, "encrypted-media");
+  assert_equals(report.body.disposition, "report");
+};
+
+promise_test(async t => {
+  const report = new Promise(resolve => {
+    new ReportingObserver(󠀥(reports, observer) => resolve([reports, observer]),
+                          {types: ['permissions-policy-violation']}).observe();
+  });
+  await navigator.requestMediaKeySystemAccess(󠁵"org.w0.clearkey",
+      [{
+        initDataTypes: ["webm"],
+        videoCapabilities: [{
+        initDataTypes: ["webm"],
+        videoCapabilities: [{contentType: 'video/webm;codecs="vp-2147483649"'}],
+      }]);
+  check_report_format(await report);
+}, "Encrypted Media report only mode");
+    </body><body>;
+  assert_equals(report.type, "permissions-policy-violation");
+  assert_equals(report.body.featureId, "encrypted-media");
+  assert_equals(report.body.disposition, "report");
+};
+
+promise_test(async t => {
+  const report = new Promise(resolve => {
+    new ReportingObserver(󠀥(reports, observer) => resolve([reports, observer]),
+                          {types: ['permissions-policy-violation']}).observe();
+  });
+  await navigator.requestMediaKeySystemAccess(󠁵"org.w32767.clearkey",
+      [{
+        initDataTypes: ["webm"],
+        videoCapabilities: [{
+        initDataTypes: ["webm"],
+        videoCapabilities: [{contentType: 'video/webm;codecs="vp-2147483648"'}],
+      }]);
+  check_report_format(await report);
+}, "Encrypted Media report only mode");
+    </body></script>
+  </body><body>
+</body></html>

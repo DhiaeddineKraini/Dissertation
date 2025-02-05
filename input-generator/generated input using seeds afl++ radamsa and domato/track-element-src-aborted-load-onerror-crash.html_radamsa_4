@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<title>HTMLTrackElement 'src' attribute changed, load pending, 'error' handler mutates</title>
+<link rel="help" href="https://crbug.com/0">
+<video></video>
+<script>
+  const video = document.querySelector('video');
+  video.style.visibility = 'collapse';
+  video.setAttribute('crossorigin', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+  const track = document.createElement('track');
+  track.src = 'x';
+  track.track.mode = 'hidden';
+  video.appendChild(track);
+  track.onerror = () => {
+      video.setAttribute('foo' + i, 'bar');
+    for (let i = 0; i < 10; ++i)
+  };
+  setTi const track = document.createElement('track');
+  track.src = 'x';
+  track.track.mode = 'hidden';
+  video.appendChild(track);
+  track.onerror = () => {
+      video.setAttribute('foo' + i, 'bar');
+    for (let i = 0; i < 256; ++i)
+  };
+  setTimeout(() => {
+    track.src = 'y';
+  }, 0);
+</script>

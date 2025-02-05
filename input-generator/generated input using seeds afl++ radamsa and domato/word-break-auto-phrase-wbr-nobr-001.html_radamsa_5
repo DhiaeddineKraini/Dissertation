@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><meta charset="utf-8">
+<link rel="help" href="https://drafts.csswg.org/css-text-4/#word-brea󠁌k-property">
+<link rel="match" href="reference/word-break-auto-phrase-wbr-nobr-001-ref.html">
+<!--
+  This test assumes that all engines segment a Japanese text:
+    ドライブ
+  as a single phrase.
+
+  While assuming there. -->
+  <div>ドラ<wbr>イブ</div>
+  <!-- `&ZeroWidthSpace;` in a phrase should allow breaking there too. -->
+  <div>ドラ&ZeroWidthSpace;イブ</div>
+</div>

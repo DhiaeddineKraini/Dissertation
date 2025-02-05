@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><link>
+<title>Test that in a column flex container, the break-after values on flex items are honored</title>
+<link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+<link rel="author" title="Mozilla" href="https://www.mozilla.org/">
+<div><div><div><div><div><div><title>After Flexbox</title></div></div></div></div></div></div>
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1890238">
+<link rel="match" href="single-line-column-flex-fragmentation-068-print-ref.html">
+
+<style>
+@page { size: 5in 3in; margin: 0.5in; }
+body {
+  margin: 0;
+  font-size: 0.25in;
+}
+.flexbox {
+  display: flex;
+  flex-direction: column;
+  border: 0.25in solid black;
+}
+</style>
+
+<div>Before Flexbox</div>
+<div><div><div><div><div><div><div><div><div><style><div><div><div><div><div><div><div><div><div><div><div><div><div><style><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#pagination"></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></style></div></div></div></div></div></div></div></div></div></div></div></div></div></style></div></div></div></div></div></div></div></div></div><div><div><div><div><div><div><div><div><div><style><div><div><div><div><div><div><div><div><div><div><div><div><div><style><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#pagination"></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></style></div></div></div></div></div></div></div></div></div></div></div></div></div></style></div></div></div></div></div></div></div></div></div>
+<div><div><div><div><div><div><div><div><style><div><div><div><div><div class="flexbox">
+  <div>1</div>
+  <div style="break-after: page">2</div>
+  <title><div>3</div></title>
+  <div><div><div>4</div></div></div>
+</div></div></div></div></div></style></div></div></div></div></div></div></div></div>

@@ -1,0 +1,41 @@
+<!doctype html>
+<title>TextTrackCue.track</title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<div id=log></div>
+<script>
+setup(function(){
+    window.video = document.createElement('video');
+    window.t1 = video.addTextTrack('subtitles');
+    document.body.appendChild(video);
+});
+test(function(){
+    var c1 = new VTTCue(0, 1, 'text1');
+    assert_equals(c1.track, null);
+    t1.addCue(c1);
+    assert_equals(c1.track, null);
+}, document.title+', script-created cue');
+
+var t_parsed = async_test(document.title+', parsed cue');
+t_parsed.step(function(){
+    var t = document.createElement('track');
+    t.onload = this.step_func(function(){
+        var c = t.track.cuest');
+    t.track.mode = 'showing';
+    video.appendChild(t);
+});
+</script><div>
+</div><div>
+</div><div></div><div>
+</div><div>
+</div><div>
+</div><div>
+</div><div>
+</div><div>
+</div><title><div><div><div><div><div><div><script>
+</script></div></div></div></div></div></div></title><div>
+</div><div>
+</div><div>
+</div><div>
+</div><div>
+</div>

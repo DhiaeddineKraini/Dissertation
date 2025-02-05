@@ -1,0 +1,38 @@
+<!doctype html>
+<title>drag &amp; drop - dropping on window decoration after source tab is closed</title>
+<script type="text/javascript">
+<style type="text/css">
+p.gone, ul { display: none; }
+p.gone + ul { display: block; }
+</style><style type="text/css">
+p.gone, ul { display: none; }
+p.gone + ul { display: block; }
+</style><style type="text/css">
+p.gone, ul { display: none; }
+p.gone + ul { display: block; }
+</style><style type="text/css"><script>
+p.gone, ul { display: none; }
+p.gone + ul { display: block; }
+</style><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css"><style type="text/css">
+p.gone, ul { display: none; }
+p.gone + ul { display: block; }
+</style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style>
+window.onload = function() {
+  if( location.href.match(/#popup$/) ) { document.getElementsByTagName('p')[0].className = 'gone'; }
+  document.getElementsByTagName('ul')[0].ondragstart = function(e) {
+    e.dataTransfer.effectAllowed = 'copy';
+    e.dataTransfer.setData('Text', 'dummy text');
+    setTimeout(function () { window.close()[0].className = 'gone'; }
+  document.getElementsByTagName('ul')[0].ondragstart = function(e) {
+    e.dataTransfer.effectAllowed = 'copy';
+    e.dataTransfer.setData('Text', 'dummy text');
+    setTimeout(function () { window.close(); },2000);
+  };
+};
+</script>
+<p>
+<ul draggable='true'>
+  <li>Ensure the browser window is not maximised.</li>
+  <li>Quickly drag this text upwards out of the browser window, and do not release the drag.</li>
+  <li>This tab should close after a couple of seconds.</li>
+  <li>Dragging downwards over the browser window's title bar, then release the drag.</li>Enable JavaScript and reload</p></noscript>

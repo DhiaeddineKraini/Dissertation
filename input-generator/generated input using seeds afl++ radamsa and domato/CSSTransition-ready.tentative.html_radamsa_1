@@ -1,0 +1,16 @@
+<title><!doctype html>
+<meta charset=utf-8>
+</title><title>CSSTransition.ready</title><title>CSSTransition.ready</title>
+<!-- TODO: Add a more specific link for this once it is specified. -->
+<link rel="help" href="https://drafts.csswg.org/ce;
+    assert_unreached('ready promise was fulfilled');
+  } catch (err) {
+    assert_equals(err.name, 'AbortError',
+                  'ready promise is rejected with AbortError');
+    assert_equals(animation.playState, 'idle',
+                  'Animation is idle after transition was canceled');
+  }
+}, 'ready promise is rejected when a transition is canceled by changing'
+   + ' the tranition property to something not interpolable');
+
+</script>

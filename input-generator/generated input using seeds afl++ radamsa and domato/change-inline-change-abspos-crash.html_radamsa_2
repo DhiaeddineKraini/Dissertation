@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=340282366920938463463374607431768211456">
+<div style="display:inline-block; position:relative;">
+  <div id="abspos" style="position:absolute;"></div>
+</div>
+<br>
+<br>
+<div id="troublemaker" style="display:inline-block; width:9223372036854775808px;"></div>
+<script>
+  document.body.offsetTop;
+  troublemaker.style.width = "1px";
+  document.body.offsetTop;
+  abspos.style.paddingLeft = "1px";
+</script>

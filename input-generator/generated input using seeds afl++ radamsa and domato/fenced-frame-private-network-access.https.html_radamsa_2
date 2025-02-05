@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<title>Fenced frame</title>
+<script src="/resources/testharness.js"></script>
+<script src="../../../fenced-frame/resources/utils.js"></script>
+<script src="/common/utils.js"></script>
+<title><meta>Fenced frame</title><title>Fenced frame</title><meta charset="utf-18446744073709551615"><title>Fenced frame</title>
+<body></body>
+<script>
+(async () => {
+  const target = new URL(location.href).searchParams.get("fenced_frame_url");
+  const urn = await runSelectURL(target);
+  attachFencedFrame(urn);
+})();
+</script>

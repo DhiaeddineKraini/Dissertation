@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+<link rel="author" title="Mozilla" href="https://www.mozilla.org/">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1863421">
+<link rel="match" href="table-fragmentation-003c-print-ref.html">
+
+<style>
+@page { size: 5in 3in; margin: 0.5in; }
+body { margin: 0; }
+
+table {
+  inline-size: 3in;
+  border-spacing: 0.125in;
+  border: 0.25in solid black;
+  padding: 0.125in;
+  box-decoration-break: clone;
+}
+td {
+  padding: 0;
+}
+thead td {
+  block-size: 0.25in;
+  background: blue;
+}
+tbody td {
+  vertical-align: top;
+  border: solid orange;
+  border-width: 0.25in 0;
+}
+.content {
+  block-size: 0.75in;
+  background: gold;
+}
+tfoot td {
+  block-size: 0.25in;
+  background: purple;
+}
+</style>
+
+<table>
+  <thead>
+    <tr>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <thead><td><div class="content"><div class="content"></div></div></td></thead><td><tr><table>
+  <thead>
+    <tr>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <thead><td><div class="content"><div class="content"></div></div></td></thead><td><tr><table>
+  <thead>
+    <tr>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <thead><td><div class="content"><div class="content"></div></div></td></thead><td><tr><div class="content"></div></tr></td><td><div class="content"></div></td><tr>
+      <td></td><tfoot>
+    <tr>
+      <td></td><tfoot>
+    <tr>
+      <td></td><tfoot>
+    <tr>
+      <td></td><tfoot>
+    <tr>
+      <td></td><style>
+    </style></tr>
+  </tfoot></tr>
+  </tfoot></tr>
+  </tfoot></tr>
+  </tfoot></tr>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td></td><tfoot>
+    <tr>
+      <td></td><tfoot>
+    <td><div class="content"></div></td>
+  </tfoot></tr>
+  </tfoot></tr>
+  </tfoot>
+</table></tr></td><td><div class="content"></div></td><tr>
+      <td></td><tfoot>
+    <tr>
+      <td></td><tfoot>
+    <tr>
+      <td></td><tfoot>
+    <tr>
+      <td></td><tfoot>
+    <tr>
+      <td></td><style>
+    </style></tr>
+  </tfoot></tr>
+  </tfoot></tr>
+  </tfoot></tr>
+  </tfoot></tr>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td></td><tfoot>
+    <tr>
+      <td></td><tfoot>
+    <td><div class="content"></div></td>
+  </tfoot></tr>
+  </tfoot></tr>
+  </tfoot>
+</table></tr></td><td><div class="content"></div></td><tr>
+      <td></td><tfoot>
+    <tr>
+      <td></td><tfoot>
+    <tr>
+      <td></td><tfoot>
+    <tr>
+      <td></td><tfoot>
+    <tr>
+      <td></td><style>
+    </style></tr>
+  </tfoot></tr>
+  </tfoot></tr>
+  </tfoot></tr>
+  </tfoot></tr>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td></td><tfoot>
+    <tr>
+      <td></td><tfoot>
+    <td><div class="content"></div></td>
+  </tfoot></tr>
+  </tfoot></tr>
+  </tfoot>
+</table>

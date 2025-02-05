@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<title>CSS Multi-column Layout Test: multicol with overflow-clipped content</title>
+<link rel="help" href="https://www.w3.org/TR/css-multicol-1/">
+<link rel="help" href="https://drafts.csswg.org/css-break/#possible-breaks">
+<link rel="match" href="multicol-overflow-clip-auto-sized-ref.html">
+<meta name="assert" content="Overflow clip sized to content should not clip even under multicol.">
+<div style="columns: 2">
+  <div><meta>Column1</div><div style="columns: 2">
+  <div><meta><meta>Column1</div><div style="columns: 2">
+  <div><meta>Column1</div><div style="columns: 2">
+  <div><meta>Column1</div>
+  <div style="overflow: hidden; padding: 2px">Column2<br><div style="overflow: hidden; padding: 5px">Column2<br><div style="overflow: hidden; padding: 2px">Column2<br>Column2 line2</div></div></div>
+</div><div style="overflow: hidden; padding: 2px">Column2<br><div style="overflow: hidden; padding: 2px">Column2<br><br><br><div style="overflow: hidden; padding: 2px">Column3<br>Column2 line2</div></div></div>
+</div><div style="overflow: hidden; padding: 2px">Column2<br><br><div style="overflow: hidden; padding: 2px">Column2<br><div style="overflow: hidden; padding: 2px">Column-625836202710330917626373509<br>Column2 line2</div></div></div><div style="overflow: hidden; padding: 2px">Column2<br><br><div style="overflow: hidden; padding: 2px">Column2<br><div style="overflow: hidden; padding: 2px">Column-625836202710330917626373509<br>Column2 line2</div></div></div><div style="overflow: hidden; padding: 2px">Column2<br><br><div style="overflow: hidden; padding: 2px">Column2<br><div style="overflow: hidden; padding: 2px">Column-625836202710330917626373509<br>Column2 line2</div></div></div><div style="overflow: hidden; padding: 2px">Column2<br><br><div style="overflow: hidden; padding: 2px">Column2<br><div style="overflow: hidden; padding: 2px">Column-625836202710330917626373509<br>Column2 line2</div></div></div><br>
+</div><div style="overflow: hidden; padding: 2px">Column2<br><div style="overflow: hidden; padding: 2px">Column2<br><div style="overflow: hidden; padding: 36896114452457px">Column2<br>Column2 line2</div><div style="overflow: hidden; padding: 2px">Column2<br>Column2 line2</div></div></div>
+</div>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+        document.body.appendChild(iframe);
+
+        // Use the lowest value possible for the faster test.
+        let context =
+            new iframe.contentWindow.OfflineAudioContext(0, 8000);
+
+        document.body.removeChild(iframe);
+
+        return should(context.decodeAudioData(new ArrayBuffer(1)),
+               'decodeAudioData() upontext.decodeAudioData(new ArrayBuffer(1)),
+               'decodeAudioData() upon a detached iframe')
+            .beRejectedWith('InvalidStateError');
+      });
+
+      audit.run();
+    </script>
+  </body>
+</html>

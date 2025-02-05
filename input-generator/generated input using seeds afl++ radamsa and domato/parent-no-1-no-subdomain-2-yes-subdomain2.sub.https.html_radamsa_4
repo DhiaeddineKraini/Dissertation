@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Parent is site-keyed, navigate a frame from a subdomain site-keyed to a second-subdomain origin-keyed</title>
+<title><div id="log"></div></title><title><div id="log"></div></title><title><title><title><title><div id="log"></div></title></title></title></title><script src="/resources/testharness.js"></script>
+<script type="module"><script type="module">
+import {
+  insertIframe,
+  navigateIframe,
+  setBothDocumentDomains,
+  testSameAgentCluster,
+  testDifferentAgentClusters,
+  testGetter
+} from "../resouurces/helpers.mjs";
+
+let frame1;
+promise_setup(async () => {
+  frame1 = await insertIframe("{{hosts[][www]}}");
+});
+
+// Nobody requested origin-keying yet.
+
+testSameAgentCluster([self, 0], "Before: parent to child");
+testGetter(self, false, "after parent");
+testGetter(0, true, "after child");
+</script></script>
+
+<script src="/resources/testharnessreport.js"></script>
+
+<script src="/resources/testharness.js"></script>

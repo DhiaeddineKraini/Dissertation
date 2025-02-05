@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title id='desc'> TextEvent: feature detection with hasFeature() </title>
+        <script type="text/javascript">
+            var PassTest = function()
+            {
+                document.getElementById("testresult").firstChild.data = "PASS";
+            }
+
+            var FailTest = function()
+            {
+                document.getElementById("testresult").firstChild.data = "FAIL";
+            }
+
+            window.onload = function()
+            {
+                try
+                {
+                    var features = ["TextEvent", "Events.TextEvent", "Events.textInput"];
+                    var versions = ["3.0", "", null];
+                    var TestResult = true;
+                    var HasFeature = false;
+
+                    for (var i=0; i<features.length; i++)
+                    {
+                        for (var j=0; j<versions.length; j++)
+                        {
+                            HasFeature = document.implementation.hasFeature(features[i], versions[j]);
+                            TestResult = HasFeature && TestResult;
+                        }
+                    }
+
+                    if (HasFeature && TestResult)
+                    {
+                        PassTest();
+                    }
+                    else
+                    {
+                        FailTest();
+                    }
+                }
+                catch(ex)
+                {
+                    FailTest();
+                }
+            }
+        </script>
+    </head>
+    <p>Test passes if the word "PASS" appears below.</p>
+</html>

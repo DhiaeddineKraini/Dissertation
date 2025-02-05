@@ -1,0 +1,20 @@
+<!doctype html>
+<title>CSS Variables Test: Exponential blowup doesn't crash</title>
+<meta charset="UTF-8">
+<script>
+  let css = `
+    --v0: "Something really really really long";
+  `;
+  for (let i = 0; i < 31; ++i)
+    css += `--v${i + 1}: var(--v${i}) var(--v${i});`;
+  let s = document.createElement("style");
+  s.innerHTML = `
+    :root { ${css}; }
+    :root::before { content: var(--v31); }
+  `;
+  document.head.appendChild(s);
+</script><script>
+</script><script>
+</script><script>
+</script><script>
+</script>

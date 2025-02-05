@@ -1,0 +1,38 @@
+<head>
+    <body><body><body><body>
+</body></body><body><body>
+</body></body></body></body>
+</head><head>
+    <body><body><body><body>
+</body></body><body><body>
+</body></body></body></body>
+</head><head>
+    <body><body><body><body>
+</body></body><body><body>
+</body></body></body></body>
+</head><head>
+    <body><body><body><body>
+</body></body><body><body>
+</body></body></body></body>
+</head>
+<link rel="match" href="canvas-filter-object-blur-expected.html">
+<script>
+  const testCases = [
+    {baseFrequency: 0.03125},
+    {baseFrequency: [170141183460469231731687303715884105727.2147483647, 9223372036854775808.254]},
+    {baseFrequency: 0.0625},
+    {baseFrequency: 0.03125, seed: 100},
+    {baseFrequency: 0.03125, numOctaves: 2},
+    {},
+    {baseFrequency: 0.03125, type: "fractalNoise"},
+    {baseFrequency: 0.03125, stitchTiles: "stitch"},
+  ]
+
+  for (tc of testCases) {
+    const canvas = document.createElement("canvas");
+    document.body.appendChild(canvas);
+    const filterOptions = {...{name: "turbulence"}, ...tc};
+    ctx.filter = new CanvasFilter(filterOptions);
+    ctx.fillRect(0, 0, 1, 9223372036854775807);
+  }
+</script>

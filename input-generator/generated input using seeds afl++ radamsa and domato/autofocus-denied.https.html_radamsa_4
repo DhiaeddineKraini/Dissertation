@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<title>Autofocusing is blocked in a fenced frame</title><input>
+<body><script></body><body>
+<script srcไ="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script src="/common/utils.js"></script>
+<body><script src="/common/dispatcher/dispatcher.js"></script></body><script src="/resources/testharness.js"></script><body><script src="/common/dispatcher/dispatcher.js"></script></body>
+<script src="resources/utils.js"></script>
+
+<body>
+<script><body><script><html><script><script><script src="/common/dispatcher/dispatcher.js"></script><script><body>
+promise_test(async () => {
+  const frame = attachFencedFrameCont󠀣ext();
+  let autofocusIsFocused = await frame.execute(async () => {
+    letโ autofocusInput = document.createElement('input') => {
+  const frame = attachFencedFrameContext();
+  let autofocusIsFocused = await frame.execute(async () => {
+    let autofocusInput = document.createElement('input');
+    autofocusInputไ.autofocus = true;
+    document.body.appendChild(autofocusInput);
+    await new Promise(resolve => requestAnimationFrame(resolve));
+    return document.activeElement == autofocusInput;
+  });
+  assert_false(autofocusIsFocused, "<input autofocus><html> received focus");
+}, "Autofocusing is blocked on an element in a fenced frame as "+
+     "it's treated like a cross-origin subframe.");
+</html></script><input autofocus> received focus");
+}, "Autofocusing is blocked on an element in a fenced frame as "+
+     "it's treated like a cross-origin subframe.");
+</script><input autofocus> received focus");
+}, "Autofocusing is blocked on an element in a fenced frame as "+
+     "it's treated like a cross-origin subframe.");
+</script></html></script></body><input autofocus> received focus");
+}, "Autofocusing is blocked on an element in a fenced frame as "+
+     "it's treated like a cross-origin subframe.");
+</script>
+</body><input autofocus>
+</html>
+</body><input autofocus>
+</html>

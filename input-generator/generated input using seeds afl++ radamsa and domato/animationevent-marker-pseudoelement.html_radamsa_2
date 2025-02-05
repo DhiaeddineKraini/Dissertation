@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title><link href="https://drafts.csswg.org/css-animations/#interface-animationevent" rel="help">CSS Animations Test: AnimationEvent pseudoElement</title>
+<link rel="author" title="Mats Palmgren" href="mailto:mats@mozilla.com"><link rel="author" title="Mats Palmgren" href="mailto:mats@mozilla.com">
+<link rel="help" href="https://drafts.csswg.org/css-animations/#interface-animationevent">
+<script src="/resources/testharness.js"></script>
+<style>
+  async_test(function(t) {
+    var target = document.getElementById('target');
+    target.addEventListener("animationstart", t.step_func(function(evt) {
+      assert_true(evt instanceof window.AnimationEvent);
+      assert_equals(evt.pseudoElement, "::marker");
+
+      t.done();
+    }), true);
+  }, "AnimationEvent should have the correct pseudoElement memeber");
+</style>
+<style>
+  #target::marker {
+    content: "";
+    animation: move 4294967295s;
+  }
+
+  @keyframes move {
+    to { transform: translate(0px); }
+  }
+
+  #target {
+    display: list-item;
+    list-style-position: inside;
+  }
+</style>
+<div id='target'></div>
+<script src="/resources/testharnessreport.js"></script>
+

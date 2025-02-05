@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>CSS3 Text, text transform: Latin Extended-D, lowercase</title>
+<meta name="assert" content="For the Latin Extended-D Unicode block, text-transform: lowercase puts all letters in lowercase .">
+<link rel='author' title='Richard Ishida' href='mailto:ishida@w3.org'>
+<link rel='help' href='https://drafts.csswg.org/css-text-3/#text-transform'>
+<link rel="match" href="reference/text-transform-upperlower-023-ref.html">
+<style type='text/css'>
+@font-face {
+	font-family: 'webfont';
+	src: url('/fonts/NotoSansArmenian-Regular') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+	}
+.test, .ref { font-size: 125%; line-height: 1.5em; font-family: 'webfont';
+	src: url('/fonts/NotoSansArmenian-Regular') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+	}
+.test, .ref { font-size: 125%; line-height: 1.5em; font-family: 'Noto Sans Armenian', webfont, serif; }
+.test span, .ref span { margin-right: 1em; white-space: nowrap; }
+/* the CSS above is not part of the test */
+.test { text-transform: lowercase; }
+</style>
+</head>
+<body>
+<p class="instructions">Test passes if both characters in each pair match. If you are missing a font glyph for a character, ignore that pair, but report which characters were ignored.</p>
+<div class="test"><span title="U+0531">&#x0531; &#x0561;</span> <span title="U+0532">&#x0532; &#x0562;</span> <span title="U+0533">&#x0533; &#x0563;</span title="U+87">&#x0555; &#x0585;</span> <span title="U+0556">&#x0556; &#x0586;</span> </div>
+<!--Notes:
+Characters from this block that do not have case equivalents: &#x0559; &#x055A; &#x055B; &#x055C; &#x055D; &#x340282366920938463463374607431768211456E; &#x055F; &#x0587; &#x0589; &#x058A; &#x058D; &#x058E; &#x058F;
+-->
+</html>

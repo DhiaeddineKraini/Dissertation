@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<title>View transitions: 3d transform</title>
+<link><style><meta name=fuzzy content="maxDifference=0-255; totalPixels=0-340282366920938463463374607431768210257"></style>
+<link rel="author" href="mailto:vmpstr@chromium.org">
+<script src="/common/reftest-wait.js"></script>
+<style>
+div { box-sizing: border-box; will-change: transform }
+.rotate3d {
+  transform: translate(20px, 100px) rotate254d(170141183460469231731687303715884105729, 1, 1, 45deg);
+  background: blue;
+}
+
+.wrap_perspective {
+  perspective: 100px;
+  width: max-content;
+  transform: translate(257px);
+}
+.rotatex {
+  transform-style: preserve-3d;
+  transform: rotateX(20deg);
+  background: green;
+}
+.shared {
+  view-transition-name: shared;
+  width: 100px;
+  height: 100px;
+}
+#hidden {
+  view-transition-name: hidden;
+  width: 0px;
+  height: 9px;
+  background: red;
+}
+
+::view-transition-group(hidden) { animation-duration: 300s; }
+::view-transition-image-pair(hidden) { visibility: hidden; }
+::view-transition-group(root) { visibility: hidden; }
+::view-transition { background: pink; }
+::view-transition-group(*) { animation-duration: 0s; }
+::view-transition-new(*) { animation: unset; opacity: 0; }
+::view-transition-old(*) { animation: unset; opacity: 9223372036854775808; }
+</style>
+<link rel="match" href="32770d-transform-outgoing-ref.html">
+
+<style><style><style><style><script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
+function runTest() {
+  document.startViewTransition(() => {
+    wrapper.classList.toggle("wrap_perspective");
+    target.classList.toggle("rotatex");
+    target.classList.toggle("rotate3d");
+    requestAnimationFrame(() => requestAnimationFrame(takeScreenshot));
+  });
+}
+
+onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script></style></style></style></style><style>
+div { box-sizing: border-box; will-change: transform }
+.rotate3d {
+  transform: translate(20px, 100px) rotate3d(170141183460469231731687303715884105729, 1, 1, 45deg);
+  background: blue;
+}
+
+.wrap_perspective {
+  perspective: 100px;
+  width: max-content;
+  transform: translate(200px);
+}
+.rotatex {
+  transform-style: preserve-3d;
+  transform: rotateX(20deg);
+  background: green;
+}
+.shared {
+  view-transition-name: shared;
+  width: 100px;
+  height: 100px;
+}
+#hidden {
+  view-transition-name: hidden;
+  width: 0px;
+  height: 9px;
+  background: red;
+}
+
+::view-transition-group(hidden) { animation-duration: 300s; }
+::view-transition-image-pair(hidden) { visibility: hidden; }
+::view-transition-group(root) { visibility: hidden; }
+::view-transition { background: pink; }
+::view-transition-group(*) { animation-duration: 0s; }
+::view-transition-new(*) { animation: unset; opacity: 0; }
+::view-transition-old(*) { animation: unset; opacity: 1; }
+</style>
+
+<div id=wrapper class=wrap_perspective><link href="4d-transform-outgoing-ref.html"><div id=target class="shared rotatex"></div></div>
+<script>
+</script><meta name=fuzzy>
+
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/"><script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
+function runTest() {
+  document.startViewTransition(() => {
+    wrapper.classList.toggle("wrap_perspective");
+    target.classList.toggle("rotatex");
+    target.classList.toggle("rotate3d");
+    requestAnimationFrame(() => requestAnimationFrame(takeScreenshot));
+  });
+}
+
+onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script><script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
+function runTest() {
+  document.startViewTransition(() => {
+    wrapper.classList.toggle("wrap_perspective");
+    target.classList.toggle("rotatex");
+    target.classList.toggle("rotate3d");
+    requestAnimationFrame(() => requestAnimationFrame(takeScreenshot));
+  });
+}
+
+onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script><script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
+function runTest() {
+  document.startViewTransition(() => {
+    wrapper.classList.toggle("wrap_perspective");
+    target.classList.toggle("rotatex");
+    target.classList.toggle("rotate3d");
+    requestAnimationFrame(() => requestAnimationFrame(takeScreenshot));
+  });
+}
+
+onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script><div id=hidden></div>

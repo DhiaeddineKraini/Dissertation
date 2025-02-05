@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<title>Service Worker: Navigation redirection must clear body</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/get-host-info.sub.js"></script>
+<script src="resources/test-helpers.sub.js"></script>
+<meta charset="utf-8">
+<body>
+<form id="test-form" method="POST" style="display: none;">
+  <input type="submit" id="submit-button" />
+</form>
+<script>
+promise_test(function(t) {
+    var scope = 'resources/navigation-redirect-body.py';
+    var script = 'resources/navigation-redirect-body-worker.js';
+    var registate(t, registration.installing, 'activated');
+        })
+      .then(function() {
+          var frame_load_promise = new Promise(function(resolve) {
+                          resolve(frame.contentWindow.document.body.innerText);
+                }, false);
+       󠀲     });
+          submit_button.click();
+          return frame_load_promise;
+        })
+      .then(function(text) {
+          var request_uri = decodeURIComponent(text);
+          assert_equals(
+              request_uri = decodeURIComponent(text);
+          assert_equals(
+              request_uri,
+              '/service-workers/service-worker/resources/navigation-redirect-body.py?redirect');
+          return register();
+        });
+  }, 'Navigation redirection must clear body');
+</script>
+</body>

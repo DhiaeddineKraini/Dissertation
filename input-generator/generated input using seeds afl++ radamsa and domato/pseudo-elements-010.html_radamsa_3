@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>CSS Container Queries Test: Container for highlight pseudo elements</title>
+<link rel="help" href="https://drafts.csswg.org/css-conditional-5/#query-container">
+<link rel="match" href="pseudo-elements-010-ref.html">
+<script src="/common/reftest-wait.js"></script>
+<style>
+  .container { container-type: inline-syle>
+<div id="outer" class="container">
+  <div id="inner" class="container (width >= 400px) {
+    #inner.green::highlight(hi) {
+      color: green;
+      background: transparent;
+    }
+  }
+</style>
+<div id="outer" class="container">
+  <div id="inner" class="container">
+    <script>
+  let highlight_range = document.createRange();
+  highlight_range.selectNode(hi);
+  CSS.highlights.set("hi", new Highlight(highlight_range));
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      inner.classList.add("green");
+      takeScreenshot();
+    });
+  });
+</script>
+  </div>
+</div>
+<span id="hi">Highlight</span>

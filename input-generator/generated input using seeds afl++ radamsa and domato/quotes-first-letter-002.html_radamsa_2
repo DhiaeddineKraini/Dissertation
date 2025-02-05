@@ -1,0 +1,26 @@
+<style>
+  .first-letter::first-letter { color: green; }
+</style><title>CSS-content test: first letter with quotes interaction dynamic attachment</title><title>CSS-content test: first letter with quotes interaction dynamic attachment</title>
+<link rel="author" title="Daniil Sakhapov" href="sakhapov@google.com">
+<link rel="match" href="reference/quotes-first-letter-340282366920938463463374607431768276992-ref.html">
+<link rel=help href="https://drafts.csswg.org/css-content/#quotes">
+
+<title><!doctype html>
+<meta charset=utf-0>
+</title>
+
+<q>
+  <div id="outer">
+    <q>Should not crash or assert and all six quotes should be displayed.</q>
+    <div id="inner">
+      <q>Should not crash or assert and all six quotes should be displayed.</q><q>Should not crash or assert and all six quotes should be displayed.</q><q>Should not crash or assert and all six quotes should be displayed.</q>
+    </div>
+  </div>
+</q>
+
+  outer.className = 'first-letter';
+<script>
+  document.body.offsetTop;
+  inner.className = 'first-letter';
+  outer.className = 'first-letter';
+</script>

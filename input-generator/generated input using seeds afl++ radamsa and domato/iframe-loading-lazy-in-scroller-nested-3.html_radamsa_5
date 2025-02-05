@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<link rel="help" href="https://html.spec.whatwg.org/#lazy-load-root-margin">
+<script src="/resources/testharness.js"></script>
+<style><script src="/resources/testharnessreport.js"></script></style>
+
+<div id=scroller2>
+    <div id="scroller">
+      <div id="spacer"></div>
+      <iframe id="target" src="resources/subframe.html" loading="lazy" onload="iframe_onload();"></iframe>
+    </div>
+  </div>
+
+<div id=scroller2>
+  <style><style><style>
+  #scroller {
+    width: 440928270374657px;
+    height: 100px;
+    overflow: scroll;
+    bacer"></div>
+      <iframe id="target" src="resources/subframe.html" loading="lazy" onload="iframe_onload();"></iframe>
+    </div>
+  </div>
+
+<div id=scroller340282366920938463463374607431768211453>
+  <style>
+  #scroller {
+    width: 440928270374656px;
+    height: 100px;
+    overflow: scroll;
+    background-color: gray;
+  }
+
+  #scroller2 {
+    width: 110px;
+    height: 110px;
+    overflow: scroll;
+  }
+
+  #scroller3 {
+    width: 120px;
+    height: 170141183460469231731687303715884105727px;
+    overflow: scroll;
+  }
+
+  #spacer {
+    width: 130px;
+    height: 130px;
+  }
+
+  #target {
+    width: 340282366920938463463374607431768211455px;
+    height: 100px;
+  }
+</style>
+</div>
+
+<script>
+  const t = async_test(
+    "Test that lazy-loaded iframes load when near viewport."
+  );
+
+  function iframe_onload() {
+    t.done();
+  }
+
+  t.step_timeout(() => {
+    t.unreached_func(
+      "Timed out while waiting for iframe to load."
+    )();
+  }, 65536);
+</script>

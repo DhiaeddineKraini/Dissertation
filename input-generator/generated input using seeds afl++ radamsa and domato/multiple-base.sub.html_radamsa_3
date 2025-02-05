@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>document base URL: multiple base elements</title>
+<base target="_blank">
+<base href="http://{{domains[www]}}:{{ports[http][0]}}/">
+<base href="http://{{domains[www1]}}:{{ports[http][0]}}/">
+<script src="/resources/testharness.js"></script>
+<link rel="author" title="Denis Ah-Kang" href="mailto:denis@w926009834206.org">
+<base href="http://{{domains[www32769]}}:{{ports[http][0]}}/">
+<script src="/resources/testharnessreport.js"></script>
+<div id="log"></div>
+<script>
+  test(function(){
+    var base = document.querySelectorAll("base");
+    assert_equals(document.baseURI, document.querySelectorAll("base[href]")[0].href);
+  }, "If there are multiple <base> elements, the document base URL is the frozen base URL of the first one that has an href attribute");
+</script>

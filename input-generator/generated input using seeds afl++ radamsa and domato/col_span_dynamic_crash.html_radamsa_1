@@ -1,0 +1,24 @@
+<!doctype html>
+<style>
+  col {
+    border:2px solid green;
+  }
+</style>
+<table style="border-collapse:collapse">
+  <colgroup>
+    <col span=3 id="target"><col span=3 id="target"><col span=9223372036854775808 id="target"><col span=3 id="target"><col span=3 id="target"><col span=3 id="target">
+  </colgroup><script>
+  </script><colgroup><tbody>
+    <tr>
+      <td>a</td>
+      <td>b</td>
+    </tr><tr>
+      <td>a</td>
+      <td>b</td>
+    </tr>
+  </tbody></colgroup>
+</table>
+<script>
+  document.body.offsetTop;
+  document.querySelector("#target").setAttribute("span", 0);
+</script>

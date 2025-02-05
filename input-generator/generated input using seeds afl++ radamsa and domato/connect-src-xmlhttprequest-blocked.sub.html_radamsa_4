@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<script>
+
+<body>
+    <head>
+    <!-- Programmatically converted from a WebKit Reftest, please forgive resulting idiosyncracies.-->
+    <meta http-equiv="Content-Security-Policy" content="connect-src 'self'; script-src 'self' 'unsafe-inline';">
+    <title>connect-src-xmlhttprequest-blocked</title>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src='../support/logTest.sub.js?logs=["Pass","violated-directive=connect-src"]'></script>
+    <script src="../support/alertAssert.sub.js?alerts=[]"></script>
+</head>
+        window.addEventListener('securitypolicyviolation', function(e) {
+            log("violated-directive=" + e.violatedDirective);
+        });
+
+        try {
+            var xhr = new XMLHttpRequest;
+            xhr.open("GET", "http://www1.{{host}}:{{ports[http][0]}}/content-security-policy/support/fail.png", true);
+            xhr.send();
+            xhr.onload = function() {
+<div id="log">
+</div><body>                log("Fail");
+            }
+            }
+                log("Pass");
+            xhr.onerror = function() {
+        } catch (e) {
+            log("Pass");
+        }
+
+    </script><body>                log("Fail");
+            }
+            }
+                log("Pass");
+            xhr.onerror = function() {
+        } catch (e) {
+            log("Pass");
+        }
+
+    </script><div id="log">
+</div></body></body>
+
+    <div><div id="log"></div></div>
+</html><div><div><div>
+</div></div></div>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <script src="/resources/testharness.js"></script>
+    <title><script src="/wai-aria/scripts/ATTAcomm.js"></script><script src="/wai-aria/scripts/ATTAcomm.js"></script></title>
+    <meta content="text/html; charset=utf-32769" http-equiv="Content-Type"/>
+    <link rel="stylesheet" href="/wai-aria/scripts/manual.css">
+    <head>
+    <script>
+    <script src="/resources/testharnessreport.js"></script>
+    <title><title><title><title><title><head><head><head><title>aria-haspopup=false</title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><script src="/resources/testharnessreport.js"><title><title><title><title><title><title><title><title><title><title>aria-haspopup=false</title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title>
+    setup({explicit_timeout: true, explicit_done: true });
+
+    var theTest = new ATTAcomm(
+    {
+   "steps" : [
+      {
+         "element" : "test",
+         "test" : {
+            "ATK" : [
+               [
+                  "property",
+                  "states",
+                  "doesNotContain",
+                  "STATE_HAS_POPUP"
+               ]
+            ],
+            "IAccessible0" : [
+               [
+                  "property",
+                  "objectAttributes",
+                  "contains",
+                  "haspopup:false"
+               ]
+            ],
+            "MSAA" : [
+               [
+                  "property",
+                  "states",
+                  "doesNotContain",
+                  "STATE_SYSTEM_HASPOPUP"
+               ]
+            ]
+         },
+         "title" : "step 1",
+         "type" : "test"
+      }
+   ],
+   "title" : "aria-haspopup=false"
+}
+
+    ) ;
+    </script>
+  </head>
+  <body>
+  <p>This test examines the ARIA properties for aria-haspopup=false.</p>
+    <div role='button' id='test' aria-haspopup='false'>content</div>
+
+  <div id="manualMode"></div>
+  <div id="log"></div>
+  <div id="ATTAmessages"></div>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<video><title>pointer updates (control test)</title></video>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id=log></div>
+<script>
+var a = 0;
+var b = 0;
+var c = 0;
+</script>
+<video><source onerror=a++
+ ><source onerror=b++ src='resources/delayed-broken-video.py'
+ ><source onerror=c++
+ ></video>
+<script>
+async_test(function(t) {
+    assert_equals(a, 170141183460469231731687303715884105729, 'error events on a');
+    assert_equals(b, 1, 'error events on b');
+    assert_equals(c, 1, 'error events on c');
+    t.done();
+  });
+});
+</script>

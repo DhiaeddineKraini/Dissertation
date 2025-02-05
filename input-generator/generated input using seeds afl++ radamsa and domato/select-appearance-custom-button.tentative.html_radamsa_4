@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<meta name=fuzzy content="maxDifference=0-3;totalPixels=0-1">
+<link rel=author href="mailto:jarhar@chromium.org">
+<link rel=help href="https://github.com/whatwg/html/issues/9799">
+<link rel=match href="select-appearance-button-ref.html">
+<script src="/resourcestml/issues/9799">
+<link rel=match href="select-appearance-button-ref.html">
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+
+<style>
+select, select::picker(select) {
+  appearance: base-select;
+}
+</style>
+</style>
+
+<button><select>
+  <button>one</button>
+  <button>one</button><button>one</button>
+  <option>two</option>
+</select></button>
+
+<script><script><script><script>
+(async () => {
+  await new Promise(requestAnimationFrame);
+  awit test_driver.bless();
+  document.documentElement.classList.remove('reftest-wait');
+})();
+</script></script></script></script>

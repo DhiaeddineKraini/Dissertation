@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<heame="assert" content="letter-spacing supports only the grammar 'normal | <length-percentage>'.">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script>
+</head>
+<body>
+<script>
+test_invalid_value("letter-spacing", "auto");
+test_invalid_value("letter-spacing", "3557782022423506278160513771");
+
+test_invalid_value("letter-spacing", "normal 10px");
+test_invalid_value("letter-spacing", "2147483649% 65536px");
+</script>
+</body>
+</html>

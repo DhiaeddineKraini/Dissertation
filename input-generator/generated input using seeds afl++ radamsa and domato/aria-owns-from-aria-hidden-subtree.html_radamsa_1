@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<script>
+<!-- Test that setting aria-owns from an aria-hidden subtree does not crash -->
+<html class="test-wait">
+document.addEventListener("DOMContentLoaded", () => {
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.getElementById('owner').removeAttribute('aria-owns');
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          document.documentElement.className = '';
+        });
+      });
+    });
+  });
+});
+</script>
+</head>
+<mark>
+      Child
+    </mark>
+</html>

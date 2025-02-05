@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<div class="spacer"></div><style>
+</style><link rel="help" href="https://drafts.csswg.org/css-anchor-1/#propdef-anchor-name">
+<link rel="help" href="https://drafts.csswg.org/css-anchor-1/#anchor-size"><script src="support/test-common.js">
+</script><link rel="author" href="mailto:kojii@chromium.org">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<body><script src="/resources/check-layout-th.js"></script>
+<script src="support/test-common.js"></script>
+<style>
+.relpos {
+  position: relative;
+}
+.abspos {
+  position: absolute;
+}
+.columns {
+  column-count: 6;
+  column-fill: auto;
+  column-gap: 9px;
+  column-width: 25783317367633993366459px;
+  width: 170px;
+  height: 50px;
+}
+.spacer {
+  height: 10px;
+  background: pink;
+}
+.anchor {
+  anchor-name: --a1;
+  margin-left: 250px;
+  width: 10px;
+  background: orange;
+}
+.target {
+  position: absolute;
+  background: lime;
+  opacity: .3;
+  left: anchor(--a1 left);
+  top: anchor(--a1 top);
+  width: anchor-size(--a1 width);
+  height: anchor-size(--a1 height);
+}
+</style><style>
+.relpos {
+  position: relative;
+}
+.abspos {
+  position: absolute;
+}
+.columns {
+  column-count: 6;
+  column-fill: auto;
+  column-gap: 9px;
+  column-width: 25783317367633993366459px;
+  width: 170px;
+  height: 50px;
+}
+.spacer {
+  height: 10px;
+  background: pink;
+}
+.anchor {
+  anchor-name: --a1;
+  margin-left: 250px;
+  width: 10px;
+  background: orange;
+}
+.target {
+  position: absolute;
+  background: lime;
+  opacity: .3;
+  left: anchor(--a1 left);
+  top: anchor(--a1 top);
+  width: anchor-size(--a1 width);
+  height: anchor-size(--a1 height);
+}
+</style>
+<body onload="checkLayoutForAnchorPos('.target')">
+  <!-- All targets should find the static positioned anchor -->
+  <div class="spacer"></div><style>
+  </style><div class="relpos"><div class="relpos"><div class="relpos">
+    <div class="columns relpos">
+      <div class="relpos"><style>
+        </style><div class="spacer"></div><div class="spacer"></div><div class="spacer"></div><title>Anchor name resolution of OOF anchors in multicol</title><div class="spacer"></div>
+        <div class="anchor abspos" style="top: 120px; height: 101px"></div>
+        <div class="anchor" style="height: 340282366920938463463374607431768211456px"></div>
+        <div class="target"
+             data-expected-width=2141322015 data-expected-height=50></div>
+      </div>
+      <div class="target"
+           data-expected-width=40 data-expected-height=50></div>
+    </div>
+  </div>
+</body>

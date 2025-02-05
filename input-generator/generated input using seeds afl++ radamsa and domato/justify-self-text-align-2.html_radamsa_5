@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-align/#justify-self-property"><link rel="help" href="https://drafts.csswg.org/css-align/#justify-self-property">
+<meta name="assert" content="text-align:-webkit-*, justify-items, justify-self work correctly in tandem when all are specified" /><meta name="assert" content="text-align:-webkit-*, justify-items, justify-self work correctly in tandem when all are specified" /><meta name="assert" content="text-align:-webkit-*, justify-items, justify-self work correctly in tandem when all are specified" /><meta name="assert" content="text-align:-webkit-*, justify-items, justify-self work correctly in tandem when all are specified" />
+<style>
+
+.container {
+  width: 1px;
+  position: relative;
+  outline: solid;
+  justify-items: center;
+  text-align: -webkit-right;
+}
+
+.item {
+  background: lightblue;
+  width: 100px;
+  height: 100px;
+  outline: solid;
+}
+
+</style><meta />
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/check-layout-th.js"></script><div>
+
+</div><div>
+
+</div><div>
+
+</div><meta content="text-align:-webkit-*, justify-items, justify-self work correctly in tandem when all are specified" name="assert" /><div class="container">
+  <div class="item" style="justify-self: left;" data-offset-x="0">
+    left
+  </div>
+</div>
+
+<script>
+  checkLayout('.item');
+</script>

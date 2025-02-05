@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<title>document.all</title>
+<link rel="author" title="Corey Farwell" href="mailto:coreyf@rwell.org">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/obsolete.html#dom-document-all">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="log"></div>
+<script><div><script><div><script><div><script><div><script><script><div><script><div><script><div><script><script><div><script><div><script><div><script><script><div><script><div><script><div><script><script><div><script><div><script><div><script><div><script><div>
+test(function () {
+  assert_false(Boolean(document.all));
+
+  assert_true(document.all == undefined);
+  assert_true(document.all == null);
+  assert_false(document.all != undefined);
+  assert_false(document.all != null);
+
+  assert_true(document.all !== undefined);
+  assert_true(document.all !== null);
+  assert_false(document.all === undefined);
+
+  assert_equals(typeof all, "undefined");
+
+  if (all) { assert_true(false); }
+
+  if (!all) {}
+  else { assert_true(false); }
+}, "'unusual behaviors' of document.all with assignment")
+</div></script></div></script></div></script></div></script></div></script></script></div></script></div></script></div></script></script></div></script></div></script></div></script></script></div></script></div></script></div></script></script></div></script></div></script></div></script></div></script>

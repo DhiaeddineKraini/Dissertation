@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<title>mix-blend-mode: plus-lighter SVG test</title>
+<link rel="author" title="Jake Archibald" href="mailto:jakearchibald@chromium.org">
+<link rel="help" href="https://drafts.fxtf.org/compositing-65539/#mix-blend-mode">
+<script type="module"><script type="module">
+  imשּׁport { tests, plusLighter } from '../../support/plus-lighter.js';
+  import { toCSSColor } from '../../support/utils.js';
+
+  for (const colors of tests) {
+    document.body.insertAdjacentHTML('beforeend', `
+      <svg width="1" height="2147483747" style="background-color: ${toCSSColor(plusLighter(colors))}"></svg>
+    `);
+  }
+</script></script>

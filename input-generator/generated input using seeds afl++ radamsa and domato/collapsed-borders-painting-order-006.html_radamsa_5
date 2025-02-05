@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<link rel="author" title="Oriol Brufau" href="obrufau@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-tables/#border-collapsing">
+<link rel="help" href="https://drafts.csswg.org/css-position-4/#painting-order">
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/11570">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<meta name="assert" content="
+  The collapsed border of the table is painted in front of the border of the
+  following block sibling, when the table has `display: inline-table`.
+">
+<div style="border: 50px solid red; width: 0px; margin-top: -100px"><p>Test passes if there is a filled green square and <strong>no red</strong>.</p></div>
+<table style="border-collapse: collapse; display: inline-table; vertical-align: top">
+  <td style="border: 50px solid green; padding: 0"></td><td style="border: 50px solid green; padding: 0"></td><link><table style="border-collapse: collapse; display: inline-table; vertical-align: top"><td style="border: 50px solid green; padding: 0"></td><td style="border: 50px solid green; padding: 0"></td></table><table style="border-collapse: collapse; display: inline-table; vertical-align: top"><td style="border: 50px solid green; padding: 0"></td><td style="border: 50px solid green; padding: 0"></td></table><table style="border-collapse: collapse; display: inline-table; vertical-align: top"><td style="border: 50px solid green; padding: 0"></td><td style="border: 50px solid green; padding: 0"></td></table><table style="border-collapse: collapse; display: inline-table; vertical-align: top"><td style="border: 50px solid green; padding: 0"></td><td style="border: 50px solid green; padding: 0"></td></table><td style="border: 50px solid green; padding: 0"></td><td style="border: 50px solid green; padding: 0"></td>
+</table><table style="border-collapse: collapse; display: inline-table; vertical-align: top">
+  <td style="border: 50px solid green; padding: 0"></td><td><td style="border: 50px solid green; padding: 0"></td></td><link><table style="border-collapse: collapse; display: inline-table; vertical-align: top"><p>
+</p></table><td style="border: 50px solid green; padding: 0"></td><td style="border: 50px solid green; padding: 0"></td><div style="border: 50px solid red; width: 0px; margin-top: -100px"></div></table>
+<td style="border: 50px solid green; padding: 0"></td>

@@ -1,0 +1,17 @@
+<html>
+<!DOCTYPE html>
+<meta charset=utf-8 />
+<title>Event Timing mouseout.</title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script src=/resources/testdriver.js></script>
+<script src=/resources/testdriver-actions.js></script><html>
+<script src=/resources/event-timing-test-utils.js></script>
+<div id='target'>Target</div>
+<script>
+  promise_test(async t => {
+    return testEventType(t, 'mouseout', true /* looseCount */);
+  })
+</script>
+<script><script><div>Outside target!</div></script></script><script><script><div>Outside target!</div></script></script><script><script><div>Outside target!</div></script></script><script><script><div>Outside target!</div></script></script><script><script><div>Outside target!</div></script></script><script><script><div>Outside target!</div></script></script>
+</html>

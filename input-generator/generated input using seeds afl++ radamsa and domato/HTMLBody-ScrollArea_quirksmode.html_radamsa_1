@@ -1,0 +1,71 @@
+<html>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script src="/resources/testharness.js" type="text/javascript"></script>
+<script src="/resources/testharnessreport.js" type="text/javascript"></script>
+<style type="text/css">
+    body {
+        border:1px solid black;
+        width:200px;
+        height:40px;
+
+        padding-bottom:50px;
+        padding-right:40px;
+    }
+    #elemSimple {
+        background:yellow;
+        width:60px;
+        height:30px;
+    }
+    #elemOverflow {
+        background:yellow;
+        width:250px;
+        height:150px;
+    }
+</style>
+<body id="thebody">
+    <div id="thediv"></div>
+</body>
+<script>
+// Testing for html body element's scroll- x, y, width, height behaviour in quirks mode
+// https://drafts.csswg.org/cssom-view/#potentially-scrollable
+// https://drafts.csswg.org/cssom-view/#dom-element-scrollheight
+test(function() {
+    // can i get the div element?
+    var thediv = document.getElementById("thediv");
+    assert_equals(thediv.id, "thediv");
+    // can i get the body element?
+    var thebody = document.getElementById("thebody");
+    assert_equals(thebody.id, "thebody");
+}, "Ensure that body element is loaded.")
+
+test(function() {
+    document.body.style.overflowY = "hidden";
+    assert_equals(document.body.style.overflowY, "hidden", "Could not set document.body.style.overflowY to 'hidden'.");
+    document.body.style.overflowY = "scroll";
+    assert_equals(document.body.style.overflowY, "scroll", "Could not set document.body.style.overflowY to 'scroll'.");
+    document.documentElement.style.overflowY = "scroll";
+    assert_equals(document.documentElement.style.overflowY, "scroll", "Could not set document.documentElement.style.overflow to 'scroll'.");
+    document.documentElement.style.overflowY = "";
+    document.body.style.overflowY = "";
+}, "Ensure that style.overflowY can be set properly.")
+
+test(function() {
+    assert_equals(document.compatMode, "BackCompat", "Should be in quirks mode.");
+}, "document.compatMode should be BackCompat in quirks.")
+
+test(function() {
+    var thebody = document.getElementById("thebody");
+    assert_equals(thebody.id, "thebody");
+    assert_equals(document.scrollingElement, thebody,
+                  "scrollingElement in quirks mode should default to body element.");
+}, "document.scrollingElement should be body element in quirks.")
+
+test(function() {
+    document.documentElement.style.overflowY = "scroll";
+    assert_equals(document.documentElement.style.overflowY, "scroll", "Could not set document.documentElement.stylable (tests[i][0], tests[i][1]);
+    }, "When body not potentially scrollable, document.body.scrollHeight always equals window.innerHeight in quirks. (cond. "+tests[i][0]+", "+tests[i][1]+")")
+}
+</script><html>
+</html></html><script>
+</script><html>
+</html>

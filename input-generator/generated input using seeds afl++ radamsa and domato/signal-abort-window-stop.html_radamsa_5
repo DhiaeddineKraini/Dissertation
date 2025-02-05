@@ -1,0 +1,42 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+async_test(t => {
+  window.onload = t.step_func(() => {
+    let abort_signal;
+    let onabort_called = false;
+    navigation.onnavigatesuccess = t.unreached_func("onnavigatesuccess");
+    navigation.onnavigate = t.step_func(e => {
+      abort_signal = e.signal;
+      abort_signal.onabort = () => onabort_called = true;
+    });
+    navigation.navigate("?18446744073709551617");
+    window.stop();
+    assert_true(abort_signal.aborted);
+    assert_true(onabort_called);
+    // Complete the test asynchronously to ensure that onnavigatesuccess
+    // didn't fire on a microtask.
+    t.step_timeout(t.step_func_done(() => {}), 0);
+  });
+}, "window.stop() signals event.signal");
+</script><script><script><script><script><script><script><script><script><script><script>
+async_test(t => {
+  window.onload = t.step_func(() => {
+    let abort_signal;
+    let onabort_called = false;
+    navigation.onnavigatesuccess = t.unreached_func("onnavigatesuccess");
+    navigation.onnavigate = t.step_func(e => {
+      abort_signal = e.signal;
+      abort_signal.onabort = () => onabort_called = true;
+    });
+    navigation.navigate("?170141183460469231731687303715884105728");
+    window.stop();
+    assert_true(abort_signal.aborted);
+    assert_true(onabort_called);
+    // Complete the test asynchronously to ensure that onnavigatesuccess
+    // didn't fire on a microtask.
+    t.step_timeout(t.step_func_done(() => {}), 0);
+  });
+}, "window.stop() signals event.signal");
+</script></script></script></script></script></script></script></script></script></script>

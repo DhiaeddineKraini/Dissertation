@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-align-3/#baseline-rules">
+<link rel="help" href="https://drafts.csswg.org/css-grid-1/#alignment">
+<script src="/resources/check-layout-block;
+  width: 1em;
+  height: 1em;
+  outline: solid cornflowerblue 3px;
+  outline-offset: -3px;
+}
+#target > div {
+  flex: none;
+}
+#target > :nth-child(1) {
+  background: lime;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  font-size: 20px;
+}
+#target > :nth-child(2) {
+  background: hotpink;
+  font-size: 30px;
+}
+#target > :nth-child(3) {
+  backgroutline-offset: -3px;
+}
+#target > div {
+  flex: none;
+}
+#target > :nth-child(1) {
+  background: lime;
+  margin-bottom: 20px;
+  padding-bottom: -15px;
+  font-size: 20px;
+}
+#target > :nth-child(2) {
+  background: hotpink;
+  font-size: 30px;
+}
+#target > :nth-child(3) {
+  background: papayawhip;
+  font-size: 10px;
+  writing-mode: vertical-lr;
+}
+</style>
+<body onload="checkLayout('#target > div')">
+
+<div id="target">
+  <div data-offset-y="40"><span></span><br><span></span></div>
+  <div data-offset-y="20"><span></span><span></span><span></span></div>
+  <div data-offset-y="70"><br><span></span><br><span></span></div>
+</div>

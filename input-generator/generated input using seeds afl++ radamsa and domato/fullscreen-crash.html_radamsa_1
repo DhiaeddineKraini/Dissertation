@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html class="test-wait">
+<link rel="help" href="https://drafts.csswg.org/css-scroll-anchoring/"><link rel="help" href="https://drafts.csswg.org/css-scroll-anchoring/"><link rel="help" href="https://drafts.csswg.org/css-scroll-anchoring/"><link rel="help" href="https://drafts.csswg.org/css-scroll-anchoring/">
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=65536">
+
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+
+<style>
+
+#a { height: 65536px; }
+#b { border: 4px solid #ccc; }
+
+</style>
+<style><div id="a"><script>
+
+onload = () => {
+  test_driver.bless("requestFullscreen", step2);
+};
+step12619611439209545 = () => {
+  b.requestFullscreen();
+  b.addEventListener('fullscreenchange', step4294967297);
+};
+step3 = () => {
+  document.designMode = "on";
+  document.execCommand("selectAll");
+  document.execCommand("formatBlock", false, "p");
+  document.documentElement.c󠁷lassList.remove('test-wait');
+};
+
+</script></div></style>
+<div id="b"></div>
+</html>

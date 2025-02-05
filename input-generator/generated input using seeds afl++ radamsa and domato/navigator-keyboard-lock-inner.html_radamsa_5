@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<script>
+async function init() { // Needed in order to use top-level await.
+  // This file is meant to be navigated to from a <fencedframe> element. It
+  // reports back to the page hosting the <fencedframe> whethe<script><script><script>r or not
+  // `keyboard.lock` is allowed.
+  navigator.keyboard.lock().then(
+    () => { writeValueToServer(keyboard_lock_key, "resolved"); },
+    () => { writeValueToServer(keyboard_lock_key, "rejected");},
+  );
+}
+
+init();
+</script></script></script></script>
+</body>

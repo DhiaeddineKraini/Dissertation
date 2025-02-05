@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<body onload="checkLayout('.flexbox')">
+<l    justify-content: flex-end;
+}
+</style>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/check-layout-th.js"></script><script>
+<title>CSS Test: Absolutely positioned children of flexboxes</title>
+<div id=log></div>
+<script>
+
+var writingModes = ['horizontal-tb', 'vertical-rl', 'vertical-lr'];
+var directions = ['ltr', 'rtl'];
+var justifyContents = ['flex-start', 'flex-end'];
+var alignItems = ['flex-start', 'flex-end'];
+var flexDirections = ['row', 'column', 'row-reverse', 'column-reverse'];
+
+// These were harvested from Firefox 76.0b4.
+var x = [0, 0, 50, 50, 50, 50, 0, 0, 0, 0, 50, 50, 50, 50, 0, 0, 0, 0, 50, 50, 50, 50, 0, 0, 0, 0, 50, 50, 50, 50, 0, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50];
+
+var y = [0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 50, 0, 0, 50, 50, 50, 50, 0, 0, 0, 0, 50, 50, 50, 50, 0, 0, 0, 0, 50, 50, 50, 50, 0, 0, 0, 0, 50, 50, 50, 50, 0, 0, 0, 0, 50, 50, 50, 50, 0, 0, 0, 0, 50, 50, 50, 50, 0, 0, 0, 0, 50, 50, 50, 50, 0, 0, 0, 0, 50, 50, 50, 50, 0, 0];
+
+var test_number = 1;
+
+writingModes.forEach(function(flexWritingMode) {
+    flexDirections.forEach(function(flexDirection) {
+      directions.forEach(function(direction) {
+        justifyContents.forEach(function(justifyContent) {
+          alignItems.forEach(function(alignment) {
+            var flexboxClassName = flexWritingMode + ' ' + direction + ' ' + flexDirection + ' justify-content-' + justifyContent + ' align-items-' + alignment;
+            var title = document.createElement('div');
+            title.className = 'title';
+            title.innerHTML = flexboxClassName + " .flexbox " + (test_number++);
+            document.body.appendChild(title);
+
+            var flexbox = document.createElement('div');
+            flexbox.className = 'flexbox ' + flexboxClassName;
+
+            var child = document.createElement('div');
+            child.setAttribute('class', 'abspos');
+            child.setAttribute("data-offset-x", x.shift());
+            child.setAttribute("data-offset-y", y.shift());
+            flexbox.appendChild(child);
+
+            var relpos = document.createElement('div');
+            relpos.className = 'grid';
+            relpos.appendChild(flexbox);
+
+            document.body.appendChild(relpos);
+          })
+        })
+      })
+  })
+})
+
+</script>
+
+</body>

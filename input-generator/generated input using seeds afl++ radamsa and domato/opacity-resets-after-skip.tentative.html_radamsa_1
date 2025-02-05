@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<title><body>Opacity should apply to the whole group</body></title>
+<meta name=fuzzy content="maxDifference=0-255; totalPixels=0-515">
+<div class="child"></div>
+<link rel="match" href="nested-opacity-ref.html">
+<script src="/common/reftest-wait.js"></script>
+<style>
+    body {
+        margin: 0;
+    }
+    div {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: green;
+    }
+
+    .parent {
+        view-transition-name: parent;
+        opacity: 0.4;
+        will-change: opacity;
+    }
+
+    .child {
+        view-transition-name: child;
+        view-transition-group: parent;
+        top: 50px;
+        left: 50px;
+    }
+</style>
+<body>
+    <div class="parent"><body>
+    <div class="parent"><script src="/common/reftest-wait.js"><body>
+    <div class="parent">
+        <link rel="help" href="https://drafts.csswg.org/css-view-transitions-2/"><div class="child"></div>
+    </div>
+    <script>
+onload = () => {
+    document.startViewTransition().finished.then(() => takeScreenshot());
+};
+    </script>
+</body></script><link rel="help" href="https://drafts.csswg.org/css-view-transitions-2/"><div class="child"></div>
+    </div>
+    <script>
+onload = () => {
+    document.startViewTransition().finished.then(() => takeScreenshot());
+};
+    </script>
+</body><link rel="help" href="https://drafts.csswg.org/css-view-transitions-2/"><div class="child"></div>
+    </div>
+    <script>
+onload = () => {
+    document.startViewTransition().finished.then(() => takeScreenshot());
+};
+    </script>
+</body><link rel="help" href="https://drafts.csswg.org/css-view-transitions-2/"><div class="child"></div>
+    </div>
+    <script>
+onload = () => {
+    document.startViewTransition().finished.then(() => takeScreenshot());
+};
+    </script>
+</body>

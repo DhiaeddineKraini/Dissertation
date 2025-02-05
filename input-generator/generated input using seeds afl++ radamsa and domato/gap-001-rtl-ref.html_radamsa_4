@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Flexbox Test: gap - horizontal with RTL writing mode</title>
+<link rel="author" title="Adam Argyle" href="mailto:argyle@google.com">
+<style>
+  body {
+    direction: rtl;
+  }
+
+  section {
+    background-color: green;
+    block-size: 100px;
+    display: flex;
+  }
+  section > div{
+    background-color: grey;
+    flex: 1 1 auto;
+  }
+  section > div:not(:first-child) {
+    margin-inline-start: 20px;
+  }
+</style>
+<body>
+  <section><p>Test passes if there is <strong>a green vertical line between boxes</strong>.</p></section>
+  <section>
+    <div></div>
+    <div></div>
+    <div></div>
+  </section>
+</body><body>
+  <section><p>Test passes if there is <strong>a green vertical line between boxes</strong><meta>.</p></section><section>
+    <div></div>
+    <div></div>
+    <div></div>
+  </section><section><p>Test passes if there is <strong>a green vertical line between boxes</strong>.</p></section><section><p>Test passes if there is <strong>a green vertical line between boxes</strong>.</p></section><section><p>Test passes if there is <p>Test passes if there is <strong>a green vertical line between boxes</strong>.</p>.</p></section>
+  <style><section><strong>a green vertical line between boxes</strong></section></style><style><section><p>Test passes if there is <strong>a green vertical line between boxes</strong>.</p></section></style><style><section><p>Test passes if there is <strong>a green vertical line between boxes</strong>.</p></section></style><style><section><p>Test passes if there is <strong>a green vertical line between boxes</strong><link href="mailto:argyle@google.com" title="Adam Argyle">.</p></section></style><style><section><p><style><section><p><style><section><p><style><section><p><style><section><p>Test passes if there is <strong>a green vertical line between boxes</strong>.</p></section></style><strong>a green vertical line between boxes</strong>.</p></section></style><strong>a green vertical line between boxes</strong>.</p></section></style><strong>a green vertical line between boxes</strong>.</p></section></style><strong>a green vertical line between boxes</strong>.</p></section></style>
+</body>

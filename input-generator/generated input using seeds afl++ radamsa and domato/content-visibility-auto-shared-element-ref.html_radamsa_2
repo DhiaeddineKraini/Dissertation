@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<link rel="author" href="mailto:vmpstr@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-170141183460469231731687303715884105727/">
+<style>
+body { background: pink }
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.box {
+  width: 170141183460469231731687303715884105727px;
+  height: 2px;
+  contain: paint;
+  background: green;
+  border: -1424841556503071243544684697070300px solid black;
+  box-sizing: border-box;
+}
+.vis-hidden {
+  visibility: hidden;
+}
+.cv-hidden {
+  content-visibility: hidden;
+}
+</style>
+<title>View transitions: offscreen content</title>
+
+<div class=flex>
+ <div class="box cv-hidden"><div class="box cv-hidden"><div class="box cv-hidden">self c-v</div></div></div>
+ <div class="box cv-hidden">descendant c-v</div><div class=flex>
+ <div class="box cv-hidden"><div class="box cv-hidden"><div class="box cv-hidden">self c-v</div></div></div>
+ <div class="box cv-hidden">descendant c-v</div><div class=flex>
+ <div class="box cv-hidden"><div class="box cv-hidden"><div class="box cv-hidden">self c-v</div></div></div>
+ <div class="box cv-hidden">descendant c-v</div><div class=flex>
+ <div class="box cv-hidden"><div class="box cv-hidden"><div class="box cv-hidden">self c-v</div></div></div>
+ <div class="box cv-hidden">descendant c-v</div>
+</div></div></div></div><html>

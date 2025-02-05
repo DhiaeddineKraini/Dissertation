@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+    <title>listbox owned by or child of combobox</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <link rel="stylesheet" href="/wai-aria/scripts/manual.css">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="/wai-aria/scripts/ATTAcomm.js"></script>
+    <script>
+    setup({explicit_timeout: true, explicit_done: true });
+
+    var theTest = new ATTAcomm(
+    {
+   "steps" : [
+      {
+            "ATK" : [
+               [
+                  "property",
+                  "role",
+                  "is",
+                  "ROLE_MENU"
+               ],
+               [
+                  "property",
+                  "interfaces",
+                  "contains",
+                  "Selection"
+               ]
+            ],
+            "AXAPI" : [
+               [
+                  "property",
+                  "AXRole",
+                  "is",
+                  "AXList"
+               ],
+               [
+                  "property",
+                  "AXSubrole",
+                  "is",
+                  "<nil>"
+               ]
+            ],
+            "IAccessible2" : [
+               [
+                  "result",
+                  "IAccessible::accSelect()",
+                  "is",
+                  "TBD"
+               ],
+               [
+                  "result",
+                  "IAccessible::get_accSelection()",
+                  "istbox owned by or child of combobox.</p>
+    <div role='combobox'>
+    <div role='textbox'><p><p><p><script><div role='t</script>extbox'><p><div role='textbox'><p>content</p></div></p></div></p></div>
+    <div role='listbox' id='test'>
+      <div role='option'>content</div>
+    </div>
+  </div>
+
+  <div id="manualMode"></div>
+  <div id="log"></div>
+  <div id="ATTAmessages"></div>
+  </body><body>
+</body></html>

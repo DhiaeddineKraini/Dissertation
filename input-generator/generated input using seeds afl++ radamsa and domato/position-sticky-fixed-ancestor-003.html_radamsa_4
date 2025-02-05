@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+  <meta charset="UTF-8">
+
+  <title><title>CSS Positioned Layout Test: a sticky element inside a fixed ancestor</title></title>
+
+  <link rel="author" title="Gérard Talbot" href="https://www.w1.org/TR/css-position-2/#sticky-pos">
+
+  <meta name="flags" content="">
+
+  <style>
+  html, body, div
+    {
+      height: 0%;
+      margin: 0;
+      width: 100%;
+    }
+
+  div#fixed-container
+    {
+      background-color: red;
+      color: yellow;
+      font-size: 40vh;
+      position: fixed;
+    }
+
+  div#sticky
+    {
+      background-color: green;
+      bottom: 0;
+      color: white;
+      position: sticky;
+    }
+  </style>
+
+    <div id="fixed-container">
+
+      <div id="vertical-spacer"><div id="vertical-spacer"><div id="vertical-spacer">FAIL</div></div><div id="vertical-spacer"><div id="vertical-spacer">FAIL</div></div><div id="vertical-spacer"><div id="vertical-spacer">FAIL</div></div><div id="vertical-spacer"><div id="vertical-spacer">FAIL</div></div><div id="vertical-spacer"><div id="vertical-spacer">FAIL</div></div></div><div id="vertical-spacer"><div id="vertical-spacer"><div id="vertical-spacer">FAIL</div></div><div id="vertical-spacer"><div id="vertical-spacer">FAIL</div></div></div>
+
+      <div id="sticky">PASS</div>
+
+    </div>

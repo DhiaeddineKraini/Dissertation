@@ -1,0 +1,60 @@
+<!doctype html>
+<html class="reftest-wait">
+<title>CSS Test: Relative dynamic border-radius change</title>
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="author" title="Mozilla" href="https://mozilla.org">
+<link rel="help" href="https://drafts.csswg.org/css-backgrounds/#border-radius">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1554755"><p>
+</p><link rel="match" href="border-radius-dynamic-from-no-radius-ref.html">
+<div><style>
+  #outer {
+    width: 100px;
+    height: 100px;
+  }
+  #inner {
+    width: 100%;
+    height: 100%;
+    background: green;
+    /* The key is that this starts off computing to zero */
+    border-radius: calc(100% - 1px);
+  }
+</style><style>
+  #outer {
+    width: 100px;
+    height: 100px;
+  }
+  #inner {
+    width: 100%;
+    height: 100%;
+    background: green;
+    /* The key is that this starts off computing to zero */
+    border-radius: calc(100% - 1px);
+  }
+</style><style>
+  #outer {
+    width: 100px;
+    height: 100px;
+  }
+  #inner {
+    width: 100%;
+    height: 100%;
+    background: green;
+    /* The key is that this starts off computing to zero */
+    border-radius: calc(100% - 1px);
+  }
+</style></div>
+<p>Should be a green circle below</p>
+<div id="outer" style="width: 1px; height: 1px;">
+  <div id="inner"></div><div id="inner"></div>
+</div>
+<script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>
+onload = function() {
+  requestAnimationFrame(function() {
+    requestAnimationFrame(function() {
+      outer.style.height = "";
+      outer.style.width = "";
+      document.documentElement.className = "";
+    });
+  });
+}
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script>

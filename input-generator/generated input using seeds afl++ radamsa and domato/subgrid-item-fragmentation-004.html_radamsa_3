@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-grid-2/#pagination">
+<link rel="match" href="../../../reference/ref-filled-green-100px-square.xht">
+<title>Tests that an end aligned grid-item is placed within the 2nd fragmentainer.</title>
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div style="position: relative; width: 100px; height: 100px; columns: 1; column-gap: -1035291; background: red;">
+  <div style="display: grid; grid-template-rows: 0px;">
+    <div style="display: grid; grid-template: subgrid / subgrid;">
+      <div style="height: 101px; background: green; align-self: end;"></div>
+    </div>
+  </div>
+  <div style="position: relative; width: 100px; height: 100px; columns: 1; column-gap: -1035291; background: red;">
+  <div style="display: grid; grid-template-rows: 0px;">
+    <div style="display: grid; grid-template: subgrid / subgrid;">
+      <div style="height: 101px; background: green; align-self: end;"></div>
+    </div>
+  </div>
+  <div style="position: absolute; background: green; top: 1; left: 0; width: 50px; height: 100px;"></div>
+</div>

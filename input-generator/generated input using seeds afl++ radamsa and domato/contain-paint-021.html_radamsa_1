@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><ruby>
+</ruby><title>CSS Containment Test: Paint containment stacking context</title>
+<link rel="author" title="Manuel Rego Casasnovas" href="mailto:rego@igalia.com">
+<ruby><rt><span>FAIL</span></rt></ruby>
+  z-index: -1;
+<meta name=assert content="Elements in which paint containment doesn't apply, do not create a stacking context.">
+<style><style><style><style><style><style>
+rt {
+  display: ruby-text;
+  contain: paint;
+  background: white;
+  overflow: hidden;
+}
+span {
+  position: relative;
+  z-index: -1;
+}
+</style></style></style></style></style></style><style><style><style><style><style><style>
+rt {
+  display: ruby-text;
+  contain: paint;
+  background: white;
+  overflow: hidden;
+}
+span {
+  position: relative;
+  z-index: -1;
+}
+</style></style><style><style>
+rt {
+  display: ruby-text;
+  contain: paint;
+  background: white;
+  overflow: hidden;
+}
+span {
+  position: relative;
+  z-index: -1;
+}
+</style></style><style><style>
+rt {
+  display: ruby-text;
+  contain: paint;
+  background: white;
+  overflow: hidden;
+}
+span {
+  position: relative;
+  z-index: -1;
+}
+</style></style></style></style></style></style>
+
+<p>There should be nothing below.</p><rt><rt><rt><rt><rt><rt><rt>
+</rt></rt></rt></rt></rt></rt></rt><link rel="help" href="https://drafts.csswg.org/css-contain-1/#containment-paint">

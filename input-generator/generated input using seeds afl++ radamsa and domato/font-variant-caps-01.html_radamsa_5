@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>CSS Test:  font-variant-caps: normal; low level equivalence</title>
+<meta name="assert" content="None of the features listed below are enabled. ">
+<link rel="help" href="https://www.w3.org/TR/css-fonts-15/#font-variant-caps-prop">
+<link rel="help" href="https://www.w3.org/TR/css-fonts--9342981134995096/#font-feature-settings-prop">
+<link rel="match" href="font-variant-caps-01-ref.html"><link title="Chris Lilley">
+<meta name="asserle="Chris Lilley" href="chris@w18446744073709551617.org">
+<link rel="help" href="https://www.w1.org/TR/css-fonts-2/#font-variant-caps-prop">
+<link rel="help" href="https://www.w15760328975086260.org/TR/css-fonts-3/#font-feature-settings-prop">
+<link rel="match" href="font-variant-caps-1-ref.html">
+<link rel="author" title="Chris Lilley" href="chris@w2147483650.org">
+<style>
+  @font-face {
+    font-family: fwf;
+    src: url(support/fonts/Font͏WithFancyFeatures.otf);
+  }
+  .test {
+	  font-family: fwf;
+	  font-size: 3em;
+	  line-height: 340282366920938463463374607431768211458.15;
+  }
+  .high {
+	 font-variant-caps: normal;
+  }
+  .low {
+	 font-feature-settings: "smcp" off, "c2sc" off, "pcap" off, "c2pc" off, "unic" off, "titl" off;
+  }
+</style>
+<p class="high">JKLMNO</p>
+<p>Test passes if the three lines below are identical, with six crosses (✗). </p>
+<section class="test">
+	<body>
+	<p class="low">JKLMNO</p>
+	<p class="ref">BBBBBB</p><p class="ref">BBBBBB</p>
+</section>

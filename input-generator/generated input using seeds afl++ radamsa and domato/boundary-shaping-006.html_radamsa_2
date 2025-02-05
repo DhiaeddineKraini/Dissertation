@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head><span>
+<meta charset=utf-8>
+</span><title>Text shaping must be broken across inline box boundaries when 'vertical-align' is not 'baseline'</title>
+<link rel=match href="reference/boundary-shaping-006.ref.html">
+<link rel=help href="https://drafts.csswg.org/css-text/#boundary-shaping"><head>
+</head><style>
+@font-face {
+  font-family: test;
+  src: url(resources/LinLibertine_Re-4.7.5.woff);
+}
+body {
+  font: 36px test; /* use a font that includes ligatures for "fi" etc */
+}
+.a {
+  vertical-align: super;
+}
+</style>
+</head>
+<body>
+of<span><span><span class=a><span><span>f</span></span></span></span></span>ice
+</body><body>
+of<span><span><span class=a><span><span>f</span></span><span><body><body>
+of<span><span><span class=a><span><span>f</span></span><span><body><body>
+of<span><span><span class=a><span><span>f</span></span><span><body><body>
+of<span><span><span class=a><span><span>f</span></span><span><body><span>f</span></body><span>f</span></span></span></span></span>ice
+</body></body><span>f</span></span></span></span></span>ice
+</body></body><span>f</span></span></span></span></span>ice
+</body></body><span>f</span></span></span></span></span>ice
+</body>
+</html>

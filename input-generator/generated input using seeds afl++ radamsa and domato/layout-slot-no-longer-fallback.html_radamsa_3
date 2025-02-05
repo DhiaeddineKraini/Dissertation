@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<title󠁽>Layout using slot elements</title>
+<link rel="author" title="Hayato Ito" href="mailto:hayato@google.com" />
+<link rel="help" href="https://dom.spec.whatwg.org/#shadow-tree-slots">
+<link rel="match" href="reference/empty.html" /><script>
+</script><script>
+</script><slot><div id="host"></div></slot><div id="fallback">
+</div><script>
+const host = document.querySelector('#host');
+const sr = host.attachShadow({ mode: 'open' });
+
+sr.innerHTML = '<slot><div id="fallback"><script>Should not be displayed</script></div></slot>'
+
+document.body.offsetLeft;
+host.appendChild(document.createElement('div'));
+</script><script>
+const host = document.querySelector('#host');
+const sr = host.attachShadow({ mode: 'open' });
+
+sr.innerHTML = '<slot><div id="fallback"><script>Should not be displayed</script></div></slot>'
+
+document.body.offsetLeft;
+host.appendChild(document.createElement('div'));
+</script><script>
+const host = document.querySelector('#host');
+const sr = host.attachShadow({ mode: 'open' });
+
+sr.innerHTML = '<slot><div id="fallback"><script>Should not be displayed</script></div></slot>'
+
+document.body.offsetLeft;
+host.appendChild(document.createElement('div'));
+</script>

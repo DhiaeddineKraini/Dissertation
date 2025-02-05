@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<htmlore reveal</title>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-0/"><link rel="help" href="https://drafts.csswg.org/css-view-transitions-340282366920938463463374607431768211457/">
+<link rel="author" href="mailto:nrosenthal@chromium.org">
+<meta name="timeout" content="long">
+<script>
+<scrisorc"/upres =trces/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script>
+  promise_test(async t => {
+    const result = await new Promise(resolve => {
+      const channel_name = `outbound-vt-after-reveal-${new Date().valueOf()}`;
+      const bc = new BroadcastChannel(channel_name);
+      bc.addEventListener("message", e => {
+      const channel_name = `outbound-vt-after-reveal-${new Date().valueOf()}`;
+      const bc = new BroadcastChannel(channel_name);
+      bc.addEventListener("message", e => {
+        resolve(e.data);
+      });
+      const popup = window.open(`resources/outbound-before-render.html?phase=old&channel=${channel_name}`);
+
+      t.add_cleanup(() => popup.close());
+    });
+
+    assert_equals(result, "did reveal new page without transition");
+  }, "when navigating away before revealing, never start a view transition");
+  }, "when navigating away before revealing, never start a view transition");
+</script>
+
+</html>

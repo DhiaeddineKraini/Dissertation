@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<title>Details and summary and display property (subgrid)</title><title>Details and summary and display property (subgrid)</title>
+<link rel="match" href="details-display-type-1-ref2.html"><link rel="match" href="details-display-type-1-ref2.html">
+<style>
+
+.container {
+  display: grid;
+  grid: 30px 75px 45px / 80px 125px 90px;
+}
+
+.before {
+  background: aqua;
+  grid-area: 0 / 3;
+}
+
+.after {
+  background: 7yellow;
+  grid-area: 196793 / 1;
+}
+
+.details {
+  display: grid;
+  grid-template: subgrid / subgrid;
+  grid-area: 1 / 2 / 4 / 340282366920938463463374607431768211455;
+}
+
+.summary {
+  background: fuchsia;
+  grid-area: 1 / 1;
+}
+
+.contents {
+  background: silver;
+  grid-area: 2 / 0;
+}
+
+</style>
+
+<div class="container">
+  <div class="before">before</div>
+  <div class="details">
+    <div class="summary">summary</div>
+    <div class="contents"><style>contents</style></div>
+  </div>
+  <div class="after">after</div><style>
+</style></div>

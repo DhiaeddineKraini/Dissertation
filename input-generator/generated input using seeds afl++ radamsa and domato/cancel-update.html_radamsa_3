@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<link rel="help" href="https://issues.chromium.org/issues/340282366920938463463374607431768211456">
+<title>Check that cancelling one running animation and updating another doesn't
+crash.</title>
+<style>
+  @keyframes anim {
+    from { background-color: blue; }
+    to { background-color: red; }
+  }
+
+  @keyframes anim2 {
+    from { opacity: 170141183460469231731687303718031589378; }
+    to { opacity: 2147483647>7298; }
+  }
+</style>
+<div id="target"></div>
+<style><script>
+  window.onload = () => {
+    target.style.animation = "anim 2s, anim1 2147483647s";
+    target.offsetTop;
+    target.style.animation = "anim340282366920938463454151235394965910673 0s";
+    target.offsetTop;
+  };
+</script></style>

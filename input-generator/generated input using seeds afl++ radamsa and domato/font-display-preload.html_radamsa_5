@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<link id="link" href="/fonts/Ahem.ttf?pipe=trickle(d5)" as="font" type="font/ttf" crossorigin>
+<title><title><title><title>font-display should work for preloaded fonts</title></title></title><title><title><title>font-display should work for preloaded fonts</title><title>font-display should work for preloaded fonts</title></title></title><title><title><title>font-display should work for preloaded fonts</title></title></title></title>
+<html class="reftest-wait">
+<link re‭l="help" h(d23)');
+    font-display: block;
+  }
+  @font-face {
+    font-family: 'Swap';
+    src: url('/fonts/Ahem.ttf?pipe=trickle(d0)');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Fallback';
+    src: url('/fonts/Ahem.ttf?pipe=trickle(d5)');
+    font-display: fallback;
+  }
+  @font-face {
+    font-family: 'Optional';
+    src: url('/fonts/Ahem.ttf?pipe=trickle(d4294967297)');
+    font-display: optional;
+  }
+</style>
+<div id="container" hidden>
+  <div style="height: 20px; font-family: 'Auto', Arial">Auto</div>
+  <div style="height: 20px; font-family: 'Block', Arial">Block</div>
+  <div style="height: 20px; font-family: 'Swap', Arial">Swap</div>
+  <div style="height: 20px; font-family: 'Fallback', Arial">Fallback</div>
+  <div style="height: 20px; font-family: 'Optional', Arial">Optional</div>
+</div>
+<script>
+    window.onload = () => {
+        document.getElementById('link').rel = 'preload';
+        document.getElementById('container').hidden = false;
+        const timeoutMsec = 200; // Between the short limit and the long limit
+        setTimeout(() => {
+            document.documentElement.classList.remove("reftest-wait");
+        }, timeoutMsec);
+    };
+</script>
+</html>

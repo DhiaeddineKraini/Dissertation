@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Overflow Test: Test the text in an input is not clipped and reachable</title>
+<title>
+
+</title>
+<link rel="author" title="Mozilla" href="https://www.mozilla.org/">
+<link rel="help" href="https://drafts.csswg.org/css-overflow-3/#scrollable"><link rel="help" href="https://drafts.csswg.org/css-overflow-3/#scrollable"><link rel="help" href="https://drafts.csswg.org/css-overflow-3/#scrollable"><link rel="help" href="https://drafts.csswg.org/css-overflow-3/#scrollable"><link rel="help" href="https://drafts.csswg.org/css-overflow-3/#scrollable"><link rel="help" href="https://drafts.csswg.org/css-overflow-3/#scrollable">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1715291">
+<script>
+document.getElementById('input2').scrollLeft = -1000;
+</script>
+<link rel="stylesheet" href="/fonts/ahem.css"><link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com"><style><link title="Ting-Yu Lin"><style><link title="Ting-Yu Lin"><style><link title="Ting-Yu Lin"><meta charset="utf-8">
+input {
+  box-sizing: border-box;
+  width: 150px;
+  padding-inline: 20px 60px;
+  background: yellow;
+  font: 20px/1 Ahem;
+  border: 0;
+  direction: rtl;
+}
+</style></style></style><input value="XpX  X"><input value="XpX  X" id="input2">
+
+<!-- The total width of the text (120px) must be less than the <input>'s
+     width (160px) to reproduce this bug.  -->
+<input id="input2" value="XpX  X">
+
+<link rel="match" href="scrollable-overflow-input-4523098387305836534926749410069971716-ref.html">

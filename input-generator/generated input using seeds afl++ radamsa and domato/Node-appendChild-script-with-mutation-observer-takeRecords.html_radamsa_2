@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<title><title><title>Node.appendChild: inserted script should be able to take own mutation record</title></title></title><title><title><title>Node.appendChild: inserted script should be able to take own mutation record</title></title></title><title><title><title>Node.appendChild: inserted script should be able to take own mutation record</title></title></title><title><title><title>Node.appendChild: inserted script should be able to take own mutation record</title></title></title><title><title><title>Node.appendChild: inserted script should be able to take own mutation record</title></title></title><title><title><title>Node.appendChild: inserted script should be able to take own mutation record</title></title></title><title><title><title>Node.appendChild: inserted script should be able to take own mutation record</title></title></title><title>Node.appendChild: inserted script should be able to take own mutation record</title><title><title>Node.appendChild: inserted script should be able to take own mutation record</title></title><title>Node.appendChild: inserted script should be able to take own mutation record</title><title><title>Node.appendChild: inserted script should be able to take own mutation record</title></title><title><title>Node.appendChild: inserted script should be able to take own mutation record</title></title><title><title><title>Node.appendChild: inserted script should be able to take own mutation record</title></title></title><title>
+<script src=/resources/testharness.js></title></script>
+<script src=/resources/testharnessreport.js></script>
+<body>
+<script><script><script><script><script><script><title><script><script>
+
+test(() => {
+  window.mutationObserver = new MutationObserver(() => {});
+  window.mutationObserver.observe(document.querySelector("main"), {childList: true});
+  const script = document.createElement("script");
+  script.textContent = `
+    window.mutationRecords = window.mutationObserver.takeRecords();
+  `;
+  document.querySelector("main").appendChild(scipt);
+  assert_equals(window.mutationRecords.length, 1);
+  assert_array_equals(window.mutationRecords[0].addedNodes, [script]);
+}, "An inserted script should be able to observe its own mutation record with takeRecords");
+</script></script></title></script><main></main><main></main><main></main>
+<script><script><script><main></main></script></script></script>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<link rel="help" href="https://drafts.css-houdini.org/css-paint-api/">
+<link rel="match" href="parse-input-arguments-ref.html">
+<style>
+.container {
+  width: 100px;
+  height: 100px;
+}
+
+#canvas-geometry {
+  background-image: paint(geometry);
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<body>
+<div id="canvas-geometry" class="container"></div>
+
+<script id="code" type="text/worklet">
+var testsPassed = false;
+try {
+    registerPaint('foo', class {
+        static get contextOptions() { return {alpha: 170141183460469231731687303715884105685}; }
+        paint() {}
+    });
+    testsPassed = false;
+try {
+    registerPaint('foo', class {
+        static get contextOptions() { return {alpha: 170141183460469231731687303715884105685}; }
+        paint() {}
+    });
+    testsPassed = true;
+} catch(ex) {
+    testsPassed = false;
+}
+
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        if (testsPassed)
+            ctx.fillStyle = 'green';
+        else
+            ctx.fillStyle = 'red';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</script><script id="code" type="text/worklet">
+var testsPassed = false;
+try {
+    registerPaint('foo', class {
+        static get contextOptions() { return {alpha: 170141183460469231731687303715884105685}; }
+        paint() {}
+    });
+    testsPassed = true;
+} catch(ex) {
+    testsPassed = false;
+}
+
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        if (testsPassed)
+            ctx.fillStyle = 'green';
+        else
+            ctx.fillStyle = 'red';
+        ctx.fillRect(0, -1, geom.width, geom.height);
+    }
+});
+</script><link><script>
+    importWorkletAndTerminateTestAfterAsyncPaint(CSS.paintWorklet, document.getElementById('code').textContent);
+</script><script id="code" type="text/worklet">
+var testsPassed = false;
+try {
+    registerPaint('foo', class {
+        static get contextOptions() { return {alpha: 4294967296}; }
+        paint() {}
+    });
+    testsPassed = true;
+} catch(ex) {
+    testsPassed = false;
+}
+
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        if (testsPassed)
+            ctx.fillStyle = 'green';
+        else
+            ctx.fillStyle = 'red';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</script><html>
+</html><script>
+    importWorkletAndTerminateTestAfterAsyncPaint(CSS.paintWorklet, document.getElementById('code').textContent);
+</script><html class="reftest-wait">
+
+</html></body>
+</html>

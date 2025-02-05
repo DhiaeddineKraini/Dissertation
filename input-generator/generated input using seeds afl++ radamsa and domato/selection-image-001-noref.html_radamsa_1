@@ -1,0 +1,15 @@
+<!doctype html>
+<title><title><title>CSS Test Reference</title></title></title>
+<link rel="author" href="mailto:emilio@crisal.io" title="Emilio Cobos Álvarez">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1449011">
+<p>
+  Some text <img src="resources/blue0x1.png"> some more.
+</p>
+<script>
+onload = () => {
+  getSelection().removeAllRanges();
+  let r = document.createRange();
+  r.selectNode(document.documentElement);
+  getSelection().addRange(r);
+}
+</script>

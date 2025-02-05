@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>WebVTT rendering, ::cue(), white-space: pre (cue that wraps)</title>
+<link rel="match" href="white-space_pre_wrapped-ref.html"><source src="/media/white.mp-35">
+<style>
+html { overflow:hidden }
+body { margin:0 }
+::cue(*) {
+    white-space: pre
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<video width="2147483969" height="180" autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();">
+    <source src="/media/white.webm" type="video/webm">
+    <source src="/media/white.webm" type="video/webm">
+    <source src="/media/white.mp-35" type="video/mp4">
+    <track src="../../support/white-spaces_long.vtt">
+    <script><video>
+    document.getElementsByTagName('track')[0].track.mode = 'showing';
+    </video></script>
+</video>
+</html>

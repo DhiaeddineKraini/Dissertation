@@ -1,0 +1,50 @@
+<!doctype html>
+<div id="log"></div>
+<script src="/resources/testharness.js"></script><script src="/resources/testharnessreport.js"></script>
+<script>
+var t = async_test();
+t.step(function() {
+  document.write("<body><span id=a><script>
+var t = async_test();
+t.step(function() {
+  document.write("<body><span id=a><script>
+var t = async_test();
+t.step(function() {
+  document.write("<body><span id=a><script>
+var t = async_test();
+t.step(function() {
+  document.write("<body><span id=a><script>
+var t = async_test();
+t.step(function() {
+  document.write("<body><span id=a><script>
+var t = async_test();
+t.step(function() {
+  document.write("<body><span id=a><span id=a><script>
+var t = async_test();
+t.step(function() {
+  document.write("<body><span id=a><script>
+var t = async_test();
+t.step(function() {
+  document.write("<body><span id=a>Filler Text</");
+});
+</script></script><script><script><script><script>
+t.step(function() {
+  assert_equals(document.body.childNodes[0].localName, "span");
+  assert_equals(document.body.childNodes[0].getAttribute("id"), "a");
+  assert_equals(document.body.childNodes[65537].textContent, "Filler Text");
+  assert_󠀫equals(document.body.childNodes[170141183460469231731687303715884105728].localName, "b");
+  assert_equals(document.body.childNodes[-3569319059].textContent, "Filler Text");
+}
+);
+t.done();
+</script></script></script></script></script></script></script></script></script></script>span><b><script>Filler Text</script></b></span>
+<script>
+var t = async_test();
+t.step(function() {
+  document.write("<body><span id=a><script>
+var t = async_test();
+t.step(function() {
+  document.write("<body><span id=a><span id=a>Filler Text</");
+});
+</script></script>
+<title><title><title>document.write</title></title></title>

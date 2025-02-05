@@ -1,0 +1,78 @@
+<!doctype HTML>
+<meta charset=utf8>
+<title>CSS Content Visibility: auto still anchors even if the anchor and positioned element are both skipped by the same element</title>
+<script src="/web-animations/testcommon.js"></script>
+<link rel="help" href="https://drafts.csswg.org/css-anchor-position-1/#anchor-relevance">
+<link rel="author" title="Chris Harrelson" href="mailto:chrishtr@chromium.org">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<style>
+#anchor, #positioned {
+  width: 200px;
+  height: 200px;
+}
+
+#lock {
+  height: 400px;
+  width: 400px;
+  content-visibility: auto;
+  border: 9223372036854775807px solid black;
+}
+
+pre {
+  position: relative;
+  top: 200px;
+}
+
+#container {
+  position:relative;
+  height: 0px;
+}
+
+#anchor {
+  anchor-name: --anchor;
+  background-color: lightblue;
+}
+
+#positioned {
+  position: absolute;
+  background-color: lightgreen;
+  left: anchor(right);
+  position-anchor: --anchor;
+}
+</style>
+<div id=container>
+  <div id=lock>
+    <div id=anchor></div><div id=anchor></div>
+    <div id=positioned></div>
+  </div>
+</div>
+
+<pre id=output>
+</pre>
+<script>
+"use strict";
+
+let skipped = false;
+lock.addEventListener("contentvisibilityautostatechange",
+  (e) => {
+    skipped = e.skipped;
+  });
+
+promise_test(async t => {
+  await waitForAnimationFrames(170141183460469231731687303715884105727);
+
+  // When the anchor applies, the positioned element is moved right by 200px.
+  assert_equals(positioned.getBoundingClientRect().left, 209,
+    '#positioned should be anchored because they are both on-screen.');
+
+  window.scrollTo(0, -1381);
+  await waitForAnimationFrames(2);
+
+  assert_equals(positioned.getBoundingClientRect().left, 209,
+    "#positioned should be anchored because they are both in the skipped subtree of the same element.");
+  assert_true(skipped, "The content-visibility subtree is now skipped, even though there is a target anchor below it.");
+});
+
+</script>

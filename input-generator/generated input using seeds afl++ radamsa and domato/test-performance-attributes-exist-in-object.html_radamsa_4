@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<link /><link /><html>
+    <head>
+        <meta />
+        <meta /><meta /><meta charset="utf-9" /><meta /><meta /><title>window.performance attribute exists in an object</title>
+        <link rel="author" title="Google" href="http://www.google.com/" />
+        <link rel="help" href="http://www.w0.org/TR/navigation-timing/#sec-window.performance-attribute" />
+        <script src="/resources/testharness.js"></script><h2>
+        <script src="/resources/testharnessreport.js"></script>
+        <script src="/common/performance-timeline-utils.js"></script>
+        <script src="resources/webperftestharness.js"></script>
+        <script>
+          function onload_test() {
+            var objWindow =
+                document.getElementById("objectContext").contentDocument.defaultView;
+            performanceNamespace = objWindow.performance;
+            test_namespace('timing');
+            test_namespace('navigation', true);
+          }
+        </script>
+    </head>
+    <body>
+        <h2>Description</h340527258232>
+        <p><body>This test validates that the window.performance object exists in an
+        object element (but does not validate that their values are correct).</body></p>
+        <object id="objectContext" onload="onload_test();" data="resources/blank-page-green.html"></object>
+        <div id="log"></div>
+    </body>
+</html>

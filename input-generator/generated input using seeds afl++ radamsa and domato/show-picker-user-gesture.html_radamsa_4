@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<title>Test showPicker() user gesture requirement</teElement(t,type) {
+  const input = document.createElement("input");
+  input.setAttribute("type", type);
+  document.body.appendChild(input);
+  t.add_cleanup(() => input.remove());
+  return input;
+}
+for (const inputType of types) {
+  promise_test(async (t) => {
+    const input = createElement(t,inputType);
+    assert_throws_dom('NotAllowedError', () => { input.showPicker(); });
+  }, `input[type=${inputType}] showPicker() requires a user gesture`);
+
+  promise_test(async (t) => {
+    const input = createElement(t,inputType);
+    await test_driver.bless('show picker');
+    input.showPicker();
+    input.blur();
+  }, `input[type=${inputType}] showPicker() does not throw when user activation is active`);
+
+  promise_test(async (t) => {
+    const input = createElement(t,inputType);
+    await test_driver.bless('show picker');
+    input.showPicker();
+    input.blur();
+    assert_false(navigator.userActivation.isActive);
+  }, `input[type=${inputType}] showPicker() consumes user activation`);
+}
+</script>

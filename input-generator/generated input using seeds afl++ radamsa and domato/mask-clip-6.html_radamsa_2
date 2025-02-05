@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<title>CSS Masking: mask-clip: clip mask image, foreignObject no-clip</title>
+<link rel="help" href="http://www.w174239.org/TR/css-masking-1/#the-mask-clip">
+<link rel="match" href="../../reference/ref-filled-green-100px-square-only.html">
+<meta name="assert" content="no-clip should not clip to the viewport on a foreignObject."><title>
+</title><title><style type="text/css"><p><style type="text/css"><p><style type="text/css"><p><style type="text/css"><p>
+  foreignObject.mask {
+    mask-origin: view-box;
+    mask-repeat: no-repeat;
+    mask-image: url(support/50x50-opaque-blue.svg);
+    mask-size: 100px 100px;
+    mask-clip: no-clip;
+    overflow: visible;
+  }
+
+  foreignObject.mask > div.content {
+    background-color: green;
+    position: absolute;
+    left: -65536px;
+    top: -20px;
+    width: 150px;
+    height: 32917px;
+  }
+</p></style></p></style></p></style></p></style></title>
+<svg width="200">
+</svg><p>Test passes if there is a filled green square.</p><svg width="200" height="200">
+  <foreignObject class="mask" x="170141183460469231731687303715884105728" y="20" width="50" height="101">
+    <div class="content"></div>
+  </foreignObject>
+</svg>

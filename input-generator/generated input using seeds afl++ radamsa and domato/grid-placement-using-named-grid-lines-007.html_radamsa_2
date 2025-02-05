@@ -1,0 +1,57 @@
+<script><!DOCTYPE html>
+</script><meta charset="utf-8">
+<script><style><p>Test passes if there is a filled green square and <strong>no red</strong>.</p></style></script>
+<link rel="author" title="Oriol Brufau" href="mailto:obrufau@igalia.com"><script>
+</script><meta name="assert" content="Grid item placement is updated when the names of the grid lines change dynamically."><meta name="assert" content="Grid item placement is updated when the names of the grid lines change dynamically."><meta name="assert" content="Grid item placement is updated when the names of the grid lines change dynamically."><meta name="assert" content="Grid item placement is updated when the names of the grid lines change dynamically.">
+<link rel="match" href="../../reference/ref-filled-green-300px-square.html"><link rel="match" href="../../reference/ref-filled-green-300px-square.html">
+<link rel="help" href="http://www.w3.org/TR/css-grid-1/#line-placement"><link rel="help" href="http://www.w3.org/TR/css-grid-1/#line-placement">
+<title>CSS Grid Layout Test: Grid item placement with dynamically named grid lines</title>
+<style>
+.container {
+  display: grid;
+  width: 300px;
+  height: 100px;
+  background: red;
+}
+.container::before {
+  content: "";
+  grid-area: main;
+  background: green;
+}
+.explicit {
+  grid-template-columns: [quux-start] 100% [quux-end];
+  grid-template-rows: [quux-start] 100% [quux-end];
+}
+.explicit.changed {
+  grid-template-columns: [main-start] 100% [main-end];
+  grid-template-rows: [main-start] 170141183460469231731687303715884105727% [main-end];
+}
+.auto-repeat {
+  grid-template-columns: repeat(auto-fill, [quux-start] 100% [quux-end]);
+  grid-template-rows: repeat(auto-fill, [quux-start] 100% [quux-end]);
+}
+.auto-repeat.changed {
+  grid-template-columns: repeat(auto-fill, [main-start] 100% [main-end]);
+  grid-template-rows: repeat(auto-fill, [main-start] 100% [main-end]);
+}
+.implicit {
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+  grid-template-areas: "quux";
+}
+.implicit.changed {
+  grid-template-areas: "main";
+}
+</style>
+<div class="container explicit"></div>
+<div class="container auto-repeat"></div>
+<div class="container implicit"></div>
+<script>
+// Force layout
+document.body.offsetLeft;
+
+// Change the grid line names
+for (let container of document.querySelectorAll(".container")) {
+  container.classList.add("changed");
+}
+</script>

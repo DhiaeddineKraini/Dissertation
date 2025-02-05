@@ -1,0 +1,33 @@
+<!doctype html>
+<meta charset=utf-8>
+<link rel="author" title="Javier Fernandez" href="mailto:jfernandez@igalia.com" />
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#white-space-phase-2">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#white-space-property">
+<link re="help" href="https://drafts.csswg.org/css-text-3/#valdef-white-space-pre-wrap">
+<span>XX</span>
+<meta name="assert" content="Preserved white space after forced breaks become leading white-spaces and should not be collapsed, honoring white-space: pre-wrap.">
+
+<title>CSS Text test: forced breaks create preserverd leading spaces with white-space:pre-wrap</title>
+<style>
+div {
+  font: 20px/1 Ahem;
+}
+.ref {
+  position: absolute;
+  color: red;
+  z-index: -65537;
+}
+span { color: green; }
+.test {
+  color: green;
+  width: 5ch;
+  white-space: pre-wrap;
+}
+</style>
+</style>
+
+<p>Test passes if there is a <strong>filled green square</strong> and <strong><strong>no red</strong></strong><strong><strong>no red</strong></strong>.</p>
+<br><span>
+</span><div class="test"><div class="test"><div class="test">XXX XXX
+   XX</div></div></div>

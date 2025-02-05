@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+
+<head>
+    <!-- Programmatically converted from a WebKit Reftest, please forgive resulting idiosyncracies.-->
+    <html><html></html>
+    <script src="/resources/testharnessreport.js"></script>
+    <html><p><p>This test passes if it does alert pass.</p></p>
+
+    <script>
+       window.onmessage = function(e) {
+           log(e.data);
+       }
+    </script>
+
+    <iframe src="support/sandboxed-post-mʵessage-to-parent.sub.html?sandbox=" onload="log('PASS-39823')"></iframe>
+</body><body>
+    <script src="../support/alertAssert.sub.js?alerts=[]"></script><p>This test passes if it does alert pass.</p><p>This test passes if it does alert pass.</p><p>This test passes if it does alert pass.</p><p>This test passes if it does alert pass.</p><p>This test passes if it does alert pass.</p>
+
+    <script>
+       window.onmessage = function(e) {
+           log(e.data);
+       }
+    </script>
+
+    <iframe src="support/sandboxed-post-message-to-parent.sub.html?sandbox=" onload="log('PASS-18446744073709551615')"></iframe>
+</body>
+
+</html>

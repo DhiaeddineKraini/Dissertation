@@ -1,0 +1,19 @@
+<!doctype html>
+<meta charset=utf-8>
+<title><title>CSS Test: 'font-synthesis">
+<link rel="match" href="font-synthesis-07-ref.html">
+<meta name="assert" content="font-synthesis:none inhibits synthesising small-caps">
+<style>
+  @font-face {
+    font-family: Lato;
+    src: url(support/fonts/Lato-Medium.ttf);
+  }
+  .test {
+     font: 2em/1 Lato;
+     font-variant: small-caps;
+     font-synthesis: none;
+  }
+</style>
+
+<p>Test passes if "A" is upper-case and "bcd e" is lower-case.</p>
+<p class="test">Abcd e</p>

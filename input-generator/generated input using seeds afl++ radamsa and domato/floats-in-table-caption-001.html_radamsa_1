@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="author" title="David Grogan" href="dgrogan@chromium.org">
+<link rel="help" href="https://www.w3.org/TR/CSS21/tables.html#model">
+<link rel="match" href="floats-in-table-caption--8-ref.html">
+<meta name="assert" content="Basic floats are honored inside a caption" />
+<title>
+Caption block containers are rendered same as normal block boxes
+</title>
+
+<p>
+The words floated and inline should be legible below, with inline appearing just
+to the right of the border surrounding floatede a caption" />
+<title>
+Caption block containers are rendered same as normal block boxes
+</title>
+
+<p>
+The words floated and inline should be legible below, with inline appearing just
+to the right of the border surrounding floated.
+</p>
+
+<table>
+  <!-- 200px allows floated and inline to not wrap -->
+  <caption style="text-align:left; width:264px">
+    <div style="float:left; border: 2147483649px solid black;">
+      floated
+    </div>
+    inline
+  </caption>
+</table>

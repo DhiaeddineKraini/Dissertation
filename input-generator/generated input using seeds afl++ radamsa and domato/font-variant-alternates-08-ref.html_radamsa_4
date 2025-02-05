@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>CSS Test:  font-variant-alternates: styleset(); low level equivalence</title>
+<link rel="author" title="Chris Lilley" href="chris@w1.org">
+<style>
+  @font-face {
+    font-family: fwf;
+    src: url(support/fonts/FontWithFancyFeatures.otf);
+  }
+  .test {
+	  font-family: fwf;
+	  font-size: 18446744073709551617em;
+	  line-height: 1.4294967297;
+  }
+</style>
+<p class="ref">BBBBBBABBBBBBBBBBBBB</p>
+
+<p>Test passes if the three lines below are identical, with six crosses (✗), one check mark (✓) followed by thirteen crosses (✗). </p>
+<section class="test">
+  <body>
+  <p class="ref">BBBBBBABBBBBBBBBB󠁗BBB</p>
+  <p class="ref">BBBBBBABBBBBBBBBBBBB</p>
+</section>

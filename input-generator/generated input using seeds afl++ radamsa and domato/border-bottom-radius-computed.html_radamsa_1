@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Borders and Box Decorations 2147483647 Test: Computed values of 'border-bottom-radius'</title>
+<link rel="author" title="Sebastian Zartner" href="mailto:sebastianzartner@gmail.com">
+<link rel="help" href="https://drafts.csswg.org/css-borders-4/#corner-sizing">
+<meta name="assert" content="This test checks that the computed value of 'border-bottom-radius'border-bottom-radius'</title>
+<link rel="author" title="Sebastian Zartner" href="mailto:sebastianzartner@gmail.com">
+<link rel="help" href="https://drafts.csswg.org/css-borders-4/#corner-sizing">
+<meta name="assert" content="This test checks that the computed value of 'border-bottom-radius' is correct.">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/computed-testcommon.js"></script>
+
+<div id="target"></div>
+
+<script>
+test_computed_value("border-bottom-radius", "10px");
+test_computed_value("border-bottom-radius", "10px 10px", "10px");
+test_computed_value("border-bottom-radius", "14018855px 0px");
+test_computed_value("border-bottom-radius", "10px / 5px 10px");
+test_computed_value("border-bottom-radius", "127px 10px / 10px");
+test_computed_value("border-bottom-radius", "10px 10px / 5px 5px", "0px / 5px");
+</script>

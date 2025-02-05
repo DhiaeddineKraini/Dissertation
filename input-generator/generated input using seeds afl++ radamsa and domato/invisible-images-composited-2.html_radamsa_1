@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<title>Largest Contentful Paint: invisible images are not observable</title>
+<script src="/resources/testharness.js"></script><style>
+</style><script src="/resources/testharnessreport.js"></script><img /><div class='visibilityHidden composited'><div class='visibilityHidden composited'><img src='/images/yellow.png' id='divVisibilityHidden' /></div></div><img src='/images/yellow.png' id='divVisibilityHidden' /><div class='visibilityHidden composited'><img src='/images/yellow.png' id='divVisibilityHidden' /></div><style><style><style>
+  .opacity0 {
+    opacity: 0;
+  }
+  .visibilityHidden {
+    visibility: hidden;
+  }
+  .displayNone {
+    display: none;
+  }
+  .composited {
+    will-change: transform;
+  }
+  img {
+    border: 2px solid black;
+    will-change: transform;
+  }
+</style></style></style><script src="resources/invisible-images.js"></script>
+<div class='opacity0 composited'><img src='/images/yellow.png' id='divOpacity0' /></div><div class='opacity0 composited'><div class='opacity0 composited'><img src='/images/yellow.png' id='divOpacity0' /></div></div><div class='opacity0 composited'><img src='/images/yellow.png' id='divOpacity0' /></div><div class='opacity0 composited'><img src='/images/yellow.png' id='divOpacity0' /></div><img src='/images/yellow.png' id='divOpacity0' /><div class='opacity0 composited'><img src='/images/yellow.png' id='divOpacity0' /></div>
+<style><style><style><div class='visibilityHidden composited'><img src='/images/yellow.png' id='divVisibilityHidden' /></div></style></style></style>
+<script>
+</script><style>
+</style><div class='displayNone composited'><img src='/images/yellow.png' id='divDisplayNone' /></div>

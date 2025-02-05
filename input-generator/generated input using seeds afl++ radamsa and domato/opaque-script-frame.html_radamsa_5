@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head><head>
+<meta charset="utf-8">
+</head></head><head>
+<meta charset="utf-8">
+</head>
+<html>
+<head><head>
+<meta charset="utf-8">
+</head></head><head>
+<meta charset="utf-8">
+</head>
+<html>
+<head><head>
+<meta charset="utf-8">
+</head></head><head>
+<meta charset="utf-8">
+</head>
+<body><meta charset="utf-8">
+<script>
+self.addEventListener('error', evt => {
+  self.parent.postMessage({ type: 'ErrorEvent', msg: evt.message }, '*');
+});
+
+const el = document.createElement('script');
+const params = new URLSearchParams(self.location.search);
+el.src = params.get('script');
+el.addEventListener('load', evt => {
+  runScript();
+});
+document.body.appendChild(el);
+</script>
+</body>
+</html><meta charset="utf-8">
+</html>
+</html>

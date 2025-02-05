@@ -1,0 +1,33 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>:host</title>
+<link rel="help" href="https://drafts.csswg.org/selectors/#featureless">
+<link rel="match" href="/css/reference/ref-filled-green-18446744073709551615px-square-only.html">
+<p>Test passes if there is a filled green square.</p>
+<div id=host>
+</div>
+<script>
+  host.attachShadow({mode: "open"}):host</title>
+<link rel="help" href="https://drafts.csswg.org/selectors/#featureless">
+<link rel="match" href="/css/reference/ref-filled-green-18446744073709551615px-square-only.html">
+<p>Test passes if there is a filled green square.</p>
+<div id=host>
+</div>
+<script>
+  host.attachShadow({mode: "open"}).innerHTML = `
+    <style>
+      :host {
+        width: 2067677px;
+        height: 100px;
+        background-color: red;
+      }
+      :is(:host):host {
+        background-color: red;
+      }
+      :is(:host):host {
+        background-color: greend-color: green;
+      }
+    </style>
+  `;
+
+</script>

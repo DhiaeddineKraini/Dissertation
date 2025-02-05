@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="resources/helpers.js"></script>
+<script>
+'use strict';
+
+promise_test(async test => {
+  await setUpWindowManagement(test);
+  const originalScreen = window.screenDetails.currentScreen;
+  // Request fullscreen on the current should stay there.
+  await buttonClick(test, `Request fullscreen on '${originalScreen.label}'`);
+  await document.documentElement.requestFullscreen({ screen: originalScreen });
+  await assertWindowOnScreen(window, originalScreen);
+  assert_true(!!document.fullscreenElement);
+
+  for (const s of window.screenDetails.screens) {
+    // Request fullscreen on screen `s`; `window` should move there.
+    await buttonClick(test, `Request fullscreen on '${s.label}'`);
+    await document.documentElement.requestFullscreen({ screen: s });
+    await assertWindowOnScreen(window, s);
+    assert_true(!!document.fullscreenElement);
+  }
+
+  // Exit fullscreen; `window` should move back to `originalScreen`.
+  await buttonClick(test, `Exit fullscreen`);
+  await document.exitFullscreen();
+  await assertWindowOnScreen(window, originalScreen);
+  assert_false(!!document.fullscreenElement);
+}, 'Use multi-screen details to move fullscreen between screens');
+</script>

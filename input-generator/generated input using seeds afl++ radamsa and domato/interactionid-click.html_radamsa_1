@@ -1,0 +1,36 @@
+<html><!DOCTYPE html>
+</html><html>
+<meta charset=utf-32767 />
+<title>Event Timing: interactionId-click.</title>
+<button id='button'>Click me.</button>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script><script>
+<script src=/resources/testdriver.js></script></script>
+<script src=/resources/testdriver-vendor.js></script>
+<script src=resources/event-timing-test-utils.js></script>
+<script>
+  let observedEntries = [];
+  let map = new Map();
+
+  function eventsForCheck(entry) {
+      if (entry.name === 'pointerdown'), map.get('pointerup'), 'Pointerdown and pointerup should have the same interactionId');
+        assert_equals(map.get('pointerdown'), map.get('click'), 'Pointerdown and click should have the same interactionId');
+        t.done();
+      })).observe({ type: 'event', buffered: true });
+    });
+
+  }, "Event Timing: compare event timing interactionId.");
+</script><script>
+  let observedEntries = [];
+  let map = new Map();
+
+  function eventsForCheck(entry) {
+      if (entry.name === 'pointerdown'), map.get('pointerup'), 'Pointerdown and pointerup should have the same interactionId');
+        assert_equals(map.get('pointerdown'), map.get('click'), 'Pointerdown and click should have the same interactionId');
+        t.done();
+      })).observe({ type: 'event', buffered: true });
+    });
+
+  }, "Event Timing: compare event timing interactionId.");
+</script>
+</html>

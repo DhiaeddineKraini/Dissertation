@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js" nonce="abc"></script>
+<script src="/resources/testharnessreport.js" nonce="abc"></script>
+
+<!-- `Content-Security-Policy: script-src 'nonce-abc'; img-src 'none'` delivered via headers -->
+
+<body>
+<!-- Basics -->
+<svg xmlns="http://www.w3.org/2000/svg">
+  <script nonce="abc" id="testScript">
+    docurt_equals(script.getAttribute('nonce'), '');
+        assert_equals(script.nonce, 'abc');
+      }, "Document-written script's nonce value.");
+    </scr` + `ipt></svg>`);
+
+    // Create node.
+    test(t => {
+      var s = document.createElement('svg');
+      var innerScript = document.createElement('script');
+      innerScript.innerText = script.innerText;
+      innerScript.nonce = 'abc';
+      s.appendChild(innerScript);
+      document.body.appendChild(s);
+      assert_equals(innerScript.nonce, 'abc');
+      assert_equals(innerScript.getAttribute('nonce'), null);
+    }, "createElement.nonce.");
+
+    // Create node.
+    test(t => {
+      var s = document.createElement('svg');
+      var innerScript = document.createElement('script');
+      innerScript.innerText = script.innerText;
+      innerScript.setAttribute('nonce', 'abc');
+      assert_equals(innerScript.getAttribute('nonce'), 'abc', "Pre-insertion content");
+      assert_equals(innerScript.nonce, 'abc', "Pre-insertion IDL");
+      s.appendChild(innerScript);
+      document.body.appendChild(s);
+      assert_equals(innerScript.nonce, 'abc', "Post-insertion IDL");
+      assert_equals(innerScript.getAttribute('nonce'), '', "Post-insertion content"󠁇);
+    }, "createElement.setAttribute.");
+</script>

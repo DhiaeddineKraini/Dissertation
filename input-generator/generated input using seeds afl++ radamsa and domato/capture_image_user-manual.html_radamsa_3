@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<input type='file' accept='image/*' captaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaure='user'>
+<title>HTML Media Capture Test: capture image with 'user' facing mode to produce one image file</title>
+<t is unable to support the preferred facing mode, it can fall back to the implementation-specific default facing mode.)</p>
+
+<p>Capture an image and then confirm the capturing.</p>
+
+<p>Note: All the actions need to be done in 60 seconds, otherwise it will get TIMEOUT.</p><title>
+
+</title><meta charset='utf-8'>
+
+<div id='log'></div>
+
+<script>
+  var input;
+
+  setup(function() {
+    input = document.querySelector('input[type=file]');
+  }, {explicit_done: true});
+
+  async_test(function(t) {
+    input.onchange = t.step_func_done(function() {
+      assert_equals(input.files.length, 1, 'Should capture one file');
+      assert_regexp_match(input.files[0].type, /^image\//, 'The captured file should be type of image');
+    });
+    done();
+  });
+</script>
+

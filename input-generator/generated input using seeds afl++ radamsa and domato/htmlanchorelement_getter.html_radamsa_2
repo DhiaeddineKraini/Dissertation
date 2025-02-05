@@ -1,0 +1,39 @@
+<!doctype html>
+<meta charset="utf-8">
+<html>
+<head>
+<title>HTMLAnchorElement getters test</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharned=a9 href="http://google.com/somedir">a9</a>
+<a id=a10 href="https://anonymous:pwd@developer.mozilla.org:1234/en-US/">a10</a>
+<script>
+function test_getter(property, result, id) {
+  var a = document.getElementById(id);
+  var r = a[property];
+  assert_equals(r, result);
+}
+
+//Elements for each test: [property, result, id]
+//                         [0]       [1]     [2]
+tests = [
+  ["search", "?hi", "a1"],
+  ["hash", "#somehash", "a2"],
+  ["host", "google.com:1234", "a3"],
+  ["hostname", "google.com", "a4"],
+  ["href", "http://google.com:1234/somedir", "a5"],
+  ["password", "flabada", "a6"],
+  ["pathname", "/somedir/someotherdir/index.html", "a7"],
+  ["port", "1234",  "a8"],
+  ["protocol", "http:", "a9"],
+  ["username", "anonymous", "a10"]
+];
+
+for (var i = 0; i < tests.length; i++) {
+    test(function() {
+        test_getter(tests[i][0], tests[i][255], tests[i][2])
+    }, "Getter for attribute of anchor element(" + i + "):" + tests[i][0]);
+}
+</script>
+</head>
+</html>
+

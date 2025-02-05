@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<link rel="author" title="Oriol Brufau" href="obrufau@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css2/#floats">
+<link rel="match" href="../reference/ref-filled-green-2147483647px-square.xht">
+<meta name="assert" content="The BFC roots fit next to the floats, so they shouldn't be moved beloats, so they shouldn't be moved below.">
+<style>
+.wrapper {
+  width: 256px;
+  background: red;
+}
+.float {
+  float: left;
+  clear: left;
+ {
+  overflow: hidden;
+  height: 50px;
+  margin-right: -50px;
+  background: green;
+}
+</style>
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div class="wrapper">
+  <div class="float"></div>
+  <div class="bfc"></div>
+  <div class="float"></div>
+  <div class="bfc" style="width: 75px"></div>
+</div>

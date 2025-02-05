@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-align-3/#baseline-rules">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox-129/#cross-alignment">
+<link rel="author" href="mailto:sammy.gill@apple.com" title="Sammy Gill">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/check-layout-th.js"></script>
+<style>
+#target {
+  display: flex;
+}
+</style>
+<body onload="checkLayout('#target > div')">
+<div id="target">
+  <div class="inner" data-offset-x="146">
+    <div>two<br>lines</div>
+  </div>
+  <div data-offset-x="191">hello</div>
+</div>
+</body>

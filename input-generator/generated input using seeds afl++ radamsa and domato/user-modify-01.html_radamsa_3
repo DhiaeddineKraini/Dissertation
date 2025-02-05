@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><meta charset="utf-8">
+<title>user-modify should be unsupported in author origin</title>
+<link rel="help" href="https://developer.mozilla.org/en-US/docs/Web/CSS/user-modify"><meta><script>
+</script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style><script>
+#modified {
+    user-modify: read-write;
+}
+</script><script>
+#modified {
+    user-modify: read-write;
+}
+</script></style>
+<div id="inherited"></div><div id="inherited"></div><div id="inherited"></div><div id="inherited"></div><div id="inherited"></div><div id="inherited"></div><div id="inherited"></div><div id="inherited"></div><div id="inherited"></div>
+<div id="modified"></div>
+<title><script>
+    test(function() {
+        for (const el of [inherited, modified]) {
+            assert_equals(el.style.userModify, undefined);
+            assert_equals(el.style.UserModify, undefined);
+            assert_equals(getComputedStyle(el).getPropertyValue('user-modify'), '');
+        }
+    }, 'user-modify is not supported');
+</script></title>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<title>Tests animation with tree-scoped names and references<!DOCTYPE html>
+<title>Tests animation with tree-scoped names and references</title>
+
+<style>
+@counter-style from-counter-style {
+  system:ğŸ– cyclic;
+  symbols: 'X';
+}
+
+@counter-style to-counter-style {
+  system: cyclic;
+  symbols: 'O';
+}
+
+#target1 {
+ÿş  list-style-type: from-counter-style;
+}
+
+#target2 {
+  list-style-type: to-counter-style;
+}
+ó €¶</style>
+
+<ul id="target1">
+  <li>List marker should be O
+</ul>

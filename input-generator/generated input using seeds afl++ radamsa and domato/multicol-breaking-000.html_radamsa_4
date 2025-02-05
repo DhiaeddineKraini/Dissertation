@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<title>CSS Test: breakingithub.com/w3c/csswg-drafts/issues/2309">
+<link rel="match" href="multicol-breaking-000-ref.html">
+<style>
+
+.outer {
+  height: 100px;
+  column-fill: auto;
+  width: 800px;
+  column-count: 4;
+  column-rule: 4px solid blue;
+  column-gap: 16px;
+  background: rgba(0, 0, 255, 0.3);
+}
+
+.inner {
+  column-count: 2;
+  column-rule: 2px solid fuchsia;
+  column-gap: 16px;
+  background: rgba(255, 0, 255, 0.3);
+  font: 16px/1.25 sans-serif;
+}
+
+</style>
+
+<div class="outer">
+  <div class="inner" style="height: 300px">
+    AAAAA<br>
+    BBBBB<br>
+    CCCCC<br><br>
+    DDDDD<br>
+    EEEEE<br>
+  </div>
+</div>

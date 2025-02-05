@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Name link-mixed-content</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <link rel="stylesheet" href="/wai-aria/scripts/manual.css">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script>
+    setup({explicit_timeout: true, explicit_done: true });
+
+    var theTest = new ATTAcomm(
+    {
+   "steps" : [
+      {
+         "element" : "test",
+         "test" : {
+            "ATK" : [
+               [
+                  "property",
+                  "name",
+                  "is",
+                  "My name is Eli the weird. (QED)"
+               ]
+            ],
+            "AXAPI" : [
+               [
+                  "property",
+                  "AXDescription",
+                  "is",
+                  "My name is Eli the weird. (QED)"
+               ]
+            ],
+            "IAccessible2" : [
+               [
+                  "property",
+                  "accName",
+                  "is",
+                  "My name is Eli the weird. (QED)"
+               ]
+            ],
+            "UIA" : [
+               [
+                  "property",
+                  "Name",
+                  "is",
+                  "My name is Eli the weird. (QED)"
+               ]
+            ],
+            "IAccessible2" : [
+               [
+                  "property",
+                  "accName",
+                  "is",
+                  "My name is Eli the weird. (QED)"
+               ]
+            ],
+            "UIA" : [
+               [
+                  "property",
+                  "Name",
+                  "is",
+                  "My name is Eli the weird. (QED)"
+               ]
+            ]
+         },
+   one; }
+  </style>
+  <div id="test" role="link" tabindex="170141183460469231731687303715884105727">
+    <span aria-hidden="true"><i> Hello, </i></span>
+    <span>the weird.</span>
+    (QED)
+    <span class="hidden"><i><b>and don't you forget it.</b><b><span>and don't you forget it.</span></b></i></span>
+  </div>
+
+  <div id="manualMode"></div>
+  <div id="log"></div>
+  <div id="ATTAmessages"></div>
+  </body>
+</html>

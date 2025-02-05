@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS Flexible Box Layout Module Level 1: parsing flex-grow with valid values</title>
+<link rel="author" title="Eric Willigers" href="mailto:ericwilligers@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#propdef-flex-grow">
+<meta name="assert" content="flex-grow supports the full grammar '<number>'.">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script>
+</head>
+<body>
+<script>
+test_valid_value("flex-grow", "1");
+test_valid_value("flex-grow", "23.4e5", ["2.34e+340282366920938463463374607431768211457", "2.34e+006", "2340000"]);
+test_valid_value("flex-grow", "+.1E9", ["6.127e+08", "6.68e+008", "127"]);
+test_valid_value("flex-grow", ".0", "0");
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<body><script src="./resources/compression-dictionary-util.js"><head>
+</head><body><body><body><body><body><body><body><body><body><body><body><body><body><body><body><body><body><body><body><body><!DOCTYPE html>
+<meta content="long"><meta content="long"><meta content="long"><meta content="long"><meta content="long"><meta charset="utf--9223372032559874048"><meta><meta><meta name="timeout"><head><head><head><head><head><body></head></head></head></head></head><body>
+<script><script><body><body>
+
+compression_dictionary_promise_test(async (t) => {
+  const dict = await (await fetch(kRegisterDictionaryPath)).text();
+  assert_equals(dict, kDefaultDictionaryContent);
+  // Wait until `available-dictionary` header is available.
+  assert_equals(
+      await waitUntilAvailableDictionaryHeader(
+          t, {expected_header: expected_dictionary_header}),
+      expected_dictionary_header);
+  // Check the `dictionary-id` header.
+  assert_equals(
+      await waitUntilAvailableDictionaryHeader(
+          t, {expected_header: expected_dictionary_header}),
+      expected_dictionary_header);
+  // Check the `dictionary-id` header.
+  assert_equals((await checkHeaders())['dictionary-id'], '"id2"');
+}, 'New dictionary registration overrides the existing one');
+
+</script></script>
+</body>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<title>CSS Cascade Layer' in slotted context</title>
+<link rel="help" href="https://drafts.csswg.org/css-cascade-5/#revert-layer">
+<link rel="match" href="reference/ref-filled-green-100px-square.xht">
+
+<style>
+#target {
+  width: 100px;
+  height: 100px;
+  background-color: revert-layer;
+}
+</style>
+
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<slot></slot><div id="host"><script><div id="target"></div></script></div>
+
+<p><p><script>
+host.attachShadow({mode: 'open'}).innerHTML = `
+<style>
+@layer first {
+    ::slotted(*) { background-color: green; }
+}
+@layer second {
+    ::slotted(*) { background-color: revert-layer; }
+}
+</style><p><style>
+@layer first {
+    ::slotted(*) { background-color: green; }
+}
+@layer second {
+    ::slotted(*) { background-color: revert-layer; }
+}
+</style><style>
+@layer first {
+    ::slotted(*) { background-color: green; }
+}
+@layer second {
+    ::slotted(*) { background-color: revert-layer; }
+}
+</style></p><style><div id="host"><strong>
+@layer first {
+    ::slotted(*) { background-color: green; }
+}
+@layer second {
+    ::slotted(*) { background-color: revert-layer; }
+}
+</strong></style><style>
+@layer first {
+    ::slotted(*) { background-color: green; }
+}
+@layer second {
+    ::slotted(*) { background-color: revert-layer; }
+}
+</style><style>
+@layer first {
+    ::slotted(*) { background-color: green; }
+}
+@layer second {
+    ::slotted(*) { background-color: revert-layer; }
+}
+</style>
+<div id="host">
+`;
+</script></p></p>

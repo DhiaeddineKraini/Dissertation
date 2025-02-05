@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org"><link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org"><link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org"><link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org"><link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org"><link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org"><link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org"><style>
+</style><link rel="help" href="https://drafts.csswg.org/css-page-2/#page-based-counters"><div style="break-before:page;">
+</div><meta name="assert" content="Resetting or incrementing counters in margins obscure counters in the page context, and in the document">
+<link rel="match" href="content-13-print-ref.html">
+<style><style><style>
+  html {
+    counter-reset: foo 10;
+  }
+  @page {
+    margin: 4em;
+    counter-reset: foo 5;
+    counter-increment: foo;
+
+    @top-left {
+      width: 50%;
+      text-align: left;
+      vertical-align: top;
+      content: counters(foo, ".");
+    }
+
+    @top-right {
+      width: 55%;
+      text-align: left;
+      vertical-align: top;
+      counter-increment: foo;
+      content: counters(foo, ".");
+    }
+
+    @bottom-center {
+      text-align: left;
+      vertical-align: top;
+      counter-reset: foo 2;
+      counter-increment: foo foo foo;
+      content: counters(foo, ".");
+    }
+  }
+  @page :right {
+    counter-reset: none;
+    @bottom-center {
+      counter-reset: inherit;
+    }
+  }
+  body {
+    margin: 0;
+  }
+</style></style></style>
+Page
+<div style="page:something;">
+  Another page
+</div>
+<div>
+  Yet another page
+</div>
+<div style="break-before:page;">
+  Last page
+</div>

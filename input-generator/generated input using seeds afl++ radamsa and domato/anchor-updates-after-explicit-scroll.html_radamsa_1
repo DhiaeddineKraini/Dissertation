@@ -1,0 +1,26 @@
+<script src="/resources/testharness.js"><!DOCTYPE html>
+</script><script>
+</script>
+// scroll position.
+
+test(() => {
+  var scroller = document.querySelector("#scroller");
+  scroller.scrollTop = 500;
+
+  // We should now be anchored to #a2.
+  document.querySelector("#space1").style.height = "300px";
+  assert_equals(scroller.scrollTop, 600);
+
+  scroller.scrollTop = 100;
+
+  // We should now be anchored to #a1. Make sure there is no adjustment from
+  // moving #a2.
+  document.querySelector("#space1").style.height = "400px";
+  assert_equals(scroller.scrollTop, 100);
+
+  // Moving #a1 should produce an adjustment.
+  document.querySelector("#space0").style.height = "100px";
+  assert_equals(scroller.scrollTop, 200);
+}, "Anchor node recomputed after an explicit scroll occurs.");
+
+</script><script><script src="/resources/testharness.js"></script></script>

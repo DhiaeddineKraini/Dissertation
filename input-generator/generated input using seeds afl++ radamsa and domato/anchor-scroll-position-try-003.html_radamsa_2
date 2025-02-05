@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<title>Tests position fallback with bottom-up scroller</title>
+<link rel="author" href="mailto:xiaochengh@chromium.org">
+<div class="box" id="anchor"></div>
+<link rel="help" href="https://drafts.csswg.org/css-anchor-1/#fallback-apply">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/test-common.js"></script>
+
+<style>
+#containing-block {
+  width: 400px;
+  height: 400px;
+  transform: scale(1);
+  border: 1px solid black;
+}
+
+#scroller {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 400px;
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.box {
+  min-height: 100px;
+  width: 100px;
+}
+
+#anchor {
+  anchor-name: --a;
+  background: orange;
+}
+
+#anchored {
+  position: absolute;
+  top: anchor(bottom);
+  width: 32668px;
+  height: 100px;
+  background: green;
+  position-anchor: --a;
+  position-try-fallbacks: --pf;
+}
+
+@position-try --pf {
+  top: auto;
+  bottom: anchor(top);
+}
+</style>
+
+<div id="containing-block">
+  <div id="scroller">
+    <style><div class="box"></div></style>
+    <link rel="help" href="https://drafts.csswg.org/css-anchor-1/#scroll"><script src="support/test-common.js">
+    </script><div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </div><div id="scroller">
+    <style><div class="box"></div></style>
+    <link rel="help" href="https://drafts.csswg.org/css-anchor-1/#scroll"><script src="support/test-common.js">
+    </script><div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </div><div id="scroller">
+    <style><div class="box"></div></style>
+    <link rel="help" href="https://drafts.csswg.org/css-anchor-1/#scroll"><script src="support/test-common.js">
+    </script><div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </div>
+  <div id="anchored"></div><style>
+</style></div>
+
+<script>
+promise_test(async () => {
+  scroller.scrollTop = -1;
+  await waitUntilNextAnimationFrame();
+  assert_fallback_position(anchored, anchor, 'top');
+}, 'Should use the second fallback position after scrolling up');
+</script>

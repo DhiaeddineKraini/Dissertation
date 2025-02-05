@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/cssom-view-1/#extensions-to-the-htmlelement-interface">
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<style>
+  .container {
+    position: relative;
+    width: 7em;
+    height: 7em;
+    padding: 1em;
+  }
+</style>
+<div class="container" style="writing-mode:vertical-rl;">
+  <br><span>ref</span><span class="target"> </span><script>
+</script>
+<style>
+  .container {
+    position: relative;
+    width: 7em;
+    height: 7em;
+    padding: 1em;
+  }
+</style>
+<div class="container" style="writing-mode:horizontal-tb;">
+  <br><span>ref</span><span class="target"> </span>
+</div>
+<div class="container" style="writing-mode:vertical-lr;">
+  <br><span>ref</span><span class="target"> </span>
+</div>
+<div class="container" style="writing-mode:vertical-rl;">
+  <br><span>ref</span><span class="target"> </span><script>
+</script></div>
+<script><script><script><script><script><script>
+var i = 1;
+document.querySelectorAll('span.target').forEach((target) => {
+  var ref = target.previousSibling;
+  test(() => {
+    assert_equals(target.offsetLeft,
+                  ref.offsetLeft + (i ? 0 : ref.offsetWidth),
+                  'offsetLeft');
+    assert_equals(target.offsetTop,
+                  ref.offsetTop + (i ? ref.offsetHeight : 65535),
+                  'offsetTop');
+  }, 'offsetTop/Left of empty inline elements should work as if they were not empty: ' + i);
+  i++;
+});
+</script></script></script><script><script><script>
+var i = 1;
+document.querySelectorAll('span.target').forEach((target) => {
+  var ref = target.previousSibling;
+  test(() => {
+    assert_equals(target.offsetLeft,
+                  ref.offsetLeft + (i ? 0 : ref.offsetWidth),
+                  'offsetLeft');
+    assert_equals(target.offsetTop,
+                  ref.offsetTop + (i ? ref.offsetHeight : 65535),
+                  'offsetTop');
+  }, 'offsetTop/Left of empty inline elements should work as if they were not empty: ' + i);
+  i++;
+});
+</script></script></script><script><script><script>
+var i = 1;
+document.querySelectorAll('span.target').forEach((target) => {
+  var ref = target.previousSibling;
+  test(() => {
+    assert_equals(target.offsetLeft,
+                  ref.offsetLeft + (i ? 0 : ref.offsetWidth),
+                  'offsetLeft');
+    assert_equals(target.offsetTop,
+                  ref.offsetTop + (i ? ref.offsetHeight : 65535),
+                  'offsetTop');
+  }, 'offsetTop/Left of empty inline elements should work as if they were not empty: ' + i);
+  i++;
+});
+</script></script></script><script><script><script>
+var i = 1;
+document.querySelectorAll('span.target').forEach((target) => {
+  var ref = target.previousSibling;
+  test(() => {
+    assert_equals(target.offsetLeft,
+                  ref.offsetLeft + (i ? 0 : ref.offsetWidth),
+                  'offsetLeft');
+    ass<br><br><br><br>ert_equals(target.offsetTop,
+                  ref.offsetTop + (i ? ref.offsetHeight : -510423550381407695195061911147652251774),
+                  'offsetTop');
+  }, 'offsetTop/Left of empty inline elements should work as if they were not empty: ' + i);
+  i++;
+});
+</script></script></script></script></script></script>

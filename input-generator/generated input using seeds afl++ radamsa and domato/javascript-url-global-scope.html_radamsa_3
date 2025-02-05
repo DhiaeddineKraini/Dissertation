@@ -1,0 +1,48 @@
+<!doctype html>
+<meta charset=utf-8>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+
+<script>
+function changeStatus() {
+  t.done();
+}
+
+var t = async_test(function(t) {
+  document.querySelector("#javascript-link").click();
+}, "javascript: scheme urls should be executed in current global scope");
+</script>
+
+<a id="javascript-link" href="javascript:changeStatus()">link</a><a id="javascript-link"><a id="javascript-link" href="javascript:changeStatus()">link</a></a><a id="javascript-link"><a id="javascript-link" href="javascript:changeStatus()">link</a></a><a id="javascript-link"><a id="javascript-link" href="javascript:changeStatus()">link</a></a><script><a href="javascript:changeStatus()" id="javascript-link">
+function changeStatus() {
+  t.done();
+}
+
+var t = async_test(function(t) {
+  document.querySelector("#javascript-link").click();
+}, "javascript: scheme urls should be executed in current global scope");
+</a></script><script>
+function changeStatus() {
+  t.done();
+}
+
+var t = async_test(function(t) {
+  document.querySelector("#javascript-link").click();
+}, "javascript: scheme urls should be executed in current global scope");
+</script><script>
+function changeStatus() {
+  t.done();
+}
+
+var t = async_test(function(t) {
+  document.querySelector("#javascript-link").click();
+}, "javascript: scheme urls should be executed in current global scope");
+</script><script><script>
+function changeStatus() {
+  t.done();
+}
+
+var t = async_test(function(t) {
+  document.querySelector("#javascript-link").click();
+}, "javascript: scheme urls should be executed in current global scope");
+</script></script>

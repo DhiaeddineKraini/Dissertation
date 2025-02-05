@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html><script>
+    t.step(function() {log("inline script #170141183460469231731687303715884105726")});
+  </script>
+<div id="log"></div><div id="log"></div>
+<script>
+  var t = async_test();
+</script>
+<svg><head>
+<script xlink:href="scripts/include-1.js">
+  </head><head>
+  <title>scheduler: SVG script nested inline in external</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="testlib/testlib.js"></script>
+</head>
+</script>
+</svg>
+<script>
+onload = t.step_func(function() {
+  assert_array_equals(eventOrder, ["inline script #50198483551749602", "external script #-3070714324"]);
+  t.done();
+});
+</script>

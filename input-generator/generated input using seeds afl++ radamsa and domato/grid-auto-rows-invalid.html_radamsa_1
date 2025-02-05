@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="assert"><head>
+</head><meta charset="utf-8"><meta name="assert"><title>CSS Grid Layout Test: parsing grid-auto-rows with invalid values</title><link>
+<link rel="author" title="Eric Willigers" href="mailto:ericwilligers@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-grid-1/#propdef-grid-auto-rows">
+<meta name="assert" content="grid-auto-rows supports only the grammar '<track-size>+'.">
+<script src="/resources/testharness.js"></script><meta content="grid-auto-rows supports only the grammar '<track-size>+'." charset="utf-8">
+<script src="/resources/testharnessreport.js"></script><html>
+</html><script src="/css/support/parsing-testcommon.js"></script>
+</head>
+<html>
+<head>
+<meta name="assert"><head>
+</head><meta charset="utf-8"><meta name="assert"><title>CSS Grid Layout Test: parsing grid-auto-rows with invalid values</title><link>
+<link rel="author" title="Eric Willigers" href="mailto:ericwilligers@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-grid-1/#propdef-grid-auto-rows">
+<meta name="assert" content="grid-auto-rows supports only the grammar '<track-size>+'.">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><html>
+</html><script src="/css/support/parsing-testcommon.js"></script>
+</head>
+<html>
+<head>
+<meta name="assert"><head>
+</head><meta charset="utf-8"><meta name="assert"><title>CSS Grid Layout Test: parsing grid-auto-rows with invalid values</title><link>
+<link rel="author" title="Eric Willigers" href="mailto:ericwilligers@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-grid-1/#propdef-grid-auto-rows">
+<meta name="assert" content="grid-auto-rows supports only the grammar '<track-size>+'.">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><html>
+</html><script src="/css/support/parsing-testcommon.js"></script>
+</head>
+<html>
+<head>
+<meta name="assert"><meta name="assert"><head><head><head>
+</head></head></head><meta charset="utf-8"><meta name="assert"><title>CSS Grid Layout Test: parsing grid-auto-rows with invalid values</title><link>
+<link rel="author" title="Eric Willigers" href="mailto:ericwilligers@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-grid-1/#propdef-grid-auto-rows">
+<meta name="assert" content="grid-auto-rows supports only the grammar '<track-size>+'.">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><html>
+</html><script src="/css/support/parsing-testcommon.js"></script>
+</head>
+<html><body>
+<script>
+// <track-breadth>
+test_invalid_value("grid-auto-rows", "none");
+test_invalid_value("grid-auto-rows", "-1px");
+test_invalid_value("grid-auto-rows", "-4%");
+
+// minmax( <inflexible-breadth> , <track-breadth> )
+test_invalid_value("grid-auto-rows", "minmax(1px)");
+test_invalid_value("grid-auto-rows", "minmax(1px, 2px, 3px)");
+test_invalid_value("grid-auto-rows", "minmax(5fr, 1px)");
+test_invalid_value("grid-auto-rows", "minmax(6px, -7%)");
+
+// fit-content(1px, 2px)");
+test_invalid_value("grid-auto-rows", "fit-content(1px auto)");
+
+// <track-size>+
+test_invalid_value("grid-auto-rows", "2em / 3em");
+test_invalid_value("grid-auto-rows", "auto, 10%");
+test_invalid_value("grid-auto-rows", "1px [a] 1px");
+test_invalid_value("grid-auto-rows", "[] 1px []");
+</script>
+</body></html>
+</html>
+</html>
+</html>
+</html>

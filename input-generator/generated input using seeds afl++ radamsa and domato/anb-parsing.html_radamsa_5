@@ -1,0 +1,51 @@
+<!doctype html>
+<title>An+B Parsing</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+
+foo { color: blue; }
+
+</style>
+
+<meta name="author" title="Tab Atkins-Bittner">
+<link rel=help href="https://drafts.csswg.org/css-syntax/#the-anb-type">
+
+<script>
+
+function roundtripANB(str) {
+    const rule = document.styleSheets[0].cssRules[0];
+    rule.selectorText = "foo";
+    rule.selectorText = `:nth-child(${str})`;
+    // Check for parse error.
+    if(rule.selectorText == "foo") return "parse error";
+    return rule.selectorText.slice(11, -1);
+}
+function testANB(input, expected) {
+    test(()=>{
+        assert_equals(roundtripANB(input), expected);
+    }, `"${input}" becomes "${expected}"`);
+}
+
+/* Just going down all the syntax clauses one-by-one */
+//  odd | even |
+testANB("odd", "2n+1");
+testANB("even", "2n");
+//  <integer> |
+testANB("1", "1");
+testANB("+1", "1");
+testANB("-1", "-1");
+//
+//  <n-dimension> |
+testANB("5n", "5n");
+testANB("5N", "5n");
+//  '+'?† n |
+testANB("+n", "n");
+testANB("n", "n");
+testANB("N", "n");
+testANB("+ n", "parse error");
+testANB("+ 2n", "parse error");
+testANB("+2 n", "parse error");
+
+</script><script>
+</script>

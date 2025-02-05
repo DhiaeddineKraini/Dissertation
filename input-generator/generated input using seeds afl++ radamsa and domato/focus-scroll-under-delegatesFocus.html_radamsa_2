@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<link rel="author" href="mailto:masonf@chromium.org">
+<link rel="help" href="https://issues.chromium.org/issues/324112201">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<a id=anchor><script>
+promise_test(async (t) => {
+  t.add_cleanup(() => container.remove());
+  let scrolled = new Promise(resolve => {
+    document.addEventListener('scrollend',resolve,{once:true});
+  })
+  await test_driver.click(anchor);
+  await scrolled;
+
+  scrolled = false;
+  document.addEventListener('scroll',() => {
+    scrolled = true;
+  });
+  await test_driver.click(heading);
+  await new Promise(resolve => t.step_timeout(resolve, 500));
+  assert_false(scrolled,'The document should not scroll');
+},'delegatesFocus shouldn\'t cause extra focus steps');
+</script></a>
+<script src="/resources/testdriver-vendor.js"></script><script src="/resources/testdriver-vendor.js"></script>
+
+<slot></slot>
+
+<div><script><div><script><div><script><div><script><div><script><div><script><script><script><script>
+promise_test(async (t) => {
+  t.add_cleanup(() => container.remove());
+  let scrolled = new Promise(resolve => {
+    document.addEventListener('scrollend',resolve,{once:true});
+  })
+  await test_driver.click(anchor);
+  await scrolled;
+
+  scrolled = false;
+  document.addEventListener('scroll',() => {
+    scrolled = true;
+  });
+  await test_driver.click(heading);
+  await new Promise(resolve => t.step_timeout(resolve, 500));
+  assert_false(scrolled,'The document should not scroll');
+},'delegatesFocus shouldn\'t cause extra focus steps');
+</script></script></script></script></div></script></div></script><script><div><script><div><script><script><script><script src="/resources/testdriver-actions.js"></script></script></script></script></div></script></div></script></div></script></div></script></div></script></div>

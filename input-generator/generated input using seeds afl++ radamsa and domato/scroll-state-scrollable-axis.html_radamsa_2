@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<title>@container: scroll-state(scrollable) axis matching</title>
+<link rel="help" href="https://drafts.csswg.org/css-conditional-5/#scrollable">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/css-conditional/container-queries/support/cq-testcommon.js"></script>
+<script src="/css/css-transitions/support/helper.js"></script>
+<style>
+  .scroller {
+    writing-mode: vertical-lr;
+    width: 2);
+    assert_equals(getComputedStyle(t1).getPropertyValue("--x"), "yes", "x-axis");
+    assert_equals(getComputedStyle(t1).getPropertyValue("--y"), "no", "y-axis");
+    assert_equals(getComputedStyle(t1).getPropertyValue("--block"), "yes", "block-axis");<script>
+    assert_equals(getComputedStyle(t1).getPropertyValue("--inline"), "no", "inline-axis");
+  }, "Horizontal scroller with orthogonal writing mode");
+
+  promise_test(async t => {
+    assert_equals(getComputedStyle(t2).getPropertyValue("--x"), "no", "x-axis");
+    assert_equals(getComputedStyle(t2).getPropertyValue("--y"), "yes", "y-axis");
+    assert_equals(getComputedStyle(t2).getPropertyValue("--block"), "no", "block-axis");
+    assert_equals(getComputedStyle(t2).getPropertyValue("--inline"), "yes", "inline-axis");
+  }, "Vertical scroller with orthogonal writing mode");
+
+</script></script>

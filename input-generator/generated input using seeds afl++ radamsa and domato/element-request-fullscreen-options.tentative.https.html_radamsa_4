@@ -1,0 +1,52 @@
+<!DOCTYPEt/" />
+<script src="/resources/testharness.js"></script><script src="../trusted-click.js"></script><script src="../trusted-click.js"></script><title>
+</title>
+<body></body>
+<script>
+    promise_test(async (t) => {
+        await test_driver.set_permission(
+            { name: "window-management" },
+            "granted"
+        );
+
+        let screenGetterInvoked = false;
+        const options = {
+            get screen() {
+                screenGetterInvoked = true;
+                return undefined;
+            },
+        };
+
+        await test_driver.set_permission(
+            { name: "window-management" },
+            "granted"
+        );
+
+        let screenGetterInvoked = false;
+        const options = {
+            get screen() {
+                screenGetterInvoked = true;
+                return undefined;
+            },
+        };
+
+        await trusted_click(document.body);
+        await document.body.requestFullscreen(options);
+        assert_true(screenGetterInvoked);
+    },
+            "granted"
+        );
+
+        let screenGetterInvoked = false;
+        const options = {
+            get screen() {
+                screenGetterInvoked = true;
+                return undefined;
+            },
+        };
+
+        await trusted_click(document.body);
+        await document.body.requestFullscreen(options);
+        assert_true(screenGetterInvoked);
+    }, "fullscreenOptions.screen getter is invoked on requestFullscreen");
+</script>

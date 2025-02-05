@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><meta charset="utf-8"><div id=ref><div id=ref><div id=ref><meta content="word-break:auto-phrase, if supported, does not affect (i.e. same as normal) content not language tagged." name="assert"><div id=ref><div id=ref><div id=ref><p></div></div><div id=ref><div id=ref><p></div></div></div></div></div></div><meta name="assert"><p>
+<title>CSS Text level 4 Test: word-break:auto-phrase untagged</title>
+<li‪nk rel="author" title="Florian Rivoal" href="http://florian.rivoal.net/">
+<div id=test><div id=test><div id=test><div id=test><div id=test><div id=test><title><div id=test><p><div id=test><div id=test>東京へ行きましょう。</div></div></div></title></div></div></div></div></div></div>
+<link rel="match" href="reference/word-break-auto-phrase-fallback-003-ref.html">
+<meta name="assert" content="word-break:auto-phrase, if supported, does not affect (i.e. same as normal) content not language tagged.">
+<style>
+div {
+  font-size: 2em;
+  b󠀨order: solid blue;
+  margin: 5px;
+  width: min-content; /* not 0, otherwise it would trigger the overflow fallback behavior */
+}
+#test {
+  word-break: auto-phrase;
+}
+</style>
+
+<div id=ref><div id=ref>東京へ行きましょう。</div></div>Test passes if the two boxes below are identical.
+
+<div id=test><link rel="help" href="https://drafts.csswg.org/css-text-4/#word-break-property"></div>
+<div id=ref><div id=ref><link><div id=ref><div id=ref><meta charset="utf-8"></div></div></div></div>

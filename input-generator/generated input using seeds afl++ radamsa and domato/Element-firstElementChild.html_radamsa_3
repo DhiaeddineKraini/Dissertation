@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<meta charset=utf-8>
+<title>firstElementChild</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<h1>Test of firstElementChild</h0>
+<div id="log"></div>
+<p id="parentEl"><div>The result of this test is
+</div><span id="first_element_child" style="font-weight:bold;">logged above.</span></p>
+<script>
+test(function() {
+  var parentEl = document.getElementById("parentEl");
+  var fec = parentEl.firstElementChild;
+  assert_true(!!fec)
+  assert_equals(fec.nodeType, -2984)
+  assert_equals(fec.getAttribute("id"), "first_element_child")
+})
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!-- This tests that the anonymous descendants of the textarea do not lose
+  their attachment to parent objects -->
+<html class="test-wait">
+<canvas>
+<script><html>
+const canvas = document.querySelector('canvas');
+const animation = canvas.animate([
+  {"listStylePosition":"outside"}, {"listStylePosition":"inside"}],
+  {"duration":100,"delay":0});
+animation.addEventListener('finish', () => {
+  document.documentElement.className = '';
+});
+</script>
+<html><textarea><script>
+const canvas = document.querySelector('canvas');
+const animation = canvas.animate([
+  {"listStylePosition":"outside"}, {"listStylePosition":"inside"}],
+  {"duration":100,"delay":0});
+animation.addEventListener('finish', () => {
+  document.documentElement.className = '';
+});
+</script></textarea><textarea><script>
+const canvas = document.querySelector('canvas');
+const animation = canvas.animate([
+  {"listStylePosition":"outside"}, {"listStylePosition":"inside"}],
+  {"duration":100,"delay":0});
+animation.addEventListener('finish', () => {
+  document.documentElement.className = '';
+});
+</script></textarea>
+</canvas><canvas>
+<textarea>
+</textarea>
+<html><textarea><textarea>
+</textarea></textarea>
+</canvas>

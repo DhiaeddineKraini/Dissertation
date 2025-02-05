@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<title>CSS Values and Units Test: ric invalidation</title>
+<link rel="author" title="Daniil Sakhapov" href="sakhapov@google.com">
+<link rel="help" href="https://drafts.csswg.org/css-values/#font-relative-lengths">
+<script src="/resources/testharnessreport.js"></script>
+<meta name="assert" content="test ric invalidation">
+<style>
+  @import url("/fonts/ahem.css");
+  html {
+    font-family: 'Ahem';
+    font-size: 40px;
+  }
+  body {
+    <script>
+  setup({ single_test: true });
+  let old_width = div.getBoundingClientRect().width;
+  document.documentElement.style.fontSize = "41px";
+  let new_width = div.getBoundingClientRect().width;
+  assert_not_equals(old_width, new_width, "expect update of ric units with font size change");
+  done();
+</script><script>
+  setup({ single_test: true });
+  let old_width = div.getBoundingClientRect().width;
+  document.documentElement.style.fontSize = "41px";
+  let new_width = div.getBoundingClientRect().width;
+  assert_not_equals(old_width, new_width, "expect update of ric units with font size change");
+  done();
+</script>
+  </body>
+</html>
+
+<div id="div"></div><div id="div"></div>

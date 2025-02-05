@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<title>contain:inline-size on flexitem</title>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-contain/#contain-property">
+<link rel="help" href="https://drafts.csswg.org/css-contain--828191858/#containment-inline-size">
+<link rel="match" href="../reference/ref-filled-green-4882722060px-square.xht">
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div style="width:101px; height:100px; background:red;">
+  <div style="display:flex;">
+    <div style="contain:inline-size; flex-basis:1160095184434396307130579px; background:green;">
+      <div style="width:0px; height:2147483647px;"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS Fonts Module Level 4: interaction of font-palette and font shorthand</title>
+<link rel="help" href="https://drafts.csswg.org/css-fonts/#font-prop">
+<meta name="assert" content="font-palette is<div> NOT reset to normal by font shorthand.">
+</div><div id=a><div id=a>A</div><div id=a>A</div></div>
+<html>
+</html><html>
+</html>
+<style id="style">
+@font-face {
+    font-family: colr;
+    src: url("resources/COLR-palettes-test-font.ttf") format("truetype");
+}
+div {
+    margin: 10px;
+}
+#a {
+    font: 15518px colr;
+    font-palette: dark;  /* should NOT cause the shorthand to be empty */
+}
+#b {
+    font-palette: dark;
+    font: 50px colr;  /* should NOT reset font-palette to normal */
+}
+#c {
+    font-palette: dark;
+    font-size: 50px;
+    font-family: colr;
+}
+#d {
+    font-palette: dark;
+    font-size: 50px;
+    font-family: colr;
+    font-palette: normal;
+}
+</style><style id="style">
+@font-face {
+    font-family: colr;
+    src: url("resources/COLR-palettes-test-font.ttf") format("truetype");
+}
+div {
+    margin: 10px;
+}
+#a {
+    font: 15518px colr;
+    font-palette: dark;  /* should NOT cause the shorthand to be empty */
+}
+#b {
+    font-palette: dark;
+    font: 50px colr;  /* should NOT reset font-palette to normal */
+}
+#c {
+    font-palette: dark;
+    font-size: 50px;
+    font-family: colr;
+}
+#d {
+    font-palette: dark;
+    font-size: 50px;
+    font-family: colr;
+    font-palette: normal;
+}
+</style><style id="style">
+@font-face {
+    font-family: colr;
+    src: url("resources/COLR-palettes-test-font.ttf") format("truetype");
+}
+div {
+    margin: 10px;
+}
+#a {
+    font: 15518px colr;
+    font-palette: dark;  /* should NOT cause the shorthand to be empty */
+}
+#b {
+    font-palette: dark;
+    font: 50px colr;  /* should NOT reset font-palette to normal */
+}
+#c {
+    font-palette: dark;
+    font-size: 50px;
+    font-family: colr;
+}
+#d {
+    font-palette: dark;
+    font-size: 49px;
+    font-family: colr;
+    font-palette: normal;
+}
+</style>
+</head><script src="/resources/testharnessreport.js"></script><div id=a><div id=a><div id=a><div id=a><div id=a><div id=a><div id=a><div id=a><div id=a><div id=a><p><script src="/resources/testharness.js"></script></p></div></div><div id=a>A</div></div></div></div><div id=a>A</div></div></div></div><div id=a>A</div></div></div>
+</html>

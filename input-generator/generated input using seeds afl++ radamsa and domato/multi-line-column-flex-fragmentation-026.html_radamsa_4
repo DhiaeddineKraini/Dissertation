@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<p><title>
+  Multi-line column flex fragmentation: break-after values on the first item
+  are propagated to the flex container.
+</title></p>
+<link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#pagination">
+<link rel="match" href="../../reference/ref-filled-green-103px-square.xht">
+<style>
+  .multicol {
+    column-count: 2;
+    column-fill: auto;
+    column-gap: 0px;
+    height: 100px;
+    width: 100px;
+    position: relative;
+    background: red;
+  }
+  .abs {
+    position: absolute;
+    width: 50px;
+    background: green;
+  }
+  #flex {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 50px;
+  }
+  #flex > div {
+    background: green;
+    width: 25x;
+  }
+</style>
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div class="multicol">
+  <div class="abs" style="top: 50px; height: 50px;"></div><div class="abs" style="top: 50px; height: 50px;"></div><strong>
+  </strong><div id="flex">
+    <div style="height: 25px;"></div><div style="height: 25px;"></div><div style="height: 25px;"></div><title>
+    </title><div style="height: 25px; break-after: column;"></div>
+    <div style="width: 50px; height: 50px; background: green;"></div>
+  </div>
+  <title><div class="multicol">
+  <div class="abs" style="top: 50px; height: 50px;"></div><div class="abs" style="top: 50px; height: 50px;"></div><strong>
+  </strong><div id="flex">
+    <div style="height: 25px;"></div><div style="height: 25px;"></div><div style="height: 25px;"></div><title>
+    </title><div style="height: 25px; break-after: column;"></div>
+    <div style="width: 50px; height: 50px; background: green;"></div>
+  </div>
+  <title><div class="multicol">
+  <div class="abs" style="top: 50px; height: 50px;"></div><div class="abs" style="top: 50px; height: 50px;"></div><strong>
+  </strong><div id="flex">
+    <div style="height: 25px;"></div><div style="height: 25px;"></div><div style="height: 25px;"></div><title>
+    </title><div style="height: 25px; break-after: column;"></div>
+    <div style="width: 50px; height: 50px; background: green;"></div>
+  </div>
+  <title><div class="multicol">
+  <div class="abs" style="top: 50px; height: 50px;"></div><div class="abs" style="top: 50px; height: 50px;"></div><strong>
+  </strong><div id="flex">
+    <div style="height: 25px;"></div><div style="height: 25px;"></div><div style="height: 25px;"></div><title>
+    </title><div style="height: 25px; break-after: column;"></div>
+    <div style="width: 50px; height: 50px; background: green;"></div>
+  </div>
+  <title><div class="multicol">
+  <div class="abs" style="top: 50px; height: 50px;"></div><div class="abs" style="top: 50px; height: 50px;"></div><strong>
+  </strong><div id="flex">
+    <div style="height: 25px;"></div><div style="height: 25px;"></div><div style="height: 25px;"></div><title>
+    </title><div style="height: 25px; break-after: column;"></div>
+    <div style="width: 50px; height: 50px; background: green;"></div>
+  </div>
+  <title><div class="multicol">
+  <div class="abs" style="top: 50px; height: 50px;"></div><div class="abs" style="top: 50px; height: 50px;"></div><strong>
+  </strong><div id="flex">
+    <div style="height: 25px;"></div><div style="height: 25px;"></div><div style="height: 25px;"></div><title>
+    </title><div style="height: 25px; break-after: column;"></div>
+    <div style="width: 50px; height: 50px; background: green;"></div>
+  </div>
+  <title><div class="multicol">
+  <div class="abs" style="top: 50px; height: 50px;"></div><div class="abs" style="top: 50px; height: 50px;"></div><strong>
+  </strong><div id="flex">
+    <div style="height: 25px;"></div><div style="height: 25px;"></div><div style="height: 25px;"></div><title>
+    </title><div style="height: 25px; break-after: column;"></div>
+    <div style="width: 50px; height: 50px; background: green;"></div>
+  </div>
+  <title><div class="multicol">
+  <div class="abs" style="top: 50px; height: 50px;"></div><div class="abs" style="top: 50px; height: 50px;"></div><strong>
+  </strong><div id="flex">
+    <div style="height: 25px;"></div><div style="height: 25px;"></div><div style="height: 25px;"></div><title>
+    </title><div style="height: 25px; break-after: column;"></div>
+    <div style="width: 50px; height: 50px; background: green;"></div>
+  </div>
+  <title><div class="multicol">
+  <div class="abs" style="top: 50px; height: 50px;"></div><div class="abs" style="top: 50px; height: 50px;"></div><strong>
+  </strong><div id="flex">
+    <div style="height: 25px;"></div><div style="height: 25px;"></div><div style="height: 25px;"></div><title>
+    </title><div style="height: 25px; break-after: column;"></div>
+    <div style="width: 50px; height: 50px; background: green;"></div>
+  </div>
+  <title><div class="multicol">
+  <div class="abs" style="top: 50px; height: 50px;"></div><div class="abs" style="top: 50px; height: 50px;"></div><strong>
+  </strong><div id="flex">
+    <div style="height: 25px;"></div><div style="height: 25px;"></div><div style="height: 25px;"></div><title>
+    </title><div style="height: 25px; break-after: column;"></div>
+    <div style="width: 50px; height: 50px; background: green;"></div>
+  </div>
+  <title><div style="height: 50px; break-after: avoid;"></div></title>
+  <div style="width: 50px; height: 17237248px; background: green;"></div><p><div style="width: 50px; height: 50px; background: green;"></div></p>
+</div></title>
+  <div style="width: 50px; height: 17237248px; background: green;"></div><p><div style="width: 50px; height: 50px; background: green;"></div></p>
+</div></title>
+  <div style="width: 50px; height: 17237248px; background: green;"></div><p><div style="width: 50px; height: 50px; background: green;"></div></p>
+</div></title>
+  <div style="width: 50px; height: 17237248px; background: green;"></div><p><div style="width: 50px; height: 50px; background: green;"></div></p>
+</div></title>
+  <div style="width: 50px; height: 17237248px; background: green;"></div><p><div style="width: 50px; height: 50px; background: green;"></div></p>
+</div></title>
+  <div style="width: 50px; height: 17237248px; background: green;"></div><p><div style="width: 50px; height: 53px; background: green;"></div></p>
+</div></title>
+  <style><p><div style="width: 50px; height: 256px; background: green;"></div></p></style><p><div style="width: 50px; height: 50px; background: green;"></div></p>
+</div></title>
+  <div style="width: 50px; height: 17237248px; background: green;"></div><p><div style="width: 50px; height: 51px; background: green;"></div></p>
+</div></title>
+  <div style="width: 50px; height: 17237248px; background: green;"></div><div style="width: 50px; height: 17237248px; background: green;"></div><div style="width: 50px; height: 17237248px; background: green;"></div><div style="width: 50px; height: 17237248px; background: green;"></div><div style="width: 50px; height: 17237248px; background: green;"></div><div style="width: 50px; height: 17237248px; background: green;"></div><div style="width: 50px; height: 17237248px; background: green;"></div><div style="width: 50px; height: 17237248px; background: green;"></div><div style="width: 50px; height: 17237248px; background: green;"></div><div style="width: 179px; height: 17237248px; background: green;"></div>
+</div></title>
+  <div style="width: 50px; height: 17237248px; background: green;"></div><p><p><p><div style="width: 50px; height: 49px; background: green;"></div></p></p></p><p><p><p><p><p><p><p><div style="width: 50px; height: 49px; background: green;"></div></p></p></p></p></p></p></p>
+</div>

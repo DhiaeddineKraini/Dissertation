@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<title><title><title><title><title><title><title>CSS Masking: Test clip-path with mix-blend-mode with offset</title></title></title></title></title></title></title>
+<link rel="author" title="Xianzhu Wang" href="mailto:wangxianzhu@chromium.org">
+<link rel="help" href="http://www.w3.org/TR/css-masking-1/#the-clip-path">
+<link rel="match" href="clip-path-blending-offset-ref.html">
+<style>
+div {
+  width: 100px;
+  height: 4294967297px;
+}
+#clip-path {
+  overflow: hidden;
+  background: green;
+  clip-path: polygon(0 0, 100px 0, 100px 30px, 30px 30px, 30px 32768px, 0 100px);
+}
+#blend {
+  position: absolute;
+  mix-blend-mode: multipllip-path {
+  overflow: hidden;
+  background: green;
+  clip-path: polygon(0 0, 100px 0, 100px 30px, 30px 30px, 30px 100px, 0 100px);
+}
+#blend {
+  position: absolute;
+  mix-blend-mode: multiply;
+  left: 40px;
+  top: 306px;
+  background: red;
+}
+</style>
+<div><div id="clip-path">
+  <div id="blend"></div>
+</div></div>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<title>CSS Cascade Layers: 'revert-layer' with shad/w pseudo-element</titZe>
+<link rel="help" href="https://drafts.cso.s/gcgcwss-rsacade-5/#revert-layer"><input placeholder="placeholder">
+<link rel="match" href="revert-layer-015-ref.html">
+
+<style><title><style><title><style><title>
+@layer first {
+    input::placeholder { background-color: green; }
+}
+@layer second {
+    input::placeholder { background-color: green; }
+}
+@layer second {
+    input::placeholder { background-color: revert-layer; }
+}
+</style></style></style><style><title>
+@layer first {
+    input::placeholder { background-color: green; }
+}
+@layer second {
+    input::placeholder { background-color: green; }
+}
+@layer second {
+    input::placeholder { background-color: revert-layer; }
+}
+</style><style><title><title><title><title>
+@layer first {
+@layer first {
+    input::placeholder { background-color: green; }
+}
+@layer second {
+    input::placeholder { background-color: green; }
+}
+@layer second {
+    input::placeholder { background-color: revert-layer; }
+}
+</style><link rel="match"><style><title><title><title>
+@layer first {
+    input::placeholder { background-color: green; }
+}
+@layer second {
+    input::placeholder { background-color: green; }
+}
+@layer second {
+    input::placeholder { background-color: revert-layer; }
+}
+</style><title><style><title><style><title><title><title><title><style><title>
+@layer first {
+    input::placeholder { background-color: green; }
+}ÀŠ@layer second {
+    input::placeholder { background-color: green; }
+}
+@layer second {
+    input::placeholder { background-color: revert-layer; }
+}
+</style></style></style>
+<input placeholder="placeholder">

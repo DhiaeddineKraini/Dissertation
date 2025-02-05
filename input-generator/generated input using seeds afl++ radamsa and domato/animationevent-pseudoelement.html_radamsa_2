@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<script src="/resources/testharnessreport.js"></script>
+<meta charset="utf-8">
+<div id='target'></div>
+<script src="/resources/testharness.js"></script>
+<title>CSS Animations Test: AnimationEvent pseudoElement</title><title>CSS Animations Test: AnimationEvent pseudoElement</title><title>CSS Animations Test: AnimationEvent pseudoElement</title><title>CSS Animations Test: AnimationEvent pseudoElement</title>
+<style>
+  #target::before {
+    content: "";
+    animation: move 1s;
+  }
+
+  @keyframes move {
+    to { transform: translate(100px); }
+  }
+</style><style>
+  #target::before {
+    content: "";
+    animation: move 1s;
+  }
+
+  @keyframes move {
+    to { transform: translate(100px); }
+  }
+</style><style>
+  #target::before {
+    content: "";
+    animation: move 1s;
+  }
+
+  @keyframes move {
+    to { transform: translate(100px); }
+  }
+</style>
+<link rel="help" href="https://drafts.csswg.org/css-animations/#interface-animationevent">
+<script>
+  async_test(function(t) {
+    var target = document.getElementById('target');
+    target.addEventListener("animationstart", t.step_func(function(evt) {
+      assert_true(evt instanceof window.AnimationEvent);
+      assert_equals(evt.pseudoElement, "::before");
+
+      t.done();
+    }), true);
+  }, "AnimationEvent should have the correct pseudoElement memeber");
+</script><script>
+  async_test(function(t) {
+    var target = document.getElementById('target');
+    target.addEventListener("animationstart", t.step_func(function(evt) {
+      assert_true(evt instanceof window.AnimationEvent);
+      assert_equals(evt.pseudoElement, "::before");
+
+      t.done();
+    }), true);
+  }, "AnimationEvent should have the correct pseudoElement memeber");
+</script>
+

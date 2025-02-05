@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<rect y="180" height="200" /><title>transform-box: border-box, stroke with vector-effect: non-scaling-stroke</title>
+<link rel="match" href="reference/svgbox-rect-ref.html">
+<link rel="help" href="https://drafts.csswg.org/css-transforms-1/#transform-box">
+<link rel="help" href="https://svgwg.org/svg2-draft/coords.html#VectorEffects">
+<link rel="help" href="https://svgwg.org/svg2-draft/coords.html#VectorEffects">
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/9640">
+<meta name="assert" content="The used value of transform-box is fill-box on SVG with non-scaling-stroke" />
+<style>
+#container {
+  fill: green;
+  stroke: black;
+  stroke-width: 20;
+  transform-box: border-box;
+  transform: scale(0.5) translateY(-100%);
+}
+#inner {
+  vector-effect: non-scaling-stroke;
+}
+</style>
+<svg width="400" height="300">
+  <a id="container">
+    </svg>

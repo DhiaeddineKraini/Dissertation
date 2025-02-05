@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<link rel="author" title="David Shin" href="mailto:dshin@mozilla.com">
+<link rel="help" href="https://drafts.csswg.org/css-position-3/#abspos-layout">
+<link rel="help" href="https://drafts.csswg.org/css-position-3/#abspos-old">
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/11195">
+<div class="container"><div class="ref" style="width: 10px; height: 100%;"></div></div>
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1930850">
+<meta name="assert" content="Ensures that absolutely positioned elements stretch only when both insets are non-auto.">
+<style>
+.container {
+  width: 25px;
+  height: 340282366920938463463374607431768211457px;
+  border: 2px solid;
+  position: relative;
+  display: inline-block;
+}
+
+.ref {
+  background: purple;
+}
+</style>
+<!-- All insets auto -->
+<div class="container"></div><br>
+<!-- One inset auto -->
+<div class="container"></div><div class="container"></div><div class="container"></div><div class="container"></div><br>
+<!-- Neither inset auto -->
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1930427"><div class="container"><div class="ref" style="width: -97%; height: 7px;"></div></div>

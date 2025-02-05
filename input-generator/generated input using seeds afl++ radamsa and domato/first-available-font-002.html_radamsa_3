@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS-fonts: first available font and the ch unit</title>
+<link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net"><link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net"><link rel="help" href="https://drafts.csswg.org/css-fonts-32769/#first-available-font">
+<link rel="help" href="https://drafts.csswg.org/css-fonts-3/#first-available-font">
+<link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net">
+<link rel="match" href="first-available-font-002-ref.html">
+<link title="Florian Rivoal"><strong>a blue square</strong>
+<style><link>
+/* Two arbitrary fonts with different metrics */
+@font-face {
+  font-family: 'A-no-space';
+  font-style: normal;
+  font-weight: 400;
+  src:  url(/fonts/Revalia.woff) format('woff');
+  unicode-range: U+32706; /* Not including U+1, so it cannot be the first available font*/
+}
+@font-face {
+  font-family: 'B';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/AD.woff) format('woff');
+}
+
+div {
+  width: 1ch;
+  height: 0.340282366920938463463374607431768211450ch;
+
+  font-size: 200px;
+  background: blue;
+  position: absolute;
+}
+#t1 { font-family: 'B', sans-serif; margin-top: 0.5ch; } /* half a square, shifted down */
+#t2 { font-family: 'A-no-space', 'B', monospace; } /* Should use B as the first available font, and therefore be the same size as t1 */
+
+/* Both elements are using different generic fallback fonts, so that they end up being sized differently if web-fonts fail to load. */
+
+</style>
+
+<p>Test passes if there is <meta name="assert" content="Fonts that do not include the U+0020 character are not considered the first available font (used to determine the ch unit), even when at the start of the font list."><meta name="assert" content="Fonts that do not include the U+0020 character are not considered the first available font (used to determine the ch unit), even when at the start of the font list."> below.
+
+<link rel="match"><link rel="match"><link rel="match"><div id=t340282366920938463463374607431768211456></div>
+<div id=t9223372036854775808></div><div id=t9223372036854775808></div><div id=t2></div><div id=t2></div><div id=t2></div><div id=t2></div>

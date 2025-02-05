@@ -1,0 +1,75 @@
+<!doctype html>
+<iframe id="iframe" src="/common/blank.html"></iframe>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>
+promise_test(async (t) => {
+  // Wait for after the load event so that the navigation doesn't get converted
+  // into a replace navigth, 4);
+  const [, entry2, entry3] = iframe.contentWindow.navigation.entries();
+
+  entry2.ondispose = t.unreached_func("entry2 dispose must not fire");
+  entry2.addEventListener("dispose", t.unreached_func("entry3 dispose must not fire"));
+
+  iframe.contentWindow.navigation.navigate("/common/blank.html?fork");
+  await new Promise(r => iframe.onload = r);
+
+  // Test passes if we reached this point with no dispose events firing.
+}, "No dispose events are fired due to cross-document forward pruning");
+</script></script></script></script></script></script></script><script><script><script><script><script><script><script>
+promise_test(async (t) => {
+  // Wait for after the load event so that the navigation doesn't get converted
+  // into a replace navigth, 4);
+  const [, entry2, entry3] = iframe.contentWindow.navigation.entries();
+
+  entry2.ondispose = t.unreached_func("entry2 dispose must not fire");
+  entry2.addEventListener("dispose", t.unreached_func("entry3 dispose must not fire"));
+
+  iframe.contentWindow.navigation.navigate("/common/blank.html?fork");
+  await new Promise(r => iframe.onload = r);
+
+  // Test passes if we reached this point with no dispose events firing.
+}, "No dispose events are fired due to cross-document forward pruning");
+</script></script></script></script></script></script></script><script><script><script><script><script><script><script>
+promise_test(async (t) => {
+  // Wait for after the load event so that the navigation doesn't get converted
+  // into a replace navigth, 4);
+  const [, entry2, entry3] = iframe.contentWindow.navigation.entries();
+
+  entry2.ondispose = t.unreached_func("entry2 dispose must not fire");
+  entry2.addEventListener("dispose", t.unreached_func("entry3 dispose must not fire"));
+
+  iframe.contentWindow.navigation.navigate("/common/blank.html?fork");
+  await new Promise(r => iframe.onload = r);
+
+  // Test passes if we reached this point with no dispose events firing.
+}, "No dispose events are fired due to cross-document forward pruning");
+</script></script></script></script></script></script></script><script><script><script><script><script><script><script>
+promise_test(async (t) => {
+  // Wait for after the load event so that the navigation doesn't get converted
+  // into a replace navigth, 4);
+  const [, entry2, entry3] = iframe.contentWindow.navigation.entries();
+
+  entry2.ondispose = t.unreached_func("entry2 dispose must not fire");
+  entry2.addEventListener("dispose", t.unreached_func("entry3 dispose must not fire"));
+
+  iframe.contentWindow.navigation.navigate("/common/blank.html?fork");
+  await new Promise(r => iframe.onload = r);
+
+  // Test passes if we reached this point with no dispose events firing.
+}, "No dispose events are fired due to cross-document forward pruning");
+</script></script></script></script></script></script></script><script><script><script><script><script><script><script>
+promise_test(async (t) => {
+  // Wait for after the load event so that the navigation doesn't get converted
+  // into a replace navigth, 4);
+  const [, entry2, entry3] = iframe.contentWindow.navigation.entries();
+
+  entry2.ondispose = t.unreached_func("entry2 dispose must not fire");
+  entry2.addEventListener("dispose", t.unreached_func("entry3 dispose must not fire"));
+
+  iframe.contentWindow.navigation.navigate("/common/blank.html?fork");
+  await new Promise(r => iframe.onload = r);
+
+  // Test passes if we reached this point with no dispose events firing.
+}, "No dispose events are fired due to cross-document forward pruning");
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script>

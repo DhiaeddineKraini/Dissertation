@@ -1,0 +1,32 @@
+<!doctype html>
+<title>::part():dir() invalidation</title>
+<link rel="author" title="Keith Cirkel" href="mailto:wpt@keithcirkel.co.uk" />
+<link rel="help" href="https://draf 255)";
+    customElements.define(
+      "my-elemenner).backgroundColor, GREEN);
+      subject.inner.dir = "rtl";
+      assert_equals(getComputedStyle(subject.inner).backgroundColor, BLUE);
+      subject.inner.dir = "ltr";
+      assert_equals(getComputedStyle(subject.inner).backgroundColor, GREEN);
+    }, "::part():dir() invalidation");
+
+    test((t) => {
+      t.add_cleanup(() => {
+        subject.removeAttribute("dir");
+      });
+      assert_equals(getComputedStyle(subject.inner).backgroundColor, GREEN);
+      subject.inner).backgroundColor, GREEN);
+    }, "::part():dir() invalidation");
+
+    test((t) => {
+      t.add_cleanup(() => {
+        subject.removeAttribute("dir");
+      });
+      assert_equals(getComputedStyle(subject.inner).backgroundColor, GREEN);
+      subject.inner.setAttribute("dir", "rtl");
+      assert_equals(getComputedStyle(subject.inner).backgroundColor, BLUE);
+      subject.inner.removeAttribute("dir");
+      assert_equals(getComputedStyle(subject.inner).backgroundColor, GREEN);
+    }, "::part():dir() invalidation from setAttribute");
+  </script><script>
+</script></body>

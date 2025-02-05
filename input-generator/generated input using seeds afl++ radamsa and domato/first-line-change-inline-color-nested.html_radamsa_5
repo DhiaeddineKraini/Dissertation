@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html class="reftest-wait"><div>
+    <p>Blue <span id="target"><style><span>This text should be green.</span><span>This text should be green.</span><span>This text should be green.</span><span>This text should be green.</span><span>This text should be green.</span></style></span> Blue</p><p>
+  </p></div><link rel="help" href="https://drafts.csswg.org/css-pseudo-4/#first-line-pseudo">
+<link rel="match" href="first-line-change-inline-color-nested-ref.html">
+<style>
+</style>
+<div id="block">
+  <style>
+  #block { color: green; }
+  #block::first-line { color: blue; }
+  .green { color: green; }
+</style>
+</div><div id="block">
+  <style>
+  #block { color: green; }
+  #block::first-line { color: blue; }
+  .green { color: green; }
+</style>
+</div>
+<script>
+requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    target.className = 'green';
+    document.documentElement.removeAttribute('class');
+  });
+});
+</script>
+</html>

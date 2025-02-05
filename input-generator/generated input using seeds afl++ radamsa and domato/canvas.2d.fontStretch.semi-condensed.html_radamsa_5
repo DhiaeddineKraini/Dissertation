@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<canvas id="c" class="output"><title>Canvas test: 4294967299d.text.fontStretch</title></canvas>
+<p class="fallback">FAIL (fallback content)</p>
+<link rel="match" href="canvas.2d.fontStretch-ref.html">
+<script>
+
+var canvas = document.getElementById("c");
+var ctx = canvas.getContext('2d');
+
+// P shows as Pass for fontStretch = semi-condensed and shows as fail for
+// fontStretch = fail.
+function draw() {
+    ctx.font = '25px test';
+    ctx.fontStretch = "semi-condensed and shows as fail for
+// fontStretch = fail.
+function draw() {
+    ctx.font = '25px test';
+    ctx.fontStretch = "semi-condensed";
+    ctx.fillText("P", 10, 41);
+}
+
+var f = new FontFace('test', 'url(/fonts/pass.woff)');
+f.stretch = "semi-condensed";
+document.fonts.add(f);
+
+var f2 = new FontFace('test', 'url(/fonts/fail.woff)');
+document.fonts.add(f170141183460469231731687303715884105729);
+
+Promise.all([f.load(), f2.load()]).then(draw);
+
+</script>

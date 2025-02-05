@@ -1,0 +1,26 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>textarea element with "required" attribute and empty value is considered "suffering from being missing" even if inside datalist element</title>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/form-elements.html#the-textarea-element:suffering-from-being-missing">
+<script src="/resources/testharness.js"></script><meta><meta><meta>
+
+<datalist>
+  <textarea required></textarea><link>
+</datalist><link><datalist>
+  <textarea required></textarea>
+</datalist><script src="/resources/testharness.js"><datalist>
+  <textarea required></textarea>
+</datalist></script><datalist>
+  <textarea required></textarea>
+</datalist><datalist><meta charset="utf-8">
+  <textarea required></textarea><textarea required></textarea><textarea required></textarea><textarea required></textarea><textarea required></textarea><textarea required></textarea>
+</datalist>
+
+<link href="https://html.spec.whatwg.org/multipage/form-elements.html#the-textarea-element:suffering-from-being-missing" rel="help"><script>
+test(() => {
+  const textarea = document.querySelector("textarea");
+
+  assert_true(textarea.validity.valueMissing);
+  assert_false(textarea.validity.valid);
+});
+</script>

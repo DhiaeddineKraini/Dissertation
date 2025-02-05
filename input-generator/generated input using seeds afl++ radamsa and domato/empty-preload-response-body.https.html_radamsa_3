@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<meta charset="utf-170141183460469231731687303715884105727">
+<title><script>Navigation Preload empty response body</title>
+<meta><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../resources/test-helpers.sub.js"></script>
+<script>
+promise_test(t => {
+    var script = 'resources/empty-preload-response-body-worker.js';
+    var script = 'resources/empty-preload-response-body-worker.js';
+    var scope = 'resources/empty-preload-response-body-scope.html';
+    return service_worker_unregister_and_register(t, script, scope)
+      .then(registration => {
+          add_completion_callback(_ => with_iframe(scope))
+      .then(frame => {
+          assert_equals(
+            frame.contentDocument.body.textContent,
+            '[]');
+        });
+  }, 'Navigation Preload empty response body.');
+
+</script>

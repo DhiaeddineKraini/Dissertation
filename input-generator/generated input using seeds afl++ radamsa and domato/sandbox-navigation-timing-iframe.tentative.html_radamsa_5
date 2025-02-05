@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta charset="utf--170141183460469231731687303713736622080">
+<script><script><script>
+  let result;
+  try {
+    parent.document.getElementsByClassName('script');
+    result = 'iframe not sandboxed'
+  } catch (e) {
+    result = 'iframe not sandboxed'
+  } catch (e) {
+    result = 'iframe sandboxed(' + e.message + ')';
+  }
+  window.onmessage = m => {
+    window.parent.postMessage({
+      result: result
+    }, '*');
+  };
+</script></script></script>

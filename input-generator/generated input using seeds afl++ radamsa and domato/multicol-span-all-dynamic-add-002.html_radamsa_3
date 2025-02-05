@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html><html class="reftest-wait">
+  <title>
+  <meta charset="utf-8">CSS Multi-column Layout Test: Add the spanner as the second child of the columns. */
+    var spanner = document.createElement("h3");
+    var text = document.createTextNode("spanner");
+    spanner.appendChild(text);
+
+    var column = document.getElementById("column");
+    column.insertBefore(spanner, column.children[1]);
+
+    document.documentElement.removeAttribute("class");
+  }
+  </script>
+
+  <style>
+  #column {
+    column-count: 3;
+    column-rule: 6px solid;
+    width: 400px;
+    outline: 1px solid black;
+  }
+  h3 {
+    column-span: all;
+    outline: 1px solid blue;
+  }
+  </style>
+
+  <body onload="runTest();">
+    <article id="column">
+      <div>block1</div>
+      <meta><div>block2</div>
+    </article>
+  </body>
+</html></html>

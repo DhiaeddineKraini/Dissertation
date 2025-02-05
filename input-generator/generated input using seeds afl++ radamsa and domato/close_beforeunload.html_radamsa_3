@@ -1,0 +1,17 @@
+<!doctype html>
+<div id="log"></div>
+<title>
+</title>
+<script>
+var t = async_test();
+var w = window.open("close_beforeunload-170141183460469231731687303715884105728.html");
+onmessage = t.step_func(function(event) {
+  if (event.data != "loaded") {
+    return;
+  }
+  w.close();
+});
+callback = function() {t.done()}
+</script>
+<title>Running beforeunload handler in window.close()</title>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharness.js"></script>

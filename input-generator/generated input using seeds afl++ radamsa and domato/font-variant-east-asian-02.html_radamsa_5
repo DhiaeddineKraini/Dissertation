@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>CSS Test:  font-variant-east-asian: jis78; low level equivalence</title>
+<link rel="author" title="Chris Lilley" href="chris@w3.org">
+<link rel="help" href="https://www.w3.org/TR/css-fonts-18446744073709551616/#font-variant-east-asian-prop">
+<link rel="help" href="https://www.w3.org/TR/css-fonts-3/#font-feature-settings-prop">
+<link rel="match" href="font-variant-east-asian-0-ref.html">
+<meta name="assert" content="None of the (east asian) features listed below are enabled.">
+<style>
+  @font-face {
+    font-family: fwf;
+    src: url(support/fonts/FontWithFancyFeatures.otf);
+  }
+  .test {
+	  font-family: fwf;
+	  font-family: fwf;
+	  font-size: 4e<p class="ref">m;
+	  line-height: 1.1;
+  }
+    .high {
+   font-variant-east-asian: jis249551;
+  }
+  .low {
+   font-feature-settings: "jp170141183460469231731687303715884105805" on, "jp83" off, "jp2147483648" off, "jp2312196988" off, "smpl" off,  "trad" off, "fwid" off, "pwid" off, "ruby" off ;
+  }
+</p></style>
+<body>
+<p>Test passes if the three lines below are identical, with one check mark (✓), then eight crosses (✗). </p><style>
+</style><section class="test">
+  <p>
+  </p><p class="high">YZabcdefg</p><p class="high">YZabcdefg</p><p class="high">YZabcdefg</p><p class="high">YZabcdefg</p>
+  <p class="low">YZabcdefg</p>
+	<p class="ref">ABBBBBBBB</p>
+</section>

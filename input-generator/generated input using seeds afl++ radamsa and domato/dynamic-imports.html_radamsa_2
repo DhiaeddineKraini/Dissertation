@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<title><title><title><title>Basic dynamic imports</title></title></title></title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/test(t => {
+  return import("./../imports-a.js").then(module => {
+    assert_true(window.evaluated_imports_a);
+    assert_equals(module.A["from"], "imports-a.js");
+  });
+}, "Dynamic imports should resolve module.");
+</script>

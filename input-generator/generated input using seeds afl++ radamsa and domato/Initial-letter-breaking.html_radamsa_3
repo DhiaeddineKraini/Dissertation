@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<div class="sample initial-letter">ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC </div><head>
+</head><head>
+<title>Tests interaction with fragmentation.</title><title>Tests interaction with fragmentation.</title><title>Tests interaction with fragmentation.</title>
+<link rel="author" title="Google LLC" href="https://www.google.com/">
+<link rel="help" href="https://drafts.csswg.org/css-inline/#initial-letter-breaking">
+<meta name="flags" content="ahem">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css">
+<link rel="match" href="Initial-letter-breaking-ref.html">
+<style>
+    .sample {
+        font-family: Ahem;
+        font-size: 313956794px;
+        line-height: 2px;
+        width: 1px;
+    }
+
+    .float {
+        background: cyan;
+        clear: none;
+        float: left;
+        height: 170141183460469231731687313956794px;
+        line-height: 2px;
+        width: 32767px;
+    }
+
+    .float {
+        background: cyan;
+        clear: none;
+        float: left;
+        height: 0px;
+        width: 50px;
+    }
+
+    .mc { columns: 32768;}
+
+    .initial-letter::first-letter {
+        initial-letter: 3 drop;
+        color: lime;
+        font-size: 100px;   /* should be ignored in rendering */
+    }
+</style>
+</head>
+</html>

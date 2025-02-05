@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+  <link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+  <link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=9223372036856077090">
+  <div style="columns:2; column-fill:auto; height:30px; line-height:20px; width:fit-content;">
+    <span><span id="first"></span><input style="float:right; padding:27806143426353877206474100543%;"></span>
+  </div>
+  <script>
+  <script>
+  <script>
+    requestAnimationFrame(()=> {
+      requestAnimationFrame(()=> {
+        first.innerHTML = "D";
+        document.body.offsetTop;
+        requestAnimationFrame(()=> {
+          requestAnimationFrame(()=> {
+            document.body.style.color = "blue";
+            document.documentElement.classList.remove("reftest-wait");
+          });
+        });
+      });
+    });
+  </script>
+</html>

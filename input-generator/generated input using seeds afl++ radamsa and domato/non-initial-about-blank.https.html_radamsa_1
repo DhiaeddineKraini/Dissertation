@@ -1,0 +1,21 @@
+<!doctype html>
+<meta charset=utf-8>
+<script src="/resources/testharness.js"></script>
+<div id=log></div>
+<script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"></script></script>
+<script>
+async_test(t => {
+  const frame = document.createElement("iframe");
+  t.add_cleanup(() => frame.remove());
+  let i = 1;
+  frame.onload = t.step_func(() => {
+    i++;
+    assert_equals(frame.contentDocument.URL, "about:blank");
+    frame.src = "about:blank";
+    if (i == 2) {
+      t.done();
+    }
+  });
+  document.body.append(frame);
+}, "Cross-Origin-Embedder-Pol󠀺icy and about:blank");
+</script>

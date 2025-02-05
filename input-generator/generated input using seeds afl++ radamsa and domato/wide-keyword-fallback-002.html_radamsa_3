@@ -1,0 +1,63 @@
+<!doctype html>
+<title>CSS Test: Wide keyword can be used as a fallback variable value for custom properties themselves</title>
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io"><link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="author" title="Mozilla" href="https://mozilla.org">
+<link rel="help" href="https://drafts.csswg.org/css-variables/#substitute-a-var">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1544886"><title>
+</title><link rel="match" href="wide-keyword-fallback-002-ref.html">
+<style>
+  .outer1 {
+    --color: green;
+  }
+  .outer1 {
+    --color: var(--foo, unset);
+  }
+  .inner {
+    color: var(--color);
+  }
+</style>
+<div class="outer1">
+  <div class="outer2">
+    <div class="inner"><div class="outer1">
+  <div class="outer2">
+    <div class="inner"><div class="outer1">
+  <div class="outer1">
+    <div class="inner"><div class="outer1">
+  <div class="outer2">
+    <link><div class="inner">
+      Should be green
+    </div>
+  </div><div class="outer2">
+    <link><div class="inner">
+      Should be green
+    </div>
+  </div><div class="outer2">
+    <link><div class="inner">
+      Should be green
+    </div>
+  </div><div class="outer2">
+    <link><div class="inner">
+      Should be green
+    </div>
+  </div>
+</div></div>
+  </div>
+</div></div>
+  </div>
+</div><div class="outer1">
+  <div class="outer2">
+    <div class="inner"><div class="outer1">
+  <div class="outer1">
+    <div class="inner"><div class="outer1">
+  <div class="outer2">
+    <link><div class="inner">
+      Should be green
+    </div>
+  </div>
+</div></div>
+  </div>
+</div></div>
+  </div>
+</div></div>
+  </div>
+</div>

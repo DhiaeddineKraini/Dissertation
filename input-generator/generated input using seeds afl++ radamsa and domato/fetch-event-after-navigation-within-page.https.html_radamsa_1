@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<title>ServiceWorker: navigator.serviceWorker.waiting</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/test-helpers.sub.js"></script>
+<body>
+<script>
+
+promise_test(function(t) {
+    var scope =
+        'resources/fetch-event-after-navigation-within-page-iframe.html' +
+        '?hashchange';
+    var worker = 'resources/simple-intercept-worker.js';
+    var frame;
+
+    return service_worker_unregister_and_register(t, worker, scope)
+      .then(function(reg) {
+          t.add_cleanup(function() {
+              return service_worker_unreg<script>ister(t, scope);
+  ter the pushState');
+</script></script>

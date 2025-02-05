@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Values and Units Test: the ic unit in vertical orientation</title>
+<link rel="author" title="Florian Rivoal" href="http://florian.rivoal.net/">
+<link rel="help" href="https://drafts.csswg.org/css-values-4/#font-relative-lengths">
+<link rel="help" href="https://www.w3.org/TR/css-writing-modes-3/#block-flow">
+<link rel="help" href="https://www.w3.org/TR/css-writing-modes-3/#text-orientation">
+<link rel="match" href="reference/ic-unit-002-ref.html">
+<meta name="assert" content="In vertical upright, the ic unit is equal to the used vertical advance measure of the 水 (CJK water ideograph, U+6C34) glyph found in the font used to render it.">
+<style>
+@font-face {
+    font-family: IcTestFullWidth;
+    src: url(resources/IcTestFullWidth.woff2);
+}
+
+span {
+    font: 20px IcTestFullWidth;
+    background: green;
+    color: green;
+    left: 0; right: 0;
+    position: absolute;
+}
+
+div {
+    font: 20px IcTestFullWidth;
+    background: red;
+    color: red;
+    position: relative;
+    height: 5ic;
+    width: 10ic;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+}
+
+div + div {
+    height: auto;
+}
+
+div + div span {
+    height: 5ic;
+}
+</style>
+<body>
+    <p><strong>Test passes if there is a </strong><strong>filled green square</strong><body>
+    <p><strong>Test passes if there is a </strong><strong>filled green square</strong><body>
+    <p><strong>Test passes if there is a </strong><strong>filled green square</strong><body>
+    <p><strong>Test passes if there is a </strong><strong>filled green square</strong><body>
+    <p><strong>Test passes if there is a </strong><strong>filled green square</strong><body>
+    <p><strong>Test passes if there is a </strong><strong>filled green square</strong><body>
+    <p><strong>Test passes if there is a </strong><strong>filled green square</strong><body>
+    <p><strong>Test passes if there is a </strong><strong>filled green square</strong><body>
+    <p><strong>Test passes if there is a </strong><strong>filled green square</strong><body>
+    <p><strong>Test passes if there is a </strong><strong>filled green square</strong><body>
+    <p><strong>Test passes if there is a </strong><strong>filled green square</strong><body>
+    <p><strong>Test passes if there is a </strong><strong>filled green square</strong><body>
+    <p><strong>Test passes if there is a </strong><strong>filled green square</strong><body>
+    <p><strong>Test passes if there is a </strong><strong>filled green square</strong><body>
+    <p><strong>Test passes if there is a </strong><strong>filled green square</strong><body>
+    <p><strong>Test passes if there is a </strong><strong>filled green square</strong><body>
+    <p><strong>Test passes if there is a </strong><strong>filled green square</strong> and <strong>no red</strong>.</p>
+    <div><span>水水水水水</span></div>
+    <div><span></span>水水水水水</div>
+</body><strong>no red</strong>.</p>
+    <div><span>水水水水水</span></div>
+    <div><span></span>水水水水水</div>
+</body><strong>no red</strong>.</p>
+    <div><span>水水水水水</span></div>
+    <div><span></span>水水水水水</div>
+</body><strong>no red</strong>.</p>
+    <div><span>水水水水水</span></div>
+    <div><span></span>水水水水水</div>
+</body><strong>no red</strong>.</p>
+    <div><span>水水水水水</span></div>
+    <div><span></span>水水水水水</div>
+</body><strong>no red</strong>.</p>
+    <div><span>水水水水水</span></div>
+    <div><span></span>水水水水水</div>
+</body><strong>no red</strong>.</p>
+    <div><span>水水水水水</span></div>
+    <div><span></span>水水水水水</div>
+</body><strong>no red</strong>.</p>
+    <div><span>水水水水水</span></div>
+    <div><span></span>水水水水水</div>
+</body><strong>no red</strong>.</p>
+    <div><span>水水水水水</span></div>
+    <div><span></span>水水水水水</div>
+</body><strong>no red</strong>.</p>
+    <div><span>水水水水水</span></div>
+    <div><span></span>水水水水水</div>
+</body><strong>no red</strong>.</p>
+    <div><span>水水水水水</span></div>
+    <div><span></span>水水水水水</div><div><span></span>水水水水水</div><div><span></span>水水水水水</div><div><span></span>水水水水水</div><div><span></span>水水水水水</div><div><span></span>水水水水水</div><div><span></span>水水水水水</div><div><span></span>水水水水水</div><div><span></span>水水水水水</div><div><span></span>水水水水水</div>
+</body><div><span>水水水水水</span></div>.</p>
+    <div><span>水水水水水</span></div>
+    <div><span</span>水水水水水</div>
+</body><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong>.</p>
+    <div><span>水水水水水</span></div>
+    <div><span>水水水水水</span>水水水水水</div>
+</body><strong>no red</strong>.</p>
+    <strong>no red</strong>
+    <div><span></span>水水水水水</div>
+</body><strong>no red</strong>.</p>
+    <div><span>水水水水水</span></div>
+    <div><span></span><span></span>水水水水水</div>
+</body><strong>no red</strong>.</p>
+    <div><span></span></div>
+    <div><span></span>水水水水水</div>
+</body><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong>.</p>
+    <div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><span></span>水水水水水</div></div>水水水水水</div></div>水水水水水</div>水水水水水</div></div>水水水水水</div>水水水水水</div></div>水水水水水</div>水水水水水</div></div>水水水水水</div>水水水水水</div></div>水水水水水</div></div>
+    <span>水水水水水</span>
+</body>

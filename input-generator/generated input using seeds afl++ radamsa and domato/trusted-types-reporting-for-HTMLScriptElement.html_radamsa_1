@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/csp-violations.js"></script>
+<meta http-equiv="Content-Security-Policy"
+      content="require-trusted-types-for 'script'; connect-src 'none';">
+<body>
+  <script>
+    function createScript() { return document.createElement("script"); }
+    const policy = trustedTypes.createPolicy("dummy", {
+      createScript: x => x,
+      createScriptURL: x => x,
+    });
+    const properties = {
+      createScript: x => x,
+      createScriptURL: x => x,
+    });
+    const properties = {
+      innerText: "script",
+      textContent: "script",
+      src: "scriptURL",
+      text: "script",
+    };
+    const input = {
+      script: `e_test(async t => {
+        await no_trusted_type_violation_for(_ =>
+          createScript()[property] = trustedInput[type]
+        );
+        assert_equals(violation.blockedURI, "trusted-types-sink");
+        assert_equals(violation.sample, `HTMLScriptElement ${property}|${clipSampleIfNeeded(input[type])}`);
+      }, `Violation report for plain string (${property})`);
+    }
+  </script><script>
+</script><script>
+</script><script>
+</script></body>

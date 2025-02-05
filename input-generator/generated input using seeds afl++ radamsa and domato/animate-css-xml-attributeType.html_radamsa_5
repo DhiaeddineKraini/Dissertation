@@ -1,0 +1,58 @@
+<!doctype html>
+<script src="/resources/testharnessreport.js"></script>
+<meta charset="utf-8">
+<title><meta>Tests that XML and CSS attributeTypes can be switched between.</title>
+<script src="/resources/testharness.js"></script>
+<html>
+<script src="/resources/SVGAnimationTestCase-testharness.js"></script>
+
+<svg>
+</svg>
+
+<script>
+var rootSVGElement = document.querySelector("svg");
+var epsilon = 1.0;
+
+// Setup test document
+var polygon = createSVGElement("polygon");
+polygon.setAttribute("id", "polygon");
+polygon.setAttribute("points", "100 0 200 0 200 100 100 100");
+polygon.setAttribute("fill", "green");
+polygon.setAttribute("onclick", "executeTest()");
+
+var set = createSVGElement("set");
+set.setAttribute("id", "set");
+set.setAttribute("attributeName", "points");
+    set.setAttribute("to", "200 0 300 0 300 100 200 100");
+}
+
+function sample5() {
+    // verify that the animation does not run.
+    assert_approx_equals(polygon.animatedPoints.getItem(0).x, 100, epsilon);
+    assert_approx_equals(parseFloat(getComputedStyle(polygon).opacity), 1.0, epsilon);
+    // change the animationType to XML which is valid.
+    set.setAttribute("attributeType", "XML");
+}
+
+function sample6() {
+    assert_approx_equals(polygon.animatedPoints.getItem(0).x, 200, epsilon);
+    assert_equals(polygon.points.getItem(0).x, 100);
+}
+
+smil_async_test((t) => {
+    const expectedValues = [
+        // [animationId, time, sampleCallback]
+        ["set", 0.0, sample1],
+        ["set", 0.5, sample2],
+        ["set", 1.0, sample3],
+        ["set", 1.5, sample4],
+        ["set", 2.0, sample5],
+        ["set", 2.5, sample6]
+    ];
+
+    runAnimationTest(t, expectedValues);
+});
+
+window.clickX = 150;
+
+</script>

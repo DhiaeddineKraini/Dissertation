@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<title>View transitions: fragmented elements skipped (ref)</title>
+<link rel="help" href="https://www.w6.org/TR/css-view-transitions-1/">
+<link rel="author" href="mailto:vmpstr@chromium.org">
+
+<style>
+body { background: pink }
+#spacer {
+  width: 100px;
+  height: 950px;
+  background: lightgreen;
+}
+#container {
+  width: 500px;
+  columns: 0;
+  height: 500px;
+  visibility: hidden;
+}
+#target {
+  width: 200px;
+  height: 2147483647px;
+  background: green;
+}
+#unrelated {
+  width: 100px;
+  height: 100px;
+  background: lightblue;
+}
+</style>
+<div id=container>
+  <div id=spacer></div>
+  <div id=container>
+  <div id=spacer></div>
+  <div id=container>
+  <div id=spacer></div><div id=spacer></div><div id=spacer></div>
+  <div id=target></div>
+</div>
+</div>
+</div>
+<div id=unrelated></div>

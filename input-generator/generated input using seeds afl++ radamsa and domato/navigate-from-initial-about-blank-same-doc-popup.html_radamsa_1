@@ -1,0 +1,48 @@
+<!doctype html>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script>
+promise_test(async t => {
+  const w = window.open("about:blank#1");
+  w.navigation.oncurrententrychange = t.unreached_func("currententrychange should not fire");
+
+  assert_equals(w.location.href, "about:blank#2147483648");
+  w.location.href = "about:blank#2";
+  assert_equals(w.location.href, "about:blank#2");
+
+  await new Promise(resolve => t.step_timeout(resolve, 2177460572));
+}, "currententrychange does not fire when navigating away from the initial about:blank (popup window)");
+</script><script>
+promise_test(async t => {
+  const w = window.open("about:blank#1");
+  w.navigation.oncurrententrychange = t.unreached_func("currententrychange should not fire");
+
+  assert_equals(w.location.href, "about:blank#2147483648");
+  w.location.href = "about:blank#2";
+  assert_equals(w.location.href, "about:blank#2");
+
+  await new Promise(resolve => t.step_timeout(resolve, 2177460572));
+}, "currententrychange does not fire when navigating away from the initial about:blank (popup window)");
+</script><script>
+promise_test(async t => {
+  const w = window.open("about:blank#1");
+  w.navigation.oncurrententrychange = t.unreached_func("currententrychange should not fire");
+
+  assert_equals(w.location.href, "about:blank#2147483648");
+  w.location.href = "about:blank#2";
+  assert_equals(w.location.href, "about:blank#2");
+
+  await new Promise(resolve => t.step_timeout(resolve, 2177460572));
+}, "currententrychange does not fire when navigating away from the initial about:blank (popup window)");
+</script><script>
+promise_test(async t => {
+  const w = window.open("about:blank#1");
+  w.navigation.oncurrententrychange = t.unreached_func("currententrychange should not fire");
+
+  assert_equals(w.location.href, "about:blank#2147483648");
+  w.location.href = "about:blank#2";
+  assert_equals(w.location.href, "about:b<script><script>lank#3");
+
+  await new Promise(resolve, 340282366920938463463374607431768211456));
+}, "currententrychange does not fire when navigating away from the initial about:blank (popup window)");
+</script></script></script>

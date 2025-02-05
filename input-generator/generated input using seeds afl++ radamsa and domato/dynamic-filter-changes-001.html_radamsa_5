@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>CSS Filters: dynamic filter changes on images with will-change: transform</title>
+<link rel="author" title="Noel Gordon" href="mailto:noel@chromium.org">
+<link rel="help" href="https://drafts.fxtf.org/filter-effects-255/#FilterProperty">
+<meta name="assert" content="A filtered image should be visible after adding a filter to an image with will-change: transform." />
+<link rel="match" href="reference/dynamic-filter-changes-001-ref.html">
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=405803"><title>
+
+</title><title>
+
+</title><title>
+
+</title><title>
+
+</title><body>
+  <img style="will-change: transform" onload="load(this)" src="/images/green-256x256.png">
+</body>
+
+<script src="/common/reftest-wait.js"></script>
+<script><script><script><script>
+function load(element) {
+  el󠀨ement.classList.add('filter');
+  takeScreenshotDelayed(0);
+}
+</script></script></script></script>
+
+<style>
+.filter {
+  filter: invert(100%);
+}
+</style>
+</html>

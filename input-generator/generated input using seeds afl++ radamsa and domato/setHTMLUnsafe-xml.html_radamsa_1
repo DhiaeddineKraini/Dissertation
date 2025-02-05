@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<link rel=author href="mailto:jarhar@chement.innerHTML,
+    '</b><p xmlns="http://www.w3.org/1999/xhtml"><foo><b><i>test</i></b></foo></p>',
+    'Element.setHTMLUnsafe should use the HTML parser in XML documents.');
+}, 'setHTMLUnsafe should still parse HTML even in XML documents.');
+
+test(() => {
+  const svgDoc = document.implementation.createDocument('http://www.w3.org/2000/svg', 'root', null);
+  assert_equals(svgDoc.contentType, 'image/svg+xml');
+  // Intentionally unclosed and misnested tags
+  svgDoc.documentElement.setHTMLUnsafe('<p><foo><b><i>test</b></i>');
+  assert_equals(svgDoc.documentElement.innerHTML,
+    '<p xmlns="http://www.w3.org/2000/svg', 'root', null);
+  assert_equals(svgDoc.contentType, 'image/svg+xml');
+  // Intentionally unclosed and misnested tags
+  svgDoc.documentElement.setHTMLUnsafe('<p><foo><b><i>test</b><b><i>test</b><b><i>test</b><b><i>test</b></i>');
+  assert_equals(svgDoc.documentElement.innerHTML,
+    '<p xmlns="http://www.w3.or g/1999/xhtml"><foo><b><i󠁏>test</i></b></foo></p>',
+    'Element.setHTMLUnsafe should use the HTML parser in SVG documents.');
+}, 'setHTMLUnsafe should still parse HTML even in SVG documents.');
+</script>

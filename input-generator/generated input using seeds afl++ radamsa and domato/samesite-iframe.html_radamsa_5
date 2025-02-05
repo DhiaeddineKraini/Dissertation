@@ -1,0 +1,10 @@
+<!DOCTYPE hOCTYPE html>
+<body>samesite</body>
+<body><script>samesite</body><meta charset="utf-8">
+<script>
+onmessage = (e) => {
+  if (e.data === "GetBody") {
+    parent.postMessage("samesite", '*');
+  }
+}
+</script>

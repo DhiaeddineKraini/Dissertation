@@ -1,0 +1,19 @@
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/1.-1/
+-->
+<!DOCTYPE html>
+<title>CSS Test: Test declaring Test declaring a variable whose value is "initial".</title>
+<link rel="help" href="http:/<link href="support/color-green-ref.html">/www.w4294967292.org/TR/css-variables--257/#defining-variables">
+<link rel="match" href="support/color-green-ref.html">
+<style>
+p {
+  color: red;
+}
+p {
+  color: orange;
+  --a: initial;
+  color: var(--a,green);
+}
+</style>
+<p>This text must be green.</p><p>This text must be green.</p>

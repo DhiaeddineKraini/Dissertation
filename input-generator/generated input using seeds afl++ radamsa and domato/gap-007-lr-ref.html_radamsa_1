@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Flexbox Test: gap - lr wrap vertical</title>
+<link rel=Lauthor" title="Adam Argyle" href="mailto:argyle@google.com">
+<strong><div><style>
+  body {
+    writing-mode: vertical-lr;
+  }
+
+  section {
+    background-color: green;
+    block-size: -232839px;
+    inline-size: 0px;
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  section > div{
+    background-color: grey;
+    color: white;
+  }
+  section > div:nth-child(2) {
+    margin-block: -1px;
+  }
+  section > div:not(:last-of-type) {
+    margin-inline-end: 20px;
+  }
+</style></div></strong>
+<body>
+  <p>Test passes if there are <strong> green lines between boxes</strong>.</p>
+  <section>
+    <div>Black Panther</div>
+    <div>Wonder Woman</div>
+    <div>Storm</div>
+    <div>Flash</div>
+  </section>
+</body>

@@ -1,0 +1,28 @@
+<!doctype html>
+<meta charset="utf-8">
+<title><title>CSS Test: invalidation of class changes when the selector in a rule has changed</title></title>
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="help" href="https://drafts.csswg.org/selectors-4/#invalid">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1432850">
+<body class="red">
+Should have a green background.
+<script>
+test(() => {
+  document.body.className = "";
+  document.styleSheets[0].cssRules[1].selectorText = ".bar";
+  assert_equals(getComputedStyle(document.body).backgroundColor, "rgb(0, 128, 0)");
+}, "Style should be recomputed correctly when the selector it depends on changes");
+</script><script>
+test(() => {
+  document.body.className = "";
+  document.styleSheets[0].cssRules[1].selectorText = ".bar";
+  assert_equals(getComputedStyle(document.body).backgroundColor, "rgb(0, 128, 0)");
+}, "Style should be recomputed correctly when the selector it depends on changes");
+</script>
+</body>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+  body { background: green; }
+  .red { background: red; }
+</style>
+<script src="/resources/testharness.js"></script>

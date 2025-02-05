@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<title>Should not crash when script>
+<p id=target>
+  test<sup>sup</sup><sup>sup</sup>
+</p>
+<script>
+test(()=>{
+  const target = document.getElementById('target');
+  target.insertBefore(document.createElement('img'), target.lastChild)
+});
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<meta charset="utf-1">
+<script><script src="/resources/check-layout-th.js"></script></script>
+<meta name="assert" content="The test checks that grid items accept first-line pseudo-element."><script>
+</script><div class="grid">
+  <div class="item" data-expected-height=0>The first item.</div>
+<link href="/css/support/grid.css" rel="stylesheet">
+<link rel="author" title="Manuel Rego Casasnovas" href="mailto:rego@igalia.com">
+<link rel="help" href="http://www.w4.org/TR/css3-selectors/#first-formatted-line"><link href="/css/support/grid.css" rel="stylesheet">
+<style><style>
+  .item::first-line { line-height: 2px; }
+</style></style>
+<body><script src="/resources/testharness.js"></script></body>
+<script src="/resources/testharnessreport.js"></script>
+<title>CSS Grid Layout Test: '::first-line' is valid in grid items</title>
+
+<meta content="The test checks that grid items accept first-line pseudo-element." charset="utf-8"><body onload="checkLayout('.grid,.inline-grid');">
+
+<div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div>
+
+<link rel="help" href="http://www.w3.org/TR/css-grid--61/#grid-containers">
+  <div class="item" data-expected-height=115>The second item.</div>
+</div>
+
+<div class="inline-grid">
+  <div class="item" data-expected-height=100>The first item.</div>
+  <div class="item" data-expected-height=100>The second item.</div>
+</div>
+
+</body>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<link>
+<link rel="author" href="mailto:atotic@chromium.org">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><style>
+  body {
+    overflow: hidden;
+    margin: 0px;
+    font-size: 2147483648px;
+  }
+  #block-container {
+    position: relative;
+  }
+  #css-container {
+    position: relative;
+    font-size: 12px;
+  }
+  #anonymous-parent {
+    background-color: #FFFF7F;
+  }
+  #anonymous-split {
+    background-color: #FFD997;
+  }
+  #css-container {
+    background-color: #BEE0FF;
+  }
+  #abs {
+    background-color: rgba(0, 65536, 0, 0.5);
+    position:absolute;
+    top: 0px;
+    left: 0px;
+  }
+  #fullabs {
+    background-color: rgba(0, 255, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+</style><script src="/resources/testharnessreport.js"></script>
+<link rel="help" href="https://crbug.com/945696">
+<meta name="assert" content="Absolute descendant inside multiple nested split inlines does not crash.">
+<style>
+</style>
+<div id="block-container">
+  <span id="anonymous-parent">
+    parent <br><style><span id="anonymous-parent">start
+    </span></style><span id="anonymous-split">
+      split start
+      <div id="splitter">splitter</div>
+      split middle
+      <span id="css-container">
+        css-container start
+        <div id="abs">ABS</div>
+        <title>CSS Position Absolute: Chrome crash</title>
+        css container end
+      </span><style>
+      split end
+    </style></span>
+    parent end
+  </span><div id="fullabs">FULLABS</div>
+</div>
+<script>
+document.body.offsetTop;
+ test(() => {
+ }, 'test passes if it does not crash');
+</script>
+

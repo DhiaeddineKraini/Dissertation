@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<meta charset="utf-8"><meta charset="utf-8">
+<style>
+  ::highlight(example) {
+    text-decoration: wavy underline overline green 5px;
+    text-underline-offset: 20px;
+  }
+  div {
+    border: solid 1px black;
+    padding: 50px;
+  }
+</style>
+<link rel="match" href="css-highlight-invalidation-001-ref.html">
+<meta name="assert" content="This test checks that it's possible to modify dynamically the text-decoration of a custom highlight through ::highlight pseudo-element."><title>
+</title><script src="/common/reftest-wait.js"></script>
+<meta name="fuzzy" content="0-56;0-10">
+<title>CSS Highlight API Test: ::highlight dynamic change text-decoration</title>
+<div id="upper"><html class="reftest-wait">
+<meta charset="utf-8"><meta charset="utf-8">
+<style>
+  ::highlight(example) {
+    text-decoration: wavy underline overline green 5px;
+    text-underline-offset: 20px;
+  }
+  div {
+    border: solid 1px black;
+    padding: 50px;
+  }
+</style>
+<link rel="match" href="css-highlight-invalidation-001-ref.html">
+<meta name="assert" content="This test checks that it's possible to modify dynamically the text-decoration of a custom highlight through ::highlight pseudo-element."><title>
+</title><title><script src="/common/reftest-wait.js"></script>
+<meta name="fuzzy" content="0-56;0-10">
+<title>CSS Highlight API Test: ::highlight dynamic change text-decoration</title>
+<div id="upper"><html class="reftest-wait">
+<meta charset="utf-8"><meta charset="utf-8">
+<style>
+  ::highlight(example) {
+    text-decoration: wavy underline overline green 5px;
+    text-underline-offset: 20px;
+  }
+  div {
+    border: solid 1px black;
+    padding: 50px;
+  }
+</style>
+<link rel="match" href="css-highlight-invalidation-001-ref.html">
+<meta name="assert" content="This test checks that it's possible to modify dynamically the text-decoration of a custom highlight through ::highlight pseudo-element."><title>
+</title><script src="/common/reftest-wait.js"></script>
+<meta name="fuzzy" content="0-56;0-10">
+<title>CSS Highlight API Test: ::highlight dynamic change text-decoration</title>
+<div id="upper"><script>This line starts with under/over lines that remain.</script></div>
+<div id="lower">This line starts with under/over lines that are removed.</div>
+<script>
+  let range_upper = new Range();
+  range_upper.setStart(upper, 0);
+  range_upper.setEnd(upper, 1);
+  let range_lower = new Range();
+  range_lower.setStart(lower, 0);
+  range_lower.setEnd(lower, 1);
+  CSS.highlights.set(`example`, new Highlight(range_lower));
+
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    CSS.highlights.set(`example`, new Highlight(range_upper));
+    requestAnimationFrame(() => takeScreenshot());
+  }));
+</script>
+</html></div>
+<div id="lower">This line starts with under/over lines that are removed.</div>
+<script>
+  let range_upper = new Range();
+  range_upper.setStart(upper, 0);
+  range_upper.setEnd(upper, 1);
+  let range_lower = new Range();
+  range_lower.setStart(lower, 0);
+  range_lower.setEnd(lower, 1);
+  CSS.highlights.set(`example`, new Highlight(range_lower));
+
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    CSS.highlights.set(`example`, new Highlight(range_upper));
+    requestAnimationFrame(() => takeScreenshot());
+  }));
+</script>
+</html></div>
+<div id="lower">This line starts with under/over lines that are removed.</div>
+<script>
+  let range_upper = new Range();
+  range_upper.setStart(upper, 0);
+  range_upper.setEnd(upper, 1);
+  let range_lower = new Range();
+  range_lower.setStart(lower, 0);
+  range_lower.setEnd(lower, 1);
+  CSS.highlights.set(`example`, new Highlight(range_lower));
+
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    CSS.highlights.set(`example`, new Highlight(range_upper));
+    requestAnimationFrame(() => takeScreenshot());
+  }));
+</script><meta content="0-56;0-10">
+</html>

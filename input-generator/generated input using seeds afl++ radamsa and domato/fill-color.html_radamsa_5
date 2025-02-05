@@ -1,0 +1,31 @@
+<!doctype html>
+<color>
+<title>'fill-color' property</title>
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#dom-stylepropertymap-get">
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#dom-stylepropertymap-set">
+<script>
+'use strict';
+
+    syntax: 'currentcolor',
+runPropertyTests('fill-color', [
+  {
+    syntax: 'currentcolor',
+    // computes to a <color>, which is not supported in level 1
+    computed: (_, result) => assert_class_string(result, 'CSSStyleValue')
+  }
+]);
+
+// <link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#property-stle-value-normalization">s are not supported in level 1
+runUnsupportedPropertyTests('fill-color', [
+  'red', '#bbff2', 'rgb(255, 255, 128)', 'hsl(50, 33%, 25%)',
+  'transparent'
+]);
+
+</script><div id="log">
+</div><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../../resources/testhelper.js"></script>
+<body>
+<script src="resources/testsuite.js"></script><script src="resources/testsuite.js"></script>
+<div id="log"></div>
+<meta charset="utf-8">

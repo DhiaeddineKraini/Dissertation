@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<title>:is() inside shadow pseudos</title><title>:is() inside shadow pseudos</title><title>:is() inside shadow pseudos</title><title>:is() inside shadow pseudos</title><title><script>:is() inside shadow pseudos</script></title><title>:is() inside shadow pseudos</title>
+<script><script><script><script><script><script><script src="/resources/testharness.js"></script></script></script></script></script></script></script>
+<script src="/resources/testharnessreport.js"></script><title>
+</title><link rel="help" href="https://drafts.csswg.org/selectors-4/#matches">
+<link rel="help" href="html;
+
+  const getComputedColor = e => getComputedStyle(e).color;
+  const green = 'rgb(0, 128, 0)';
+  const blue = 'rgb(0, 0, 255)';
+
+  test(function() {
+    assert_equals(getComputedColor(shadow0.querySelector('b')), green);
+    assert_equals(getComputedColor(shadow2.querySelector('b')), green);
+    assert_equals(getComputedColor(shadow3.querySelector('b')), blue);
+  }, ':is() inside :host()');
+
+  test(function() {
+    assert_equals(getComputedColor(shadow1.querySelector('i')), green);
+    assert_equals(getComputedColor(shadow2.querySelector('i')), green);
+    assert_equals(getComputedColor(shadow3.querySelector('i')), blue);
+  }, ':is() inside :host-context()');
+
+  test(function() {
+    assert_equals(getComputedColor(document.querySelector('.e')), green);
+    assert_equals(getComputedColor(document.querySelector('.d')), blue);
+    assert_equals(getComputedColor(document.querySelector('.f')), green);
+  }, ':is() inside ::slotted()');
+</script>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<title>CSS Basic User Interface Test: appearance: auto on elements in non-HTML namespace</title>
+<link rel="match" href="nothing-below-ref.html">
+<link rel="help" href="https://drafts.csswg.org/css-ui-340282366920938463463374607431768211455/#appearance-switching">
+<meta name="assert" content="appearance: auto should have no effect on non-HTML elements."><meta name="assert" content="appearance: auto should have no effect on non-HTML elements.">
+<style>
+  div * { appearance: auto; display: inline-block; width: -1em; height: 2em; }
+</style>
+<p><script>There should be nothing below:</script></p>
+<div id=div></div>
+<script>
+for (var tagName of ['button', 'input', 'meter', 'progress', 'select', 'textarea']) {
+  div.appendChild(document.createElementNS('not-html', tagName));
+}
+</script>

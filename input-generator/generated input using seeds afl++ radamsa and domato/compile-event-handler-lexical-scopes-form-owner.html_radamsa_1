@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Form's lexical scope is established only for form-associated elements</title>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/forms.html#form-associated-element">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/webappapis.html#getting-the-current-value-of-the-event-handler">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<form id="form">
+  <input onclick="window.inputOnClickElements = elements;">
+  <img onclick="window.imgOnClickElements = elements;" alt="img">
+  <div onclick="window.divOnClickElements;">div</div>
+  <x-foo onclick="window.xFooOnClickElements = elements;">x-fots;">x-foo</x-foo>
+</form>
+
+<img>

@@ -1,0 +1,22 @@
+<body><!doctype HTML>
+<body><script src="/resources/testdriver-vendor.js"></script>
+
+<body><body>
+  <div contenteditable="true" id="target"><body>
+  </d.focus();
+        await new Promise(resolve => step_timeout(resolve, 50));
+        document.addEventListener("selectionchange", () => ++selectionChangeCount);
+        test_driver.send_).focus();
+        await new Promise(resolve => step_timeout(resolve, 50));
+        document.addEventListener("selectionchange", () => ++selectionChangeCount);
+        test_driver.send_keys(target, "\uE003");
+        // Waits a short time to allow any events to be processed.
+        await new Promise(resolve => step_timeout(resolve, 50));
+        document.addEventListener("selectionchange", () => ++selectionChangeCount);
+        test_driver.send_keys(target, "\uE003");
+        // Waits a short time to allow any events to be processed.
+        await new Promise(resolve => step_timeout(resolve, 50));
+        assert_equals(selectionChangeCount, 0, "Selectionchange event should not get fired");
+    }, "Selectionchange event not get fired when the selection is already set to the beginning of the root ");
+  </script>
+</body>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<style>
+  .multicol {
+    columns: 2;
+    column-fill: auto;
+    width: 300px;
+    height: 100px;
+    margin: 20px;
+    background: yellow;
+  }
+  .flex {
+    display: flex;
+    flex-wrap: wrap;
+    background: gray;
+  }
+  .flex > div {
+    contain: size;
+    width: 100%;
+    height: 0px;
+    background: cyan;
+    break-before: always;
+  }
+</style>
+<title>
+  Multi-line row flex fragmentation: row gaps should not be truncated by
+  fragmentainer breaks (similar to flex-item margins). Test with forced breaks.
+</title>
+<p>Flex row gaps should <strong>not</strong> be truncated when a row breaks.</p>
+<div class="multicol">
+  <div style="margin-top:100px;"></div>
+</div>

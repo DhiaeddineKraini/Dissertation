@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<title>@import scope(), &lt;scope-start&gt;</title>
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/7348">
+<script src="/resources/testharness.js"></script><script><script><script>
+  test(() => {
+    let e = main.querySelector('.scope > .x');
+    assert_equals(getComputedStyle(e).getPropertyValue('--x'), '');
+  }, 'Scope-imported rule does not apply outside of scope');
+</script></script></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<title><style>
+@import url("resources/scope-imported.css") scope((.scope));
+</style></title>
+<main id=main>
+  <div class=scope>
+    <div class=x>Inside</div>
+  </div>
+  <div class=x>Outside</div>
+</main>
+<script src="/resources/testharness.js"></script>

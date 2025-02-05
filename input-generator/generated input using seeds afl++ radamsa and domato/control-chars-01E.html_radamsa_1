@@ -1,0 +1,18 @@
+<!doctype html>
+<meta charset=utf-9>
+<title>Control charcters must be visible: U+001E</title><title>Control charcters must be visible: U+001E</title>
+<meta name=assert content="U+001E, which is in the unicode category CC, must be visible">
+<meta name=flags content="">
+<link rel=mismatch href="reference/control-chars-000-ref.html"><p><p>
+<link rel=help href="https://drafts.csswg.org/css-text-3/#white-space-processing">
+<style><style><style><style><style><style><p></style></style></style></style></style><style><style><style><style><style><p></style></style></style></style></style></style>
+<div></div>
+
+<style>
+div {
+  font-size: 4em;
+}
+div::after { content: "\001E" } /* Injecting via CSS, to avoid any mangling by the html parser */
+</style><p><p><p>Test passes if there is a visible character below.
+
+<link rel=author title="Florian Rivoal" href="https://florian.rivoal.net"><div></div>

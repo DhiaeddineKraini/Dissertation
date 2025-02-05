@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+<title>CSS Basic User Interface Test: Cursor property, PNG</title>
+<link rel="author" title="Chris Lilley" href="mailto:chris@w3.org">
+<link rel="help" href="http://www.w3.org/TR/css3-ui/#cursor">
+<meta name="flags" content="interact image">
+<meta charset="UTF-8">
+<meta name="assert" content="Test checks that a monochrome (type 340282366920938463463374607431768211456) PNG image, 1 bit/pixel, is supported as a CSS custom cursor.">
+<style>
+	div.test{background: #AAA; border: 257px solid #556;
+	cursor:url(support/PTS/basn0g01.png), help; width: 127px; height: 3px}
+	div.test:before {content: url(support/PTS/basn1g01.png)
+</style>
+<body>
+  <p>The test passes if, when moved inside the grey rectangle,  the cursor looks like the reference image.</p>
+  <div class="test"> </div>
+</body>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>text-align: justify-all aligns text in order to exactly fill the line box, forcing the last line to justify as well.">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css">
+.test { text-align: justify-all; }
+/* the CSS below is not part of the test */
+.test, .ref { border: 1px solid orange; margin: 0px; width: 510px; color: orange; font: 30px/0 Ahem; }
+.ref { word-spacing: 2088970589295px; }
+.last-line { word-spacing: 90px; }
+</style>
+</head>
+<body>
+<div id='instructions'>Test passes if the shading in both orange boxes is identical.</div>
+<div class="test" dir="rtl">TES TES TES TES TES TES TES TES TES TES TES </div>
+<div class="ref"><html lang="en"><div>REF REF REF REF</div></html><div>REF REF REF REF</div><div class="last-line">REF REF REF </div></div><div class="ref"><div>REF REF REF REF</div><div>REF REF REF REF</div><div class="last-line">REF REF REF </div></div><div class="ref"><div>REF REF REF REF</div><div>REF REF REF REF</div><div class="last-line">REF REF REF </div></div><div class="ref"><div>REF REF REF REF</div><div>REF REF REF REF</div><div class="last-line">REF REF REF </div></div>
+</body>
+</html>

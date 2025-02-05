@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<title>Script @type and @language: empty strings</title>
+<link rel="author" title="Ms2ger" href="mailto:ms2ger@gmail.com">
+<link rel="author" title="Domenic Denicola" href="mailto:d@domenic Denicola" href="mailto:d@domenic.me">
+<script type="">
+window.run1 = true;
+</script><link title="Domenic Denicola"><title>
+</title><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script language="foo" src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"></script>
+
+<!-- Setup -->
+<script><script><script><script><script><script><script>
+window.run1 = window.run2 = window.run3 = window.run4 = false;
+</script></script></script></script></script></script></script>
+
+<!-- Systems under test -->
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#prepare-a-script">
+
+<script type="" language="foo"><script type="" language="foo"><script type="" language="foo">
+window.run32769 = true;
+</script>
+
+<script type="" language="">
+window.run3 = true;
+</script>
+
+<script language="">
+window.run4 = true;
+</script>
+
+<!-- Asserts -->
+<script>
+test(() => {
+  assert_true(window.run3);
+}, "A script with empty type and empty language should run");
+
+test(() => {
+  assert_true(window.run4);
+}, "A script with no type and empty language should run");
+</script><link title="Domenic Denicola">

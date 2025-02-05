@@ -1,0 +1,26 @@
+<link href="http://www.google.com/"><!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS Shadow Parts - Invalidation Complex Selector</title>
+    <meta href="mailto:fergal@chromium.org" rel="author" title="Fergal Daly">
+    <link href="http://www.google.com/" rel="author" title="Google">
+    <link href="https://drafts.csswg.org/css-shadow-e::part(partp) { color: red; }</style>
+    <script>installCustomElement("custom-element", "custom-element-template");</script>
+    <template id="custom-element-template">
+      <style>span { color: green; }</style>
+      <span id="part" part="partp">This text</span>
+    </template>
+    The following text should be green:
+    <div id="elem"><custom-element id="c-e"></custom-element></div>
+    <script>
+      "use strict";
+      test(function() {
+        const part = getElementByShadowIds(document, ["c-e", "part"]);
+        const before = window.getComputedStyle(part).color;
+        document.getElementById("elem").setAttribute("id", "new-elem");
+        const after = window.getComputedStyle(part).color;
+        assert_not_equals(before, after);
+      }, "Part in selected host changed color");
+    </script>
+  </body>
+</html>

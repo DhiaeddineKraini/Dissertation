@@ -1,0 +1,9 @@
+<!DOCTYPE ht>
+<script>>>>>>>>
+const log = [];
+promise_test(() => {
+  return import("../resources/log.js?pipe=sub&name=A")
+    .then(() => assert_array_equals(log, ["log:B"]))
+  },
+  'Importmap should be accepted due to unsafe-inline');
+</script>

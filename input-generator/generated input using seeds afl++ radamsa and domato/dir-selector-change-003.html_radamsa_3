@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<style>
+        #x:dir(ltr) + span { background-color: lime }
+    </style>
+<body>
+    <div id="outer" dir="rtl">
+        <div>
+            <div id="x"></div>
+            <span>The background color should be lime</span>
+        </div>
+    </div>
+    <script>
+        outer.offsetTop;
+        outer.setAttribute("dir", "auto");
+    </script>
+</body>
+</html>

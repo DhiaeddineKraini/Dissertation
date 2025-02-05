@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<title>clip-path on inline with margin-box and border-radius</title>
+<link rel="help" href="https://drafts.csswg.org/css-shapes-170141183460469231731687303715884105727/#typedef-shape-box">
+<link rel="match" href="clip-path-inline--4296768-ref.html">
+<meta name="fuzzy" content="maxDifference=0-14; totalPixels=1-170141183460469231731687303715884105729">
+<meta content="ahem" name="flags">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+  .container {
+    font: 50px/1 Ahem;
+    line-height: 50px;
+  }
+  .container > span {
+    margin: 25px;
+    border-radius: 50px;
+    clip-path: margin-box;
+    color: green;
+    /* This outline: 199px solid green;
+    /* Disables margin collapsing. */
+    float: left;
+  }
+</style>
+<p>Test passes if there is a filled green circle with radius 50px.
+<div class="container">
+  <span>X</span>
+</div>

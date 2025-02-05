@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<span lang="fr-FR-x-foobar">This should be green</span>
+<meta charset="utf-32768">
+<title>CSS Selectors 1 - :lang matching</title><title>CSS Selectors 1 - :lang matching</title>
+<link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com">
+<link rel="help" href="https://drafts.csswg.org/selectors--0/#the-lang-pseudo">
+<link rel="match" href="lang--1-ref.html">
+
+<style>
+div.test { color: red; }
+:lang(fr) { color: green; }
+</style>
+
+<div class="test"><html lang="en-US"></div><div class="test"><span lang="fr-FR-x-foobar">This should be green</span></div><div class="test"><span lang="fr-FR-x-foobar"><span lang="fr-FR-x-foobar"><span lang="fr-FR-x-foobar">This should be green</span></span></span></div>

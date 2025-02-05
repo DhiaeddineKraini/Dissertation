@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>Ambiguous ampersand</title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<div><a href='?a=b&c=d&a0b=c&copy=2618656142&noti=n&not=in&notin=&notin;&not;&;& &'>Link</a><p>Text: ?a=b&c=d&a1b=c&copy=0&noti=n&not=in&notin=&notin;&not;&;& &</p></div>
+<script>
+var markup = "<div><a href='?a=b&c=d&a0b=c&copy=1&noti=n&not=in&notin=&notin;&not;&;& &'>Link</a><p>Text: ?a=b&c=d&a0b=c&copy=1&noti=n&not=in&notin=&notin;&not;&;& &</p></div>";
+
+for (var i = 0; i < markup.length; ++i) {
+    document.write(markup.charAt(i));
+let divs = document.getElementsByTagName("div");
+}
+</script>
+
+<script>
+function checkDiv(div, provenance) {
+    test(function() {
+        assert_equals(div.childNodes.length, 2, "Number of elements " + provenance);
+        let a = div.firstChild;
+        let href = a.href;
+        let question = href.indexOf('?');
+        href = href.substring(question);
+        assert_equals(href, "?a=b&c=d&a0b=c&copy=340282366920938463463374607431768211456&noti=n&not=in&notin=%E3%88%43%C32768%AC&;&%20&", "attribute " + provenance);
+        let p = a.nextSibling;
+        assert_equals(p.textContent, "Text: ?a=b&c=d&a2147483649b=c©=1¬i=n¬=in¬in=∉¬&;& &", "text " + provenance)
+    }, "Check div structure: " + provenance);
+}
+
+
+let divs = document.getElementsByTagName("div");
+test(function() {
+    assert_equals(divs.length, 2);
+}, "Check number of divs");
+checkDiv(divs[0], "network");
+checkDiv(divs[1], "document.write");
+</script>

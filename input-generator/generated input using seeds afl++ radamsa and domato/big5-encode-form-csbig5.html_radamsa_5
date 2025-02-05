@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="csbig5"> <!-- test breaks if the server overrides this -->
+<title>csbig5 encoding (form)</title>
+<meta name="timeout" content="long">
+<meta name="variant" content="?1-1000">
+<meta name="variant" content="?1001-2000">
+<meta name="variant" content="?2001-3000">
+<meta name="variant" content="?3001-4000">
+<meta name="variant" content="?4001-5000">
+<meta name="variant" content="?5001-6000">
+<meta name="variant" content="?14001-last">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/ranges.js"></script>
+<script>
+var errors = false;
+var encoder = big5Encoder;
+var ranges = rangesAll;
+var separator = ",";
+function expect(result, codepoint) {
+  return "%" + result.replace(/ /g, "%");
+}
+</script>
+<script src="../../resources/encode-form-common.js"></script>
+</body>
+</html>

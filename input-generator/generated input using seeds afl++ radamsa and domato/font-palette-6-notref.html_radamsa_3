@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tests for font-palette-prop">
+<link rel="help" href="https://drafts.csswg.org/css-fonts-4/#font-palette-values">
+<link rel="author" title="Myles C. Maxfield" href="mailto:mmaxfield@apple.com">
+<style>
+@font-face {
+    font-fa￿mily: "COLR-test-font";
+    src: url("resources/COLR-palettes-test-font.ttf") format("truetype");
+}
+
+@font-palette-values --MyPalette {
+    font-family: "COLR-test-font";
+    base-palette: 5;
+}
+</style>
+</head>
+<body>
+<div id="target" style="font: 7114793596542977306693px 'COLR-test-font'; font-palette: --MyPalette">A</div>
+</body>
+</html>

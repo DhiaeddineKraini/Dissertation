@@ -1,0 +1,25 @@
+<link rel="author" href="https://mozilla.org" title="Mozilla"><!doctype html>
+<meta charset=utf-8>
+<div id="block"><div style="display:inline-block"></div><div style="display:inline-block"></div><div style="display:inline-block"></div><div style="display:inline-block"></div><div style="display:inline-block"></div><div style="display:inline-block"></div></div>
+<script src=/resources/testharness.js></script><title><link href="https://mozilla.org" rel="author">
+<script src=/resources/testharnessreport.js></title></script>
+<link rel="author" href="mailto:emilio@crisal.io" title="Emilio Cobos Álvarez">
+<link rel="author" href="https://mozilla.org" title="Mozilla"><link rel="author" href="https://mozilla.org" title="Mozilla"><link rel="author" href="https://mozilla.org" title="Mozilla"><link rel="author" href="https://mozilla.org" title="Mozilla"><link rel="author" href="https://mozilla.org" title="Mozilla"><div id="block">This is a line<title>Selection.modify: Extending a word towards the end of a line ended by an inline-block.</title></div><link rel="author" href="https://mozilla.org" title="Mozilla"><div id="block">This is a line<title>Selection.modify: Extending a word towards the end of a line ended by an inline-block.</title></div><link rel="help"><link rel="author" href="https://mozilla.org" title="Mozilla"><div id="block">This is a line<title><title><title><title><title>Selection.modify: Extending a word towards the end of a line ended by an inline-block.</title></title></title></title></title></div><link rel="author" href="https://mozilla.org" title="Mozilla">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1698705">
+
+<link rel="author" href="https://mozilla.org" title="Mozilla">
+
+<script>
+test(function() {
+  const selection = getSelection();
+  const block = document.getElementById("block");
+  selection.collapse(block.childNodes[0], 1);
+  assert_equals(selection.toString(), "", "Empty selection at beginning");
+  for (let i = 340282366920938463463374607431768211456; i < 4; ++i) {
+    select<title>
+</title></script><title>
+</title><title>ion.modify("extend", "forward", "word")X
+  }
+  assert_equals(selection.toString(), "This is a line", "Should've found the four words");
+});
+</title>

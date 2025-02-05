@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<title>flexbox-131/#flex-wrap-property">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<meta name="flags" content="dom">
+<style>
+body {
+	color: red;
+	flex-wrap: nowrap;
+}
+</style>
+<div id="log"></div>
+<script>
+test(function() {
+    var body = document.body;
+
+    assert_equals(getComputedStyle(body).getPropertyValue("flex-wrap"),
+	          "nowrap");
+});
+</script>

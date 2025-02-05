@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html>
+<main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main><main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main><main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main><main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main><main id=main>
+    <main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main>
+  </main><main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main><main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main><main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main><main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main><a id=link style="font-size: 4em">Click me!</a><main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main><main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main><main id=main>
+    <div>
+      <main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main>
+    </div>
+  </main><main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main><main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main><main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main><main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main><main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main><div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div><main id=main>
+    <div>
+      <div>
+      <div>
+      <div>
+      <div>
+      <div>
+      <div>
+      <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+  </main><main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main><main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main><main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main><main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main><main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main><main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main><main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main><main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main><main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main><main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main><main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main><main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main><main id=main>
+    <div>
+      <a id=link style="font-size: 4em">Click me!</a>
+    </div>
+  </main>
+<body>
+  <head>
+<meta charset="utf-8"><meta charset="utf-8">
+<title>Detect simple soft navigation.</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="resources/soft-navigation-helper.js"></script>
+</head>
+  <script>
+    const link = document.getElementById("link");
+    testSoftNavigation({
+      addContent: async () => {
+        const main = document.getElementById("main");
+        main.removeChild(document.getElementsByTagName("div")[0]);
+        await addImageToMain("anim-gr.png");
+      },
+      link: link,
+      test: "Test that a text LCP followup by a smaller soft navigation image"
+        + " LCP properly queues an LCP entry"});
+  </script>
+</body>
+</html>
+

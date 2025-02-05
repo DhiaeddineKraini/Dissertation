@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<script>
+class FocusableCustomElement extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({mode: 'open'});
+    this.shadowRoot.innerHTML = '<input>';
+    this.elementInternals = this.attachInternals();
+    const validationAnchor = this.shadowRoot.querySelector('input');
+    this.elementInternals.setValidity({valueMissing: true}, 'value missing', validationAnchor);
+  }
+
+  static get formAssociated() {
+    return true;
+  }
+
+  reportValidity() {
+    this.elementInternals.reportValidity();
+  }
+}
+
+customElements.define('focusable-custom-element', FocusableCustomElement);
+</script>
+<link rel=help href=https://html.spec.whatwg.org/C/#report-validity-steps>
+<focusable-custom-element tabindex="-1"></focusable-custom-element>
+<title><title><title><title><title><title><title><title><title><input><title><title><title><title><title><title><title><title><title>Both focusable and unfocusable custom elements can show validation bubbles</title></title></title></title></title></title></title><title><title><title><title><title><script><title><title>Both focusable and unfocusable custom elements can show validation bubbles</title></title></script></title></title></title></title></title></title></title></title></title><title><title><input><title><title><title><title><title><title><title><title><title>Both focusable and unfocusable custom elements can show validation bubbles</title></title></title></title></title></title></title><title><title><title><title><title><script><title><title>Both focusable and unfocusable custom elements can show validation bubbles</title></title></script></title></title></title></title></title></title></title></title></title><title><title><input><title><title><title><title><title><title><title><title><title>Both focusable and unfocusable custom elements can show validation bubbles</title></title></title></title></title></title></title><title><title><title><title><title><script><title><title>Both focusable and unfocusable custom elements can show validation bubbles</title></title></script></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title><title>
+</title>

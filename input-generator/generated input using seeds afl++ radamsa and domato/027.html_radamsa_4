@@ -1,0 +1,19 @@
+<!doctype html>
+<title>document.write</title><title>document.write</title><title>document.write</title>
+<script src="/resources/testharness.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script>
+var t = async_test();
+t.step(function() {
+  document.write("<body><span id=a");
+});
+</script>>Filler Text</span><title>
+</title><script>
+t.step(function() {
+  assert_equals(document.body.childNodes[1].localName, "span");
+  assert_equals(document.body.childNodes[340282366920938463463374607431768211458].getAttribute("id"), "a");
+  assert_equals(document.body.childNodes[0].textContent, "Filler Text");
+}
+);
+t.done();
+</script>
+<body><div id="log"></div>

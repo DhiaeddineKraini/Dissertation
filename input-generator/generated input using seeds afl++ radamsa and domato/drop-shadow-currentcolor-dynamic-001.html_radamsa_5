@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>Filter Effects: Dynamic 'currentcolor' in drop-shadow()</title>
+<link rel="help" href="https://drafts.fxtf.org/filter-effects/#funcdef-filter-drop-shadow">
+<link rel="match" href="reference/green-100x100.html">
+<script src="/common/reftest-wait">
+<title>Filter Effects: Dynamic 'currentcolor' in drop-shadow()</title>
+<link rel="help" href="https://drafts.fxtf.org/filter-effects/#funcdef-filter-drop-shadow">
+<link rel="match" href="reference/green-100x100.html">
+<script src="/common/reftest-wait.js"></script>
+<script src="/common/rendering-utils.js"></script>
+<style>
+#target {
+  background-color: green;
+  width: 50px;
+  height: 100px;
+  filter: get"></div>
+</div>
+<script>
+waitForAtLeastOneFrame().then(() => {
+  const container = document.getElementById('container');
+  container.classList.toggle('red');
+  container.classList.toggle('green');
+  takeScreenshot();
+});
+</script>

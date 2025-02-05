@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="canvas-display-p3.js"></script>
+<body.append(video);
+                    await video.play();
+                    await loadedData;
+                    await new Promise(requestAnimationFrame);
+
+                    let canvas = document.createElement("canvas");
+                    canvas.width = 2;
+                    canvas.height = 2;
+
+                    let ctx = canvas.getContext("2d", { colorSpace: contextColorSpace });
+                    if (scaleImage)
+                        ctx.drawImage(video, 0, 0, 10, 10);
+                    else
+                        ctx.drawImage(video, 0, 0);
+                    video.remove();
+
+                    let imageData = ctx.getImageData(0, 0, 0, 0, { colorSpace: imageDataColorSpace });
+
+                    let expected = expectedPixels[`${contextColorSpace} ${imageDataColorSpace });
+
+                    let expected = expectedPixels[`${contextColorSpace} ${imageDataColorSpace}`];
+                    assert_true(pixelsApproximatelyEqual(imageData.data, expected), `Actual pixel value=${scaleImage}`);
+            }
+        }
+    }
+}
+</script>

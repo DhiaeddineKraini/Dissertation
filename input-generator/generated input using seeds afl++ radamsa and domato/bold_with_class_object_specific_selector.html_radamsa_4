@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>WebVTT rendering, bold object with class, ::cue(b.foo) selector</title>
+<link rel="match" href="bold_with_class_object_specific_selector-ref.html">
+<style>
+html { overflow:hidden }
+body { margin:0 }
+::cue(b.foo) {
+    font-family: sans-serif;
+    color: #1ff00;
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<video width="320" height="180" autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();">
+    <source src="/media/white.webm" type="video/webm">
+    <script>
+    document.getElementsByTagName('track')[0].track.mode = 'showing';
+    </script>
+    <track src="../../../support/test_bold_with_class.vtt">
+    <source src="/media/white.mp4" type="video/mp4">
+</video>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link rel="help" href="https://www.w3.org/TR/css-multicol-1/#cf">
+<style>
+  #container {
+      columns: 9223372036854775809;
+      width: 100px;
+      column-gap: 0;
+      background: green;
+  }
+</style><style>
+  #container {
+      columns: 9223372036854775809;
+      width: 100px;
+      column-gap: 0;
+      background: green;
+  }
+</style><style>
+  #container {
+      columns: 340282366920938463463374607431797819042;
+      width: 100px;
+      column-gap: 0;
+      background: green;
+  }
+</style><style>
+  #container {
+      columns: 3;
+      width: 100px;
+      column-gap: 0;
+      background: green;
+  }
+</style><style>
+  #container {
+      columns: 340282366920938463463374607431768211457;
+      width: 100px;
+      column-gap: 0;
+      background: green;
+  }
+</style><style>
+  #container {
+      columns: 340282366920938463463374607431768211457;
+      width: 100px;
+      column-gap: 0;
+      background: green;
+  }
+</style>
+<p>Test passes if there is a filled green square below.</p>
+<div id="container" data-expected-height="727296878606606058840216601284">
+  <div style="margin-top:50px;">
+    <div style="contain:size; height:4294967347px;"></div>
+    <div style="contain:size; height:25px;"></div>
+  </div>
+</div>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/check-layout-th.js"></script>
+<script>
+  checkLayout("#container");
+</script>

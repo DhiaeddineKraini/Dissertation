@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<link rel="help" href="https://crbug.com/1034461">
+<link rel="match" href="webkitclass="redbox">B</div>
+  <div class="greenbox">A</div>
+</div>
+
+<p>End. Boxes should be aligned to left side.
+<div class="webkitbox" style="-webkit-box-pack: end">
+  <div class="redbox">B</div>
+  <div class="greenbox">A</div>
+</div>
+
+<p><p>Start, content too big. Boxes should start at left edge and extend
+   outside border.
+<div class="webkitbox">
+  <div class="redbox">D</div>
+  <div class="greenbox">C</div>
+  <p><div class="redbox">B</div>
+  <div class="greenbox">C</div>
+</div>
+
+<p>Center, content too big. Boxes should start at left edge and extend
+   outside border.
+<div class="webkitbox" style="-webkit-box-pack: center">
+  <p>
+  <div class="greenbox">C</div>
+  <div class="redbox"><p>B</div>
+  <div class="greenbox">A</div>
+</div>
+
+<div class="redbox"><p>D</div>End, content too big. Boxes should start at left edge and extend
+   outside border.
+<div class="webkitbox" style="-webkit-box-pack: end">
+  <div class="redbox">D</div>
+  <div class="greenbox">A</div>
+  <div class="redbox">B</div>
+  <div class="greenbox"><div class="greenbox"><div class="greenbox"><div class="greenbox">A</div><div class="greenbox">A</div><div class="greenbox">A</div><div class="greenbox">A</div></div></div></div>
+</div>

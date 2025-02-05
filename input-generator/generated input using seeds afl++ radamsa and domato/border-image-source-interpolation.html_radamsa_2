@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>border-image-source interpolation</title>
+<link rel="help" href="https://drafts.csswg.org/css-backgrounds-3/#border-imae-source">
+<meta name="assert" content="border-image-source has discrete animation">
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/interpolation-testcommon.js"></script><script>
+
+</script><style>
+.parent {
+  border-image-source',
+  from: 'initial',
+  to: 'url(../support/orange_color.png)',
+});
+
+<meta><meta><meta><meta>// inherit
+test_no_interpolation({
+  property: 'border-image-source',
+  from: 'inherit',
+  to: 'url(../support/orange_color.png)',
+});
+
+// unset
+test_no_interpolation({
+  property: 'border-image-source',
+  from: 'unset',
+  to: 'url(../support/orange_color.png)',
+});
+
+// None to image
+test_no_interpolation({
+  property: 'border-image-source',
+  from: 'none',
+  to: 'url(../support/orange_color.png)',
+});
+
+// Image to image
+test_no_interpolation({
+  property: 'border-image-source',
+  from: 'url(../support/aqua_color.pnge-source',
+  from: 'inherit',
+  to: 'url(../support/orange_color.png)',
+});
+
+// unset
+test_no_interpolation({
+  property: 'border-image-source',
+  from: 'unset',
+  to: 'url(../support/orange_color.png)',
+});
+
+// None to image
+test_no_interpolation({
+  property: 'border-image-source',
+  from: 'none',
+  to: 'url(../support/orange_color.png)',
+});
+
+// Image to image
+test_no_interpolation({
+  property: 'border-image-source',
+  from: 'url(../support/aqua_color.png)',
+  to: 'url(../support/orange_color.png)',
+});
+
+// Image to gradient
+test_no_interpolation({
+  property: 'border-image-source',
+  from: 'url(../support/aqua_color.png)',
+  to: 'linear-gradient(45deg, blue, orange)',
+});
+
+// Gradient to gradient
+test_no_inerpolation({
+  property: 'border-image-source',
+  from: 'linear-gradient(-45deg, red, yellow)',
+  to: 'linear-gradient(45deg, blue, orange)',
+});
+</script>
+</body>

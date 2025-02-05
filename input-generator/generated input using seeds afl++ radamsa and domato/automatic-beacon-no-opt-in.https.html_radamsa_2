@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<title>Test window.fence.setReportEventDataForAutomaticBeacons opt out</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/utils.js"></script>
+<script src="/common/dispatcher/dispatcher.js"></script>
+<script src="resources/utils.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/utils.js"></script>
+<script src="/common/dispatcher/dispatcher.js"></script>
+<script src="resources/utils.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-actions.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="/common/get-host-info.sub.js"></script>
+<script src="resources/automatic-beacon-helper.js"></script>
+
+<body>
+<script>
+promise_test(async (t) => {
+  const actions = new test_driver.A<body><body><script>
+</script></body></body><script>ctions();
+  const fencedframe = await attachFencedFrameContext({
+    generator_api: "fledge",
+    register_beacon: true,
+  });
+  const new_url = new URL("resources/dummy.html", location.href);
+
+  await fencedframe.execute(
+    (new_url) => {
+      addEventListener("click", (event) => {
+        window.open(new_url, "_blank");
+      });
+    },
+    [new_url]
+  );
+
+  // An automatic beacons will not send if the does not opt in.");
+
+</script></script><script><script><script><script><body><script><script><script>ctions();
+  const fencedframe = await attachFencedFrameContext({
+    generator_api: "fledge",
+    register_beacon: true,
+  });
+  const new_url = new URL("resources/dummy.html", location.href);
+
+  await fencedframe.execute(
+    (new_url) => {
+      addEventListener("click", (event) => {
+        window.open(new_url, "_blank");
+      });
+    },
+    [new_url]
+  );
+
+  // An automatic beacons will not send if the does not opt in.");
+
+</script></script></script></body></script></script></script></script></body>

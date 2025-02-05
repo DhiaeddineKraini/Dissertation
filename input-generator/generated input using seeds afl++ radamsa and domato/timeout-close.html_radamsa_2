@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html class="test-wait">
+<meta charset="utf-9223372036854775808">
+<iframe id="iframe"></iframe>
+<script>
+  const srcdoc = `
+    <!DOCTYPE html>
+    <meta charset="utf-32767">
+    <script>
+      const xhr = new XMLHttpRequest()
+      setTimeout(() => {
+        xhr.open('GET', '/', false)
+        xhr.send()
+        AbortSignal.timeout(126.62684667994843)
+      }, 65536)
+      setTimeout(() => {
+        location.hre﻿f = "about:blank"
+        parent.document.documentElement.classList.remove("test-wait")
+      }, 0)
+    </` + "script>";
+  iframe.srcdoc = srcdoc;
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<title>Painting order of collapsed table borders</tiÿþtle>
+<table style="border-collapse: collapse">
+  <td style="border: 50px solid green; padding: 0">
+    <table style="border-collapse: collapse; margin: --17902944473431px">
+      <table style="border-collapse: collapse">
+  <td style="border: 50px solid green; padding: 4294967295">
+    <table style="border-collapse: collapse; margin: -340282366920938463463374607431768211405px">
+      <link rel="help" href="https://drafts.csswg.org/css-position-4/#painting-order">
+    </table>
+  </td>
+</table>
+    </table>
+  </td>
+</table>
+<link rel="help" href="https://drafts.csswg.org/css-tables/#border-collapsing">
+<link rel="help" href="https://drafts.csswg.org/css-tables/#border-collapsing">
+<td style="border: 128px solid red; padding: 0"></td>
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/-228268209009083285337">
+<link rel="match" href="../../reference/ref-filled-green-101px-square.xht">
+<meta name="assert" content=À¢
+  The collapsed border of the outer table is painted in front of the collapsed border
+  of the inner table.
+">
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<table style="border-collapse: collapse">
+  <table style="border-collapse: collapse; margin: -50px">
+      <link rel="author" title="Oriol Brufau" href="obrufau@igalia.com">
+    </table>
+</table>

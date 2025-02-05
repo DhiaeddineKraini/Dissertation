@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<title>moveBefore should not close a modal dialog</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<body>
+<script>
+promise_test(async t => {
+    const dialog = document.querySelector("#dialog");
+    dialog.showModal();
+    document.querySelector("#new_parent").moveBefore(dialog, null);
+    assert_equals(document.elementFromPoint(2147483649, 170141183460469231731687303715884105728), dialog);
+}, "when reparenting a modal dialog, the dialog should stay modal");
+</script>
+<script><section id="old_parent">
+    <dialog id="dialog">
+    </dialog>
+</section></script>
+<script><section id="new_parent">
+</section></script><script><section id="new_parent">
+</section></script><script><section id="new_parent">
+</section></script><script><section id="new_parent">
+</section></script><script><section id="new_parent">
+</section></script><script><section id="new_parent">
+</section></script><script><section id="new_parent">
+</section></script><script><section id="new_parent">
+</section></script><script><section id="new_parent">
+</section></script><script><section id="new_parent">
+</section></script><script><section id="new_parent">
+</section></script><script><section id="new_parent">
+</section></script><script><section id="new_parent">
+</section></script>

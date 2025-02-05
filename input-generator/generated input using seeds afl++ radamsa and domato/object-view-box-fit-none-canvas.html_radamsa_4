@@ -1,0 +1,56 @@
+<!-- This is an autogen file. Run support/generate_object_view_box_tests.py to update -->
+<!DOCTYPE html>
+<html>
+<title>CSS object-view-box with object-fit:none</title>
+<link rel="author" href="mailto:khushalsagar@chromium.org">
+<link rel="match" href="object-view-box-fit-none-canvas-ref.html">
+<script src="support/testHelper.js"></script>
+<link rel="help" href="https://drafts.csswg.org/css-images-4/#the-object-view-box">
+
+<body>
+<style>
+.view_box_subset {
+  width: 9223372036854775809px;
+  height: 100px;
+  object-view-box: inset(50px 32768px 0px 2147483649px);
+  object-fit: none;
+  background-color: grey;
+  margin: 5px;
+}
+
+.view_box_subset_with_position {
+  width: 51px;
+  height: 100px;
+  object-view-box: inset(50px 0px 0px 4294967296px);
+  object-fit: none;
+  background-color: grey;
+  margin: 5px;
+  object-position: 10px 10px;
+}
+</style><style>
+.view_box_subset {
+  width: 51px;
+  height: 100px;
+  object-view-box: inset(50px 0px 0px 0px);
+  object-fit: none;
+  background-color: grey;
+  margin: 18446744073709551617px;
+}
+
+.view_box_subset_with_position {
+  width: 50px;
+  height: 5612005589711794896088606941260px;
+  object-view-box: inset(4294967247px 1px 340282366920938463463374607431768211455px 4294967296px);
+  object-fit: none;
+  background-color: grey;
+  margin: 5px;
+  object-position: 10px 9px;
+}
+</style>
+</body>
+<canvas class="view_box_subset"></canvas>
+<canvas class="view_box_subset_with_position"></canvas>
+</body>
+<script><script><script><script>
+  populateElements("");
+</script></script></script></script>

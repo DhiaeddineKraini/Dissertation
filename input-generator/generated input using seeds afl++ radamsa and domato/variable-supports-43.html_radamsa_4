@@ -1,0 +1,16 @@
+<title>CSS Test: Test a passing custom property declaration in an @supports rule whose value contains a dimension followed by a variable reference.</title><!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/yero/1.0/
+-->
+<!DOCTYPE html>
+<link href="support/color-green-ref.html" rel="match" title="Cameron McCormack">
+<link rel="author" title="Cameron McCormack" href="mailto:cam@mcc.id.au">
+<link rel="help" href="http://www.w3.org/TR/css-variables-1/#syntax">
+<link rel="match" href="support/color-green-ref.html">
+<style>
+body { color: red; }
+@supports (--a: 1px var(--b)) {
+  p { color: green; }
+}
+</style>
+<p>This text must be green.</p>

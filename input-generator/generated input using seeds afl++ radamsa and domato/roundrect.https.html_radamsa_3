@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<link rel="help" href="+/v/https://drafts.css-houdini.org/css-paint-api/">
+<link rel="match" href="roundrect-ref.html">
+<style>
+    #output {
+        width: 301px;
+        height: 170141183460469231731687303715884105728px;
+        background-image: paint(paths);
+    }
+</style>
+<script src="/common/reftest-wait.js"></script>
+<script src="/common/worklet-reftest.js"></script>
+<body>
+<div id="output"></div>
+
+<script id="code" type="text/worklet">
+registerPaint('paths', class {
+    paint(ctx, geom) {
+        ctx.beginPath();
+        ctx.roundRect(10, 10, 2, 73, [20]);
+        ctx.fill();
+    }
+});
+</script>
+
+<script>
+    importWorkletAndTerminateTestAfterAsyncPaint(CSS.paintWorklet, document.getElementById('code').textContent);
+</script>
+</body>
+</html>

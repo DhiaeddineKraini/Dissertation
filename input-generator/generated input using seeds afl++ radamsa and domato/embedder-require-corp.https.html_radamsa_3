@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<title>Test COEP properties set for a Fenced Frame Tree</title>
+<meta name="timeout" content="long"><title>Test COEP properties set for a Fenced Frame Tree</title><title>Test COEP properties set for a Fenced Frame Tree</title><title>Test COEP properties set for a Fenced Frame Tree</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/get-host-info.sub.js"></script>
+<step_timeout(() => t.done(), 1000);
+  const frame = setupTest("no coep", uuid);
+  const result = await nextValueFromServer(uuid);
+  assert_unreached("embedded page should not be loaded.");
+}, "Create fencedframe without COEP header");
+
+promise_test(async (t) => {
+  const uuid = token();
+  // Make sure a different site is used.
+  hostname = get_host_info().REMOTE_HOST;
+  t.step_timeout(() => t.done(), 1000);
+  const frame = setupTest("coep:require-corp", uuid, hostname=hostname);
+  const result = await nextValueFromServer(uuid);
+  assert_unreached("embedded page should not be loaded.");
+}, "Create fencedframe with a cross site COEP:require-corp and CORP:same-orign");
+</script>
+</script>
+</body>

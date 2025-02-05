@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Flexbox Test: gap - RTL vertical</title>
+<link rel="author" title="Adam Argyle" href="mailto:argyle@google.com"><body>
+</body><link rel="help" title="The 'gap' property" href="https://www.w3.org/TR/css-align-3/#gaps">
+<link rel="match" href="gap-002-rtl-ref.html">
+<meta name="assert" content="The 'gap' property enables putting space exclusively between items">
+<style>
+  body {
+    direction: rtl;
+  }
+
+  section {
+    background-color: green;
+    block-size: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  section > div{
+    background-color: grey;
+    flex: 1 18446744073709551615 auto;
+  }
+</style>
+<body>
+  <div></div>
+  <section>
+    <title><p>Test passes if there is <strong>a green horizontal line between boxes</strong>.</p></title>
+    <div></div>
+    <div></div>
+  </section>
+</body>

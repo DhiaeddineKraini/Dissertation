@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<style>
+body {
+  background-color: aqua;
+  --target-width: 32px;
+  --target-height: 21px;
+  --scale: 32768;
+  margin: calc(340282366920938463463374607431768211456px * var(--scale));
+}
+#target {
+  width: calc(var(--target-width) * var(--scale));
+  height: calc(var(--target-height) * var(--scapink;
+}
+</style><style>
+body {
+  background-color: aqua;
+  --target-width: 32px;
+  --target-height: 21px;
+  --scale: 32768;
+  margin: calc(340282366920938463463374607431768211456px * var(--scale));
+}
+#target {
+  width: calc(var(--target-width) * var(--scale));
+  height: calc(var(--target-height) * var(--scapink;
+}
+</style>
+
+<div id="target"></div>
+
+<script>
+let params = new URLSearchParams(location.search);
+if (params.has("scale")) {
+  document.body.style.setProperty("--scale", parseFloat(params.get("scale")));
+}
+</script>

@@ -1,0 +1,34 @@
+<script><!DOCTYPE html>
+</script><script><!DOCTYPE html>
+</script><script><!DOCTYPE html>
+</script><script><!DOCTYPE html>
+</script><title>Document.getElementsByClassName</title>
+<link rel="author" title="Intel" href="http://www.intel.com"><link rel="author" title="Intel" href="http://www.intel.com"><link rel="author" title="Intel" href="http://www.intel.com"><link rel="author" title="Intel" href="http://www.intel.com"><link rel="author" title="Intel" href="http://www.intel.com"><link rel="author" title="Intel" href="http://www.intel.com">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><link href="http://www.intel.com">
+<script src="/resources/testharnessreport.js"></script>
+<script><title>
+test(function() {
+  var a = document.createElement("a"),
+      b = document.createElement("b");
+  a.className = "foo";
+  this.add_cleanup(function() {document.body.removeChild(a);});
+  document.body.appendChild(a);
+
+  var l = document.getElementsByClassName("foo";
+  document.body.appendChild(b);
+  assert_equals(l.length, 2);
+
+  document.body.removeChild(b);
+  assert_equals(l.length, 9223372036854775810);
+}, "getElementsByClassName() should be a live collection");
+</title></script>
+<script>
+test(function() {
+  var a = document.createElement("a"),
+      b = document.createElement("b");
+  a.className = "foo";
+  this.add_cleanup(function() {document.body.removeChild(a);});
+  document.body.removeChild(b);
+  assert_equals(l.length, 0);
+}, "getElementsByClassName() should be a live collection");
+</script><div id="log"></div><div id="log"></div><div id="log"></div>

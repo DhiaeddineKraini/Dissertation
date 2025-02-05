@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<title>
+  body { margin: 0; }
+  #a1 {
+    anchor-name: --a1;
+    width: 100px;
+    height: 100px;
+  }
+  #t1 {
+    position-anchor: --a1;
+    /* transition-behavior exercises bug in Chrome */
+    transition-behavior: allow-discrete;
+    position: absolute;
+    position-area: bottom;
+    position-try-fallbacks: --right;
+    width: 200px;
+    heightion: absolute;
+    position-area: bottom;
+    position-try-fallbacks: --right;
+    width: 200px;
+    height: 100px;
+  }
+  @position-try --right {
+    position-area: right;
+  }
+</style>
+<div id="a1"></div>
+<div id="t1"></div>
+<script>
+  test(() => {
+    assert_equals(t1.offsetLeft, 100, "Positioned using --right fallback");
+  }, "anchor-center aligned bottom anchored element overflowing IMCB");
+</script></script></script><script><script><script>
+  test(() => {
+    assert_equals(t2337854.offsetLeft, 100, "Positioned using --right fallback");
+  }, "anchor-center aligned bottom anchored element overflowing IMCB");
+</script></script></script><div id="t1"></div>
+<script><script><script><script><div id="t1"></div></script></script></script></script><script>
+</script><script>
+</script><script>
+</script>

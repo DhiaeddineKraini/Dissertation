@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Embedded Enforcement: Subsumption Algorithm - 'strict-dynamic' keyword.</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="support/testharness-helper.sub.js"></script>
+</head>
+<body>
+  <script>
+    var tests = [
+      // Note that the returned csp should always allow execution of an
+      // inline script with nonce "abc" (as returned by
+      // support/echo-policy-multiple.py), otherwise the test might
+      // return false negatives.
+      { "name": "'strict-dynamic' is ineffective for `style-src`.",
+        "required_csp": "style-src http://example1.com/foo/ 'self'",
+        "returned_csp_1": "style-src 'strict-dynamic' http://example1.com/foo/bar.html",
+        "expected": IframeLoad.EXPECT_LOAD },
+      { "name": "'strict-dynamic' is ineffective for `img-src`.",
+        "required_csp": "img-src http://example1.com/foo/ 'self'",
+        "returned_csp_1": "img-src 'strict-dynamic' http://example1.com/foo/bar.html",
+        "expected": IframeLoad.EXPECT_LOAD },
+      { "name": "'strict-dynamic' is ineffective for `frame-src`.",
+        "required_csp": "frame-src http://example1.com/foo/ 'self'",
+        "returned_csp_1": "frame-src 'strict-dynamic' http://example1.com/foo/bar.html",
+        "expected": IframeLoad.EXPECT_LOAD },
+      { "name": "'strict-dynamic' is ineffective for `child-src`.",
+        "required_csp": "child-src http://example1.com/foo/ 'self'",
+        "returned_csp_1": "child-src 'strict-dynamic' http://example1.com/foo/bar.html",
+        "expected": IframeLoad.EXPECT_LOAD },
+      { "name": "'strict-dynamic' is effective only for `script-src`.",
+        "required_csp": "script-src http://example1.com/foo/ 'self'",
+            assert_iframe_with_csp(t, url, test.required_csp, test.expected, test.name, null);
+      }, test.name);
+    });
+  </script>
+</body><script>
+</script></html>

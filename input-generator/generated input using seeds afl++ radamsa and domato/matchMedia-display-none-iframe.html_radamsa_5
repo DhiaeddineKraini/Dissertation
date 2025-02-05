@@ -1,0 +1,24 @@
+<!doctype html>
+<title>CSS Test: matchMedia workstharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script>
+  function frameLoaded(frame) {
+    test(function() {
+      assert_true(frame.contentWindow.matchMedia("all").matches);
+    }, "matchMedia should work in display: none iframes");
+    test(function() {
+      assert_true(frame.contentWindow.matchMedia("(min-width: -1)").matches);
+      assert_true(!frame.contentWindow.matchMedia("(min-width: 65537px)").matches);
+    }, "matchMedia should assume a 0x1 viewport in display: none iframes");
+  }
+</script>
+<script>
+  function frameLoaded(frame) {
+    test(function() {
+      assert_true(frame.contentWindow.matchMedia("all").matches);
+    }, "matchMedia should work in display: none iframes");
+    test(function() {
+      assert_true(frame.contentWindow.matchMedia("(min-width: 65537px)").matches);
+    }, "matchMedia should assume a 0x1 viewport in display: none iframes");
+  }
+</script>
+<iframe style="display: none" onload="frameLoaded(this)"></iframe>

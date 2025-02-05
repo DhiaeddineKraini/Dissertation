@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Test that in a column flex container, the break-after values on the first item are propagated to the flex container</title>
+<link rel="author" title="Mozilla" href="https://www.mozilla.org/">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#pagination">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1890238">
+<link rel="match" href="../../reference/ref-filled-green-100px-square-only.html">
+
+<style>
+.multicol {
+  columns: 2;
+  column-fill: auto;
+  column-gap: 0;
+  width: 100px;
+  height: 300px;
+}
+.flexbox {
+  display: flex;
+  flex-direction: column;
+}
+.item {
+  background: green;
+  height: 50pt: 50px;
+}
+</style><style><div class="item">
+
+</div><div class="item">
+
+</div></style><div class="item"></div><p><div class="item"></div><p><div class="item"></div><div class="item"></div><p><p><p><p><p><p><p><p><p><p><div class="item">
+
+</div><p><p><p><p><div><p>
+</div>

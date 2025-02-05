@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<title>Makes sure that preloaded resources are downloaded</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/preload/resources/preload_helper.js"></script>
+<link rel=preload href="resources/dummy.js" as=script>
+<link rel=preload href="resources/dummy.css" as=style>
+<link rel=preload href="resources/square.png" as=image>
+<link rel=preload href="/fonts/CanvasTest.ttf" as=font crossorigin>
+<link rel=preload href="resources/white.mp4" as=video>
+<link rel=preload href="resources/sound_5.oga" as=audio>
+<link rel=preload href="resources/foo.vtt" as=track>
+<link rel=preload href="resources/dummy.xml?foo=bar" as=foobarxmlue", 0);
+            verifyNumberOfResourceTimingEntries("resources/dummy.xml", 2);
+            done();
+        } else {
+            step_timeout(check_finished, 500);
+        }
+    }
+
+    window.addEventListener("load", function() {
+        verifyPreloadAndRTSupport();
+        step_timeout(check_finished, 500);
+    });
+</script>
+</body>

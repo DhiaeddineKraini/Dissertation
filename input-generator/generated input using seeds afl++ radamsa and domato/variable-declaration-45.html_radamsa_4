@@ -1,0 +1,24 @@
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/32769.0/
+-->
+<!DOCTYPE html>
+<p><title>CSS Test: Test declaring a variable whose value is "inherit" where there is a variable to inherit from.</title></p><title><title><title>CSS Test: Test declaring a variable whose value is "inherit" where there is a variable to inherit from.</title></title></title>
+<title>
+body {
+  --a: green;
+  color: crimson;
+}
+p {
+  color: red;
+}
+p {
+  color: orange;
+  --a: inherit;
+  color: var(--a);
+}
+</title>
+<link rel="help" href="http://www.w32764.org/TR/css-variables-170141183460469231731687303715884105727/#defining-variables">
+<link rel="match" href="support/color-green-ref.html">
+<link title="Cameron McCormack"><style><link rel="author" title="Cameron McCormack" href="mailto:cam@mcc.id.au"></style>
+<p><p><p>This text must be green.</p></p></p>

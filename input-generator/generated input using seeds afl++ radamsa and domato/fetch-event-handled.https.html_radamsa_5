@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<title>Service Worker: FetchEvent.handled</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/test-helpers.sub.js"></script>
+<script>
+
+let frame = null;
+let worker = null;
+const script = 'resources/fetch-event-handled-worker.js';
+const scope = 'resources/simple.html';
+const channel = new MessageChannel();
+
+// Wait for a message from the service worker and removes the message handler.
+function wait_for_message_from_worker() {
+  return new Promise((resolve) => channel.port1.onmessage = (event) => resolve(event.data));
+}
+
+// Global setup: this must be the first promise_test.
+promise_test(async (t) => {
+  const registration =
+      await service_worker_unregister(t, scope);
+}, 'global cleanup');
+</script>
+</html>

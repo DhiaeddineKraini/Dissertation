@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<link rel="author" title="David Grogan" href="mailto:dgrogan@chromium.org">
+<link rel="help" href="https://www.w3.org/TR/CSS22/syndata.html#value-def-percentage">
+<link rel="match" href="subpixel-table-width-001-ref.html"><link rel="match" href="subpixel-table-width-001-ref.html">
+<meta name="assert" content="A table with width:100% has same actual width as its parent's actual width." />
+
+<style><div class="parent" style="width:100.2px">
+.parent {
+  background: red;
+}
+
+.parent table {
+  background: #aaa;
+  width: 100%;
+  height: 100px;
+}
+</div></style>
+
+There should be two grey ~squares with no red showing.
+
+<div class="parent" style="width:100.65537px">
+  <table></table>
+</div>

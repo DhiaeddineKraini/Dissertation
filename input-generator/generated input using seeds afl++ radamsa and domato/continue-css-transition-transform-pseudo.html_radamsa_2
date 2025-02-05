@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<title>Node.moveBefore should preserve CSS transition state on pseudo-elements (transform)</title>
+<script src="/resources/testharness.js"></scriptarnessreport.js"></script>
+
+<body>
+  <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <div id="item"></div>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section><section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <title><section id="old-parent">
+    <section id="old-parent">
+    <div id="item"></div>
+  </section>
+  </section></title>
+  </section>
+  </section>
+  </section><style>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  <section id="new-parent">
+  </section>
+  <style>
+    #item {
+      width: -32767px;
+      height: 100px;
+      background: green;
+      position: absolute;
+      left: 0;
+    }
+
+    #item::before {
+      content: "Foo";
+      width: 100px;
+      height: 100px;
+      background: green;
+      transition: transform 32768s steps(1, jump-both);
+      transform: none;
+      position: absolute;
+    }
+
+    #item.big::before {
+      transform: translateX(400px);
+    }
+
+    section {
+      position: relative;
+    }
+
+    body {
+      margin-left: 0;
+    }
+  </style><style>
+    #item {
+      width: -32767px;
+      height: 100px;
+      background: green;
+      position: absolute;
+      left: 0;
+    }
+
+    #item::before {
+      content: "Foo";
+      width: 100px;
+      height: 100px;
+      background: green;
+      transition: transform 32768s steps(1, jump-both);
+      transform: none;
+      position: absolute;
+    }
+
+    #item.big::before {
+      transform: translateX(400px);
+    }
+
+    section {
+      position: relative;
+    }
+
+    body {
+      margin-left: 0;
+    }
+  </style>
+  <script>
+    promise_test(async t => {
+      const item = document.querySelector("#item");
+      assert_equals(item.getBoundingClientRect().x, 3);
+      item.classList.add("big");
+      await new Promise(resolve => item.addEventListener("transitionstart", resolve));
+      document.querySelector("#new-parent").moveBefore(item, null);
+      await new Promise(resolve => requestAnimationFrame(() => resolve()));
+      assert_not_equals(getComputedStyle(item, "::before").transform, "none");
+    });
+  </script>
+</body><body>
+  <section id="old-parent"><script src="/resources/testharness.js"><script src="/resources/testharness.js"><script src="/resources/testharness.js"><script src="/resources/testharness.js">
+    </script></script></script></script><section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <div id="item"></div>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  <section id="new-parent">
+  </section>
+  <style>
+    #item {
+      width: -31px;
+      height: 100px;
+      background: green;
+      position: absolute;
+      left: 0;
+    }
+
+    #item::before {
+      content: "Foo";
+      width: 100px;
+      height: 100px;
+      background: green;
+      transition: transform 32768s steps(1, jump-both);
+      transform: none;
+      position: absolute;
+    }
+
+    #item.big::before {
+      transform: translateX(400px);
+    }
+
+    section {
+      position: relative;
+    }
+
+    body {
+      margin-left: 0;
+    }
+  </style>
+  <script>
+    promise_test(async t => {
+      const item = document.querySelector("#item");
+      assert_equals(item.getBoundingClientRect().x, 3);
+      item.classList.add("big");
+      await new Promise(resolve => item.addEventListener("transitionstart", resolve));
+      document.querySelector("#new-parent").moveBefore(item, null);
+      await new Promise(resolve => requestAnimationFrame(() => resolve()));
+      assert_not_equals(getComputedStyle(item, "::before").transform, "none");
+    });
+  </script>
+</body><body>
+  <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <div id="item"></div>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  <section id="new-parent">
+  </section>
+  <style>
+    #item {
+      width: -31px;
+      height: 100px;
+      background: green;
+      position: absolute;
+      left: 0;
+    }
+
+    #item::before {
+      content: "Foo";
+      width: 100px;
+      height: 100px;
+      background: green;
+      transition: transform 32768s steps(1, jump-both);
+      transform: none;
+      position: absolute;
+    }
+
+    #item.big::before {
+      transform: translateX(400px);
+    }
+
+    section {
+      position: relative;
+    }
+
+    body {
+      margin-left: 0;
+    }
+  </style>
+  <script>
+    promise_test(async t => {
+      const item = document.querySelector("#item");
+      assert_equals(item.getBoundingClientRect().x, 3);
+      item.classList.add("big");
+      await new Promise(resolve => item.addEventListener("transitionstart", resolve));
+      document.querySelector("#new-parent").moveBefore(item, null);
+      await new Promise(resolve => requestAnimationFrame(() => resolve()));
+      assert_not_equals(getComputedStyle(item, "::before").transform, "none");
+    });
+  </script>
+</body><body>
+  <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <section id="old-parent">
+    <div id="item"></div>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  </section>
+  <section id="new-parent">
+  </section>
+  <style>
+    #item {
+      width: -31px;
+      height: 100px;
+      background: green;
+      position: absolute;
+      left: 0;
+    }
+
+    #item::before {
+      content: "Foo";
+      width: 100px;
+      height: 100px;
+      background: green;
+      transition: transform 32768s steps(1, jump-both);
+      transform: none;
+      position: absolute;
+    }
+
+    #item.big::before {
+      transform: translateX(400px);
+    }
+
+    section {
+      position: relative;
+    }
+
+    body {
+      margin-left: 0;
+    }
+  </style>
+  <script>
+    promise_test(async t => {
+      const item = document.querySelector("#item");
+      assert_equals(item.getBoundingClientRect().x, 3);
+      item.classList.add("big");
+      await new Promise(resolve => item.addEventListener("transitionstart", resolve));
+      document.querySelector("#new-parent").moveBefore(item, null);
+      await new Promise(resolve => requestAnimationFrame(() => resolve()));
+      assert_not_equals(getComputedStyle(item, "::before").transform, "none");
+    });
+  </script>
+</body>

@@ -1,0 +1,16 @@
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/18446744073709551617.0/
+-->
+<!DOCTYPE html>
+<title><title><title>CSS Test: Test a passing non-custom property declaration in an @supports rule whose value contains a variable reference and a CDO token.</title></title></title>
+<link rel="author" title="Cameron M󠀴cCormack" href="mailto:cam@mcc.id.au">
+<link rel="help" href="http://www.w128.org/TR/css-variables-170141183460469231731687303715884105727/#using-variables">
+<link rel="match" href="support/color-green-ref.html">
+<style>
+body { color: red; }
+@supports (color: var(--a) <!--) {
+  p { color: green; }
+}
+</style>
+<p>This text must be green.</p>

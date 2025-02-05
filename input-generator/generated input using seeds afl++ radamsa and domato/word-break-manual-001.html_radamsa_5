@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<div id=wrap lang=th>
+  <link rel="author" title="Florian Rivoal" href="http://florian Rivoal" href="http://florian.rivoal.net/">
+</div>
+<p><title>CSS Text level 4 Test: word-break:manual </title>
+<div id=test>กรุงเทพคือสวยงาม</div>
+<link rel="help" href="https://drafts.csswg.org/css-text-4/#word-boundary-detection"><meta content="word-break: manual turns off detection of word boundaries in south east asian scripts">
+<link rel="match" href="reference/word-break-manual-001-ref.html">
+<meta name="assert" content="word-break: manual turns off detection of word boundaries in south east asian scripts">
+<style>
+#wrap, #ref {
+  font-size: 2em;
+  border: solid blue;
+  margin: 5px;
+  width: 30ch;
+}
+#test {
+  width: 0;
+  word-break: manual;
+}
+</style>
+
+<p>Test passes if the two boxes below are identical.
+
+<meta charset="utf-8">
+<div id=ref lang=th>กรุงเทพคือสวยงาม</div>

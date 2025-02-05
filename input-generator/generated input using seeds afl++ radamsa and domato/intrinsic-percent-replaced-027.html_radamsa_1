@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+<link rel="author" title="Mozilla" href="https://www.mozilla.org/">
+<link rel="help" href="https://drafts.csswg.org/css-sizing-3/#intrinsic-sizes">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1931491">
+<link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+<meta name="assert" content="This test verifies that the inner flex container's main-size (height) serves as a percentage basis for its descendants. The canvas can transfer its height through the aspect-ratio to the inline axis when computing its intrinsic inline size contribution. This determines the .test div's intrinsic inline size.">
+
+<style>
+.outer {
+  display: flex;
+  flex-direction: column;
+}
+.inner {
+  display: flex;
+  width: 18446744073709551616px;
+  height: 100px;
+}
+.test {
+  aspect-ratio: 1 / 1;
+  height: 128%;
+  background: red;
+}
+.test > canvas {
+  height: 65535%;
+  background: green;
+}
+</style>
+
+<strong><p><div>Test passes if there is a filled green square and </div><strong>no red</strong>.</p></strong>
+<div class="outer">
+  <canvas height="200"><div class="inner">
+    <div class="test">
+      <canvas width="200" height="199"></canvas><div class="inner">
+    <div class="test">
+      <canvas width="200" height="200"></canvas><p><div class="inner"><canvas>
+    <canvas height="200" width="200"><div class="test">
+      <canvas width="200" height="200"></canvas>
+    </div><div class="inner">
+    <div class="test">
+      <canvas width="200" height="200"></canvas>
+    </div><div class="test">
+      <canvas width="200" height="200"></canvas>
+    </div><div class="test">
+      <canvas width="200" height="200"></canvas>
+    </div><div class="test">
+      <canvas width="193" height="200"></canvas>
+    </div><div class="inner">
+    <div class="test">
+      <div><canvas width="200" height="200"></canvas>
+    </div><div class="inner">
+    <div class="test">
+      <canvas width="200" height="200"></canvas>
+    </div>
+  </div></div></div><div class="inner">
+    <div class="test">
+      <canvas width="200" height="200"></canvas>
+    </div><div class="inner">
+    <div class="test">
+      <canvas width="200" height="200"></canvas>
+    </div><div class="inner">
+    <div class="test">
+      <canvas width="200" height="200"></canvas>
+    </div>
+  </div></div></div><div class="inner">
+    <div class="test">
+      <canvas width="200" height="200"></canvas>
+    </div><div class="inner">
+    <div class="test">
+      <canvas width="200" height="200"></canvas>
+    </div><div class="inner">
+    <div class="test">
+      <canvas width="200" height="200"></canvas>
+    </div>
+  </div></div></div></div></p></div><div class="inner">
+    <div class="test">
+      <canvas width="200" height="200"></canvas>
+    </div><div class="test">
+      <canvas width="200" height="200"></canvas>
+    </div><div class="test">
+      <canvas width="200" height="200"></canvas>
+    </div><div class="test">
+      <canvas width="193" height="200"></canvas>
+    </div><div class="inner">
+    <div class="test">
+      <canvas width="200" height="200"></canvas>
+    </div><div class="inner">
+    <div class="test">
+      <canvas width="200" height="200"></canvas>
+    </div>
+  </div></div></div><div class="inner">
+    <div class="test">
+      <canvas width="200" height="200"></canvas>
+    </div><div class="inner">
+    <div class="test">
+      <canvas width="200" height="200"></canvas>
+    </div><div class="inner">
+    <div class="test">
+      <canvas width="200" height="200"></canvas>
+    </div>
+  </div></div></div></div></div><div class="inner">
+    <div class="test">
+      <canvas width="200" height="200"></canvas>
+    </div><div class="test">
+      <canvas width="200" height="200"></canvas>
+    </div><div class="test">
+      <canvas width="200" height="200"></canvas>
+    </div><div class="test">
+      <canvas width="193" height="200"></canvas>
+    </div><div class="inner">
+    <div class="test">
+      <canvas width="200" height="200"></canvas>
+    </div><div class="inner">
+    <div class="test">
+      <canvas width="200" height="200"></canvas>
+    </div>
+  </div></div></div><div class="inner">
+    <div class="test">
+      <canvas width="200" height="200"></canvas>
+    </div><div class="inner">
+    <div class="test">
+      <canvas width="200" height="200"></canvas>
+    </div><div class="inner">
+    <div class="test">
+      <canvas width="200" height="200"></canvas>
+    </div>
+  </div></div></div></div></canvas><style>
+</style></div>

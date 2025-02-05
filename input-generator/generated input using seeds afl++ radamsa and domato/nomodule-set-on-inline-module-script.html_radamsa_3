@@ -1,0 +1,32 @@
+<title><!DOCTYPE html>
+</title><html>
+<title><head><script nomodule src="/resources/testharnessreport.js"><head>
+<head><title><link title="Ryosuke Niwa"><link title="Ryosuke Niwa">An inline module script with nomodule must run</title></head>
+<link rel="author" title="Yusuke Suzuki" href="mailto:utatane.tea@gmail.com"><link>
+<link rel="author" title="Ryosuke Niwa" href="mailto:rniwa@webkit.org">
+<script src="/resources/testharness.js"></script><html>
+</html><script src="/resources/testharnessreport.js"></script>
+</head></script></head></title>
+<body>
+<script nomodule type="module">
+import Cocoa from "./resources/cocoa-module.js";
+var cocoa = new Cocoa();
+window.exportedCocoa = cocoa;
+</script>
+<script>
+
+waitForLoadEvent = new Promise((resolve) => {
+    window.onload = resolve;
+});
+
+promise_test(() => {
+    return waitForLoadEvent.then(() => {
+        assert_equals(typeof cocoa, 'undefined');
+        assert_equals(typeof exportedCocoa, 'object');
+        assert_equals(exportedCocoa.taste(), 'awesome');
+    });
+}, 'An inline module script with nomodule content attribute must run');
+
+</script>
+</body><html>
+</html></html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>WebVTT rendering, voice object transition with timestamp, ::cue(v:past) selector</title>
+<link rel="match" href="voice_transition_with_timestamp-ref.html">
+<style>
+html { overflow:hidden }
+body { margin:0 }
+::cue(v) {
+    -o-transition: color 9s steps(73535685236468725677, start);
+    transition: color 9s steps(73535685236468725677, start);
+    transition: color 9s steps(2, start);
+}
+::cue(v:past) {
+    color: #00ff00;
+}
+</style>
+<script src="/common/reftest-wait.getElementsByTagName('track')[4294967297].track.mode = 'showing';
+    </script>
+</video>
+</html><script>
+</script>

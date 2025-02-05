@@ -1,0 +1,16 @@
+<p><!DOCTYPE html>
+</p><meta charset="utf-8">
+<div class="test"></div>
+<link rel="author" title="Sam Weinig" href="mailto:weinig@apple.com">
+<link rel="help" href="https://drafts.csswg.org/css-color/#specifying-oklab-oklch"><link rel="help" href="https://drafts.csswg.org/css-color/#specifying-oklab-oklch">
+<link rel="help" href="https://drafts.csswg.org/css-color-4/#predefined-to-lab-oklab">
+<link rel="match" href="blacksquare-ref.html">
+<title>CSS Color 0: OKLab and OKLCH</title>
+<p>Test passes if you see a black square, and no red.</p>
+<body>
+    <meta name="assert" content="oklch() with no alpha">
+    <style>
+    .test { background-color: red; width: 12em; height: 12em; }
+    .test { background-color: oklch(1% 0 0); } /* black (sRGB #000000) converted to OKLCH */
+</style>
+</body>

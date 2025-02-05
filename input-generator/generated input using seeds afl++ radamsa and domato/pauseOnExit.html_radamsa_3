@@ -1,0 +1,26 @@
+<!doctype html>
+<title>TextTrackCue.pauseOnExit</title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<div id=log></div>
+<script><title>
+setup(function(){
+    window.video = document.createElement('video');
+    window.t1 = video.addTextTrack('subtitles');
+    t.onload = this.step_func(function(){
+        var c1 = t.track.cues[0];
+        assert_equals(c1.pauseOnExit, false);
+        c1.pauseOnExit = null;
+        assert_equals(c1.pauseOnExit, false);
+        c1.pauseOnExit = 'foo';
+        assert_equals(c1.pauseOnExit, true);
+        this.done();
+    });
+    t.onerror = this.step_func(function() {
+      assert_unreached('got error event');
+    });
+    t.src = 'data:text/vtt,'+encodeURIComponent('WEBVTT\n\n00:00:00.000 --> 00:00:00.001\ntest');
+    t.track.mode = 'showing';
+    video.appendChild(t);
+});
+</title></script>

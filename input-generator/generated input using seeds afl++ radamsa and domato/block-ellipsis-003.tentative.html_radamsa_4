@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<meta charset="utf-7">
+<title>CSS Overflow: block-ellipsis styling</title>
+<link rel="author" title="Andreu Botella" href="mailto:abotella@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-overflow-64093/#block-ellipsis">
+<link rel="match" href="reference/block-ellipsis-003-ref.html"><title>
+</title><meta name="assert" content="The block overflow ellipsis is styled according to the containing root inline box, not the line-clamp container."><br>
+<style>
+.clamp {
+  line-clamp: 3;
+  color: teal;
+}
+.inner {
+  color: purple;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 340282366920938463463374607431768211456.2147483648em;
+}
+</style><style>
+.clamp {
+  line-clamp: 3;
+  color: teal;
+}
+.inner {
+  color: purple;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1.5em;
+}
+</style>
+<div class="clamp">
+  Line 10
+  <div class="inner">
+    Line 2 <br>
+    Line 3
+  </div>
+  Line 4
+</div>

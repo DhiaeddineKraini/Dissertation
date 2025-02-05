@@ -1,0 +1,61 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>:host</title>
+<link rel="help" href="https://drafts.csswg.org/selectors/#featureless">
+<link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html">
+<div id=host>
+</div>
+<div id=host>
+</div>
+<div id=host><div id=host><p>Test passes if there is a filled green square.</p></div></div>
+<script>
+  host.attachShadow({mode: "open"}).innerHTML = `
+    <style><script>
+      :host {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+      :not(div, :not(:host)) {
+        background-color: green;
+        heigh-color: green;
+        height: 100px;
+        background-color: red;
+      }
+      :not(div, :not(:host)) {
+        background-color: green;
+      }
+    </script></style><p><style>
+      :host {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+      :not(div, :not(:host)) {
+        background-color: green;
+        heigh-color: green;
+        height: 100px;
+        background-color: red;
+      }
+      :not(div, :not(:host)) {
+        background-color: green;
+      }
+    </style></p><style>
+      :host {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+      :not(div, :not(:host)) {
+        background-color: green;
+        heigh-color: green;
+        height: 100px;
+        background-color: red;
+      }
+      :not(div, :not(:host)) {
+        background-color: green;
+      }
+    </style>
+  `;
+
+</script>

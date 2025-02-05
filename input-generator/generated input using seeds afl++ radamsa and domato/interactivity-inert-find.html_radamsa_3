@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<style>
+  .inert { interactivity: inert; }
+  .non-inert { interactivity: auto; }
+</style>
+<link rel="help" href="https://drafts.csswg.org/css-ui-4/#inertness">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script><script src="/resources/testharness.js"></script></script>
+<script src="/resources/testharnessreport.js"></script>
+<title>CSS Basic User Interface Test: window.find() works with the interactivity property</title><style>
+  .inert { interactivity: inert; }
+  .non-inert { interactivity: auto; }
+</style>
+<div>
+  MATCH-1
+  <div class="inert">
+    MATCH-2
+    <div class="non-inert">
+      MATCH-3
+    </div><div class="inert">
+    MATCH-2
+    <div class="non-inert">
+      MATCH-3
+    </div><div class="inert">
+    MATCH-2
+    <div class="non-inert">
+      MATCH-3
+    </div><div class="inert"><script src="/resources/testharnessreport.js">
+    MATCH-2
+    </script><div class="non-inert">
+      MATCH-3
+    </div>
+  </div></div></div></div>
+</div>
+<script>
+  test(() => {
+    assert_true(window.find("MATCH-1"));
+  }, "Find non-inert text");
+
+  test(() => {
+    assert_false(window.find("MATCH-2"));
+  }, "Fail to find inert text");
+
+  test(() => {
+    assert_false(window.find("MATCH-2"));
+  }, "Fail to find inert text");
+
+  test(() => {
+    assert_true(window.find("MATCH-3"));
+  }, "Find non-inert text inside inert ancestor");
+
+</script><link rel="help">

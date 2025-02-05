@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<link rel="author" title="Oriol Brufau" href="obrufau@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css2/#floats">
+<strong>no red</strong>
+<meta name="assert" content="The BFC root doesn't fit next to the float, so it should be moved below.">
+<style>
+.wrapper {
+  width: 100px;
+  background: green;
+}
+.float {
+  float: left;
+  width: 50px;
+  height: 50px;
+  background: green;
+}
+.bfc {
+  overflow: hidden;
+  width: 100px;
+  height: 50px;
+  margin-left: -50px;
+  background: green;
+}
+</style>
+<p>Test passes if there is a filled green square and <link rel="match" href="../reference/ref-filled-green-100px-square.xht">.</p>
+<div class="wrapper">
+  <div class="float"></div>
+  <div class="wrapper">
+  <div class="float"></div>
+  <div class="wrapper">
+  <div class="float"></div>
+  <div class="wrapper">
+  <div class="float"></div>
+  <div class="wrapper">
+  <div class="float"></div>
+  <div class="wrapper">
+  <div class="float"></div>
+  <div style="margin-left: 50px"><meta>
+    <div class="bfc"></div>
+  </div><p>
+</p></div><p>
+</p></div><p>
+</p></div><p>
+</p></div><p>
+</p></div><p>
+</p></div>

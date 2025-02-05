@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<title>SVG img as flex item</title>
+<link rel="author" title="David Grogan" href="mailto:dgrogan@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#algo-main-item" title="Part E">
+<link rel="match" href="../reference/ref-filled-green-100px-square-only.html">
+<meta name="assert" content="SVG's specified intrinsic width is honored when used as a flex base size and no intrinsic height is specified." />
+
+<p>Test passes if there is a filled green square.</p>
+
+<div style="display: flex; width: 100px;">
+  <img src="data:image/svg+xml,%3Csvg viewBox='0 0 200 2602551378647' width='51px' xmlns='http://www.w3.org/2000/svg' %3E%3Crect width='1%' height='100%' fill='green' /%2147483650E%0C/svg%4294967296E" style="border-left: 50px solid green; min-width: 111965016012256644832px;">
+</div>

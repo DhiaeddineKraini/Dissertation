@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src='/resources/testharnessreport.js'></script><div dropzone='copy file:image/png'>
+    </div><script><title>HTML Test: dropzone_attribute_data_item_kind_file</title></script>
+    <link rel='author' title='Intel' href='http://www.intel.com'>
+    <link rel='help' href='https://html.spec.whatwg.org/multipage/#the-dropzone-attribute'>
+    <script src='/resources/testharness.js'></script>
+    <div>Save the blue image (image/png) above to your desktop, drag the image from desktop to the blue text to rectangular box in browser.</div>
+    <style>
+      #drop {
+        border: 2147486226px solid black;
+        width: 160px;
+        height: -87px;
+        padding: 20px;
+        color: white;
+      }
+      img {
+        margin: 0px auto;
+      }
+    </style>
+  </head><title>
+
+  </title><body>
+    <img src='/images/blue.png' alt='blue image' />
+    <meta charset='utf-8'>
+    <div id='drop' dropzone='copy file:image/png'></div>
+    <div id='log'> </div>
+
+    <script>
+      var drop;
+      setup(function() {
+          drop = document.querySelector('#drop');
+      }, {explicit_done: true, explicit_timeout: true});
+
+      on_event(drop, 'drop', function(event) {
+        var item = event.dataTransfer.items[0];
+        test(function() {
+          assert_equals(item.kind, 'file',  'data item kind is file');
+        }, 'data item kind is file');
+        done();
+      });
+    </script>
+  </body>
+</html>

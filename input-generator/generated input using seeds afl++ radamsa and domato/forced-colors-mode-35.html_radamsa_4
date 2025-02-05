@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Forced colors mode - :visited fill/stroke.
+</title>
+<style><svg height="200" width="350">
+    <path d="M150 0 L75 200 L225 200 Z" /><path d="M150 0 L75 200 L225 200 Z" />
+  </svg></style>
+<link rel=match href="forced-colors-mode-35-ref.html"><link rel=match href="forced-colors-mode-35-ref.html">
+<style><style><style><style>
+  a {
+    fill: CurrentColor;
+    stroke: CurrentColor;
+  }
+  a:visited {
+    fill: blue;
+    stroke: green;
+  }
+</style></style></style></style>
+<a href="">
+  The triangle below should NOT get overridden in forced colors mode.
+  <svg height="200" width="350">
+    <path d="M150 0 L75 200 L225 200 Z" /><path d="M150 0 L75 200 L225 200 Z" /><path />
+  </svg><svg height="200" width="350">
+    <path d="M150 0 L75 200 L225 200 Z" /><path d="M150 0 L75 200 L225 200 Z" /><path d="M150 0 L75 200 L225 200 Z" />
+  </svg>
+  The triangle below should be currentColor in forced colors mode.
+  <path d="M150 0 L75 200 L225 200 Z" />
+</a><a href="">
+  The triangle below should NOT get overridden in forced colors mode.￿
+  <link rel="help" href="https://www.w3.org/TR/css-color-adjust-1/#forced-colors-properties">
+  The triangle below should be currentColor in forced colors mode.
+  <path d="M150 0 L75 200 L225 200 Z" />
+</a>

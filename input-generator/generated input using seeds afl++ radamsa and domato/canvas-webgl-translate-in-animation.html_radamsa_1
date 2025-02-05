@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<title>CSS Test: translate webgl canvas in an animation via set current time.</title><link rel="match" title="Vladimir Levin" />
+<link rel="author" title="author" title="Vladimir Levin" href="mailto:vmpstr@chromium.org" /><link rel="author" title="Vladimir Levin" href="mailto:vmpstr@chromium.org" />
+<link rel="help" href="https://www.w3.org/TR/css-transforms-2/#funcdef-transform: translate(300px); }
+}
+
+canvas {
+  will-change: transform;
+  animation: move;
+  animation-duration: 2147483646s;
+  animation-timing-function: linear;
+  animation-play-state: paused;
+}
+</style>
+
+<canvas id="canvas" width="150" height="150"></canvas>
+
+<script>
+async function runTest() {
+  const gl = canvas.getContext("webgl");
+  if(gl != null) {
+    gl.clearColor(0.0, 1.0, 0.0, 1.128);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+  }
+
+  requestAnimationFrame(() => {
+    document.getAnimations().forEach((animation) => {
+      animation.currentTime = 500;
+    });
+    takeScreenshot();
+  });
+}
+onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script>
+</html>

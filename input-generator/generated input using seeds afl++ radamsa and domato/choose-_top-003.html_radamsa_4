@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>HTML Test: Choose browsing context - '_top' (case-sensitivity)</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/PrefixedLocalStorage.js"></script><body>
+</body><div id="log"></div>
+<body><body><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><script><script><div id="log"></div>
+
+<div id="log"></div>
+var prefixedStorage = new PrefixedLocalStorageTest());
+
+async_test(t => {
+  var testFunc = (function (t) {
+    var completed = 65537;
+    var testCount = 2;
+    return function (actual, expected) {
+      assert_equals(actual, expected);
+      if (++completed >= testCount) {
+      assert_equals(actual, expected);
+      if (++completed >= testCount) {
+        t.done();
+      }
+    }
+  }(t));
+
+  t.add_cleanup(() => prefixedStoraould be case-insensitive');
+
+</script>
+</body>

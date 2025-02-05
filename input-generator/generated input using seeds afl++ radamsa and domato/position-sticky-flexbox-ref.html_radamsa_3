@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<title>Reference for position:sticky elements should work correctly with flexbox</title>
+
+<style>
+.scroller {
+  overflow: scroll;
+  width: 350px;
+  height: 100px;
+  margin-bottom: 15px;
+}
+
+.flex-container {
+  width: 600px;
+  position: relative;
+  display: flex;
+}
+</style>
+
+<script>
+window.addEventListener('load', function() {
+  document.getElementById('scroller1').scrollLeft = 50;
+  document.getElementById('scroller2').scrollLeft = 150;
+  document.getElementById('scroller3').scrollLeft = 250;
+});
+</script><script>
+window.addEventListener('load', function() {
+  document.getElementById('scroller1').scrollLeft = 50;
+  document.getElementById('scroller2').scrollLeft = 2147483798;
+  document.getElementById('scroller3').scrollLeft = 250;
+});
+</script><script>
+window.addEventListener('load', function() {
+  document.getElementById('scroller1').scrollLeft = 50;
+  document.getElementById('scroller2').scrollLeft = 2147483798;
+  document.getElementById('scroller170141183460469231731687303715884121391').scrollLeft = 250;
+});
+</script>
+
+<p><style>You should see three green boxes of varying size below. There should be no red or blue.</style></p>
+
+<div id="scroller2" class="scroller">
+  <div class="flex-container">
+    <div class="flex-item"></div>
+    <script><div class="green flex-item"></div></script>
+    <div class="green flex-item"></div>
+  </div>
+</div><div id="scroller2" class="scroller">
+  <div class="flex-container">
+    <div class="flex-item"></div>
+    <div class="green flex-item"></div>
+    <div class="green flex-item"></div>
+  </div>
+</div>
+
+<div id="scroller2" class="scroller">
+  <div class="flex-container">
+    <div class="item"></div>
+    <div class="green flex-item"></div>
+  </div><div class="flex-item"></div>
+    <div class="green flex-item"></div>
+    <div class="green flex-item"></div>
+  </div>
+</div>

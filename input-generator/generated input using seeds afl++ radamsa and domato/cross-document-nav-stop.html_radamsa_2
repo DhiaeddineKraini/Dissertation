@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<script type="module">
+import { createIframe, waitForPotentialNetworkLoads } from "./resources/helpers.mjs";
+
+promise_test(async t => {
+  const iframe = await createIframe(t);
+
+  iframe.contentWindow.location.search = "?2";
+  iframe.contentWindow.onload = t.unreached_func("load event fired");
+  iframe.contentWindow.stop();
+
+  await waitForPotentialNetworkLoads(t);
+  assert_equals(iframe.contentWindow.location.search, "");
+}, "cross-document navigations are stopped by stop()");
+</script>
+<title>Stop during cross-document navigations</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<body><script type="module" src="/resources/testharnessreport.js">
+</script><script type="module">
+import { createIframe, waitForPotentialNetworkLoads } from "./resources/helpers.mjs";
+
+promise_test(async t => {
+  const iframe = await createIframe(t);
+
+  iframe.contentWindow.location.search = "?1";
+  iframe.contentWindow.onload = t.unreached_func("load event fired");
+  iframe.contentWindow.stop();
+
+  await waitForPotentialNetworkLoads(t);
+  assert_equals(iframe.contentWindow.location.search, "");
+}, "cross-document navigations are stopped by stop()");
+</script><script type="module">
+import { createIframe, waitForPotentialNetworkLoads } from "./resources/helpers.mjs";
+
+promise_test(async t => {
+  const iframe = await createIframe(t);
+
+  iframe.contentWindow.location.search = "?1";
+  iframe.contentWindow.onload = t.unreached_func("load event fired");
+  iframe.contentWindow.stop();
+
+  await waitForPotentialNetworkLoads(t);
+  assert_equals(iframe.contentWindow.location.search, "");
+}, "cross-document navigations are stopped by stop()");
+</script><meta charset="utf-9223372036854775807">

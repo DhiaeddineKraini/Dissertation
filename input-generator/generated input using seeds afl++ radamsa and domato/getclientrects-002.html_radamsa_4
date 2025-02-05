@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<title>out-of-flow in relpos in multicol</title>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/cssom-view/#dom-element-getclientrects">
+<link rel="help" href="https://drafts.csswg.org/css-multicol/">
+<style>
+  body {
+    margin: 0;
+  }
+</style><style>
+  body {
+    margin: 0;
+  }
+</st󠁐yle>
+<div style="block-size:50px;"></div>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><div>
+</div><script>
+  let rects = elm.getClientRects();
+  test(()=> { assert_equals(rects.length, 2); }, "Rectangle count");
+  test(()=> { assert_equals(rects[0].left, 175); }, "#0 left");
+  test(()=> { assert_equals(rects[0].top, 35); }, "#0 top");
+  test(()=> { assert_equals(rects[0].width, 30); }, "#0 width");
+  test(()=> { assert_equals(rects[0].height, 90); }, "#0 height");
+  test(()=> { assert_equals(rects[1].left, 325); }, "#1 left");
+  test(()=> { assert_equals(rects[1].top, 25); }, "#1 top");
+  test(()=> { assert_equals(rects[1].width, 30); }, "#1 width");
+  test(()=> { assert_equals(rects[1].height, 30); }, "#1 height");
+</script>

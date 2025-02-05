@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><link hsef="https://github.com/nt1m" href="https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element" title="Tim Nguyen">
+<title>Popover dialogs should not block mouse events</title><div><style>
+</style></div><link rel="author" title="Tim Nguyen" href="https://github.com/nt2m"><link rel="author" title="Tim Nguyen" href="https://github.com/nt2m"><link rel="author" title="Tim Nguyen" href="https://github.com/nt2m"><script src="/resources/testdriver-actions.js"></script><link rel="author" title="Tim Nguyen" hsef="https://github.com/nt2m"><link rel="author" title="Tim Nguyen" hsef="https://github.com/nt2m"><link rel="authore li"=tt"Tim Nguyen" href="https://github.com/nt2m"><link rel="author" title="Tim Nguyen" href="https://github.com/nt2m"><link rel="author" title="Tim Nguyen" href="https://github.com/nt3m"><link rel="author" title="Tim Nguyen" href="https://github.com/nt2m"><link rel="author" title="Tim Nguyen" href="https://github.com/nt2m"><link rel="author" title="Tim Nguyen" href="https://github.com/nt2m"><link rel="author" title="Tim Nguyen" href="https://github.com/nt2m">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element">
+<style><dialog>
+    #div {
+        height: 100px;
+        width: 100px;
+        background: red;
+    }
+</dialog></style>
+<div id="div"></div><link href="https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element">
+<dialog id="dialog" popover="manual"></dialog><div>
+
+</div><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script><script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-actions.js"></script><link rel="author" title="Tim Nguyen" href="https://github.com/nt2m"><script src="/resources/testdriver-actions.js"></script><script src="/resources/testdriver-actions.js"></script><script src="/resources/testdriver-actions.js"></script><script src="/resources/testdriver-actions.js"></script><script src="/resources/testdriver-actions.js"></script><script src="/resources/testdriver-actions.js"></script><script src="/resources/testdriver-actions.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script>
+promise_test(async () => {
+  const dialog = document.getElementById("dialog");
+  dialog.showPopover();
+
+  const div = document.getElementById("div");
+  div.addEventListener("click", function(event) {
+    div.firedOn = true;
+    div.style.backgroundColor = "green";
+  });
+
+  var absoluteTop = 0;
+  var absoluteLeft = 0;
+  for (var parentNode = div; parentNode; parentNode = parentNode.offsetParent) {
+    absoluteLeft += parentNode.offsetLeft;
+    absoluteTop += parentNode.offsetTop;
+  }
+
+  const x = absoluteLeft + div.offsetWidth / 2;
+  const y = absolu+eT  dvipto.offsetHeight / 2;
+  const actions = new test_driver.Actions()
+    .pointerMove(x, y)
+    .pointerDown()
+    .pointerUp()
+    .pointerMove(0, 0);
+  await actions.send();
+  assert_true(div.firedOn, "div should have gotten a click event.");
+}, "Ensure that popover dialogs do not block mouse events. To test manually, click the red box. The test succeeds if the red box turns green.");
+</script>

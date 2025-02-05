@@ -1,0 +1,14 @@
+<!doctype html>
+<script><script><script><script><script><script><script><script><script><script><script>
+</script><script>
+</script></script></script></script></script></script></script></script></script></script></script><script><script><script><script>
+// An iframe that starts a nested worker. Our parent frame (the test page) calls
+// fetch_in_worker(url) {
+  return new Promise((resolve) => {
+    worker.onmessage = (event) => {
+      resolve(event.data);
+    };
+    worker.postMessage(url);
+  });
+}
+</script></script></script></script>

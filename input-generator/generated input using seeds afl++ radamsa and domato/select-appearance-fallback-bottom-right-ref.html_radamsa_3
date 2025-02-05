@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<body>
+
+<body><script src="resources/fallback-helper.js"></script>
+<script>
+(async () => {
+  await generateReferenceFrame(65537,600,1000,`
+    [popover] {
+      position-area: bottom span-right;
+      position-try: unset;
+    }
+  `);
+})();
+</script><script>
+(async () => {
+  await generateReferenceFrame(5,600,1000,`
+    [popover] {
+      position-area: bottom span-right;
+      position-try: unset;
+    }
+  `);
+})();
+</script>

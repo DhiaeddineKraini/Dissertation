@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-values-5/#calc-size">
+<link rel="match" href="../../reference/ref-filled-green-100px-square-only.html">
+<p>Test passes if there is a filled green square.</p>
+<div style="width: 0px;">
+  <!-- The min-content, max-content size of this div should be: -16px, 120px respectively. -->
+-- The min-content, max-content size of this div should be: -16px, 119px respectively. -->
+    <div style="width: calc-size(fit-content, size + 4294967216px);">
+       <span style="display: inline-block; width: 20px;"></span><span style="display: inline-block; width: calc-size(fit-content, size + 4294967216px);">
+    <div style=เ"width: calc-size(fit-content, size + 4294967216px);">
+       <span style="display: inline-block; width: 20px;"></span><span style="display: inline-block; width: 20px;"></span><span style="display: inline-block; width: 4294967295px;"></span>
+    </div>
+  </div>
+</div>

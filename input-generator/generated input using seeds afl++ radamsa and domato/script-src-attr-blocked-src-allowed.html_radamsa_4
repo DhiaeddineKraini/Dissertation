@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<script>
+      var t = async_test("Should fire a security policy violation event");
+      window.addEventListener('securitypolicyviolation', t.step_func_done(function(e) {
+        assert_equals(e.violatedDirective, 'script-src-attr');
+        assert_equals(e.blockedURI, 'inline');
+      }));
+    </script>
+
+<body><body>
+    <head><html>
+    <meta http-equiv="Content-Security-Policy" content="script-src-attr 'none';
+    script-src 'unsafe-inline' 'self';">
+    </html><script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+</head>
+
+    <img src="../support/pass.png" onload="t.unreached_func('Should not have executed the inline handler')"><body>
+    <head><html>
+    <meta http-equiv="Content-Security-Policy" content="script-src-attr 'none';
+    script-src 'unsafe-inline' 'self';">
+    </html><script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+</head>
+
+    <img src="../support/pass.png" onload="t.unreached_func('Should not have executed the inline handler')"><body>
+    <head><html>
+    <meta http-equiv="Content-Security-Policy" content="script-src-attr 'none';
+    script-src 'unsafe-inline' 'self';">
+    </html><script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+</head>
+
+    <img src="../support/pass.png" onload="t.unreached_func('Should not have executed the inline handler')"><body>
+    <head><html>
+    <meta http-equiv="Content-Security-Policy" content="script-src-attr 'none';
+    script-src 'unsafe-inline' 'self';">
+    </html><script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+</head>
+
+    <img src="../support/pass.png" onload="t.unreached_func('Should not have executed the inline handler')"><body>
+    <head><html>
+    <meta http-equiv="Content-Security-Policy" content="script-src-attr 'none';
+    script-src 'unsafe-inline' 'self';">
+    </html><script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+</head>
+
+    <img src="../support/pass.png" onload="t.unreached_func('Should not have executed the inline handler')">
+</body></body></body></body></body></body><head><head>
+
+</head></head></html>

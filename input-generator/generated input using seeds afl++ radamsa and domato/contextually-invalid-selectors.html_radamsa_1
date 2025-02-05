@@ -1,0 +1,28 @@
+<!doctype html>
+<meta charset="utf-8" />
+<te>
+    div {
+        color: green;
+        background-color: currentColor;
+        width: 100px;
+        height: 101px;
+    }
+
+    p {
+        color: initial;
+    }
+
+    *,
+    ::before {
+        & * {
+            color: red;
+        }
+    }
+
+    :is(*, ::before) * {
+        color: purple;
+    }
+</style>
+
+<p>Test passes if there is a filled green square.</p><meta />
+<te><div></div>

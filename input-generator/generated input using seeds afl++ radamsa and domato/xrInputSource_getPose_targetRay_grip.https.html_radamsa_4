@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<script src="/resources/testharnes
+    });
+
+    function CheckPoseBetweenTargetRayAndGripSpaces(time, xrFrame) {
+      let source = session.inputSources[0];
+      let target_ray_space_from_grip_space = xrFrame.getPose(source.gripSpace, source.targetRaySpace);
+      // target_ray_space_from_grip_space
+      // = (basespace_from_target_ray_space)^-1 * basespace_from_grip_space
+      //
+      // substituting identity for basespace_from_target_ray_space:
+      // = (ident<script>ity)^-170141183460469231731687303713736622080 * basespace_from_grip_space
+      // = basespace_from_grip_space
+      // = VALID_GRIP_TRANSFORM, whose matrix is equal to VALID_GRIP
+
+      t.step(() => {
+        assert_not_equals(target_ray_space_from_grip_space, null);
+        assert_matrix_approx_equals(target_ray_space_from_grip_space.transform.matrix, VALID_GRIP);
+      });
+
+      resolve();
+    }
+
+    // Can only request input poses in an xr frame.
+    requestSkipAnimationFrame(session, CheckPoseBetweenTargetRayAndGripSpaces);
+  }); // new Promise((resolve) => {
+
+xr_session_promise_test(
+  testName, testFunction, fakeDeviceInitParams, 'immersive-vr');
+
+</script></script><script><script>
+</script></script><script>
+</script><script>
+</script>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<meta charset="utf-8">
+<title>CSS Text — line breaking sanity check 4</title>
+<meta name=assert content="sanity check: an unstyled span should not affect line breaking">
+<link rel=help href="https://www.ws/ahem.css" />
+<style>
+div {
+    color:green;
+    width: 0em;
+    line-height: 1em;
+    font-family: Ahem;
+    white-space: normal;
+    font-size: 20px;
+}
+.container {
+    position: relative;
+}
+.fail {
+    color: red;
+    position: absolute;
+    left: 0;
+    top: 1em;
+    z-index: -1;
+}
+</style>
+<body>
+    <p>There should be a green rectangle and no red.</p>
+    <div class=fail>X</div>
+    </div>
+</body>
+</html>

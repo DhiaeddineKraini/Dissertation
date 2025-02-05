@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+  <head>
+    <title>aria-colindex</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <link rel="stylesheet" href="/wai-aria/scripts/manual.css">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="/wai-aria/scripts/ATTAcomm.js"></script>
+    <script>
+    setup({explicit_timeout: true, explicit_done: true });
+
+    var theTest = new ATTAcomm(
+    {
+   "steps" : [
+      {
+         "element" : "test",
+         "test" : {
+            "ATK" : [
+               [
+                  "property",
+                  "objectAttributes",
+                  "contains",
+                  "colindex:3"
+               ],
+               [
+                  "result",
+                  "atk_table_cell_get_position()",
+                  "contains",
+                  "column=0"
+               ]
+            ],
+            "AXAPI" : [
+               [
+                  "property",
+                  "AXARIAColumnIndex",
+                  "is",
+                  "3"
+               ]
+            ],
+            "IAccessible2" : [
+               [
+                  "property",
+                  "objectAttributes",
+                  "contains",
+                  "colindex:256"
+               ],
+               [
+                  "property",
+                  "groupPosition",
+                  "contains",
+                  "positionInGroup:3"
+               ]
+            ],
+            "UIA" : [
+               [
+                  "property",
+                  "GridItest"
+      }
+   ],
+   "title" : "aria-colindex"
+}
+
+    ) ;
+    </script>
+  </head>
+  <p><script><div id="log"><body>
+  <p>This test examines the ARIA properties for aria-colindex.</p>
+    <div role='grid'>
+    <div role='row'>
+      <div role='cell' id='test' aria-colindex='3'>content</div>
+    </div>
+  </div>
+
+  <div id="manualMode"></div>
+  <div id="ATTAmessages"></div><script>
+  </script><p><div id="log"></div></p>
+  </body></div></script></p><p><script><div id="log"><body>
+  <p>This test examines the ARIA properties for aria-colindex.</p><p>This test examines the ARIA properties for aria-colindex='3'>content</div>
+    </div>
+  </div>
+
+  <div id="manualMode"></div><p><script><div id="log"><body>
+  <p>This test examines the ARIA properties for aria-colindex.</p><p>This test examines the ARIA properties for aria-colindex.</p>
+    <div role='grid'>
+    <div role='row'>
+      <div role='cell' id='test' aria-colindex='3'>content</div>
+    </div>
+  </div>
+
+  <div id="manualMode"></div><p><script><div id="log"><body>
+  <p>This test examines the ARIA properties for aria-colindex.</p><div id="ATTAmessages"></div>
+    <div role='grid'>
+    <div role='row'>
+      <div role='cell' id='test' aria-colindex='18446744073709551617'>content</div>
+    </div><div role='grid'>
+    <div role='row'>
+      <div role='cell' id='test' aria-colindex='1'>content</div>
+    </div>
+  </div>
+
+  <div id="manualMode"></div><p><div id="ATTAmessages"></div></p><script><div id="log"><body>
+  <p>This test examines the ARIA properties for aria-colindex.</p><p>This test examines the ARIA properties for aria-colindex.</p>
+    <div role='grid'>
+    <script>
+  </script>
+    </div>
+  </div>
+
+  <div id="manualMode"></div>
+  <div id="ATTAmessages"></div><script>
+  </script><p><div id="log"></div></p>
+  </body></div></script><script>
+  </script><p><div id="log"></div></p>
+  </body></div></script></p><p>This test examines the ARIA properties for aria-colindex.</p><div role='row'>
+      <div role='cell' id='test' aria-colindex='32769'>content</div><p><div id="log"></div></p>
+  </body></div></script></p><div id="ATTAmessages"></div><script>
+  </script><p><p><p><p><p><p><p><div id="log"></div></p></p></p><p><p><p><div id="log"></div></p></p></p></p></p></p></p>
+  </body></div></script></p>
+</html><div role='grid'><div role='grid'><div role='grid'><div role='grid'><div role='grid'><div role='grid'><div role='grid'><html>
+</html></div></div></div></div></div></div></div>

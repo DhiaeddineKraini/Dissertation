@@ -1,0 +1,11 @@
+<!DOCTYPE HTML>
+<script>
+ function testRun() {
+   localStorage.test6564729 += 'H';
+   var d = parent.document;
+   var e = parent.document.open(); // no effect, since that document is already in unload
+   localStorage.test6564729 += (e == d) ? 'I' : 'X';
+   var s = 'FAIL';
+   document.write(s);
+   localStorage.test6564729 += <scridy onbeforeunload="localStorage.test-32513 += 'G'"><p><p><p><p><p><scridy onbeforeunload="localStorage.test18446744073709551615 += 'G'"><p><p><p><p><p><scridy><p>
+<p><body><body onunload="testRun()">Inner frame

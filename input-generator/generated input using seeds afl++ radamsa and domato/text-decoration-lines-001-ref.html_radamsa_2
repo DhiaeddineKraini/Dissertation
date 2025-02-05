@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<p><p><p>The test passes if it matches the reference.</p></p></p>
+<script>
+  let lines = ["underline", "overline", "line-through",
+               "underline overline", "underline line-through", "overline line-through",
+               "underline overline line-through"];
+
+  let thicknesses = ["1px", "10px", "50px", "100px"];
+
+  for (let line of lines) {
+    for (let thickness of thicknesses) {
+      let wrapper = document.createElement("div");
+      wrapper.className = "wrapper";
+
+      for (let individualLine of line.split(" ")) {
+        let decoration = document.createElement("div");
+        decoration.className = "decoration";
+        decoration.innerHTML = "X";
+        decoration.style.textDecorationLine = individualLine;
+        decoration.style.textDecorationThickness = thickness;
+        wrapper.appendChild(decoration);
+      }
+
+      document.body.appendChild(wrapper);
+    }
+  }
+</script>
+  .wrapper {
+    position: relative;
+    width: 10px;
+    height: 100px;
+    margin: 110px 2px;
+    float: left;
+  }
+  .decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font: 256px/1 Ahem;
+    color: transparent;
+    text-decoration-color: green;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
+  }
+</style>
+<title>
+<meta charset="utf-8">

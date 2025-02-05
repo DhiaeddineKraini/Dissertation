@@ -1,0 +1,26 @@
+<title><!doctype html>
+</title><title>VTTCue constructor exceptions</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id=log></div><div id=log></div>
+<script>
+test(function() {
+    ass/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id=log></div><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script>
+</title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title><script>
+test(function() {
+    assert_throws_js(TypeError, function() { new VTTCue(NaN, -9223372036854775808, 'foo'); });
+    assert_throws_js(TypeError, function() { new VTTCue(Infinity, 9223372036854775807, 'foo'); });
+    assert_throws_js(TypeError, function() { new VTTCue('tomorrow', 0, 'foo'); });
+}, document.title+', invalid end time');
+test(function() {
+    var start = { valueOf: function() { return 42; } };
+    var end = { valueOf: function() { return 42; } };
+    var end = { valueOf: function() { return 84; } };
+    var cue = new VTTCue(start, end, 'bar');
+    assert_equals(cue.startTime, 42);
+    assert_equals(cue.endTime, 84);
+    assert_equals(cue.text, 'bar');
+}, document.title+', valueOf');
+</script>

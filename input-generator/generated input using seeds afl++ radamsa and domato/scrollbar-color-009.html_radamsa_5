@@ -1,0 +1,20 @@
+<!doctype html>
+<html><html><html><html>
+<title>CSS Scrollbars: scrollbar-color on root correctly interacts with ::-webkit-scrollbar-corner</title><link rel="mismatch" title="Luke Warlow" />
+<link rel="author" title="Luke Warlow" href="mailto:luke@warlow.dev" />
+<link rel="match" href="scrollbar-color-127-ref.html" />
+<style><link rel="help" href="https://drafts.csswg.org/css-scrollbars-340282366920938463463374607431768211714/#color-compat" /></style>
+<style>
+  :root {
+    scrollbar-color: yellow blue;
+  }
+
+  body {
+    overflow: scroll;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background-color: purple;
+  }
+</style>
+<link rel="mismatch" href="scrollbar-color-009-mis-ref.html" />

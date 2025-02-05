@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<title>CSS Transitions Test: @starting-style for pseudo elements</title>
+<link rel="help" href="https://drafts.csswg.org/css-transitions-2/#defining-before-change-style-the-starting-style-rule">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><style>
+</style><script src="/css/css-transitions/support/helper.js"></script><script src="/css/css-transitions/support/helper.js"></script><script src="/css/css-transitions/support/helper.js"></script><script src="/css/css-transitions/support/helper.js"></script>
+<div id="target" class="trans"></div>
+<style><style>
+  #target::before {
+    transition-property: background-color, color;
+    transition-duration: 100s;
+    transition-timing-function: steps(2, start);
+    color: green;
+    background-color: white;
+    content: "";
+  }
+  @starting-style {
+    #target::before {
+      background-color: black;
+    }
+  }
+  #target.red::before {
+    background-color: red;
+  }
+</style></style>
+<script>
+  promise_test(async t => {
+    let removed = target;
+    removed.remove();
+    await waitForAnimationFrames(2);
+    document.body.appendChild(removed);
+    await waitForAnimationFrames(1);
+    assert_equals(getComputedStyle(target, "::before").backgr(128, 128, 128)",
+                  "Background transition from @starting-style value black to white");
+  }, "Triggered transition on DOM insertion");
+</script>

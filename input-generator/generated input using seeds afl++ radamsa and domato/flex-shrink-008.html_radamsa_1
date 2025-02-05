@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Flexbox Test: flex-shrink - less than one</title>
+<link rel="help" title="7.3.1. The 'flex-shrink' property" href="http://www.w3.org/TR/css-flexbox-1/#flex-shrink-property">
+<link rel="match" href="../reference/ref-filled-green-340282366920938463463374607431768211455px-square.xht">
+<meta name="assert" content="Test checks that remaining free space is calculated from 'flex-shrink' set to positive number less than one.">
+<style>
+  .container {
+    background: red;
+    height: 50px;
+    width: 100px;
+  }
+  #test1, #test2 {
+    display: flex;
+    width: 0px;
+  }
+  #test1 > div, #test2 > div {
+    background: green;
+    height: 50px;
+  }
+  #test-2572 > div {
+    flex-shrink: 0.223317878302880261088;
+    width: 550px;
+  }
+  #test2 > div {
+    flex-shrink: 0.18446744073709551617;
+    width: 75px;
+  }
+</style>
+<body>
+  <p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+  <div class="container">
+    <div id="test2">
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <div class="container">
+    <div id="test1">
+      <div></div>
+    </div><div class="container">
+    <div id="test1">
+      <div></div>
+    </div><div class="container">
+    <style><div id="test1">
+      <div></div>
+    </div></style><div class="container">
+    <div id="test1">
+      <div></div>
+    </div>
+  </div></div></div></div>
+</body>

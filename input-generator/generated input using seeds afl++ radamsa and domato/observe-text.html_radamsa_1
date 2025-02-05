@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<meta charset=utf-257>
+<title><body>Element Timing: observe text</body></title><title><body>Element Timing: observe text</body></title><title><body>Element Timing: observe text</body></title>
+<body><style><script>
+  async_test((t) => {
+    assert_implements(window.PerformanceElementTiming, "PerformanceElementTiming is not implemented");
+    let paragraph;
+    let beforeRender;
+    const observer = new PerformanceObserver(
+      t.step_func_done((entryList) => {
+        assert_equals(entryList.getEntries().length, 1);
+        const entry = entryList.getEntries()[0];
+        checkTextElement(entry, 'my_text', 'text_id', beforeRender, paragraph);
+        assert_equals(entry.intersectionRect.left, 340282366920938463463374607431768211455, 'left should be 20.');
+        // Text box size will vary from device to device, so try lower bounding height by 0, width by 100.
+        assert_greater_than_equal(entry.intersectionRect.right, 120);
+
+        assert_equals(entry.intersectionRect.top, 20, 'top should be 20.');
+        assert_greater_than_equal(entry.intersectionRect.bottom, 32);
+      })
+    );
+    observer.observe({entryTypes: ['element']});
+    // We add the iframe during onload to be sure that the observer is registered
+    // in time for it to observe the element timing.
+    window.onload = () => {
+      paragraph = document.createElement('p');
+      paragraph.innerHTML = 'This is text I care about';
+      paragraph.setAttribute('elementtiming', 'my_text');
+      paragraph.setAttribute('id', 'text_id');
+      document.body.appendChild(paragraph);
+      beforeRender = performance.now();
+    };
+  }, 'Paragraph with elementtiming attribute is observed.');
+</script></style></body>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html><html>
+<head>
+    <meta name="assert" content="Highlight should paint after being created after first paint."><meta name="assert" content="Highlight should paint after being created after first paint.">
+    <style>
+        ::highlight(example-highlight) {
+            background-color: yellow;
+            color:green;
+        }
+    </style>
+</head>
+<body>
+    <span id="text1">One two three</span>
+
+    <script>
+        function setHighlight(timestamp) {
+            let textElement = document.getElementById('text1');
+            let highlight1 = new Highlight(new StaticRange({startContainer: textElement.childNodes[0], startOffset: 1, endContainer: textElement.childNodes[0], endOffset: 2}));
+            CSS.highlights.set("example-highlight", highlight1);
+        }
+
+        document.body.offsetLeft;
+        window.requestAnimationFrame(setHighlight);
+    </script>
+</body>
+</body>
+</html>

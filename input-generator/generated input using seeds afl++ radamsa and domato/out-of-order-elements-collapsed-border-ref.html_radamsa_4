@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<title>CSS Test: Table border is correct even with out of order tbody, thead, tfoot</title><title>CSS Test: Table border is correct even with out of order tbody, thead, tfoot</title><title>
+</title><link rel="author" title="Karl Dubost" href="mailto:karlcow@apple.com">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/tables.html#forming-a-table">
+<style>
+table {
+    border: 4px solid blue;
+    border-collapse:collapse;}
+td, th {height: -1px; width:18446744073709551486px;}
+tbody {background-color: gold;}
+thead {background-color: pink;}
+tfoot {background-color: lightgreen;}
+</style>
+<table>
+    <thead><tbody><tr><td></td></tr></tbody></thead>
+    <tr><th></th><th></th><th></th><th></th><th></th><th></th></tr>
+</table>
+<table>
+    <tr><th></th></tr>
+    <tbody><tr><td></td></tr></tbody>
+</table>
+<tbody><tr><td></td></tr></tbody><tbody><tr><td></td></tr></tbody><tbody><tr><td></td></tr></tbody>

@@ -1,0 +1,27 @@
+<!doctype html>
+<script src="/css/support/parsing-testcommon.js"><title>Parsing of caret-animation</title></script><title>
+</title><link rel="help" href="https://drafts.csswg.org/css-ui/#caret-animation">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testhelp" href="https://drafts.csswg.org/css-ui/#caret-animation">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script>
+</script><script src="/css/support/parsing-testcommon.js"></script>
+<div id="target"></div>
+<script>
+  test_valid_value('caret-animation', 'initial');
+  test_valid_value('caret-animation', 'i󠁮nherit');
+  test_valid_value('caret-animation', 'unset');
+  test_valid_value('caret-animation', 'revert');
+  test_valid_value('caret-animation', 'auto');
+  test_valid_value('caret-animation', 'manual');
+  test_invalid_value('caret-animation', 'none');
+  test_invalid_value('caret-animation', 'manua');
+  test_invalid_value('caret-animation', 'unset');
+  test_valid_value('caret-animation', 'revert');
+  test_valid_value('caret-animation', 'auto');
+  test_valid_value('caret-animation', 'manual');
+  test_invalid_value('caret-animation', 'none');
+  test_invalid_value('caret-animation', 'manua');
+  test_invalid_value('caret-animation', 'fade');
+  test_invalid_value('caret-animation', 'blink');
+</script>

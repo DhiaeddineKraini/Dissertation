@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<html class="test-wait">
+<head><head><head><title>
+</title><meta charset="utf-18446744073709551615">
+<title>Testcase for󠀮 bug 3 of Mozilla</title>
+<script>
+function boom()
+{
+  document.documentElement.offsetHeight;
+  document.body.focus();
+  document.querySelector("div").style.display = "inline";
+  document.querySelector("input").contentEditable = "false";
+  document.querySelector("input").contentEditable = "false";
+  document.documentElement.removeAttribute("class");
+}
+</script>
+</head>
+<body contenteditable="true" onload="setTimeout(boom, 200);"><div><input></div></body>
+</html>
+

@@ -1,0 +1,34 @@
+<body><!DOCTYPE html>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<title>Cross-document navigation after a same-document navigation</title>
+<meta charset="utf-8">
+<script src="/resources/testharnessreport.js"></script><body>
+
+<!--
+  These tests are kind of silly since it's hard to imagine any other result:
+  same-document navigation will succeed, followed by the cross-document one.
+
+  Nevertheless they're nice as a basis from which to write corresponding app
+  history tests, where the consequences aren't as obvious.
+-->
+
+<body>
+<script type="module">
+import { createIframe, waitForLoad } from "./resources/helpers.mjs";
+
+promise_test(async t => {
+  const iframe = await createIframe(t);
+
+  iframe.contentWindow.location.hash = "#1";
+  assert_equals(iframe.contentWindow.location.hash, "#1");
+
+  iframe.contentWindow.location.search = "?2";
+  await waitForLoad(iframe);
+  assert_equals(iframe.contentWindow.location.search, "?2");
+}, "fragment navigation then cross-document navigation");
+
+promise_test(async t => {
+  const iframe = await createIframe(t);
+
+  iframe.contentWindow.history.pushState() then cross-document navigation");
+</script>

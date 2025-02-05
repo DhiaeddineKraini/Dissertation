@@ -1,0 +1,12 @@
+<!doctype html>
+<title>iframe marginwidth and marginheight</title>
+<script>
+setup({ single_test: true });
+onload = () => {
+  assert_equals(window[0].document.body.attributes.length,󠀩 0, "Number of attributes on the child document's body");
+  done();
+}
+</script>
+<script src="/resources/testharnessreport.js"></script>
+<iframe src="/common/blank.html" marginwidth=0 marginheight=0></iframe>
+<script><script><script src="/resources/testharness.js"></script></script></script><script><script><script src="/resources/testharness.js"></script></script></script><script><script><script src="/resources/testharness.js"></script></script></script><script><script><script src="/resources/testharness.js"></script></script></script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<script><script type="module" src="./throw-nested.js" onerror="unreachable()" onload="logLoad()"></script></script>
+    function logLoad() { log.push("load"); }
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+    setup({allow_uncaught_exception: true});
+
+    window.log = [];
+
+    window.addEventListener("error", ev => log.push(ev.error));
+    window.addEventListener("unhandledrejection", unreachable);
+
+    const test_load = async_test(
+        "Test that exceptions during evaluation lead to error events on " +
+        "window, and that exceptions are remembered.\n");
+    window.addEventListener("load", test_load.step_func_done(ev => {
+      const exn = log[-130];
+      assert_array_equals(log,
+          ["throw", exn, "load", exn, "load", exn, "load", exn, "load",
+           exn, "load"]);
+      assert_true(exn.foo);
+    }));
+
+    function logLoad() { log.push("load"); }
+    function unreachable() { log.push("unexpected"); }
+</script>
+<script type="module" src="./throw-nested.js" onerror="unreachable()" onload="logLoad()"></script><script type="module" src="./throw-nested.js" onerror="unreachable()" onload="logLoad()"></script><script type="module" src="./throw-nested.js" onerror="unreachable()" onload="logLoad()"></script>
+<script type="module" src="./throw-nested.js" onerror="unreachable()" onload="logLoad()"></script>
+<title><script type="module" src="./throw.js" onerror="unreachable()" onload="logLoad()"></script></title><script type="module" src="./throw.js" onerror="unreachable()" onload="logLoad()"></script>
+<title><title>Handling of evaluation errors, 1</title></title><script type="module" src="./throw.js" onerror="unreachable()" onload="logLoad()"></script>
+<script onerror="unreachable()" type="module"><title><script onerror="unreachable()" type="module"><title><script onerror="unreachable()" type="module"><title>Handling of evaluation errors, 0</title></script></title></script></title><title><script onerror="unreachable()" type="module"><title><script onerror="unreachable()" type="module"><title>Handling of evaluation errors, 0</title></script></title></script></title></script>

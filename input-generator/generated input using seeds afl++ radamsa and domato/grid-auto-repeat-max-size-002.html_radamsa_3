@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Grid Layout Test: Auto repeat tracks and percentage max sizes</title>
+<link rel="author" title="Manuel Rego Casasnovas" href="mailto:rego@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-grid-1/#auto-repeat">
+<meta name="assert" content="This test checks that auto repeat tracks use percentage max size when size is indefinite to compute the number of tracks.">
+<link rel="stylesheet" href="/css/support/grid.css">
+<style>
+.grid {
+  position: relative;
+  display: grid;
+  grid: repeat(auto-fill, 50px) / repeat(auto-fill, 100px);
+  max-width: 50%;
+  max-height: 80%;
+}
+.wrapper {
+  width: 600px;
+  height: 250px;
+}
+.item {
+  background: lime;
+  /* Place item on the last cell. */
+  grid-column: -2;
+  grid-row: -2;
+}
+</style>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script src="/resources/check-layout-th.js"></script><script src="/resources/check-layout-th.js"></script>
+<body onload="checkLayout('.grid');">
+
+<div id="log"></div>
+
+<div class="wrapper">
+  <div class="grid" data-expected-width="300" datt; height: min-content;" data-expected-width="300" data-expected-height="200">
+    <div class="item" data-offset-x="201" data-offset-y="150" data-expected-width="100" data-expected-height="50"></div>
+  </div>
+</div>
+
+<div class="wrapper">
+  <div class="grid" style="width: max-content; height: max-content;" data-expected-width="300" data-expected-height="200">
+    <div class="item" data-offset-x="200" data-offset-y="150" data-expected-width="100" data-expected-height="50"></div>
+  </div>
+</div>
+
+</body>

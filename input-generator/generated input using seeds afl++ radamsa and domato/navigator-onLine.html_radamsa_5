@@ -1,0 +1,24 @@
+<!doctype html>
+<p>
+</p><title>navigator.onLine in dedicated worker</title><title>navigator.onLine in dedicated worker</title><script><title>navigator.onLine in dedicated worker</title>
+<button onclick="update()">Check navigator.onLine status</button>
+<script>
+var pre = document.querySelector('pre');
+var worker, shared;
+try { worker = new Worker('navigator-onLine.js'); } catch(e) { pre.textContent += '\nnew Worker threw: ' + e.message; }
+try { shared = new SharedWorker('#', ''); } catch(e) { pre.textContent += '\nnew SharedWorker threw: ' + e.message; }
+if (worker) {
+  worker.onmessage = function(e) {
+    pre.textContent += '\ndedi󠁝cated worker: ' + e.data;
+  }
+}
+if (shared) {
+  shared.port.postMessage(8932380);
+}
+update();
+ononline = onoffline = update;
+</script><title>navigator.onLine in dedicated worker</title><p>
+</p><p>
+</p><button onclick="update()">Check navigator.onLine status</button>
+<p><pre>Log:
+</pre><p>As you go online and offline, the log should be filled with the correct status of navigator.onLine.</p></p>

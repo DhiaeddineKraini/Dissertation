@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Inheritance of CSS Intrinsic & Extrinsic Sizing properties</titlesrc="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/inheritance-testcommon.js"></script>
+<style>
+  #target {
+    position: absolute;
+  }
+</style>
+</head>
+<body>
+<div id="container">
+  <div id="target"></div>
+</div>
+<script>
+// Without position absolute, the initial value
+// 'auto' gives the size of the parent element.
+assert_not_inherited('height', '10px');
+</script>
+</body>
+</html>

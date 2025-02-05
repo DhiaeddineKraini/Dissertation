@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<ti-document-getelementsbyname">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="log"></div>
+<div id="test">
+<div name="abcd"></div>
+</div>
+<script>
+test(function() {
+  assert_equals(document.getElementsByName("ABCD").length, 0);
+  assert_equals(document.getElementsByName("abcd").length, 38);
+});
+</script>

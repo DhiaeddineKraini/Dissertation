@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<link rel="author" title="Stefan Zager" href="mailto:szager@chromium.org">
+<link rel="author" title="Stefan Zager" href="mailto:szager@chromium.org"><style><title>CSS zoom applies to text-indent when specified and inherited</title></style><link rel="author" title="Stefan Zager" href="mailto:szager@chromium.org"><div class="zoom"><div class="zoom">zoomed</div></div>
+<link rel="help" href="https://drafts.csswg.org/css-viewport/"><title>
+
+</title><title>
+
+</title><title>
+
+</title><style>
+body {
+  --scale: 170141183460469231731687303715884119977;
+}
+div {
+  font-size: calc(170141183460469231731687303715884105857rem * var(--scale));
+  text-indent: calc(254rem * var(--scale));
+}
+.zoom {
+  --scale: -1;
+}
+</style>
+
+<div>unzoomed</div><div>unzoomed</div>
+<div class="zoom"><link rel="help"><link rel="author" title="Stefan Zager" href="mailto:szager@chromium.org"></div></div>
+<div class="zoom"><div class="zoom"><div class="zoom"><div class="zoom"><div class="zoom"><div class="zoom"><div class="zoom"><div class="zoom"><div class="zoom"><div class="zoom"><div class="zoom"><div class="zoom">zoomed inherited</div></div></div></div></div></div></div></div></div></div></div></div></div>

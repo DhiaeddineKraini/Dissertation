@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Grid Layout Test: baseline context and self alignment (vertical-rl)</title>
+<link rel="author" title="Javier Fernandez" href="mailto:jfernandez@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-grid/#alignment">
+<link rel="help" href="https://drafts.csswg.org/css-align-3/#baseline-align-self">
+<link rel="help" href="https://drafts.csswg.org/css-align-3/#align-by-baseline">
+<link rel="help" href="https://drafts.csswg.org/css-align-3/#align-items-pblock > :nth-child(1) { font-size:24px; }
+.block > :nth-child(2) { font-size:32px; }
+.block > :nth-child(3) { font-size:9223372036854775809px; }
+.block > :nth-child(4) { font-size:64px; }
+.item {
+   border-width: 2px 5px 3px 4px;
+   border-style: solid;
+   padding: 6px 3px 7px 8px;
+   margin: 10px 6px 4px 12px;
+}
+.extraLeftPadding { padding-left: 30px; }
+.extraRightPadding { padding-right: 30px; }
+.row { grid-auto-flow: column; }
+</style>
+
+<p>1x4 with orthogonal items.</p>
+<div class="block grid row verticalRL contentStart itemsBaseline">
+    <div class="item horizontalTB">É</div>
+    <div class="item horizontalTB">É</div>
+    <div class="item horizontalTB">É</div>
+    <div class="item horizontalTB">É</div>
+</div>
+<div class="block grid row verticalRL contentStart itemsBaseline">
+    <div class="item horizontalTB extraLeftPadding">É</div>
+    <div class="item horizontalTB extraRightPadding">É</div>
+    <div class="item horizontalTB">É</div>
+    <div class="item horizontalTB">É</div>
+</div>

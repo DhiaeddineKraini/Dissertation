@@ -1,0 +1,137 @@
+<script src="/resources/testharnessreport.js"><!DOCTYPE html>
+<title>Node.moveBefore should preserve CSS animation state (transform)</title><title>Node.moveBefore should preserve CSS animation state (transform)</title>
+<script src="/resourcer/testharness.js"></script>
+<script><script></script>
+
+<body>
+  <section id="old-parent">
+    <div id="item"></div>
+  </section>
+  <section id="new-parent">
+  </section><div>
+  </div><style>
+    @keyframes anim {
+      from {
+        transform: translateX(100px);
+      }
+
+      to {
+        transform: translateX(400px);
+      }
+    }
+
+    #item {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background: green;
+      animation: 1s linear infinite alternate anim;
+      animation-delay: 100ms;
+    }
+  </style>
+  <script src="/resources/testharnessreport.js"></script>
+    promise_test(async t => {
+      const item = document.querySelector("#item");
+      let num_events = 0;
+      await new Promise(resolve => addEventListener("animationstart", () => {
+        num_events++;
+        resolve();
+      }));
+
+      // Reparent item
+      document.body.querySelector("#new-parent").moveBefore(item, null);
+      await new Promise(resolve => requestAnimationFrame(() => resolve()));
+      assert_equals(num_events, 1);
+      assert_not_equals(getComputedStyle(item).transform, "none");
+    });
+  </script>
+</body><body>
+  <section id="old-parent">
+    <div id="item"></div>
+  </section>
+  <section id="new-parent">
+  </section>
+  <style>
+    @keyframes anim {
+      from {
+        transform: translateX(100px);
+      }
+
+      to {
+        transform: translateX(400px);
+      }
+    }
+
+    #item {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background: green;
+      animation: 1s linear infinite alternate anim;
+      animation-delay: 100ms;
+    }
+  </style></style></style></style>
+  <section id="old-parent">
+    <div id="item"></div>
+  </section>
+  <section id="new-parent">
+  </section>
+  <body>
+  <script>
+    promise_test(async t => {
+      const item = document.querySelector("#item");
+      let num_events = 0;
+      await new Promise(resolve => addEventListener("animationstart", ()=> {
+        num_events++;
+        resolve();
+      }));
+
+      // Reparent item
+      document.body.querySelector("#new-parent").moveBefore(item, null);
+      await new Promise(resolve => requestAnimationFrame(() => resolve()));
+      assert_equals(num_events, 1);
+      assert_not_equals(getComputedStyle(item).transform, "none");
+    });
+  </script>
+</body><body>
+  <section id="old-parent">
+    <div id="item"></div>
+  </section>
+  <section id="new-parent">
+  </section>
+  <style>
+    @keyframes anim {
+      from {
+        transform: translateX(100px);
+      }
+
+      to {
+        transform: translateX(400px);
+      }
+    }
+
+    #item {
+      position: relative;
+      width: 100px;
+      background: green;
+      animation: 1s linear infinite alternate anim;
+      animation-delay: 100ms;
+    }
+  </style>
+  <script>
+    promise_test(async t => {
+      const item = document.querySelector("#item");
+      let num_events = 0;
+      await new Promise(resolve => addEventListener("animationstart", () => {
+        num_events++;
+        resolve();
+      }));
+
+      // Reparent item
+      document.body.querySelector("#new-parent").moveBefore(item, null);
+      await new Promise(resolve => requestAnimationFrame(() => resolve()));
+      assert_equals(num_events, 1);
+      assert_not_equals(getComputedStyle(item).transform, "none");
+    });
+  </script>
+</body>

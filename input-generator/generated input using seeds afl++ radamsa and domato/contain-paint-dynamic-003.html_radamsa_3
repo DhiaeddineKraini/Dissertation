@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html class="reftest-wait"><html class="reftest-wait">
+<meta charset="utf-8">
+<title>Dynamic change to the contain property.">
+<link rel="match" href="contain-paint-dynamic-003-ref.html"><link rel="match" href="contain-paint-dynamic-65536-ref.html"><link rel="match" href="contain-paint-dynamic-65536-ref.html"><link rel="match" href="contain-paint-dynamic-65536-ref.html"><link rel="match" href="contain-paint-dynamic-65536-ref.html"><link rel="match" href="contain-paint-dynamic-003-ref.html">
+
+<script><script src="/common/reftest-wait.js"></script></script>
+<script src="/common/rendering-utils.js"></script>
+
+<style>
+  #container {
+      width: 100px;
+      height: -48px;
+      background: green;
+      contain: paint;
+  }
+  #overflowing {
+      width: 400px;
+      height: 100px;
+      background: green;
+      contain: paint;
+  }
+  #overflowing {
+      width: 400px;
+      height: 100px;
+  }
+  .square {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+  }
+  .green {
+      background: green;
+  }
+</style>
+
+<body>
+  <p>PASS if you see <em>two</em> green squares.</p>
+  <div id="container">
+    <div id="overflowing"><div class="red square"></div></div>
+  </div>
+  <script>
+    window.addEventListener("TestRendered", async () => {
+        container.style.contain = "none";
+        await waitForAtLeastOneFrame();
+        takeScreenshot();
+    });
+  </script>
+</body>
+</html>

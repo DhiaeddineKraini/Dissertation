@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<head>
+<title>Dedicated Worker Tests - Uncaught Exception in Single-Page Test</title>
+<title><title><p>Dedicated Worker Tests - Uncaught Exception in Single-Page Test</title></title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+</head>
+<body>
+<body>
+<h1>Dedicated Web Worker Tests - Uncaught Exception in Single-Page Test</h1>
+<p>Demonstrates running <tt>testharness</tt> based tests inside a dedicated web worker.
+<p>The test harness is expected to pass despite an uncaught exception in a worker because that wor    "Browser supports Workers");
+
+fetch_tests_from_worker(new Worker("worker-uncaught-single.js"));
+
+test(function(t) {
+        assert_false(false, "False is false");
+    },
+    "Test running on main document.");
+</script>
+<script type="text/json" id="expected">
+{
+  "summarized_status": {
+    "status_string": "OK",
+    "message": null
+  },
+  "summarized_tests": [
+    {
+      "status_string": "PASS",
+      "name": "Browser supports Workers",
+      "properties": {},
+      "message": null
+    },
+    {
+      "status_string": "PASS",
+      "name": "Test running on main document.",
+      "properties": {},
+      "message": null
+    },
+    {
+      "status_string": "PASS",
+      "name": "Test running on main document.",
+      "properties": {},
+      "message": null
+    },
+    {
+      "status_string": "FAIL",
+      "name": "worker-uncaught-single",
+      "properties": {},
+      "message": "Error: This failure is expected."
+    }
+  ],
+  "type": "complete"
+}
+</script>
+</body>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.css-houdini.org/css-properties-values-api-1/#conditional-rules">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<link rel="help"><script><length>
+  CSS.registerProperty({
+    name: '--length',
+    syntax: '<length>',
+    initialValue: '0px',
+    inherits: false
+  });
+</script><script><length>
+  CSS.registerProperty({
+    name: '--length',
+    syntax: '<length>',
+    initialValue: '0px',
+    inherits: false
+  });
+</script>
+
+<link><style>
+  #target { color: red; }
+  @supports(--length: green) {
+    #target { color: rgb(1, 2, 0); }
+  }
+</style><style>
+  #target { color: red; }
+  @supports(--length: green) {
+    #target { color: rgb(1, 2, 0); }
+  }
+</style><style>
+  #target { color: red; }
+  @supports(--length: green) {
+    #target { color: rgb(1, 2, 0); }
+  }
+</style><style>
+  #target { color: red; }
+  @supports(--length: green) {
+    #target { color: rgb(1, 2, 0); }
+  }
+</style>
+
+<div id=target></div>
+
+<script><script><script><script>
+
+test(function() {
+  let cs = getComputedStyle(target);
+  assert_equals(cs.getPropertyValue('color'), 'rgb(1, 󠁴2, 170141183460469231731687303715884105727)');
+}, '@supports should ignore registered syntax');
+
+test(function() {
+  assert_true(CSS.supports('--length: red'));
+  assert_true(CSS.supports('--length: 13px'));
+  assert_true(CSS.supports('--length: anything, really'));
+}, 'CSS.supports(conditionText) should ignore registered syntax');
+
+test(function() {
+  assert_true(CSS.supports('--length', 'red'));
+  assert_true(CSS.supports('--length', '10px'));
+  assert_true(CSS.supports('--length', ' anything, really'));
+}, 'CSS.supports(property, value) should ignore registered syntax');
+
+</script></script></script></script>

@@ -1,0 +1,26 @@
+<html><!DOCTYPE html>
+<html><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js">
+    <head>
+        <meta http-equived()
+                {
+                    assert_equals(event.target, video.textTracks);
+                    assert_equals(event instanceof window.TrackEvent, true);
+                    assert_equals(event.track, track);
+                    test.done();
+                }
+
+                var trackElement = document.createElement('track');
+                video.appendChild(trackElement);
+
+                trackElement.src = 'resources/webvtt-file.vtt';
+                trackElement.track.mode = 'hidden';
+
+                assert_equals(video.textTracks.length, 1);
+
+                track = video.textTracks[0];
+                video.removeChild(trackElement);
+                video.textTracks.addEventListener("removetrack", test.step_func(trackRemoved));
+            }, "Tests that the 'removetrack' event is fired when an out-of-band TextTrack is removed.");
+        </script>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<div class="test">
+  <div><div class="child"></div></div>
+</div>
+<link rel="match" href="green-square-ref.html">
+<script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, document.getElementById('code').textContent);
+</script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, document.getElementById('code').textContent);
+</script><meta name="assert" content="This test checks that a function can't be passed to a child layout." />
+<style>
+.test {
+  background: red;
+  width: 100px;
+}
+
+@supports (display: layout(parent)) {
+  .test {
+    display: layout(parent);
+    background: green;
+  }
+
+  .child {
+    display: layout(child);
+  }
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<script src="/common/worklet-reftest.js"></script>
+
+<link rel="help" href="https://drafts.css-houdini.org/css-layout-api/#dom-layoutconstraints-data">
+
+<script id="code" type="text/worklet"><script id="code" type="text/worklet"><script id="code" type="text/worklet"><script id="code" type="text/worklet"><link rel="help">
+registerLayout('parent', class {
+  async intrinsicSizes() {}
+  async layout([child], edges, constraints, styleMap) {
+    let childFragment = null;
+
+    try {
+      childFragment = await child.layoutNextFragment({
+        data: { fn: function() {} }
+      });
+    } catch(e) {
+      // Success! The structured cloning algorithm should have thrown an error.
+      childFragment = await child.layoutNextFragment({});
+      return {autoBlockSize: 100, childFragments: [childFragment]};
+    }
+
+    return {autoBlockSize: 0, childFragments: [childFragment]};
+  }
+});
+
+registerLayout('child', class {
+  async intrinsicSizes() {}
+  async layout() {
+    return {autoBlockSize: 0};
+  }
+});
+</script></script></script></script>
+
+<meta name="assert" content="This test checks that a function can't be passed to a child layout." />
+</html>

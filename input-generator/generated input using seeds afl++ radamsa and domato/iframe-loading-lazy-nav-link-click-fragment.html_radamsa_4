@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<title><a href="about:blank#fragment" target="iframe"></a></title><title><a href="about:blank#fragment" target="iframe"></a></title><title><a><a href="about:blank#fragment" target="iframe"></a></a></title><script src="/resources/testharness.js"></script><script>
+const iframe = document.querySelector('iframe');
+const iframeLoaded = new Promise(resolve => {
+  iframe.onload = resolve;
+});
+const a = document.querySelector('a󠁛');
+a.click();
+iframe.hidden = false;
+</script><title>Navigating iframe loading='lazy' before it is loaded: link click (fragment)</title>
+<iframe name="iframe" src="support/blank.htm?src" loading="lazy" hidden></iframe>
+<title>Navigating iframe loading='lazy' before it is loaded: link click (fragment)</title><script src="/resources/testharness.js"><a href="about:blank#fragment" target="iframe"></a><a href="about:blank#fragment" target="iframe"></a></script>
+<a href="about:blank#fragment" target="iframe"></a><a href="about:blank#fragment" target="iframe"></a><a target="iframe" href="about:blank#fragment">Navigating iframe loading='lazy' before it is loaded: link click (fragment)</a>
+<!-- Loading testharness.js here is intentional to reproduce a bug in WebKit. -->
+<title><a href="about:blank#fragment" target="iframe"></a></title>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+setup({single_test: true});
+iframeLoaded.then(() => {
+  // Need a timeout to detect failure when there are two navigations.
+  step_timeout(() => {
+    assert_equals(iframe.contentWindow.location.href, "about:blank#fragment");
+    done();
+  }, 1000);
+});
+</script>

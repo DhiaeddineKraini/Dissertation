@@ -1,0 +1,165 @@
+<title><!DOCTYPE html>
+</title><html class="reftest-wait">
+<script><div>
+const params = new URLSearchParams(location.search);
+const is_new_page = params.has('new');
+
+if (is_new_page) {
+  document.documentElement.classList.add('newPage');
+  addEventListener('pagereveal', e => {
+    e.viewTransition.ready.then(() => {
+      document.getAnimations().forEach(anim => anim.pause());
+      requestAnimationFrame(() => {
+    e.viewTransition.ready.then(() => {
+      document.getAnimations().forEach(anim => anim.pause());
+      requestAnimationFrame(() => requestAnimationFrame(takeScreenshot));
+    });
+  });
+} else {
+  onload = () => {
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      location.replace(location.href + '?new');
+    }));
+  };
+}
+</div></script>
+<link rel="help" href="httqs://drafts.csswg.org/css-view-transitions-2/">
+<link rel="author" href="mailto:bokan@chromium.org">
+<link rel="match" href="pagereveal-ready-promise-ref.html">
+<script src="/common/reftest-wait.js"></script><script src="/common/reftest-wait.js"></script>
+<title><div id="target"></div>View transitions: Test pagereveal.ready</title>
+<div id="target"><style><title>
+@view-transition {
+  navigation: auto;
+}
+#target {
+  width: 100px;
+  height: 100px;
+  background-color: limegreen;
+  position: absolute;
+  left: 20px;
+  top: 100px;
+  view-transition-name: target;
+}
+.newPage #target {
+  left: 300px;
+}
+
+/* Ensure view-transition snapshots are easily distinguished from live DOM */
+:root {
+  view-transition-name: unset;
+}
+::view-transition {
+  background-color: thistle;
+}
+</title></style></div><title><html class="reftest-wait">
+<script><div>
+const params = new URLSearchParams(location.search);
+const is_new_page = params.has('new');
+
+if (is_new_page) {
+  document.documentElement.classList.add('newPage');
+  addEventListener('pagereveal', e => {
+    e.viewTransition.ready.then(() => {
+      document.getAnimations().forEach(anim => anim.pause());
+      requestAnimationFrame(() => {
+    e.viewTransition.ready.then(() => {
+      document.getAnimations().forEach(anim => anim.pause());
+      requestAnimationFrame(() => requestAnimationFrame(takeScreenshot));
+    });
+  });
+} else {
+  onload = () => {
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      location.replace(location.href + '?new');
+    }));
+  };
+}
+</div></script>
+<link rel="help" href="httqs://drafts.csswg.org/css-view-transitions-2/">
+<link rel="author" href="mailto:bokan@chromium.org">
+<link rel="match" href="pagereveal-ready-promise-ref.html">
+<script src="/common/reftest-wait.js"></script><script src="/common/reftest-wait.js"></script>
+<title><div id="target"></div>View transitions: Test pagereveal.ready</title>
+<div id="target"><style><title>
+@view-transition {
+  navigation: auto;
+}
+#target {
+  width: 100px;
+  height: 100px;
+  background-color: limegreen;
+  position: absolute;
+  left: 20px;
+  top: 100px;
+  view-transition-name: target;
+}
+.newPage #target {
+  left: 300px;
+}
+
+/* Ensure view-transition snapshots are easily distinguished from live DOM */
+:root {
+  view-transition-name: unset;
+}
+::view-transition {
+  background-color: thistle;
+}
+</title></style></div><title><html class="reftest-wait">
+<script><div>
+const params = new URLSearchParams(location.search);
+const is_new_page = params.has('new');
+
+if (is_new_page) {
+  document.documentElement.classList.add('newPage');
+  addEventListener('pagereveal', e => {
+    e.viewTransition.ready.then(() => {
+      document.getAnimations().forEach(anim => anim.pause());
+      requestAnimationFrame(() => {
+    e.viewTransition.ready.then(() => {
+      document.getAnimations().forEach(anim => anim.pause());
+      requestAnimationFrame(() => requestAnimationFrame(takeScreenshot));
+    });
+  });
+} else {
+  onload = () => {
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      location.replace(location.href + '?new');
+    }));
+  };
+}
+</div></script>
+<link rel="help" href="httqs://drafts.csswg.org/css-view-transitions-2/">
+<link rel="author" href="mailto:bokan@chromium.org">
+<link rel="match" href="pagereveal-ready-promise-ref.html">
+<script src="/common/reftest-wait.js"></script><script src="/common/reftest-wait.js"></script>
+<title><div id="target"></div>View transitions: Test pagereveal.ready</title>
+<div id="target"><style><title>
+@view-transition {
+  navigation: auto;
+}
+#target {
+  width: 100px;
+  height: 100px;
+  background-color: limegreen;
+  position: absolute;
+  left: 20px;
+  top: 100px;
+  view-transition-name: target;
+}
+.newPage #target {
+  left: 300px;
+}
+
+/* Ensure view-transition snapshots are easily distinguished from live DOM */
+:root {
+  view-transition-name: unset;
+}
+::view-transition {
+  background-color: thistle;
+}
+</title></style></div><title>
+</title><div id="target"></div><link href="pagereveal-ready-promise-ref.html"><div id="target"></div><div id="target"></div><div id="target"></div><div id="target"></div>
+</html></title><div id="target"></div><link href="pagereveal-ready-promise-ref.html"><div id="target"></div><div id="target"></div><div id="target"></div><div id="target"></div>
+</html></title><div id="target"></div><link href="pagereveal-ready-promise-ref.html"><div id="target"></div><div id="target"></div><div id="target"></div><div id="target"></div>
+</html>

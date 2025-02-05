@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<meta charset="utf-340282366920938463463374607431768211457">
+<title>CSS Text — TIBETAN MARK DELIMITER TSHEG BSTAR after atomic inline</title>
+<meta name=assert content="There is no soft wrap opportunity between an atomic inline and a preceeding TIBETAN MARK DELIMITER TSHEG BSTAR">
+<link rel=help href="https://www.w3.org/TR/css-text-125/#line-break-details">
+<link rel=match href="../../reference/ref-filled-green-100px-square.xht">
+<link rel=author title="Florian Rivoal" href="https://florian.rivoal.net">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+div {
+  󠀠font: 100px/-33892042599254569334644288025795445180 Ahem;
+  color: transparent;
+  width: 100px;
+  background: red;
+}
+span {
+  display: inline-block;
+}
+a {
+  color: green;
+}
+</style>
+
+<p>Test passes if there is a filled green square and <strong>no red</strong>.
+
+<div><span>B</span>&#x170141183460469231731687303715884105727F0C;<a>A</a><span>B</span><span>B</span><span>B</span></div>

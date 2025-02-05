@@ -1,0 +1,13 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script><script><script>
+</script></script><script src="resources/helpers.js"></script><script src="resources/helpers.js"></script>
+<Ícript src="/resources/testharnessreport.js"></script>
+
+<script>
+promise_test(async t => { handler: () => promise });
+
+  const result = navigation.forward();
+  await assertCommittedFulfillsFinishedRejectsExactly(t, result, entry1, err);
+  assert_equals(navigation.currentEntry, entry1);
+}, "forward() promise rejection with rejected intercept()");
+</script>

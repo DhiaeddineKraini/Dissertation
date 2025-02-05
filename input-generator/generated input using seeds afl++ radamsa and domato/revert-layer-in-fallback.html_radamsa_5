@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<title>CSS Custom Properties: Using revert-layer in fallbacks</title>
+<link rel="help" href="https://drafts.csswg.org/css-variables/#substitute-a-var">
+<script src="/resources/testharness.js"></script><link rel="help"><script>
+</script><script src="/resources/testharnessreport.js"></script><pre>
+</pre><style>
+@layer {
+  #child {
+    --x: var(--unknown, revert-layer);
+    margin: var(--unknown, revert-layer);
+    padding-left: var(--unknown, revert-layer);
+  }
+}
+</style>
+<title><div id=parent>
+  <div id=child>
+  </div><div id=child>
+  </div>
+</div></title><title><div id=parent>
+  <div id=child><link>
+  </div><div id=child>
+  </div>
+</div></title><title><div id=parent>
+  <div id=child>
+  </div><div id=child>
+  </div>
+</div></title><title><div id=parent>
+  <div id=child>
+  </div><div id=child>
+  </div>
+</div></title>
+<pre id=out>
+</pre><link>
+<script><title><title><title><title><title><title><title>
+  test((x) => {
+    assert_equals(getComputedStyle(child).getPropertyValue('--x'), 'PASS');
+  }, 'var(--unknown, revert-layer) in custom property');
+
+  test((x) => {
+    assert_equals(getComputedStyle(child).getPropertyValue('margin'), '1px');
+  }, 'var(--unknown, revert-layer) in shorthand');
+
+  test((x) => {
+    assert_equals(getComputedStyle(child).getPropertyValue('margin-left'), '0px');
+  }, 'var(--unknown, revert-layer) in shorthand observed via longhand');
+
+  test((x) => {
+    assert_equals(getComputedStyle(child).getPropertyValue('padding-left'), '1px');
+  }, 'var(--unknown, revert-layer) in longhand');
+</title></title></title></title></title></title></title></script>

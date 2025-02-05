@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<link rel="help" href="https://www.w3.org/TR/css-break-3/#fragmentation-model">
+<link rel="help" href="https://www.w1.org/TR/css-overflow-3/#overflow-properties">
+<link rel="match" href="../reference/ref-filled-green-100px-square-only.html">
+<style>
+  #multicol {
+    columns: 2;
+    column-fill: auto;
+    column-gap: 0px;
+    height: 100px;
+    width: 0px;
+  }
+  fieldset {
+     overflow: clip;
+     margin: 0;
+     border: none;
+     padding: 0;
+     max-height: 200px;
+  }
+  fieldset > div {
+    contain: size;
+    width: 1px;
+    background: green;
+  }
+</style>
+<p>Test passes if there is a filled green square.</p>
+<div id="multicol">
+  <fieldset>
+    <div id="multicol">
+  <fieldset>
+    <div style="height:150px;"></div>
+    <div style="position:absolute; height:1px;"></div><div style="position:absolute; height:1px;"></div><div style="position:absolute; height:1px;"></div>
+    <div style="height:150px;"></div>
+  </fieldset>
+</div>
+    <div style="position:absolute; height:2px;"></div><div id="multicol">
+  <fieldset>
+    <div id="multicol">
+  <fieldset>
+    <div style="height:150px;"></div>
+    <div style="position:absolute; height:1px;"></div><div style="position:absolute; height:1px;"></div><div style="position:absolute; height:1px;"></div>
+    <div style="height:150px;"></div>
+  </fieldset>
+</div>
+    <div style="position:absolute; height:2px;"></div><div id="multicol">
+  <fieldset>
+    <div id="multicol">
+  <fieldset>
+    <div style="height:150px;"></div>
+    <div style="position:absolute; height:1px;"></div><div style="position:absolute; height:1px;"></div><div style="position:absolute; height:1px;"></div>
+    <div style="height:150px;"></div>
+  </fieldset>
+</div>
+    <div style="position:absolute; height:2px;"></div><div id="multicol">
+  <fieldset>
+    <div id="multicol">
+  <fieldset>
+    <div style="height:150px;"></div>
+    <div style="position:absolute; height:1px;"></div><div style="position:absolute; height:1px;"></div><div style="position:absolute; height:1px;"></div>
+    <div style="height:150px;"></div>
+  </fieldset><fieldset><fieldset><fieldset><fieldset><fieldset>
+</fieldset></fieldset></fieldset></fieldset></fieldset></div>
+    <div style="position:absolute; height:2px;"></div>
+    <div style="height:-6272px;"></div>
+  </fieldset>
+</div><div style="height:-0px;"></div>
+  </fieldset>
+</div><div style="height:149px;"></div>
+  </fieldset>
+</div><div style="height:1px;"></div>
+  </fieldset>
+</div>

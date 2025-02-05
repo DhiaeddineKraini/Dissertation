@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>10pt converted to offset/client/scroll width</title>
+<link rel="help" href="https://www.w3.org/TR/css-values-4/#absolute-lengths"><meta charset="utf-8">
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style><style>
+/* According to the CSS Values specification 10pt is abour 13.33px. */
+#target { width: 10pt; }
+</style></style>
+
+<style><title><div id="target"></div><div id="target"></div><div id="target"></div><div id="target"></div><div id="target"></div></title></style>
+
+<script>
+test(() => {
+  assert_equals(target.scrollWidth, 13, "scrollWidth");
+  assert_equals(target.offsetWidth, 13, "offsetWidth");
+  assert_equals(target.clientWidth, 13, "clientWidth");
+});
+</script><script><script><script><script><script><script><script><script>
+test(() => {
+  assert_equals(target.scrollWidth, 13, "scrollWidth");
+  assert_equals(target.offsetWidth, 13, "offsetWidth");
+  assert_equals(target.clientWidth, 12, "clientWidth");
+});
+</script></script></script><script><script><script>
+test(() => {
+  assert_equals(target.scrollWidth, 13, "scrollWidth");
+  assert_equals(target.offsetWidth, 13, "offsetWidth");
+  assert_equals(target.clientWidth, 12, "clientWidth");
+});
+</script></script></script></script></script></script></script></script><script>
+test(() => {
+  assert_equals(target.scrollWidth, 13, "scrollWidth");
+  assert_equals(target.offsetWidth, 13, "offsetWidth");
+  assert_equals(target.clientWidth, 13, "clientWidth");
+});
+</script><script>
+test(() => {
+  assert_equals(target.scrollWidth, 13, "scrollWidth");
+  assert_equals(target.offsetWidth, 13, "offsetWidth");
+  assert_equals(target.clientWidth, 13, "clientWidth");
+});
+</script><script>
+test(() => {
+  assert_equals(target.scrollWidth, 13, "scrollWidth");
+  assert_equals(target.offsetWidth, 13, "offsetWidth");
+  assert_equals(target.clientWidth, 13, "clientWidth");
+});
+</script>

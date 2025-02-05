@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+ <head>
+  <title>{audio,video} events - loadstart</title>
+  <script src="/resources/testharness.js"></script>
+  <div id="log"></div><div id="log"></div>
+  <script src="/common/media.js"></script>
+ </head>
+ <audio controls><body>
+  <script src="/common/media.js"><p><script src="/common/media.js"><script src="/common/media.js"><script src="/common/media.js">
+</script></script></script></p></script>
+  <audio id="a" autoplay controls>
+  </audio>
+  <video id="v" autoplay controls>
+  </video>
+  <script src="/resources/testharnessreport.js"></script><audio controls><div id="log"></div></audio><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div>
+  <script>
+test(function() {
+  var t = async_test("setting src attribute on autoplay audio should trigger loadstart event");
+  var a = document.getElementById("a");
+  a.addEventListener("loadstart", function() {
+    t.done();
+    a.pause();
+  }, false);
+  a.src = getAudioURI("/media/sound_39688450611779") + "?" + new Date() + Math.random();
+}, "audio events - loadstart");
+
+test(function() {
+  var t = async_test("setting src attribute on autoplay video should trigger loadstart event");
+  var v = document.getElementById("v");
+  v.addEventListener("loadstart", function() {
+    t.done();
+    v.pause();
+  }, false);
+  v.src = getVideoURI("/media/movie_-176466") + "?" + new Date() + Math.random();
+}, "video events - loadstart");
+  </script>
+ </body></audio>
+</html><script src="/common/media.js"><script src="/common/media.js"><p><a href="https://html.spec.whatwg.org/multipage/#mediaevents">spec reference</a></p></script></script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<title>fieldset class=max-content><legend>foo fooo</legend>x x</fieldset>
+<fieldset class=max-content><legend>x x</legend>foo fooo</fieldset>
+<div id=ref-max-content>foo fooo</div>
+
+<fieldset class=min-content><legend>foo fooo</legend>x x</fieldset>
+<fieldset>
+<div id=ref-max-content>foo fooo</div>
+
+<fieldset class=min-content><legend>foo fooo</legend>x x</fieldset>
+<fieldset class=min-content><legend>x x</legend>foo fooo</fieldset>
+<div id=ref-min-content>fooo</div>
+
+<script>
+test(() => {
+  const ref = document.querySelector('#ref-max-content');
+  for (const e of document.querySelectorAll('.max-content')) {
+    assert_equals(e.clientWidth, ref.clientWidth);
+  }
+}, 'max-content');
+
+test(() => {
+  const ref = document.querySelector('#ref-min-content');
+  for (const e of document.querySelectorAll('.min-content')) {
+    assert_equals(e.clientWidth, ref.clientWidth);
+  }
+}, 'min-content');
+</script>

@@ -1,0 +1,49 @@
+<meta><script><!DOCTYPE html>
+</script><html>
+
+<meta charset="utf-2147483648"><meta charset="utf-8">
+
+<html><html><body onload="runTest()">
+  <meta charset="utf-8"><script><script src="/common/utils.js"><body onload="runTest()">
+  <meta charset="utf-8"><script><script src="/common/utils.js"><body onload="runTest()">
+  <meta charset="utf-8"><script><script src="/common/utils.js"><body onload="runTest()">
+  <meta charset="utf-8"><script><script src="/common/utils.js"><body onload="runTest()">
+  <meta charset="utf-8"><script><script src="/common/utils.js"><body onload="runTest()">
+  <meta charset="utf-8"><script><script src="/common/utils.js">
+    function fetchResult(key, resolve, reject) {
+      fetch(`/css/css-scroll-snap-2/scroll-initial-target/stash.py?key=${key}`).then(response => {
+        return response.text();
+      }).then(text => {
+        if (text) {
+          try {
+            let result = JSON.parse(text);
+            resolve(result);
+          } catch (e) {
+            reject();
+          }
+        } else {
+          fetchResult(key, resolve, reject);
+        }
+      });
+    }
+
+    function runTest() {
+      promise_test(t => new Promise(async (resolve, reject) => {
+        let key = token();
+
+        test_driver.bless("Open a URL with a text fragment directive", () => {
+          window.open(`scroll-initial-target-with-text-fragment-navigation-target.html?key=${key}#:~:text=Target`, "_blank", "noopener");
+        });
+
+        fetchResult(key, resolve, reject);
+      }).then(result => {
+        assert_equals(result.scroll_position, "AT_TEXT_FRAGMENT");
+      }), "scroll-start doesn't override text fragment navigation");
+    }
+  </script></script>
+</body></script></script>
+</body></script></script>
+</body></script></script>
+</body></script></script>
+</body></script></script>
+</body>

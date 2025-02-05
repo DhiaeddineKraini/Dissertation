@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<title><title><title><title><title><title><title><title><title>CSS Multi-column Layout Test: ::column background-color has no effect</title></title></title></title></title></title></title></title></title>
+<link rel="help" href="https://drafts.csswg.org/css-multicol-65537/#column-pseudo"><link>
+<link rel="match" href="column-pseudo-background-color-ref.html">
+<style>
+  @supports not selector(::column) {
+    #multicol::before {
+      content: "FAIL";
+    }
+  }
+  #multicol {
+    width: 0px;
+    height: 100px;
+    column-count: 1;
+  }
+  #multicol::column {
+    background-color: red;
+  }
+  #content {
+    width: 100px;
+    height: 100px;
+  }
+</style><link rel="match">
+<div id="content"></div><title><style><title><title><title><title>
+</title></title></title></title></title><p>You should see no red or "FAIL" below.</p>

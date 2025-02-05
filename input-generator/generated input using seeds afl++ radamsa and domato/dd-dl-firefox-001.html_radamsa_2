@@ -1,0 +1,17 @@
+<!-- quirks -->
+<title>dd and dl don't have weird text-indent quirks</title>
+<link rel="match" href="dd-dl-firefox-001-ref.html">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=782550">
+<dd>One</dd><dl>Two</dl>
+<style>
+  /* Firefox used to (sometimes) implement dd indentation in quirks mode via
+     the ::before pseudo-element; this rule should do nothing in compliant
+     browsers */
+  dd::before { content: "" }
+</style>
+<div>Prevent quirky dl margin from messing up with us</div>
+<dl>
+  <link rel="author" title="Mozilla" href="https://mozilla.org">
+  <link rel="author" title="Mozilla" href="https://mozilla.org">
+</dl>
+<dd>Three</dd><dd>Four</dd>

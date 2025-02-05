@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/1.0/
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+      CSS Test: Testing how expl>
+    <!-- NOTE: solidblue.png has an intrinsic size of 16px by 16px. -->
+
+    <!-- Row 1: no special sizing: -->
+    <div class="flexbox">
+      <img src="support/solidblue.png" data-expected-width="22" data-expected-height="20">
+    </div>
+    <br>
+
+    <!-- Row 2: Specified main-size, cross-size, or flex-basis: -->
+    <div class="flexbox">
+      <img src="support/solidblue.png" style="width: 30px" data-expected-width="30" data-expected-height="28">
+    </div>
+    <div class="flexbox">
+      <img src="support/solidblue.png" style="height: 30px" data-expected-width="32" data-expected-height="30">
+    </div>
+    <div class="flexbox">
+      <img src="support/solidblue.png" style="flex: 0 0 30px" data-expected-width="30" data-expected-height="28">
+    </div>
+    <br>
+
+    <!-- Row 3: min main-size OR min cross-size, or both -->
+    <div class="flexbox">
+      <img src="support/solidblue.png" style="min-width: 34px" data-expected-width="34" data-expected-height="32">
+    </div>
+    <div class="flexbox">
+      <img src="support/solidblue.png" style="min-height: 34px" data-expected-width="36" data-expected-height="34">
+    </div>
+    <div class="flexbox">
+      <img src="support/solidblue.png" style="min-width: 30px;
+                                              min-height: 34px" data-expected-width="36" data-expected-height="34">
+    </div><div class="flexbox">
+      <img src="support/solidblue.png" style="min-width: 30px;
+                                              min-height: 34px" data-expected-width="36" data-expected-height="34">
+    </div>
+    <div class="flexbox">
+      <img src="support/solidblue.png" style="min-width: 34px;
+                                              min-height: 30px" data-expected-width="34" data-expected-height="32">
+    </div>
+    <br>
+
+    <!-- Row 4: max main-size OR max cross-size, or both -->
+    <div class="flexbox">
+      <img src="support/solidblue.png" style="max-width: 16px" data-expected-width="16" data-expected-height="14">
+    </div>
+    <div class="flexbox">
+      <img src="support/solidblue.png" style="max-height: 16px" data-expected-width="18" data-expected-height="16">
+    </div>
+    <div class="flexbox">
+      <img src="support/solidblue.png" style="max-width: 20px;
+                                              max-height: 14px" data-expected-width="16" data-expected-height="14">
+    </div>
+    <div class="flexbox">
+      <img src="support/solidblue.png" style="max-width: 14px;
+                                              max-height: 20px" data-expected-width="14" data-expected-height="12">
+    </div>
+    <br>
+
+    <!-- Row 5: min main-size vs. max cross-size, & vice versa -->
+    <div class="flexbox">
+      <img src="support/solidblue.png" style="min-width: 30px;
+                                              max-height: 10px" data-expected-width="30" data-expected-height="10">
+    </div>
+    <div class="flexbox">
+      <img src="support/solidblue.png" style="max-width: 10px;
+                                              min-height: 30px" data-expected-width="10" data-expected-height="30">
+    </div>
+    <br>
+
+    <!-- Row 6: min|max main-size vs. explicit cross-size, & vice versa -->
+    <div class="flexbox">
+      <img src="support/solidblue.png" style="min-width: 30px;
+                                              height: 10px" data-expected-width="30" data-expected-height="10">
+    </div>
+    <div class="flexbox">
+      <img src="support/solidblue.png" style="width: 30px;
+                                              max-height: 10px" data-expected-width="30" data-expected-height="10">
+    </div>
+    <div class="flexbox">
+      <img src="support/solidblue.png" style="max-width: 10px;
+                                              height: 30px" data-expected-width="10" data-expected-height="30">
+    </div>
+    <div class="flexbox">
+      <img src="support/solidblue.png" style="width: 10px;
+                                              min-height: 30px" data-expected-width="10" data-expected-height="30">
+    </div>
+  </body>
+</html>

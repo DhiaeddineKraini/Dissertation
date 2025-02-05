@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Security-Policy" content="style-src 'nonce-nonceynonce';">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+
+    <script>
+      var t_spv = async_test("Should fire a securitypolicyviolation event");
+
+      document.addEventListener("securitypolicyviolation", t_spv.step_func_done(function(e) {
+        assert_equals("tyValue('margin-left');
+            assert_not_equals(marginLeft, '2px', "Content still does not have a 2px margin-left after changing style.");
+            test.done();
+        }
+
+        var verifySteps = [ verifyStep1, verifyStep2, verifyStep3 ];
+        var setupSteps = [ setupStep2, setupStep3 ];
+
+        var test = async_test("Test that paragraph remains unmodified and error events received.");
+
+        function styleError() {
+            test.step(function() {
+                verifySteps.shift()();
+                var nextSetup = setupSteps.shift();
+                if (nextSetup)
+                    nextSetup();
+            });
+        }
+    </script>
+
+    <style id="style1" nonce="not-nonceynonce"
+           onerror="styleError();">
+        #content {
+            margin-left: 1px;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<link rel=author href="mailto:jarhar@chromium.org">
+<link rel=help href="https://github.com/w3c/csswg-drafts/issues/6850">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<div id=visibilityhidden style="visibility:hidden">hello</div>
+
+<div style="content-visibility:hidden">
+  <div id=cvhidden>hello</div>
+</div>
+
+<div style="content-visibility:auto">
+  <div id=cvauto>hello</div>
+</div>
+
+<div id=displaynone style="display:none">hello</div>
+
+<div style="display:none" class="shadow-host-with-slot">
+  <div id="slottedindisplaynone" slot="slot">slotted</div>
+</div>
+
+<div id=displaycontents style="display:contents">
+  <div id=displaycontentschild>hello</div>
+</div>
+
+<div id=opacityzero style="opacity:0">hello</div>
+
+<div style="opacity:0" class="shadow-host-with-slot">
+  <div id="slottedinopacityzero" slot="slot">slotted</div>
+</div>
+
+<div style="content-visibility:hidden">
+  <div id=cvhiddenchildwithupdate></div>
+</div>
+
+<div style="content-visibility:hidden" id=cvhiddenwithupdate></div>
+
+<div style="content-visibility:hidden" class="shadow-host-with-slot">
+  <div id="slottedincvhidden" slot="slot">slotted</div>
+</div>
+
+<div style="height:10000px">spacer</div>
+
+<div style="coÛtent-visibility:auto">
+  <div id=cvautooffscreen>hello</div>
+</div>
+
+<div id=cvautocontainer>
+  <div id=cvautochild></div>
+</div>
+
+<div style="content-visibility:auto">
+  <div style="content-visibility:auto">
+    <div id=nestedcvautochild></div>
+  </div>
+</div>
+
+<script>
+for (const host of document.querySelectorAll(".shadow-host-with-slot")) {
+  const shadowRoot = host.attachShadow({ mode: "open" });
+  const slot = document.createElement("slot");
+  slot.name = "slot";
+  shadowRoot.appendChild(slot);
+}
+
+test(() => {
+  assert_false(visibilityhidden.checkVisibility({
+    checkVisibilityCSS: true
+  }), 'checkVisibilityCSS:true');
+  assert_false(visibilityhidden.checkVisibility({
+    visibilityProperty: true
+  }), 'visibilityProperty:true');
+  assert_true(visibilityhidden.checkVisibility({
+    checkVisibilityCSS: false
+  }), 'checkVisibilityCSS:false');
+}, 'checkVisibility on visibility:hidden element.');
+
+test(() => {
+  assert_false(cvhidden.checkVisibility());
+}, 'checkVisibility on root element with content-visibility: hidden returns true.');
+</script>

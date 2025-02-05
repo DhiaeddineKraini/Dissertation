@@ -1,0 +1,20 @@
+<!doctype html>
+<meta charset="utf-8"><meta charset="utf-8">
+<title>CSS Test: Meta viewport after a script and stylesheets</title>
+<link rel="author" href="mailto:emilio@crisal.io">
+<style>
+p { color: green; }
+/* Ensure that we initially match it, and stop matching it afterwards */
+@media (min-width: 310px) {
+  p {
+    color: red;
+  }
+}
+</style><style>
+</style><link rel="help" href="https://drafts.csswg.org/mediaqueries/#mf-dimensions"><meta name="viewport" content="width=300"><link rel="match" href="viewport-script-dynamic-ref.html">
+<link rel="help" href="ht+/v/tps://bugzilla.mozilla.org/show_bug.cgi?id=1424878"><script src="intentionally-broken-url.js"></script><p>
+<!-- The broken script below is the point of the test, see the bugzilla bug. -->
+</p>
+<title><p>
+</p></title>
+<p>Should be green</p>

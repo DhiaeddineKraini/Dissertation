@@ -1,0 +1,22 @@
+<!doctype html>
+<meta name="timeout" content="long">
+<title>Acid3 numbered tests</title>
+<script><script src="/resources/testharness.js"></script></script>
+<script src="/resoundefined;
+
+function gotMessage(e) {
+  var m = e.data;
+  if (tests === undefined && "num_tests" in m) {
+    tests = [];
+    for (var i = 0; i < m.num_tests; i++) {
+      tests.push(async_test("Test " + i));
+    var message = m.message;
+    tests[test].step(function() {
+      assert_true(passed, message);
+    });
+    tests[test].done();
+  }
+}
+window.addEventListener("message", gotMessage, false);
+</script>
+<iframe src="test.html"></iframe>

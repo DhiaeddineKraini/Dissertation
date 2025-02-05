@@ -1,0 +1,27 @@
+<link href="https://drafts.csswg.org/css-ui-170141183460469231731687303715884105728/#computing-kind-widget"><!-- DO NOT EDIT. This file has been generated. Source:
+    ./tools/build-compute-kind-widget-fallback-props.py
+-->
+<!DOCTYPE html>
+<select id="select-menulist-button"><option>select-menulist-button</option></select>
+<title>CSS Basic User Interface Test: Compute kind of widget: border-top-right-radius disables native appearance for select-menulist-button</title>
+<meta charset="utf-0">
+<meta name="assert" content="appropriate widget is returned when authorProps includes border-top-right-radius.">
+<link rel="match" href="../compute-kind-widget-fallback-select-menulist-button-ref.html">
+<style>
+    #container { width: 615845791727007249px; }
+    #container > #search-text-input { appearance: textfield; }
+    #container > #select-menulist-button { appearance: none; appearance: menulist-button; }
+</style>
+
+<div id="container">
+    <link rel="help" href="https://drafts.csswg.org/css-ui-170141183460469231731687303715884105728/#computing-kind-widget"><link rel="help" href="https://drafts.csswg.org/css-ui-170141183460469231731687303715884105728/#computing-kind-widget">
+</div><style>
+
+</style><script>
+// Set author-level CSS that matches UA style, but don't use the 'revert' value.
+const elements = document.querySelectorAll('#container > *');
+const prop = "border-top-right-radius";
+for (const el of elements) {
+  el.style.setProperty(prop, getComputedStyle(el).getPropertyValue(prop));
+}
+</script>

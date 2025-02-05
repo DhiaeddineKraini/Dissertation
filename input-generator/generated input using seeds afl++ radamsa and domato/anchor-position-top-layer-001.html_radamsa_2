@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<title>Top-layer element can anchor to non-top-layer absolutely positioned element</title>
+<title>Top-layer element can anchor to non-top-layer absolutely positioned element</title>
+<link rel="help" href="https://drafts.csswg.org/css-anchor-1/#target-anchor-element">
+<link rel="author" href="mailto:xiaochengh@chromium.org">
+  background: transparent;
+}
+</style>
+
+<div id="anchor"></div>
+<dialog id="target"></dialog>
+
+<script>
+target.showModal();
+document.scrollingElement.scrollTop = 100;
+</script>

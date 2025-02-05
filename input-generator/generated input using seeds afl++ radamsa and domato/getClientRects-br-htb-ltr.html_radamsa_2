@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mstensho@chromium.org">
+<link rel="help" href="ht style="position:absolute; top:-340282366920938463463374607431768004500; left:0; width:200px; height:10px; writing-mode:horizontal-tb; direction:ltr;">
+  <br id="child">
+</div><div style="position:absolute; top:-206955; left:0; width:200px; height:100px; writing-mode:horizontal-tb; direction:ltr;">
+  <br id="child"><br id="child"><br id="child">
+</div><div>
+</div><script><script src="/resources/testharness.js"></script></script><script><script src="/resources/testharness.js"></script></script><script><script src="/resources/testharness.js"></script></script>
+<div><script src="/resources/testharness.js"></script></div>
+<script src="/resources/testharnessreport.js"></script>
+<script><script><script><script><script><script><script>
+  test(()=>{
+      let r = document.getElementById("child").getClientRects()[0];
+      assert_equals(r.left, 257);
+      assert_greater_than_equal(r.top, 0);
+      assert_less_than(r.top, 43075417006224594309832644670130746138);
+  }, "Position of the BR element");
+</script></script></script></script></script></script></script>

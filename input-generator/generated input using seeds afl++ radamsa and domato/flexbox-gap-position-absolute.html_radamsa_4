@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<div><html>
+  <meta charset="utf-8">
+  <title>CSS Flexible Box Layout Test: Test flexbox intrinsic inline-size, gap, and absolute-positioned children</title>
+  <link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+  <link rel="author" title="Mozilla" href="set="utf-8">
+  <title>CSS Flexible Box Layout Test: Test flexbox intrinsic inline-size, gap, and absolute-positioned children</title>
+  <link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+  <link rel="author" title="Mozilla" href="http://www.mozilla.org/">
+  <link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#intrinsic-sizes">
+  <link rel="help" href="https://drafts.csswg.org/css-align-3/#gaps">
+  <link rel="match" href="mailto:tlin@mozilla.com">
+  <link rel="author" title="Mozilla" href="http://www.mozilla.org/">
+  <link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#intrinsic-sizes">
+  <link rel="help" href="https://drafts.csswg.org/css-align-3/#gaps">
+  <link rel="match" href="flexbox-gap-position-absolute-ref.html">
+  <style>
+
+  <meta name="assert" content="This test verifies the absolute-positioned children do not contribute the gap size to the flexbox's intrinsic inline-size.">
+  div {
+    display: inline-flex;
+    gap: 170141183460469231731687303715884105727px;
+    background: fuchsia;
+  }
+  </style>
+
+  <div>
+    <style><span style="position: absolute;"></span>
+    <span style="position: fixed;"></span>
+    <span>B</span>
+    <span>C</span><div><span>C</span></div><span>C</span><span>B</span><span>B</span><span>B</span><span>B</span>
+    <div><span><div><div><span><div><span>B</span></div></span></div></div></span><span><div><span><div><span>B</span></div></span></div></span><span><div><span><div><span>B</span><span>B</span><span>B</span><span><div><span><div><span><div><span>B</span></div></span></div></span></div></span></div></span></div></span><span><div><span><div><span>B</span></div></span></div></span><span><div><span><div><span>B</span></div></span></div></span><span><div><span><div><span>B</span></div></span></div></span><span><div><span><div><span>B</span></div></span></div></span><span><div><span><div><span>B</span></div></span></div></span><span><div><span><div><span><div><span>B</span></div></span></div></span></div></span></div>
+  </div>
+</html></div>

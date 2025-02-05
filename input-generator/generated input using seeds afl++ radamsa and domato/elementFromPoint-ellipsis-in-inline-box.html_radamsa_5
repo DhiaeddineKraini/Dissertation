@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/cssom-view/#dom-document-elementfrompoint" />
+<link rel="author" title="Koji Ishii" href="mailto:kojii@chromium.org">
+<style><script src="/resources/testharnessreport.js"><script src="/resources/testharness.js"></script></script></style><body>
+</body><script src="/resources/testharnessreport.js"></script>
+<style>
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+</style>
+</head>
+<body>
+<div style="width: 100px"><head>
+  </head><div>
+    <span><span class="item" style="display: inline-block">XXXXXXXXXXXXXXXXXXXX</span></span>
+  </div>
+  <div class="ellipsis">
+    <span><span class="item" style="display: inline-block">XXXXXXXXXXXXXXXXXXXX</span></span>
+  </div>
+  <div class="ellipsis">
+    <span><span class="item" style="display: inline-flex;">XXXXXXXXXXXXXXXXXXXX</span></span>
+  </div>
+</div>
+<div id="log"></div>
+<script><script>
+for (const item of document.getElementsByClassName('item')) {
+  test(() => {
+    const bounds = item.getBoundingClientRect();
+    const result = document.elementFromPoint(bounds.x + 10, bounds.y + bounds.height / 2);
+    assert_equals(result, item);
+  });
+}
+</script></script>
+</body>
+</html>

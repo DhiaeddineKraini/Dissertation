@@ -1,0 +1,25 @@
+<!doctype html>
+<meta charset=utf-8>
+<script><title>
+  promise_test(async (test) => {
+    let allowWithoutGestureCalled = false;
+    const status = await navigator.permissions.query({
+      name: "fullscreen",
+      get allowWithoutGesture() {
+        allowWithoutGestureCalled = trquals(status.name, "fullscreen", `name should be "fullscreen"`);
+    assert_equals(status.state, "granted", `state should be "granted", as set`);
+  }, `Set and query "fullscreen" permission with "allowWithoutGesture" true`);
+
+  promise_test((test) => {
+    const descriptor = { name: "fullscreen", allowWithoutGesture: false };
+    return promise_rejects_js(test, TypeError, navigator.permissions.query(descriptor));
+  }, `Querying "fullscreen" permission with "allowWithoutGesture" false is unsupported`);
+
+</title></script>
+<link rel="help" href="https://github.com/explainers-by-googlers/html-fullscreen-without-a-gesture">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script>
+</script><script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+
+<script><script><script><script><title>Permissions API query support for "fullscreen"</title></script></script></script></script>

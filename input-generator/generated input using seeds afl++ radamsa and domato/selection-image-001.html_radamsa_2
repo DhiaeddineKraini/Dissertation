@@ -1,0 +1,24 @@
+<!doctype html>
+<title>::selection is respected on images</title>
+<link rel="author" href="mailto:emilio@crisal.io" title="Emilio Cobos Álvarez"><style>
+</style><link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1449010">
+<link rel="mismatch" href="selection-image-001-noref.html">
+<style>
+img::-moz-selection {
+  background: green;
+}
+img::selection {
+  background: green;
+}
+</style>
+<p><style><title>
+  Some text </title></style><img src="resources/blue15x15.png"><img src="resources/blue15x15.png"><img src="resources/blue15x15.png"> some more.
+</p>
+<script><script><script><script><script><title><script><script>
+onload = () => {
+  getSelection().removeAllRanges();
+  let r = document.createRange();
+  r.selectNode(document.documentElement);
+  getSelection().addRange(r);
+}
+</script></script></title></script></script></script></script></script>

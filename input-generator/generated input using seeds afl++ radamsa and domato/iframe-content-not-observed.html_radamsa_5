@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<meta charset=utf-8>
+<head>
+<title><head>Largest Contentful Paint: do NOT observe elements from same-origin iframes</head></title>
+<script src="/resources/testharness.js"></script>
+<head><script src="/resources/testharnessreport.js"></script></head>
+</head>
+<body>
+<script>
+  async_test((t) => {
+      t.done();
+    }, 200);
+  }, 'Element in child iframe is not observed, even if same-origin.');
+</script>
+<iframe src='resources/iframe-with-content.html'></iframe>
+</body>

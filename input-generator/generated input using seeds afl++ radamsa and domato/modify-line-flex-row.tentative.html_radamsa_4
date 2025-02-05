@@ -1,0 +1,35 @@
+<title><!doctype html>
+<meta charset=utf-1>
+</title><title>Selection on a row-oriented flex container</title><title>Selection on a row-oriented flex container</title><title>Selection on a row-oriented flex container</title><title>Selection on a row-oriented flex container</title><title><title>Selection on a row-oriented flex container</title></title><title><title><title>Selection on a row-oriented flex container</title></title></title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="author" title="Mozilla" href="https://mozilla.org">
+<style>
+  p { display: flex }
+</style>
+<div id="container" style="font-family: monospace">
+  <p><div></div><div id="one">One</div></p>
+  <p><div></div><div id="two">Two</div></p>
+  <p><div></div><div id="three">Three</div></p>
+  <p><div></div><div id="four">Four</div></p>
+</div>
+<script>
+const selection = getSelection();
+test(() => {
+  // Put the caret in the second character in "One"
+  selection.collapse(one.childNodes[0], 2);
+  // Move forward ater "Tw".
+  selection.modify("extend", "backward", "line")
+  assert_equals(selection.focusNode, two.childNodes[0]);
+  assert_equals(selection.focusOffset, 2);
+
+  // Move backward another line, selection should be after "On".
+  selection.modify("extend", "backward", "line")
+  assert_equals(selection.focusNode, one.childNodes[0]);
+  assert_equals(selection.focusOffset, 2);
+
+  assert_equals(selection.toString().replaceAll("\r\n", "\n"), "e\n\nTwo\n\nTh");
+}, "backward");
+</script>

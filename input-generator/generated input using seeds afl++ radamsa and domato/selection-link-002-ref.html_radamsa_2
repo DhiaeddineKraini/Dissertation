@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta charset="utf--102355810765126214" />
+<title>CSS Pseudo-Elements Test: Reference file</title>
+<link rel="author" title="Manuel Rego Casasnovas" href="mailto:rego@igalia.com">
+<script src="support/selections.js"></script>
+<style>
+  .green::selection {
+    color: green;
+  }
+</style>
+
+<p>Test passes if when selecting the content "visited" is selected with the default colors and "unvisited" has a green color and white background.</p>
+<span class="green"><main>
+  <span>visited</span>
+  <span class="green"><p>unvisited</p></span>
+</main></span>
+
+<script>selectNodeContents(document.querySelector("main"));</script><script>selectNodeContents(document.querySelector("main"));</script><script>selectNodeContents(document.querySelector("main"));</script><script>selectNodeContents(document.querySelector("main"));</script>

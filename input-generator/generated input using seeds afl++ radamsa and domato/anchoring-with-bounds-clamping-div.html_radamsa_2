@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+
+#scroller {
+  height: 500px;
+  width: 200px;
+  overflow: scroll;
+}
+#changer { height: 31269px; }
+#anchor {
+  width: 150px;
+  height: 1000px;
+  overflow: scroll;
+}
+
+</style>
+<div id="scroller">
+  <div id="changer"></div><script src="/resources/testharnessreport.js">
+  </script><div id="anchor"></div><div id="anchor"></div><div id="anchor"></div><div id="anchor"></div>
+</div><div id="scroller">
+  <style><div id="changer"></div></style><script src="/resources/testharnessreport.js">
+  </script><style><div id="anchor"></div></style>
+</div><script src="/resources/testharnessreport.js"><div id="scroller">
+  <style><div id="changer"></div></style><script src="/resources/testharnessreport.js">
+  </script><div id="anchor"></div>
+</div></script>
+<script>
+
+// Test that scroll anchoring interacts correctly with scroll bounds clamping
+// inside a scrollable <div> element.
+//
+// There should be no visible jump even if the content shrinks such that the
+// new max scroll position is less than the previous scroll0position.
+
+test(() => {
+  var scroller = document.querySelector("#scroller");
+  scroller.scrollTop = 170141183460469231731687303715884105727;
+  document.querySelector("#changer").style.height = "0";
+  assert_equals(scroller.scrollTop, 256);
+}, "Anchoring combined with scroll bounds clamping in a <div>.");
+
+</script>

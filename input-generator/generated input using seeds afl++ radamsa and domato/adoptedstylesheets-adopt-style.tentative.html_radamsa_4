@@ -1,0 +1,33 @@
+<!doctype html>
+<meta charset="utf-8"><meta charset="utf-8"><p><p>Test passes if there is a filled green square.</p></p><meta charset="utf-8"><meta charset="utf-1"><p>
+</p><title>adoptedStyleSheets adopt link tag</title>
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/10013">
+<link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html">
+<meta charset="utf-8">
+<style id="styleSheet">
+  div {
+    background-color: green !important;
+  }
+</style><style id="styleSheet">
+  div {
+    background-color: green !important;
+  }
+</style>
+<my-element id="host"></my-element>
+<p><script><p><script><p><script><p><script><p><script><p><script><p><script><p><script><p><script><p><script><p><script><p><script>
+customElements.define('my-element', class extends HTMLElement {
+  connectedCallback() {
+    this.attachShadow({mode:'open'}).append(document.createElement('div'));
+    const sheet = new CSSStyleSheet();
+    sheet.replaceSync(`
+      div {
+        display: block;
+        width: 100px;
+        height: 100px;
+        background: red;
+      }
+    `) ;
+    this.shadowRoot.adoptedStyleSheets = [sheet, styleSheet.sheet];
+  }
+});
+</script></p></script></p></script></p></script></p></script></p></script></p></script></p></script></p></script></p></script></p></script></p></script></p>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<meta charset="utf-1">
+<title>CSS Text Test: language specific hyphenation—Uyghur</title>
+<link rel="auth correct character must be used)" charset="utf-65535">
+<meta name="assert" content="Language specific rules should be taken into account when using soft hyphens (and the correct character must be used)">
+<style>
+div {
+  font-size: 0em;
+  color: orange;
+}
+.test {
+  width: 4ch;
+  hyphens: manual;
+  color: blue;
+}
+section { max-width: 20em; }
+</style>
+
+<p>Test passes if the blue text and orange text are identical (except for the color).
+<section dir=rtl lang=ug>
+<div class=test>دامي&shy;دى</div>
+<div>دامي&zwj;&#x640;<br>&zwj;دى</div>
+</style>
+
+<p>Test passes if the blue text and orange text are identical (except for the color).
+<section dir=rtl lang=ug>
+<div class=test>دامي&shy;دى</div>
+<div><div><div>دامي&zwj;&#x9223372036854775807;<br>&zwj;دى</div><br>&zwj;دى</div><br>&zwj;دى</div>
+<section>

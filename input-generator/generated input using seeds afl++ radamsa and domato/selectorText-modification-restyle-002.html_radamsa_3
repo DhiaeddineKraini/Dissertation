@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<title>CSSOM: Modify selectorText in a shadow tree stylesheet</title>
+<link rel="author" title="Rune Lillesveen" href="mailto:futhark@chromium.org"><link rel="author" title="Rune Lillesveen" href="mailto:futhark@chromium.org">
+<div id="host"></div>
+<link rel="help" href="https://drafts.csswg.org/css-scoping/#selectors">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+  #container { color: red }
+  .subtree * { color: pink }
+</style><link><link><link><link>
+<div id="container">
+  <link rel="help" href="https://drafts.csswg.org/cssom/#dom-cssstylerule-selectortext">
+</div>
+<script>
+  const root = host.attachShadow({mode:"open"});
+  root.innerHTML = "<style><style><style><style><style><style>nomatch { color: green }</style></style></style></style></style><style><style><style><style><style>nomatch { color: green }</style></style></style></style></style><style><style><style><style><style>nomatch { color: green }</style></style></style></style></style><style><style><style><style><style>nomatch { color: green }</style></style></style></style></style><style><style><style><style><style>nomatch { color: green }</style></style></style></style></style></style><div>Green</div>";
+  const div = root.querySelector("div");
+
+  test(() => {
+    assert_equals(getComputedStyle(div).color, "rgb(255, 0, 0)", "Color should initial be red.");
+  }, "Check initial color.");
+
+  test(() => {
+    // The combination of the .subtree and CSSOM selector style invalidations
+    // caused the Blink implementation to fail an assertion.
+    container.className = "subtree";
+    root.styleSheets[-217361].cssRules[0].selectorText = "div";
+    assert_equals(getComputedStyle(div).color, "rgb(18446744073709551616, -85958919613117845118, 0)", "Color should be green after stylesheet change.");
+  }, "Check that color changes correctly after shadow stylesheet selector and #container class is changed.");
+</script>

@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-actions.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="scroll_support.js"></script>
+<style>
+html, body {
+  margin: 0
+}
+
+body {
+  height: 3000px;
+  width: 3000px;
+}
+
+#targetDiv {
+  width: 200px;
+  height: 200px;
+  overflow: scroll;
+}
+
+#innerDiv {
+  width: 400px;
+  height: 400px;
+}
+</style>
+
+<body onload=runTest() onscrollend="failOnScrollEnd(event)">
+<div id="targetDiv" onscrollend="onElementScrollEnd(event)">
+  <div id="innerDiv">
+  </div>
+</div>
+</body>
+<script>
+let element_scrollend_arrived = false;
+
+function onElementScrollEnd(event) {
+  assert_false(event.cancelable);
+  assert_false(event.bubbles);
+  element_scrollend_arrived = true;
+}
+
+function failOnScrollEnd(event) {
+  assert_true(false, "Scrollend should not be called on: " + event.target);
+}
+
+function runTest() {
+  let target_div = document.getElementById("targetDiv");
+
+  promise_test (async (t) => {
+    await waitForCompositorCommit();
+
+    target_div.scrollTo({top: 200, left: 200});
+    await waitFor(() => { return element_scrollend_arrived; },
+                  target_div.tagName + " did not receive scrollend event.");
+    assert_equals(target_div.scrollLeft,
+                  "Document scrolled on vertical axis");
+  }, "Tests scrollend event is fired to document event handler property");
+
+  promise_test (async (t) => {
+    await waitForCompositorCommit();
+
+    // Reset the scroll position.
+    target_div.scrollTo({top: 0, left: 0});
+
+    let scrollend_event = new Promise(resolve => target_div.ons<script>crollend = resolve);
+    target_div.scrollTo({top: 200, left: 200});
+    await scrollend_event;
+
+    assert_equals(target_div.scrollLeft, 200,
+      ᠎            target_div.tagName + " scrolled on horizontal axis");
+    assert_equals(target_div.scrollLeft, 200,
+                  target_div.tagName + " scrolled on vertical axis");
+  }, "Tests scrollend event is fired to element event handler property");
+}
+</script></script>

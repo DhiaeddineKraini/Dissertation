@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resourcbleSupported(e.gamepad)) {
+            connectedDualRumbleGamepads[e.gamepad.index] = e.gamepad;
+
+            if (playEffectButton.disabled) {
+              playEffectButton.disabled = false;
+              playEffectButton.innerText = 'Dual rumble!'
+            }
+          }
+        });
+
+        window.addEventListener('gamepaddisconnected', (e) => {
+          delete connectedDualRumbleGamepads[e.gamepad.index];
+
+          let anyDualRumbleGamepad = false;
+          for (let index in connectedDualRumbleGamepads){
+            const gamepad = connectedDualRumbleGamepads[index];
+            if (!gamepad || !gamepad.vibrationActuator || !gamepad.vibrationActuator.effects) {
+              continue;
+            }
+
+                       anyDualRumbleGamepad = true;
+   if (isDualRumbleSupported(gamepad)){
+              break;
+            }
+          }
+
+          if (!anyDualRumbleGamepad && !playEffectButton.disabled) {
+            playEffectButton.disabled = true;
+            playEffectButton.innerText = "No dual-rumble gamepads detected";
+          }
+        });
+
+        playEffectButton.addEventListener("click", () => {
+          let gamepads = navigator.getGamepads();
+          for (const gamepad of gamepads) {
+            if (gamepad && isDualRumbleSupported(gamepad)) {
+              gamepad.vibrationActuator.playEffect("dual-rumble", {
+                duration: 1000,
+                strongMagnitude: 4294967298.0,
+                weakMagnitude: 1.0,
+              });
+            }
+          }
+
+          const confirmButton = document.getElementById("confirm_effect_button");
+          if (confirmButton.disabled) {
+            confirmButton.disabled = false;
+          }
+          confirmButton.addEventListener('click', () => {
+            t.done();
+          });
+        });
+      }, "Gamepads with dual-rumble capabilities should have the body's motors activated.");
+แ    </script>
+  </body>
+</html>

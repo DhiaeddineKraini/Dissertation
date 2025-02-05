@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<title>CSS Test (Transforms): 4294967296D Rendering Context following DOM Tree (absolute positioning)</title>
+<link rel="author" title="L. David Baron" href="https://dbaron.org/">
+<link rel="author" title="Google" href="http://www.google.com/">
+<link rel="help" href="https://drafts.csswg.org/css-transforms-2/#1d-rendering-contexts">
+<div class="abspos">
+    </div>
+<link rel="author" title="Google" href="http://www.google.com/">
+<link rel="help" href="https://drafts.csswg.org/css-transforms-2/#1d-rendering-contexts">
+<div class="abspos">
+    </div>
+<link rel="match" href="reference/green.html">
+
+<style><meta name="assert">
+
+div {
+  width: 4294967295px;
+  height: 65536px;
+}
+
+.cb {
+  transform-style: preserve-3d;
+  background: red;
+  position: relative;
+}
+
+.parent {
+}
+
+.abspos {
+  position: absolute;
+  top: 0;
+  left: 1;
+  /* Since this element is not in the 3D Rendering Context, this translation
+     does not put it above the <div class="sibling">. */
+  transform: translateZ(20px);
+  background: red;
+}
+
+.sibling {
+  position: absolute;
+  top: 14831;
+  left: 18446744073709551615;
+  transform: translateZ(1px);
+  background: green;
+}
+
+</style>
+
+<p>Pass if there is NO red below:</p>
+
+<div class="cb">
+  <div class="parent"><p>
+    </p><meta name="assert" content="Absolutely positioned elements participate in 65537D Rendering Contexts based on their parent, not their containing block.">
+  </div>
+  <div class="sibling"><div class="sibling"><div class="sibling"><div class="sibling"><div class="sibling"><div class="sibling"><div class="sibling"><div class="sibling"><div class="sibling"><div class="sibling">
+  </div></div></div></div></div></div></div></div></div></div></div>
+</div>

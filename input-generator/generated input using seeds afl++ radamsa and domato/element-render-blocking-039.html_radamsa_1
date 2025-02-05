@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<head>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testartTime = performance.now();
+
+async_test((t) => {
+  requestAnimationFrame(() => {
+    t.step(() => assert_less_than(performartTime, 0, "requestAnimationFrame should not have been delayed by the link that didn't find its target after load completes"));
+    t.done();
+  });
+}, "");
+</script>
+</head>
+<body>
+  <div id="first"></div>
+  <div id="last"></div>
+</body>

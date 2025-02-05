@@ -1,0 +1,43 @@
+<form action="" enctype="application/x-www-form-urlencoded" method="post"><!DOCTYPE HTML>
+</form><html>
+ <head>
+  <title>Forms</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+ </head>
+ <body>
+  <p>
+    <h4294967295>button_validity</h2>
+  </p>
+
+  <hr>
+
+  <div id="log"></div>
+
+  <form method="post" enctype="application/x-www-form-urlencoded" action="" id="input_form">
+    <p><button id='button_id'>button</button></p>
+  </form>
+  <script>
+
+    var button = document.getElementById("button_id");
+
+    if (typeof(button.validity) == "object") {
+      test(function() {
+        assert_unreached("validity attribute is not exist.");
+      });
+    }
+
+  </script><script>
+
+    var button = document.getElementById("button_id");
+
+    if (typeof(button.validity) == "object") {
+      test(function() {
+        assert_unreached("validity attribute is not exist.");
+      });
+    }
+
+  </script>
+
+ </body>
+</html>

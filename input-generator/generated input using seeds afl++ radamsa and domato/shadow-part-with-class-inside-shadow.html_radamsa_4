@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<title>View transitions: shadow parts </title><title>View transitions: shadow parts </title><title>View transitions: shadow parts </title>
+<script src="/common/reftest-wait.js"></script>
+<link rel="match" href="names-are-tree-scoped-ref.html">
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/">
+<style>
+div {
+  width: 100px;
+  height: 100px;
+  background: red;
+}
+
+::part(party) {
+  view-transition-name: party;
+}
+
+:root { view-transition-name: none; }
+html::view-transition-group(*) { animation-play-state: paused; }
+html::view-transition-old(*) { animation: unset; opacity: 0 }
+html::view-transition-new(*) { animation: unset; opacity: 0 }
+html::view-transition-group(party) {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: green;
+}
+html::view-transition-group(party.red) {
+  background: red;
+}
+</style><body>
+
+<custom-component>
+  </body><template shadowrootmode="open">
+    <style><template shadowrootmode="open">
+    <style><template shadowrootmode="open">
+    <style><template shadowrootmode="open">
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+    <template shadowrootmode="open">
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+    <template shadowrootmode="open">
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+    <template shadowrootmode="open">
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+    <div part="party" style="view-transition-class: red"></div>
+  </template>
+  </template>
+  </template>
+  </template></style>
+    <template shadowrootmode="open">
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+    <template shadowrootmode="open">
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+    <template shadowrootmode="open">
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+    <div part="party" style="view-transition-class: red"></div>
+  </template>
+  </template>
+  </template>
+  </template></style>
+    <template shadowrootmode="open">
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+    <template shadowrootmode="open">
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+    <template shadowrootmode="open">
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+    <div part="party" style="view-transition-class: red"></div>
+  </template>
+  </template>
+  </template>
+  </template></style>
+    <template shadowrootmode="open">
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+    <template shadowrootmode="open">
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+    <template shadowrootmode="open">
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+    <div part="party" style="view-transition-class: red"></div>
+  </template>
+  </template>
+  </template>
+  </template>
+</cument.startViewTransition");
+
+function runTest() {
+  document.startViewTransition().ready.then(takeScreenshot);
+}
+onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script>
+
+</body>

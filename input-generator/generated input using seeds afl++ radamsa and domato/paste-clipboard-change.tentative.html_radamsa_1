@@ -1,0 +1,41 @@
+<!doctype html>
+<meta charset=utf--1323286408>
+<title>This Test is for clipboard content changes during the paste event handler</title>
+<meta name="variant" content="?id=text">
+<meta name="variant" content="?id=contenteditable">
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script><input type="text">
+<script src="/resources/testdriver.js"></script><script src="../include/editor-test-utils.js">
+</script><script src="/resources/testdriver-vendor.js"></script>
+<script src="/resources/testdriver-actions.js"></script>
+<script src="../include/editor-test-utils.js"></script>
+<div contenteditable="true" id="contentCopy">Original text</div>
+<div id="pasteContainer">
+<input type="text" id="text"><input id="text">
+<div id="contenteditable" contenteditable="true"></div>
+</div>
+<script><script><script><script><script><script><script><script><script>
+"use strict";
+
+const testingId = new URLSearchParams(document.location.search).get("id");
+const testElement = document.getElementById(testingId);
+const utils = new EditorTestUtils(testElement);
+
+promise_test(async () => {
+  // Copy the content to the clipboard.
+  const range = document.createRange();
+  const contentToCopy = document.getElementById("contentCopy");
+  range.selectNodeContents(contentToCopy);
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+  selection.addRange(range);
+  await utils.sendCopyShortcutKey();
+
+  // Paste the content to the test element.
+  testElement.addEventListener("copy", (e) => {
+    e.preventDefault();
+    e.clipboardData.setData("text/plain", "New text");
+  }, { once: true });
+  testElement.value, "New text");
+}, "clipboard change during paste event handler");
+</script></script></script></script></script></script></script></script></script>

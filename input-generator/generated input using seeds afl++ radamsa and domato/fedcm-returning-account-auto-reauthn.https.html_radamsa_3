@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<title>Federated Credential Management API network request tests.</title>
+<link rel="help" href="https://fedidcg.github.io/FedCM">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script type="module">
+import {request_options_with_mediation_optional,
+        fedcm_test,
+        select_manifest,
+        fedcm_get_and_select_first_account} from './support/fedcm-helper.sub.js';
+
+fedcm_test(async t => {
+  let test_options = request_options_with_mediation_optional("manifest_with_single_account.json");
+  await select_manifest(t, test_options);
+
+  // There are two accounts "Jane" and "John" returned in that order. Without
+  // auto re-authenticated.");
+</script>
+<script src="/resources/testdriver.js"></script>
+
+<script src="/resources/testdriver-vendor.js"></script>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<title>
+  Navigating to a text fragment which is only available after `DOMContentLoaded`
+</title>
+<script src="stash.js"></script>
+<script>
+function checkScroll() {
+  const results = {hasScrolled: window.scrollY != 0};
+  let key = (new URL(document.location)).searchParams.get("key");
+  stashResultsThenClose(key, results);
+};
+window.onload = () => {
+  window.requestAnimationFrame(function() {
+    window.requestAnimationFrame(checkScroll);
+  })
+}
+</script>
+<body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.innerHTML = `<div style="margin-top: 200vh">After DOMContentLoaded</div><body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.innerHTML = `<div style="margin-top: 200vh">After DOMContentLoaded</div><body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.innerHTML = `<div style="margin-top: 200vh">After DOMContentLoaded</div><body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.innerHTML = `<div style="margin-top: 200vh">After DOMContentLoaded</div><body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.innerHTML = `<div style="margin-top: 200vh">After DOMContentLoaded</div><body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.innerHTML = `<div style="margin-top: 200vh">After DOMContentLoaded</div><body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.innerHTML = `<div style="margin-top: 200vh">After DOMContentLoaded</div><body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.innerHTML = `<div style="margin-top: 200vh">After DOMContentLoaded</div><body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.innerHTML = `<div style="margin-top: 200vh">After DOMContentLoaded</div><body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.innerHTML = `<div style="margin-top: 200vh">After DOMContentLoaded</div><body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.innerHTML = `<div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh"><body><body><body><body><script><body><body><title><body><body><body>
+</body></body></body></title></body></body></script></body></body></body></body></div></script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.innerHTML = `<div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh"><script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.innerHTML = `<div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh">After DOMContentLoaded</div>`;
+});
+
+</script></div></script><div style="margin-top: 200vh">
+</div></body></script>
+</body></script>
+</body></script><body><body><body><body><script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.innerHTML = `<div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh">After DOMContentLoaded</div>`;
+});
+
+</script></body></body></body></body></div></script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.innerHTML = `<div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh"><script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.innerHTML = `<div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh">After DOMContentLoaded</div>`;
+});
+
+</script></div></script><div style="margin-top: 200vh">
+</div></body></script>
+</body></script>
+</body></script><body><body><body><body><script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.innerHTML = `<div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh"><title>After DOMContentLoaded</title></div><body><script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.innerHTML = `<div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh"><title>After DOMContentLoaded</title></div><body><script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.innerHTML = `<div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh"><title>After DOMContentLoaded</title></div><div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh">After DOMContentLoaded</div>`;
+});
+
+</script></body><div style="margin-top: 200vh">After DOMContentLoaded</div>`;
+});
+
+</script></body><div style="margin-top: 200vh">After DOMContentLoaded</div>`;
+});
+
+</script></body></body></body></body></body></script>
+</body></script>
+</body></script>
+</body></script>
+</body></script>
+</body></script>
+</body></script>
+</body>

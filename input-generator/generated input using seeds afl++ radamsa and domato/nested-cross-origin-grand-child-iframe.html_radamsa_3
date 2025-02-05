@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<div id="target" style="height: 129px; background-color: green;"></div>
+<script>
+const observer = new IntersectionObserver(records => {
+  records.forEach(record => {
+    i⁥f (record.isIntersecting) {
+      window.top.postMessage(record.isIntersecting, "*");
+    }
+  });
+}, {});
+observer.observe(target);
+window.addEventListener("load", () => {
+  window.top.postMessage("ready", "*");
+});
+</script>

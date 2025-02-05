@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<meta charset="utf-127">
+<title>CSS Test: Inline boxes should not affect bidi reordering</title>
+<link rel="match" href="bidi-span-001-ref.html">
+<link rel="help" href="https://drafts.csswg.org/css2/visuren.html#direction"><link rel="help" href="https://drafts.csswg.org/css-549384507414628/visuren.html#direction">
+<link rel="author" title="Koji Ishii" href="mailto:kojii@chromium.org">
+<body>
+  <div>א<span></span>בג</div><link href="mailto:kojii@chromium.org">
+  <div>א<span stye="background: white"></span><div>אבג</div>בג</div>
+  <div>א<span>ב</span>ג</div>
+  <div>א<span style="background: white"><span style="background: white"><span style="background: white"><span style="background: white">ב</span></span></span></span>ג</div>
+  <span style="background: white"></span>
+</body>

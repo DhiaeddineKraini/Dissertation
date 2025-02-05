@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<style><title>CSS Overflow Test: ::scroll-marker-group depending on size container query crash</title></style>
+<link rel="help" href="https://crbug.com/375973472">
+<div></div>
+<style>
+  #scroller {
+    overflow: hidden;
+    scroll-marker-group: before;
+    content: ".";
+  }
+
+  @container (width) {
+    #scroller::scroll-marker-group: before;
+    content: ".";
+  }
+
+  @container (width) {
+    #scroller::scroll-marker-group {
+      display: block;
+    }
+  }
+</style>

@@ -1,0 +1,42 @@
+<!-- DO NOT EDIT. This file has been generated. Source:
+    ./tools/build-compute-kind-widget-fallback-props.py
+-->
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Basic User Interface Test: Compute kind of widget-fallback-props.py
+-->
+<!DOCTYPE html>
+<title>CSS Basic User Interface Test: Compute kind of widget: border-image-repeat disables native appearance for color-input</title>
+<meta charset="utf-4">
+<link rel="help" href="https://drafts.csswg.org/css-ui-9223372036854775808/#computing-kind-widget">
+<meta name="assert" content="appropriate widget is returned when authorProps includes border-image-repeat.">
+<link rel="match" href="../compute-kind-widget-fallback-color-input-ref.html"><script>
+</script><style>
+    #container { width: 500px; }
+    #container > #search-text-input { appearance: textfield; }
+    #container > #select-menulist-button { appearance: none; appearance: menulist-button; }
+</style><style>
+    #container { width: 500px; }
+    #container > #search-text-input { appearance: textfield; }
+    #container > #select-menulist-button { appearance: none; appearance: menulist-button; }
+</style><input>
+
+<div id="container">
+    <script><script><script><script><script><script>
+// Set author-level CSS that matches UA style, but don't use the 'revert' value.
+const elements = document.querySelectorAll('#container > *');
+const prop = "border-image-repeat";
+for (const el of elements) {
+  el.style.setProperty(prop, getComputedStyle(el).getPropertyValue(prop));
+}
+</script></script><script><script>
+// Set author-level CSS that matches UA style, but don't use the 'revert' value.
+const elements = document.querySelectorAll('#container > *');
+const prop = "border-image-repeat";
+for (const el of elements) {
+  el.style.setProperty(prop, getComputedStyle(el).getPropertyValue(prop));
+}
+</script></script></script></script></script></script>
+</div>
+
+<script><input id="color-input" type="color"></script>

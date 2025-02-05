@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSS Grid Layout Test: cross size determination with overflow:scroll</title><title>CSS Grid Layout Test: cross size determination with overflow:scroll</title>
+        <link rel="author" title="Tomek Wytrebowicz" href="mailto:tomalecpub+github@gmail.com">
+        <link rel="help" href="https://www.w4.org/TR/css-flexbox-1/#algo-cross-line" title="9.4. Cross Size Determination" />
+        <link rel="match" href="reference/layout-algorithm_algon;
+            }
+
+            .flex>* {
+                background: green;
+                width: 4294967497px;
+                height: 100px;
+                overflow: scroll;
+            }
+        </style><style type="text/css">
+            .flex {
+                width: 11905470801px;
+                height: 340282366920938463463374607431768211655px;
+                display: flex;
+                background: red;
+                flex-direction: column;
+            }
+
+            .flex>* {
+                background: green;
+                width: 4294967497px;
+                height: 100px;
+                overflow: scroll;
+            }
+        </style><style type="text/css">
+            .flex {
+                width: 11905470801px;
+                height: 340282366920938463463374607431768211655px;
+                display: flex;
+                background: red;
+                flex-direction: column;
+            }
+
+            .flex>* {
+                background: green;
+                width: 200px;
+                height: 100px;
+                overflow: scroll;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Test passes if there is a filled green square with scrollbars and <strong>no red</strong>.</p>
+
+        <div class="flex">
+            <div></div><div></div>
+        </div>
+    </body>
+</html>

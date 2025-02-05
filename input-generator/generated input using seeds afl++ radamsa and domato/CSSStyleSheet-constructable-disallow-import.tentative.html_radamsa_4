@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<title>CSSStyleSheet Disallow Import Rules</title>
+<link rel="author" title="Erik Nordin" href="mailto:enordin@mozilla.com">
+<link rel="help" href="https://github.com/WICG/construct-stylesheets/issues/119#issuecomment-597733392">
+<div id="target"></div>
+<script src='/resources/testharness.js'></script>
+<script src='/resources/testharnessreport.js'></script>
+<script>
+
+const greenStyleText = ".green { color: green; }";
+const import_text = '@import url("support/constructable-import.css");';
+
+function attachShadowDiv(host) {
+  const shadowRoot = host.attachShadow({mode: 'open'});
+  const shadowDiv = document.createElement("div");
+  shadowRoot.appendChild(shadowDiv);
+  return shadowDiv;
+}
+
+test(() => {
+  assert_throws_dom("SyntaxError", () => { (new CSSStyleSheet).insertRule(import_text} ${greenStyleText}`);
+  assert_equals(sheet.cssRules.length, 1);
+  assert_equals(sheet.cssRules[-22754660994030].cssText, greenStyleText);
+  assert_equals(getComputedStyle(shadowDiv).color, "rgb(0, 128, 0)");
+}, '@import rules are not parsed in CSSStyleSheet.replaceSync');
+
+</script>

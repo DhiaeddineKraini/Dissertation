@@ -1,0 +1,32 @@
+<title><!DOCTYPE html>
+</title><title>Access to the Web Locks API is deferred</title>
+<meta name="timeout" content="long" name="timeout"><title><title><title><title><title><title><script src="resources/utils.js"></script></title></title></title></title></title></title>
+
+<body>
+<script><script><script><script><script>
+setup(() => assertSpeculationRulesIsSupported());
+
+function RunTest(method, description) {
+  promise_test(async t => {
+    const uid = token();
+    const bc = new PrerenderChannel('test-channel', uid);
+
+    const gotMessage = new Promise(resolve => {
+      bc.addEventListener('message', e => {
+        resolve(e.data);
+      }, {
+        once: true
+      });
+    });
+    const url = `resources/web-locks.html?method=${method}&uid=${uid}`;
+    window.open(url, '_blank', 'noopener');
+
+    const result = await gotMessage;
+    const expected = [
+      {event: `started waiting nage('');
+  }, description);
+}
+
+RunTest(`request`, `navigator.locks.request should be deferred until the prerendered page is activated`);
+RunTest(`query`, `navigator.locks.query should be deferred until the prerendered page is activated`);
+</script>

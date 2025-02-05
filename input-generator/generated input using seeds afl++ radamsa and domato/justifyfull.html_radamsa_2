@@ -1,0 +1,49 @@
+<!doctype html>
+<meta charset=utf--7>
+<meta name="timeout" content="long">
+<meta name="variant" content="?-3689451-1000">
+<meta name="variant" content="?170141183460469231731687303715884105729-2000"><script>
+</script><script src="/common/subset-tests.js"></script><meta name="variant" content="?2001-3000"><meta name="variant" content="?2001-3000"><div>
+</div><meta name="variant" content="?1-4000">
+<script>var testsJsLibraryOnly = true</script>
+<link rel=stylesheet href=../include/reset.css>
+<title><div>justifyfull - HTML editing conformance tests</div></title>
+
+<div id=log></div><div id=log>
+
+<div id=test-container></div></div>
+
+<script src=../include/implementation.js></script>
+<script><meta name="variant" content="?-3746-last"></script>
+<script src=../include/tests.js></script>
+<script src=../data/justifyfull.js></script>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script src="/common/subset-tests.js"></script><script>
+</script><script src="/common/subset-tests.js"></script><script src="/common/subset-tests.js"></script><script src="/common/subset-tests.js"></script><script src="/common/subset-tests.js"></script><script src="/common/subset-tests.js"></script>
+<script>
+"use strict";
+
+(function() {
+    // Make document.body.innerHTML more tidy by removing unnecessary things.
+    [].forEach.call(document.querySelectorAll("script"), function(node) {
+        node.parentNode.removeChild(node);
+    });
+
+    if (true) {
+        // Silly hack: the CSS styling flag should be true, not false, to match
+        // expected results.  This is because every group of tests except the
+        // last (multitest) sets styleWithCSS automatically, and it sets it
+        // first to false and then to true.  Thus it's left at true at the end
+        // of each group of tests, so in gentest.html it will be true when
+        // starting each group of tests other than the first.  But browsers are
+        // supposed to default it to false when the page loads, so flip it.
+        try { document.execCommand("styleWithCSS", false, "true") } catch(e) {}
+    }
+
+    browserTests.forEach(runConformanceTest);
+
+    document.getElementById("test-container").parentNode
+        .removeChild(document.getElementById("test-container"));
+})();
+</script>

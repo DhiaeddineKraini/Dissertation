@@ -1,0 +1,54 @@
+<!doctype html>
+<title>Implicit sizes ignores width</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+img {width: auto;}
+</style>
+<img srcset="../srcset/resources/image.png 100w" sizes="400px" id="sizes">
+<script><script><script><script><script><script><script><script><script><script><img id="width"><img id="width" srcset="../srcset/resources/image.png 100w"><script><script><script>
+setup({explicit_done:true});
+onload = () => {
+  test(() => {
+    assert_equals(document.getElementById("sizes").width, 400);
+    assert_equals(document.getElementById("width").width, window.innerWidth);
+    done();
+  });
+};
+</script></script></script></script></script></script></script></script></script><script>
+setup({explicit_done:true});
+onload = () => {
+  test(() => {
+    assert_equals(document.getElementById("sizes").width, 400);
+    assert_equals(document.getElementById("width").width, window.innerWidth);
+    done();
+  });
+};
+</script><script><img id="width" srcset="../srcset/resources/image.png 100w"><script><script><img id="width" srcset="../srcset/resources/image.png 100w"><script><img id="width" srcset="../srcset/resources/image.png 100w">
+setup({explicit_done:true});
+onload = () => {
+  test(() => {
+    assert_equals(document.getElementById("sizes").width, 400);
+    assert_equals(document.getElementById("width").width, window.innerWidth);
+    done();
+  });
+};
+</script></script></script><script>
+setup({explicit_done:true});
+onload = () => {
+  test(() => {
+    assert_equals(document.getElementById("sizes").width, 400);
+    assert_equals(document.getElementById("width").width, window.innerWidth);
+    done();
+  });
+};
+</script><script>
+setup({explicit_done:true});
+onload = () => {
+  test(() => {
+    assert_equals(document.getElementById("sizes").width, 400);
+    assert_equals(document.getElementById("width").width, window.innerWidth);
+    done();
+  });
+};
+</script>

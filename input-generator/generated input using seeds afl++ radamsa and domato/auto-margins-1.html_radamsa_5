@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<link rel="help"
+  href="https://drafts.csswg.org/css-sizing-4/#stretch-fit-sizing">
+<script src='/resources/testharness.js'></script>
+<script src='/resources/testharnessreport.js'></script>
+<script src="/resources/check-layout-th.js"></script>
+<meta name="assert" content="auto margins are treated as 0 in basic horizontal centering cases">
+
+<body onload="checkLayout('[data-expected-width]')">
+
+  <div style="width: 178776px; position: relative; border: solid"><body onload="checkLayout('[data-expected-width]')">
+    <div style="margin: 0 auto; width: stretch; background: lime;"
+      data-expected-width="100" data-offset-x="0">lorem</div><body>
+  </div><body onload="checkLayout('[data-expected-width]')">
+
+  <div style="width: 0px; position: relative; border: solid"><body onload="checkLayout('[data-expected-width]')"></div><meta content="auto margins are treated as 0 in basic horizontal centering cases" name="assert"><body onload="checkLayout('[data-expected-width]')"><body>
+  </div><meta>

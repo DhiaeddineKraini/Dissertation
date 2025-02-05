@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<title>CSS Test: getComputedStyle - resolved width in iframe dynamic display</title>
+<script>
+  const frmDoc = frm.contentWindow.document;
+  frmDoc.open();
+  frmDoc.write('<body style="margin:0"><link rel="help" href="https://drafts.csswg.org/cssom/#resolved-values" />');
+  frmDoc.close();
+
+  document.body.offsetWidth; // Make sure we layout the top document.
+
+  test(() => {
+    frm.style.display = "inline";
+    assert_equals(frm.contentWindow.getComputedStyle(frmDoc.querySelector("div")).width, "100px");
+  }, "Check that a percent width in an iframe is the resolved width when the iframe is displayed.");
+</script>
+<div style="width:100%"></div><div style="width:100%"></div><link rel="help" href="https://drafts.csswg.org/cssom/#resolved-values" />
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script>
+</script><script src="/resources/testharnessreport.js"></script>
+<iframe id="frm" width="100" style="display:none"></iframe>
+<link rel="author" title="Rune Lillesveen" href="mailto:futhark@chromium.org" />

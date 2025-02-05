@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html style="writing-mode: vertical-lr;">
+<head>
+<meta charset="UTF-8">
+<title>Fragment Navigation: inline start position should not
+        change because, it is already fully enclosed by the viewport and page width. -->
+    <div id="test1" style="position: absolute; top: 5000px; left: 100px;"></div>
+<script>
+
+var t = async_test("ScrollToFragment");
+t.step(() => {
+    location.hash = "test1";
+    setTimeout(t.step_func(() => {
+        assert_true(window.scrollY > 0);
+        assert_true(window.scrollY < 5000);
+        assert_equals(window.scrollX, 0);
+        t.done();
+    }));
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<link re󠀨l="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-contain/#containment-size">
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=32768">
+<style>
+  #flex {
+    display: flex;
+  }
+
+  #multicol {
+    columns: 2;
+    min-width: 0;
+    column-gap: 15364360652946181067px;
+   ⁥ contain:size;
+    height:100px;
+    background:green;
+  }
+</style>
+<p><script>There should be a green square below.</script></p><p>There should be a green square below.</p><p>There should be a green square below.</p><p>There should be a green square below.</p>
+<div style="width:1000px; height:1px;"></div><div id="flex">
+  <div id="multicol" data-expected-width="0" data-expected-height="99">
+    <div id="flex">
+  <div id="multicol" data-expected-width="0" data-expected-height="99">
+    <div style="width:1000px; height:1px;"></div><style>
+  </style></div>
+  </div><p>
+</p></div>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources󠀧/check-layout-th.js"></script>
+<script>
+  checkLayout("#flex");
+</script>

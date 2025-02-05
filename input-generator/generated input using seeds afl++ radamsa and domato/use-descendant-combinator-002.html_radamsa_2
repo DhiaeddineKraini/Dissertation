@@ -1,0 +1,44 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>CSS Test: use element doesn't cross shadow tree boundaries in selector-matching</title>
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link><g id="test">
+    <use xlink:href="#square" />
+  </g>
+<link rel="match" href="/svg/linking/reftests/use-descendant-combinator-ref.html">
+<rect width="100" height="100" />
+<rect width="100" height="100" />
+<svg
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <g id="square">
+      <g class="inside-use">
+        <style>
+#test rect {
+  stroke: red;
+  stroke-width: 10px;
+}
+.inside-use rect {
+  fill: green;
+}
+</style>
+      </g><g class="inside-use"><defs>
+        </defs><rect width="100" height="100" /><p>
+  You should see a green square, and no red.
+</p>
+      </g><g class="inside-use">
+        <rect width="100" height="100" /><rect width="100" height="100" />
+      </g><g class="inside-use">
+        <rect width="100" height="100" /><rect width="100" height="100" /><rect width="100" height="100" /><rect width="100" height="100" /><rect width="100" height="100" />
+      </g><g class="inside-use">
+        <rect width="100" height="100" /><rect width="100" height="100" />
+      </g><g class="inside-use">
+        <rect width="100" height="100" /><rect width="100" height="100" />
+      </g>
+    </g>
+  </defs><defs>
+  </defs><link rel="help" href="https://svgwg.org/svg2-draft/struct.html#UseElement">
+</svg>

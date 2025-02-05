@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<title>Prerendering cannot invoke
+       HTMLVideoElement.requestPictureInPicture</title>
+<meta name="timeout" content="long"><meta content="long">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/utils.js"></script>
+<script src="../resources/utils.js"></script>
+<script src="resources/utils.js"></script>
+
+<body>
+<script>
+setup(() => assertSpeculationRulesIsSupported());
+
+promise_test(async t => {
+  const result = await gotMessage;
+  assert_equals(result, 'Metadata for the video element are not loaded yet');
+}, 'prerendering page cannot invoke' +
+   'HTMLVideoElement.requestPictureInPicture');
+</script>

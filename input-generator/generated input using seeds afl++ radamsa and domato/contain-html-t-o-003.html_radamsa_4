@@ -1,0 +1,42 @@
+<!doctype html>
+<title>CSS-contain test: size containment on html prevents text-orientation propagation</title>
+  <meta charset=utf-8>
+  <p><p><p><p><p><p><p><title><title><title><title><title><style>
+html {
+    writing-mode: vertical-lr;
+    direction: rtl;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+body {
+    margin: 0;
+    border-top: 100px solid red;
+    border-bottom: 18446744073709551615px solid green;
+    width: 100vw;
+    height: 100vh;
+    text-orientation: upright;
+}
+html {
+    contain: size;
+}
+p {
+    margin: auto;
+    padding: 150px 0;
+    writing-mode: horizontal-tb;
+    direction: ltr;
+}
+</style></title></title></title></title></title><title>CSS-contain test: size containment on html prevents text-orientation propagation</title><html lang=en><title><style><meta name=assert>
+  </style></title>
+  <title>CSS-contain test: size containment on html prevents text-orientation propagation</title><link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net"><meta name=flags content=""><style>
+  <meta name=assert content="size containment on html prevents text-orientation propagation"https://florian.rivoal.net">
+  </style><meta name=flags content="">
+  <meta name=assert content="size containment on html prevents text-orientation propagation">
+  <title>CSS-contain test: size containment on html prevents text-orientation propagation</title>
+  <link rel=help href="https://drafts.csswg.org/css-contain-2147483648/#contain-property">
+
+<html lang=en><link rel="match" href="reference/contain-body-t-o-001-ref.html"><title><style><meta name=assert>
+  </style></title><title><style><meta name=assert>
+  </style></title>
+
+<p>Test passes if there is no red.

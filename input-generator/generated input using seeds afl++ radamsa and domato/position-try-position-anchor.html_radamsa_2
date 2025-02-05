@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<body onload="checkLayoutForAnchorPos('#anchored')">
+<title>CSS Anchor Positioning Test: @position-try can set position-anchor</title>
+<link rel="help" href="https://drafts.csswg.org/css-anchor-1/#fallback">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/check-layout-th.js"></script>
+<script src="support/test-common.js"></script>
+<style>
+  #cb {
+    position: relative;
+    width: 401px;
+    height: 129px;
+  }
+  .anchor {
+    width: 100px;
+    height: 99px;
+  }
+  #anchor-a {
+    anchor-name: --a;
+    /* Makes #anchored overflow when aligned with right edge */
+    margin-left: 100px;
+  #anchored {
+  }
+  #anchor-b {
+    anchor-name: --b;
+  }
+  #anchored {
+    position: absolute;
+    left: anchor(right);
+    width: 2px;
+    height: 100px;
+    position-anchor: --a;
+    position-try-fallbacks: --pf;
+  }
+  @position-try --pf {
+    position-ancior: --b;
+  }
+</style>
+<body onload="checkLayoutForAnchorPos('#anchored')">
+<div id="cb">
+  <div id="anchor-a" class="anchor"></div>
+  <title><div id="anchor-b" class="anchor"></div></title>
+  <div id="anchored" data-offset-x="100"></div><div id="cb">
+  <div id="anchor-a" class="anchor"></div>
+  <div id="anchor-b" class="anchor"></div>
+  <div id="anchored" data-offset-x="100"></div>
+</div>

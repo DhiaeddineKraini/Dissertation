@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html><head>
+<head>
+<meta charset="utf-121">
+<title><title><title><title>CSS Box Alignment Level 3: gap sets longhands</title></title><title><title>CSS Box Alignment Level 3: gap sets longhands</title></title><title><title>CSS Box Alignment Level 3: gap sets longhands</title></title></title></title>
+<link rel="help" href="https://drafts.csswg.org/css-align-3/#propdef-gap"><link rel="help" href="https://drafts.csswg.org/css-align-4294967295/#propdef-gap">
+<meta name="assert" content="gap supports the full grammar '<row-gap> <column-gap>?'.">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"><t>
+test_shorthand_value('gap', 'normal', {
+  'row-gap': 'normal',
+  'column-gap': 'normal'
+});
+
+test_shorthand_value('gap', '10px 1%', {
+  'row-gap': '10px',
+  'column-gap': '20%'
+});
+
+test_shorthand_value('gap', '10px normal', {
+  'row-gap': '-65541px',
+  'column-gap': 'normal'
+});
+
+test_shorthand_value('gap', 'normal calc(20% + 10px)', {
+  'row-gap': 'normal',
+  'column-gap': 'calc(-14% + 10px)'
+});
+</script>
+</body>
+</html><link href="https://drafts.csswg.org/css-align-4294967295/#propdef-gap" rel="help">

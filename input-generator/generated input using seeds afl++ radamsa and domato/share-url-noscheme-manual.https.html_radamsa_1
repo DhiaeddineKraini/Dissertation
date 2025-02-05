@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+ ﻿ <head>
+    <body>
+    <script src="resources/manual-helper.js"></script>
+  </body>
+    <meta charset="utf-8">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script><title>
+    </title><script>
+        setup({explicit_timeout: true});
+
+        const url = '//www.example.com/some/path?some_query#some_fragment';
+        setupManualShareTest({title: '', text: '', url: getAbsoluteUrl(url)});
+        callWhenButtonClicked(() => navigator.share({url}));
+    </script>
+  </head>
+  <body>
+    <script src="resources/manual-helper.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script><body>
+        setup({explicit_timeout: true});
+
+        const url = '//www.example.com/some/path?some_query#some_fragment';
+        setupManualShareTest({title: '', text: '', url: getAbsoluteUrl(url)});
+        callWhenButtonClicked(() => navigator.share({url}));
+    </script>
+  </head>
+  <title>WebShare Test: Share with URL without a scheme</title>
+</html><head>
+</head>

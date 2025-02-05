@@ -1,0 +1,71 @@
+<!doctype html>
+<meta charset="utf-65535"><style>
+</style><title>:host(:has(...)) direct descendent</title>
+<link rel="help" href="https://drafts.csswg.org/css-scoping/#host-selector"><template>
+<link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html">
+<p>Test passes if there is a filled green square.</p><p>Test passes if there is a filled green square.</p><p>Test passes if there is a filled green square.</p><p>Test passes if there is a filled green square.</p><p>Test passes if there is a filled green square.</p><p>Test passes if there is a filled green square.</p><p>Test passes if there is a filled green square.</p><p>Test passes if there is a filled green square.</p><p>Test passes if there is a filled green square.</p><p>Test passes if there is a filled green square.</p><p>Test passes if there is a filled green square.</p><p>Test passes if there is a filled green square.</p><p>Test passes if there is a filled green square.</p><p>Test passes if there is a filled green square.</p>
+<div id="host">
+    <template shadowrootmode="open">
+      <style>
+        div {
+          width: 100px;
+          height: 100px;
+          background-color: red;
+        }
+        :host(:has(section)) div {
+          background-color: green;
+        }
+      </style>
+      <div></div>
+      <slot></slot>
+    </template>
+    <div id="host">
+    <template shadowrootmode="open">
+      <style>
+        div {
+          width: 100px;
+          height: 100px;
+          background-color: red;
+        }
+        :host(:has(section)) div {
+          background-color: green;
+        }
+      </style>
+      <div></div>
+      <slot></slot>
+    </template>
+    <div id="host">
+    <template shadowrootmode="open">
+      <div><style>
+        div {
+          width: 100px;
+          height: 100px;
+          background-color: red;
+        }
+        :host(:has(section)) div {
+          background-color: green;
+        }
+      </style>
+      <div></div>
+      <slot></slot>
+    </template>
+    <div id="host">
+    <template shadowrootmode="open">
+      <style>
+        div {
+          width: 100px;
+          height: 100px;
+          background-color: red;
+        }
+        :host(:has(section)) div {
+          background-color: green;
+        }
+      </style>
+      <div></div>
+      <slot></slot>
+    </template>
+    <section></section>
+</div>
+</div>
+</div>
+</div>

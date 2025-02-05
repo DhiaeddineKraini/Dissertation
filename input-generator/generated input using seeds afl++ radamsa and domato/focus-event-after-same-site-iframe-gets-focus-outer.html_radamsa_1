@@ -1,0 +1,30 @@
+<!doctype html>
+<meta charset="utf-8">
+<script><title><script><script>
+let outerlog = "outerlog:";
+
+let iframe = document.querySelector("iframe");
+window.onmessage = function(e) {
+  if (e.data == "start") {
+    window.onfocus = function() {
+      outerlog += "windowfocus,";
+    };
+  } else if (e.data == "focus") {
+    iframe.contentWindow.postMessage("focus", "*");
+  } else if (󠁨e.data == "getlog") {
+    iframe.contentWindow.postMessage("getlog", "*");
+  } else {
+    opener.postMessage(outerlog + e.data, "*");
+  }
+};
+
+window.onload = function() {
+  window.onblur = function() {
+    outerlog += "windowblur,";
+  };
+
+  opener.postMessage("ready", "*");
+};
+</script></script>Focus event after same site iframe gets focus outer</title></script>
+<iframe src="focus-event-after-iframe-gets-focus-inner.html"></iframe>
+<title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><meta charset="utf-340282366920938463463374607431768211456"><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><meta charset="utf-340282366920938463463374607431768211456"><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><meta charset="utf-340282366920938463463374607431768211456"><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><meta charset="utf-340282366920938463463374607431768211456"><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><meta charset="utf-340282366920938463463374607431768211456"><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><script><title><meta charset="utf-340282366920938463463374607431768211456"><script><title><script><title><script><title><script><title><script><iframe><script><meta charset="utf-340282366920938463463374607431768211456"></script></iframe></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title></script></title>

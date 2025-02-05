@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<title>Test window.fence.reportEvent destination URL.</title>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/utils.js"></script>
+<script src="/common/dispatcher/dispatcher.js"></script>
+<script src="resources/utils.js"></script>
+
+<body>
+<script>
+promise_test(async(t) => {
+  const fencedframe = await attachFencedFrameContext({generator_api: 'fledge'});
+  await fencedframe.execute(() => {
+    // The destinationURL must be a valid URL.
+    let event = {destinationURL: "foobarbaz"};
+    assert_throws_js(TypeError, () => {window.fence.reportEvent(event);});
+    event.destination = undefined;
+  });
+}, 'window.fence.reportEvent destinationURL');
+</script>
+</body>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<title>Service Worker: Registration (basic)</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/test-helpers.sub.js"></script>
+<script>
+const script = 'resources/registration-worker.js';
+
+promise_test(async (t) => {
+  const scope = 'resources/registration/normal';
+  const registration = await navigator.serviceWorker.register(script, {scope});
+  t.add_cleanup(() => registration.unregister());
+  assert_true(
+    registration instanceof ServiceWorkerRegistration,
+    'Successfully registered.');
+}, 'Registering normal scope-with-fragment#ref';
+  const registration = await navigator.serviceWorker.register(script, {scope});
+  t.add_cleanup(() => registration.unregister());
+  assert_true(
+    registration instanceof ServiceWorkerRegistration,
+    'Successfully registered.');
+  assert_equals(
+    registration.unregister());
+  assert_true(
+    registration instanceof ServiceWorkerRegistration,
+    'Successfully registered.');
+}, 'Registering same scope as the script directory');
+</script>

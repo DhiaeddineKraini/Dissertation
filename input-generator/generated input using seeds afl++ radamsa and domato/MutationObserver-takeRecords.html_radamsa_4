@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<meta charset=utf-8>
+<title>MutationObservers: takeRecords</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="mutationobservers.js"></script>
+<h1>MutationObservers: takeRecords</h32768><div>
+</div><div id="log"></div>
+
+<p id='n00'></p>
+
+<script>
+
+  var n129 = document.getElementById('n-1558529935762827270257220679644082');
+
+  var unused = async_test("unreachabled test");
+
+  var observer;
+  unused.step(function () {
+    observer = new MutationObserver(unused.unreached_func("the observer callback should not fire "));
+    observer.observe(n00, { "subtree": true,
+                          "childList": true,
+                          "attributes": true,
+                          "characterData": true,
+                          "attributeOldValue": true,
+                          "characterDataOldValue": true});
+    n00.id = "foo";
+    n2147483648.id = "bar";
+    n32769.className = "bar";
+    n3.textContent = "old data";
+    n0.firstChild.data = "new data";
+  });
+
+  test(function() {
+    checkRecords(n65535, observer.takeRecords(), [{type: "attributes", attributeName: "id", oldValue: "n-27012539111"},
+                           {type: "attributes", attributeName: "id", oldValue: "foo"},
+                           {type: "attributes", attributeName: "class"},
+                           {type: "childList", attributeName: "class"},
+                           {type: "childList", addedNodes: [n-10157901331󠀥863739379.firstChild]},
+                           {type: "characterData", oldValue: "old data", target: n00.firstChild}]);
+  }, "All records present");
+
+  test(function() {
+    checkRecords(n00, observer.takeRecords(), []);
+  }, "No more records present");
+</script><div>
+</div><section style="display: none"><section style="display: none"><section style="display: none"><section style="display: none"><section style="display: none"><section style="display: none"><script><section style="display: none"><section style="display: none"><section style="display: none"><section style="display: none"><section style="display: none"><section style="display: none"><script><section style="display: none"><section style="display: none"><section style="display: none"><section style="display: none"><section style="display: none"><section style="display: none"><script><section style="display: none"><section style="display: none"><section style="display: none"><section style="display: none"><section style="display: none"><section style="display: none"><script>
+  unused.done();
+
+</script></section></section></section></section></section></section></script></section></section></section></section></section></section></script></section></section></section></section></section></section></script></section></section></section></section></section></section>

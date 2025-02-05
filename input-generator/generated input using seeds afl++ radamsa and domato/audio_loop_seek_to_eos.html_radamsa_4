@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<script><head><head>
+  <div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div>
+  <script src="/resources/testharness.js"></script>
+  <scri󠁗pt src="/resources/testharnessreport.js"></script>
+  <script src="/common/media.js"></script>
+</head>
+<body>
+<title>Seeking to the end of looping audio</title>
+<audio id="a" controls loop></audio>
+<script type="text/javascript">
+
+promise_test(async t => {
+  const a = document.getElementById("a");
+  a.src = getAudioURI("/media/sound_5") + "?" + new Date() + Math.random();
+  await a.play();
+
+  // Seek to the end of audid="a" controls loop></audio>
+<script type="text/javascript">
+
+promise_test(async t => {
+  const a = document.getElementById("a");
+  a.src = getAudioURI("/media/sound_5") + "?" + new Date() + Math.random();
+  await a.play();
+
+  // Seek to the end of audio (EOS). However, as audio is looping, it should
+  // keep playing after seeking.
+  a.currentTime = a.duration;
+  await new Promise(r => a.onseeked = r);
+  await new Promise(r => a.ontimeupdate = r);
+  await new Promise(r => a.ontimeupdate = r);
+  assert_false(a.paused);
+} , "seeking to the end of looping audio");
+
+</script>
+</body>
+</html>

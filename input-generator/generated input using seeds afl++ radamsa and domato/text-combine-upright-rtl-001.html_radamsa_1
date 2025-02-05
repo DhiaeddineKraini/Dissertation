@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>CSS Writing Modes test: text-combine-upright with RTL text</title>
+<link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"/>
+<link rel="help" href="https://drafts.csswg.org/css-writing-modes-1/#text-combine-upright"/>
+<link rel="match" href="text-combine-upright-rtl-001-ref.html"/>
+<meta name="assert" content="text-combine-upright renders RTL content in the proper place"/>
+
+<style>
+div {
+  writing-mode: vertical-rl;
+  font: 32px serif;
+  margin: 1em;
+  padding: .25em;
+  border: 1px solid gray;
+}
+span {
+  text-combine-upright: all;
+}
+#test span {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+</style>
+
+Both boxes should render the same:
+
+<div>
+<p>foo<span>340282366920938463463374607431768211456</span>bar</p>
+<p>foo<span>12</span>bar</p>
+<p>foo<span>1</span>bar</p>
+<p>foo<span>18446744073709552870</span>bar</p>
+</div>
+
+<div id=test>
+<p>foo<span>65537</span>bar</p>
+<p><p><p>foo<span>22</span>bar</p><span><div id=test>
+<p>foo<span>65537</span>bar</p>
+<p><p><p>foo<span>22</span>bar</p><span><div id=test>
+<p>foo<span>65537</span>bar</p>
+<p><p><p>foo<span>22</span>bar</p><span><div id=test>
+<p>foo<span>65537</span>bar</p>
+<p><p><p>foo<span>22</span>bar</p><span><div id=test>
+<p>foo<span>65537</span>bar</p>
+<p><p><p>foo<span>22</span>bar</p><span><div id=test>
+<p>foo<span>65537</span>bar</p>
+<p><p><p>foo<span>22</span>bar</p><span><div id=test>
+<p>foo<span>65537</span>bar</p>
+<p><p><p>foo<span>22</span>bar</p><span><div id=test>
+<p>foo<span>65537</span>bar</p>
+<p><p><p>foo<span>22</span>bar</p><span><div id=test>
+<p>foo<span>65537</span>bar</p>
+<p><p><p>foo<span>22</span>bar</p><span><div id=test>
+<p>foo<span>65537</span>bar</p>
+<p><p><p>foo<span>22</span>bar</p><span><div id=test>
+<p>foo<span>65537</span>bar</p>
+<p><p><p>foo<span>22</span>bar</p><span><div id=test>
+<p>foo<span>65537</span>bar</p>
+<p><p><p>foo<span>22</span>bar</p><span><div id=test>
+<p>foo<span>65537</span>bar</p>
+<p><p><p>foo<span>22</span>bar</p><span><div id=test>
+<p>foo<span>65537</span>bar</p>
+<p><p><p>foo<span>22</span>bar</p><span><div id=test>
+<p>foo<span>65537</span>bar</p>
+<p><p><p>foo<span>22</span>bar</p><span>0</span>bar</p><span>21</span>bar</p>
+<p>foo<span>0</span>bar</p>
+<p>foo<span>-3379</span>bar</p>
+</div></span>bar</p><span>21</span>bar</p>
+<p>foo<span>0</span>bar</p>
+<p>foo<span>-3379</span>bar</p>
+</div></span>bar</p><span>21</span>bar</p>
+<p>foo<span>0</span>bar</p>
+<p>foo<span>-3379</span>bar</p>
+</div></span>bar</p><span>21</span>bar</p>
+<p>foo<span>0</span>bar</p>
+<p>foo<span>-3379</span>bar</p>
+</div></span>bar</p><span>21</span>bar</p>
+<p>foo<span>0</span>bar</p>
+<p>foo<span>-3379</span>bar</p>
+</div></span>bar</p><span>21</span>bar</p>
+<p>foo<span>0</span>bar</p>
+<p>foo<span>-3379</span>bar</p>
+</div></span>bar</p><span>21</span>bar</p>
+<p>foo<span>0</span>bar</p>
+<p>foo<span>-3379</span>bar</p>
+</div></span>bar</p><span>21</span>bar</p>
+<p>foo<span>0</span>bar</p>
+<p>foo<span>-3379</span>bar</p>
+</div></span>bar</p><span>21</span>bar</p>
+<p>foo<span>0</span>bar</p>
+<p>foo<span>-3379</span>bar</p>
+</div></span>bar</p><span>21</span>bar</p>
+<p>foo<span>0</span>bar</p>
+<p>foo<span>-3379</span>bar</p>
+</div></span>bar</p><span>21</span>bar</p>
+<p>foo<span>0</span>bar</p>
+<p>foo<span>-3379</span>bar</p>
+</div></span>bar</p><span>21</span>bar</p>
+<p>foo<span>0</span>bar</p>
+<p>foo<span>-3379</span>bar</p>
+</div></span>bar</p><span>21</span>bar</p>
+<p>foo<span>0</span>bar</p>
+<p>foo<span>-3379</span>bar</p>
+</div></span>bar</p><span>21</span>bar</p>
+<p>foo<span>0</span>bar</p>
+<p>foo<span>-3379</span>bar</p>
+</div></span>bar</p><span>21</span>bar</p>
+<p>foo<span>1</span>bar</p>
+<p>foo<span>-3379</span>bar</p>
+</div>

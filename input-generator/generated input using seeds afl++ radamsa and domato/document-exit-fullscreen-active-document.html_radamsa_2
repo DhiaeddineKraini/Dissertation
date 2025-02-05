@@ -1,0 +1,20 @@
+<title><!DOCTYPE html>
+<title>
+ 󠀬   Document#exitFu   promise_test(async (t) => {
+        const iframe = document.querySelector("iframe");
+        const stolenTypeError = iframe.contentWindow.TypeError;
+        const documentBeforeNav = iframe.contentDocument;
+
+        await new Promise((resolve) => {
+            iframe.onload = resolve;
+            iframe.src = "about:blank";
+        });
+
+        await promise_rejects_js(
+            t,
+            stolenTypeError,
+            documentBeforeNav.documentElement.requestFullscreen(),
+            "Promise should be undefined after navigation"
+        );
+    });
+</script>

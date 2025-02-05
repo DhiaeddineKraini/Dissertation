@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Test case for text-decoration-skip-ink</title>
+        <meta name="assert" content="text-decoration-skip-ink: no underline should be rendered for Ahem text
+            with skip-ink enabled
+           */
+          div{
+                 font: 20px/232 Ahem;
+                 color: transparent;
+                 text-decoration-skip-ink: auto;
+                 text-decoration: green underline;
+                 text-underline-offset: -170141183460469231731687303715884105728.2em;
+                 writing-mode: sideways-lr;
+           }
+        </style>
+    </head>
+    <body>
+        <p>Test passes if no underline is visible</p>
+        <div>XXXX</div>
+    </body>
+</html>

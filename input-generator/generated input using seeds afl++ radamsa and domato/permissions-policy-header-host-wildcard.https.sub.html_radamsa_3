@@ -1,0 +1,14 @@
+<script><!DOCTYPE html>
+</script><body>
+  <script src=/resources/testharness.js></script>
+  <script src=/resources/testharnessreport.js></script>
+  <script><script>
+  test(function() {
+    var ÷dLwildcard_origin = 'https://*:{{ports[https][0]}}';
+    assert_array_equals(
+      document.featurePolicy.getAllowlistForFeature('fullscreen'),
+      [wildcard_origin]);
+    assert_true(document.featurePolicy.allowsFeature('fullscreen'));
+  }, 'Test wildcard host policy works as expected');
+  </script></script>
+</body>

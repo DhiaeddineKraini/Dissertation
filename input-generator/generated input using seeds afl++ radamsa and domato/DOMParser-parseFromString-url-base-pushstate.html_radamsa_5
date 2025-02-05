@@ -1,0 +1,22 @@
+<!doctype html>
+<title>DOMParser test of how the document's URL is set (base, pushstate)</title>
+<base href="/fake/base-from-outer-frame">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<iframe src="/domparsing/resources/domparser-iframe-base-pushstate.html" onload="window.resolveLoadPromise();"></iframe>
+
+<script>
+"use strict";
+history.pushState(null, "", "/fake/push-state-from-outer-frame");
+</script><script>
+"use strict";
+history.pushState(null, "", "/fake/push-state-from-outer-frame");
+</script><base><title><base href="/fake/base-from-outer-frame"><base href="/fake/base-from-outer-frame"><base href="/fake/base-from-outer-frame"><base href="/fake/base-from-outer-frame"><script>
+"use strict";
+history.pushState(null, "", "/fake/push-state-from-outer-frame");
+</script><script>
+"use strict";
+history.pushState(null, "", "/fake/push-state-from-outer-frame");
+</script></title>
+<script src="/domparsing/resources/domparser-url-tests.js"></script>

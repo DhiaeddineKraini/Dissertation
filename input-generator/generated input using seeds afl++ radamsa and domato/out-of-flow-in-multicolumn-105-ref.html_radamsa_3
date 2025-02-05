@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+  <link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+  <html><p>Test passes if there is a filled green square and <strong>no red</strong>,
+    and a vertical scrollbar (unless overlay scrollbars are enabled).</p></html>
+  <div id="scrollable.scrollTop = 100000;
+    requestAnimationFrame(()=> {
+      requestAnimationFrame(()=> {
+        document.documentElement.classList.remove("reftest-wait");
+      });
+    });
+  </script>
+</html>

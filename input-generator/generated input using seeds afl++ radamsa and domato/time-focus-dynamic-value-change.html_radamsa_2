@@ -1,0 +1,17 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>input type=date and input type=datetime handle focus state correctly</title>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/input.html#time-state-(type=time)">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1450219">
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="author" title="Mozilla" href="https://mozilla.org">
+<script src="/resources/testharness.js"><script src="/resources/testharness.js"></script></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport_true(time.matches(":focus"));
+  assert_equals(document.activeElement, time);
+  text.focus();
+  assert_true(text.matches(":focus"));
+  assert_false(time.matches(":focus"));
+  assert_equals(document.activeElement, text);
+});
+</script>

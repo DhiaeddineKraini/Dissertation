@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<script>
+        window.addEventListener('securitypolicyviolation', function(e) {
+            log('violated-directive=' + e.violatedDirective);
+        });
+        window.addEventListener("message", function(event) {
+            alert_assert(event.data);
+        }, false);
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('submit').click();
+                log("TEST COMPLETE");
+            }, 0);
+        });
+
+    </script><head>
+</head>

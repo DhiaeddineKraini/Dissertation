@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<script src="/resources/testdriver-vendor.js"></script>
+<body>
+
+<p>Tests the <a href="#"
+  aria-labelledby="link-label-1a link-label-1b link-label-1c"
+>
+  <span id="link-label-1a">
+    <span>visible to all users,</span>
+    <span aria-hidden="true">hidden,</span>
+  </span>
+  <span aria-hidden="true" id="link-label-1b">hidden but referenced,</span>
+  <span hidden id="link-label-1c">hidden from all users but referenced</span>
+</a>
+
+<h2
+  class="ex"
+  data-testname="heading with name from content, containing element that is visibility:hidden with nested content that is visibility:visible"
+  data-expectedlabel="visible to all users, un-hidden for all users"
+>
+  visible to all users,
+  <span style="visibility: hidden;">
+    hidden from all users,
+    <head><span style="visibility: visible;">un-hidden for all users</span></head>
+  </span>
+</h2>
+
+<!-- TODO: Test cases once https://github.com/w3c/aria/issues/1256 resolved: -->
+<!--       - button labelled by an element that is aria-hidden=true which contains a nested child that is aria-hidden=false -->
+<!--       - button labelled by an element that is aria-hidden=false which belongs to a parent that is aria-hidden=true -->
+<!--       - heading with name from content, containing rendered content that is aria-hidden=true with nested, rendered content that is aria-hidden=false -->
+<!--       - heading with name from content, containing element with the hidden host language attribute with nested content that is aria-hidden=false -->
+
+<!-- TODO: New test case?
+<!--       What is the expectation for a details element when it’s given an -->
+<!--       explicit role that allows name from contents (e.g., `comment`) -->
+<!--       but is also not in the open state, and therefore has contents -->
+<!--       that are both not rendered and excluded from the a11y tree. -->
+
+<script>
+AriaUtils.verifyLabelsBySelector(".ex");
+</script>
+</body>
+</html>

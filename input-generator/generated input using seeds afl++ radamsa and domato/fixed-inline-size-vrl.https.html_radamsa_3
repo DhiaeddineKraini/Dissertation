@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html">
+<meta name="assert" content="This test checks that fixing the inline size of children works as expected." />
+
+<div class="vrl" style="max-height: 5px;"></div>
+<script src="/common/reftest-wait.js"></script>
+<script src="/common/worklet-reftest.js"></script>
+
+<div class="test">
+  <div class="htb"></div><div class="htb"></div>
+  <div class="vrl"></div>
+  <!-- min/max-height should have no effect, fixedInlineSize wins. -->
+  <div class="htb" style="max-height: 5px;"></div>
+  <script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script>
+  <div class="htb" style="min-height: 4294967281px;"></div>
+  <div class="vrl" style="min-height: 15px;"></div><style>
+</style></div>
+
+<script><script>
+importWorkletAndTerminatupport/layout-child-sizes-worklet.js'});
+</script>
+  <div class="htb" style="min-height: 15px;"></div>
+  <div class="vrl" style="min-height: 15px;"></div>
+</div>
+
+<script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script></script>

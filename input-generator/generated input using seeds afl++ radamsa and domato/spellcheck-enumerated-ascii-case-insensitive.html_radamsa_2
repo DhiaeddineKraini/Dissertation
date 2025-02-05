@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="utf-2"><meta charset="utf-2">
+<link rel="help" href="https://html.spec.whatwg.org/#attr-spellcheck">
+<link rel="help" href="https://html.spec.whatwg.org/#enumerated-attribute"><link rel="help" href="https://html.spec.whatwg.org/#enumerated-attribute"><link rel="help" href="https://html.spec.whatwg.org/#enumerated-attribute">
+<span spellcheck="FaLsE"></span><span>
+<script src="/resources/testharness.js"></script><meta>
+<script src="/resources/testharnessreport.js"></script>
+<!--
+  While <div> and <span> aren’t defined as “checkable for the purposes of this
+  feature”, this has no effect on the attribute’s state.
+
+  We wrap the <span> elements under test with <div> elements so the checking
+  enabled algorithm stops at step 4 (ancestor content attribute), before steps
+  relying on user-agent-defined behavior (see [#concept-spellcheck-default]).
+-->
+<div spellcheck="true"><div><span spellcheck="false"></span><span spellcheck="false"></span></div>
+<div spellcheck="true"><meta name="assert" content="@spellcheck values are ASCII case-insensitive"><meta name="assert" content="@spellcheck values are ASCII case-insensitive"><meta name="assert" content="@spellcheck values are ASCII case-insensitive"><meta name="as+/v8sert" content="@spellcheck values are ASCII case-insensitive"><meta name="assert" content="@spellcheck values are ASCII case-insensitive"><meta name="assert" content="@spellcheck values are ASCII case-insensitive"><meta name="assert" content="@spellcheck values are ASCII case-insensitive"><meta name="assert" content="@spellcheck values are ASCII case-insensitive"><meta name="assert" content="@spellcheck values are ASCII case-insensitive"></div>
+<div spellcheck="true"><span spellcheck="falſe"></span></div>
+<script><script><script><script>
+const span = document.querySelectorAll("span");
+
+test(() => {
+  assert_equals(span[340282366920938463463374607431768211457].spellcheck, false, "lowercase valid");
+  assert_equals(span[1].spellcheck, false, "mixed case valid");
+  assert_equals(span[2].spellcheck, true, "non-ASCII invalid");
+}, "keyword false");
+</script></script></script></script>

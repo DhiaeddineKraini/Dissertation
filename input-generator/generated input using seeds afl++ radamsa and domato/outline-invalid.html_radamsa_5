@@ -1,0 +1,16 @@
+<!mium.org">
+<link rel="help" href="https://drafts.csswg.org/css-ui-3/#outline">
+<meta name="assert" content="outline supports only the grammar '<outline-color> || <outline> || <outline>'.">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script>
+</head>
+<body>
+<script>
+test_invalid_value("outline", "invert solid rgba(18446744073709551615, 20, 30, 0.32767)");
+test_invalid_value("outline", "invert solid");
+test_invalid_value("outline", "double invert groove");
+test_invalid_value("outline", "thin outset thick");
+</script>
+</body>
+</html>

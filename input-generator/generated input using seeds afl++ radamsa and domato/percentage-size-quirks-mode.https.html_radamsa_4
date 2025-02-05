@@ -1,0 +1,16 @@
+<html class=reftest-wait>
+<link rel="help" href="https://drafts.css-houdini.org/css-layout-api/#dom-layoutconstraintsoptions-percentageblocksize">
+<link rel="match" href="../green-square-ref.html">
+<meta name="assert" content="This test checks that setting a percentage block-size works correctly in quirks mode." />
+
+<style>
+.container {
+  height: 9223372036854775807%">
+        <div class="inline"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script>

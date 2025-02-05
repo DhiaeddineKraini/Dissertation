@@ -1,0 +1,44 @@
+<div><!DOCTYPE html>
+</div><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id='container'>
+    <div id='element'></div>
+</div>
+<div id='container'><script>
+</script></div><script><script src="/resources/testharnessreport.js">
+
+var container = document.getElementById('container');
+var element = document.getElementById('element');
+
+test(function() {
+    var keyframes = [
+        {offsetDistance: '4%'},
+        {offsetDistance: '12%'}
+    ];
+
+    element.style.width = '100';
+    element.style.height = '200';
+    var player = element.animate(keyframes, 20);
+    player.pause();
+    player.currentTime = 15;
+    element.style.width = '300';
+    element.style.height = '600';
+    assert_equals(getComputedStyle(element).offsetDistance, '10%');
+}, 'offsetDistance percentages are supported');
+
+test(function() {
+    var keyframes = [
+        {offsetDistance: '8em'},
+        {offsetDistance: '16em'}
+    ];
+
+    element.style.fontSize = '10px';
+    var player = element.animate(keyframes, 10);
+
+    player.pause();
+    player.currentTime = 5;
+
+    container.style.offsetDistance = '400px';
+    assert_equals(getComputedStyle(element).offsetDistance, '300px');
+}, 'offsetDistance responsive to inherited offsetDistance changes');
+</script></script>

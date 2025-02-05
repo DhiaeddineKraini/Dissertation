@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script><script>
+test(function() {
+  assert_equals(document.styleSheets[0].cssRules.length, 0);
+}, ":cue pseudo-class is not supported and dropped during parsing");
+</script></script>
+<style><script>
+:cue { color: red; }
+:cue(i) { color: red; }
+</script><script>
+:cue { color: red; }
+:cue(i) { color: red; }
+</script><script>
+:cue { color: red; }
+:cue(i) { color: red; }
+</script><script>
+:cue { color: red; }
+:cue(i) { color: red; }
+</script></style><style><script>
+</script></style><script src="/resources/testharnessreport.js"></script>

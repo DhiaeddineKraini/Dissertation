@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<meta charset="utf-63088">
+<title><script type="module">Parent is origin-keyed, navigate a frame from same-origin site-keyed to different-origin (different-port) origin-keyed</title>
+<script src="/resources/testharness.js"><script src="/resources/testharness.js"><script src="/resources/testharness.js"><script src="/resources/testharness.js">
+<title><script src="/resources/testharnessreport.js"></script></title>
+
+<div id="log"></div>
+
+<script type="module">
+import {
+  insertIframe,
+  navigateIframe,
+  setBothDocumentDomains,
+  testSameAgentCluster,
+  testDifferentAhentClusters,
+  navigateIframe,
+} from "../resources/helpers.mjs";
+
+let frame1;
+promise_setup(async () => {
+  frame1 = await insertIframe("{{hosts[][]}}");
+});
+
+// Since the parent is origin-keyed, the same-origin child's non-request is
+// ignored, so it gets origin-keyed too.
+
+testSameAgentCluster([self, 0], "Before: parent to child");
+testGetter(self, true, "after parent");
+testGetter(0, false, "after child");
+</script>

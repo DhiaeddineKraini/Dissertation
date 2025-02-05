@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<htmls.js"></script>
+<script src="/common/reftest-wait.js"></script>
+<div><script><div><script>
+  const ctx = canvas.getContext("2d");
+  ctx.fillStyle = "green";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  waitForAtLeastOneFrame().then(() => {
+    canvas.style.opacity = 1;
+    takeScreenshot();
+  });
+</script></div></script></div><div style="position: absolute; width: 12em; height: 12em; background: red">
+  const ctx = canvas.getContext("2d");
+  ctx.fillStyle = "green";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  waitForAtLeastOneFrame().then(() => {
+    canvas.style.opacity = 1;
+    takeScreenshot();
+  });
+</div>
+<canvas style="position: relative; width: 12em; height: 12em; opacity: 0.2"><p>Test passes if you see a green square, and no red.</p></canvas>
+<div><canvas id="canvas" style="position: relative; width: 12em; height: 12em; opacity: 0.2"></canvas></div>
+<div style="position: absolute; width: 12em; height: 12em; background: red"></div>
+</html>

@@ -1,0 +1,94 @@
+<meta><!DOCTYPE html>
+<html class=reftest-wait>
+    <title>Uneven borders should be captured correctly</title>
+    <div class="target"></div>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-2/">
+<link rel="match" href="border-uneven-ref.html">
+<script src="/common/reftest-wait.js"></script>
+<script src="resources/compute-test.js"></script>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    html {
+        view-transition-name: none;
+    }
+    body {
+        margin: 0;
+    }
+
+
+    .target {
+        width: 100px;
+        height: 100px;
+        view-transition-name: parent;
+        border-left: 10px solid black;
+        border-top: 20px groove pink;
+        border-bottom-width: 1px;
+        border-bottom-style: dashed;
+        border-bottom-color: orange;
+        border-right: 2px solid yellow;
+        background: green;
+    }
+
+    .vt-new .target {
+        border: 5px solid blue;
+        border-right: 4px solid teal;
+    }
+
+    ::view-transition {
+        background: rebeccapurple;
+    }
+
+    ::view-transition-old(*),
+    ::view-transition-new(*),
+    ::view-transition-group(*) {
+        animation-play-state: paused;
+    }
+
+    ::view-transition-group(parent) {
+        animation-timing-function: steps(2, start);
+    }
+</style><style>
+    * {
+        box-sizing: border-box;
+    }
+    html {
+        view-transition-name: none;
+    }
+    body {
+        margin: 0;
+    }
+
+
+    .target {
+        width: 100px;
+        height: 100px;
+        view-transition-name: parent;
+        border-left: 10px solid black;
+        border-top: 20px groove pink;
+        border-bottom-width: 1px;
+        border-bottom-style: dashed;
+        border-bottom-color: orange;
+        border-right: 2px solid yellow;
+        background: green;
+    }
+
+    .vt-new .target {
+        border: 5px solid blue;
+        border-right: 4px solid teal;
+    }
+
+    ::view-transition {
+        background: rebeccapurple;
+    }
+
+    ::view-transition-old(*),
+    ::view-transition-new(*),
+    ::view-transition-group(*) {
+        animation-<link><link><link>play-state: paused;
+    }
+
+    ::view-transition(() => takeScreenshot());
+    </script><script>
+</script></body>

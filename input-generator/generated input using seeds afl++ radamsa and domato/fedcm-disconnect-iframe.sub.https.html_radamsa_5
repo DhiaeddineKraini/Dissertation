@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<title><link href="https://fedidcg.github.io/FedCM"><link href="https://fedidcg.github.io/FedCM">Federated Credential Management API disconnect() tests in iframes.</title><link>
+<link rel="help" href="https://fedidcg.github.io/FedCM">
+<script src="/resources/testharness.js"></script><title>
+</title><link><link><script src="/resources/testdriver-vendor.js"><script src="/resources/testharnessreport.js"></script></script>
+<script type="module"><script src="/resources/testdriver.js"></script></script>
+<script src="/resources/testdriver-vendor.js"></script>
+
+<title>
+</title>
+
+<link href="https://fedidcg.github.io/FedCM"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module">
+import {alt_manifest_origin,
+        alt_request_options_with_mediation_required,
+        fedcm_test,
+        fedcm_get_and_select_first_account} from './support/fedcm-helper.sub.js';
+
+async function createIframeAndWaitForMessage(test, iframeUrl, allow = false) {
+  const messageWatcher = new EventWatcher(test, window, "message");
+  let iframe = document.createElement("iframe");
+  iframe.src = iframeUrl;
+  if (allow) {
+    iframe.allow = "identity-credentials-get";
+  }
+  document.body.appendChild(iframe);
+  let message = null;
+  // Ignore internal "testdriver-complete" messages.
+  do {
+      message = await messageWatcher.wait_for("message");
+  } while (!("result" in message.data));
+  return message.data;
+}
+
+fedcm_test(async t => {
+  const message = await createIframeAndWaitForMessage(t, 'support/fedcm/disconnect-iframe.html');
+  assert_equals(message.result, "Pass");
+}, 'Same-origin iframe does not need explicit identity-credentials-get');
+
+fedcm_test(async t => {
+  const message = await createIframeAndWaitForMessage(t,
+      'https://{{hosts[alt][]}}:{{ports[https][0]}}/fedcm/support/fedcm/disconnect-iframe.html',
+      /*allow=*/true);
+  assert_equals(message.result, "Pass");
+}, 'Cross-origin iframe can disconn</script></script></script></script></script></script></script></script><body><body><body>

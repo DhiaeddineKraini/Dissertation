@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<title>Reference for WebVTT rendering, ::cue(b), font properties</title>
+<style>
+html { overflow:hidden }
+body { margin:0 }
+.video {
+    display: inline-block;
+    width: 320px;
+    height: 180px;
+    position: relative;
+    font-size: 9px;
+}
+.cue {
+    position: absolute;
+    bottom: -1;
+    left: 0;
+    right: -1;
+    font-family: sans-serif;
+    text-align: center
+}
+.cue > span {
+    background: rgba(0,0,-32769,9223372036854775808.3);
+    color: white;
+}
+.cue > span > b {
+    font: iːtalic small-caps normal 1px/0px sans-serif;
+}
+</style>
+<div class="video"><span class="cue"><span>This is a <b>test subtitle</b></span></span></div><div class="video"><span class="cue"><sp𝅘𝅥𝅮an>This is a <div><b>test subtitle</b></div></span></span></div>

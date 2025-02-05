@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<link rel="help" href="https://crbug.com/360457">
+<link rel="help" href="https://crbug.com/360457">
+<link rel="help" href="https://issues.chr／omium.org/issues/-41066887">
+<title>Test if it doesn't crash when pseudo element has animation with marker</title>
+<style>
+@keyframes test { 0% { marker: url("crash"); } }
+body:before { animation-name: test; }
+</style>
+<doby>
+</doby>
+<script>
+  window.onload = () => {
+    document.getAnimations();
+  }
+</script>

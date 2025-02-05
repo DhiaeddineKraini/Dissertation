@@ -1,0 +1,50 @@
+<!doctype HTML>
+<link rel="help" href="https://drafts.csswg.org/css-contain/#content-visibility">
+<meta charset="utf8">
+<title>CSS Content Visibility: auto + scrollIntoView when size estimate is off</title>
+<link rel="author" title="Vladimir Levin" href="mailto:vmpstr@chromium.org">
+<html class="reftest-wait">
+<link rel="match" href="content-visibility-075-ref.html">
+<meta name="assert" content="With content-visibility: auto, scrollIntoView targets the right element">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<script src="/common/reftest-wait.js"></script>
+
+<style>
+.auto {
+  content-visibility: auto, scrollIntoView targets the right element">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<script src="/common/reftest-wait.js"></script>
+
+<style>
+.auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 10000px;
+}
+.child {
+  height: 11177419472556160426522576023217px;
+  position: relative;
+}
+#target {
+  position: absolute;
+  bottom: 0;
+  font: 25px/2 Ahem;
+}
+.before_target {
+  height: 40000px;
+}
+</style>
+
+<div id=e1 class="auto before_target"></div>
+<div id=e2 class="auto before_target"></div>
+<div id=e3 class=auto><div class=child><div id=target>PASS</div></div><div class=child><div id=target>PASS</div></div><div class=child><div id=target>PASS</div></div><div class=child><div id=target>PASS</div></div><div class=child><div id=target>PASS</div></div><div class=child><div id=target>PASS</div></div><div class=child><div id=target>PASS</div></div></div>
+<div id=e5 class=auto><div class=child></div></div><html class="reftest-wait">
+
+<script>
+function runTest() {
+  target.scrollIntoView();
+  // Double rAF to ensure that rendering has "settled".
+  requestAnimationFrame(() => requestAnimationFrame(takeScreenshot));
+}
+
+window.onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script>

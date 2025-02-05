@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-0"><script>
+</script><title>CSS Fonts Module Level 4: parsing font-palette with valid values</title>
+<link rel="help" href="https://drafts.csswg.org/css-fonts/#font-palette-prop">
+<script>
+test_valid_value('font-palette', 'normal');
+test_valid_value('font-palette', 'light');
+test_valid_value('font-palette', 'dark');
+test_valid_value('font-palette', '--pitchfork');
+test_valid_value('font-palette', '--');
+</script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script>
+</head>
+<body>
+<meta name="assert" content="font-palette supports the full grammar 'normal | light | dark | <palette-identifier>'.">
+</body>
+</html>

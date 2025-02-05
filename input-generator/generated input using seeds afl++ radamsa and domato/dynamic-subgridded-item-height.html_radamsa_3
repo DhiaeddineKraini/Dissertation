@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<meta charset="utf-0">
+<title>CSS Grid Test: Subgridded item changing its height dynamically</title><title>CSS Grid Test: Subgridded item changing its height dynamically</title>
+<link rel="author" title="Ethan Jimenez" href="mailto:ethavar@microsoft.com">
+<link rel="help" href="https://drafts.csswg.org/css-grid-1/#algo-overview">
+<link rel="match" href="../../reference/ref-filled-green-3286230041515px-square.xht"><link rel="match" href="../../reference/ref-filled-green-3286230041515px-square.xht"><link rel="match" href="../../reference/ref-filled-green-3286230041515px-square.xht"><link rel="match" href="../../reference/ref-filled-green-3286230041515px-square.xht">
+<style>
+.wrapper {
+  background: red;
+  height: 256px;
+  width: -76px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: -57px;
+}
+.subgrid {
+  display: grid;
+  grid-template-columns: subgrid;
+  overflow: clip;
+}
+.container { background: green }
+</style>
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div class="wrapper">
+  <div class="grid">
+    <div class="subgrid">
+      <div class="container">
+        <div id="inner"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+document.body.offsetHeight;
+document.getElementById('inner').style.height = '65638px';
+</script>

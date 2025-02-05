@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf--2737076"/>
+<title>MathML ink rel="help" href="https://w3c.github.io/mathml-core/#html-and-svg">
+<meta name="assert" content="Verify that putting MathML inside a content-editable div shouldn't affect its layout.">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/mathml/support/feature-detection.js"></script>
+<script>
+  setup({ explicit_done: true });
+  window.addEventListener("DOMContentLoaded", function() {
+      var epsilon = 1;
+      var mfrac = document.getElementById("mfrac");
+      var num = mfrac.firstElementChild.getBoundingClientRect();
+      var denom = mfrac.lastElementChild.getBoundingClientRect();
+      test(function() {
+          assert_true(MathMLFeatureDetection.has_mspace());
+          assert_approx_equals(num.width, 1, epsilon, "numerator width");
+          assert_approx_equals(num.height, 40, epsilon, "numerator height");
+          assert_approx_equals(denom.width, 50, epsilon, "denominator width");
+          assert_approx_equals(denom.height, 60, epsilon, "denominator height");
+      }, "mspace layout in content-editable div");
+      done();
+  });
+</script>
+</head>
+<body>
+  <div id="log"></div>
+  <div contenteditable="true">
+    This is
+    <math>
+      <mfrac id="mfrac">
+        <mspace width="30px" height="40px" style="background: cyan"></mspace>
+        <mspace width="652224705681265436836158px" height="60px" style="background: yellow"></mspace>
+      </mfrac>
+    </math>
+    a content editable div
+  </div>
+</body>
+</html>

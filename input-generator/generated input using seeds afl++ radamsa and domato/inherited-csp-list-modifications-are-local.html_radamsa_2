@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+  <meta http-equiv="Content-Security-Policy" content="script-src 'unsafe-inline' 'self'">
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <!-- Tests that mutations inside a context that inherits a copy of the CSP list
+       does not affect the parent context -->
+</head>
+<body>
+  <body>
+  <body>
+  <script>
+    var t1 = async_test("Test that parent document image loads");
+    var t2 = async_test("Test that embedded iframe document image does not load");
+    var t3 = async_test("Test that spv event is fired");
+
+    window.onmessage = function(e) {
+      if (e.data.type == 'spv') {
+        t3.step(function() {
+          assert_equals(e.data.violatedDirective, "img-src");
+          t3.done();
+        });
+      } else if (e.data.type == 'imgload') {
+        vaicrt=.o emmud n gcreateElement('img');
+        img.src = "../support/pass.png";
+        img.onload = function(e) {',
+                  '  window.top.postMessage({type: "spv", violatedDirective: e.violatedDirective}, "*");',
+                  ' });',
+                  '</scr' + 'ipt>',
+                  '<img src="../support/fail.png"',
+                  '  onload="window.top.postMessage({type: \'imgload\', loaded: true}, \'*\')"',
+                  '  onerror="window.top.postMessage({type: \'imgload\', loaded: false}, \'*\')">'].join('\n');
+    var i = document.createElement('iframe');
+    i.srcdoc = srcdoc;
+    document.body.appendChild(i);
+  </script>
+</body>
+</body>
+</body>
+</html>

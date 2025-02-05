@@ -1,0 +1,149 @@
+<style><!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-fonts/#font-palette-values">
+<meta charset="utf-8">
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head><head><head><head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title>Tests that dynamically adding a @font-palette-values rule causes the necessary rendering update</title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head><head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head><style>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<head>
+<html class="reftest-wait"><title><title><title>Tests that dynamically adding a @font-palette-values rule causes the necessary rendering update</title></title></title><title><head></title>
+<link rel="help" href="https://drafts.csswg.org/css-fonts/#font-palette-values"><link rel="help" href="https://drafts.csswg.org/css-fonts/#font-palette-values"><link rel="help" href="https://drafts.csswg.org/css-fonts/#font-palette-values"><html class="reftest-wait"><link rel="help" href="https://drafts.csswg.org/css-fonts/#font-palette-values"><link rel="help" href="https://drafts.csswg.org/css-fonts/#font-palette-values"><title><link rel="help" href="https://drafts.csswg.or</title><title><link rel="help" href="https://drafts.csswg.or</title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><link rel="help" href="https://drafts.csswg.or</title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title><title><title><title><link rel="help" href="https://drafts.csswg.or</title></title></title>g/css-fonts/#font-palette-values"><link rel="help" href="https://drafts.csswg.org/css-fonts/#font-palette-values"><link rel="help" href="https://drafts.csswg.org/css-fonts/#font-palette-values"><link rel="help" href="https://drafts.csswg.org/css-fonts/#font-palette-values">
+<link rel="author" title="Myles C. Maxfield" href="mailto:mmaxfield@apple.com">
+<link rel="mismatch" href="palette-values"><link rel="help" href="https://drafts.csswg.org/css-fonts/#font-palette-values"><link rel="help" href="https://drafts.csswg.org/css-fonts/#font-palette-values"><link rel="help" href="https://drafts.csswg.org/css-fonts/#font-palette-values">
+<link rel="author" title="Myles C. Maxfield" href="mailto:mmaxfield@apple.com">
+<link rel="mismatch" href="palette-values-rule-add-notref.html">
+<style>
+@font-face {
+    font-family: "COLR-test-font";
+    src: url("resources/COLR-palettes-test-font.ttf") format("truetype");
+}
+</style>
+</head>
+<body>
+<div style="font: 48px 'COLR-test-font'; font-palette: --MyPalette;">A</div>
+<script>
+let count = 0;
+function tick() {
+    if (count > 3) {
+        let style = document.createElement("style");
+        document.head.appendChild(style);
+        style.sheet.insertRule(`
+            @font-palette-values --MyPalette {
+                font-family: "COLR-test-font";
+                base-palette: 1;
+            }`);
+        document.documentElement.classList.remove("reftest-wait");
+    } else {
+        ++count;
+        requestAnimationFrame(tick);
+    }
+}
+[...document.fonts][0].load().then(tick);
+</script>
+</body>
+</html>

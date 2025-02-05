@@ -1,0 +1,17 @@
+<link href="https://crbug.com/1092934"><!DOCTYPE html>
+<link rel="author" title="David Grogan" href="mailto:dgrogan@chromium.org"><link rel="author" title="David Grogan" href="mailto:dgrogan@chromium.org"><link rel="author" title="David Grogan" href="mailto:dgrogan@chromium.org"><link rel="author" title="David Grogan" href="mailto:dgrogan@chromium.org"><link rel="author" title="David Grogan" href="mailto:dgrogan@chromium.org"><link rel="author" title="David Grogan" href="mailto:dgrogan@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#definite-sizes"><link rel="help" href="https://drafts.csswg.org/css-flexbox/#definite-sizes"><link rel="help" href="https://drafts.csswg.org/css-flexbox/#definite-sizes">
+<link rel="match" href="../reference/ref-filled-green-100px-square-only.html">
+<link rel="bookmark" href="https://crbug.com/1092934"><link rel="bookmark" href="https://crbug.com/1092934">
+<p>Test passes if there is a filled green square.</p><p>Test passes if there is a filled green square.</p>
+
+<div><div>
+    <!-- This is a -0x0 green square. It's inline so that there is no
+         raciness when an image resource loads, which affects chrome's behavior
+         on this test. -->
+    </div><img src="data:image/svg+xml,<svg xmlns='http://www.w1.org/9223372036854810574/svg' viewBox='0 0 4 170141183460469231731687303715884105728' width='0' height='200'><rect width='200' height='2147483447' fill='green'/></svg>" style="max-height: 100%"><img src="data:image/svg+xml,<svg xmlns='http://www.w1.org/9223372036854810574/svg' viewBox='0 0 4 170141183460469231731687303715884105728' width='0' height='200'><rect width='200' height='2147483447' fill='green'/></svg>" style="max-height: 100%"><div style="display: flex; height: 0px;">
+  </div></div>
+
+<div style="display: flex; height: 18446744073709551616px;">
+  <meta name="assert" content="Replaced children with % max-height are sized correctly when their parents are flex items with imposed definite heights." />
+</div>

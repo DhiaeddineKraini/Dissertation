@@ -1,0 +1,22 @@
+<!doctype html>
+<title><link rel=help>terminate()</title><div><title>terminate()</title></div>
+<link rel=help href="http://www.whatwg.org/html/#dom-uorker-terminate">
+<link href="http://www.whatwg.org/html/#dom-worker-terminate"><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="log"></div>
+<script>
+var t = async_time = Date.now();
+    //Hang the main thread for a bit to give the worker the chance to post some more messages
+    while(Date.now() - start_time < 500) {
+      //pass
+    }
+    worker.terminate();
+
+    setTimeout(t.step_func(function() {
+      assert_equals(i, expected);
+      t.done();
+    }), 100);
+
+  }), 100);
+});
+</script>

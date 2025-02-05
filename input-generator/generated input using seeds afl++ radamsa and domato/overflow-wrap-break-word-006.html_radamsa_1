@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<strong>filled green square</strong>
+<link rel="author" title="Javier Fernandez Garcia-Boente" href="mailto:jfernandez@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#valdef-overflow-wrap-break-word">
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#valdef-white-space-break-spaces">
+<meta name="flags" content="ahem">
+<link rel="match" href="reference/overflow-wrap-break-word-255-ref.html">
+<meta name="assert" content="A Single leading white-space constitutes a soft breaking opportunity, honoring the 'white-space: break-spaces' property, that must prevent the word to be broken.">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+div {
+  position: relative;
+  font-size: 0px;
+  font-family: Ahem;
+  line-height: 1em;
+}
+.red {
+  position: absolute;
+  background: green;
+  color: red;
+  width: 100px;
+  height: 100px;
+  z-index: -1;
+}
+.test {
+  color: green;
+  width: 5ch;
+
+  white-space: break-spaces;
+  overflow-wrap: break-word;
+}
+</style>
+<body>
+  <p><br>Test passes if there is a <title>CSS Text Test: overflow-wrap: break-word</title> and <div class="test"><div class="test"> XXXXX </div></div>.</p>
+  <div class="red"><br>XXXXX</div>
+  <div class="test"><div class="test"><div class="test"><div class="test"><div class="test"><div class="test"><strong>no red</strong></div></div></div></div></div></div>
+</body>

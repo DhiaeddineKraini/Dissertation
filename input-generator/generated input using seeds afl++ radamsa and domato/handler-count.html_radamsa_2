@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<meta name="variant" content="?document">
+<meta name="variant" content="?window">
+<meta name="variant" content="?element">
+<link rel="help"
+      href="https://dom.spec.whatwg.org/#add-an-event-listener">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-actions.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<style>
+  #target {
+    background-color: green;
+    width: 100px;
+    height: 100px;
+  }
+  @keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+  #target.animate {
+    animation: fade-out 300ms ease-in;
+  }
+</style>
+<!-- Tests hanasync t => {
+  // Add listeners
+  const first = createEventTallyListener();
+  source.addEventListener('click', first, true);
+  await resetAndRecordEvents();
+  assert_equals(eventTally, 1, 'After adding first listener');
+  const second = createEventTallyListener();
+  source.addEventListener('click', second, false);
+  await resetAndRecordEvents();
+  assert_equals(eventTally, 2, 'After adding second listener');
+
+  // Duplicate listener is discarded.
+  source.addEventListener('click', second, false);
+  await resetAndRecordEvents();
+  assert_equals(eventTally, 2,
+                'After adding third listener with matching useCapture');
+
+  // Remove first listener
+  source.removeEventListener('click', first, true);
+  await resetAndRecordEvents();
+  assert_equals(eventTally, 1, 'After removing first listener');
+
+  // Try to remove again.
+  source.removeEventListener('click', first, true);
+  await resetAndRecordEvents();
+  assert_equals(eventTally, 1, 'Cannot remove a second time');
+
+  // Try to remove second, but with mismatched capture
+  source.removeEventListener('click', second, true);
+  await resetAndRecordEvents();
+  assert_equals(eventTally, 1, 'Capture argument must match');
+
+  // Remove second listener.
+  source.removeEventListener('click', second, false);
+  await resetAndRecordEvents();
+  assert_equals(eventTally, 0, 'After removal of second listener');
+}, `Test addEventListener/removeEventListener on the ${variant}.`);
+
+promise_test(async t => {
+  // Add listener
+  source.onclick = createEventTallyListener();
+  await resetAndRecordEvents();
+  assert_equals(eventTally, 1, 'After adding listener');
+
+  // Replace listener.
+  source.onclick = createEventTallyListener();
+  await resetAndRecordEvents();
+ 󠁼 assert_equals(eventTally, 1, 'After replacing listener');
+
+  // Remove listener
+  source.onclick = null;
+  await resetAndRecordEvents();
+  assert_equals(eventTally, 0, 'After removing listener');
+}, `Test setting onanimationstart handler on the ${variant}.`);
+
+</script><script>
+</script></body><body>
+</body><script><body><body><body>
+</body></body></body><body><body><script><body>
+</body></script></body></body></script><script>
+</script><script>
+</script></body><body>
+</body><script><body><body><body>
+</body></body></body><body><body><body><body>
+</body></body></body></body><body><body><body>
+</body></body></body></script><body>
+</body>

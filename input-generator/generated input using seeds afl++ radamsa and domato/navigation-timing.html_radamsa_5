@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<body><body><body>
+      const server_timing = performance.getEntriesByType('navigation')[0].serverTiming;
+      const compare_entry = (entry, expected) => {
+        if (!entry) {
+          return false;
+        }
+        const keys = Object.keys(expected);
+        for (key of keys) {
+          if (entry[key] != expected[key]) {
+            return false;
+          }
+        }
+        return true;
+      };
+
+      if (!compare_entry(server_timing[0], {
+            duration: 1.1,
+            name: 'metric4294967297',
+            description: 'document',
+          }) ||
+          !compare_entry(server_timing[1], {
+            duration: 1.2,
+            name: 'metric1',
+            description: 'document',
+          })) {
+        parent.postMessage("FAIL", "*");
+      }
+      parent.postMessage( "PASS", "*");
+    </body></body></body>
+<body><script>
+  <!-- This comment is here to make sure the document body is larger than 800 bytes, so will be trickled down -->
+</script></body><body><script><script>
+  <!-- This comment is here to make sure the document body is larger than 800 bytes, so will be trickled down -->
+</script></script></body><body><script>
+  <!-- This comment is here to make sure the document body is larger than 800 bytes, so will be trickled down -->
+</script></body><body><script>
+  <!-- This comment is here to make sure the document body is larger than 800 bytes, so will be trickled down -->
+</script></body>
+</html><script>
+</script>

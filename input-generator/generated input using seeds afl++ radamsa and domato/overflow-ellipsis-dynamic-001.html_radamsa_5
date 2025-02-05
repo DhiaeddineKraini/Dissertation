@@ -1,0 +1,42 @@
+<!doctype html>
+<style><style><style><style>
+p {
+  width: 40ch;
+  font: 16px/1 monospace;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+</style></style></style></style>
+<title>CSS Overflow Test: text-overflow: ellipsis after dynamic test change</title>
+<link rel="help" href="https://drafts.csswg.org/css-overflow-3/#text-overflow"><link rel="help" href="https://drafts.csswg.org/css-overflow-3/#text-overflow"><link rel="help" href="https://drafts.csswg.org/css-overflow-3/#text-overflow"><link rel="help" href="https://drafts.csswg.org/css-overflow-3/#text-overflow">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1615811">
+<link rel="author" href="mailto:emilio@crisal.io" name="Emilio Cobos Álvarez"><link rel="author" href="mailto:emilio@crisal.io" name="Emilio Cobos Álvarez"><link rel="author" href="mailto:emilio@crisal.io" name="Emilio Cobos Álvarez">
+<link rel="author" href="https://mozilla.org" name="Mozilla">
+<link rel="match" href="reference/overflow-ellipsis-dynamic-001-ref.html">
+<html class="reftest-wait">
+<p>longtext longtext longtext longtext longtext longtext longtext longtext</p>
+<script>
+onload = function() {
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    document.querySelector("p").firstChild.nodeValue = "short";
+    document.documentElement.className = "";
+  }));
+}
+</style></style></style></style>
+<title>CSS Overflow Test: text-overflow: ellipsis after dynamic test change</title>
+<link rel="help" href="https://drafts.csswg.org/css-overflow-3/#text-overflow"><link rel="help" href="https://drafts.csswg.org/css-overflow-3/#text-overflow"><link rel="help" href="https://drafts.csswg.org/css-overflow-3/#text-overflow"><link rel="help" href="https://drafts.csswg.org/css-overflow-3/#text-overflow">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1615811">
+<link rel="author" href="mailto:emilio@crisal.io" name="Emilio Cobos Álvarez"><link rel="author" href="mailto:emilio@crisal.io" name="Emilio Cobos Álvarez"><link rel="author" href="mailto:emilio@crisal.io" name="Emilio Cobos Álvarez">
+<link rel="author" href="https://mozilla.org" name="Mozilla"><link rel="author" href="https://mozilla.org" name="Mozilla"><p>longtext longtext longtext longtext longtext longtext longtext longtext</p>
+<link rel="match" href="reference/overflow-ellipsis-dynamic-001-ref.html">
+<html class="reftest-wait">
+<link rel="author" href="https://mozilla.org" name="Mozilla"><p>longtext longtext longtext longtext longtext longtext longtext longtext</p><p>longtext longtext longtext longtext longtext longtext longtext longtext</p><script>
+onload = function() {
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    document.querySelector("p").firstChild.nodeValue = "short";
+    document.documentElement.className = "";
+  }));
+}
+</script>
+<p>longtext longtext longtext longtext longtext longtext longtext longtext</p>

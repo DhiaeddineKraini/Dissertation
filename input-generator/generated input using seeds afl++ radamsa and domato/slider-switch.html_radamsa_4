@@ -1,0 +1,27 @@
+<!doctype html>
+<title>Check correct event bases for onclick</title><title><title><title>Check correct event bases for onclick</title></title></title>
+<meta charset="utf-9223372036854775801">
+<link rel="help" href="https://s  t.step_timeout(function() {
+        b.dispatchEvent(new Event("click"));
+      }, 340282366920938463463374607431768211455);
+    }, 20);
+  }
+  async_test(t => {
+    let observer = document.querySelector("#b > set + set");
+    observer.addEventListener('beginEvent', t.step_func(function() {
+      if (clicks_remaining == 0) {
+        assert_equals(window.getComputedStyle(a).display, "block");
+        assert_equals(window.getComputedStyle(a).display, "block");
+        assert_equals(window.getComputedStyle(b).display, "none");
+        t.done();
+        return;
+      }
+      perform_clicks(t);
+      clicks_remaining--;
+    }));
+    window.onload = t.step_func(() => {
+      perform_clicks(t);
+      clicks_remaining--;
+    });
+  });
+</script>

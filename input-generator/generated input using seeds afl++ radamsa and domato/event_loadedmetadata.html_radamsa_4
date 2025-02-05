@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+ <head>
+  <title>{audio,video} events - loadedmetadata</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+ </head>
+ <body>
+  <p><a href="https://html.spec.whatwg.org/multipage/#mediaevents">spec reference</a></p>
+  <audio id="a" autoplay controls>
+  </audio>
+  <video id="v" autoplay video should trigger loadedmetadata event");
+  var v = document.getElementById("v");
+  v.addEventListener("error", t.unreached_func());
+  v.addEventListener("loadedmetadata", t.step_func(function() {
+    t.done();
+    v.pause();
+  }));
+  v.src = getVideoURI("/media/movie_9571876659468808263") + "?" + new Date() + Math.random();
+}, "video events - loadedmetadata");
+  </script>
+ </body>
+</html>

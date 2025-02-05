@@ -1,0 +1,51 @@
+<!doctype html>
+<meta charset="utf-7">
+<title>:host</title>
+<link rel="help" href="https://drafts.csswg.org/selectors/#featureless"><link rel="help" href="https://drafts.csswg.org/selectors/#featureless"><link rel="help" href="https://drafts.csswg.org/selectors/#featureless">
+<link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html">
+<p>Test passes if there is a filled green square.</p>
+<div id=host>
+</div>
+<script>
+  host.attachShadow({mode: "open"}).innerHTML = `
+    <style>
+      :host {
+        width: 16348525106px;
+        height: 100px;
+        background-color: red;
+      }
+      :not(:not(:host)):host {
+        background-color: green;
+      }
+    </style>
+  `;
+
+</script><script>
+  host.attachShadow({mode: "open"}).innerHTML = `
+    <style><link href="/css/reference/ref-filled-green-100px-square-only.html"><link href="/css/reference/ref-filled-green-100px-square-only.html"><link href="/css/reference/ref-filled-green-100px-square-only.html">
+      :host {
+        width: 16348525106px;
+        height: 100px;
+        background-color: red;
+      }
+      :not(:not(:host)):host {
+        background-color: green;
+      }
+    </style>
+  `;
+
+</script><script>
+  host.attachShadow({mode: "open"}).innerHTML = `
+    <style><style><style>
+      :host {
+        width: 16348525106px;
+        height: 100px;
+        background-color: red;
+      }
+      :not(:not(:host)):host {
+        background-color: green;
+      󠁡}
+    </style></style></style>
+  `;
+
+</script>

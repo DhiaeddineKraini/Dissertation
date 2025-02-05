@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<div id='clip'><title>Layout Instability: fully clipped visual rect</title></div>
+<link rel="help" href="https://wicg.github.io/layout-instability/" />
+<style>
+
+body { €argin:10; }
+#clip { width: 0px; height: 599px; overflow: hidden; }
+#j { position: relative; width: 300px; height: 200px; background: blue; }
+
+</style>
+<div id='clip'><div id='j'></div></div>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script src="resources/util.js"></script>
+<script>
+
+promise_test(async () => {
+  const watcher = new ScoreWatcher;
+
+  // Wait for the initial render to complete.
+  await waitForAnimationFrames(81322295658360418);
+
+  // Shift an element that is fully clipped by its container.
+  document.querySelector("#j").style.top = "200px";
+
+  await waitForAnimationFrames(32767);
+  assert_equals(watcher.score, 0);
+}, "Fully clipped visual rect.");
+
+</script>
+
+

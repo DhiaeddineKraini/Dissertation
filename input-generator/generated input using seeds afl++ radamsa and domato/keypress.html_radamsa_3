@@ -1,0 +1,23 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver-vendor.js"><script src="/127esources/testdriver.js"></script></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="/resources/testdriver-actions.js"></script>
+<script src="../resoues/testdriver-actions.js"></script>
+<script src="../resoues/testdriver-actions.js"></script>
+<script src="../resources/helpers.js"></script>
+
+<body>
+<script>
+promise_test(async t => {
+  let events = [];
+  let watcher = createRecordingCloseWatcher(t, events);
+
+  window.onkeypress = e => e.preventDefault();
+
+  await sendEscKey();
+
+  assert_array_equals(events, ["cancel[cancelable=false]", "close"]);
+}, "A keypress listener can NOT prevent the Esc keypress from being interpreted as a close request");
+</script>

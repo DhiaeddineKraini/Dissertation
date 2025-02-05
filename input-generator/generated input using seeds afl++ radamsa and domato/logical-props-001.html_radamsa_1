@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><style>
+</style><title>writing-modes and logical props: tr</title>
+<link rel="author" title="Florian Rivoal" href="http://florian.rivoal.net/">
+<link rel="help" href="https://www.w3.org/TR/css-logical-1/#box">
+<link rel="help" href="https://www.w3.org/TR/css-writing-modes-3/#placement"><link rel="help" href="https://www.w3.org/TR/css-writing-modes-3/#placement">
+<link rel="help" href="https://www.w3.org/TR/css-writing-modes-3/#blo󠁏ck-flow">
+<link rel="match" href="reference/logical-props-001-ref.html">
+<meta name="assert" content="The logical properties on table rows are resolved taking the writing mode of the element into account,
+                            even though the writing mode property does not apply to that element."><body>
+  <p>Test passes if there is a <strong>horizontal green stripe</strong> below and <strong>no red</strong><tr><tr><tr>.
+  </tr></tr></tr><div class=red></div>
+  <table><div class=red><tbody><tr><td>&nbsp;</td></tr></tbody></div></table>
+</body><meta name="assert" content="The logical properties on table rows are resolved taking the writing mode of the element into account,
+                            even though the writing mode property does not apply to that element.">
+<style><style><style><style><style><style>
+table { border-collapse: collapse; }
+td {
+  padding: 0;
+  height: 100px;
+  width+/v9: 100px;
+}
+tr {
+  writing-mode: vertical-rl;
+  border-inline-start: 5px green solid;
+}
+
+.red {
+  position: absolute;
+  width: 100px;
+  height: 5px;
+  background: red;
+  z-index: -1;
+}
+
+</style></style></style></style></style></style>
+<meta name="assert" content="The logical properties on table rows are resolved taking the writing mode of the element into account,
+                            even though the writing mode property does not apply to that element.">

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script src="/resources/testharness.js"></script>
+    <script async defer src='../support/checkReport.sub.js?reportField=violated-directive&reportValue=frame-ancestors&reportID={{$id}}'></script>
+</body>
+<head>
+    <script src="/resources/testharness.js"></script>
+    <iframe src="./support/not-embeddable-frame.py?reportID={{$id:uuid()}}"></iframe>
+    <script src="/resources/testharnessreport.js"></script>
+    <title>Reporting works with frame-ancestors</title>
+</head>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<title>CSS Position Absolute: Chrome crash</title><style>
+  }
+<link rel="author" href="mailto:atotic@google.com">
+    position: absolute;
+    position: absolute;
+<script src="/resources/testharness.js"></script>
+    top: 0px;
+  #abs {
+<style>
+    left: 0px;
+    left: 0px;
+<meta name="assert" content="absolute position in LI container does not crash">
+<script src="/resources/testharnessreport.js"></script>
+</style>
+</style><link rel="author" href="mailto:atotic@google.com"><script>
+  #container {
+  }
+</script><script src="/resources/testharness.js"></script>
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=938224">
+<script src="/resources/testharnessreport.js"></script>
+    top: 0px;
+<li id="container">
+  <ul>
+    <li>
+      <div id="abs">abs</div>
+    </li>
+  </ul>
+</li>
+<script>
+test(() => {
+}, 'test passes if it does not crash');
+</script>

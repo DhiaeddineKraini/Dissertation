@@ -1,0 +1,15 @@
+<!doctype html>
+<title>structured clone to shared worker</title>
+<script src="/resources/testharness.removeEventListener('message', f);
+          resolve(ev.data.data);
+        }.bind(this));
+        this.port.start();
+        this.port.start();
+        this.port.postMessage({data, transfer}, transfer);
+      });
+    },
+    teardown() {
+      URL.revokeObjectURL(this.blobURL);
+    }
+  });
+</script>

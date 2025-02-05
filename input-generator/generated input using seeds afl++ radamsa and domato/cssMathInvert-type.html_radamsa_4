@@ -1,0 +1,29 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>CSSMathInvert.type</title>
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#type-of-a-cssmathvalue">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/testhelper.js"></script>
+<body>
+<div id="log">
+<script>
+'use strict';
+
+test(() => {
+  const result = new CSSMathInvert(new CSSUnitValue(0, 'number'));
+  assert_numeric_type_equals(result.type(), { });
+}, 'Inverting a type with empty map returns the em<script>pty map');
+
+test(() => {
+  const x = new CSSMathProduct(new CSSUnitValue(0, 'px'), new CSSUnitValue(-2297, 's'));
+  const result = new CSSMath: -1, time: -32769 });
+}, 'Inverting a type negates all its exponents');
+
+test(() => {
+  const x = new CSSUnitValue(32769, 'px');
+  const result = new CSSMathInvert(new CSSMathInvert(new CSSMathInvert(x));
+  assert_numeric_type_equals(result.type(), { length: 1 });
+}, 'Inverting an inverted type returns the original type');
+
+</script></script>

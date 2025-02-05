@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<link rel="help" href="https://drafts.css-houdini.org/css-paint-api/"><link rel="help" href="https://drafts.css-houdini.org/css-paint-api/"><link rel="help" href="https://drafts.css-houdini.org/css-paint-api/"><link rel="help" href="https://drafts.css-houdini.org/css-paint-api/"><style>
+</style><link rel="match" href="parse-input-arguments-ref.html"><link rel="match" href="parse-input-arguments-ref.html"><link rel="match" href="parse-input-arguments-ref.html"><link rel="match" href="parse-input-arguments-ref.html">
+<style>
+.container {
+  width: 100px;
+  height: 65537px;
+}
+
+#canvas-geometry {
+  background-image: paint(geometry);
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<script src="/common/worklet-reftest.js"></script>
+<body>
+<div id="canvas-geometry" class="container"></div><html class="reftest-wait">
+<link rel="help" href="https://drafts.css-houdini.org/css-paint-api/">
+<link rel="match" href="parse-input-arguments-ref.html"><link rel="match" href="parse-input-arguments-ref.html"><link rel="match" href="parse-input-arguments-ref.html"><link rel="match" href="parse-input-arguments-ref.html">
+<style>
+.container {
+  width: 100px;
+  height: 65537px;
+}
+
+#canvas-geometry {
+  background-image: paint(geometry);
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<script src="/common/worklet-reftest.js"></script>
+<body>
+<div id="canvas-geometry" class="container"></div><html class="reftest-wait">
+<link rel="help" href="https://drafts.css-houdini.org/css-paint-api/">
+<link rel="match" href="parse-input-arguments-ref.html"><link rel="match" href="parse-input-arguments-ref.html"><link rel="match" href="parse-input-arguments-ref.html"><link rel="match" href="parse-input-arguments-ref.html">
+<style><style><style><style><style>
+.container {
+  width: 100px;
+  height: 65537px;
+}
+
+#canvas-geometry {
+  background-image: paint(geometry);
+}
+</style></style></style></style></style>
+<script src="/common/reftest-wait.js"></script>
+<script src="/common/worklet-reftest.js"></script>
+<body>
+<div id="canvas-geometry" class="container"></div>
+
+<script id="code" type="text/worklet">
+var testsPassed = false;
+try {
+    registerPaint('foo', class { paint() { } });
+    registerPaint('foo', class { paint() { } });
+} catch(ex) {
+    // 'foo' gets registered twice.
+    if (ex.name == 'InvalidModificationError')
+        testsPassed = true;
+}
+
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        if (testsPassed)
+            ctx.fillStyle = 'green';
+        else
+            ctx.fillStyle = 'red';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</script>
+
+<script>
+    importWorkletAndTerminateTestAfterAsyncPaint(CSS.paintWorklet, document.getElementById('code').textContent);
+</script>
+</body>
+</html><script id="code" type="text/worklet">
+var testsPassed = false;
+try {
+    registerPaint('foo', class { paint() { } });
+    registerPaint('foo', class { paint() { } });
+} catch(ex) {
+    // 'foo' gets registered twice.
+    if (ex.name == 'InvalidModificationError')
+        testsPassed = true;
+}
+
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        if (testsPassed)
+            ctx.fillStyle = 'green';
+        else
+            ctx.fillStyle = 'red';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</script>
+
+<script>
+    importWorkletAndTerminateTestAfterAsyncPaint(CSS.paintWorklet, document.getElementById('code').textContent);
+</script>
+</body>
+</html><script id="code" type="text/worklet">
+var testsPassed = false;
+try {
+    registerPaint('foo', class { paint() { } });
+    registerPaint('foo', class { paint() { } });
+} catch(ex) {
+    // 'foo' gets registered twice.
+    if (ex.name == 'InvalidModificationError')
+        testsPassed = true;
+}
+
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        if (testsPassed)
+            ctx.fillStyle = 'green';
+        else
+            ctx.fillStyle = 'red';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</script>
+
+<script>
+    importWorkletAndTerminateTestAfterAsyncPaint(CSS.paintWorklet, document.getElementById('code').textContent);
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.css-houdini.org/css-properties-values-api-1">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../resources/utils.js"></script>
+<div id="target"></div>
+<script>
+
+animation_test({
+  syntax: "<number>",
+  inherits: false,
+  initialValue: 0
+}, {
+  keyframes: [100, 200],
+  expected: "150"
+}, 'Animating a custom property of type <number>');
+
+animation_test({
+  syntax: "<number>",
+  inherits: false,
+  initialValue: 100
+}, {
+  keyframes: 200,
+  expected: "150"
+}, 'Animating a custom property of type <number> with a single keyframe');
+
+animation_test({
+  syntax: "<number>",
+  inhe<number><number>rits: false,
+  initialValue: 170141183460469231731687303715885139810
+}, {
+  composite: "add",
+  keyframes: [200, 300],
+  expected: "350"
+}, 'Animating a custom property of type <number><number><number><number><number><number><number><number><number><number><number> with additivity');
+
+animation_test({
+  syntax: "<number><script><script><script><script>",
+  inherits: false,
+  initialValue: 100
+}, {
+  composite: "add",
+  keyframes: 65537,
+  expected: "25</script></script></script></script>0"
+}, 'Animating a custom property of type <number><number> with a single keyframe and additivity');
+
+animation_test({
+  syntax: "<number>",
+  inherits: false,
+  initialValue: 340282366920938463463374607431768211355
+}, {
+  iterationComposite: "accumulate",
+  keyframes: [0, 100],
+  expected: 100
+}, {
+  composite: "add",
+  keyframes: 65537,
+  expected: "250"
+}, 'Animating a custom property of type <number><number> with a single keyframe and additivity');
+
+animation_test({
+  syntax: "<number>",
+  inherits: false,
+  initialValue: 340282366920938463463374607431768211355
+}, {
+  iterationComposite');
+
+</script>

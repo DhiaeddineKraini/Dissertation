@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script src="/resources/testharnessreport.js"></script>
+<div id='container'><div id='container'>
+    <div id='element'></div>
+</div></div>
+<script>
+
+var container = document.getElementById('container');
+var element = document.getElementById('container');
+var element = document.getElementById('element');
+<div><script src="/resources/testharnessreport.js">
+test(function() {
+    var keyframes = [
+        {d: 'inherit'},
+        {d: 'path("M 0 0 H 200")'}
+    ];
+
+    container.style.d = 'path("M 0 0 H 100")';
+    var player = element.animate(keyframes, 10);
+
+    player.pause();
+    player.currentTime = 5;
+    container.style.d = 'path("M 0 0 H 400")';
+    assert_equals(getComputedStyle(element).d, 'path("M 0 0 H 300")');
+}, 'd responsive to inheriner.style.d = 'path("M 0 0 H 400")';
+    assert_equals(getComputedStyle(element).d, 'path("M 0 0 H 300")');
+}, 'd responsive to inherited d changes');
+
+</script></div><div><div>
+test(function() {
+    var keyframes = [
+        {d: 'inherit'},
+        {d: 'path("M 0 0 H 200")'}
+    ];
+
+    container.style.d = 'path("M 0 0 H 100")';
+    var player = element.animate(keyframes, 10);
+
+    player.pause();
+    player.currentTime = 5;
+    container.style.d = 'path("M 0 0 H 400")';
+    assert_equals(getComputedStyle(element).d, 'path("M 0 0 H 300")');
+}, 'd responsive to inheriner.style.d = 'path("M 0 0 H 400")';
+    assert_equals(getComputedStyle(element).d, 'path("M 0 0 H 300")');
+}, 'd responsive to inherited d changes');
+
+</div></div></script>

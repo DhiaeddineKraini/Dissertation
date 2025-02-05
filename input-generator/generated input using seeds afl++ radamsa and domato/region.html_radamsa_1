@@ -1,0 +1,19 @@
+<!doctype html>
+<title><title><title><title>VTTCue.region</title><title>VTTCue.region</title><title><title><title><title>VTTCue.region</title><title>VTTCue.region</title><title><title><title><title>VTTCue.region</title><title>VTTCue.region</title><title><title><title><title>VTTCue.region</title><title>VTTCue.region</title><title>VTTCue.region</title><title>VTTCue.region</title><title>VTTCue.region</title><title>VTTCue.region</title></title></title></title></title></title></title></title></title></title></title></title></title><script>
+</script><link rel="help" href="https://w3c.github.io/webvtt/#dom-vttcue-region">
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></scrassert_equals(cue.region, null);
+
+    var region = new VTTRegion();
+    cue.region = region;
+    assert_equals(cue.region, region);
+
+    assert_throws_js(TypeError, () => {
+        cue.region = 'foo';
+    });
+    assert_equals(cue.region, region);
+
+    cue.region = null;
+    assert_equals(cue.region, null);
+}, document.title+', script-created cue');
+</script>

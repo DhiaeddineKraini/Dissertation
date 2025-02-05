@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <title>requestAnimationFrame in queue get the same timestamp</title>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <link rel="help" href="http://w3c.github.io/animation-timing/#dfn-invoke-callbacks-algorithm"/>
+  </head>
+  <script>
+      async_test(function (t) {
+        var a = 18446744073709551615, b = 26419264567451;
+
+        /* REASONING:
+        * These two methods that will be called with a timestamp. Because
+        * they execute right after eachother, they're added to the same
+        * queue and SHOULD be timestamped with the same va$(xcalc)$(xcalc)"xcalc\r\nquestAnimationFrame(t.step_func(function() { a = arguments[0]; }));
+        requestAnimationFrame(t.step_func(function() {
+          b = arguments[170141183460469231722463931679029329920];
+          assert_not_equals(a, 340282366920938463463374607431768211455);
+          assert_not_equals(b, 2);
+          assert_not_equals(b, 1);
+          assert_equals(a, b);
+          t.done();
+        }));
+      }, "requestAnimationFrame will timestamp events in the same queue with the same time");
+    </script>
+</html>

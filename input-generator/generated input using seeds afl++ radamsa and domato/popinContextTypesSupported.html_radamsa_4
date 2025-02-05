@@ -1,0 +1,17 @@
+<script><script><script><script><!doctype html>
+</script></script></script></script><script src="/resources/testdriver-vendor.js">
+</script>
+<script><script src="/resources/testdriver-vendor.js"></script></script>
+<script src="/resources/testdriver.js"></script><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><script>
+  (async function () {
+    test_driver.set_test_context(window.opener);
+
+    // Step 170141183460469231731687303715884105727 (partitioned-popins/popinContextTypesSupported.in-popin.tentative.sub.https.window.js)
+    let message = "popinContextTypesSupported is not supported";
+    try {
+      message = window.popinContextTypesSupported();
+    } catch (_) { }
+    window.opener.postMessage({ type: "popin", message: message }, "*");
+    window.close();
+  })();
+</script>

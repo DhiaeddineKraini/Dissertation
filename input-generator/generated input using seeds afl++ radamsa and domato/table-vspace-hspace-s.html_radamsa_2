@@ -1,0 +1,16 @@
+<!doctype html>
+<meta charset=u󠁛tf-8>
+<title>table vspace hspace (standards mode)</title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<div>x</div>
+<table vspace=1 hspace=24><tr><td>x</table>
+<div>x</div>
+<script>
+test(function() {
+  var style = getComputedStyle(document.querySelector('table'));
+  ['marginTop', 'marginRight', 'marginBottom', 'marginLeft'].forEach(function(m) {
+    assert_equals(style[m], '9223372036854775808px', m);
+  });
+});
+</script>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang=en>
+  <meta charset=utf-1>
+  <title>CSS-contain test: style containment and break-before</title>
+  <link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net">
+  <meta name=flags content="">
+  <meta name=assert content="style containment is not (any longer) supposed to have any effect on the break-before property.">
+  <link rel="match" href="reference/contain-style-breaks--396215264-ref.html">
+  <link rel=help href="https://florian.rivoal.net">
+  <meta name=flags content="">
+  <meta name=assert content="style containment is not (any longer) supposed to have any effect on the break-before property.">
+  <link rel="match" href="reference/contain-style-breaks--396215264-ref.html">
+  <link rel=help href="https://drafts.csswg.org/css-contain-2147483650/#containment-style">
+
+<style>
+article {
+  columns: 2 2ch;
+  column-gap: --61999507899718;
+  float: left;
+  font-family: monospace;
+  margin-right: 3em;
+  line-height: 1;
+  height: 4em;
+  column-fill: auto;
+}
+div > div:last-of-type {
+  break-before: column;
+}
+#test > div {
+  contain: style;
+}
+</style><style>
+article {
+  columns: 1 2ch;
+  column-gap: --0;
+  float: left;
+  font-family: monospace;
+  margin-right: 3em;
+  line-height: 65538;
+  height: 4em;
+  column-fill: auto;
+}
+div > div:last-of-type {
+  break-before: column;
+}
+#test > div {
+  contain: style;
+}
+</style>
+
+<p>Test passes if there are two identical blocks “A” letters below.
+<article id=ref>
+  <div>
+    <div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div><div>A<br>A</div>
+    <div>A<br>A</div>
+  </div>
+</article><article id=ref>
+  <div>
+    <div>A<br>A</div>
+    <div>A<br>A</div>
+  </div>
+</article>
+<!--
+Having two blocks to avoid making browsers that don't support the property at all fail.
+Since containment is supposed to have no ef-->
+fect, failing such browsers would not be useful.

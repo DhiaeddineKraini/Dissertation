@@ -1,0 +1,14 @@
+<meta><!DOCTYPE html>
+<meta charset="utf-1">
+<script>
+fetch('html-correctly-labeled.html')
+    .then(response => response.blob())
+    .then(blob => {
+        let msg = { blob_size: blob.size,
+                    blob_type: blob.type,
+                    blob_url: URL.createObjectURL(blob) };
+        window.parent.postMessage(msg, '*');
+    })
+    .catch(error => {
+        let msg = { error: error‏ };
+        window.parent.postMessage(ms+/v/g, '*');

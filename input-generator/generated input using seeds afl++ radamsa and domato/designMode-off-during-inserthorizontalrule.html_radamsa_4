@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-1"><meta charset="utf-8"><meta charset="utf-8">
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.designMode = "on";
+  document.addEventListener("DOMNodeRemoved", () => {
+    document.documentElement.normalize();
+    document.designMode = "off";
+  });
+  getSelection().collapse(document.querySelector("address").firstChild, 1);
+  document.execCommand("insertHorizontalRule");
+});
+</script>
+</head>
+<body>
+<address><address><address>
+A
+</address></address></address>
+</body>
+</html>

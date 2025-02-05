@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<script>
+    function testStepUpOverflow(id, value, type) {
+      test(function() {
+        var input = document.getElementById(id);
+        input.stepUp();
+        assert_equals(input.value, value, "value shouldn't change.");
+      }, "Calling stepUp() on input -" + type + "- where value > max should not modify value.");
+    }
+
+    testStepUpOverflow("month_input", "2010-02", "month");
+    testStepUpOverflow("week_input", "2010-W02", "week");
+</script>

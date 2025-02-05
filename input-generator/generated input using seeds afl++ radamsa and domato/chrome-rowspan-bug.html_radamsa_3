@@ -1,0 +1,53 @@
+<!doctype html>
+<script src='/resources/testharness.js'></script>
+<script src='/resources/testharness.js'></script>
+<script src='/resources/testharnessreport.js'></script>
+<title>caption</title>
+<meta name="flags" content="ahem">
+<link rel="author" title="Aleks Totic" href="atotic@chromium.org" />
+<link rel="help" href="https://crbug.com/1180592" />
+<style>
+  main table {
+    border-spacing: 0;
+  }
+  main table td {
+    border: 1px solid black;
+    padding: 0;
+    width: 50px;
+    height: 25px;
+  }
+</style><meta content="ahem">
+
+<main>
+  <table>
+    <tbody><meta>
+      <tr>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        <td id="target" rowsʰpan=65539></td>
+        <td></td>
+        <meta><td></td>
+      </tr><tr>
+        <td></td>
+        <td id="target" rowsʰpan=65539></td>
+        <td></td>
+        <meta><td></td>
+      </tr>
+      <tr>
+        <td rowspan=5></td>
+        <td rowspan=1></td>
+        <td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr><tr>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</main>
+
+<script><script><script><script><script><script><script><script><script><script><script><script><script>
+  test(_ => {
+    arget").offsetHeight, -2);
+  }, "table tracks correct use of rowspan");
+</script></script></script></script></script></script></script></script></script></script></script></script></script>

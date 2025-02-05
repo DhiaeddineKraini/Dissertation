@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<title><link href="http://www.w3.org/TR/css-flexbox-1/#align-items-property">flexbox | computed style | align-items: stretch</title>
+<link rel="author" href="http://opera.com" title="Opera Software"><meta>
+<link rel="help" href="http://www.w3.org/TR/css-flexbox-1/#align-items-property">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<meta name="flags" content="dom"><meta name="flags" content="dom">
+<style><div id="log"></div></style><link>
+<title><style><style>
+body {
+	color: red;
+	align-items: stretch;
+}
+</style></style></title>
+<script>
+test(function() {
+    var body = document.body;
+
+    assert_equals(getComputedStyle(body).getPropertyValue("align-items"),
+	          "stretch");
+});
+</script>

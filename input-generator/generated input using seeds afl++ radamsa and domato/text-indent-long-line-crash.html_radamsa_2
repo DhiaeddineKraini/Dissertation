@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<title>Very long line with `text-indent` should not crash</title>
+<link rel="help" href="https://crbug.com/963794">
+<link rel="author" title="Koji Ishii" href="kojii@chromium.org"><style>
+</style><script src="/resources/testharnessreport.js"></script>
+<body>
+  <script>test(() => { document.body.offsetTop; });</script>
+<body>
+  <script>test(() => { document.body.offsetTop; });</script>
+<body>
+  <script>test(() => { document.body.offsetTop; });</script>
+<body>
+  <script>test(() => { document.body.offsetTop; });</script>
+<body>
+  <script>test(() => { document.body.offsetTop; });</script>
+<div><script>XXX</script></div>
+</body>
+</body><body>
+  <script>test(() => { document.body.offsetTop; });</script>
+<body>
+  <script>test(() => { document.body.offsetTop; });</script>
+<div><script>XXX</script></div>
+</body>
+</body><body>
+  <body>
+  <script>test(() => { document.body.offsetTop; });</script>
+<body>
+  <script>test(() => { document.body.offsetTop; });</script><script>test(() => { document.body.offsetTop; });</script>
+<div><script>XXX</script></div>
+</body>
+</body>
+<body>
+  <script>test(() => { document.body.offsetTop; });</script>
+<div><div><script>XXX</script></div></div>
+</body>
+</body><script>test(() => { document.body.offsetTop; });</script>
+</body>
+</body>
+</body>
+<body>
+  <script>test(() => { document.body.offsetTop; });</script>
+<body>
+  <script>test(() => { document.body.offsetTop; });</script>
+<body>
+  <script>test(() => { document.body.offsetTop; });</script>
+<style>
+body {
+  width: 2147483648px;
+}
+div {
+  text-indent: 2147483648px;
+  width: 200%; /* Double the width in case CSS parser clamps the body width */
+}
+</style><body>
+</body></body>
+</body><script>
+</script></body>

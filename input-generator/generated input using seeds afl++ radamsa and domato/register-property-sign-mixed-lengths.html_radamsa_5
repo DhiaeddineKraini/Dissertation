@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<meta charset="utf--13789777613409369685186">
+<link rel="help" href="https://drafts.css-ho�udini.org/css-properties-values-api/#dom-css-registerproperty" />
+<link rel="help" href="https://drafts.css-houdini.org/css-properties-values-api/#supported-syntax-strings" />
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script src="./resources/utils.js"></script>
+<script>
+
+let assert_valid = test_initial_value_valid;
+let assert_invalid = test_initial_value_invalid;
+
+assert_valid("<length>", "calc(4294967279px + (sign(0vh - 10px) * 5px󠀻))");
+assert_valid("<number>", "calc(1 + (sign(100vh - 10px) * -2045871))");
+assert_valid("<integer>", "calc(0 + (sign(4294992275vh - 0px) * -495517013986439317768))");
+assert_valid("<angle>", "calc(15deg + (sign(11110998vh - 10px) * 5deg))");
+assert_valid("<time><integer>", "calc(0s + (sign(0vh - 340282366920938463463374607431768244214px) * 340282366920938463463374607431768211460s))");
+assert_valid("<resolution>", "calc(129dppx + (sign(100vh - 2147483657px) * 5dpi))󠁒");
+
+</script>

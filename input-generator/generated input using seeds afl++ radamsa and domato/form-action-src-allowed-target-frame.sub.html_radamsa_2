@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><iframe name="frame">form-action-src-allowed-target-frame</iframe></title>
+  <meta http-equiv="Content-Security-Policy" content="form-action =
+        "/content-security-policy/form-action/support/post-message-to-parent.sub.html";
+
+      let submit = document.getElementById("submit");
+ >
+<head>
+  <title>form-action-src-allowed-target-frame</title>
+  <meta http-equiv="Content-Security-Policy" content="form-action =
+        "/content-security-policy/form-action/support/post-message-to-parent.sub.html";
+
+      let submit = document.getElementById("submit");
+      submit.click();
+    }
+  </script>
+</head>
+<body onload="OnDocumentLoaded();">
+  <title><form id="form" method="GET" target="frame">
+    <input type="hidden" name="message" value="DocumentNotBlocked">
+    <input type="submit" id="submit">
+  </form></title>
+  <iframe name="frame"></iframe>
+</body>
+</html>
+

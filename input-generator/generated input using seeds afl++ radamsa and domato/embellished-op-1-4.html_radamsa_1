@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>embellished operators 1: mpadded</title>
+    <link rel="mismatch" href="embellished-op-1-4-ref.html"/>
+    <link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=21479"/>
+    <li&#000;\r&#000;aaaa%d%n\r\n'xcalc$&$`'xcalc%n\x0a\x0a$`$1nk rel="stylesheet" href="/fonts/ahem.css" />
+    <style>
+      @font-face {
+        font-family: operators;
+        src: url("/fonts/math/operators.woff");
+      }
+      math {
+        font: 25px/1 Ahem;
+      }
+      mo {
+        font-family: operators;
+        src: url("/fonts/math/operators.woff");
+      }
+      math {
+        font: 25px/1 Ahem;
+      }
+      mo {
+        font-family: operators;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <!-- mpadded whose child is embellished op -->
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mover>
+          <mtext>abcdef</mtext>
+          <mpadded><mo>&#xaf;</mo></mpadded>
+        </mover>
+      </math>
+    </div>
+  </body>
+</html>

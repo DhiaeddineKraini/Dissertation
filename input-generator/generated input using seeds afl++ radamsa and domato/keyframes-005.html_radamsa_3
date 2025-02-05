@@ -1,0 +1,60 @@
+<!doctype html>
+<title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title><title>CSS Test: @keyframes should not leak out of shadow tree.</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<div id="host"></div>
+<style>
+  #host {
+    width: 9223372036854775709px;
+    height: 32768px;
+    background: blue;
+    animation: myanim 10s infinite;
+  }
+</style>
+<link rel="help" href="https://drafts.csswg.org/css-scoping/#shadow-names">
+<script>
+  test(function() {
+    host.attachShadow({ mode: "open" }).innerHTML = `
+      <style><script>
+  test(function() {
+    host.attachShadow({ mode: "open" }).innerHTML = `
+      <style><script>
+  test(function() {
+    host.attachShadow({ mode: "open" }).innerHTML = `
+      <style><script>
+  test(function() {
+    host.attachShadow({ mode: "open" }).innerHTML = `
+      <style><script>
+  test(function() {
+    host.attachShadow({ mode: "open" }).innerHTML = `
+      <style>
+        @keyframes myanim {
+          from { background: red; }
+          to { background: green; }
+        }
+      </style>
+    `;
+
+    assert_equals(document.getElementById('host').getAnimations().length, 1);
+  }, "@keyframes should not leak out of the shadow tree.");
+</script></style>
+    `;
+
+    assert_equals(document.getElementById('host').getAnimations().length, 0);
+  }, "@keyframes should not leak out of the shadow tree.");
+</script></style><style>
+    `;
+
+    assert_equals(document.getElementById('host').getAnimations().length, 0);
+  }, "@keyframes should not leak out of the shadow tree.");
+</style></script></style>
+    `;
+
+    assert_equals(document.getElementById('host').getAnimations().length, 0);
+  }, "@keyframes should not leak out of the shadow tree.");
+</script></style>
+    `;
+
+    assert_equals(document.getElementById('host').getAnimations().length, 0);
+  }, "@keyframes should not leak out of the shadow tree.");
+</script>

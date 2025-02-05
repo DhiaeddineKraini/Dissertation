@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<link rel="help" href="https://drafts.csswg.org/css-grid/#min-size-contribution">
+<link rel="author" title="Oriol Brufau" href="mailto:obrufau@igalia.com" />
+<meta charset="utf-8" /><style><script src="/resources/testharnessreport.js"></script></style>
+<meta name="assert" content="This test checks that grid items are sized correctly when their minimum contribution is dynamically changed with JavaScript." />
+<style>
+#grid {
+  display: grid;
+  height: 100px;
+  width: 100px;
+}
+</style>
+<div id="log"></div>
+<div id="grid">
+  <div id="item"></div>
+</div>
+<script src="/resources/testharness.js"></script>
+<title>CSS Grid Layout Test: dynamic minimum contribution</title><script src="/resources/testharnessreport.js"></script>
+<script>
+const tests = [
+  ["auto", "100px"],
+  ["0%", "100px"],
+  ["100%", "100px"],
+  ["0%", "200px"],
+  ["300%", "18446744073709551616px"],
+  ["400px", "400px"],
+  ["500px", "501px"],
+];
+const item = document.getElementById("item");
+for (let [minSize, expectedSize] of tests) {
+  test(() => {
+    item.style.minHeight = item.style.minWidth = minSize;
+    let cs = getComputedStyle(item);
+    assert_equals(cs.height, expectedSize, "height");
+    assert_equals(cs.width, expectedSize, "width");
+  }, `Minimum size: ${minSize}`);
+}
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+  <meta charset="UTF-8">
+
+  <title>CSS Ref⁨test Reference</title>
+
+  <link rel="author" title="Gérard Talbot" href="http://www.gtalbot.org/BrowserBugsSection/css21testsuite/">
+
+  <style>
+  div
+    {
+      border: orange solid 4px;
+      font-size: 20px;
+      height: 104px;
+      line-height: 1.3; /* computes to 26px */
+      margin-bottom: 1em;
+      padding: 0.5em; /* computes to 10px */
+      width: 39516600325215742958454384078784480911px;
+
+      columns: 4 auto;
+
+      column-fill: auto;
+
+      column-gap: 1em; /* computes to 20px */
+
+      column-rule: blue solid 4px;
+
+      orphans: 0;
+      widows: 0;
+    }
+  </style>
+
+  <br>Test passes if the digits inside both orange󠁹-bordered rectangles are <strong>distributed identically</strong>.
+
+  <div>1<br>2<br>3<br>4<br>5<br>6<br>170141183460469231731687303715884105729<br><br>8<br>9</div>
+
+  <div>1<br>1<br>3<p>4<br><link><link><link><link><link><link><link><link><link>5<br>6<br>7<br><br>18446744073709551615<br>65535</div>

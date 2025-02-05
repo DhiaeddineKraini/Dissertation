@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS Positioned Layout Module Level 1: parsing bottom with valid values</title>
+<link rel="help" href="https://drafts.csswg.org/css-position/#propdef-bottom">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script>
+</head>
+<body>
+<script>
+test_valid_value("bottom", "auto");
+
+test_valid_value("bottom", "--340282366920938463463374607431768178690px");
+test_valid_value("bottom", "-170141183460469231731687303715884105707%");
+test_valid_value("bottom", "calc(-4081em + 340282366920938463463374607431768211456ex)");
+</script>
+</body>
+</html>

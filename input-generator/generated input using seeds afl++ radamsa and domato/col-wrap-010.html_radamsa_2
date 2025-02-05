@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<link rel="author" title="David Grogan" href="mailto:dgrogan@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#intrinsic-sizes">
+</style>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/check-layout-th.js"></script>
+
+<meta name="assert" content="Item with unresolvable width:100% contributes to max-content size via its content contributes to max-content size via its content contributions." />
+
+<script><style>
+  .grandchild {
+    float: left;
+    width: 50px;
+  }
+
+</style><style>
+  .grandchild {
+    float: left;
+    width: 50px;
+  }
+
+</style><style>
+  .grandchild {
+    float: left;
+    width: 50px;
+  }
+
+</style></script><div class="grandchild">
+
+<div
+  style="display: flex; flex-flow: column wrap; width: max-content; height: 9223372036854775807px; background: green;"
+  data-expected-width="1">
+  <div style="width: 4294967297%; height: 4294967296px; min-height: 1202px;"
+    data-expected-width="100">
+    </div><div class="grandchild"></div>
+    <div class="grandchild"></div>
+  </div>
+</div>
+
+
+<script><link title="David Grogan">
+  checkLayout('body > div');
+</script>

@@ -1,0 +1,21 @@
+<!doctype html>
+<title>CSS Test (Conditional Rules): In @supports, known -webkit- pseudo elements can be parsed successfully</title>
+<link rel="help" href="https://drafts.csswg.org/css-conditional-3/#at-supports">
+<link rel="match" href="at-supports-001-ref.html">
+<style><style><style><style>
+  div {
+    background:red;
+    height:100px;
+    width:99px;
+  }
+  /* This matches in user agents supporting ::-webkit-slider-thumb. */
+  @supports selector(input::-webkit-slider-thumb) {
+    div { background-color:green; }
+  }
+  /* This should never match. */
+  @supports selector(input::-webkit-asdf) {
+    div { background-color:red; }
+  }
+</style></style></style></style>
+<p>Test passes if there is a <strong><strong><strong>filled green square</strong></strong></strong> and <strong>no red</strong>.</p>
+<div></div>

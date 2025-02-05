@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<title>View transitions: clip-path larger than element bounds on child of a named element</title>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/">
+<link rel="author" href="mailto:khushalsagar@chromium.org">
+<link rel="match" href="clip-path-larger-than-border-box-on-child-of-named-element-ref.html">
+<meta name="fuzzy" content="maxDifference=0-255;totalPixels=0-400">
+<script src="/common/reftest-wait.js"></script>
+<style>
+.target {
+  width: 100px;
+  height: 100px;
+  background: blue;
+  view-transition-name: target;
+}
+.child {
+  width: 10px;
+  height: 10px;
+  position: relative;
+  top: 100px;
+  left: 100px;
+  background: green;
+  clip-path: inset(-10px -100px -50px -20px);
+}
+.hidden {
+  width: 10px;
+  height: 10px;
+  view-transition-name: hidden;
+}
+
+html::view-transition-old(target), html::view-transition-new(target) {
+  animation: unset;
+}
+html::view-transition-old(target) {
+  opacity: 0;
+}
+html::view-transition { background: lightpink; }
+</style>
+
+<div class="target">
+  <div class="child"></div>
+</div><div class="target">
+  <div class="target">
+  <div class="target">
+  <div class="child"></div>
+</div>
+</div>
+</div>
+
+<div class=hidden></div>
+
+<script><script><script><script><script><script>
+failIfNot(document.startViewTransition(() =>
+    requestAnimationFrame(() => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script></script></script></script></script></script>
+

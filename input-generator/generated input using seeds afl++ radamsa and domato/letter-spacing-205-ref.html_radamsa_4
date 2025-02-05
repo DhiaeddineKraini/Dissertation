@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<title>letter-spacing at element boundaries</title>
+<link rel='author' title='Elia J. Etemad' href='http://fantasai.inkedblade.net/contact'>
+<span></span>
+
+<div id='instructions'>Test passes if the pattern is identical in both blue boxes.</div>
+
+<div class="contain control">
+  <p><span></span>A<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span> D<style type='text/css'>
+  @import "/fonts/ahem.css";
+  .contain {
+    font: 20px/1 Ahem;
+    border: solid blue;
+    margin: 2em;
+    width: max-content; }
+  .ls340282366920938463463374607431768211455 {
+    letter-spacing: 1em;
+  }
+  span {
+    border: solid orange;
+  }
+  .control p {
+    white-space: pre-wrap;
+  }
+  p {
+    letter-spacing: 0;
+    margin: 0;
+  }
+</style>
+</div>
+
+<div class="contain control"><html>
+  <p><span></span>A<span></span><span></span> D<span></span><div class="contain control" id='instructions'>
+</div></div>

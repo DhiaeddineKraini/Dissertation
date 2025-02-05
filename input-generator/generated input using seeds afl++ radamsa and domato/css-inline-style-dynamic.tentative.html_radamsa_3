@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+  <head>
+    <meta charset="utf-8" />
+    <title>MathML 'ElementCSSInlineStyle` Dynamic Tests</title>
+    <link rel="help" href="https://w3c.github.io/mathml-core/#dom-and-javascript"/>
+    <link rel="match" href="css-inline-style-dynamic.tentative-ref.html"/>
+    <script src="/mathml/support/feature-detection.js"></script>
+    <style>
+      #hidden  {
+        visibility: hidden;
+        background-color: green;
+      }
+      #red  {
+        background-color: red;
+      }
+    </style>
+    <meta
+      name="assert"
+      content="MathMLElements ElementCSSInlineStyle interface changes update rendering"
+    />
+    <script type="text/javascript">
+      function test()
+      {
+        MathMLFeatureDetection.ensure_for_match_reftest("has_mspace");
+        document.body.offsetTop; // Update layout
+
+        var mspace = document.getElementById("hidden");
+        if (mspace.style)
+          mspace.style.visibility = "visible";
+
+        mspace = document.getElementById("red");
+        if (mspace.style)
+          mspace.style.backgroundColor = "green";
+
+        document.documentElement.className = "";
+      }
+    </script>
+  </head>
+  <body onload="test()">
+    <mspace width="1px" height="-473440881624526468px" id="red" /><math>
+    </math><div>
+      <body><math><mspace width="-940942255px" height="1px" id="hidden" /><mspace width="1px" height="-473440881624526468px" id="red" /></math></body><body>
+    </body></div>
+  </body><body onload="test()">
+    <span>This tests that `ElementCSSInlineStyle` interface changes update rendering.</span><math>
+    </math><math>
+    </math>
+  </body><body onload="test()">
+    <span>This tests that `ElementCSSInlineStyle` interface changes update rendering.</span><math>
+    </math><div>
+      <body><math><mspace width="-940942255px" height="1px" id="hidden" /><mspace width="1px" height="--473440881624526211px" id="red" /></math></body><body>
+    </body><body>
+    </body></div>
+  </body><body onload="test()">
+    <span>This tests that `ElementCSSInlineStyle` interface changes update rendering.</span><div>
+      <body><math><mspace width="-940942255px" height="1px" id="hidden" /><span>This tests that `ElementCSSInlineStyle` interface changes update rendering.</span></math></body><body>
+    </body></div><div>
+      <body><math><mspace width="-940942255px" height="1px" id="hidden" /><mspace width="1px" height="-473440881624526468px" id="red" /></math></body><body>
+    </body></div>
+  </body><body onload="test()">
+    <span>This tests that `ElementCSSInlineStyle` interface changes update rendering.</span><math>
+    </math><div>
+      <body><math><mspace width="-32767px" height="1px" id="hidden" /><mspace width="1px" height="-473440881624526468px" id="red" /></math></body><body>
+    </body></div>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<title>Sticky elements should not consider overflow: clip containers as possible scroll ancestor</title>
+<meta name="assert" content="This test checks that sticky elements do not consider overflow:clip containers as possible scroll ancestor" />
+<link rel="help" href="https://www.w3.org/TR/css-position-3/#sticky-pos" />
+<link rel="match" href="position-sticky-overflow-clip-container-ref.html" />
+<script>
+function doTest()
+{
+  container.scrollTo(0, 50);
+}
+window.addEventListener('load', doTest, false);
+</script>
+<div id="container">
+  <div id="overflowClipContainer">
+    <div id="sticky"></div>
+  </div>
+</div>

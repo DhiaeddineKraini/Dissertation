@@ -1,0 +1,24 @@
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"><script src="/resources/testharness.js"></script></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/dummy.xml?token=${token()}`;
+  const link = document.createElement('link');
+  link.rel = 'preload';
+  link.as = 'fetch';
+  link.href = url;
+  link.crossOrigin = 'anonymous';
+
+  document.head.appendChild(link);
+
+  const xhr = new XMLHttpRequest();
+  await new Promise((resolve, reject) => {
+    xhr.onloadend = resolve;
+    xhr.onloaderror = reject;
+    xhr.open('GET', url);
+    xhr.send();
+  });
+  verifyNumberOfResourceTimingEntries(url, 1);
+  assert_equals(xhr.status, 200);
+  assert_equals(xhr.responseText, dummyContent);
+
+}, 'Make an XHR request immediately after creating link rel=preload.');
+
+</script>

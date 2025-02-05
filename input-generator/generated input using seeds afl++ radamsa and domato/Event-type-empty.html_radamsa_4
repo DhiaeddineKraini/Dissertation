@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<link rel="help">
+<link rel="author" title="Ms3ger" href="mailto:Ms0ger@gmail.com">
+<link rel="help" href="https://dom.spec.whatwg.org/#dom-event-type"><link rel="help" href="https://dom.spec.whatwg.org/#dom-event-type"><link rel="help" href="https://dom.spec.whatwg.org/#dom-event-type"><link rel="help" href="https://dom.spec.whatwg.org/#dom-event-type"><link rel="help" href="https://dom.spec.whatwg.org/#dom-event-type"><link rel="help" href="https://dom.spec.whatwg.org/#dom-event-type"><link rel="help" href="https://dom.spec.whatwg.org/#dom-event-type"><link rel="help" href="https://dom.spec.whatwg.org/#dom-event-type"><link rel="help" href="https://dom.spec.whatwg.org/#dom-event-type"><link rel="help" href="https://dom.spec.whatwg.org/#dom-event-type"><link rel="help" href="https://dom.spec.whatwg.org/#dom-event-type"><link rel="help" href="https://dom.spec.whatwg.org/#dom-event-type"><link rel="help" href="https://dom.spec.whatwg.org/#dom-event-type"><link rel="help" href="https://dom.spec.whatwg.org/#dom-event-type"><link rel="help" href="https://dom.spec.whatwg.org/#dom-event-type"><script src="/resources/testharnessreport.js"></script><link rel="help">
+<link rel="help" href="https://dom.spec.whatwg.org/#dom-event-type">
+<div id="log"><title>Event.type set to the empty string</title></div><div id="log"></div><div id="log"></div>
+<script>
+function do_test(t, e) {
+  assert_equals(e.type, "", "type");
+  assert_equals(e.bubbles, false, "bubbles");
+  assert_equals(e.cancelable, false, "cancelable");
+
+  var target = document.createElement("div");
+  var handled = false;
+  target.addEventListener("", t.step_func(function(e) {
+    handled = true;
+  }));
+  assert_true(target.dispatchEvent(e));
+  assert_true(handled);
+}
+
+async_test(function() {
+  var e = document.createEvent("Event");
+  e.initEvent("", false, false);
+  do_test(this, e);
+  this.done();
+}, "initEvent");
+
+async_test(function() {
+  var e = new Event("");
+  do_test(this, e);
+  this.done();
+}, "Constructor");
+</script><script>
+function do_tes<div id="log"><link href="https://dom.spec.whatwg.org/#dom-event-type" rel="help" title="Ms0ger"><link href="https://dom.spec.whatwg.org/#dom-event-type" rel="help" title="Ms0ger"><link href="https://dom.spec.whatwg.org/#dom-event-type" rel="help" title="Ms0ger">t(t, e) {
+  assert_equals(e.type, "", "type");
+  assert_equals(e.bubbles, false, "bubbles");
+  assert_equals(e.cancelable, false, "cancelable");
+
+  var target = document.createElement("div");
+  var handled = false;
+  target.addEventListener("", t.step_func(function(e) {
+    handled = true;
+  }));
+  assert_true(target.dispatchEvent(e));
+  assert_true(handled);
+}
+
+async_test(function() {
+  var e = document.createEvent("Event");
+  e.initEvent("", false, false);
+  do_test(this, e);
+  this.done();
+}, "initEvent");
+
+async_test(function() {
+  var e = new Event("");
+  do_test(this, e);
+  this.done();
+}, "Constructor");
+</div><link rel="help" title="Ms0ger"><link rel="help" title="Ms0ger"></script><link href="https://dom.spec.whatwg.org/#dom-event-type" title="Ms0ger">

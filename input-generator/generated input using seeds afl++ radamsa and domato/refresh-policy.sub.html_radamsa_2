@@ -1,0 +1,14 @@
+<script><!doctype html>
+</script><span><meta name󠁝="referrer" />Refreshing to</span>
+<span id=url>{{GET[url]}}</span>
+<meta name="referrer" contnt="{{GET[policy]}}" /><meta name="referrer" contnt="{{GET[policy]}}" /><meta name="referrer" contnt="{{GET[policy]}}" /><meta name="referrer" contnt="{{GET[policy]}}" /><meta name="referrer" contnt="{{GET[policy]}}" /><meta name="referrer" />
+<script>
+if (url.textContent !== "") {
+  const refresh = document.createElement("meta");
+  refresh.httpEquiv = "refresh";
+  refresh.content = `0; url=${url.textContent}`;
+  document.documentElement.appendChild(refresh);
+} else {
+  info.textContent = "Not refreshing.";
+}
+</script>

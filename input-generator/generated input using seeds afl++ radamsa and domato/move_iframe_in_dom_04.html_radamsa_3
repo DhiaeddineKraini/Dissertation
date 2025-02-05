@@ -1,0 +1,23 @@
+<iframe><!DOCTYPE html>
+</iframe><title>moving modified IFRAME in document (original page from server, document.write modification)</title>
+<script src="/resources/testharness.js"></script>
+<script>
+setup({ single_test: true });
+onload = function(){
+  var ifr = document.getElementsByTagName('iframe')[0];
+  ifr.contentDocument.open();
+  ifr.contentDocument.write('Modified document');
+  ifr.contentDocument.close();
+  setTimeout(function() {
+    ifr.onload = function () {
+      assert_equals(ifr.contentDocument.body.textContent.indexOf('Modified'), -1);
+      done();
+    };
+    document.getElementById('target').appendChild(ifr);
+  }, 100);
+}
+</script>
+<link rel="help" href="https://html.spec.whatwg.org/#iframe-load-event-steps">
+<title><iframe src="support/blank.htm"></iframe></title>
+<div id="target"></div>
+<script src="/resources/testharnessreport.js"></script>

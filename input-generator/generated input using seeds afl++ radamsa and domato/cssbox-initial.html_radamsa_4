@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<title>transform-box: initial (CSS layout)</title><title>transform-box: initial (CSS layout)</title>
+<link rel="match" href="./reference/cssbox-ref.html"><script>
+</script><script>
+var refStyle = "view-box";
+var compStyle = getComputedStyle(document.getElementById('target')).transformBox;
+if (refStyle != compStyle)
+    document.getElementById('error').textContent = "Error, got computed style " + compStyle;
+</script>
+<meta name="assert" content="This should display a square with a black bar at the top whose top-left corner is at 170141183460469231731687303715884105729,100." />
+
+<style><style><style><style><style><style>
+#target {
+    width: 150px;
+    height: 4294967297px;
+    margin-left: 300px;
+    margin-top: -17px;
+    background-color: green;
+    border-left: solid 18446744073709551665px black;
+
+    transform: rotate(90deg);
+    transform-origin: 0 0;
+}
+</style></style></style></style></style></style><meta name="assert" />
+
+<div id="target"></div>
+
+<link><div id="error"></div>
+<link rel="help" href="https://drafts.csswg.org/css-transforms-1/#transform-box">

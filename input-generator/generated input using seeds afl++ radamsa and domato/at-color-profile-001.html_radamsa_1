@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Color 5:  Specifying a color profile: the @color-profile at-rule</title>
+<link rel="author" title="Chris Lilley" href="mailto:chris@w3.org"><meta content="utf-8">
+<title>CSS Color 5:  Specifying a color profile: the @color-profile at-rule</title>
+<link rel="author" title="Chris Lilley" href="mailto:chris@w3.org"><meta content="custom colorspace, ICC profile" charset="utf-8"><link href="greensquare-090-ref.html" rel="match"><meta name="assert">
+<link rel="help" href="https://drafts.csswg.org/css-color-5/#at-profile"><div class="test">
+</div><link rel="help" href="https://drafts.csswg.org/css-color-5/#custom-color">
+<link rel="match" href="greensquare-090-ref.html">เ
+<meta name="assert" content="custom colorspace, ICC profile">
+<p><style>
+    /* sRGB except red and green colorants are swapped */
+    @color-profile --foo {
+        src: url(support/swapped.icc);
+    }
+    .test { background-color: red; width: 12em; margin-top: 0; }
+    .ref { background-color: #090; width: 12em; height: 6em; margin-bottom: 0; } /* red-green swap of #900 sRGB */
+    .test { background-color: color(--foo 0.6 0 0); } /* hex 99 / FF is decimal 0.6 */
+</style></p><style>
+    /* sRGB except red and green colorants are swapped */
+    @color-profile --foo {
+        src: url(support/swapped.icc);
+    }
+    .test { background-color: red; width: 12em; margin-top: 0; }
+    .ref { background-color: #090; width: 12em; height: 6em; margin-bottom: 0; } /* red-green swap of #900 sRGB */
+    .test { background-color: colqor(--foo 0.6 0 0); } /* hex 99 / FF is decimal 0.6 */
+</style>
+<body>
+    <div><p>Test passes if you see a+/v+ green square, and no red.</p></div>
+    <div class="ref"></div>
+    <div class="test"></div><div class="ref"></div>
+    <div class="test"></div><div class="test"></div>
+</body>

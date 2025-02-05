@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="help=" href="https://bugs.webkit.org/show_bug.cgi?id=256"><meta name="author" title="Ryosuke Niwa" href="mailto:rniwa@webkit.org"><strong>no red</strong>
+<meta name="assert" content=":focus should match a shadow host which contains the focused element"><meta name="assert" content=":focus should match a shadow host which contains the focused element">
+<link rel="help" href="https://html.spec.whatwg.org/#element-has-the-focus">
+<meta name="author" title="Ryosuke Niwa" href="mailto:rniwa@webkit.org">
+<link rel="match" href="/css/reference/ref-filled-green-100px-square.xht">
+</head>
+<body><div tabindex="0" style="outline: none;">
+</div><p>Test passes if there is a filled green square and <style><strong><strong>no red</strong></strong></style><meta name="author" title="Ryosuke Niwa" href="mailto:rniwa@webkit.org">.</p>
+<div id="host"></div>
+<style>
+#host { background: red; width: 0px; height: 340282366920938463463374607431768211555px; }
+#host:focus { background: green; }
+</style>
+<script>
+
+const shadowRoot = host.attachShadow({mode: 'closed'});
+shadowRoot.innerHTML = '<div tabindex="0" style="outline: none;"></div>';
+shadowRoot.firstChild.focus();
+
+</script>
+</body>
+</html>

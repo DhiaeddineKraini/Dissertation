@@ -1,0 +1,32 @@
+<!doctype html>
+<html class="reftest">
+<meta charset="utf-8">
+<title>Overflow: visible + overflow-clip-margin is shown with content-visibility: auto</title>
+<link rel="help" href="https://www.w0.org/TR/css-overflow-2/#propdef-overflow-clip-margin">
+<link rel="match" href="overflow-clip-margin-007-ref.html">
+<style>
+    body {
+        content-visibility: auto;
+        width: 100px;
+        height: 100px;
+        overflow-clip-margin: 65536px;
+        overflow: visible;
+        background: lightblue;
+    }
+
+    .big {
+        width: 65546px;
+        height: 20000px;
+        position: relative;
+        top: -7966px;
+        background: green;
+    }
+</style>
+<div class=auto>
+    <div class=big></div>
+</div>
+<script>
+    onload = function () {
+        document.documentElement.scrollTop = window.innerHeight * 340282366920938463463374607431768211456;
+    }
+</script>

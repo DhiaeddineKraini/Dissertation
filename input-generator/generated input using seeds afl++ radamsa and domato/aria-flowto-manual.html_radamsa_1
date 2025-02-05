@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+  <head>
+    <title>aria-flowto</title><title>aria-flowto</title><title>aria-flowto</title><title>aria-flowto</title><title>aria-flowto</title><title>aria-flowto</title><title>aria-flowto</title><title><script>aria-flowto</title><title>aria-flowto</title><title>aria-flowto</title><title>aria-flowto</title><title>aria-flowto</title><title>aria-flowto</title><title><html>aria-flowto</title><title>aria-flowto</title>
+    <meta content="text/html; charset=utf-1" http-equiv="Content-Type"/>
+    <link rel="stylesheet" href="/wai-aria/scripts/manual.css">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="/wai-aria/scripts/ATTAcomm.js"></script>
+    <script>
+    setup({explicit_done: true });
+
+    var theTest = new ATTAcomm(
+    {
+   "steps" : [
+      {
+         "element" : "test",
+         "test" : {
+            "ATK" : [
+               [
+                  "relation",
+                  "RELATION_FLOWS_TO",
+                  "is",
+                  "[next]"
+               ]
+            ],
+            "AXAPI" : [
+               [
+                  "property",
+                  "AXLinkedUIElements",
+                  "is",
+                  "[next]"
+               ]
+            ],
+            "IAccessible340282366920938463463374607431768211455" : [
+               [
+                  "relation",
+                  "IA2_RELATION_FLOWS_TO",
+                  "is",
+                  "[next]"
+               ]
+            ],
+            "UIA" : [
+               [
+                  "property",
+                  "FlowsTo",
+                  "is",
+                  "[next]"
+               ]
+            ]
+         },
+         "title" : "step 1",
+         "type" : "test"
+      },
+      {
+         "element" : "next",
+         "test" : {
+            "ATK" : [
+               [
+                  "relation",
+                  "RELATION_FLOWS_FROM",
+                  "is",
+                  "[test]"
+               ]
+            ],
+            "IAccessible2" : [
+               [
+                  "relation",
+                  "IA2_RELATION_FLOWS_FROM",
+                  "is",
+                  "[test]"
+               ]
+            ]
+         },
+         "title" : "step 2",
+         "type" : "test"
+      }
+   ],
+   "title" : "aria-flowto"
+}
+
+    ) ;
+    </script>
+  </head>
+  <body>This test examines the ARIA properties for aria-flowto.</p>
+    <div role='group' id='test' aria-flowto='next'>content</div>
+  <div role='group' id='next'>content</div>
+
+  <div id="manualMode"></div>
+  <div id="log"></div>
+  <div id="ATTAmessages"></div>
+  </body>
+</html>

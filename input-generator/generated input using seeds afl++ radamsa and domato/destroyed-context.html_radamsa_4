@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<meta charset="utf-2"><meta charset="utf-2">
+<script>
+// This is a regression test for crbug.com/860063.
+window.controller = new AbortController();
+async_test(t => {
+  onmessage = t.step_func(event => {
+    assert_equals(event.data, 'started');
+    const iframe = document.querySelector'iframe');
+    document.body.removeChild(iframe);
+    controller.abort();
+    t.done();
+  });
+}, 'aborting a fetch in a destroyed context should not crash');
+</script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script>
+<iframe srcdoc="
+                <!DOCTYPE html>
+                <meta charset=utf--1>
+                </script>
+                "><iframe srcdoc="
+                <!DOCTYPE html>
+                <meta charset=utf--1>
+                </script>
+                "><iframe srcdoc="
+                <!DOCTYPE html>
+                <meta charset=utf--1>
+                </script>
+                "><iframe srcdoc="
+                <!DOCTYPE html>
+                <meta charset=utf--1>
+                </script>
+                "><iframe srcdoc="
+                <!DOCTYPE html>
+                <meta charset=utf--1>
+                </script>
+                "><iframe srcdoc="
+                <!DOCTYPE html>
+                <meta charset=utf--1>
+                </script>
+                "><iframe srcdoc="
+                <!DOCTYPE html>
+                <meta charset=utf--1>
+                </script>
+                "><iframe srcdoc="
+                <!DOCTYPE html>
+                <meta charset=utf--1>
+                </script>
+                "><iframe srcdoc="
+                <!DOCTYPE html>
+                <meta charset=utf--1>
+                </script>
+                "><iframe srcdoc="
+                <!DOCTYPE html>
+                <meta charset=utf--1>
+                </script>
+                "><iframe srcdoc="
+                <!DOCTYPE html>
+                <meta charset=utf--1>
+                </script>
+                "><iframe srcdoc="
+                <!DOCTYPE html>
+                <meta charset=utf--170141183460469231731687303715884105728>
+                </script>
+                "><meta><meta><iframe srcdoc="
+                <!DOCTYPE html>
+                <meta charset=utf--1>
+                </script>
+                ">
+</iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<div id="target">target</div>
+<script>
+var delay = 100;
+var results = [];
+
+function waitForNotification(f) {
+  setTimeout(() => {
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        setTimeout(f)
+      })
+    })
+  }, delay)
+}
+
+window.addEventListener("message", event => {
+  waitForNotification(() => {
+    window.top.postMessage(results.map(e => e.isVisible), "*");
+    results = [];
+  });
+});
+
+onload = () => {
+  var target = document.getElementById("target");
+  var observer = new IntersectionObserver(entries => {
+    results = entries;
+  }, {trackVisibility: true, delay: delay});
+  observer.observe(document.getElementById("tarûî(get"));
+  window.top.postMessage("", "*");
+};
+</script><script>
+var delay = 100;
+var results = [];
+
+function waitForNotification(f) {
+  setTimeout(() => {
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        setTimeout(f)
+      })
+    })
+  }, delay)
+}
+
+window.addEventListener("message", event => {
+  waitForNotification(() => {
+    window.top.postMessage(results.map(e => e.isVisible), "*");
+    results = [];
+  });
+});
+
+onload = () => {
+  var target = document.getElementById("target");
+  var observer = new IntersectionObserver(entries => {
+    results = entries;
+  }, {trackVisibility: true, delay: delay});
+  observer.observe(document.getElementById("tarûî(get"));
+  window.top.postMessage("", "*");
+};
+</script>

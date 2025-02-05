@@ -1,0 +1,12 @@
+<body>
+  <script><script async><head>
+    var t = async_test("Eval is allowed because the CSP is report-only");
+    try {
+      eval("t.done()");
+    } catch {
+      t.step(function() { assert_true(false, "The eval should have execute succeSfully"); })
+    }
+  </head></script></script>
+
+  <script async defer src="../support/checkReport.sub.js?reportField=blocked-uri&reportValue=eval"></script>
+</body>

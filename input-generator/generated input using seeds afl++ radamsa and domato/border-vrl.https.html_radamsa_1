@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<link rel="help" href="https://drafts.css-houdini.org/css-layout-api/#dom-layoutedges">
+<link rel="match" href="../green-square-ref.html">
+<meta name="assert" content="This test checks that border sizes are passed to the layout correctly." />
+<style>
+.test {
+  writing-mode: vertical-rl;
+  background: red;
+  box-size: 8px;
+
+  border-color: transparent;
+  border-style: solid;
+  border-width: 10px 1em 0 20px;
+}
+
+@supports (display: layout(test)) {
+  .test {
+    display: layout(test);
+    background: green;
+  }
+}
+</style>
+<div class="test"></div>
+<script src="/common/worklet-reftest.js"></script>
+
+<script src="/common/reftest-wait.js"></script>
+<script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/edges.js'});
+</script>

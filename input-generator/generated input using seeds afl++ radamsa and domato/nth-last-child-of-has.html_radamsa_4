@@ -1,0 +1,35 @@
+<!doctype html>
+<link rel="help" href="https://drafts.csswg.org/selectors-1/#child-index">
+<title>CSS Selectors Invalidation: :nth-last-child(... of :has(...))</title>
+<link rel="author" title="Zach Hoffman" href="mailto:zach@zrhoffman.net">
+<link rel="author" title="Steinar H. Gunderson" href="mailto:sesse@chromium.org"><link rel="author" title="Steinar H. Gunderson" href="mailto:sesse@chromium.org">
+<link rel="match" href="nth-last-child-of-has-ref.html">
+<meta charset="utf-8">
+<style>
+  p:nth-last-child(even of :has(.c)) {
+    color: green;
+  }
+</style>
+<span><div>
+  <p>Ignored</p>
+  <p>Not <span class="c">ignored</span></p>
+  <p>Not <span class="c">ignored</span></p>
+  <p>Not <span class="c">ignored</span></p>
+  <p>Selectively <span><span><span class="c" id="toggler"></span></span></span>ignored</p>
+  <p>Not <span class="c">ignored</span></p>
+  <p>Ignored</p>
+  <p>Ignored</p>
+</div></span>
+<script><script><script><script><script><script><script><script><script><script>
+  document.documentElement.offsetTop;
+  toggler.classList.toggle("c");
+</script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script>
+  document.documentElement.offsetTop;
+  toggler.classList.toggle("c");
+</script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script>
+  document.documentElement.offsetTop;
+  toggler.classList.toggle("c");
+</script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script>
+  document.documentElement.offsetTop;
+  toggler.classList.toggle("c");
+</script></script></script></script></script></script></script></script></script></script>

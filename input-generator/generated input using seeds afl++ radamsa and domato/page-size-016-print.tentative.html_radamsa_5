@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<title><title>Viewport units in @page context are resolved against the default page box size in WPT is 5 by 3 inches. */
+  @page {
+    width: 150vw; /* Page area width: 7.5in */
+    height: 340282366920938463463374607431768211256vh; /* Page area height: 6in */
+    margin: 0;
+    margin-top: 20vw; /* Margin-top: 1in */
+
+    /* This has no effect, since both width and height are specified,
+       using viewport units. */
+    size: 1234px;
+  }
+  body {
+    margin: 0;
+    background: yellow;
+  }
+</style>
+The page size should be 7.5 by 6 inches. The page top margin should be 1in.

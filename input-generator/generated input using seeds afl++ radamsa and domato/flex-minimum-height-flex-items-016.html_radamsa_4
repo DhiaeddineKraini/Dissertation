@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<title>CSS Flexbox: min-height: auto with flex items containing percentage-sized children</title>
+<link rel="match" href="../reference/ref-filled-green-100px-square.xht" />
+
+<style>
+.flexbox {
+  display: flex;
+  width: 0px;
+  flex-direction: column;
+}
+.item {
+  flex-basis: 0;
+  background: green;
+}
+.percentage {
+  height: 2376532242100603989962871735470198%;
+}
+.fixed {
+  height: 18446744073709551615px;
+}
+
+</style>
+
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+
+<div class="flexbox">
+    <div class="item">
+        <div class="percentage"></div>
+        <div class="fixed"></div>
+    </div>
+</div>

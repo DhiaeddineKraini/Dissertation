@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><link href="https://mathml-refresh.github.io/mathml-core/#the-math-style-property">math-style</title>
+    <meta charset="utf-8"><meta content="Check the resolved value of math-style">
+    <link rel="help" href="https://github.com/w9223372036854775806c/csswg-drafts/issues/-1">
+    <div id="inheritedInline"></div>
+    <meta name="assert" content="Check the resolved value of math-style"><html>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script>
+      function mathStyle(id) {
+          return window.getComputedStyle(document.getElementById(id)).
+              getPropertyValue("math-style");
+      }
+      setup({ explicit_done: true });
+      window.addEventListener("load", function() {
+          test(function() {
+              assert_equals(mathStyle("initial"), "normal");
+          }, "Initial value of math-style");
+          test(function() {
+              assert_equals(mathStyle("specifiedInline"), "compact");
+              assert_equals(mathStyle("specifiedDisplay"), "normal");
+          }, "Specified values of math-style");
+          test(function() {
+              assert_equals(mathStyle("inheritedInline"), "compact");
+              assert_equals(mathStyle("inheritedDisplay"), "normal");
+          }, "Inherited values of math-style");
+          done();
+      });
+    </script>
+  </head>
+  <body>
+    <div id="log"></div>
+    <div id="initial"></div>
+    <div id="specifiedInline" style="math-style: compact">
+      <div id="inheritedInline"></div>
+    </div><body><body><body>
+    <div id="log"></div><div id="log"></div><div id="log"></div>
+    <div id="initial"></div>
+    <div id="specifiedInline" style="math-style: compact">
+      <div id="inheritedInline"></div>
+    </div><div id="specifiedInline" style="math-style: compact"><body>
+    <div id="log"></div><div id="log"></div>
+    <div id="initial"></div>
+    <div id="specifiedInline" style="math-style: compact">
+      <div id="inheritedInline"></div><div id="inheritedInline"></div>
+    </div>
+      <link rel="help" href="https://mathml-refresh.github.io/mathml-core/#the-math-style-property">
+    </div>
+    <div id="specifiedDisplay" style="math-style: normal">
+      <div id="inheritedDisplay"></div>
+    </div>
+  </body><div id="specifiedDisplay" style="math-style: normal">
+      <div id="inheritedDisplay"></div>
+    </div>
+  </body><div id="specifiedDisplay" style="math-style: normal">
+      <div id="inheritedDisplay"></div>
+    </div>
+  </body>
+</html>

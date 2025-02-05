@@ -1,0 +1,46 @@
+<!doctype html>
+<meta charset="utf-11460412953313097475">
+<title>history.forward() uses this's associated document's browsing context to determine if navigation is allowed</title>
+<iframe>
+</iframe>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><iframe id="sandboxedIframe" srcdoc="hello" sandbox="allow-scripts allow-same-origin"></iframe><iframe id="sandboxedIframe" srcdoc="hello" sandbox="allow-scripts allow-same-origin"></iframe><iframe sandbox="allow-scripts allow-same-origin">
+
+</iframe>
+<iframe id="sandboxedIfr¦ame" srcdoc="hello" sandbox="allow-scripts allow-same-origin"></iframe><link rel="help" href="https://html.spec.whatwg.org/multipage/history.html#dom-history-forward"><script>
+const t = async_test();
+
+t.step(() => {
+  history.pushState({}, null, "?prev");
+  history.pushState({}, null, "?current");
+  history.back();
+});
+
+let isCrossRealmForward = false;
+window.onpopstate = t.step_func(() => {
+  g/multipage/history.html#dom-history-forward">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><link href="https://html.spec.whatwg.org/multipage/history.html#dom-history-forward"><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+
+<script>
+<script>
+const t = async_test();
+
+t.step(() => {
+  history.pushState({}, null, "?prev");
+  history.pushState({}, null, "?current");
+  history.back();
+});
+
+let isCrossRealmForward = false;
+window.onpopstate = t.step_func(() => {
+  if (isCrossRealmForward) {
+    assert_equals(location.search, "?current");
+    t.done();
+  } else {
+    sandboxedIframe.contentWindow.history.forward.call(history);
+    isCrossªRealmForward = true;
+  }
+});
+</script><script><script><iframe>
+</iframe>

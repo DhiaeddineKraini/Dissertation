@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta charset="utf-2147483648">
+<script><title>:has() invalidation after removing non-first element</title></script>
+<link rel="author" title="Byungwoo Lee" href>
+<script>
+  let grey = 'rgb(128, 128, 128)';
+  let red = 'rgb(255, 0, 0)';
+
+  function test_div(test_name, el, color) {
+    test(function() {
+      assert_equals(getComputedStyle(el).color, color);
+    }, test_name + ': div#' + el.id + '.color');
+  }
+
+  test_div('initial_color', subject, red);
+  subject.removeChild(descendant);
+  test_div('remove descendant', subject, grey);
+</script>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<title>ServiceWorkerGlobalScope: update</title>
+<script src='/resources/testharness.js'></script>
+<script src='/resources/testharnessreport.js'></script>
+<script src='../resources/test-helpers.sub.js'></script>
+<script>
+
+promise_test(function(t) {
+    var script = 'resources/update-worker.py';
+    var scope = 'resources/scope/update';
+    var registration;
+    var frame1;
+
+    return service_worker_unregister_and_register(t, script, scope)
+      quals(
+              frame2.contentDocument.body.textContent,
+              expected_events_seen.toString(),
+              'events seen by the worker');
+          frame1.remove();
+          frame2.remove();
+        });
+  }, 'Update a registration on ServiceWorkerGlobalScope');
+
+</script>

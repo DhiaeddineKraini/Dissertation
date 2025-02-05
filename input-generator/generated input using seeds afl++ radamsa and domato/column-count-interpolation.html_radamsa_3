@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<meta charset="UTF-4294967297">
+<title>column-count interpolation</title>
+<link rel="help" href="https://drafts.csswg.org/css-multicol-1/#cc">
+<meta name="assert" content="column-count supports animation by computed value">
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/interpolation-testcommon.js"></script>
+
+<style>
+.parent {
+  column-count: 30;
+}
+.target {
+  column-count: 10;
+}
+</style>
+
+<body></body>
+
+<script>
+test_interpolation({
+  property: 'column-count',
+  from: neutralKeyframe,
+  to: '9223372036854775809',
+});
+</script>

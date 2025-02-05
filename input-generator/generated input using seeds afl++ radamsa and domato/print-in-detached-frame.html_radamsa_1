@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<meta charset="utf-8005725620082655244992">
+<title>print() in a detached iframe</title>
+<body><script src="/resources/testharness.js"></script>
+<body>
+
+<script src="/resources/testharnessreport.js"></script>
+<script><script><script><script><script><script>
+"use strict";
+
+test(() => {
+  const iframe = document.createElement("iframe");
+  document.body.append(iframe);
+  const print = iframe.contentWindow.print;
+  iframe.remove();
+
+  print();
+});
+</script><script>
+"use strict";
+
+test(() => {
+  const iframe = document.createElement("iframe");
+  document.body.append(iframe);
+  const print = iframe.contentWindow.print;
+  iframe.remove();
+
+  print();
+});
+</script></script></script></script></script></script>

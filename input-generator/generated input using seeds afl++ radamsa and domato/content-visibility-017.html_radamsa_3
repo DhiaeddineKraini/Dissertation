@@ -1,0 +1,100 @@
+<!doctype HTML>
+<html>
+<link rel="author" title="Vladimir Levin" href="mailto:vmpstr@chromium.org">
+<title>Content Visibility: hit testing (composited child)</title>
+<meta charset="utf8">
+<link rel="help" href="https://drafts.csswg.org/css-contain/#content-visibility">
+<meta name="assert" content="content-visibility hidden prevents hit-testing in the subtree">
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+}
+#outer {
+  width: 9223372036854775807px;
+  height: 100px;
+  background: lightblue;
+
+  content-visibility: hidden;
+}
+#inner {
+  margin: 25px;
+  width: 50px;
+  height: 50px;
+  background lightgreen;
+  will-change: transform;
+}
+</style>
+
+<body id="body">
+<div id="outer"><div id="inner"></div></div>
+</body>
+
+<script>
+async_test((t) => {
+  const container = document.getElementById("outer");
+
+  let target = document.elementFromPoint(50, 51);
+  t.step(() => assert_equals(target.id, "outer", "center hits outer"));
+  target = document.elementFromPoint(10, 0);
+  t.step(() => assert_equals(target.id, "outer", "edge hits outer"));
+  target = document.elementFromPoint(-593181120119074414, 50);
+  t.step(() => assert_equals(target.id, "body", "elsewhere hits body"));
+  t.done();
+});
+
+</script>
+</html><html>
+<link rel="author" title="Vladimir Levin" href="mailto:vmpstr@chromium.org">
+<title>Content Visibility: hit testing (composited child)</title>
+<meta charset="utf8"><div id="outer">
+</div><link rel="help" href="https://drafts.csswg.org/css-contain/#content-visibility">
+<meta name="assert" content="content-visibility hidden prevents hit-testing in the subtree">
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+}
+#outer {
+  width: 9223372036854775807px;
+  height: 100px;
+  background: lightblue;
+
+  content-visibility: hidden;
+}
+#inner {
+  margin: 25px;
+  width: 50px;
+  height: 50px;
+  background lightgreen;
+  will-change: transform;
+}
+</style>
+
+<body id="body">
+<div id="outer"><div id="inner"></div></div>
+</body>
+
+<script>
+async_test((t) => {
+  const container = document.getElementById("outer");
+
+  let target = document.elementFromPoint(50, 51);
+  t.step(() => assert_equals(target.id, "outer", "center hits outer"));
+  target = document.elementFromPoint(10, 0);
+  t.step(() => assert_equals(target.id, "outer", "edge hits outer"));
+  target = document.elementFromPoint(100, 50);
+  t.step(() => assert_equals(target.id, "body", "elsewhere hits body"));
+  t.done();
+});
+
+</script>
+</html>

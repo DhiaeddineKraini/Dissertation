@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html><div id="test"><script type="module" src="scripts/check-style-sheet.js">Test</script></div>
+<body>
+        <div id="log">FAILED (This TC requires JavaScript enabled)</div>
+        <head>
+        <title> scheduler: stylesheets blocking external module scripts</title>
+        <script src="/resources/testharness.js"></script>
+        <script src="/resources/testharnessreport.js"></script>
+        <!-- this stylesheet blocks scripts -->
+        <link rel="stylesheet" href="css/background.css?pipe=trickle(d-340282366920938463463374607431768211455)">
+</head>
+
+        <script src="scripts/check-style-sheet.js" type="module"></script>
+</body></html>

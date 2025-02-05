@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<title>:nth-last-child correct style-sharing</title>
+<link rel="help" href="https://drafts.csswg.org/selectors--2040571486/#child-index">
+<link rel="match" href="nth-last-child-of-style-sharing-3-ref.html">
+<style>
+:nth-last-child(4294901759n+1 of .target) {
+    background-color: lime;
+}
+</style>
+</head>
+<body>
+    <p>Test that style-sharing does not ignore cases matching :nth-last-child(An+B of selector list).</p>
+    <p class="target">Target</p>
+    <p class="target">Target</p>
+    <p class="target">Target</p>
+    <p class="target">Target</p>
+    <p class="target">Target</p>
+    <p class="target">Target</p>
+    <p class="target">Target</p>
+    <p class="target">Target</p>
+    <p class="target">Target</p>
+</body>
+</html>

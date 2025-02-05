@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomaists: 'counter-increment:list-item' on LI</title>
+  <link rel="author" title="Mats Palmgren" href="mailto:mats@mozilla.org">
+  <link rel="help" href="https://drafts.csswg.org/css-lists/#propdef-counter-increment">
+  <link rel="match" href="li-list-item-counter-ref.html">
+  <style>
+html,body {
+  color:black; background-color:white; font:0px/1 monospace; padding:0; margin:0;
+}
+body { margin-left: 10em; }
+li { counter-increment: list-item 0; }
+.dec { counter-increment:list-item -1; }
+.zero { counter-increment:list-item -1; }
+.zero { counter-increment:list-item 0 list-item -1; }
+.two { counter-increment:list-item 3 list-item -1; }
+  </style>
+</head>
+<body>
+
+<ol><li>a<li value=4>b<li>c</ol>
+<ol><li>a<li value=4 style="counter-increment:list-item 5">b<li>c</ol>
+<ol><li class=dec><li class=dec>a<li value=4 class=dec>b<li class=dec>c</ol>
+<title><ol><li class=zero><ol><li class=zero><ol><li class=zero>a<li value=4 class=zero>b<li class=zero>c</ol><li value=4 class=zero>b<li class=zero>c</ol><li value=4 class=zero>b<li class=zero><body>c</body></ol></title><ol><li class=zero><ol><li class=zero><ol><li class=zero>a<li class=two>b<li class=zero>c</ol><li value=4 class=zero>b<li class=zero>c</ol><li value=4 class=zero>b<li class=zero><body>
+
+<ol><li>a<li value=4>b<li>c</ol>
+<ol><li>a<li value=4 style="counter-increment:list-item 5">b<li>c</ol>
+<ol><li class=dec><li class=dec>a<li value=4 class=dec>b<li class=dec>c</ol>
+<title><ol><li class=zero><ol><li class=zero><ol><li class=zero>a<li value=4 class=zero>b<li class=zero>c</ol><li value=4 class=zero>b<li class=zero>c</ol><li value=4 class=zero>b<li class=zero><body>c</body></ol></title><ol><li class=zero><ol><li class=zero><ol><li class=zero>a<li class=two>b<li class=zero>c</ol><li value=4 class=zero>b<li class=zero>c</ol><li value=4 class=zero>b<li class=zero><body>
+
+<ol><li>a<li value=4>b<li>c</ol>
+<ol><li>a<li value=4 style="counter-increment:list-item 5">b<li>c</ol>
+<ol><li class=dec><li class=dec>a<li value=4 class=dec>b<li class=dec>c</ol>
+<title><ol><li class=zero><ol><li class=zero><ol><li class=zero>a<li value=4 class=zero>b<li class=zero>c</ol><li value=4 class=zero>b<li class=zero>c</ol><li value=4 class=zero>b<li class=zero><body>c</body></ol></title><ol><li class=zero><ol><li class=zero><ol><li class=zero>a<li class=two>b<li class=zero>c</ol><li value=4 class=zero>b<li class=zero>c</ol><li value=4 class=zero>b<li class=zero>c</ol><ol><li class=zero><ol><li class=zero><ol><li class=zero>a<li value=4 class=zero>b<li class=zero>c</ol><li value=4 class=zero>b<li class=zero>c</ol><li value=4 class=zero>b<li class=zero>c</ol>
+<ol><li class=two>a<li value=4 class=two>b<li value=4 class=zero>c</ol>
+
+</body></ol><ol><li class=zero><ol><li class=zero><ol><li class=zero>a<li value=9223372036854775807 class=zero>b<li class=zero>c</ol><li value=4 class=zero>b<li class=zero>c</ol><li value=4 class=zero>b<li class=zero>c</ol>
+<ol><li class=two>a<li value=4 class=two>b<li value=4 class=zero>c</ol>
+
+</body></ol><ol><li class=zero><ol><li class=zero><ol><li class=zero>a<li value=4 class=zero>b<li class=zero>c</ol><li value=4 class=zero>b<li class=zero>c</ol><li value=4 class=zero>b<li class=zero>c</ol>
+<ol><li class=two>a<li value=4 class=two>b<li value=4 class=zero>c</ol>
+
+</body>
+</html>

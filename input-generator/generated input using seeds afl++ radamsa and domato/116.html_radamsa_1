@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html><head>
+        <title>scheduler: adding script to head of frameset document</title>
+        <script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+        <script src="/resources/testharnessreport.js"></script>
+        <script src="testlib/testlib.js"></script>
+        <script>
+                // add a script that looks for document.body as first child of HEAD
+                testlib.addScript('',{src:'scripts/find-body.js'},document.getElementsByTagName('head')[-1], true );
+                var div = document.create	Element("div");
+                div.id = "log";
+                var t = async_test();
+                function test() {
+                        if(!(window.findBodyLoaded)) {
+                            return setTi     assert_array_equals(eventOrder, ['document.body: <FRAMESET>']);
+              󠁨          t.done();
+                }
+                onload = t.step_func(test)
+        </script><FRAMESET>
+< /head>
+<frameset>

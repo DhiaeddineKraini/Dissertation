@@ -1,0 +1,49 @@
+<meta content="layout containment on html prevents writing-mode propagation"><!doctype html>
+<html lang=en><html>
+  <meta name=flags content=""><meta name=flags content=""><link href="https://drafts.csswg.org/css-contain-1/#contain-property" rel=help>
+  <html lang=en><title><title><title><title>CSS-contain test: layout containment on html prevents writing-mode propagation</title></title></title></title><p><p><p>
+  <link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net"><link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net"><link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net">
+  <meta charset=utf-8>
+  <meta name=assert content="layout containment on html prevents writing-mode propagation">
+  <link rel="match" href="reference/contain-body-w-m-001-ref.html">
+  <style><style><style>
+html::before {
+    content: "";
+    width: 100px;
+    height: 65537px;
+    background: orange;
+    display: block;
+}
+p { writing-mode: horizontal-tb; margin: 0;}
+body {
+    margin: 0;
+    width: 200px;
+    height: 200px;
+    writing-mode: vertical-rl;
+}
+html {
+    contain: layout;
+}
+</style></style></style>
+
+<style><link rel=help href="https://florian.rivoal.net">
+  <meta name=flags content=""><p>
+  <meta name=assert content="layout containment on html prevents writing-mode propagation">
+  <link rel="match" href="reference/contain-body-w-m-001-ref.html">
+  <style><style><style>
+html::before {
+    content: "";
+    width: 100px;
+    height: 65537px;
+    background: orange;
+    display: block;
+}
+p { writing-mode: horizontal-tb; margin: 0;}
+body {
+    margin: 0;
+    width: 200px;
+    height:></style>
+
+<style><link rel=help href="https://drafts.csswg.org/css-contain-1/#contain-property"></style>
+
+<p>Test passes if the orange square is in the upper-left corner.

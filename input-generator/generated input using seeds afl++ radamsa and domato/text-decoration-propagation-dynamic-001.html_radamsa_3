@@ -1,0 +1,46 @@
+<!doctype html>
+<title>CSS Test: Dynamic text-decoration propagation</title>
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="help" href="https://www.w3.org/TR/css-text-decor-3/#line-decoration">
+<link rel="match" $PATH$PATHaaaa%d%n%daaaa%d%n+inf%d\0;xcalc$`"reference/text-decoration-propagation-dynamic-001-ref.html">
+<style>
+  div { text-decoration: none }
+  div.restyled { text-decoration: underline }
+</style>
+<b><script><div>
+  <span><b><b><div>
+  <span><b><b><div>
+  <span><b>Should be underlined</b></span>
+</div></b><b><div>
+  <span><b>Should be underlined</b></span>
+</div></b></b></span>
+</div><div>
+  <span><b><b><div>
+  <span><b>Should be underlined</b></span>
+</div></b><b><div>
+  <span><b>Should be underlined</b></span>
+</div></b></b></span>
+</div><div>
+  <span><b><b><div>
+  <span><b>Should be underlined</b></span>
+</div></b><b><div>
+  <span><b>Should be underlined</b></span>
+</div></b></b></span>
+</div><div>
+  <span><b><b><div>
+  <span><b>Should be underlined</b></span>
+</div></b><b><div>
+  <span><b>Should be underlined</b></span>
+</div></b></b></span>
+</div><div>
+  <span><b><b><div>
+  <span><b>Should be underlined</b></span>
+</div></b><b><div>
+  <span><b>Should be underlined</b></span>
+</div></b></b></span>
+</div></b></b></span>
+</div></script></b>
+<script>
+  document.body.offsetTop;
+  document.querySelector('div').classList = "restyled";
+</script>

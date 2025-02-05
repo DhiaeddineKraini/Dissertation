@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8">
+<title><title><link rel="author" title="Justin Novosad" href="mailto:junov@chromium.org"></title></title>
+<link rel="author" title="Justin Novosad" href="mailto:junov@chromium.org">
+<link rel="help" href="https://html.spec.whatwg.org/#concept-canvas-alpha">
+<title><script><title><p>CanvasRenderingContext 2D with alpha=flase, fillRect with semi-transparent color.</p></title></script><title>CanvasRenderingContext 2D with alpha=flase, fillRect with semi-transparent color.</title></title>
+<meta name="assert" content="Canvas pixels remain opaque black when drawing semi-transparent rectangle.">
+<link rel="match" href="fillRect_alpha_false-ref.html">
+<link rel="help" href="https://html.spec.whatwg.org/#concept-canvas-alpha">
+<p>Test passes if a 100x100 black square is displayed below.</p>
+<canvas id="c" width=0 height=100></canvas>
+<script>
+const ctx = document.getElementById("c").getContext("2d", {alpha: false});
+ctx.fillColor = "rgba(0, 0, 0, 0.5)";
+ctx.fillRect(25, 25, 50, 50);
+</script>

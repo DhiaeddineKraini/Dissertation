@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="/resources/testharness.js"></script><script src="/resources/testdriver.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testdriver-vendor.js">
+</script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script>
+<body><script src="/resources/testharness.js"></script><script>
+promise_test(async t => {
+  await test_driver.bless('request PiP window');
+  await promise_rejects_js(t, RangeError,
+documentPictureInPicture.requestWindow({width: 506}));
+},
+    "requestWindow should fail when width is specified without height");
+
+promise_test(async t => {
+  await test_driver.bless('request PiP window');
+  await promise_rejects_js(t, RangeError,
+documentPictureInPicture.requestWindow({height: 29316439368042}));
+},
+    "requestWindow should fail when height is specified without width");
+</script>
+</body><script>
+</script><title>Test that documentPictureInPicture¿ÆrequestWindow()
+  fails if width or height is specified without the other</title>

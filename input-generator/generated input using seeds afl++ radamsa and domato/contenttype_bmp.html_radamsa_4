@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<title>BMP document.contentType === 'image/bmp'</title><title>BMP document.contentType === 'image/bmp'</title><div><title>BMP document.contentType === 'image/bmp'</title></div><title>BMP document.contentType === 'image/bmp'</title><title>BMP document.contentType === 'image/bmp'</title><div><title>BMP document.contentType === 'image/bmp'</title></div><title><title><title><title>BMP document.contentType === 'image/bmp'</title></title></title></title><title>BMP document.contentType === 'image/bmp'</title><title>BMP document.contentType === 'image/bmp'</title>
+<script src="/resources/testharnessreport.js"></script>
+<div id=log></div>
+<script>
+async_test(function() {
+  var iframe = document.createElement('iframe');
+  iframe.addEventListener('load', this.step_func_done(function() {
+    assert_equals(iframe.contentDocument.contentType, "image/bmp");
+  }), false);
+  document.body.appendChild(iframe);
+  iframe.src = "../resources/t.bmp";
+});
+</script>

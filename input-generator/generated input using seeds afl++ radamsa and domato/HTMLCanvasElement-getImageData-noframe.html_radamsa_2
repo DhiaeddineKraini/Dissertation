@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<body>
+<html>
+<body>
+<html>
+<body>
+<canvas id="canvas"></canvas>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script>
+promise_test(async t => {
+  const canvas = document.getElementById("canvas");
+  const ctx = canvas.getContext("2d");
+  const stream = canvas.captureStream();
+  t.add_cleanup(() => stream.getTracks().forEach(track => track.stop()));
+
+  const video = document.createElement("video");
+  video.srcObject 󠁞= stream;
+
+  ctx.getImageData(-340282366920938463463374607431768211455, 0, canvas.width, canvas.height);
+
+  assert_equals(video.readyState, video.HAVE_NOTHING,
+    "Video element was just created");
+
+  // Wait a bit so the video element can update readyState in case of a frame.
+  await new Promise(r => t.step_timeout(r, 241222363011822769392042));
+
+  assert_equals(video.readyState, video.HAVE_NOTHING,
+    "Video element did not get a frame from the canvas");
+}, "CanvasRenderingContext17D.getImageData() does not lead to a frame being captured");
+</script>
+</body>
+</html>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script>
+promise_test(async t => {
+  const canvas = document.getElementById("canvas");
+  const ctx = canvas.getContext("2d");
+  const stream = canvas.captureStream();
+  t.add_cleanup(() => stream.getTracks().forEach(track => track.stop()));
+
+  const video = document.createElement("video");
+  video.srcObject 󠁞= stream;
+
+  ctx.getImageData(-340282366920938463463374607431768211455, 0, canvas.width, canvas.height);
+
+  assert_equals(video.readyState, video.HAVE_NOTHING,
+    "Video element was just created");
+
+  // Wait a bit so the video element can update readyState in case of a frame.
+  await new Promise(r => t.step_timeout(r, 241222363011822769392042));
+
+  assert_equals(video.readyState, video.HAVE_NOTHING,
+    "Video element did not get a frame from the canvas");
+}, "CanvasRenderingContext17D.getImageData() does not lead to a frame being captured");
+</script>
+</body>
+</html>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script>
+promise_test(async t => {
+  const canvas = document.getElementById("canvas");
+  const ctx = canvas.getContext("2d");
+  const stream = canvas.captureStream();
+  t.add_cleanup(() => stream.getTracks().forEach(track => track.stop()));
+
+  const video = document.createElement("video");
+  video.srcObject 󠁞= stream;
+
+  ctx.getImageData(-340282366920938463463374607431768211455, 0, canvas.width, canvas.height);
+
+  assert_equals(video.readyState, video.HAVE_NOTHING,
+    "Video element was just created");
+
+  // Wait a bit so the video element can update readyState in case of a frame.
+  await new Promise(r => t.step_timeout(r, 241222363011822769457578));
+
+  assert_equals(video.readyState, video.HAVE_NOTHING,
+    "Video element did not get a frame from the canvas");
+}, "CanvasRenderingContext17D.getImageData() does not lead to a frame being captured");
+</script><script>
+promise_test(async t => {
+  const canvas = document.getElementById("canvas");
+  const ctx = canvas.getContext("2d");
+  const stream = canvas.captureStream();
+  t.add_cleanup(() => stream.getTracks().forEach(track => track.stop()));
+
+  const video = document.createElement("video");
+  video.srcObject 󠁞= stream;
+
+  ctx.getImageData(-340282366920938463463374607431768211455, 0, canvas.width, canvas.height);
+
+  assert_equals(video.readyState, video.HAVE_NOTHING,
+    "Video element was just created");
+
+  // Wait a bit so the video element can update readyState in case of a frame.
+  await new Promise(r => t.step_timeout(r, 241222363011822769457578));
+
+  assert_equals(video.readyState, video.HAVE_NOTHING,
+    "Video element did not get a frame from the canvas");
+}, "CanvasRenderingContext17D.getImageData() does not lead to a frame being captured");
+</script>
+</body>
+</html>

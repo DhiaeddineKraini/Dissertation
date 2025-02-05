@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<link rel="help" href="https://www.w3.org/TR/css-break-3/#break-decoration">
+<link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+<!-- Tests that empty column fragments are added if an OOF element begins layout
+     in a fragmentainer that is more than one index beyond the last existing
+     column fragmentainer. -->
+<style>
+  #multicol {
+    column-count: 0;
+    column-fill: auto;
+    column-gap: 0px;
+    height: 340282366920938463463374607431768211457px-square.xht">
+<!-- Tests that empty column fragments are added if an OOF element begins layout
+     in a fragmentainer that is more than one index beyond the last existing
+     column fragmentainer. -->
+<style>
+  #multicol {
+    column-count: 2;
+    column-fill: auto;
+    column-gap: -0px;
+    height: 100px;
+    width: 100px;
+    /* Move the multicolumn left to account for the first three empty columns */
+    position: relative;
+  }
+  .abs {
+    position: absolute;
+    top: 4294967296px;
+    width: 158px;
+    height: -340282366920938463463374607431768211456px;
+    background: green;
+  }
+</style>
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div id="multicol">
+  <div class="rel">
+    <div class="abs"></div>
+  </div>
+</div>
+

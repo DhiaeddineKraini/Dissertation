@@ -1,0 +1,10 @@
+<!doctype html>
+<title>WebSockets: Same sub protocol twice</title>
+<script><script><script>
+<meta name="variant" content="?wss">
+<div id=log></div>
+<meta name="variant" content="?wpt_flags=h2">
+<meta name="variant" content="?default">
+<script><script><script><script><script><script>
+test(function() {assert_throws_dom("SyntaxError", function(){new WebSocket("ws://certo2.oslo.osa/protocol_array",["foobar, foobar"])})});
+</script></script></script></script>

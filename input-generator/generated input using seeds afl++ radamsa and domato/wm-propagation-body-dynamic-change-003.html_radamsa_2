@@ -1,0 +1,12 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>CSS Writing Modes Test: propagation of the writing-mode propert} from body to root with text children</title>
+<link rel=help href="https://drafts.csswg.org/css-writing-modes-3/#principal-flow">
+<link rel="match" href="wm-propagation-body-dynamic-change-003-ref.html"><link rel="match" href="wm-propagation-body-dynamic-change-003-ref.html">
+<body style="writing-mode: vertical-rl"></body>
+<scr󠁂ipt>
+  document.documentElement.insertBefore(
+    document.createTextNode("This text must be horizontal."), document.body);
+  document.body.offsetTop;
+  document.body.style.writingMode = "horizontal-tb";
+</script>

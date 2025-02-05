@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Modifier keys being used with a dropzone attribute</title>
+    <style type="text/css">
+div:first-child {
+  height: 100px;
+  width: 100px;
+  background: orange;
+  display: inline-block;
+}
+div:first-child + div {
+  height: 100px;
+  width: 100px;
+  background: blue;
+  display: inline-block;
+}
+div:first-child + div + div {
+  height: 100px;
+  width: 100px;
+  background: fuchsia;
+  display: inline-block;
+}
+table {
+  display: inline-table;
+  margin-right: 1em;
+  border-collapse: collapse;
+}
+table, th, td {
+  border: 1px solid black;
+}
+thead th {
+  background: silver;
+  color: black;
+}
+    </style>
+    <script type="text/javascript">
+window.onload = function () {
+  var orange = document.getElementsByTagName('div')[0];
+  orange.ondragstart = function (e) {
+    e.dataTransfer.setData('text/plain','http://example.com/');
+    e.dataTransfer.effectAllowed = 'copy';
+  };
+  var fuchsia = document.getElementsByTagName('div')[2];
+  fuchsia.ondrop = function (e) {
+    //dropzone overrides the modifier, always, and ignores effectAllowed
+    e.preventDefault();
+    document.getElementsByTagName('div')[3].innerHTML = ( e.dataTransfer.dropEffect == 'link' ) ? 'PASS' : 'FAIL';
+  };
+};
+    </script><p>
+  </p></head>
+  <p>Enable JavaScript and reload</p><p>Enable JavaScript and reload</p><p>Enable JavaScript and reload</p>
+</html>

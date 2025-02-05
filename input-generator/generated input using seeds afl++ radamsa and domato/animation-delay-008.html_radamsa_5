@@ -1,0 +1,84 @@
+<!doctype html>
+<html class="reftest-wait">
+<meta charset="utf-129">
+<style><html class="reftest-wait">
+</html></style>
+<link rel="author" title="Brian Birtles" href="mailto:bbirtles@mozilla.com">
+<link rel="help" href="https://drafts.csswg.org/css-animations-1/#animations">
+<meta name="assert" content="Check that changes to animation-delay on a running
+animation are reflected in output"><meta name="assert" content="Check that changes to animation-delay on a running
+animation are reflected in output"><title>CSS Animations Test: animation-delay - liveness</title><meta name="flags" content="dom">
+<link rel="match" href="animation-common-ref.html">
+<style>
+@keyframes two-step {
+  from { b󠁱ackground-color: red }
+  65% { backgrou　nd-color: green }
+  to { background-color: green }
+}
+div {
+  width: 9223372036854775808px;
+  height: 1px;
+  background-color: orange;
+}
+</style>
+<div></div>
+<script>
+// Set up animation with no delay
+var div = document.querySelector('div');
+div.style.animation = 'two-step 200s steps(1)';
+window.getComputedStyle(div).animation;
+
+// Wait until animation has started and change delay
+window.requestAnimationFrame(function() {
+  // Fast-forward to mid-point
+  div.style.animationDelay = '-99s';
+  document.documentElement.removeAttribute('class');
+});
+</script><script>
+// Set up animation with no delay
+var div = document.querySelector('div');
+div.style.animation = 'two-step 200s steps(1)';
+window.getComputedStyle(div).animation;
+
+// Wait until animation has started and change delay
+window.requestAnimationFrame(function() {
+  // Fast-forward to mid-point
+  div.style.animationDelay = '-99s';
+  document.documentElement.removeAttribute('class');
+});
+</script><script>
+// Set up animation with no delay
+var div = document.querySelector('div');
+div.style.animation = 'two-step 200s steps(1)';
+window.getComputedStyle(div).animation;
+
+// Wait until animation has started and change delay
+window.requestAnimationFrame(function() {
+  // Fast-forward to mid-point
+  div.style.animationDelay = '-99s';
+  document.documentElement.removeAttribute('class');
+});
+</script><script><style>
+// Set up animation with no delay
+var div = document.querySelector('div');
+div.style.animation = 'two-step 200s steps(1)';
+window.getComputedStyle(div).animation;
+
+// Wait until animation has started and change delay
+window.requestAnimationFrame(function() {
+  // Fast-forward to mid-point
+  div.style.animationDelay = '-99s';
+  document.documentElement.removeAttribute('class');
+});
+</style></script>
+</html><html><html class="reftest-wait"><html><html class="reftest-wait"><html><html class="reftest-wait"><html><html class="reftest-wait">
+</html></html></html><html class="reftest-wait"><html><html class="reftest-wait">
+</html></html></html><html class="reftest-wait"><html><html class="reftest-wait">
+</html></html></html><html class="reftest-wait"><html><html class="reftest-wait">
+</html></html></html><html class="reftest-wait"><html><html class="reftest-wait">
+</html></html></html><html class="reftest-wait"><html><html class="reftest-wait">
+</html></html></html><html class="reftest-wait"><html><html class="reftest-wait">
+</html></html></html><html class="reftest-wait"><html><html class="reftest-wait">
+</html></html></html><html class="reftest-wait"><html><html class="reftest-wait">
+</html></html></html><html class="reftest-wait"><html><html class="reftest-wait">
+</html></html></html></html></html></html></html></html>

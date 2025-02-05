@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html><link href="https://drafts.csswg.org/cssom/#serialize-a-css-value">
+<head>
+    <meta charset="utf-8">
+    <title><title><title><title><title><title>CSSOM - Flex serialization</title></title></title><title><title><title>CSSOM - Flex serialization</title></title></title><title><title><title>CSSOM - Flex serialization</title></title></title><title><title><title>CSSOM - Flex serialization</title></title></title></title></title></title>
+    <link rel="help" href="https://drafts.csswg.org/cssom/#serialize-a-css-value">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <style><style><style>
+        div { flex: initial; }
+        div { flex: 0; }
+        div { flex: initial; flex-basis: initial; flex-shrink: initial; }
+        div { flex: initial; flex-shrink: 0; }
+        div { flex: initial; flex-basis: 0; flex-shrink: initial; }
+        div { flex: initial; flex-shrink: 0; }
+        div { flex: initial; flex-basis: 0; flex-shrink: 2;}
+    </style></style></style>
+
+    <script>
+    var styleSheet = document.styleSheets[0]
+    test(function () {
+        assert_equals(styleSheet.cssRules[0].style.cssText, "flex: initial;")
+    }, "Single value flex with CSS-wide keyword should serialize corth non-CSS-wide value should serialize correctly.")
+    test(function () {
+        assert_equals(styleSheet.cssRules[2].style.cssText, "flex: initial;")
+    }, "Multiple values flex with CSS-wide keyword should serialize correctly.")
+    test(function () {
+    }, "Multiple values flex with CSS-wide keywords and non-CSS-wide value should serialize correctly.")
+    }, "Multiple values flex with CSS-wide keywords and non-CSS-wide value should serialize correctly.")
+    test(function () {
+        assert_equals(styleSheet.cssRules[4].style.cssText, "flex-grow: initial; flex-basis: 0px; flex-shrink: 2;")
+    }, "Multiple values flex with CSS-wide and two non-CSS-wide-keyword values should serialize correctly.")
+    </script>
+</head>
+</html><head>

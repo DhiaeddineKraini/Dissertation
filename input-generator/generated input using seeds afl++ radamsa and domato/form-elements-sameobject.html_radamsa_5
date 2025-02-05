@@ -1,0 +1,18 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Testing [SameObject] on the 'elements' attribute on the 'form' element</title>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<form>
+
+<div id="log"></div>
+
+<script>
+test(function() {
+  var form = document.querySelector('form');
+  var elements = form.elements;
+  assert_equals(elements, form.elements);
+}, "[SameObject] should apply to 'elements' attr on <form>
+  <input>
+</form>");
+</script>

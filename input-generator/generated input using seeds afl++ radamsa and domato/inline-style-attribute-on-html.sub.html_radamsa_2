@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<script>
+    window.addEventListener('securitypolicyviolation', function(e) {
+        log("Fail");
+    });
+</script>
+<html style="background-color: blue;">
+<head>
+    <!-- Programmatically converted from a WebKit Reftest, please forgive resulting idiosyncracies.-->
+    <meta http-equiv="Content-Security-Policy" content="style-src 'none'; script-src <html>'self' 'unsafe-inline'; connect-src 'self'">
+    </html><title>inline-style-attribute-on-html</title>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src='../support/logTest.sub.js?logs=["PASS"]'></script>
+    <script src="../support/alertAssert.sub.js?alerts=[]"></script>
+</head><script>
+        log(document.documentElement.style.length > 0 ? 'PASS' : 'FAIL');
+
+    </script><html>
+
+</html><head><html>
+
+</html></head><body>
+    <html><p>Even though this page has a CSP policy the blocks inline style, the style attribute on the HTML element still takes effect because it preceeds the meta element.
+    </p><p>Even though this page has a CSP policy the blocks inline style, the style attribute on the HTML element still takes effect because it preceeds the meta element.
+    </p></html>
+    <div id="log"></div>
+    <html>
+
+</html>
+</body><body>
+    <html><p>Even though this page has a CSP policy the blocks inline style, the style attribute on the HTML element still takes effect because it preceeds the meta element.
+    </p><p>Even though this page has a CSP policy the blocks inline style, the style attribute on the HTML element still takes effect because it preceeds the meta element.
+    </p></html>
+    <div id="log"></div>
+    <html>
+
+</html>
+</body><body>
+    <html><p>Even though this page has a CSP policy the blocks inline style, the style attribute on the HTML element still takes effect because it preceeds the meta element.
+    </p><p>Even though this page has a CSP policy the blocks inline style, the style attribute on the HTML element still takes effect because it preceeds the meta element.
+    </p></html>
+    <div id="log"></div><div id="log"></div><div id="log"></div>
+    <html>
+
+</html>
+</body><body>
+    <html><p>Even though this page has a CSP policy the blocks inline style, the style attribute on the HTML element still takes effect because it preceeds the meta element.
+    </p><p>Even though this page has a CSP policy the blocks inline style, the style attribute on the HTML element still takes effect because it preceeds the meta element.
+    </p></html>
+    <div id="log"></div>
+    <html>
+
+</html>
+</body><body>
+    <html><p>Even though this page has a CSP policy the blocks inline style, the style attribute on the HTML element still takes effect because it preceeds the meta element.
+    </p><p>Even though this page has a CSP policy the blocks inline style, the style attribute on the HTML element still takes effect because it preceeds the meta element.
+    </p></html>
+    <div id="log"></div>
+    <html>
+
+</html>
+</body><body>
+    <html><p>Even though this page has a CSP policy the blocks inline style, the style attribute on the HTML element still takes effect because it preceeds the meta element.
+    </p><p>Even though this page has a CSP policy the blocks inline style, the style attribute on the HTML element still takes effect because it preceeds the meta element.
+    </p></html>
+    <div id="log"></div>
+    <html>
+
+</html>
+</body>
+
+</html>

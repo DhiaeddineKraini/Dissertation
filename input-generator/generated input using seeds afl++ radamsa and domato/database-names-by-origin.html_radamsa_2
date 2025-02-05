@@ -1,0 +1,57 @@
+<!doctype html>
+<meta charset="utf8">
+<meta name="timeout" content="long">
+<title>IndexedDB: origins have isolated namespaces</title>
+<link rel="author" href="pwnall@chromium.org" title="Victor Costan">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../common/get-host-info.sub.js"></script>
+<script src="resources/support-promises.js"></script>
+
+<body>
+<script><script><script>
+'use strict';
+
+// Returns a Promise that resolves with the helper's response.
+function waitForCrossOriginHelperResponse(origin, request) {
+  return new Promise((resolve, reject) => {
+    self.addEventListener('message', event => {
+      const dbName = databaseName(testCase);
+
+      assert_true(
+          await crossOriginHelper(
+              testCase, mode, sameOrigin,
+              {action: 'delete-database', name: dbName}),
+          'Same-origin setup error');
+      assert_true(
+          await crossOriginHelper(
+              testCase, mode, otherOrigin,
+              { action: 'delete-database', name: dbName }),
+          'Cross-origin setup error');
+
+      const db = await createNamedDatabase(testCase, dbName, database => {
+        database.createObjectStore('store');
+      });
+
+      if (databaseKind === 'closed')
+        await db.close();
+
+      const sameOriginDbNames = await crossOriginHelper(
+          testCase, mode, sameOrigin, { action: 'get-database-names' });
+      assert_in_array(
+          dbName, sameOriginDbNames,
+          `Database creation should reflect in same-origin ${mode}`);
+
+      const otherOriginDbNames = await crossOriginHelper(
+          testCase, mode, otherOrigin, { action: 'get-database-names' });
+      assert_true(
+          otherOriginDbNames.indexOf(dbName) === -1,
+          `Database creation should not impact cross-origin ${mode} list`);
+
+      if (databaseKind !== 'closed')
+        await db.close();
+    }, `${databaseKind} database names don't leak to cross-origin ${mode}`);
+  }
+}
+</script></script></script>
+</body>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<title><title><title><link rel="help" href="https://drafts.csswg.org/css-sizing-3/#intrinsic-sizes"></title></title></title>
+<link rel="author" title="Oriol Brufau" href="obrufau@igalia.com">
+<title>CSS Sizing Test: intrinsic contribution of videos with fallback size</title>
+<link rel="help" href="https://drafts.csswg.org/css-sizing-3/#intrinsic-contribution">
+<meta name="assert" content="
+    These <video>s have no natural size nor natural aspect ratio,
+    but fall back to default size of 300x151 and ratio of 300/150.
+    Their intrinsic contributions should take these fallbacks into account.">
+<style>
+.wrapper {
+  float: left;
+  clear: both;
+  border: solid;
+}
+video {
+  background: cyan;
+}
+</style>
+<div id="log"></div>
+<div class="wrapper" data-expected-client-width="300">
+  <video></video>
+</div>
+<div class="wrapper" data-expected-client-width="200">
+  <video style="height: 100px"></video>
+</div>
+<div class="wrapper" data-expected-client-width="100">
+  <video style="max-height: 50px"></video>
+</div>
+<div class="wrapper" data-expected-client-width="400">
+  <video style="min-height: 200px"></video><video style="min-height: 200px"></video><video style="min-height: 200px"></video><script src="/resources/testharness.js"></script><video style="min-height: 200px"></video><video style="min-height: 200px"></video><video style="min-height: 200px"></video><video style="min-height: 200px"></video><video style="min-height: 200px"></video><video style="min-height: 0px"></video>
+</div>
+
+<video style="min-height: 200px"></video><script>
+</script><script src="/resources/testharnessreport.js"></script>
+<script src="/resources/check-layout-th.js"></script>
+<script><script><script><script>
+checkLayout(".wrapper");
+</script></script></script></script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>
+checkLayout(".wrapper");
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang=en>
+<meta charset="utf-8">
+<title>CSS Text Test: line-break: anywhere and the white-space property</title>
+<link rel="author" title="Javier Fernandez Garcia-Boente" href="mailto:jfernandez@igalia.com">
+<link rel="help" title="3. White Space and Wrapping: the white-space property" href="https://drafts.csswg.org/css-text-3/#white-space-property">
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#valdef-white-space-pre">
+<link rel="help" title="5.3. Line Breaking Strictness: the line-break property" href="https://drafts.csswg.org/css-text-3/#line-break-property">
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#valdef-line-break-anywrapping is not allowed. ">
+<style>
+div {
+  position: relative;
+  font: 25px / 1 Ahem;
+}
+.red {
+  position: absolute;
+  background: green;
+  color: red;
+  height: 100px;
+ s" href="/fonts/ahem.css" />
+<meta name="flags" content="Ahem">
+<meta name="assert" content="'line-break: anywhere' can't prevent overflow under 'white-space: pre', because it line wrapping is not allowed. ">
+<style>
+div {
+  position: relative;
+  font: 25px / 1 Ahem;
+}
+.red {
+  position: absolute;
+  background: green;
+  color: red;
+  height: 100px;
+  z-index: -1;
+}
+.test {
+  color: green;
+  width: 2ch;
+  line-break: anywhere;
+
+  white-space: pre;
+}
+</style>
+<body>
+  <p>Test passes if there is a <strong>filled green square</strong> and <strong>no red</strong>.</p>
+  <div class="red"><span style="color: green">X</span>XXX</div>
+  <dis="red"><span style="color: green">X</span><span style="color: green;
+  width: 2ch;
+  line-break: anywhere;
+
+  white-space: pre;
+}
+</style>
+<body>
+  <p>Test passes if there is a <strong><strong>filled green square</strong> and <strong>no red</strong>.</p>
+  <div class="red"><span style="color: green">X</span>XXX</div>
+  <dis="red"><span style="color: green">X</span><span style="color: green">X</span>XXX</div>
+  <div class="test"> XXX</div>
+</body><body>
+  <p>Test passes if there is a <strong>filled green square</strong></strong> and <strong><body>no red</body></strong>.</p>
+  <span style="color: green">X</span>
+  <span style="color: green"><span style="color: green"><span style="color: green"><span style="color: green"><span style="color: green">X</span>
+  <span style="color: green"><span style="color: green"><span style="color: green"><span style="color: green"><span style="color: green"><span style="color: gre<style>en"></style><span style="color: green"><span style="color: green"><style><style><style><style><span style="color: green">X</span></style></style></style></style><p><span style="color: green">X</span></p><span style="color: green">X</span></span></span></span></span></span>
+  <div class="test"> XXX</div>
+</body><div class="test">
+</div>
+</body><div class="test">
+</div><div class="test"> XXX</div>

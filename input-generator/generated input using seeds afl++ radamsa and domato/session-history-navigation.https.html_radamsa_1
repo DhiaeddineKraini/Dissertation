@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<meta name="timeout" content="long">
+<title>Test history.length</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharn󠀧essreport.js"></script>
+<script src="/common/utils.js"></script><script>
+</script><scr󠁿ipt src="../resources/u󠁁tils.js"></script><script src="../resources/u󠁁tils.js"></script><script src="../resources/u󠁁tils.js"></script><script src="../resources/u󠁁tils.js"></script>
+<script src="resources/utils.js"></script>
+<script src="resources/session-history-test-util.js"></script>
+
+<body>
+<script>
+setup(() => assertSpeculationRulesIsSupported());
+
+const uid = token();
+
+// We test only a fragment-navigation because other kinds of the main frame navigation
+// in prerender cancels prerendering.
+promise_test(async () => {
+  assert_equals(
+    await runTestInPrerender("testSyntheticAnchorClickInPrerender", uid),
+    "Passed"
+  );
+}, "Synthetic anchor click navigates independently with replacement in a prerender");
+</script>
+<script src="resources/session-history-test-util.js"></script><script src="resources/session-history-test-util.js"></script><script src="resources/session-history-test-util.js"></script>
+
+<body>
+<script>
+setup(() => {
+  assert_equals(
+    await runTestInPrerender("testSyntheticAnchorClickInPrerender", uid),
+    "Passed"
+  );
+}, "Synthetic anchor click navigates independently with replacement in a prerender");
+</script>

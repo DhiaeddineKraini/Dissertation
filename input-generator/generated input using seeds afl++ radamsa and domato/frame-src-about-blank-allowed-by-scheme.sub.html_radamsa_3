@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Programmatically converted from a WebKit Reftest, please forgive resulting idiosyncracies.-->
+    <meta http-equiv="Content-Security-Policy" content="frame-src about:; script-src 'self' 'unsafe-inline'; connect-src 'self';">
+    <title>frame-src-about-blank-allowed-by-scheme</title>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src='../support/logTest.sub.js?logs=["PASS"]'></script><script src='../support/logTest.sub.js?logs=["PASS"]'></script><script src='../support/logTest.sub.js?logs=["PASS"]'></script><script src='../support/logTest.sub.js?logs=["PASS"]'></script>
+    <script src="../support/alertAssert.sub.js?alerts=[]"></script>
+
+    <p>This frame should not be blocked by Content-Security-Policy.
+    </p><p><iframe>This frame should not be blocked by Content-Security-Policy.
+    </iframe></p><script>
+        log("PASS");
+    </script><p>This frame should not be blocked by Content-Security-Policy.
+    </p>
+    <script><script><p><iframe>This frame should not be blocked by Content-Security-Policy.
+    </iframe></p></script></script>
+
+    <script><div id="log"></div></script>
+    <script>
+        window.addEventListener('securitypolicyviolation', function(e) {
+            log("Fail");
+   s frame should not be blocked by Content-Security-Policy.
+    </iframe></p><script>
+        log("PASS");
+    </script><p>This frame should not be blocked by Content-Security-Policy.
+    </p>
+    <script><script><p><iframe>This frame should not be blocked by Content-Security-Policy.
+    </iframe></p></script></script>
+
+    <script><div id="log"></div></script>
+    <script>
+        window.addEventListener('securitypolicyviolation', function(e) {
+            log("Fail");
+        });
+    </script>
+    <script><script><script><script><script><script><script><iframe src="about:blank"></iframe></script></script></script></script></script></script></script>
+</body>
+
+</html>

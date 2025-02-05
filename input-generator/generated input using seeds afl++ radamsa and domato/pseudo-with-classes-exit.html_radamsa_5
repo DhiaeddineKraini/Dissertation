@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<title>View transition classes: exit animation should consider view-transition-class from old state</title>
+<link rel="help" href="https://drafts.csswg.org/css-transitions-2/">
+<link rel="author" href="mailto:nrosenthal@chromium.org">
+<link rel="match" href="pseudo-with-classes-ref.html">
+<script src="/common/rendering-utils.js"></script>
+<script src="/common/reftest-wait.js"></script>
+
+<style>
+div {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+}
+
+#target {
+  background: green;
+}
+
+#target:not(.new-state) {
+  view-transition-class: cls;
+  view-transition-name: target;
+}
+
+tion(() => {
+    document.getElementById("target").classList.add("new-state");
+  }).ready.then(takeScreenshot);
+});
+</script><script><script><script><script>
+</script></script></script></script>

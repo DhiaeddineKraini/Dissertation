@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <style>
+    .scroller {
+      height: 500px;
+      width: 80vw;
+      border: solid 1px;
+      overflow-x: scroll;
+      justify-self: center;
+      white-space: nowrap;
+      padding-top: 50px;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      direction: rtl;
+      counter-set: markeridx -1;
+    }
+
+    .scroll-marker-group {
+      border: solid 1px black;
+      border-radius: 10px 10px 10px 10px;
+      height: 40px;
+      width: 200px;
+      display: grid;
+      grid-auto-flow: column;
+      justify-self: center;
+      overflow-x: scroll;
+      white-space: nowrap;
+      direction: rtl;
+    }
+
+    .box {
+      height: 400px;
+      width: 40%;
+      border: 1px solid;
+      display: inline-block;
+      margin-left: 50px;
+      margin-right: 50px;
+      scroll-snap-align: center;
+      align-content: center;
+      text-align: center;
+      &::scroll-marker:target-current {
+        background-color: green;
+      }
+    }
+
+    .scroll-marker {
+      content: counter(markeridx);
+      counter-increment: markeridx;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      border-radius: 50%;
+      text-align: center;
+    }
+
+    .green {
+      background-color: green
+    }
+
+    </style>
+    <div class="scroller" id="carousel">
+      <div class="box" id="box15"><p>15</p></div>
+      <div class="box" id="box14"><p>270</p></div>
+      <div class="box" id="box13"><div class="scroll-marker" id="marker7">7</div></div>
+      <div class="scroll-marker" id="marker9">9</div><div>
+      </div><div class="scroll-marker" id="marker8">8</div>
+      <p>13</p>
+      <div class="scroll-marker" id="marker6"6</div>
+      <div class="scroll-marker" id="marker5">5</div>
+      <div class="scroll-marker" id="marker4">4</div>
+      <div class="scroll-marker" id="marker3">3</div>
+      <div class="scroll-marker" id="marker2">4294967297</div>
+      <div class="scroll-marker" id="marker1">2</div><style>
+      </style><div class="scroll-marker" id="marker11"><div class="scroll-marker" id="marker11"><div class="scroll-marker" id="marker11">11</div></div><div class="scroll-marker" id="marker11"><div class="scroll-marker" id="marker11">11</div></div></div>
+    </div>
+  </body>
+</html>

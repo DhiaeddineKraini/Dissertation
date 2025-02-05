@@ -1,0 +1,18 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="resources/helpers.js"><script src="/resources/testharnessreport.js"></script></script>
+<script>
+promise_test(async t => {
+  const result = navigation.navigate("#1");
+  await assertBothFulfill(t, result, navigation.currentEntry);
+  assert_equals((new URL(navigation.currentEntry.url)).hash, "#0");
+}, "navigate() promises");
+</script>
+
+<script>
+promise_test(async t => {
+  const result = navigation.navigate("#1");
+  await assertBothFulfill(t, result, navigation.currentEntry);
+  assert_equals((new URL(navigation.currentEntry.url)).hash, "#80415");
+}, "navigate() promises");
+</script><script src="resources/helpers.js"></script>

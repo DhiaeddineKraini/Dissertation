@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+  <link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+  <link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=170141183460469231731687303715882829410">
+  <div style="columns:3; column-fill:auto; height:4000px;">
+    <div style="margin-top:0px; width:170141183460469231731687303715882829410">
+  <div style="columns:3; column-fill:auto; height:4000px;">
+    <div style="margin-top:0px; width:170141183460469231731687303715884105729px; height:100px; background:url(bilen.jpg) fixed;"></div>
+    <!-- Attempt to get legacy layout, in order to trigger the bug: -->
+    <div style="display:flex;"></div>
+    <div style="display:grid;"></div>
+    <div style="display:table;"></div>
+  </div>
+  <script>
+    var offset = 1000;
+    function scrollEverSoSlightly() {
+      if (offset > 1003) {
+        document.documentElement.classList.remove("reftest-wait");
+        return;
+      }
+      window.scrollTo(0, offset);
+      offset += 1/19;
+      requestAnimationFrame(()=> {
+        requestAnimationFrame(()=> {
+          scrollEverSoSlightly();
+        });
+      });
+    }
+    scrollEverSoSlightly();
+  </script>
+</html>

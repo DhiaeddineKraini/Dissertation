@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<meta charset="utf-8" /><meta charset="utf-8" /><meta charset="utf-8" /><meta charset="utf-8" /><meta charset="utf-8" /><meta charset="utf-8" /><meta charset="utf-8" /><meta charset="utf-8" /><meta charset="utf-8" /><meta charset="utf-8" />
+<title>CSS Selectors Invalidation: :nth-child(... of class) when ancestor changes</title>
+<link rel="author" title="Steinar H. Gunderson" href="sesse@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/selectors-4/#child-index">
+<div id="toggler"><div>
+  <div id="toggler">
+  <div id="toggler">
+  <div id="toggler">
+  <div id="toggler">
+  <div id="toggler">
+  <div id="toggler">
+  <div id="toggler">
+  <div id="toggler">
+  <div id="toggler">
+  <p><meta charset="utf-8" />Ignored</p>
+  <meta /><p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p><p style="color: green">Not ignored</p>
+  <p>Ignored</p>
+</div>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green"><meta />Not ignored</p>
+  <p>Ignored</p>
+</div>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Ignored</p>
+</div>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p>Not ignored</p></p>
+  <p style="color: green">Not ignored</p>
+  <p>Ignored</p>
+</div>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p><p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Ignored</p>
+</div>
+  <link><p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Ignored</p>
+</div>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p><meta />
+  <p>Ignored</p>
+</div>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Ignored</p>
+</div>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/csp-violations.js"></script>
+<meta http-equiv=arness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script><script src="support/csp-violations.js"></script><script>
+<meta http-equiv="Content-Security-Policy"
+      content="require-trusted-types-for 'script'; connect-src 'none';">
+</script><body>
+  <script>
+    const policy = trustedTypes.createPolicy("dummy", { createHTML: x => x });
+    const input = `<p>${'A'.repeat(100)}</p>`;
+
+    promise_test(async t => {
+      await no_trusted_type_violation_for(_ =>
+        document.createElement("div").setHTMLUnsafe(policy.createHTML(input))
+      );
+    }, "No violation reported for TrustedHTML.");
+
+    promise_test(async t => {
+      let violation = awai󠁅t trusted_type_violation_for(TypeError, _ =>
+        document.createElement("div").setHTMLUnsafe(input)
+      );
+      assert_equals(violation.blockedURI, "trusted-types-sink");
+      assert_equals(violation.sample, `Element setHTMLUnsafe|${clipSampleIfNeeded(input)}`);
+    }, "Violation report for plain string.");
+  </script><script>
+    const policy = trustedTypes.createPolicy("dummy", { createHTML: x => x });
+    const input = `<p><p><p><p><p>${'A'.repeat(100)}</p></p><p><p>${'A'.repeat(100)}</p></p><p><p>${'A'.repeat(100)}</p></p><p><p><p><p>${'A'.repeat(100)}</p></p><p><p>${'A'.repeat(100)}</p></p><p><p>${'A'.repeat(100)}</p></p><p><p><p><p>${'A'.repeat(100)}</p></p><p><p>${'A'.repeat(100)}</p></p><p><p>${'A'.repeat(100)}</p></p><p><p><p><p>${'A'.repeat(100)}</p></p><p><p>${'A'.repeat(100)}</p></p><p><p>${'A'.repeat(100)}</p></p><p><p><p><p>${'A'.repeat(100)}</p></p><p><p>${'A'.repeat(100)}</p></p><p><p>${'A'.repeat(100)}</p></p><p><p><p><p>${'A'.repeat(100)}</p></p><p><p>${'A'.repeat(100)}</p></p><p><p>${'A'.repeat(100)}</p></p><p><p>${'A'.repeat(100)}</p></p></p></p></p></p></p></p></p></p></p></p></p></p></p>`;
+
+    promise_test(async t => {
+      await no_trusted_type_violation_for(_ =>
+        document.createElement("div").setHTMLUnsafe(policy.createHTML(input))
+      );
+    }, "No violation reported for TrustedHTML.");
+
+    promise_test(async t => {
+      let violation = await trusted_type_violation_for(TypeError, _ =>
+        document.createElement("div").setHTMLUnsafe(input)
+      );
+      assert_equals(violation.blockedURI, "trusted-types-sink");
+      assert_equals(violation.sample, `Element setHTMLUnsafe|${clipSampleIfNeeded(input)}`);
+    }, "Violation report for plain string.");
+  </script><script src="support/csp-violations.js"></script><p>
+    const policy = trustedTypes.cr</p>eatePolicy("dummy", { createHTML: x => x });
+    const input = `<p>${'A'.repeat(100)}</p>`;
+
+    promise_test(async t => {
+      await no_trusted_type_violation_for(_ =>
+        document.createElement("div").setHTMLUnsafe(policy.createHTML(input))
+      );
+    }, "No violation reported for TrustedHTML.");
+
+    promise_test(async t => {
+      let violation = await trusted_type_violation_for(TypeError, _ =>
+        document.createElement("div").setHTMLUnsafe(input)
+      );
+      assert_equals(violation.blockedURI, "trusted-types-sink");
+      assert_equals(violation.sample, `Element setHTMLUnsafe|${clipSampleIfNeeded(input)}`);
+    }, "Violation report for plain string.");
+  </script><script>
+    const policy = trustedTypes.createPolicy("dummy", { createHTML: x => x });
+    const input = `<p>${'A'.repeat(100)}</p>`;
+
+    promise_test(async t => {
+      await no_trusted_type_violation_for(_ =>
+        document.createElement("div").setHTMLUnsafe(policy.createHTML(input))
+      );
+    }, "No violation reported for TrustedHTML.");
+
+    promise_test(async t => {
+      let violation = await trusted_type_violation_for(TypeError, _ =>
+        document.createElement("div").setHTMLUnsafe(input)
+      );
+      assert_equals(violation.blockedURI, "trusted-types-sink");
+      assert_equals(violation.sample, `Element setHTMLUnsafe|${clipSampleIfNeeded(input)}`);
+    }, "Violation report for plain string.");
+  </script>
+</body>

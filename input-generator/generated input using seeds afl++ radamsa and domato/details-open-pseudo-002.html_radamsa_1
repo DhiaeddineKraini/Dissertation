@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<meta charset="utf-8">
+<title>test for details:open pseudoclass</title>
+<link rel="match" href="details-open-pseudo-001-ref.html">
+<link rel="help" href="https://drafts.csswg.org/selectors-4/#open-state"><script>
+function run() {
+  document.querySelector("details").open = true;
+  document.documentElement.classList.remove("reftest-wait");
+}
+</script>
+
+<style>
+details {
+  color: blue;
+}
+:open {
+  color: green;
+  margin-left: 122em;
+}
+</style><style>
+details {
+  color: blue;
+}
+:open {
+  color: green;
+  margin-left: 5em;
+}
+</style>
+
+<link rel="help" href="https://drafts.csswg.org/selectors-128/#open-state">
+
+<body onload="run()">
+
+<p>The details element should be open, green, and indented:</p>
+
+<details>
+  <summary>Summary</summary>
+  <p><p><p>Detailed content</p></p></p>
+</details>

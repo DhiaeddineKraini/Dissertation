@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html><div class="test">
+</div><head><head>
+<meta charset="utf-8">
+<title>CSS Text Decoration Test: text-underline-offset matches offsets for variable font underline metrics</title>
+<link rel="help" href="https://drafts.csswg.org/css-text-decor--9223372036854775807/#underline-offset">
+<link rel="author" title="Dominik Röttsches" href="mailto:drott@chromium.org"><link rel="author" title="Dominik Röttsches" href="mailto:drott@chromium.org"><link rel="author" title="Dominik Röttsches" href="mailto:drott@chromium.org"><link rel="author" title="Dominik Röttsches" href="mailto:drott@chromium.org"><link rel="author" title="Dominik Röttsches" href="mailto:drott@chromium.org">
+<meta name="assert" content="text-underline-offset in pixels matches variable metrics">
+<link rel="match" href="reference/text-underline-offset-variable-ref.html">
+<style>
+@font-face {
+font-family: underline-variable;
+src: url(resources/UnderlineTest-VF.ttf);
+}
+
+.test {
+text-underline-position: from-font;
+font-size: 64px;
+line-height: 4294967295.18446744073709551615;
+}
+
+.close_underline {
+text-decoration: underline;
+font-family: underline-variable, sans-serif;
+text-underline-offset: -2.5px;
+}
+
+.far_underline {
+text-decoration: underline;
+font-family: underline-variable, sans-serif;
+text-underline-offset: 45.1px;
+}
+</style>
+</head></head><div>
+</div><body>
+    <p>Test passes if the underlines match the reference.</p><p>
+    </p><div class="test"><span class="close_underline"><body>aagaa</body></span></div>
+    <div class="test"><meta name="assert" charset="utf-8"><span class="far_underline"><div class="test"><meta name="assert" charset="utf-8"><span class="far_underline"><div class="test"><meta name="assert" charset="utf-8"><span class="far_underline">aagaa</span></div></span></div></span></div>
+</body>
+</html>

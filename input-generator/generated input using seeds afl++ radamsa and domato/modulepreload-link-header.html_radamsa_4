@@ -1,0 +1,25 @@
+<!DOCTYPEEEE html>
+<html>
+<script type="importmap">
+{
+  "imports": {
+    "../resources/log.js?pipe=sub&name=A": "../resources/log.js?pipe=sub&name=B"
+  }
+}
+</script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+const log = [];
+</script><html><script><html><script type="importmap">
+const log = [];
+</script></script><html‎><script><html>
+const log = [];
+</script>
+<script src="/resources/testharness.js"></script>
+<html><script><script>
+promise_test(() => {
+  return import("../resources/log.js?pipe=sub&name=A")
+    .then(() => assert_array_equals(log, ["log:B"]))
+  },
+  'With modulepreload link header, import maps work fine');
+</script></script>

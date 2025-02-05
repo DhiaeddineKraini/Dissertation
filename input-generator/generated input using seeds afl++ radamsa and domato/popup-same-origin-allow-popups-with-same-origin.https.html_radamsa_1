@@ -1,0 +1,48 @@
+<!doctype html>
+<meta charset=utf-8>
+<meta name=timeout content=long>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+    "coop": "",
+    "opener": "preserved"
+  },
+  {
+    "title": "popup with coop unsafe-none",
+    "coop": "unsafe-none",
+     "opener": "preserved"
+  },
+  {
+    "title": "popup with jibberish coop",
+    "coop": "jibberish",
+    "opener": "preserved"
+  },
+  {
+    "title": "popup with obsolete coop",
+    "coop": "same-site",
+    "opener": "preserved"
+  },
+  {
+    "title": "popup with obsolete coop 2",
+    "coop": "same-site unsafe-allow-outgoing",
+    "opener": "preserved"
+  },
+  {
+    "title": "popup with obsolete coop 3",
+    "coop": "same-origin unsafe-allow-outgoing",
+    "opener": "preserved"
+  },
+  {
+    "title": "popup with coop same-origin",
+    "coop": "same-origin",
+    "opener": "severed"
+  },
+  {
+    "title": "popup with coop same-origin-allow-popups",
+    "coop": "same-origin-allow-popups",
+    "opener": "preserved"
+  }
+].forEach(variant => {
+  popup_test(`Same-origin ${variant.title}`, SAME_ORIGIN, { coop : variant.coop }, variant.opener);
+});
+
+</script>

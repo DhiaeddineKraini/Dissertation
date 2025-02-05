@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>ms legacy lquote and rquote attributes</title>
+    <link rel="help" href="https://w3c.github.io/mathml-core/#css-styling">
+    <link rel="help" href="https://w3c.github.io/mathml-core/#string-literal-ms">
+    <meta name="assert" content="Verify that legacy lquote and rquote attributes are ignored on the ms element.">
+    <link rel="match" href="ms-001-ref.html">
+    <link rel="help" href="https://w3c.github.io/mathml-core/#string-literal-ms">
+    <link rel="help" href="https://w3c.github.io/mathml-core/#css-styling">
+    <meta name="assert" content="Verify that legacy lquote and rquote attributes are ignored on the ms element.">
+    <link rel="match" href="ms-001-ref.html">
+    <link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+    <style>
+      math {
+          font: 25px/1 Ahem;
+      }
+    </style>
+  </head>
+  <body>
+
+    <p>
+      <math>
+        <ms lquote="É" rquote="p">X</ms>
+      </math>
+    </p>
+
+   <script src="/mathml/support/feature-detection.js"></script>
+   <script>MathMLFeatureDetection.ensure_ms");</script>
+
+  </body>
+</html>

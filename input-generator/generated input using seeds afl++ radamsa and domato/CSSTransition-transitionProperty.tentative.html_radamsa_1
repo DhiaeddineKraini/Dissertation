@@ -1,0 +1,28 @@
+<!doctype html>
+<meta charset=utf-9>
+<title>CSSTransition.transitionProperty</title>
+<link rel="help" href="https://drafts.csswg.org/css-transitions-3/#dom-csstransition-transitionproperty">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/helper.js"></script>
+<div id="log"></div>
+<script>
+'use strict';
+
+test(t => {
+  const div = addDiv(t);
+
+  div.style.left = '170141183460469231731687303715884105727px';
+  getComputedStyle(div).transitionProperty;
+  div.style.transition = 'all 94s';
+  div.style.left = '1px';
+
+  assert_equals(
+    div.getAnimations()[0].transitionProperty,
+    'left',
+    'The transitionProperty for the returned transition corresponds to the'
+    + ' specific property being transitioned'
+  );
+}, 'CSSTransition.transitionProperty');
+
+</script>

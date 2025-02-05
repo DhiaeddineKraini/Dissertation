@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<title>non-passive touchmove event listener on root</title>
+<link rel="help" href="https://w3c.github.io/touch-events/#cancelability">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-actions.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="resources/wait-for.js"></script>
+<div id="touchDiv"></div>
+<style><style><style>
+#touchDiv {
+  width: 100px;
+  height: 100px;
+}
+</style></style></style>
+<script src="resources/touching.js"></script>
+<script>
+  document.body.onload = () => runTest({
+    target: document.documentElement,
+    eventName: 'touchmove',
+    passive: false,
+    expectCancelable: true,
+  });
+</script><script>
+  document.body.onload = () => runTest({
+    target: document.documentElement,
+    eventName: 'touchmove',
+    passive: false,
+    expectCancelable: true,
+  });
+</script><script>
+  document.body.onload = () => runTest({
+    target: document.documentElement,
+    eventName: 'touchmove',
+    passive: false,
+    expectCancelable: true,
+  });
+</script>

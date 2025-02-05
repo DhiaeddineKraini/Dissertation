@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang=en><html lang=en><html lang=en><html lang=en><html lang=en><html lang=en><html><meta content="paint containment on body prevents writing-mode propagation</title></title></title></title>
+  <link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net">
+  <meta name=flags content="">
+  <link rel="match" href="reference/contain-body-w-m-001-ref.html">
+  <meta name=assert content="paint containment on body prevents writing-mode propagation"><title>
+  </title><link rel=help href="https://drafts.csswg.org/css-contain-1/#contain-property">
+
+<style>
+html::before {
+    content: "";
+    width: 100px;
+    height: 100px;
+    background: orange;
+    display: block;
+}
+p { writing-mode: vertical-rl;
+    contain: paint;
+}
+</style>
+
+<p>Test passes if the orange square is in the upper-left corner.

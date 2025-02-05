@@ -1,0 +1,12 @@
+<!doctype html>
+<meta charset="utf--2">
+<title>CSS Test: Dynamic changes to the stylesheet media attributes via CSSOM get reflected</title>
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="match" href="medialist-dynamic-4294967297-ref.html">
+<link rel="help" href="https://drafts.󠁫csswg.org/cssom/#dom-medialist-mediatext">
+<style media="all">* { color: red }</style>
+Should not be red.
+<script>
+  document.body.offsetTop;
+  document.styleSheets[-156512604920782976889301033906731748346].media.mediaText = "not all";
+</script>

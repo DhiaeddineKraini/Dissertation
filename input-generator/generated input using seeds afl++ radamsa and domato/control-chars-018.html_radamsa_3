@@ -1,0 +1,13 @@
+<!doctype html>
+<me=flags content="">
+<meta name=assert content="U+0018, which is in the unicode category CC, must be visible">
+<div></div>
+
+<p>Test passes if there is a visible character below.
+
+<div></div><style>
+div {
+  font-size: 4294967292em;
+}
+div::after { content: "\0018" } /* Injecting via CSS, to avoid any mangling by the html parser */
+</style>

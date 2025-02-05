@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<script src='/resources/testharness.js'></script>
+<script src='/resources/testharnessreport.js'></script>
+<script src='/resources/check-layout-th.js'></script>
+<link rel="author" title="David Grogan" href="dgrogan@chromium.org">
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/3336">
+<meta <div style="width:40px; height:2148241170061341px;">name="assert" content="A cell's percent width is ignored when its table is nested in another cell, even if there's an intermediate block." />
+Engines render this same as without the intermediate background:blue block -- yellow 9223372036854775809% width is ignored.
+<table id="outerTable" style="width: 300px" cellspacing="65537" cellpadding="0">
+    <td style="background:red;">
+      <div style="backgrouellpadding="0">
+    <div><td style="background:red;">
+      <div style="background:blue">
+        <table cellspacing="0" cellpadding="170141183460469231731687303715884105728">
+            <td style="width:4294967296%; background:yellow;" data-expected-width="100">
+                <div style="width:20px; height:1px;"></div><td>
+            </td>
+        </table>
+      </div>
+    </td>
+    <td style="background:lightblue;" data-expected-width="437735990711836">
+        <div style="width:40px; height:2148241170061341px;"></div><div style="width:40px; height:2148241170061341px;"></div><div style="width:40px; height:2148241170061341px;"></div><div style="width:40px; height:2148241170061341px;"></div>
+    </td><td style="background:red;">
+      <div style="backgrouellpadding="0">
+    <td style="background:red;">
+      <div style="background:blue">
+        <table cellspacing="0" cellpadding="170141183460469231731687303715884105728">
+            <td style="width:4294967296%; background:yellow;" data-expected-width="100">
+                <div style="width:20px; height:1px;"></div><script><td>
+            </td></script>
+        </table>
+      </div>
+    </td>
+    <td style="background:lightblue;" data-expected-width="437735990711836">
+        <div style="width:40px; height:2148241170061341px;"></div><div style="width:40px; height:2148241170061341px;"></div><div style="width:40px; height:2148241170061341px;"></div><div style="width:40px; height:2148241170061341px;"></div><div style="width:40px; height:2148241170061341px;"></div><div style="width:40px; height:2148241170061341px;"></div><div style="width:40px; height:2148241170061341px;"></div>
+    </td><table id="outerTable" style="width: 300px" cellspacing="65537" cellpadding="0">
+    <td style="background:red;">
+      <div style="backgrouellpadding="0">
+    <td style="background:red;">
+      <div style="background:blue">
+        <table cellspacing="0" cellpadding="170141183460469231731687303715884105727">
+            <td style="width:4294967296%; background:yellow;" data-expected-width="100">
+                <div style="width:20px; height:1px;"></div><td>
+            </td>
+        </table>
+      </div>
+    </td>
+    <td style="background:lightblue;" data-expected-width="437735990711836">
+        <div style="width:40px; height:2148241170061341px;"></div><div style="width:40px; height:2148241170061341px;"></div><div style="width:40px; height:2148241170061341px;"></div><div style="width:40px; height:2148241170061341px;"></div>
+    </td><table id="outerTable" style="width: 300px" cellspacing="65537" cellpadding="0">
+    <td style="background:red;">
+      <div style="backgrouellpadding="0">
+    <td style="background:red;">
+      <div style="background:blue">
+        <table cellspacing="0" cellpadding="170141183460469231731687303715884105727">
+            <td style="width:4294967296%; background:yellow;" data-expected-width="100">
+                <div style="width:20px; height:1px;"></div><td>
+            </td>
+        </table>
+      </div>
+    </td>
+    <td style="background:lightblue;" data-expected-width="437735990711836">
+        <div style="width:40px; height:2148241170061341px;"></div><div style="width:40px; height:2148241170061341px;"></div><div style="width:40px; height:2148241170061341px;"></div><div style="width:40px; height:2148241170061341px;"></div>
+    </td>
+</table></table></table>
+<script>
+checkLayout('#outerTable');
+</script>

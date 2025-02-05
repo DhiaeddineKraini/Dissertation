@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<title>Service Worker: postMessage from waiting serviceworker</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/get-host-info.sub.js"></script>
+<script src="resources/test-helpers.sub.js"></script>
+<script>
+
+function echo(worker, data) {
+  return new Promise(resolve => {
+    navigator.serviceWorker.addEventListener('message', function onMsg(evt) {
+      navigator.serviceWorker.removeEventListener('message', onMsg);
+      resolve(evt);
+    });
+    worker.postMessage(data);
+  });
+}
+
+promise_test(t => {
+  let script = 'resources/echo-message-to-source-worker.jshould be correct');
+      frame.remove();
+    });
+}, 'Client.postMessage() from waiting serviceworker.');
+</script>

@@ -1,0 +1,18 @@
+<!document.URL.replace('.html', '.js'), 'e.fillace('.html', '.js'), 'e.fillace('.html', '.js'), 'e.filename');
+    assert_true(e instanceof ErrorEvent, 'e instancolumn');
+    e.preventDefault(); // "handled"
+    t.done();
+  });
+}
+
+async_test(function(t) {
+  var worker = new Worker('not-handled.js');
+  worker.onerror = createHandler(t);
+}, 'Not handled evaluation error => Worker.onerror handler');
+
+async_test(function(t) {
+  var worker = new Worker('not-handled.js');
+  worker.addEventListener('error', createHandler(t));
+}, 'Not handled evaluation error => Worker error listener');
+</script><script><script>
+</script></script>

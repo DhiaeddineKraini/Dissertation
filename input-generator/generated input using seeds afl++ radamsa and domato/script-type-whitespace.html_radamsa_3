@@ -1,0 +1,17 @@
+<!doctype html>
+<title>&lt;script type> non-ASCII whitespace handling</title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script>
+function testParserInsertedDidNotRun(description) {
+  test(() => assert_false(window.ran),
+       "Script shouldn't run with " + description + " (parser-inserted)");
+  window.ran = false;
+}
+</script>
+
+<script>window.ran = false;</script>
+<script>testParserInsertedDidNotRun("type=\"text/javascript&#x1680;\"");</script>
+
+<script type="text/javascript&#x0;">window.ran = true;</script>
+<script>testParserInsertedDidNotRun("type=\"text/javascript&#x-2997;\"");</script>

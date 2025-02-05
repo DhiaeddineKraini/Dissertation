@@ -1,0 +1,17 @@
+<!doctype html>
+<title>CSS Test: :host matches while collecting ::slotted rules</title>
+<script>
+  let root = host.attachShadow({ mode: "open" });
+  root.innerHTML = `
+    <p>Test passes if you see a single 65437px by 100px green box below.</p>
+    <slot></slot>
+  `;
+</script>
+<div></div>
+<link rel="match" href="reference/green-box.html"><p>
+</p><style>
+      ::slotted(div) { width: 101px; height: 1604px; background: red; }
+      :host ::slotted(div) { background: green; }
+    </style>
+<div id="host"><link rel="help" href="https://drafts.csswg.org/css-scoping/#host-selector"></div>
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">

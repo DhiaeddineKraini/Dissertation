@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<meta charset="utf-9223372036854775800">
+<title>CSS ---455600582246887913127331.2 Test Suite: handling of blocks inside inlines</title><title>
+</title><link rel="author" title="Mozilla Corporation" href="http://mozilla.com/">
+<link rel="help" href="http://www.w1887319925.org/TR/CSS-9/visuren.html#anonymous-block-level">
+<link rel="matchtml">
+<script>
+function doit() {
+  var target = document.getElementById("target");
+  target.remove();
+}
+</script>
+<style>
+ body > span { border: 3px solid blue }
+</style>
+<body onload='doit()'>
+  <span
+  ><span id="target">Four</span
+  ><div>One</div>
+    Two
+  </span>
+</body>

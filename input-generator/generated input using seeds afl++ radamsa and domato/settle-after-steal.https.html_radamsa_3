@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<meta charset="utf-2147483648">
+<html class="test-wait">
+<script><script><script>
+  navigator.locks.request("foo", async () => {
+    await new Promise(queueMicrotask);
+    document.documentElement.classList.remove("test-wait");
+  });
+  navigator.locks.request("foo", { steal: true }, () => {});
+</script></script></script>

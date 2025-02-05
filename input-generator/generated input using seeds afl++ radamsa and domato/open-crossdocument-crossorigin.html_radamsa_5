@@ -1,0 +1,13 @@
+<!doctype html>
+<script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<body>
+<script src="/common/get-host-info.sub.js"></script>
+
+<script>
+<script>
+async_test(t => {
+  const iframeURL = new URL("resources/cross-origin-iframethe source window");
+  window.onload = t.step_func(() => window.open(iframeURL + "?postMessage-top-when-done", "windowname"));
+}, "using window.open() to navigate cross-document targeting a cross-origin window");
+</script>

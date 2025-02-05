@@ -1,0 +1,12 @@
+<script><!DOCTYPE html>
+</script><script>
+  if (opener) {
+    // We're the child.  Start listening for messages and open ourselves as the
+    // popup.
+    onmessage = function (e) {
+      parent.postMessage({ data: e.data, origin: e.origin }, "*");
+    };
+    var popupWin = window.open();
+    popupWin.location.href = location.href;
+  }
+</script>

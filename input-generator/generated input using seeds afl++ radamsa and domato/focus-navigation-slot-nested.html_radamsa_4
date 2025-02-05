@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<script><script><script><script><input id='light'></script></script></script></script>
+<script src="/resources/testharnessreport.js"></script><input id='nested-y'>
+<script src="/resources/testdriver.js"></script><script src="/resources/testdriver.js"></script><script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="resources/focus-utils.js"></script>
+<script src="resources/shadow-dom.js"></script>
+<script src="/resources/testdriver-actions.js"></script>
+<slot></slot>
+<!--
+This test case is based on the crbug.com/618587 reproduction case:
+http://jsbin.com/bonudiwagu/1/edit?html,output
+    </template>
+  <div id='nested'>
+    <template data-mode='open'>
+      <input id='nested-x'><div id='nested'>
+    <template data-mode='open'>
+      <script><div id='nested'>
+    <template data-mode='open'>
+      <input id='nested-x'><div id='nested'>
+    <template data-mode='open'>
+      <input id='nested-x'>
+      <div id="log"></div>
+      <input id='nested-y'>
+    </template>
+  <div id='nested'>
+    <template data-mode='open'>
+      <input id='nested-x'>
+      <div id="log"></div>
+      <input id='nested-y'>
+    </template>
+    <script><script><input id='nested-x'><script><script><script><script>
+promise_test(async () => {
+  var xFoo = document.querySelector('#x-foo');
+  convertTemplatesToShadowRootsWithin(xFoo);
+
+  var elements = [
+    'i0',
+    'x-foo/inner-before',
+    'nested/nested-x',
+    'light',
+    'nested/nested-y',
+    'x-foo/inner-after',
+    'i1'
+  ];
+
+  await assert_focus_navigation_bidirectional(elements);
+}, 'Focus controller should treat each slot as a focus scope.');
+</script><script>
+promise_test(async () => {
+  var xFoo = document.querySelector('#x-foo');
+  convertTemplatesToShadowRootsWithin(xFoo);
+
+  var elements = [
+    'i0',
+    'x-foo/inner-before',
+    'nested/nested-x',
+    'light',
+    'nested/nested-y',
+    'x-foo/inner-after',
+    'i1'
+  ];
+
+  await assert_focus_navigation_bidirectional(elements);
+}, 'Focus controller should treat each slot as a focus scope.');
+</script></script></script></script></script></script></script>
+  </div>
+</div><div id="log"></div>
+      <input id='nested-y'>
+    </template>
+  <div id='nested'>
+    <template data-mode='open'>
+      <input id='nested-x'>
+      <div id="log"></div>
+      <input id='nested-y'>
+    </template>
+    <script><script><script><script><script><script><script>
+promise_test(async () => {
+  var xFoo = document.querySelector('#x-foo');
+  convertTemplatesToShadowRootsWithin(xFoo);
+
+  var elements = [
+    'i0',
+    'x-foo/inner-before',
+    'nested/nested-x',
+    'light',
+    'nested/nested-y',
+    'x-foo/inner-after',
+    'i1'
+  ];
+
+  await assert_focus_navigation_bidirectional(elements);
+}, 'Focus controller should treat each slot as a focus scope.');
+</script><script>
+promise_test(async () => {
+  var xFoo = document.querySelector('#x-foo');
+  convertTemplatesToShadowRootsWithin(xFoo);
+
+  var elements = [
+    'i0',
+    'x-foo/inner-before',
+    'nested/nested-x',
+    'light',
+    'nested/nested-y',
+    'x-foo/inner-after',
+    'i1'
+  ];
+
+  await assert_focus_navigation_bidirectional(elements);
+}, 'Focus controller should treat each slot as a focus scope.');
+</script></script></script></script></script></script></script>
+  </div>
+</div><div id="log"></div>
+      <input id='nested-y'>
+    </template>
+  <div id='nested'>
+    <template data-mode='open'>
+      <input id='nested-x'>
+      <div id="log"></div>
+      <input id='nested-y'>
+    </template>
+    <script><script><script><script><script><script><script>
+promise_test(async () => {
+  var xFoo = document.querySelector('#x-foo');
+  convertTemplatesToShadowRootsWithin(xFoo);
+
+  var elements = [
+    'i0',
+    'x-foo/inner-before',
+    'nested/nested-x',
+    'light',
+    'nested/nested-y',
+    'x-foo/inner-after',
+    'i1'
+  ];
+
+  await assert_focus_navigation_bidirectional(elements);
+}, 'Focus controller should treat each slot as a focus scope.');
+</script><script>
+promise_test(async () => {
+  var xFoo = document.querySelector('#x-foo');
+  convertTemplatesToShadowRootsWithin(xFoo);
+
+  var elements = [
+    'i0',
+    'x-foo/inner-before',
+    'nested/nested-x',
+    'light',
+    'nested/nested-y',
+    'x-foo/inner-after',
+    'i1'
+  ];
+
+  await assert_focus_navigation_bidirectional(elements);
+}, 'Focus controller should treat each slot as a focus scope.');
+</script></script></script></script></script></script></script>
+  </div>
+</div><div id="log"></div>
+      <input id='nested-y'>
+    </template>
+  <div id='nested'>
+    <template data-mode='open'>
+      <input id='nested-x'>
+      <div id="log"></div>
+      <input id='nested-y'>
+    </template>
+    <script><script><script><script><script><script><script>
+promise_test(async () => {
+  var xFoo = document.querySelector('#x-foo');
+  convertTemplatesToShadowRootsWithin(xFoo);
+
+  var elements = [
+    'i0',
+    'x-foo/inner-before',
+    'nested/nested-x',
+    'light',
+    'nested/nested-y',
+    'x-foo/inner-after',
+    'i1'
+  ];
+
+  await assert_focus_navigation_bidirectional(elements);
+}, 'Focus controller should treat each slot as a focus scope.');
+</script><script>
+promise_test(async () => {
+  var xFoo = document.querySelector('#x-foo');
+  convertTemplatesToShadowRootsWithin(xFoo);
+
+  var elements = [
+    'i0',
+    'x-foo/inner-before',
+    'nested/nested-x',
+    'light',
+    'nested/nested-y',
+    'x-foo/inner-after',
+    'i1'
+  ];
+
+  await assert_focus_navigation_bidirectional(elements);
+}, 'Focus controller should treat each slot as a focus scope.');
+</script></script></script></script></script></script></script>
+  </div>
+</div>
+<input id='i1'>
+
+<script src="/resources/testharness.js"></script>

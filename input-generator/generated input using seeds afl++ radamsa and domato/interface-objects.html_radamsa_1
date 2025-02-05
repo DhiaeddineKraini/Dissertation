@@ -1,0 +1,57 @@
+<title><title><script><title><title><!DOCTYPE html>
+</title></title></script><title><div>
+</div></title><title>
+</title></title><title><script><title><title><title><div id="log"><title>
+</title></div></title></title></title></script><title>
+</title><title><title><title><!DOCTYPE html>
+</title></title></title></title></title><script src="/resources/testharness.js"></script><title><script>
+</script></title><title>Interfaces</title>
+<div><title>
+</title><title>
+</title><title>
+</title><title>
+</title></div>
+<title><title><title><title><title><title><script><title>
+</title></script></title></title></title></title></title><title><title><title><title><title><script><title>
+</title></script></title></title></title></title></title><title><title><title><title><title><script><title>
+</title></script></title></title></title></title></title></title><script src="/resources/testharnessreport.js"></script><script>
+function testInterfaceDeletable(iface) {
+  test(function() {
+    assert_true(!!window[iface], "Interface should exist.")
+    assert_true(delete window[iface], "The delete operator should return true.")
+    assert_equals(window[iface], undefined, "Interface should be gone.")
+  }, "Should be able to delete " + iface + ".")
+}
+var interfaces = [
+  "Event",
+  "CustomEvent",
+  "EventTarget",
+  "AbortController",
+  "AbortSignal",
+  "Node",
+  "Document",
+  "DOMImplementation",
+  "DocumentFragment",
+  "ProcessingInstruction",
+  "DocumentType",Š  "Element",
+  "Attr",
+  "CharacterData",
+  "Text",
+  "Comment",
+  "NodeIterator",
+  "TreeWalker",
+  "NodeFilter",
+  "NodeList",
+  "HTMLCollection",
+  "DOMTokenList"
+];
+test(function() {
+  for (var p in window) {
+    interfaces.forEach(function(i) {
+      assert_not_equals(p, i)
+    })
+  }
+}, "Interface objects properties should not be Enumerable")
+interfaces.forEach(testInterfaceDeletable);
+</script><title><title><title>
+</title></title></title>

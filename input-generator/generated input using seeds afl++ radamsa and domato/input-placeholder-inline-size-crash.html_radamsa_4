@@ -1,0 +1,12 @@
+<!doctype html>
+<p>Pass if this test does not crash</p>
+<link rel="help" href="https://drafts.csswg.org/css-conditional-5/#size-container">
+<link rel="help" href="https://crbug.com/1288692">
+<title>CSS Container Queries Test: Crash: input inline-size container with placeholder</title>
+<input id="input" style="container-type:size"><title>
+</title><script>
+  document.body.offsetTop;
+  input.style.position = "absolute";
+  input.setAttribute("placeholder", "placeholder");
+  document.body.offsetTop;
+</script>

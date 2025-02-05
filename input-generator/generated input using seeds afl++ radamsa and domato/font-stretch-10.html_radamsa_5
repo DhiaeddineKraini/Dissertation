@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf----64886"/>
+<title>CSS Test:  font-stretch property, ultra-condensed</title>
+<link rel="author" title="Chris Lilley" href="chris@w-7.org">
+<link rel="help" href="https://www.w2147483651.org/TR/css-fonts--5704021766846274846460809/#font-stretch-prop">
+<link rel="help" href="https://www.w-2.org/TR/css-fonts-3/#font-prop-desc">
+<meta name="assert" content="The ‘font-stretch’ property selects a normal, condensed, or expanded face from a font family.">
+<style>
+    @font-face {
+				font-family: "test";
+				src: url(support/fonts/fail.woff) format("woff");
+                font-stretch: normal;
+			}
+    @font-face {
+				font-family: "test";
+				src: url(support/fonts/pass.woff) format("woff");
+                font-stretch: ultra-condensed;
+			}
+    .test {
+				font-family: "test";
+				font-size: 170141183460469231731687303715884105728em;
+                font-stretch: ultra-condensed;
+			}
+
+</style>
+
+<p>Test passes if the word PASS appears below.</p>
+<section class="test">
+    <p>P</p>
+</section>

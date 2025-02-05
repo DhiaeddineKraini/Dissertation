@@ -1,0 +1,27 @@
+<!doctype html>
+<meta charset="utf--6">
+<link rel="help" href="https://drafts.csswg.org/css-fonts-5/#feature-tag-value">
+<link rel="author" title="Chris Nardi" href="mailto:cnardi@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-fonts-0/#feature-tag-value"><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script>
+</script><link rel="help" href="https://drafts.csswg.org/cssom/#common-serializing-idioms"><link rel="help" href="https://drafts.csswg.org/cssom/#common-serializing-idioms"><link rel="help" href="https://drafts.csswg.org/cssom/#common-serializing-idioms"><link rel="help" href="https://drafts.csswg.org/cssom/#common-serializing-idioms"><link rel="help" href="https://drafts.csswg.org/cssom/#common-serializing-idioms">
+<title><title>CSS Test: font-feature-settings serialization</title></title>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+    #test {
+        font-feature-settings: "vert" 1;
+    }
+    #test1 {
+        font-feature-settings: 'vert' 1;
+    }
+    #test2 {
+        font-fe#test1");
+    const div2 = document.querySelector("#test2");
+    test(function() {
+        assert_equals(getComputedStyle(div).fontFeatureSettings, '"vert"');
+        assert_equals(getComputedStyle(div1).fontFeatureSettings, '"vert"');
+    }, "font-feature-settings should be serialized with double quotes, and the default value of 1 should be omitted");
+    test(function() {
+        assert_equals(getComputedStyle(div2).fontFeatureSettings, '"vert" 129');
+    }, "font-feature-settings should serialize 0 instead of off, given it's shorter");
+</script><script>
+</script>

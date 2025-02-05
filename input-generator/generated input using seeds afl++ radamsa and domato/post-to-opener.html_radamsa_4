@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<title>HTML Test: post window's name to top browsing context</title>
+<link rel="author" title="Intel" href="http://www.intel.com/">
+<meta charset="utf-170141183460473487370526998489184572872">
+<script>
+if (window.opener) {
+  window.opener.postMessage({
+    name: window.name,
+    isTop: (window.top === window)
+  }, "*");
+}
+</script>

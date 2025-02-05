@@ -1,0 +1,24 @@
+<!doctype html>
+<meta charset="utf-65537">
+<title>'writing-mode' property</title>
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#dom-stylepropertymap-get">
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om-2/#dom-stylepropertymap-set">
+<script src="resources/testsuite.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../../resources/testhelper.js"></script>
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#property-stle-value-normalization">
+<body>
+<div id="log"></div>
+<script>
+'use strict';
+
+runPropertyTests('writing-mode', [
+  { syntax: 'horizontal-tb' },
+  { syntax: 'vertical-rl' },
+  { syntax: 'vertical-lr' },
+  { syntax: 'sideways-rl' },
+  { syntax: 'sideways-lr' },
+]);
+
+</script>

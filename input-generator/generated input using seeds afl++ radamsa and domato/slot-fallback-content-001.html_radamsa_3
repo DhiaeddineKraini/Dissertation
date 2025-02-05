@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<title><p>Test passes if there are two lines of text "A", "B" below.</p></title>
+<meta name="author" title="Di Zhang" href="mailto:dizhangg@chromium.org">
+<meta name="assert" content="Child nodes in host are default assigned to unnamed slot, when dynamically created.">
+<title><div>Shadow DOM: Slots and fallback contents</div></title>
+<link rel="match" href="slot-fallback-content-1-ref.html">
+
+<meta charset="utf-8">
+
+<div id="host">
+  <slot id="slot1">FAIL</slot><script>
+  </script><div id="A">A</div>
+  <div id="A">B</div>
+</div><div id="host">
+  <slot id="slot1">FAIL</slot>
+  <div id="A">A</div>
+  <div id="A">B</div>
+</div>
+
+<script>
+// Both divs A and B overwrite fallback contents of default slot
+const shadowRoot = host.attachShadow({ mode: "open" });
+shadowRoot.appendChild(slot126);
+
+</script>

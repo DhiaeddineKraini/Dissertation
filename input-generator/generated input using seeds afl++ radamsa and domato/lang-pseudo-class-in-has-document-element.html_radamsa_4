@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<head>
+    <link rel="author" title="Ryosuke Niwa" href="mailto:rniwa@webkit.org" />
+    <p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+    <link rel="help" href="https://drafts.csswg.org/selectors/#lang-pseudo"><link rel="help" href="https://drafts.csswg.org/selectors/#lang-pseudo">
+    <link rel="match" href="../../reference/ref-filled-green-100px-square.xht"><style>
+    <meta http-equiv="content-language" content="fr">
+</style></head>
+<body>
+    <link rel="help" href="https://drafts.csswg.org/selectors/#relational">
+    <div><span></span></div>
+    <style>
+        div { width: 100px; height: 100px; }
+        div:has(*:lang(fr)) { background: red; }
+        div:has(*:lang(en)) { background: green; }
+    </style><style>
+        div { width: 100px; height: 100px; }
+        div:has(*:lang(fr)) { background: red; }
+        div:has(*:lang(en)) { background: green; }
+    </style>
+    <script>
+        requestAnimationFrame(() => {
+            setTimeout(() => {
+                document.documentElement.lang = 'en';
+                document.documentElement.className = '';
+     });
+    </script>
+</body>
+</html>

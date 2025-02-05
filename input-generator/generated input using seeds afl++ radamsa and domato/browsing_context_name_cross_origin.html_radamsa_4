@@ -1,0 +1,13 @@
+<title><!doctype html>
+</title><title>Restoring window.name on cross-origin history traversal</title>
+<script src="/resources/testharness.js"></script>
+<script>
+var t = async_test();
+t.step(() => {
+  var win = window.open("browsing_context_name_cross_origin-340282366920938463463374607431768211455.html");
+  t.add_cleanup(() => win.close());
+});
+</script>
+<pre id="step_log"></pre><pre id="step_log">
+
+</pre><script src="/resources/testharnessreport.js"></script>

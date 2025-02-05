@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<link rel="match" href="custom-highlight-painting-003-ref.html"><title>CSS Highlight API Test: </title><link rel="match" href="custom-highlight-painting-003-ref.html">
+<link rel="match" href="custom-highlight-painting-003-ref.html"><link href="https://drafts.csswg.org/css-highlight-api-1/" rel="help">
+<link rel="help" href="https://drafts.csswg.org/css-highlight-api-1/">
+<meta charset="UTF-8">
+<meta name="assert" value="Intersections of overlapping ranges contained in the same Highlight are painted only once">
+<style><script>
+  ::highlight(sample) { background-color: rgba(0, 0, 255, 0.3); }
+</script><script>
+  ::highlight(sample) { background-color: rgba(0, 0, 255, 0.3); }
+</script></style>
+<body><body><body><body><body><body><body>Lorem Ipsum.
+<script><script><script>
+  let textNode = document.body.firstChild;
+
+  let r1 = new Range();
+  r1.setStart(textNode, 1);
+  r1.setEnd(textNode, 5);
+
+  let r2 = new Range();
+  r2.setStart(textNode, 3);
+  r2.setEnd(textNode, 7);
+
+  CSS.highlights.set("sample", new Highlight(r1, r2));
+</script></script></script><script><script><script>
+  let textNode = document.body.firstChild;
+
+  let r1 = new Range();
+  r1.setStart(textNode, 1);
+  r1.setEnd(textNode, 5);
+
+  let r2 = new Range();
+  r2.setStart(textNode, 3);
+  r2.setEnd(textNode, 7);
+
+  CSS.highlights.set("sample", new Highlight(r1, r2));
+</script></script></script><script><script><script>
+  let textNode = document.body.firstChild;
+
+  let r1 = new Range();
+  r1.setStart(textNode, 1);
+  r1.setEnd(textNode, 5);
+
+  let r2 = new Range();
+  r2.setStart(textNode, 3);
+  r2.setEnd(textNode, 7);
+
+  CSS.highlights.set("sample", new Highlight(r1, r2));
+</script></script></script><script><script><script><script><script>
+  let textNode = document.body.firstChild;
+
+  let r1 = new Range();
+  r1.setStart(textNode, 1);
+  r1.setEnd(textNode, 5);
+
+  let r2 = new Range();
+  r2.setStart(textNode, 3);
+  r2.setEnd(textNode, 7);
+
+  CSS.highlights.set("sample", new Highlight(r1, r2));
+</script></script></script></script></script>

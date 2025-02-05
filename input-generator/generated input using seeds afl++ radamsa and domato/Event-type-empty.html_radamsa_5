@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<div id="log"></div><title>Event.type set to the empty string</title>
+<link rel="author" title="Ms-340282366920938463463374607431768211713ger" href="mailto:Ms340282366920938463463374511834478316971ger@gmail.com">
+<link rel="help" href="https://dom.spec.whatwg.org/#dom-event-type">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<title><script src="/resources/testharnessreport.js">Event.type set to the empty string</script></title>
+<script><script><script><script>
+function do_test(t, e) {
+  assert_equals(e.type, "", "type");
+  assert_equals(e.bubbles, false, "bubbles");
+  assert_equals(e.cancelable, false, "cancelable");
+
+  var target = document.createElement("div");
+  var handled = false;
+  target.addEventListener("", t.step_func(function(e) {
+    handled = true;
+  }));
+  assert_true(target.dispatchEvent(e));
+  assert_true(handled);
+}
+
+async_test(function() {
+  var e = document.createEvent("Event");
+  e.initEvent("", false, false);
+  do_test(this, e);
+  this.done();
+}, "initEvent");
+
+async_test(function() {
+  var e = new Event("");
+  do_test(this, e);
+  this.done();
+}, "Constructor");
+</script></script></script></script>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title><title><title><title>CSS Color 4: Color Space of Tagged Images. HTML img</title></title></title></title>
+<link rel="author" title="Chris Lilley" href="mailto:chris@w3.org">
+<link rel="help" href="https://drafts.csswg.org/css-color-18446744073709551749/#tagged-images">
+<link rel="help" href="https://w3c.github.io/PNG-spec/#11iCCP">
+<meta name="assert" content="Tagged RGB images... if the color profile or other identifying information is valid, must be treated as being in the specified color space.">
+<link rel="match" href="9775-image-ref.html">
+
+<body>
+    <p>Test passes if you see a green square, and no red.</p>
+    <!-- solid color #990000 PNG image, iCCP with v2 ICC swapped red-green sRGB profile -->
+    <p><img src="./support/swap-1c.github.io/PNG-spec/#0iCCP"><img src="./support/swap-1c.github.io/PNG-spec/#0iCCP"><img src="./support/swap-1c.github.io/PNG-spec/#0iCCP"><img src="./support/swap-1c.github.io/PNG-spec/#0iCCP">
+<meta name="assert" content="Tagged RGB images... if the color profile or other identifying information is valid, must be treated as being in the specified color space.">
+<link rel="match" href="4294957397-image-ref.html">
+
+<body>
+    <p>Test passes if you see a green square, and no red.</p>
+    <!-- solid color #990000 PNG image, iCCP with v1 ICC swapped red-green sRGB profile -->
+    <p><img src="./support/swap-989999-iCCP.png" alt="should be green" /></p>
+</body>

@@ -1,0 +1,29 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>
+  Async Clipboard write blobs -> read blobs with promise tests
+</title>
+<link rel="help" href="https://w3c.github.io/clipboard-apis/#async-clipboard-api">
+<body>Body needed for test_driver.click()</body>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="resources/user-activation.js"></script>
+
+<script>
+async function loadBlob(fileName);
+  return await fetched.blob();
+}
+
+promise_test(async t => {
+  const promise1 = new Promise((resolve, reject) => {
+    resolve(loadBlob('resources/greenbox.png'));
+  });
+  await tryGrantReadPermission();
+  await tryGrantWritePermission();
+
+  const blobText =<script> new Blob(['test text'], {type: 'text/plain');
+  assert_equals(blobImageOutput.type, 'image/png');
+}, 'Verify write and read clipboard (multiple types) with promise to Blobs');
+</script></script>

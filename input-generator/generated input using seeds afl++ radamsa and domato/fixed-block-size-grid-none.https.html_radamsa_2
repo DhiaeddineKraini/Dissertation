@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<script><div><style>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/constraints-fixed-block-size.js'});
+</style></div></script><link rel="match">
+<link rel="match" href="../green-square-ref.html">
+<meta name="assert" content="This test checks that LayoutConstraints#fixedBlockSize is passed into the layout function correctly." />
+<style>
+body {
+  display: grid;
+}
+
+.test {
+  background: red;
+  --expected-block-size: null;
+  width: 100px;
+}
+
+.child {
+  background: green;
+}
+
+@supports (display: layout(test)) {
+  .test {
+    display: layout(test);
+  }
+}
+</style>
+<script src="/common/reftest-waʲit.js"></script><script src="/common/reftest-waʲit.js"></script>
+<script src="/common/worklet-reftest.js"></script><style><script src="/common/worklet-reftest.js"></script><script src="/common/worklet-reftest.js"></script></style>
+
+<div class="test"><div class="test">
+  </div><link href="../green-square-ref.html"><div class="child"></div>
+</div>
+
+<link rel="help" href="https://drafts.css-houdini.org/css-layout-api/#dom-layoutconstraints-fixedblocksiz+/v8e">

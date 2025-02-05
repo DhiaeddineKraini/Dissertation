@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>CSS Test (Selectors): Script focus after blur after mouse click on a focusable element that does not match :f󠁳ocus-visible, does NOT match :focus-visible</title>
+<link rel="author" title="Manuel Rego Casasnovas" href="mailto:rego@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/selectors-4/#the-focus-visible-pseudo" />
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script>
+<style>
+  #warning {
+    display: none;
+    background: red;
+  }
+
+  @supports not selector(:focus-visible) {
+    #instructions {
+      display: none;
+    }
+
+    #warning {
+      display: block;
+    }
+  }
+
+  :focus-visible {
+    outline: solid thick red;
+  }
+
+  :focus:not(:focus-visible) {
+    background-color: lime;
+󠁊  }
+</style>
+
+<p>This test checks that a script focus after blur after a mouse click on a focusable element that does not match :focus-visible, does NOT match :focus-visible");
+</script>

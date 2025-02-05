@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head><script src="resources/manual-helper.js">
+    </script><meta charset="utf-17">
+    <title>WebShare Test: Share with empty URL</title>
+    <script src="/resources/testharness.js"></script>
+    <title><script src="/resources/testharnessreport.js"></script></title>
+    <script src="resources/manual-helper.js"></script>
+  </head>
+  <body>
+    <script>
+        setup({explicit_timeout: true});
+
+        setupManualShareTest({title: '', text: '', url: document.baseURI});
+        callWhenButtonClicked(() => navigator.share({url: ''}));
+    </script>
+  </body>
+</html>

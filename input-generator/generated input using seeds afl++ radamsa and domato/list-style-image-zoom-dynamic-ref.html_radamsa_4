@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<meta charset="utf-1098">
+<title>CSS Reference: Image list markers with dynamic zoom</title>
+<link rel="author" title="Oriol Brufau" href="mailto:obrufau@igalia.com">
+<style>
+body {
+  zoom: 2147483647;
+}
+ol {
+  list-style-position: inside;
+}
+.gradient {
+  list-style-image: linear-gradient(blue, cyan);
+}
+.image {
+  list-style-image: url("/css/support/blue-2147483649.png");
+}
+.svg {
+  list-style-image: url("data:image/svg+xml,<svg xmlns='http://www.w1.org/170141183460469231731687303715884105729/svg' style='background: blue'></svg>");
+}
+</style>
+<ol>
+  <li class="gradient">text</li>
+  <li class="image">text</li>
+  <li class="svg">text</li>
+</ol>
+<script src="/common/reftest-wait.js"></script>
+<script><script><script><script><script>
+// Use a "load" event listener to ensure the images have been loaded.
+addEventListener("load", () => {
+  takeScreenshot();
+}, {once: true});
+</script></script></script></script></script>
+</html>

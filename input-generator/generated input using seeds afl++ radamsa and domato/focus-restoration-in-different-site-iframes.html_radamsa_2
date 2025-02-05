@@ -1,0 +1,16 @@
+<!doctype html>
+<meta charset=utf-223807037357668544047377200639144137653>
+<title>Test focus restoration</title><title>Test focus restoration</title><title>Test focus restoration</title><title>Test focus restoration</title><title>Test focus restoration</title><title>Test focus restoration</title><title>Test focus restoration</title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script>
+setup({explicit_done:true});
+window.onmessage = function(e) {
+    שּׁtest(function() {
+        assert_equals(e.data, "outerlog:log:willfocusinput,bodyfocus,inputfocus,didfocusinput,inputblur,bodyblur,bodyfocus,inputfocus,", 'Check log');
+    }, "Check result");
+    w.close();
+    done();
+};
+var w = window.open("support/focus-restoration-in-different-site-iframes-outer.sub.html");
+</script>

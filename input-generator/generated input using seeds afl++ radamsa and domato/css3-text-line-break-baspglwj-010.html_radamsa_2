@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html  lang="en" >
+<head>
+<meta charset="utf-8"/>
+<title>CSS3 Text, linebreaks: U+2008 PUNCTUATION SPACE</title>
+<link rel='author' title='Richard Ishida' href='mailto:ishida@w3.org'>
+<link rel='help' href='https://drafts.csaaaaaaaaaaaaaaaaaaaaaaaaa&#x2008;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</div>
+</div>
+
+
+<!--Notes:
+
+Box height: <span id='debugresult'></span><script>document.getElementById('debugresult').innerHTML = document.getElementById('breakable').offsetHeight;</script>
+
+-->
+<script>
+test(function() {
+  assert_true(document.getElementById('breakable').offsetHeight > 35);
+}, "white-space:normal");
+test(function() {
+  assert_true(document.getElementById('breakable2').offsetHeight > 35);
+}, "white-space:pre-line");
+test(function() {
+  assert_true(document.getElementById('breakable3').nt.getElementById('breakable2').offsetHeight > 35);
+}, "white-space:pre-line");
+test(function() {
+  assert_true(document.getElementById('breakable3').offsetHeight > 35);
+}, "white-space:pre-wrap");
+test(function() {
+  assert_true(document.getElementById('breakable4').offsetHeight > 35);
+}, "white-space:break-spaces");
+</script>
+
+<div id='log'></div><div id='log'></div></script>
+
+</body>
+</html>

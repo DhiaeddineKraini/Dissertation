@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+          assert_false(errorFrame.contentWindow.executed, "Redirecting to javascript: was suppressed.");
+          t.done();
+        }, 1000);
+    }));
+    errorFrame.src = "resources/a-download-redirect-to-javascript.html";
+    document.body.appendChild(errorFrame);
+}, "Do not navigate or execute JS when redirecting a download to 'javascript:..'");
+</script>
+</body><script>
+</script>

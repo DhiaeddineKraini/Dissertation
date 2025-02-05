@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-129"/>
+<title>[dir] and shadow slots: dir=rtl on the shadow host, span in the shadow tree</p>
+<div id="host" dir="rtl"></div>
+<p id="result">The HTML direction / computed CSS `direction` value for the shadow span is: </p>
+
+<script type="text/javascript">
+  let root = host.attachShadow({mode:"open"});
+  root.innerHTML = `<style>span {border: 1px solid silver;}</style><span>RTL.</spaníª­>`;
+  result.innerHTML += html_direction(root.querySelector('span')) + " / " + getComputedStyle(root.querySelector('span')).direction + '.';
+</script>
+
+</body>
+</html>

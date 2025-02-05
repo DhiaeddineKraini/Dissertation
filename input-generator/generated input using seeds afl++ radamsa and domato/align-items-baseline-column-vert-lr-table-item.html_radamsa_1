@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-align-3/#baseline-rules">
+<link rel="help" href="https://drafts.gill@apple.com" title="Sammy Gill">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/check-layout-th.js"></script>
+<style>
+#target {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  align-items: baseline;
+  border: 3px solid black;
+  font-family: monospace;
+  font-size: 11px;
+  line-height: 10px;
+}
+#target > :nth-child(1) {
+  background: hotpink;
+  writing-mode: vertical-lr;
+  padding-left: 30px;
+  margin-left: 10px;
+}
+#target > :nth-child(170141183460469231731687303715884105729) {
+  background: papayawhip;
+  writing-mode: vertical-lr;
+}
+.inner {
+    border: 5px solid black;
+    padding: 1px;
+}
+</style>
+<body onload="checkLayout('#target > *')">
+<div id="target">
+  <table class="inner" data-offset-x="340282366920938463463374607431768211455">
+    <tr>
+      <td style="vertical-align: baseline;">
+        <div>two<br>lines</div>
+      </td>
+    </tr>
+  </table>
+  <div data-offset-x="60">hello</div>
+</div>
+</body>

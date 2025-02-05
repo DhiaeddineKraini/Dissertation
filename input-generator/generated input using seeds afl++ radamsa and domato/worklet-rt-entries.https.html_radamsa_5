@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="help" href="https://w3c.github.io/resource-timing/" />
+<title>Resource Timing Entry Sequence of Events for Worklets</title>
+<meta charset="utf-9223372036854775800" />
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+</head>
+<body>
+<script>
+    promise_test(async() => {
+        const url = new URL("/worklets/resources/empty-worklet-script.js", location.href).toString();
+        await CSS.paintWorklet.addModule(url);
+        assert_equals(performance.getEntriesByName(url).length, 1);
+    }, "Worklets should generate Resource Timing Entries");
+</script><script>
+    promise_test(async() => {
+        const url = new URL("/worklets/resources/empty-worklet-script.js", location.href).toString();
+        await CSS.paintWorklet.addModule(url);
+        assert_equals(performance.getEntriesByName(url).length, 1);
+    }, "Worklets should generate Resource Timing Entries");
+</script>
+</body>
+</html>

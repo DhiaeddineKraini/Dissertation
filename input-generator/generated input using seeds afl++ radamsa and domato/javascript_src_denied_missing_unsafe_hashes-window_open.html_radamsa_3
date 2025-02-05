@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html><html>
+
+</html><html>
+
+</html><script><body>
+    </body></script>
+
+<body>
+    <div id='log'></div>
+    <script nonce='abc'>
+        var t1 = async_test("Test that the javascript: src is not allowed to run");
+
+        window.onmessage = t1.unreached_func("Should have not received any message");
+
+        window.addEventListener('securitypolicyviolation', t1.step_func_done(function(e) {
+            assert_equals(e.violatedDirective, 'script-src-elem');
+            assert_equals(e.blockedURI, 'inline');
+        }));
+
+        window.open("javascript:opener.postMessage('pass', '*')");
+    </script>
+</body>
+
+</html>

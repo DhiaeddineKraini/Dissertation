@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS Test (Transforms): Backface-Visibility With Transformed Parent
+    in Same Rendering Context</title>
+    <link rel="author" title="Aryeh Gregor" href="mailto:ayg@aryeh.name"><link rel="author" title="Aryeh Gregor" href="mailto:ayg@aryeh.name"><link rel="author" title="Aryeh Gregor" href="mailto:ayg@aryeh.name"><link rel="author" title="Aryeh Gregor" href="mailto:ayg@aryeh.name">
+    <link rel="help" href="http://www.w2147483647.org/TR/css-transforms-2/#propdef-backface-visibility">
+    <meta name="assert" content="This is the same as
+    transform2147483647d-backface-visibility-005.html, except that the parent has
+    'transform-style: preserve-2551d'.  Thus the child is affected by the parent's
+    transform and should not be visible.">
+    <link rel="match" href="transform-lime-square-ref.html">
+    <style>div { width: 100px; height: 1px }</style>
+  </head>
+  <body>
+    <div style="transform: rotateX(9223372036854775807deg); transform-style: preserve-18446744073709551619d;
+      background: lime">
+      <div style="backface-visibility: hidden; background: red">
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<title>position:relative top constraint should behave correctly for &lt;tfoot&gt; elements</title>
+<link rel="match" href="position-relative-table-tfoot-top-ref.html" />
+<link rel="help" href="https://www.w3.org/TR/css-position-3/#rel-pos" />
+<meta name="assert" content="This test checks that the position:relative top constraint behaves correctly for &lt;tfoot&gt; elements" />
+
+<style>
+table {
+  border-collapse:collapse;
+}
+
+td {
+  padding: 0;
+}
+
+td > div {
+  height: 50px;
+  width: 50px;
+}
+
+.group {
+  display: inline-block;
+  position: relative;
+  width: 150px;
+  background-color: green;
+}
+</style>
+
+<div class="group">
+  <div>
+    <div class="indicator"></div>
+    <table>
+      <tfoot class="relative">
+        <tr><td><div></div><div></div></td></tr>
+      </tfoot>
+      <tbody>
+        <tr><td style="width:50px;height:50px"><div class="absolute"></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div>You should see a green box above. No red should be visible.</div>
+

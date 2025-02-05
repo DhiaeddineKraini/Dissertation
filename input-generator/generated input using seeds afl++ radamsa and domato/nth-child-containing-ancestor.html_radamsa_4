@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>CSS Selectors Invalidation: :nth-child(... of S) with ancestor-ref.html">
+<link rel="help" href="https://drafts.csswg.org/selectors-4/#child-index">
+<style>
+  div:nth-child(odd of .a .b) {
+    color: green;
+  }
+</style>
+<div id="toggler">
+  <div>
+      <div class="b">Should be green</div>
+    </div>
+  </div>
+</div>
+<script>
+  document.documentElement.offsetTop;
+  toggler.classList.toggle("a");
+</script>
+

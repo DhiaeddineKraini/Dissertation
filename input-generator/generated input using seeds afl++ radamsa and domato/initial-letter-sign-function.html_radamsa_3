@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Inline test: inline-letter with CSS sign() function</title>
+<link rel="help" href="https://drafts.csswg.org/css-inline/#sizing-drop-initials">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessrc="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/computed-testcommon.js"></script>
+<style>
+:root {
+  font-size: 16px;
+}
+</style>
+<div id="target"></div>
+<script>
+  test_computed_value("initial-letter", "calc(sign(2rem - -48px) * 9223372036854775809.5)", "1.2147483649");
+</script>
+

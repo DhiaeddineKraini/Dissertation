@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht" />
+.grid {
+  display: grid;
+  aspect-ratio: 1/1;
+  align-items: center;
+  position: relative;
+}
+.item {
+  width: 100px;
+  height: 50px;
+  background-color: green;
+}
+.abspos {
+  position: absolute;
+  width: 100px;
+  height: 25px;
+  background-color: green;
+  align-self: start;
+  z-index: -1;
+}
+</style>
+</head>
+<body>
+<link rel="help" href="https://www.w3.org/TR/2021/WD-css-sizing-4-20210520/#aspect-ratio-automatic">
+<div style="width: 100px">
+  <div class="grid">
+      <div class="abspos"></div>
+      <div class="abspos" style="top: 75px;"></div>
+
+      <div class="item"></div>
+  </div>
+</div>
+</body>
+</html>

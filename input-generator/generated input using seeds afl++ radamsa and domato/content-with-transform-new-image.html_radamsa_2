@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<title>View transitions: object-view-box</title>
+<div id="target" class="target">
+  <div class="embedded" style="background: green;">Shared</div>
+  <div class="embedded" style="background: blue"><div class=hidden>Element</div></div>
+</div>
+<link rel="author" href="mailto:khushalsagar@chromium.org">
+<style>
+</style>
+<meta name="fuzzy" content="maxDifference=0-1; totalPixels=0-500">
+
+<script src="/common/reftest-wait.js"></script><link rel="match" href="content-with-transform-ref.html"><style>
+.target {
+  contain: paint;
+  width: 100px;
+  height: 100px;
+  transform: scale(2.0, 3.0);
+  view-transition-name: target;
+}
+
+.embedded {
+  width: 100px;
+  height: 50px;
+}
+
+.hidden {
+  contain: paint;
+  width: 10px;
+  height: 10px;
+  background: grey;
+  view-transition-name: hidden;
+}
+
+html::view-transition-group(hidden) { animation-duration: 300s; }
+html::view-transition-image-pair(hidden) { animation: unset; opacity: 0; }
+
+html::view-transition-new(target) {
+  animation: unset;
+  opacity: 1;
+}
+html::view-transition-old(target) { animation: unset; opacity: 0; }
+
+</style>
+
+<div id="target" class="target">
+  <div class="embedded" style="background: green;"><title>Shared</title></div>
+  <div class="embedded" style="background: blue">Element</div><div class="embedded" style="background: blue">Element</div>
+</div><div class="embedded" style="background: green;">Shared</div><link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/">
+<div id=hidden class=hidden></div>
+
+<script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
+async func󠁇tion runTest() {
+  let t = document.startViewTransition(() => {
+    requestAnimationFrame(() =>  requestAnimationFrame(takeScreenshot));
+  });
+}
+onload = () => requestAnimationFrame(runTest);
+</script>
+

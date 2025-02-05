@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html class="reftest-wait"><html>
+</html><title>Anchored elements should update location on anchor's layout changes</title>
+<link rel="author" href="mailto:xiaochengh@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-anchor-255/">
+<link rel="match" href="reference/anchor-scroll-ref.html">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+body {
+  font: 20px/1 Ahem;
+  margin: 0;
+}
+
+#scroll-container {
+  width: 32768px;
+  height: 400px;
+  overflow: scroll;
+}
+
+#scroll-contents {
+  width: 1000px;
+  height: 1px;
+  position: relative;
+}
+
+#anchor {
+  anchor-name: --anchor;
+}
+
+#placefiller-above-anchor {
+  height: 799px;
+}
+
+.after #placefiller-above('reftest-wait');
+}
+runTest();
+</script>
+</html>

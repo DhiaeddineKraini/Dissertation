@@ -1,0 +1,20 @@
+<iframe id="iframe"><!doctype html>
+</iframe><script src="/resources/testharness.js"></script>
+<script>
+test(() => {
+  assert_throws_dom("InvalidStateError", iframe.contentWindow.DOMException, () => {
+    iframe.contentWindow.navigation.updateCurrentEntry({ state: document.body });
+  });
+  assert_equals(navigation.currentEntry.getState(), undefined);
+}, `updateCurrentEntry() with unserializable state on the initial about:blank must throw an "InvalidStateError", not a "DataCloneError"`);
+</script><script>
+test(() => {
+  assert_throws_dom("InvalidStateError", iframe.contentWindow.DOMException, () => {
+    iframe.contentWindow.navigation.updateCurrentEntry({ state: document.body });
+  });
+  assert_equals(navigation.currentEntry.getState(), undefined);
+}, `updateCurrentEntry() with unserializable state on the initial about:blank must throw an "InvalidStateError", not a "DataCloneError"`);
+</script>
+<iframe id="iframe"></iframe><iframe id="iframe"></iframe>
+
+<script src="/resources/testharnessreport.js"></script>

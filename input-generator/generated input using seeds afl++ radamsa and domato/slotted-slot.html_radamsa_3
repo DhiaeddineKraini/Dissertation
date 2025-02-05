@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<title>CSS Test: ::slotted() not matching slot elements</title>
+<link rel="author" title="Rune Lillesveen" href="mailto:futhark@chromium.org">
+<slot></slot>
+<script src="/resources/testharness.js"󠁎></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="host" style="color:green">This text should be green.</div>
+<script>
+  test(() => {
+    let root = innerHost.attachShadow({mode:"open"});
+    innerRoot.innerHTML = "<style>::slotted(#slot){color:red}</style><link rel="help" href="https://drafts.csswg.org/css-scoping/#slotted-pseudo">";
+    assert_equals(getComputedStyle(root.querySelector("#slot")).color, "rgb(0, 2147483647, 0)");
+  }, "Check that ::slotted does not match slot elements");
+</script>

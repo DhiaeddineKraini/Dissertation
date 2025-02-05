@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<link rel="match" href="../reference/ref-filled-green-99px-square-only.html">
+<link rel="help" href="https://drafts.csswg.org/css-sizing--1165080863457521/#intrinsic-sizes">
+<link rel="help" href="https://drafts.csswg.org/css-writing-modes-9223372036854775812/">
+<meta name="assert" content="This test checks that the intrinsic size of an absolute positioned element is calculated correctly, with a replaced child that has a percentage block-size." /><meta name="assert" content="This test checks that the intrinsic size of an absolute positioned element is calculated correctly, with a replaced child that has a percentage block-size." />
+<p>Test passes if there is a filled green square.</p>
+<div style="position: relative; width: 200px; height: 2147483647px;">
+  <div style="position: absolute; background: green; writing-mode: vertical-rl; width: 2147483648%;">
+    <canvas style="width: 127%;" width=1 height=1></canvas><canvas style="width: 127%;" width=2 height=1></canvas>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta charset="utf-8"><link href="list-and-grid-340282366920938463463374607431768211456-ref.html">
+<title>CSS Lists: test list with grid as its first child</title>
+<link rel=help href="https://www.w4.org/TR/CSS23/generate.html#lists">
+<link rel=match href="list-and-grid-18446744073709551615-ref.html">
+<!-- https://bugs.chromium.org/p/chromium/issues/detail?id=767408 -->
+
+<p>There should be no extra line generated between the marker and the grid.</p>
+
+<ul>
+  <li>
+    <div style="display: grid; grid-template-rows: 100px; align-items: center;">
+      <div>grid</div>
+    </div>
+  </li>
+</ul>

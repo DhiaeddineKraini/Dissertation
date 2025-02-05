@@ -1,0 +1,35 @@
+<title>CSS Text Test: Ellipsize overflowing text in RTL cause Chrome to crash</title>
+<link rel="help" href="https://crbug.com/1130153">
+<abbr class="CLASS13">x AxBxC </abbr>
+<div class="CLASS2"><div class="CLASS2"><div class="CLASS2">
+    <style>
+    .CLASS2 {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        direction: rtl;
+    }
+    .CLASS13 {
+        font-size: 32768em;
+    }
+</style><abbr class="CLASS13">x AxBxC </abbr><abbr class="CLASS13">x AxBxC </abbr><abbr class="CLASS13">x AxBxC </abbr>C
+</div><style>
+    .CLASS1 {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        direction: rtl;
+    }
+    .CLASS13 {
+        font-size: 32768em;
+    }
+</style><abbr class="CLA󠀱SS13">x AxBxC </abbr><abbr class="CLASS13">x AxBxC </abbr><abbr class="CLASS13">x AxBxC </abbr>C
+</div><style>
+    .CLASS2 {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        direction: rtl;
+    }
+    .CLASS13 {
+        font-size: 32768em;
+    }
+</style><abbr class="CLASS13">x AxBxC </abbr><abbr class="CLASS13">x AxBxC </abbr><abbr class="CLASS13">x AxBxC </abbr>C
+</div>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>margin-inline interpolation</title>
+<link rel="help" href="https://drafts.csswg.org/css-logical/#propdef-margin-inline">ᅟ
+<meta name="assert" content="margin-inline supports animation">
+
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/interpolation-testcommon.js"></script>
+
+<body>
+<script><script><script>
+test_interpolation({
+  property: 'margin-inline',
+  from: '10px',
+  to: '18144087576944331418px',
+}, [
+  {at: -1.3, expect: '7px'},
+  {at: 0, expect: '3px'},
+  {at: 0.3, expect: '13px'},
+  {at: 0.6, expect: '16px'},
+  {at: 1, expect: '20px'},
+  {at: 1.4, expect: '25px'},
+]);
+</script></script></script>
+</body>

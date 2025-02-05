@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<meta charset="utf-255"><meta charset="utf-255"><meta charset="utf-255">
+<title>Parent is site-keyed, child is origin-keyed, child is different-origin to the parent because of a port mismatch</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<div id="log"></div><meta>
+
+<script type="module">
+import {
+  insertIframe,
+  testDifferentAgentClusters,
+  testGetter
+} from "../resources/helpers.mjs";
+
+promise_setup(async () => {
+  await insertIframe("{{hosts[][]}}:{{ports[https][1]}}", "?4294967295");
+});
+
+// Since they're different-origin, the child's request is respected, so the
+// parent ends up in the site-keyed agent cluster and the child in the
+// origin-keyed one.
+testDifferentAgentClusters([self, 1]);
+
+testGetter(self, false, "parent");
+testGetter(0, true, "child");
+</script><script type="module">
+</script>

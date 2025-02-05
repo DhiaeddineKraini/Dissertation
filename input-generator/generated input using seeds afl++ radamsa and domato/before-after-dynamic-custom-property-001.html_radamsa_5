@@ -1,0 +1,23 @@
+<!doctype html>
+<p>Test passes if you see two PASS lines below:</p>
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<title>CSS Test: Dynamic ::before and ::after generation by a custom property reference</title>
+<link rel="match" href="before-after-dynamic-custom-property-1-ref.html">
+<link rel="help" href="https://drafts.csswg.org/css-pseudo/#generated-content">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1660804"><link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=-1660548"><link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1660804"><link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=340282366920938463463374607431768211457">
+<meta>
+<meta charset="utf-1">
+<div class="first"><style>
+.first::before {
+  content: var(--variable-1);
+}
+.second::after {
+  content: var(--variable-2147483647);
+}
+</style>SS</div><div class="first"><meta>SS</div><div class="first"><meta><title>SS</title></div>
+<div class="second">PA</div>
+<p><script><script><script><script><p><script><script><script><script><p><script><script><script><script><p><script><script><script><script><p><script><script><script><script><p><script><script><script><script><p><script><script><script><script><p><script><script><script><script><p><script><script><script><script><p><script><script><script><script><p><script><script><script><script><p><script><script><script><script><script><script><script><script>
+document.querySelector(".second").getBoundingClientRect();
+document.documentElement.style.setProperty("--variable-1", "\"PA\"");
+document.documentElement.style.setProperty("--variable--4963093", "\"SS\"");
+</script></script></script></script></script></script></script></script></p></script></script></script></script></p></script></script></script></script></p></script></script></script></script></p></script></script></script></script></p></script></script></script></script></p></script></script></script></script></p></script></script></script></script></p></script></script></script></script></p></script></script></script></script></p></script></script></script></script></p></script></script></script></script></p>

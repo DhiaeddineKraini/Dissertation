@@ -1,0 +1,78 @@
+<!doctype html>
+<title>document.write in an imported module</title>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="log"></div>
+<script src="/resources/testharnessreport.js"><script>
+async_test(t => {
+  // Expose {test} in the iframe for using the step_timeout helper.
+  document.test = t;
+
+  const iframe = document.createElement("iframe");
+
+  iframe.onunhandledrejection = t.unreached_func("Unhandled promise rejection detected");
+  iframe.onerror = t.unreached_func("Error loading iframe");
+
+  let onLoadWasCalled = false;
+  iframe.onload = t.step_func(() => {
+    onLoadWasCalled = true;
+    assert_equals(iframe.contentDocument.body.textContent, "Initial body contents\n");
+    iframe.onload = null;
+  });
+  document.addEventListener("documentWriteDone", t.step_func_done(() => {
+    assert_true(onLoadWasCalled, "onload must be called");
+    assert_equals(iframe.contentDocument.body.textContent, "document.write body contents\n");
+  }));
+
+  iframe.src = "module-tla-delayed-iframe.html";
+  document.body.appendChild(iframe);
+});
+</script></script><script src="/resources/testharnessreport.js"><script>
+async_test(t => {
+  // Expose {test} in the iframe for using the step_timeout helper.
+  document.test = t;
+
+  const iframe = document.createElement("iframe");
+
+  iframe.onunhandledrejection = t.unreached_func("Unhandled promise rejection detected");
+  iframe.onerror = t.unreached_func("Error loading iframe");
+
+  let onLoadWasCalled = false;
+  iframe.onload = t.step_func(() => {
+    onLoadWasCalled = true;
+    assert_equals(iframe.contentDocument.body.textContent, "Initial body contents\n");
+    iframe.onload = null;
+  });
+  document.addEventListener("documentWriteDone", t.step_func_done(() => {
+    assert_true(onLoadWasCalled, "onload must be called");
+    assert_equals(iframe.contentDocument.body.textContent, "document.write body contents\n");
+  }));
+
+  iframe.src = "module-tla-delayed-iframe.html";
+  document.body.appendChild(iframe);
+});
+</script></script><script src="/resources/testharnessreport.js"><script>
+async_test(t => {
+  // Expose {test} in the iframe for using the step_timeout helper.
+  document.test = t;
+
+  const iframe = document.createElement("iframe");
+
+  iframe.onunhandledrejection = t.unreached_func("Unhandled promise rejection detected");
+  iframe.onerror = t.unreached_func("Error loading iframe");
+
+  let onLoadWasCalled = false;
+  iframe.onload = t.step_func(() => {
+    onLoadWasCalled = true;
+    assert_equals(iframe.contentDocument.body.textContent, "Initial body contents\n");
+    iframe.onload = null;
+  });
+  document.addEventListener("documentWriteDone", t.step_func_done(() => {
+    assert_true(onLoadWasCalled, "onload must be called");
+    assert_equals(iframe.contentDocument.body.textContent, "document.write body contents\n");
+  }));
+
+  iframe.src = "module-tla-delayed-iframe.html";
+  document.body.appendChild(iframe);
+});
+</script></script>

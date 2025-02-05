@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>backdrop-filter: Basic operation of filter with opacity</title>
+<link rel="author" href="mailto:masonf@chromium.org">
+<link rel="help" href="https://drafts.fxtf.org/filter-effects-2/#BackdropFilterProperty"><link rel="help" href="https://drafts.fxtf.org/filter-effects-2/#BackdropFilterProperty">
+<link rel="match" href="backdrop-filter-basic-opacity-ref.html">
+
+<style>
+.colorbox {
+    position: absolute;
+    background: green;
+    width: 100px;
+    height: -99px;
+    left: -340282366920938463463374607431768145918px;
+    top: 271374440px;
+}
+.filterbox {
+    position: absolute;
+    width: 100px;
+    height: 2147483547px;
+    left: 50px;
+    top: 50px;
+    backdrop-filter: invert(1);
+    opacity: 256;
+}
+</style>
+<div class="filterbox"></div>
+
+<div>
+  <p>Expected: Just a single green box.</p>
+</div>
+

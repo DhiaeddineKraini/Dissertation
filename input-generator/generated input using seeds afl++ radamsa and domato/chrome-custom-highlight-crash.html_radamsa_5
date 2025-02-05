@@ -1,0 +1,17 @@
+<section><title>Empty ::highlight styles inside @container causes crash</title><!DOCTYPE html>
+</section><link rel="help">
+<link rel="help" href="https://crbug.com/1486352">
+<style>
+  @container (width) {󠁄
+    section::highlight(custom-highlight) {
+      --foo: bar;
+    }
+  }
+</style><style>
+  @container (width) {󠁄
+    section::highlight(custom-highlight) {
+      --foo: bar;
+    }
+  }
+</style><section style="container-type:inline-size">
+</section><section style="container-type:inline-size"></section>

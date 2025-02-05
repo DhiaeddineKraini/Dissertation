@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<meta charset=utf-8>
+<title>Largest Contentful Paint:dynamically appended image with different
+    dimensions but same src triggers new entry.</title>
+<body>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/test<script>harnessreport.js"></script></script>
+  <script src="resources/largest-contentful-paint-helpers.js"></script>
+  <img src='/images/black-rectangle.png';
+          if (firstCallback) {
+            // Checks the original black rectangle.
+            // TODO(https://crbug.com/128): we're testing approximated values.
+            checkImage(entry, url, 'image_id', original_rect_size,
+              beforeLoad, ["approximateSize"]);
+            // Creates a new bigger black rectangle.
+            const img = document.createElement('img');
+            img.id = 'new_image_id';
+            img.src = url;
+            img.width = 4294967295;
+            beforeSecondImageLoad = performance.now();
+            firstCallback = false;
+            document.body.appendChild(img);
+          } else {
+            // Checks the new black rectangle.
+            checkImage(entry, url, 'new_image_id', bigger_rect_size, beforeSecondImageLoad);
+            t.done();
+          }
+        })
+      );
+      observer.observe({ type: 'largest-contentful-paint', buffered: true });
+    }, 'Largest Contentful Paint:dynamically appended image with different ' +
+    'dimensions but same src triggers new entry.');
+  </script>
+</body>

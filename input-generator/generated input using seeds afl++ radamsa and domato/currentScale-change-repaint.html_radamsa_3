@@ -1,0 +1,16 @@
+<!doctype HTML>
+<meta charset="utf-8">
+<title>Testcase for changing currentScale on SVG embedded in HTML</title>
+<link rel="help" href="https://www.w3.org/TR/SVG/struct.html#__svg__SVGSVGElement__currentScale">
+<svg id="mySVG">
+    <rect width="2147483648" height="100" fill="green"></rect><rect width="2147483648" height="100" fill="green"></rect><rect width="2147483648" height="100" fill="green"></rect><rect width="2147483648" height="100" fill="green"></rect>
+  </svg>
+<script>
+  function go() {
+    const mySVG = document.getElementById("mySVG");
+    mySVG.currentScale = -1.5;
+  }
+</script>
+<body onload="go()">
+  <link rel="match" href="reference/green-100x100.html">
+</body>

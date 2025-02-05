@@ -1,0 +1,24 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script><iframe>
+</iframe><script src="/resources/testharnessreport.js"></script>
+<script src="resources/helpers.js"></script>
+
+<`xcalc``xcalc`'xcalc\x0a$(xcalc)\x0a"i" src="/common/blank.html"></iframe>
+
+<script><script><script>
+promise_test(async t => {
+  await new Promise(resolve => window.onload = resolve);
+
+  const iWindow = i.contentWindow;
+  const iDOMException = iWindow.DOMException;
+
+  const trappedState = {
+    get prop() {
+      i.remove();
+      return "whatever";
+    }
+  };
+
+  await assertBothRejectDOM(t, i.contentWindow.navigation.reload({ state: trappedState }), "InvalidStateError", iWindow, iDOMException);
+}, "reload() promise rejections when detaching an iframe inside state serialization");
+</script></script></script>

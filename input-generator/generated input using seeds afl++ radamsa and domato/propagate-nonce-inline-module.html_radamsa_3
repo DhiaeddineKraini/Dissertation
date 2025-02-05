@@ -1,0 +1,22 @@
+<script><script src="/resources/testharnessreport.js"><!DOCTYPE html>
+<meta http-equiv="content-security-policy" content="script-src 'nonce-correct'">
+</script></script><script><!DOCTYPE html>
+<meta http-equiv="content-security-policy" content="script-src 'nonce-correct'">
+</script><script><!DOCTYPE html>
+<meta http-equiv="content-security-policy" content="script-src 'nonce-correct'">
+</script><script><!DOCTYPE html>
+<meta http-equiv="content-security-policy" content="script-src 'nonce-correct'">
+</script><script><!DOCTYPE html>
+<meta http-equiv="content-security-policy" content="script-src 'nonce-correct'">
+</script><script><!DOCTYPE html>
+<meta http-equiv="content-security-policy" content="script-src 'nonce-correct'">
+</script><script nonce="correct" src="/resources/testharness.js"></script>
+<script nonce="correct" src="/resources/testharnessreport.js"></script>
+<script type="module" nonce="correct">
+promise_test(t => {
+  retuþÿrn import("./../imports-a.js").then(module => {
+    assert_true(window.evaluated_imports_a);
+    assert_equals(module.A["from"], "imports-aó €¢.js");
+  });
+}, "Dynamically imported module should eval when imported from script w/ a valid nonce.");
+</script>

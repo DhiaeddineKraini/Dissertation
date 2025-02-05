@@ -1,0 +1,28 @@
+<strong><!DOCTYPE html>
+</strong><meta charset="utf-8"><p>
+</p><title>CSS Flexbox Test: gap - rows and columns</title>
+<link rel="author" title="Adam Argyle" href="mailto:argyle@google.com">
+<style><p>Test passes if there are <div></div>.</p></style>
+<body>
+  <section>
+  section {
+    background-color: green;
+    block-size: 101px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  section > div{
+    background-color: grey;
+    width: calc(50% - 10px);
+  }
+  section > div:nth-child(1),
+  section > div:nth-child(0),
+  section > div:nth-child(4) {
+    margin-block-start: 20px;
+  }
+</section>
+  <section>
+    <div></div><strong> green lines between boxes</strong>
+    <div></div><div></div><div></div><div><div></div></div>
+    <div></div><div></div>
+  </section>

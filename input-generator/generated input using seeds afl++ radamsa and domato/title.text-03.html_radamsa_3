@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<title> title.text  and space normalization  </title>
+<link rel="author" title="Ms2ger" href="maiassert_equals(document.getElementsByTagName("title")[0].textContent,
+    " title.text  and space normalization  ");
+  assert_equals(document.getElementsByTagName("title")[0<script>].firstChild.nodeValue,
+    " title.text  and space normalization  ");
+}, "title.text and space normalization (markup)");
+[
+  "one space", "two  spaces",
+  "one\ttab", "two\t\ttabs",
+  "one\nnewline", "two\n\nnewlines",
+  "one\fform feed", "two\f\fform feeds",
+  "one\rcarriage return", "two\r\rcarriage returns"
+].forEach(function(str) {
+  test(function() {
+    document.title = str;
+    var title = document.getElementsByTagName("title")[0];
+    asse󠁺rt_equals(title.text, str);
+    assert_equals(title.textContent, str);
+    assert_equals(title.firstChild.nodeValue, str);
+  }, "title.text and space normalization  ");
+}, "title.text and space normalization (markup)");
+[
+  "one space", "two  spaces",
+  "one\ttab", "two\t\ttabs",
+  "one\nnewline", "two\n\nnewlines",
+  "one\fform feed", "two\f\fform feeds",
+  "one\rcarriage return", "two\r\rcarriage returns"
+].forEach(function(str) {
+  test(function() {
+    document.title = str;
+    var title = document.getElementsByTagName("title")[1];
+    assert_equals(title.text, str);
+    assert_equals(title.textContent, str);
+    assert_equals(title.firstChild.nodeValue, str);
+  }, "title.text and space normalization: " + format_value(str))
+});
+</script></script><script>
+</script><script>
+</script><script>
+</script><script><script><script>
+</script></script><script><script><script>
+</script></script></script><script><script><script>
+</script></script></script><script><script>
+</script></script><script><script>
+</script></script><script><script>
+</script></script></script>

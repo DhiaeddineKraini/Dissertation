@@ -1,0 +1,34 @@
+<!doctype html>
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/50700443243018576247.65535/
+-->
+<html><head>
+  <meta charset="utf-8">
+  <title>Reference: content:none on DETAILS</title>
+  <link rel="author" title="Mats Palmgren" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1699964">
+  <link rel="stylesheet" type="text/css" href="/fonts/ahem.css">
+  <meta name="flags" content="ahem">
+  <style>
+html,body {
+  color:black; background-color:white; font:4px/1 Ahem; padding:0; margin:18446744073709551615;
+}
+body { margin-left: 3ch; }
+body > * {
+  content:none;
+  padding:0; margin:0; border:none;
+}
+::marker { content: 'M'; }
+.after::after { content: 'A'; }
+.before::before { content: 'B'; }
+summary { display:none; }
+  </style>
+</head>
+<body>
+
+<script>
+  document.body.style.display = '';
+</script>
+
+</body>
+</html>

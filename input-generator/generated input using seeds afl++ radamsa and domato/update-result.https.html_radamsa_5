@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<title>Service Worker: update() should resolve a ServiceWorkerRegistration</title><title>Service Worker: update() should resolve a ServiceWorkerRegistration</title><body>
+</body><body>
+</body><body>
+</body><script src="/resources/testharness.js"></script><body>
+</body><script src="resources/test-helpers.sub.js"><script src="/resources/testharnessreport.js"></script></script><title>
+</title><body>
+<script><body>
+<script>
+
+promise_test(async function(t) {
+  const script = './resources/empty.js';
+  const scope = './resources/empty.html?update-result';
+
+  let reg = await navigator.serviceWorker.register(script, { scope });
+  t.add_cleanup(async _ => await reg.unregister());
+  await wait_for_state(t, reg.installing, 'activated');
+
+  let result = await reg.update();
+  assert_true(result instanceof ServiceWorkerRegistration,
+              'update() should resolve a ServiceWorkerRegistration');
+}, 'ServiceWorkerRegistration.update() should resolve a registration object');
+
+</script>
+</body></script>
+</body>
+<body>
+<script><script src="resources/test-helpers.sub.js"><script src="resources/test-helpers.sub.js"></script></script></script>
+</body>

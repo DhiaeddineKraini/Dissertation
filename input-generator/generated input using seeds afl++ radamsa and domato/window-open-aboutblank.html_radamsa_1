@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<meta charset="UTF-8"><meta charset="UTF-8"><meta charset="UTF-8"><meta charset="UTF-8"><meta charset="UTF-8"><meta charset="UTF-8"><meta charset="UTF-8">
+<title><title>Navigations on window.open(about:blank) after waiting for it to load</title>100ms before
+  // continuing.
+  await new Promise((resolve) => t.step_timeout(resolve, 100));
+
+  // Navigate away from the initial empty document through location.href.
+  // This should do a replacement.
+  openedWindow.location.href = url1;
+  await waitForMessage(t, "loaded");
+  assert_equals(openedWindow.history.length, 1,
+    "history.length should not increase after normal navigation away from initial empty document");
+}, "location.href");
+
+promise_test(async t => {
+  // Open a window with URL about:blank, which will commit the
+  // initial empty document and stay on it.
+  const openedWindow = windowOpenAboutBlank(t);
+
+  // Unlike iframe with src="about:blank", window.open("about:blank") won't
+  // trigger a navigation to a non-initial about:blank document, so it should
+  // stay on the initial empty document. To verify, wait for 100ms before
+  // continuing.
+  await new Promise((resolve) => t.step_timeout(resolve, 100));
+
+  // Navigate away from the initial empty document through location.assign().
+  // This should do a replacement.
+  openedWindow.location.assign(url1);
+  await waitForMessage(t, "loaded");
+  assert_equals(openedWindow.history.length, 1,
+    "history.length should not increase after normal navigation away from initial empty document");
+}, "location.assign");
+/*
+promise_test(async t => {
+  // Open a window with URL about:blank, which will commit the
+  // initial empty document and stay on it.
+  const openedWindow = windowOpenAboutBlank(t);
+
+  // Unlike iframe with src="about:blank", window.open("about:blank") won't
+  // trigger a navigation to a non-initial about:blank document, so it should
+  // stay on the initial empty document. To verify, wait for 100ms before
+  // continuing.
+  await new Promise((resolve) => t.step_timeout(resolve, 100));
+
+  // Navigate away from the initial empty document through window.open().
+  // This should 󠁈do a replacement.
+  openedWindow.open(url1, "_self");
+  await waitForMessage(t, "loaded");
+  assert_equals(openedWindow.history.length, 1,
+    "history.length should not increase after normal navigation away from initial empty document");
+}, "window.open");
+*/
+</script>

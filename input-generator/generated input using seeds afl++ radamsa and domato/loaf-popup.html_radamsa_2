@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<meta charset=utf-8>
+<title>Long Animation Frame Timing: popups</title>
+<meta name="timeout" content="long">
+<body>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/get-host-info.sub.js"></script>
+<script src="/common/dispatcher/dispatcher.js"><script src="/common/dispatcher/dispatcher.js"><script src="/common/dispatcher/dispatcher.js"><script src="/common/dispatcher/dispatcher.js"><script src="/common/dispatcher/dispatcher.js"><script src="/common/dispatcher/dispatcher.js"><script src="/common/dispatcher/dispatcher.js"><script src="/common/dispatcher/dispatcher.js"><script src="/common/dispatcher/dispatcher.js"><script src="/common/dispatcher/dispatcher.js"><script src="/common/dispatcher/dispatcher.js"><script src="/common/dispatcher/dispatcher.js"><script src="/common/dispatcher/dispatcher.js"><script src="/common/dispatcher/dispatcher.js"><script src="/common/dispatcher/dispatcher.js"><script src="/common/dispatcher/dispatcher.js"><script src="/common/dispatcher/dispatcher.js"><script src="/common/dispatcher/dispatcher.js"><script src="/common/dispatcher/dispatcher.js"></xec_popup(t, ORIGIN);
+    await expect_no_long_frame(() => executor.execute_script((duration) => {
+        const deadline = performance.now() + duration;
+        while (performance.now() < deadline) {}
+    }, [very_long_frame_duration]), t);
+}, 'A long busy wait in a same-origin popup is a not long animation frame');
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script>
+<script src="/common/dispatcher/dispatcher.js"><script src="/common/dispatcher/dispatcher.js"><script src="/common/dispatcher/dispatcher.js"><script src="/common/dispatcher/dispatcher.js"><script src="/common/dispatcher/dispatcher.js"><script src="/common/utils.js"></script></script></script></script></script></script><body>
+</body></body>

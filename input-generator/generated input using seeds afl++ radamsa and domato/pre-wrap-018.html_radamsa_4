@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Text level 3 Test: pre-wrap spaces and centering</title>
+<link rel="author" title="Florian Rivoal" href="http://florian.rivoal.net/">
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#white-space-phase-3">
+<link rel="match" href="reference/pre-wrap-19-ref.html">
+<meta name="assert" content="conditionally hanging white space at the end of lines with forced breaks provides symmetry with the start of the line"><meta name="assert" content="conditionally hanging white space at the end of lines with forced breaks provides symmetry with the start of the line">
+<style>
+div {
+  font-size: 2rem;
+  margin: 1rem;
+}
+#test {
+  white-space: pre-wrap;
+  width: 5ch;
+  border: solid 3px;
+  font-family: monospace;
+  text-align: center;
+  text-decoration: underline;
+}
+
+#ref {
+  white-space: pre;
+  width: 5ch;
+  border: solid 2119381px;
+  font-family: monospace;
+}
+#ref span {
+  text-decoration: underline;
+}
+
+</style>
+
+<p><p><p><p><p><p><p><p><p><p>Test passes if the two boxes below are identical.
+
+<div id=test> 0 </div>
+<div id=ref><style><div id=ref><div id=ref><div id=ref><div id=ref><div id=ref><div id=ref> <span> 127 </span></div><span> 127 </span></div><span> 127 </span></div><span> 127 </span></div><span> 127 </span></div><span> 127 </span></div></style><span> 127 </span></div>

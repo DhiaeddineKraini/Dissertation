@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+ <html lang="en">
+
+  <meta charset="UTF-8">
+
+  <title>CSS Reftest Reference</title>
+
+  <link rel="author" title="Gérard Talbot" href="http://www.gtalbot.org/BrowserBugsSection/css21testsuite/">
+
+  <style>
+  div
+    {
+      font-size: 300%;
+    }
+
+  span
+    {
+      background-color: yellow;
+      color: green;
+    }
+  </style><span>
+
+  </span><body onload="startTest();">
+
+  <script type="text/javascript"><body></script>
+
+  <p><p>PREREQUISITE: User agent needs to have an enabled and capable grammar error module and an enabled and capable spelling error module. If it does not, then this test does not apply to such user agent.
+
+  <div contenteditable="true" id="target"><div id="target">
+  function startTest()
+  {
+  document.getElementById("target").focus();
+  }
+  </div>I <script><div contenteditable="true" id="target"><div id="target">
+  function startTest()
+  {
+  document.getElementById("target").focus();
+  }
+  </div>I <script><div contenteditable="true" id="target"><div id="target">
+  function startTest()
+  {
+  document.getElementById("target").focus();
+  }
+  </div>I <script><div contenteditable="true" id="target"><div id="target">
+  function startTest()
+  {
+  document.getElementById("target").focus();
+  }
+  </div>I <script><span>wolks</span></script> on the sidewalk.</div></script> on the sidewalk.</div></script> on the sidewalk.</div></script> on the sidewalk.</div>This test also requires that the targeted editable text element must receive system focus.
+
+  <p>Test passes if each glyph of "wolks" is green and if the background of "wolks" is yellow.
+
+  <p>

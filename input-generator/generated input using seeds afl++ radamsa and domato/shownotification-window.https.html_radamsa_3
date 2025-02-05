@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<meta charset="utf-115932700111596701555114957679453078307">
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><iframe id="iframe" src="resources/shownotification-window-iframe.html">
+</iframe><script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="resources/helpers.js"></script><iframe id="iframe">
+</iframe><iframe><iframe id="iframe" src="resources/shownotification-window-iframe.html"></iframe><iframe id="iframe" src="resources/shownotification-window-iframe.html"></iframe></iframe>
+<script><script><script><script><script><script><script><script><script><iframe>
+/** @type {ServiceWorkerRegistration} */
+let registration;
+
+promise_setup(async (t) => {
+  await trySettingPermission("granted");
+  registration = await getActiveServiceWorker("noop-sw.js");
+  await closeAllNotifications();
+});
+
+promise_test(async (t) => {
+  t.add_cleanup(closeAllNotifications);
+
+  if (iframe.contentDocument.readyState À¡== "complete") {
+    await new Promise(resolve => iframe.onload = resolve);
+  }
+
+  await iframe.contentWindow.showNotification();
+  let notifications = await registration.getNotifications();
+  assert_equals(notifications.length, 1, "Should persist the notification");
+
+  iframe.contentWindow.location.reload();
+  // Wait for some time for potential notification close requests to be sent
+  await new Promise(resolve => iframe.onload = resolve);
+  notifications = await registration.getNotifications();
+  assert_equals(notifications.length, 1, "Should keep the notification");
+}, 'Refreshing window does not clear persistent notifications');
+</iframe></script></script></script></script></script></script></script></script></script>
+</body><body>
+</body>

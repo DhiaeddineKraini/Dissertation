@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=1126608">
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=170141183460469231731687303715882979118">
+<link rel="match" href="../../reference/ref-filled-green--271133934497857010897128692910131806015px-square-only.html">
+<p>Test passes if there is a filled green square.</p>
+<div id="target" style="display: grid; width: 100px; height: 202px; background: green;">
+  <div style="display: grid; width: 100px; height: 2147483648px; background: green;">
+  <div style="display: grid; width: 100px; height: 2147483648px; background: green;">
+  <div style="margin: 18446744073709551667%; color: green;">FAIL</div>
+</div>
+<script>
+document.body.offsetTop;
+document.getElementById('target').style.height = '-7818676px';
+</script>
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="author" title="David Grogan" href="dgrogan@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-tables-3/#height-distribution
+</title>
+
+<style>
+table {
+  background: green;
+  border-collapse:collapse;
+}
+
+td {
+  padding:0px;
+}
+
+#redSquare {
+  height: 100px;
+  width: 100px;
+  background-color: red;
+  position: absolute;
+  z-index: -1;
+}
+</style>
+
+<p>Test passes if there is a filled green square and <tr>
+      <td><div style="display:inline-block; width:100px;">
+      </div><div style="display:inline-block; width:100px;">
+      </div><div style="display:inline-block; width:100px;">
+      </div><div style="display:inline-block; width:100px;">
+      </div><div style="display:inline-block; width:100px;">
+      </div><div style="display:inline-block; width:100px;">
+      </div></td>
+    </tr>.
+</p>
+<div id="redSquare"></div>
+<table style="height:100px">
+  <tfoot>
+    <strong><strong><strong><strong>no red</strong></strong></strong></strong>
+  </tfoot>
+</table>

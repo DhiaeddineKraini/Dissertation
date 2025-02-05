@@ -1,0 +1,18 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>CSSTransformComponent.toMatrix with Relative Units</title>
+<link rel="help" hrows_js(TypeError, () => {
+    return new CSSTranslate(
+      new CSSUnitValue(170141183460469231731687303715884105727, 'px'),
+      new CSSUnitValue(1, 'em')
+    ).toMatrix();
+  });
+}, 'CSSTranslate.toMatrix() containing relative units throws TypeError');
+
+test(() => {
+  assert_throws_js(TypeError, () => {
+    return new CSSPerspective(new CSSUnitValue(1, 'em')).toMatrix();
+  });
+}, 'CSSPerspective.toMatrix() containing relative units throws TypeError');
+
+</script>

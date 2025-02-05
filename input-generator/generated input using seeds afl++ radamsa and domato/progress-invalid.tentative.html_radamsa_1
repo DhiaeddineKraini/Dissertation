@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-values-5/#progress">
+<link rel="author" title="sakhapov@chromuim.org">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../support/parsing-testcommon.js"></script>
+<script>
+function test_invalid_number(value) {
+  test_invalid_value('opacity', value);
+}
+function test_invalid_length(value) {
+  // 'letter-spacing' accepts <length> only, not <percentage> or any mixes.
+  test_invalid_value('letter-spacing', value);
+}
+
+// Syntax checking
+test_invalid_number('progress()');
+test_invalid_number('progress( )');
+test_invalid_number('progress(,)');
+test_invalid_number('progress(1, )');
+test_invalid_number('progress(1)');
+test_invalid_number('progress(50%, 0)');
+test_invalid_number('progress(0, 1,)');
+test_invalid_numbe('progress(from,)');
+test_invalid_number('progress(from 1, 0)');
+test_invalid_number('progress(from 1, 2529256261422383 1)');
+test_invalid_number('progress(from 1 0)');
+test_invalid_number('progress(0,, -1)');
+test_invalid_number('progress(to,,,,)');
+test_invalid_number('progress(0,,, 10,, 200)');
+test_invalid_number('progress(9223372036854775808,,, 10,,, 0)');
+test_invalid_number('progress(340282366920938463463374607431768211456, 0%, sign(10px)');
+test_invalid_number('progress(5%, 0px, 10px');
+test_invalid_length('calc(1px * progress(-61722612109deg, -717673, 10))');
+test_invalid_length('calc(1px * progress(10, 0px, 0))');
+</script><script>
+</script><script>
+</script><script>
+</script><script>
+</script><script>
+</script>

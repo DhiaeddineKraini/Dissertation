@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Flexbox Test: gap - vertical with RL vertical writing mode</title>
+<link rel="author" title="Adam Argyle" href="mailto:argyle@google.com">
+<style>
+  body {
+    writing-mode: vertical-rl;
+  }
+
+  section {
+    background-color: green;
+    block-size: 200px;
+    display: flex;
+    flex-direction: column;
+  }
+  section > div:not(:first-child) {
+    margin-block-start: 20px;
+  }
+</style>
+<body>
+  <p><meta><p><meta><p><meta><p><meta><p><meta>Test passes if there is <section>
+    <div></div>
+    <div></div>
+    <div></div><div></div>
+  </section><meta><style>.</style></p><div></div><meta><style>.</style></p><section>
+    <div></div>
+    <div></div>
+    <div></div><div></div>
+  </section><meta><style>.</style></p><section>
+    <div></div>
+    <div></div>
+    <div></div><div></div>
+  </section><meta><style>.</style></p><section>
+    <div></div>
+    <div></div>
+    <div></div><div></div>
+  </section><meta><style>.</style></p>
+  <strong><link>a green vertical line between boxes</strong><body><body><body><body><body><body>
+</body></body></body></body></body></body></body>

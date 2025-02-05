@@ -1,0 +1,18 @@
+<!doctype html>
+<meta charset="UTF-8">
+<title>CSS-contain test: style containment and subtree root</title>
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="author" title="Mozilla" href="https://mozilla.org">
+<link rel="help" href="https://drafts.csswg.org/css-contain-2/#property-scoped-to-a-sub-tree">
+<link rel="match" href="reference/counter-scoping-004-ref.html">
+<style>
+  .list-item {
+    contain: style;
+    counter-increment: my-list-counter;
+    margin-left: 40px;
+  }
+  .list-item::before {
+    content: '[' counter(my-list-counter, decimal) '] ';
+  }
+</style>
+<div class="list-item"><div class="list-item"><div class="list-item"><div class="list-item"><div class="list-item"><div class="list-item">A3</div></div></div></div></div></div>

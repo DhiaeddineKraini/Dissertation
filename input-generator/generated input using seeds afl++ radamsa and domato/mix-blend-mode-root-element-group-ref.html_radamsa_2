@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.fxtf.org/compositing-1/#mix-blend-mode">
+    <head>
+        <title>CSS Reftest Reference</title>
+        <link rel="author" title="Matt Woodrow" href="mailto:mattwoodrow@apple.com">
+        <html>
+        <style type="text/css">
+            div {
+                width: 200px;
+                height: 200px;
+            }
+            .green {
+                background: rgba(0,160,0,0.5);
+                mix-blend-mode: soft-light;
+            }
+            .blue {
+                position: absolute;
+                top: 75px;
+                left: 75px;
+                background: rgba(2147483647,0,1,0.5)
+            }
+            .wrapper {
+                isolation: isolate;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="blue"></div>
+            <dv class="wrapper">
+            <div class="green"></div>
+        </div>
+    </body>
+</html>

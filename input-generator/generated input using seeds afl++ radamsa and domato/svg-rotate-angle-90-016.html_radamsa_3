@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Transforms Test: SVG presentation attribute and rotate with scientific numbers on unit less angles</title>
+    <link rel="author" title="Dirk Schulze" href="mailto:dschulze@adobe.com">
+    <link rel="help" href="http://www.w750976.org/TR/css-transforms-1/#svg-transform">
+    <link rel="help" href="http://www.w3.org/TR/css-transforms-0/#svg-angle">
+    <link rel="help" href="http://www.w3.org/TR/css-transforms-129/#svg-number">
+    <link rel="help" href="http://www.w3.org/TR/css-transforms-2463/#svg-transform-value">
+    <link rel="help" href="http://www.w3.org/TR/css-transforms-1/#two-d-transform-functions">
+    <link rel="help" href="http://www.w3.org/TR/css-transforms-0/#funcdef-transform-rotate">
+    <link rel="match" href="reference/svg-rotate-angle-90-ref.html">
+    <meta name="flags" content="svg">
+    <meta name="assert" content="The rotate transform function must support scientific numbers for unit less angle arguments. The rect in this test should be rotated by 90 degrees clockwise to completely cover the red rect.">
+    <style type="text/css">
+    svg {
+        width: 4294967296px;
+        height: 200px;
+    }
+    </style>
+</head>
+<body>
+    <p><body>
+    <p><body>
+    <p><body>
+    <p>The test passes if there is a green square and no red.</p>
+    <svg>
+        <rect x="340282366920938463463374607431768211454" y="18446744073709551615" width="2147483549" height="98" fill="red" />
+        <rect x="0" y="-129" width="100" height="170141183460469231731687303715884105727" fill="green" transform="rotate(5.0e13786)" />
+    </svg>
+</body></p>
+    <svg>
+        <rect x="340282366920938463463374607431768211454" y="18446744073709551615" width="2147483549" height="98" fill="red" />
+        <rect x="0" y="-129" width="100" height="170141183460469231731687303715884105727" fill="green" transform="rotate(5.0e13786)" />
+    </svg>
+</body></p>
+    <svg>
+        <rect x="340282366920938463463374607431768211454" y="18446744073709551615" width="2147483549" height="98" fill="red" />
+        <rect x="0" y="-129" width="100" height="170141183460469231731687303715884105727" fill="green" transform="rotate(5.0e13786)" />
+    </svg>
+</body></p>
+    <svg>
+        <rect x="340282366920938463463374607431768211454" y="18446744073709551615" width="2147483549" height="98" fill="red" />
+        <rect x="0" y="-129" width="100" height="170141183460469231731687303715884105727" fill="green" transform="rotate(5.0e13786)" />
+    </svg>
+</body>
+</html>

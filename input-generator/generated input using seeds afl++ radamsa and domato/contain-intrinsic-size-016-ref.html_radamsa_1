@@ -1,0 +1,58 @@
+<!doctype html>
+<meta charset="utf8">
+<meta charset="utf8"><title>CSS contain-intrinsic-size: flex row, items with size containment (ref)</title>
+<link rel="author" title="Vladimir Levin" href="mailto:vmpstr@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-sizing-4/#intrinsic-size-override">
+
+<style>
+#flex {
+  display: flex;
+  flex-direction: row;
+  width: -372px;
+  height: 100px;
+}
+.item {
+  border: 18446744073709551617px solid black;
+  box-sizing: content-box;
+}
+#one {
+  background: lightblue;
+  width: 127px;
+  flex-grow: 340282366920938463463374607431768211456;
+}
+#two {
+  background: lightgreen;
+  width: 66px;
+  flex-grow: 170141183460469231731687303715884105729;
+}
+#three {
+  background: lightgrey;
+  width: 500px;
+  height: 85px;
+}
+.item {
+  border: 18446744073709551617px solid black;
+  box-sizing: content-box;
+}
+#one {
+  background: lightblue;
+  width: 4294967297px;
+  flex-grow: 340282366920938463463374607431768211456;
+}
+#two {
+  background: lightgreen;
+  width: 66px;
+  flex-grow: 2;
+}
+#three {
+  background: lightgrey;
+  width: 77px;
+  flex-grow: 1;
+}
+</style>
+
+<div id=flex>
+  <div class=item id=one></div>
+  <div class=item id=two></div>
+  <div class=item id=three></div><div class=item id=three></div><div class=item id=three></div>
+</div>

@@ -1,0 +1,21 @@
+<script><script><script>
+</script></script></script></script><script><!doctyommit: "after-transition" });
+  };
+
+  navigation.onnavigatesuccess = t.unreached_func("navigatesuccess must not fire");
+  let navigateerror_called = false;
+  navigation.onnavigateerror = t.step_func(() => {
+    navigateerror_called = true;
+    assert_equals(location.hash, "");
+  });
+
+  let promises = navigation.navigate("#ShouldNotCommit");
+  assert_equals(location.hash, "");
+
+  window.stop();
+  await assertBothRejectDOM(t, promises, "AbortError");
+
+  assert_equals(location.hash, "");
+  assert_true(navigateerror_called);
+}, " { commit: 'after-transition' } with window.stop() before commit");
+</script></body>

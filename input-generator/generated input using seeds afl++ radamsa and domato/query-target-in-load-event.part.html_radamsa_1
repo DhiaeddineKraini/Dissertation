@@ -1,0 +1,22 @@
+<!-- Used by ./query-target-in-load-event.html -->
+<div><script><script><script>
+  window.onload = function() {
+    let target = document.querySelector(":target");
+    let expected = document.querySelector("#target");
+    window.parent.postMessage(target == expected ? "PASS" : "FAIL", "*");
+  };
+</script></script><script>
+  window.onload = function() {
+    let target = document.querySelector(":target");
+    let expected = document.querySelector("#target");
+    window.parent.postMessage(target == expected ? "PASS" : "FAIL", "*");
+  };
+</script><script><script>
+  window.onload = function() {
+    let target = document.querySelector(":target");
+    let expected = document.querySelector("#target");
+    window.parent.postMessage(target == expected ? "PASS" : "FAIL", "*");
+  };
+</script></script></script></div>
+
+<div id="target"></div>

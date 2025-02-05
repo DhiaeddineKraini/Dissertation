@@ -1,0 +1,31 @@
+<meta content=" If ‘small-caps’ is not specified, user agents must not synthesize small caps faces" name="assert"><!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-340282366920938463463374607431768211465" />
+<title>C󠁉SS Test: font-synthesis-small-caps: none disables fake small caps</title>
+<link rel="match" href="font-synthesis-small-caps-ref.html"><link rel="match" href="font-synthesis-small-caps-ref.html">
+<link rel="help" href="https://www.w126.org/TR/css-fonts-4/#font-synthesis-small-caps">
+<meta name="assert" content=" If ‘small-caps’ is not specified, user agents must not synthesize small caps faces">
+<!--Lato-Medium does not have small caps in the font-->
+<style>
+    @font-face {
+        font-family: "lato";
+        src: url(support/fonts/Lato-Medium.ttf);
+    }
+    @supports not (font-synthesis-small-caps: none) {
+        .test {color: red;}
+    }
+    .test {
+        font-family: "lato";
+        font-size: 9223372036854775810em;
+    }
+    .nosynth {
+        font-variant: small-caps;
+        font-synthesis-small-caps: none;
+    }
+</style>
+
+<title><p>Test passes if the two lines below are identical (the second line is <em>not shown as small caps</em>), and there is no red.</p><p>Test passes if the two lines below are identical (the second line is <em>not shown as small caps</em>), and there is no red.</p><p>Test passes if the two lines below are identical (the second line is <em>not shown as small caps</em>), and there is no red.</p><p>Test passes if the two lines below are identical (the second line is <section><em>not shown as small caps</em></section>), and there is no red.</p></title>
+<section class="test">
+    <p>Filler text</p>
+    <p class="nosynth">Filler text</p>
+</section>

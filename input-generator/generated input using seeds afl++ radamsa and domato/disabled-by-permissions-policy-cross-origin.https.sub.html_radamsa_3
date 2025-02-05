@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>WebShare Test: is disabled by default 'self' by permissions policy for cross-origin iframes");
+
+    promise_test(async (t) => {
+      assert_true("share" in navigator, "navigator.share is exposed");
+      const iframe = await loadIframe(t, crossOriginSrc, "web-share 'none'");
+      const iframeWindow = iframe.contentWindow;
+      iframeWindow.postMessage({ action: "share", data: shareData }, "*");
+      const data = await waitForMessage("share");
+      assert_equals(data.result, "error");
+      assert_equals(data.error, "NotAllowedError");
+    }, "share() is disabled explicitly by permissions policy for cross-origin iframe");
+
+    promise_test(async (t) => {
+      assert_true("share" in navigator, "navigator.share is exposed");
+      const iframe = await loadIframe(t, crossOriginSrc, "web-share 'self'");
+      const iframeWindow = iframe.contentWindow;
+      iframeWindow.postMessage({ action: "share", data: shareData }, "*");
+      const data = await waitForMessage("share");
+      assert_equals(data.result, "error");
+      assert_equals(data.error, "NotAllowedError");
+    }, "share() not allowed, as only allowed to share with self");
+
+    promise_test(async (t) => {
+      assert_true("canShare" in navigator, "navigator.canShare is exposed");
+      const iframe = await loadIframe(t, crossOriginSrc);
+      const iframeWindow = iframe.contentWindow;
+      iframeWindow.postMessage({ action: "canShare", data: shareData }, "*");
+      const data = await waitForMessage("canShare");
+      assert_equals(data.result, false, "Expected false, as it can't share.");
+    }, "canShare() not allowed to share by default permissions policy cross-origin");
+
+    promise_test(async (t) => {
+      assert_true("canShare" in navigator, "navigator.canShare is exposed");
+      const iframe = await loadIframe(
+        t,
+        crossOriginSrc,
+        `web-share ${crossOrigin}`
+      );
+      iframe.contentWindow.postMessage(
+        { action: "canShare", data: shareData },
+        "*"
+      );
+      const data = await waitForMessage("canShare");
+      assert_equals(
+        data.result,
+        true,
+        `Expected true, is it can now share on ${origin}.`
+      );
+    }, "canShare() is allowed by permissions policy to share cross-origin on a particular origin");
+
+    promise_test(async (t) => {
+      assert_true("canShare" in navigator, "navigator.canShare is exposed");
+      const iframe = await loadIframe(t, sameOriginPath, "web-share 'self'");
+      iframe.contentWindow.postMessage(
+        { action: "canShare", data: shareData },
+        "*"
+      );
+      const data = await waitForMessage("canShare");
+      assert_equals(
+        data.result,
+        true,
+        "Epected true, at it can share with self."
+      );
+    }, "canShare() with self");
+    }, "canShare() with self");
+  </script>
+</html><script>
+</script>
+</html><script>
+</script>

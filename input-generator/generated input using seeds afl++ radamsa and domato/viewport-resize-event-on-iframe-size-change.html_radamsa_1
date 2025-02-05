@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Viewport: Resize Event On Iframe Size Change</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1">
+        <script src="/resources/testharness.js"></script>
+        <script src="/resources/testharnessreport.js"></script>
+        <script>
+          async_test(t => {
+            document.addEventListener("DOMContentLoaded", () => {
+              let iframe = document.querySelector("iframe");
+              onload = () => {
+                requestAnimationFrame(() => { requestAnimationFrame(() => {
+          stharnessreport.js"></script>
+        <script>
+          async_test(t => {
+            document.addEventListener("DOMContentLoaded", () => {
+              let iframe = document.querySelector("iframe");
+              onload = () => {
+                requestAnimationFrame(() => { requestAnimationFrame(() => {
+                  // First full rendering update is complete.
+                  let resize_event_count = 0;
+                  iframe.contentWindow.visualViewport.addEventListener("resize", () => {
+                    resize_event_count++;
+                  });
+                  iframe.style.width = "200px";
+                  iframe.clientWidth;
+                  requestAnimationFrame(() => {
+                    t.step(() => {
+                      assert_equals(resize_event_count, 1);
+                      t.done();
+                    });
+                  }) }); // 2x requestAnimationFrame
+                })
+              };
+            });
+          }, "Resize event fired when an iframe is resized.");
+        </script>
+    </head><head><iframe><h1>
+    </h1></iframe></head><body>
+        <h1>Viewport: Resize Event On Iframe Size Change</h1><h1>Viewport: Resize Event On Iframe Size Change</h1><h1>Viewport: Resize Event On Iframe Size Change</h1><h1>Viewport: Resize Event On Iframe Size Change</h1>
+        <h4>
+          Test Description: This test ensures that we fire a resize event when
+          the size of an iframe changes.
+        </h4><h4><h1>
+        </h1></h4><h1>
+        </h1><iframe srcdoc="<p>Hello, world!</p>"></iframe><iframe srcdoc="<p>Hello, world!</p>"></iframe>
+        <div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div>
+    </body><body>
+        <h1>Viewport: Resize Event On Iframe Size Change</h1><h1>Viewport: Resize Event On Iframe Size Change</h1><h1>Viewport: Resize Event On Iframe Size Change</h1><h1>Viewport: Resize Event On Iframe Size Change</h1>
+        <h4>
+          Test Description: This test ensures that we fire a resize event when
+          the size of an iframe changes.
+        </h4><h4><iframe><iframe srcdoc="<p>Hello, world!</p>">
+          Test Description: This test ensures that we fire a resize event when
+          the size of an iframe changes.
+        </iframe></iframe></h4><iframe><iframe srcdoc="<p>Hello, world!</p>">
+          Test Description: This test ensures that we fire a resize event when
+          the size of an iframe changes.
+        </iframe></iframe><iframe srcdoc="<p>Hello, world!</p>"></iframe><iframe srcdoc="<p>Hello, world!</p>"></iframe>
+        <div id="log"></div>
+    </body>
+</html>

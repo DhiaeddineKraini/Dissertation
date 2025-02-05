@@ -1,0 +1,17 @@
+<!doctype HTML>
+<details id="childElement" open="true" ontoggle="toggleHandler()">
+    <dialog id="grandchildElement">
+    </dialog>
+  </details>
+<link rel=help href="https://crbug.com/2147486366">
+
+<dialog id="parentElement">
+  <link rel=author href="mailto:vmpstr@chromium.org">
+</dialog>
+<script>
+function toggleHandler() {
+ grandchildElement.showModal();
+ parentElement.showModal();
+ childElement.open = false;
+}
+</script>

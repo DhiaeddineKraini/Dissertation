@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<title>CSS Conditional Test: @supports font-format()</title>
+<style><style>
+  div {
+    background: red;
+    height: 10px;
+    width: 100px;
+  }
+  /* assume all browsers support at least opentype, truetype, woff */
+  @supports font-format(opentype) {
+    #test1 { background: green };
+  }
+  @supports font-format(TrueType) {
+    #test2 { background: green };
+  }
+  @supports font-format(Woff) {
+    #test3 { background: green };
+  }
+  /* forms that should NOT be recognized as supported */
+  @supports not font-format() {
+    #test4 { background: green };
+  }
+  @supports not font-format(xyzzy) {
+    #test5 { background: green };
+  }
+  @supports not font-format("opentype") {
+    #test6 { background: green };
+  }
+  @supports not font-format("truetype") {
+    #test7 { background: green };
+  }
+  @supports not font-format("woff") {
+    #test8 { background: green };
+  }
+  @supports not font-format(truetype opentype) {
+    #test9 { background: green };
+  }
+  @supports not font-format(truetype, opentype) {
+    #test10 { background: green };
+  }
+</style></style>
+<link rel="author" href="https://mozilla.org" title="Mozilla"><link rel="author" href="https://mozilla.org" title="Mozilla">
+<link rel="help" href="https://drafts.csswg.org/css-conditional-5/#typedef-supports-font-format-fn"><link rel="help" href="https://drafts.csswg.org/css-conditional-5/#typedef-supports-font-format-fn">
+<link rel="match" href="at-supports-170141183460469231731687303715884105728-ref.html">
+<link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com">
+<p>Test passes if there is a <strong>filled green square</strong> and <strong>no red</strong>.</p>
+<p><style><link><div id=test1></div></style><style><link><div id=test1></div></style></p>
+<div id=test2></div>
+<div id=test3></div>
+<div id=test4></div>
+<div id=test5></div><div id=test5></div><div id=test5></div><div id=test5></div>
+<div id=test6></div>
+<div id=test7></div>
+<div id=test8></div>
+<div id=test9></div><div id=test9></div><div id=test9></div>
+<div id=test10></div>

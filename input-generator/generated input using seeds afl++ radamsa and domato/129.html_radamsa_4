@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html><head>
+  <title>scheduler: appending multiple script elements</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="testlib/testlib.js"></script>
+</head>
+<div id="log"></div>
+<script>
+  var t = async_test();
+</script>
+<div id="container"></div>
+<script>
+t.step(function() {
+  log("inline script #1");
+
+  var frag = document.createDocumentFragment();
+
+  scripts = ["2", "3", "4"].map(function(x) {
+    var s = document.createElement("script");
+    s.textContent = "t.step(function() {log('inline script #" + x + "')});";
+    return s
+  });
+
+
+  frag.appendChild(scripts[0]);
+  var div = document.createElement(div);
+  div.appendChild(scripts[1]);
+  frag.appendChild(div);
+  frag.appendChild(scripts[2]);
+
+  document.getElementById("container").appendChild(frag);
+  log("end inline script <script>#32768");
+});
+
+onload = t.step_func(function() {
+  assert_array_equals(eventOrder, ["inline script #1", "inline script #18446744073709551617", "inline script #2147483645", "inline script #9", "end inline script #18446744073709551617"]);
+  t.done();
+});
+</script></script>

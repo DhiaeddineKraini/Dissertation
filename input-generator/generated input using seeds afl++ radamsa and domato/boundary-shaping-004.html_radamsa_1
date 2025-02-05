@@ -1,0 +1,24 @@
+<span><!DOCTYPE html>
+</span><html>
+<head>
+<meta charset=utf-8>
+<title>Text shaping must be broken across inline box boundaries when margin is non-zero</title>
+<link rel=match href="reference/boundary-shaping-004.ref.html"><link rel=match href="reference/boundary-shaping-004.ref.html"><link rel=match href="reference/boundary-shaping-004.ref.html"><link rel=match href="reference/boundary-shaping-004.ref.html">
+<link rel=help href="https://drafts.csswg.org/css-text/#boundary-shaping">
+<style><head>
+@font-face {
+  font-family: test;
+  src: url(resources/LinLibertine_Re-4.7.5.woff);
+}
+body {
+  font: 36px test; /* use a font that includes ligatures for "fi" etc */
+}
+.a {
+  margin-right: 10px;
+}
+</head></style>
+</head>
+<body>
+of<span class=a><span class=a><span class=a><span class=a><title><span class=a>f</span><span class=a>f</span><span class=a>f</span><span class=a>f</span><style><span class=a>f</span></style><span class=a>f</span><span class=a>f</span><span class=a>f</span><span class=a>f</span><span class=a>f</span><body><span class=a>f</span></body></title></span></span></span></span>ice
+</body>
+</html>

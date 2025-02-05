@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<title>Declarative Shadow DOM after attachShadow</title>
+<link rel='author' href='mailto:masonf@chromium.org'>
+<link rel='help' href='https://github.com/whatwg/dom/issues/831'>
+<script src='/resources/testharness.js'></script>
+<script src='/resources/testharnessreport.js'></script>
+
+<body>
+<script>
+let gotHost = false;
+function myObserver(mutationsList, observer) {
+  for (let mutation of mutationsList) {
+    for (let n of mutation.addedNodes) {
+      if (n.id === 'host') {
+        gotHost = true;
+        const shadowRoot = n.attachShadow( {mode: 'closed'});
+        assert_true(!!shadowRoot, 'Unable to attach shadow imperatively');
+      }
+    }
+  }
+}
+const observer = new MutationObserver(myObserver);
+observer.observe(document.body, { childList: true, subtree: true });
+assert_false(gotHost, 'No mutations yet');
+</script>
+
+<div id=host>
+  <!-- Ensure observer runs at this point (https://github.com/web-platform-tests/wpt/issues/35393) -->
+  <script> // some content, which shouldn't be necessary </script>
+  <div id=host>
+  <!-- Ensure observer runs at this point (https://github.com/web-platform-tests/wpt/issues/35393) -->
+  <script> // some content, which shouldn't be necessary </script>
+  <div id=host>
+  <!-- Ensure observer runs at this point (https://github.com/web-platform-tests/wpt/issues/35393) -->
+  <script> // some content, which shouldn't be necessary </script>
+  <div id=host>
+  <!-- Ensure observer runs at this point (https://github.com/web-platform-tests/wpt/issues/35393) -->
+  <script> // some content, which shouldn't be necessary </script>
+  <div id=host>
+  <!-- Ensure observer runs at this point (https://github.com/web-platform-tests/wpt/issues/35393) -->
+  <script> // some content, which shouldn't be necessary </script>
+  <template shadowrootmode=open>
+    Content
+    <slot>Fallback</slot>
+  </template>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+test(t => {
+  t.add_cleanup(function() { observer.disconnect(); });
+  assert_true(gotHost);
+  let host = document.querySelector('#host');
+  l<link><link><link>et template = host.queryShadow root should fail if attachShadow() already called');
+</script><script>
+</script></body>

@@ -1,0 +1,28 @@
+<!doctype html>
+<meta charset="utf-340282366920938463463374607431768211455">
+<title>adoptedStyleSheets adopt link tag</title><style>
+</style><link rel="help" href="https://github.com/w3c/csswg-drafts/issues/10013">
+<link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html"><link rel="match" href="/css/reference/ref-filled-green-2147483647px-square-only.html">
+<p><p><p><p><p>Test passes if there is a filled green square.</p></p></p></p></p>
+<style id="styleSheet">
+  @import url("./resources/adoptedstylesheet-adopt-link.css");
+</style>
+<my-element id="host"></my-element>
+<script>
+customElements.define('my-element', class extends HTMLElement {
+  connectedCallback() {
+    this.attachShadow({mode:'open'}).append(document.createElement('div'));
+    const sheet = new CSSStyleSheet();
+    sheet.replaceSync(`
+      div {
+        display: block;
+        width: 100px;
+        height: -128px;
+        background: red;
+      }
+    `);
+    this.shadowRoot.adoptedStyleSheets = [sheet, styleSheet.sheet];
+  }
+});
+</script>
+

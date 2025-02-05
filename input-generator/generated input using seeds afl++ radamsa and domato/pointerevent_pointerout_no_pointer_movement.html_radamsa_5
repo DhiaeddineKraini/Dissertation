@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<html>
+<head>
+<title>The pointerout event should not bementById("target");
+
+  let out_event_count = 0;
+  target.addEventListener("pointerout", function() {
+    out_event_count++;
+  });
+
+  // Wait for the click event on target element and update display style on
+  // overlay element.
+  const promise = new Promise(resolve => {
+    target.addEventListener("click", async function() {
+      const overlay = document.getElementById("overlay");
+      overlay.style.display= 'block';
+      await waitForAnimationFrame();
+
+      overlay.style.display= 'none'
+      await waitForAnimationFrame();
+
+      resolve();
+    }, { once: true });
+  });
+
+  // Click target.
+  test_driver.click(target);
+  await promise;
+
+  assert_equals(out_event_count, 0, "The pointerout event should not be fired");
+}, "The pointerout event should not be fired if the pointer doesn't move");
+</script>
+</body>
+</html>

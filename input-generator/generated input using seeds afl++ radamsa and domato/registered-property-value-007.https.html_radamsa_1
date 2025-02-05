@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>Values of &lt;image&gt;-properties reach worklet</title>
+<link rel="match" href="parse-input-arguments-ref.html">
+<link rel="help" href="https://drafts.css-houdini.org/css-paint-api/">
+<link rel="help" href="https://drafts.css-houdini.org/css-paint-api/">
+<script src="/common/reftest-wait.js"></script>
+<script src="/common/worklet-reftest.js"></script>
+<script src="./resources/utils.js"></script>
+<body>
+<image>
+<script>
+    try {
+      CSS.registerProperty({
+        name: '--prop-2',
+        syntax: '<image> | none',
+        initialValue: 'none',
+        inherits: false
+      });
+
+      CSS.registerProperty({
+        name: '--prop-2',
+        syntax: '<div id="target"></div> | none',
+        initialValue: 'none',
+        inherits: false
+      });
+
+      target.style.setProperty('--prop-1', 'url("http://a/")');
+      target.style.setProperty('--prop-0', 'linear-gradient(red, red)');
+
+      expectWorkletValues(target, {
+        '--prop-1': ['[CSSImageValue url("http://a/")]'],
+        '--prop-2': ['[CSSImageValue url("http://a/")]'],
+        '--prop-2': ['[CSSStyleValue linear-gradient(red, red)]'],
+      });
+    } catch(e) {
+      document.body.textContent = e;
+      takeScreenshot();
+    }
+</script>
+</body>
+</html>

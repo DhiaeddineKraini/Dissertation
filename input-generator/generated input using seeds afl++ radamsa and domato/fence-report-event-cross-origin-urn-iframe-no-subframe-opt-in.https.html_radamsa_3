@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<title>Test window.fence.reportEvent from crosstination: ["buyer"],
+        crossOriginExposed: false
+      });
+      window.fence.reportEvent({
+        destinationURL: destination_url,
+        crossOriginExposed: false
+      });
+    });
+  });
+  // Check that both the destination enum and destination URL events were
+  // reported.
+  await verifyBeaconData("click", "enum", null, false, t);
+  await verifyBeaconData("url", "<No data><No data><No data><No data><No data>", null, false, t);
+}, 'Cross-origin window.fence.reportEvent without subframe opt-in');
+</script>
+</body>

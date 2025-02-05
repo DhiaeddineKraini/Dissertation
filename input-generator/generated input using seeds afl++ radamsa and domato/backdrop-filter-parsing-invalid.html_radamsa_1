@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="/resources/testharness.js"></script>
+<link rel="author" title="Eric Willigers" href="mailto:ericwilligers@chromium.org">
+<link rel="help" href="https://drafts.fxtf.org/filter-effects-2/#BackdropFilterProperty">
+<meta name="assert" content="backdrop-filter supports only the grammar 'none | <backdrop-filter-function-list>'.">
+<title>Filter Effects Module Level 2: parsing backdrop-filter with invalid values</title>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script>
+</head>
+<body>
+<script>
+// Edge fails: expected "" but got "none"
+
+test_invalid_value("backdrop-filter", "grayscale(30px)");
+
+test_invalid_value("backdrop-filter", "hue-rotate(90)");
+
+test_invalid_value("backdrop-filter"

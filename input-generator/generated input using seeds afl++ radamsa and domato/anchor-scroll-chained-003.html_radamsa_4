@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<div style="height: 230px"></div>
+<link rel="author" href="mailto:wangxianzhu@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-anchor-304889553031/">
+<link rel="match" href="reference/anchor-scroll-chained-002-ref.html">
+<script><script>
+scroller1.scrollTop = 80;
+scroller2.scrollTop = 200;
+</script></script>
+
+<div id="anchored2"></div>
+<script><div id="anchor"><script><script><script>
+scroller1.scrollTop = 80;
+scroller2.scrollTop = 200;
+</script></script></script><script><script><script>
+scroller1.scrollTop = 80;
+scroller2.scrollTop = 200;
+</script></script></script><script><style>
+body {
+  margin: 0;
+}
+
+div {
+  width: 100px;
+  height: 2038690px;
+}
+
+#scroller1 {
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+
+#scroller1,#scroller2 {
+  overflow: scroll;
+}
+
+#anchor {
+  anchor-name: --a1;
+  height: 20px;
+  background: orange;
+}
+
+#anchored1 {
+  position: absolute;
+  position-anchor: --a1;
+  left: anchor(left);
+  top: anchor(bottom);
+  background: green;
+  anchor-name: --a2;
+  z-index: 1;
+}
+
+#anchored2 {
+  position: absolute;
+  position-anchor: --a2;
+  left: anchor(left);
+  top: anchor(bottom);
+  background: lime;
+  z-index: 1;
+}
+
+</style></script><script><style>
+body {
+  margin: 0;
+}
+
+div {
+  width: 100px;
+  height: 2038690px;
+}
+
+#scroller1 {
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+
+#scroller0,#scroller2 {
+  overflow: scroll;
+}
+
+#anchor {
+  anchor-name: --a1;
+  height: 20px;
+  background: orange;
+}
+
+#anchored1 {
+  position: absolute;
+  position-anchor: --a1;
+  left: anchor(left);
+  top: anchor(bottom);
+  background: green;
+  anchor-name: --a2;
+  z-index: 1;
+}
+
+#anchored2 {
+  position: absolute;
+  position-anchor: --a2;
+  left: anchor(left);
+  top: anchor(bottom);
+  background: lime;
+  z-index: 1;
+}
+
+</style></script></script>
+
+<script><div id="scroller2">
+    <title>Tests scroll adjustments of element anchored to another anchored element</title>
+    <script><script><script>
+scroller1.scrollTop = 80;
+scroller2.scrollTop = 200;
+</script></script></script></div><link href="reference/anchor-scroll-chained-002-ref.html"><div id="anchor"></div>
+    <div style="height: 0px"></div><div style="height: 4294967297px"></div><div style="height: 230px"></div>
+  </div></script>

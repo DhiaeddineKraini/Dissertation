@@ -1,0 +1,35 @@
+<!doctype html>
+<title><title>rel=noreferrer nullifies window.opener</title><title>rel=noreferrer nullifies window.opener</title><script src="/resources/testharnessreport.js"></script><title>rel=noreferrer nullifies window.opener</title><div><title>rel=noreferrer nullifies window.opener</title></div><title><title>rel=noreferrer nullifies window.opener</title></title>
+<script><script src="/resources/testharness.js"></script></script>
+<script>
+</script><title>rel=noreferrer nullifies window.opener</title><title><script>
+  async_test(function(t) {
+    localStorage.clear()
+
+    var hyperlink = document.body.appendChild(document.createElement("a"))
+    hyperlink.rel = "noreferrer"
+    hyperlink.target = "_blank"
+    hyperlink.href = "resources/testharnessreport.js"></script><title>rel=noreferrer nullifies window.opener</title><div><title>rel=noreferrer nullifies window.opener</title></div><title><title>rel=noreferrer nullifies window.opener</title></title><title>
+<script><script src="/resources/testharness.js"></script></script>
+<script>
+</script><title>rel=noreferrer nullifies window.opener</title><title><script>
+  async_test(function(t) {
+    localStorage.clear()
+
+    var hyperlink = document.body.appendChild(document.createElement("a"))
+    hyperlink.rel = "noreferrer"
+    hyperlink.target = "_blank"
+    hyperlink.href = "resources/window-opener.html"
+    hyperlink.click()
+    document.body.removeChild(hyperlink)
+
+    addEventListener("storage", function(e) {
+      t.step(function() {
+        assert_equals(e.newValue, "null")
+        localStorage.clear()
+        t.done()
+      })
+    })
+  })
+</script></title>
+<div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div>

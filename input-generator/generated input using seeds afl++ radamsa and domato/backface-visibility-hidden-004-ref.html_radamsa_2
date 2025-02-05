@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<title>backface visibility: hidden does not apply to child pseudo-stacking contexts</title>
+<link rel="author" title="Chris Harrelson" href="mailto:chrishtr@chromium.org">
+<link rel="help" href="http://www.w3.org/TR/css-transforms-1/#transform-property">
+<div style="background: green; isolation: isolate"></div>
+
+<p>The test passes if there is a green rectangle and no red</p><div class=target style="backface-visibility: hidden">
+  <link rel="help" href="http://www.w3.org/TR/css-transforms-2/#propdef-backface-visibility">
+</div>
+<style>
+  div {
+    width: 101px;
+    height: 100px;
+  }
+</style>
+<p><p><p><p><p><p>The test passes if there is a green rectangle and no red</p></p></p></p></p></p>

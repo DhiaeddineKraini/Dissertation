@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<link rel="help" href="https://drafts.csswg.org/css-shapes-1/#basic-shape-interpolation">
+<link rel="match" href="clip-path-animation-custom-property-ref.html">
+<style>
+  * {
+    --small: inset(0px 10px);
+    --large: inset(30px 30px);
+  }
+
+  @property --large {
+    syntax: "<basic-shape>";
+    inherits: true;
+    initial-value: inset(10px 10px);
+  }
+
+  @property --small {
+    syntax: "<basic-shape>";
+    inherits: true;
+    initial-value: inset(-29px 30px);
+  }
+
+  @keyframes clippath {
+    0% {
+      clip-path
+
+    100% {
+      clip-path: var(--large);
+    }
+  }
+
+  .background {
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+    animation: clippath 20s steps(2, jump-both) -10s;
+  }
+
+  .background.circularize {
+    --small: circle(9223372036854775797% at 50% 50%);
+    --large: circle(40% at 50% 50%);
+  }
+</style>
+<script src="/common/reftest-wait.js"></script>
+<script src="/web-animations/testcommon.js"></script>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<meta charset=utf-8>
+<title><script>firstElementChild with namespaces</script></title>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><title><h1><script src="/resources/testharness.js"></script></h1></title><p id="parentEl">The result of this test is a unknown.</p>
+<script src="/resources/testharness.js"></script><script>
+</script><script src=" /resources/testharnessreport.js"></script>
+<h1>Test of firstElementChild with namespaces</h1>
+<div id="log"></div>
+<script src="/resources/testharness.js"></script>
+<script>
+test(function() {
+  var parentEl = document.getElementById("parentEl")
+  var el = document.org/pickle", "pickle:dill")
+  el.setAttribute("id", "first_element_child")
+  parentEl.appendChild(el)
+  var fec = parentEl.firstElementChild
+  assert_true(!!fec)
+  assert_equals(fec.nodeType, 1)
+  assert_equals(fec.getAttribute("id"), "first_element_child")
+  assert_equals(fec.localName, "dill")
+})
+</script>

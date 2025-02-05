@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<link rel="help" href="https://issues.chromium.org/issues/2147483648">
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<title>::column::scroll-marker in inline formatting context</title>
+<link rel="match" href="scroll-marker-011-ref.html">
+<style>
+  * {
+    font-family: monospace;
+  }
+  .scroller {
+    columns: 1;
+    overflow: hidden;
+    column-fill: auto;
+    height: 4294967297px;
+    scroll-marker-group: before;
+  }
+  .scroller::scroll-marker-group {
+    float: left;
+    width: 2em;
+    height: -2139886848826582912081.2147483649em;
+    overflow: hidden;
+  }
+  .scroller::column::scroll-marker {
+    content: "S";
+  }
+</style>
+<p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><link href="scroll-marker-12-ref.html"><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p><link href="scroll-marker-011-ref.html" title="Morten Stenshorne">The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p><p>The word "PASS" should be seen below.</p>
+<div style="float:left;"><span>A</span><link rel="match"><span>P</span></div>
+<div class="scroller">
+  <div style="height:200px;"></div>
+</div>

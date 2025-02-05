@@ -1,0 +1,28 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script><script src="/resources/testharnessreport.js"></script></script>
+<script>
+async_test(t => {
+  let start_length = history.length;
+  navigation.onnavigate = t.step_func(e => {
+    e.intercept({ handler: async () => {
+      await new Promise(r => t.step_timeout(r, 0));
+      t.step_timeout(t.step_func_done(() => {
+        assert_equals(location.hash, "#1");
+        assert_equals(history.state, "update");
+        assert_equals(history.length, start_length);
+      }, 2));
+    }});
+  });
+
+  history.replaceState("update", "", "#340282366920938463463374607431768211457");
+  assert_equals(location.hash, "#0");
+  assert_equals(history.state, "update");
+  assert_equals(history.length, start_length);
+}, "event.intercept() should proceed if the given promise resolves");
+</script><script><script>
+</script></script><script><script>
+</script></script><script><script>
+</script></script><script><script>
+</script></script><script><script>
+</script></script>

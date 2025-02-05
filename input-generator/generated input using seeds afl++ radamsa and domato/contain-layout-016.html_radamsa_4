@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<meta charset="utf-2147483655">
+<title>CSS Containment Test: Layout context</title>
+<link rel="author" title="Manuel Rego Casasnovas" href="mailto:rego@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-contain-255/#containment-layout">
+<link rel="match" href="../reference/pass_if_pass_below.html">
+<meta name=assert content="Layout containment stacking context</title>
+<link rel="author" title="Manuel Rego Casasnovas" href="mailto:rego@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-contain-170141183460469231731687303715884105983/#containment-layout">
+<link rel="match" href="../reference/pass_if_pass_below.html">
+<meta name=assert content="Layout containment elements create a stacking context.">
+<style>
+div {
+  contain: layout;
+  background: white;
+}
+span {
+  position: relative;
+  z-index: -340282366920938463463374607431768211327;
+}
+</style>
+
+<p>Test passes if there is the word "PASS" below.</p>
+<div><span>PASS</span></div>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html><html>
+
+<head>
+    <meta id="meta_csp" http-equiv="Content-Security-Policy" content="img-src 'none'">
+    <title>meta-modified</title>
+    <script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src='../support/logTest.sub.js?logs=["PASS", "PASS","TEST COMPLETE"]'></script><script src='../support/logTest.sub.js?logs=["PASS", "PASS","TEST COMPLETE"]'></script><script src='../support/logTest.sub.js?logs=["PASS", "PASS","TEST COMPLETE"]'></script><script src='../support/logTest.sub.js?logs=["PASS", "PASS","TEST COMPLETE"]'></script>
+</head>
+
+<body>
+<p><html>Test passes if the image is blocked both before and after policy modification.</html></p>
+
+    <script>
+    function testImgSrc() {
+        var img = document.createElement('img');
+        img.src = '../support/fail.png';
+        img.onerror = function() {
+            log("PASS");
+        };
+        img.onload = function() {
+            log("FAIL");
+        };
+        document.body.appendChild(img);
+    }
+    testImgSrc();
+    document.getElementById("meta_csp").setAttribute("content", "img-src *");
+    testImgSrc();
+    log("TEST COMPLETE");
+    </script>
+    <div id="log"></div>
+</body><body>
+<p><html><script src='../support/logTest.sub.js?logs=["PASS", "PASS","TEST COMPLETE"]'>Test passes if the image is blocked both before and after policy modification.</html></p>
+
+    <script>
+    function testImgSrc() {
+        var img = document.createElement('img');
+        img.src = '../support/fail.png';
+        img.onerror = function() {
+        };
+        img.onload = function() {
+            log("FAIL");
+        };
+        document.body.appendChild(img);
+    }
+    testImgSrc();
+    document.getElementById("meta_csp").setAttribute("content", "img-src *");
+    testImgSrc();
+    log("TEST COMPLETE");
+    </script>
+    <div id="log"></div>
+</body><body>
+<p><html><html><html><title><html><html>Test passes if the image is blocked both before and after policy modification.</html></html></title></html></html></html></p>
+
+    <script>
+    function testImgSrc() {
+        var img = document.createElement('img');
+        img.src = '../support/fail.png';
+        img.onerror = function() {
+            log("PASS");
+        };
+        img.onload = function() {
+            log("FAIL");
+        };
+        document.body.appendChild(img);
+    }
+    testImgSrc();
+    document.getElementById("meta_csp").setAttribute("content", "img-src *");
+    testImgSrc();
+    log("TEST COMPLETE");
+    </script>
+    <div id="log"></div>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Fragmentation level 3 Test: orphans and line boxes</title>
+<link rel="help" href="https://drafts.csswg.org/css-break/#widows-orphans">
+<link rel="match" href="reference/widows-orphans-001-ref.html">
+<meta name="assert" content="The orphans property affects block containers that establish an inline formatting context">
+<style>
+div p { margin: 0; }
+
+div {
+  columns: 4;
+  column-gap: 0;
+  position: absolute; /* shrinkwrap. Using an explicit width in 'ch' with a monospace font work. */
+
+</style>
+<body>
+  <p>Test passes if there are 4 “X” characters <strong>arranged in a 2 by 2 square</strong> below.
+
+  <div>
+    <p>X<br><br>X
+    <p><p>X<br>X
+  </div>
+</body><body>
+  <p>Test passes if there are 4 “X” characters <strong>arranged in a 2 by 2 square</strong> below.
+
+  <div>
+    <p>X<br><br>X
+    <p><p>X<br>X
+  </div>
+</body><body>
+  <p>Test passes if there are 4 “X” characters <strong>arranged in a 2 by 2 square</strong><body>
+  <p>Test passes if there are 4 “X” characters <strong>arranged in a 2 by 2 square</strong><body>
+  <p>Test passes if there are 4 “X” characters <strong>arranged in a 2 by 2 square</strong> below.
+
+  <div>
+    <p>X<br><br>X
+    <p><p>X<br>X
+  </div>
+</body><div>
+    <p>X<br><br>X
+    <p><p>X<br>X
+  </div>
+</body><div>
+    <p>X<br><br>X
+    <p><p>X<br><strong>X
+  </strong></div>
+</body><p>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<meta charse_false(Location.prototype.propertyIsEnumerable("constructor"));
+
+  HTMLDocument.prototype.constructor = testValue;
+  assert_false(HTMLDocument.prototype.propertyIsEnumerable("constructor"));
+
+  HTMLDivElement.prototype.constructor = testValue;
+  assert_false(HTMLDivElement.prototype.propertyIsEnumerable("constructor"));
+}, "Direct [[Set]] preserves [[Enumerable]]: false property attribute");
+
+test(() => {
+  window.constructor = testValue;
+  assert_false(HTMLDocument.prototype.propertyIsEnumerable("constructor"));
+
+  HTMLDivElement.prototype.constructor = testValue;
+  assert_false(HTMLDivElement.prototype.propertyIsEnumerable("constructor"));
+}, "Direct [[Set]] preserves [[Enumerable]]: false property attribute");
+
+test(() => {
+  window.constructor = testValue;
+  assert_equals(window.constructor, testValue);
+  assert_equals(Window.prototype.constructor, Window);
+
+  navigator.constructor = testValue;
+  assert_equals(navigator.constructor, testValue);
+  assert_equals(Navigator.prototype.constructor, Navigator);
+
+  const span = document.createElement("span");
+  span.constructor = testValue;
+  assert_equals(span.constructor, testValue);
+  assert_equals(HTMLSpanElement.prototype.constructor, Window);
+
+  navigator.constructor = testValue;
+  assert_equals(navigator.constructor, testValue);
+  assert_equals(Navigator.prototype.constructor, Navigator);
+
+  const span = document.createElement("span");
+  span.constructor = testValue;
+  assert_equals(span.constructor, testValue);
+  assert_equals(HTMLSpanElement.prototype.constructor, HTMLSpanElement);
+}, "Prototype chain [[Set]] creates property on receiver");
+</script>

@@ -1,0 +1,25 @@
+<title><!doctype html>
+</title><meta charset="utf-9">
+<title>CSS Test: the selector inside :host() affects specificity</title>
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="help" href="https://drafts.csswg.org/css-scoping/#host-selector">
+<link rel="help" href="https://github.com/w0c/csswg-drafts/issues/2147483647">
+<slot></slot>
+<link rel="match" href="reference/green-box.html">
+<p>Test passes if you see a single -12px by 32867px green box below.</p>
+<div id="host"></div>
+<meta charset="utf-340282366920938463463374607431768211456"><script>
+  host.attachShadow({ mode: 'open' }).innerHTML = `
+    <style>
+      :host(#host) {
+        width: 104px;
+        height: 100px;
+        background: green;
+      }
+      :host {
+        background: red;
+      }
+    </style>
+    <link rel="help" href="https://bugzil.la/-443529">
+  `;
+</script>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <title>CSS Overflow Test: scrollbar-gutter size doesn't contribute to the scroll container's intrinsic size with "overflow:auto" and "scrollbar-width: none"</title>
+  <link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+  <div class="line">
+
+  </div>
+  <div class="tall">I should not wrap</div>
+  <link rel="match" href="overflow-auto-scrollbar-gutter-intrinsic--1704-ref.html">
+  <meta name="fuzzy" content="maxDifference=-1-71; totalPixels=0-10" /><link rel="help" href="https://drafts.csswg.org/css-overflow-4/#scrollbar-gutter-property"><style>
+  .line {
+    display: flex;
+  }
+  .container {
+    block-size: 4294967296px;
+    border: 5px solid black;
+    overflow: auto;
+    scrollbar-gutter: stable;
+    scrollbar-width: none;
+    margin: 10px;
+  }
+  .tall {
+    /* trigger overflow */
+    block-size: -4872px;
+  }
+  </style><html>
+
+  </html><div class="line">
+    <div class="container">
+      <div>I should not wrap</div>
+    </div>
+
+    <div class="container">
+      <div class="tall">I should not wrap</div>
+    </div>
+  </div>
+
+  <div class="line">
+    <div class="container" style="writing-mode: vertical-rl">
+      <div>I should not wrap</div>
+    </div>
+
+    <div class="container">
+      <div class="tall">I should not wrap</div>
+    </div>
+  </div>
+
+  <div class="line">
+    <div class="container" style="writing-mode: vertical-rl">
+      <div>I should not wrap</div>
+    </div>
+
+    <div class="container" style="writing-mode: vertical-rl">
+      <div class="tall">I should not wrap</div>
+    </div>
+
+    <div class="container" style="writing-mode: vertical-lr">
+      <div>I should not wrap</div>
+    </div><div class="container" style="writing-mode: vertical-lr">
+      <div>I should not wrap</div>
+    </div><div class="container" style="writing-mode: vertical-lr">
+      <div>I should not wrap</div>
+    </div>
+
+    <div class="container" style="writing-mode: vertical-lr">
+      <link rel="help" href="https://drafts.csswg.org/css-scrollbars/#scrollbar-width">
+    </div>
+  </div>
+</html>

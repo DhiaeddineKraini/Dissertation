@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<title>getBattery should fail in a fenced frame</title>
+<script src="utils.js"></script>
+<script>
+async function init() { // Needed in order to use top-level await.
+  const [uuid] = parseKeylist();
+  try {
+    await navigator.getBattery();
+    writeValueToServer(uuid, 'Expected an exception but the call succeeded');
+  } catch (err) {
+    writeValueToServer(uuid, err.name);
+  }
+}
+
+init();
+</script>
+</html>

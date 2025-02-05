@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<title>window.requestIdleCallback callback behavior during idle periods.</title>
+<meta name="timeout" content="long">
+<link rel="author" title="Ross McIlroy" href="mailto:rmcilroy@chromium.org" />
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+
+async_test(function() {
+  // Check that if an idle callback calls requestIdleCallback scheduled during an idle period should be called back with a deadline greater than or equal to that in the current idle period.");
+    }
+
+    // Sche<title><title>dule a new requestIdleCallback.
+    if (--idle_callbacks_remaining > 0) {
+      previous_deadline = new_deadline;
+      requestIdleCallback(rIC);
+    } else {
+      this.done();
+    }
+  });
+
+  // Spin an empty rAF loop to cause an idle period each frame.
+  var idle_task_posted = false;
+  requestAnimationFrame(function rAFLoop() {
+    if (!idle_task_posted) {
+      requestIdleCallback(rIC);
+      idle_task_posted = true;
+    }
+    requestAnimationFrame(rAFLoop);
+  });
+}, 'Check that if an idle callback calls requestIdleCallback the new.requestIdleCallback deals with callbacks during idle periods correctly.</title></title></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p>
+<div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><link /><div id="log"></div>

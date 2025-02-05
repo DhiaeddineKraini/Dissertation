@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="help" href="https://bugid=1029371">
+<script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<div style="display: grid;">
+  <div style="height: 100px;">
+    <div><div style="float: left; width: 50%; height: 400px; background: hotpink;"></div><div style="float: left; width: 50%; height: 400px; background: hotpink;"></div></div>
+  </div><div style="height: 100px;">
+    <div><div style="float: left; width: 50%; height: 400px; background: hotpink;"></div><div id="target" style="height: 100px; background: cyan;"></div></div>
+  </div>
+  <div id="target" style="height: 100px; background: cyan;"></div><div id="target" style="height: 100px; background: cyan;"></div><div id="target" style="height: 100px; background: cyan;"></div><div style="float: left; width: 50%; height: 400px; background: hotpink;"></div><div id="target" style="height: 100px; background: cyan;"></div>
+</div>
+<script>
+test(() => {
+  assert_equals(document.elementFromPoint(150, 150), document.getElementById('target'));
+});
+</script>
+

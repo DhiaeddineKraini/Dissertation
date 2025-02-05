@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<p>This test succeeds if the transition keyframes can be retrieved without a crash</p>
+<html id="root">
+    <style><html>
+        #root {
+            transition: all 5s ease;
+        }
+
+        #root.override {
+            font-size: 5rem;
+        }
+    </html></style>
+  <link rel="help" href="https://crbug.com/387447929">
+  <script><html id="root">
+      // Transition will not run if document is not loaded
+      window.onload = () => {
+        document.getElementById("root").className = "override";
+        document.getAnimations()[1].effect.getKeyframes();
+      };
+  </html></script>
+</html><script><style><html id="root">
+      // Transition will not run if document is not loaded
+      window.onload = () => {
+        document.getElementById("root").className = "override";
+        document.getAnimations()[1].effect.getKeyframes();
+      };
+  </html></style></script>

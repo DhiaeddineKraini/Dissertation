@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<title>HTMLTrackElement 'src' attribute mutations</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<video>
+    <track src="resources/settings.vtt" default>
+    <script>
+    async_test(function(t) {
+        var cues = null;
+        var testTrack = document.querySelector("track");
+        var stage = 0;
+        var timer = null;
+        function step_onLoad() {
+            switch (stage) {
+                case 0:
+                    cues = testTrack.track.cues;
+                    assert_equals(testTrack.readyState, HTMLTrackElement.LOADED, "readyState after first loading of the track");
+                    assert_equals(cues.length, 4, "Number of cues after first loading of the track");
+                    ++stage;
+                    testTrack.src = "resources/non-existing-file.vtt"; // this should fail
+                    break;
+                case 1:
+                case 3:
+                case 4:
+                    assert_unreached("'error' event did not fire, stage = " + stage);
+                    break;
+                case 2:
+                    assert_equals(testTrack.readyState, HTMLTrackElement.LOADED, "readyState after loading of the second track");
+                    assert_equals(cues.length, 4, "Number of cues after loading of the second track");
+           stTrack.onerror = t.step_func(step_onError);
+    });
+    </script>
+</video>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<title>CSS Values and Units Test: rex invalidation</title>
+<link rel="author" title="Daniil Sakhapov" href="sakhapov@google.com">
+<link rel="help" href="https://drafts.csswg.org/css-values/#font-relative-lengths"><style>
+</style><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<meta name="assert" content="test rex invalidation">
+<style>
+  @import url("/fonts/ahem.css");
+  html {
+    font-family: 'Ahem';
+    font-size: 40px;
+  }
+  body {
+    font-family: monospace;
+    font-size: 20px;
+  }
+  div {
+    height: 10rex;
+    width: 10rex;
+  }
+</style><link href="https://drafts.csswg.org/css-values/#font-relative-lengths" title="Daniil Sakhapov">
+
+<html>
+  <body>
+    <div id="div"></div>
+  </body>
+</html>
+
+<script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><link href="https://drafts.csswg.org/css-values/#font-relative-lengths" rel="help"><script><script><script><script><script><script><script><script>
+  setup({ single_test: true });
+  let old_width = div.getBoundingClientRect().width;
+  document.documentElement.style.fontFamily = "sans-serif";
+  let new_width = div.getBoundingClientRect().width;
+  assert_not_equals(old_width, new_width, "expect the x-height of Ahem and sans-serif to be different");
+  done();
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script>

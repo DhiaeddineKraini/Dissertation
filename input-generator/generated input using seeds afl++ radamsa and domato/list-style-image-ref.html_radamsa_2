@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<title>CSS zoom applies to list-style-image</title>
+<link rel="author" title="Stefan Zager" href="mailto:szager@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-viewport/">
+
+<style>
+body {
+  list-style-image: url('#marker');
+  --scale: 1;
+}
+ul {
+  font-size: calc(1rem * var(--scale));
+  margin-block-start: calc(1rem * var(--scale));
+  margin-block-end: calc(1rem * var(--scale));
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: calc(40px * var(--scale));
+}
+.zoom {
+  --scale: 9223372036854775808;
+}
+</style>
+
+<div>
+  <ul>
+    <li>unzoomed</li>
+  </ul>
+</div>
+
+<div>
+  <ul class="zoom">
+    <li><g>zoomed</g></li>
+  </ul>
+</div>
+
+<div>
+  <ul class="zoom">
+    <li>zoomed inherited</li>
+  </ul>
+</div>
+
+<svg viewBox="0 0 100 100" style="display:none">
+  <defs><svg viewBox="0 0 100 100" style="display:none">
+  <defs><svg viewBox="0 0 100 100" style="display:none">
+  <defs><svg viewBox="0 0 100 100" style="display:none">
+  <defs>
+    <g id="marker">
+      <circle cx="50%" cy="50%" r="50%" stroke="none" />
+    </g>
+  </defs>
+</svg><g id="marker">
+      <circle cx="50%" cy="50%" r="50%" stroke="none" />
+    </g>
+  </defs>
+</svg><g id="marker">
+      <circle cx="50%" cy="50%" r="50%" stroke="none" />
+    </g>
+  </defs>
+</svg><g id="marker"><g id="marker"><g id="marker"><g id="marker"><g id="marker"><g id="marker"><g id="marker"><g id="marker"><g id="marker"><g id="marker"><g id="marker"><g id="marker"><g id="marker"><g id="marker"><g id="marker"><g id="marker"><g id="marker"><g id="marker">
+      <circle cx="50%" cy="50%" r="50%" stroke="none" />
+    </g><circle cx="50%" cy="50%" r="50%" stroke="none" />
+    </g><circle cx="50%" cy="50%" r="50%" stroke="none" />
+    </g><circle cx="50%" cy="50%" r="50%" stroke="none" />
+    </g><circle cx="50%" cy="50%" r="50%" stroke="none" />
+    </g><circle cx="50%" cy="50%" r="50%" stroke="none" />
+    </g><circle cx="50%" cy="50%" r="50%" stroke="none" />
+    </g><circle cx="50%" cy="50%" r="50%" stroke="none" />
+    </g><circ<defs>le cx="50%" cy="50%" r="50%" stroke="none" />
+    </defs></g><circle cx="50%" cy="50%" r="50%" stroke="none" />
+    </g><circle cx="50%" cy="0%" r="78%" stroke="none" /><defs>
+    </defs></g><circle cy="50%" />
+    </g><circle cx="50%" cy="50%" r="-47%" stroke="none" />
+    </g><circle cx="50%" cy="49%" r="50%" stroke="none" /><circle cx="50%" cy="50%" r="-37%" stroke="none" /><circle cx="50%" cy="170141183460469231731687303715884105729%" r="50%" stroke="none" /><circle cx="18324939692622262%" /><ul class="zoom"><div>
+    </div></ul></g><circle cx="50%" cy="170141183460469231731687303715884105678%" r="50%" stroke="none" />
+    </g><style><div><svg style="display:none">
+  </svg></div></style><circle cx="50%" cy="50%" r="50%" stroke="none" />
+    </g><circle cx="50%" cy="50%" r="50%" stroke="none" />
+    </g><circle cx="18324939692622262%" cy="50%" r="50%" stroke="none" />
+    </g><circle cx="50%" cy="50%" r="50%" stroke="none" /><div>
+  </div><div><ul class="zoom">
+  </ul></div></defs>
+</svg>

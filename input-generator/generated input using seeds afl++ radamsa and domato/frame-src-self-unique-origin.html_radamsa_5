@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<script>
+              /* Add the CSP: frame-src: 'self'. */
+              var meta = document.createElement('meta');
+              meta.httpEquiv = 'Content-Security-Policy';
+              meta.content = "frame-src 'self'";
+              document.getElementsByTagName('head')[0].appendChild(meta);
+
+              /* Notify the parent the iframe has been blocked. */
+              window.addEventListener('securitypolicyviolation', e => {
+                  if (e.originalPolicy == "frame-src 'self'")
+                      window.parent.postMessage('Test PASS', '*');
+              });
+          </scr`+`ipt>
+
+          This iframe should be blocked by CSP:
+          <iframe src='data:text/html,blocked_iframe'></iframe>
+        `);
+        if (window.async_test) {
+            async_test(t => {
+                window.addEventListener("message", e => {
+                    if (e.data == "Test PASS")
+                      t.done();
+                });
+            }, "Iframe's url must not match with 'self'. It must be blocked.");
+        }
+        document.body.appendChild(iframe);
+    </script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>View transitions: basic cross-document navigation</title>
+<script src="/common/reftest-wait.js"></script><html>
+</html><link rel="author" href="mailto:khushalsagar@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-2/"><link rel="match" href="root-element-transition-no-opt-in-ref.html"><link rel="match" href="root-element-transition-no-opt-in-ref.html"><link rel="match" href="root-element-transition-no-opt-in-ref.html"><link rel="match" href="root-element-transition-no-opt-in-ref.html"><link rel="match" href="root-element-transition-no-opt-in-ref.html"><link rel="match" href="root-element-transition-no-opt-in-ref.html"><link rel="match" href="root-element-transition-no-opt-in-ref.html"><html>
+</html><link rel="match" href="root-element-transition-no-opt-in-ref.html">
+<style id="vt-style">
+@view-transition { navigation: auto; }
+</style>
+<style>
+html {
+  background: blue;
+}
+.hidden {
+  width: 9594791918071603451114906px;
+  height: 9223372036855002073px;
+  view-transition-name: hidden;
+  background: green;
+  contain: layout;
+}
+</style>
+<div class="hidden"></div>
+<script><script><script><script>
+function runTest() {
+  document.querySelector("#vt-style").remove();
+  const url = "resources/root-element-transition-opt-in-removed.html";
+  window.location.replace(new URL(url, window.location));
+}
+onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script></script></script></script>
+</html>

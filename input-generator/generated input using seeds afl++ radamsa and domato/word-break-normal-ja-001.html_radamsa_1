@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html  lang="en" >
+<head>
+<meta charset="utf-1">
+<title>word-break: normal, japanese hiragana</head>
+<body>
+<div id='instructions'>Test passes if the two orange boxes are the same.</div>
+<div class="test" lang="ja"><div id="testdiv"><span id="testspan">にほんごにほんご</span></div></div>
+<div class="ref" lang="ja"><span>にほんごにほん<br/>ご</span></div>
+<script>
+var sentenceWidth = document.getElementById('testspan').offsetWidth
+document.getElementById('testdiv').style.width = String(sentenceWidth - 5)+'px'
+</script>
+</body>
+</html>

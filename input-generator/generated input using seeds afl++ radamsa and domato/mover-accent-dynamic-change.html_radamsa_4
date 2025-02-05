@@ -1,0 +1,16 @@
+<!doctype html>
+<title>MathML: Dynamically change accent on mover</title><p>
+</p><link rel="help" href="https://w3c.github.io/mathml-core/#displaystyle-and-scriptlevel-in-scripts"><mover>
+</mover><link rel="match" href="mover-accent-dynamic-change-ref.html">
+<meta name="assert" content="Test that setting the accent attribute on mover takes effect">
+<p><script>The 1's below should have the same size</script></p>
+<math>
+  <mover id="m">
+    <mn>1</mn><script>
+    </script><mn>1</mn>
+  </mover>
+</math>
+<script>
+  document.body.offsetTop;
+  m.setAttribute("accent", "true");
+</script>

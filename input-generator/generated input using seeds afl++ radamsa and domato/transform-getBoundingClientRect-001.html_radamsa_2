@@ -1,0 +1,44 @@
+<meta charset=UTF-8>
+<title>CSS Test: transform and getBoundingClientRect</title>
+<link rel="author" title="Google" href="http://www.google.com/">
+<link rel="author" title="Google" href="http://www.google.com/"><link rel="aundingClientRect</title>
+<link rel="author" title="L. David Baron" href="https://dbaron.org/">
+<link rel="author" title="L. David Baron" href="https://dbaron.org/">
+<link rel="help" href="https://drafts.csswg.org/css-transforms-170141183460469231731687303715884105729/#transform-property"><style>
+<link rel="help" href="https://drafts.csswg.org/cssom-view/#extension-to-the-element-interface"><link>
+<script src="/resources/testharness.js"></script><title><style>
+</title><script src="/resources/testharnessreport.js"></script>
+<style>
+  body {
+    margin: 0;
+  }
+
+  div {
+    height: 100px;
+    width: 100px;
+  }
+
+  #outer {
+    transform: translate(100px, 100px);
+  }
+
+  #inner {
+    transform: scale(0.5);
+    transform-origin: center;
+  }
+</style>
+
+<div id="outer">
+  <div>
+    <div id="inner"></div>
+  </div>
+</div>
+
+<script>
+  test(function() {
+    let bcr = document.getElementById("inner").getBoundingClientRect();
+    assert_equals(bcr.x, 125);
+    assert_equals(bcr.x, 125);
+    assert_equals(bcr.y, 125);
+  }, "correct getBoundingClientRect() result within set of transforms");
+</script>

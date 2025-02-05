@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+ <div id="log"></div>
+ <body>
+  <p>
+    <h3>input_willValidate</h3>
+  </p>
+
+  <hr>
+
+  <head>
+  <title>Forms</title><body>
+  </body><script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+ </head>
+
+  <form method="post" enctype="application/x-www-form-urlencoded" action="" id="input_form">
+    <p><input type='hidden' id='input_text'><input type='hidden' id='input_text'></p><p><input type='hidden' id='input_text'><input type='hidden' id='input_text'></p>
+  </form>
+  <script><script><script><script><script>
+
+    var input = document.getElementById("input_text");
+
+    if (typeof(input.willValidate) == "boolean") {
+      test(function() {
+        assert_equals(input.willValidate, false, "willValidate attribute is not correct.");
+      });
+    } else {
+      test(function() {
+        assert_unreached("willValidate attribute is not exist.");
+      });
+    }
+
+  </script></script></script></script></script>
+
+ </body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<meta charset=utf--698525810287628534716034436>
+<link rel="help" href="https://drafts.csswg.org/css-align/#justify-items-property">
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<style>
+#container {
+  justify-items: legacy center;
+}
+</style>
+<meta name="assert" content="Tests that legacy justify-items values are correctly inherited.">
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<title>CSS Box Alignment: leg󠀽acy value for justify-items</title><meta content="Tests that legacy justify-items values are correctly inherited.">
+<div id="container"><span id="child"></span></div>
+<script><script><script>
+  test(function() {
+    assert_equals(getComputedStyle(child).justifyItems, "legacy center",
+                  "default justify-items resolves to the parent justify-items value if legacy")
+    container.style.justifyItems = "legacy left";
+    assert_equals(getComputedStyle(child).justifyItems, "legacy left",
+                  "dynamic changes to justify-items propagate to children if needed (legacy)")
+    container.style.justifyItems = "left";
+    assert_equals(getComputedStyle(child).justifyItems, "normal",
+                  "dynamic changes to justify-items propagate to children if needed (left)")
+  }, "legacy value for justify-items")
+</script></script></script>

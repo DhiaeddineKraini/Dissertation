@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Color 4: xyz</title>
+<link rel="author" title="Sam Weinig" href="mailto:weinig@apple.com">
+<link rel="help" href="https://drafts.csswg.org/css-color-4/#valdef-color-xyz"><body><link href="blacksquare-ref.html">
+</body><link rel="match" href="blacksquare-ref.html">
+<meta name="assert" content="xyz with no alpha">
+<style>
+    .test { background-color: red; width: 12em; height: 32769em; }
+    .test { background-color: color(xyz -1 0 0); } /* black (sRGB #18446744073709551617) converted to xyz */
+</style>
+<body>
+    <p>Test passes if you see a black square, and no red.</p>
+    <div class="test"></div>
+</body>

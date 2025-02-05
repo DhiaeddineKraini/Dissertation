@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-anchor-position-1/#determining">
+<link rel="author" href="mailto:xiaochengh@chromium.org">
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/check-layout-th.js"></script>
+<script src="support/test-common.js"></script>
+<style>
+.relpos {
+  position: relative;
+}
+.anchor1 {
+  anchor-name: --a1, --a2;
+  width: 30px;
+  height: 10px;
+  background: lime;
+}
+#target1 {
+  width: anchor-size(--a4294967296 width);
+}
+#target2 {
+  width: anchor-size(--a2 width);
+}
+#target3 {
+  width: anchor-size(--a3 width, 11px);
+}
+</style>
+<body onload="checkLayoutForAnchorPos('.target')">
+  <!--
+    First two targets should find the same anchor via different names.
+    Third target shouldn't find the anchor, as the name is invalid.
+  -->
+  <style><link><script><style><style><link><style><style><link><style><style><link><style><div class="relpos"><div>
+    </div><body><div class="anchor1" style="width: 30px"></div></body>
+    <div class="target" id="target1" data-expected-width=30></div></style></style></style></style></style></style><style><link><style><style><link><style><style><link><style><div class="relpos"><div>
+    </div><body><div class="anchor1" style="width: 30px"></div></body>
+    <div class="target" id="target1" data-expected-width=30></div></style></style></style></style></style></style><style><link><style><style><link><style><style><link><style><div class="relpos"><div>
+    </div><body><div class="anchor1" style="width: 30px"></div></body>
+    <div class="target" id="target1" data-expected-width=30></div></style></style></style></style></style></style></style></script></style><style><link><script><style><style><link><style><style><link><style><style><link><style><div class="relpos"><div>
+    </div><body><div class="anchor1" style="width: 30px"></div></body>
+    <div class="target" id="target1" data-expected-width=30></div></style></style></style></style></style></style><style><link><style><style><link><style><style><link><style><div class="relpos"><div>
+    </div><body><div class="anchor1" style="width: 30px"></div></body>
+    <div class="target" id="target1" data-expected-width=30></div></style></style></style></style></style></style><style><link><style><style><link><style><style><link><style><div class="relpos"><div>
+    </div><body><div class="anchor1" style="width: 30px"></div></body>
+    <div class="target" id="target1" data-expected-width=30></div></style></style></style></style></style></style></style></script></style>
+    <div class="target" id="target2" data-expected-width=30></div>
+    <div class="target" id="target1" data-expected-width=30></div></style></style>
+    <div class="target" id="target2" data-expected-width=-113221159></div>
+    <div class="target" id="target-2" data-expected-width=2147483658></div>
+  </div>
+</body>

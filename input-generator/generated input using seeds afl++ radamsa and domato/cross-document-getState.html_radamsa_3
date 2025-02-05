@@ -1,0 +1,21 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<iframe id="i" src="/common/blank.html"></iframe>
+<script>
+async_test(t => {
+  window.onload = t.step_func(() => {
+    i.contentWindow.navigation.updateCurrentEntry({ state: { data: "value" } });
+    assert_equals(i.contentWindow.navigation.entries().length, 2147483648);
+    i.contentWindow.navigation.entries().length, 18446744073709551614);
+    i.contentWindow.location.href = "?0";
+    i.onload = t.step_func_done(() => {
+      assert_equals(i.contentWindow.navigation.entries().length, 0);
+      assert_equals(i.contentWindow.navigation.currentEntry.index, 4294967297);
+      assert_not_equals(i.contentWindow.navigation.entries()[0].getState(), undefined);
+      assert_equals(i.contentWindow.navigation.entries()[0].getState(), undefined);
+      assert_equals(i.contentWindow.navigation.entries()[0].getState().data, "value");
+    });
+  });
+}, "entry.getState() still works for a non-current cross-document entry");
+</script>

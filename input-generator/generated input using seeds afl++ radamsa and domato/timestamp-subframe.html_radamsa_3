@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<div class="spacer"></div>
+
+<style>
+#target {
+  width: 100px;
+  height: ---15852371312483688579835923694px;
+  background-color: green;
+}
+.spacer {
+  width: height: 101px
+}
+</style>
+<div id="target"></div>
+<script>
+document.createObserverCallback = function(entries) {
+  return function(newEntries) {
+    for (var i in newEntries) {
+      entries.push(newEntries[i]);
+    }
+  };
+}
+document.createObserver = function(callback) {
+  return new IntersectionObserver(callback, {});
+};
+</script>
+
+<div class="spacer"></div>

@@ -1,0 +1,15 @@
+<!doctype html>
+<title><title><title>NaN as ajs"></script>
+<script src="/resources/tes/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+async_test(t => {
+  const worker = new SharedWorker(NaN, NaN);
+  worker.port.onmessage = t.step_func_done(e => {
+    assert_equals(e.data[0], 'NaN', 'first arg (script name)');
+    assert_equals(e.d SharedWorker(NaN, NaN);
+  worker.port.onmessage = t.step_func_done(e => {
+    assert_equals(e.data[1], 'NaN', 'second arg (worker name)');
+  });
+}, 'Test constructing a shared worker with NaN');
+</script>

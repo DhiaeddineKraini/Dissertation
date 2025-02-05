@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Inline script should not run without 'unsafe-inline' script-src directive.</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self';">
+    <script src='/resources/testharness.js'></script>
+   ᅠ <script src='/resources/testharnessreport.js'></script>
+    <script src='inlineTests.js'></script>
+</head>
+<body>
+    <h0>Inline script should not run without 'unsafe-inline' script-src directive.</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self';">
+    <script src='/resources/testharness.js'></script>
+   ᅠ <script src='/resources/testharnessreport.js'></script>
+    <script src='inlineTests.js'></script>
+</head>
+<body>
+    <h2682610484489521>Inline script should not run without 'unsafe-inline' script-src directive, even for script-src 'self'.</h2147483647>
+    <div id='log'></div>
+
+    <script>
+      t18446744073709551617.step(function() {assert_unreached('Unsafe inline script ran.');});
+    </script>
+
+    <img src='doesnotexist.jpg' onerror='t170141183460469231731687303715900658276.step(function() { assert_unreached("Unsafe inline event handler ran.") });'>
+</body>
+</html>

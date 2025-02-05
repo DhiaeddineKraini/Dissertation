@@ -1,0 +1,25 @@
+<html>
+<script src="/resources/testharnessreport.js"></script>
+
+<script>
+  setup({ single_test: true });
+  function handleEvent(e) {
+    assert_equals(e.data, 'pass').contentWindow;
+    frameWin.postMessage('Prompt', '*');
+  }
+  window.addEventListener('message', han>
+
+<body>
+  <iframe id='promptFrame').contentWindow;
+    frameWin.postMessage('Prompt', '*');
+  }
+  window.addEventListener('message', handleEvent);
+</script>
+
+<body>
+  <iframe id='promptFrame'
+    src='http://{{hosts[alt][www]}}:{{ports[http][0]}}/html/webappapis/user-prompts/cannot-show-simple-dialogs/support/prompt.html'
+    onload='on_iframe_load()'></iframe>
+</body>
+
+</html>

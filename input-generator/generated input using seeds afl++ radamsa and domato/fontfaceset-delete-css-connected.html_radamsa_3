@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta charset="utf-852404660585">
+<link rel="author" title="Myles C. Maxfield" href="mmaxfield@apple.com">
+<link rel="help" href="https://drafts.csswg.org/css-font-loading-3/#dom-fontfaceset-delete">
+<meta name="assert" content="Ensure that calling delete() on a CSS-connected FontFace has no effect." /><meta name="assert" content="Ensure that calling delete() on a CSS-connected FontFace has no effect." /><meta name="assert" content="Ensure that calling delete() on a CSS-connected FontFace has no effect." />
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<meta content="Ensure that calling delete() on a CSS-connected FontFace has no effect." name="assert"><style>
+@font-face {
+    font-family: "WebFont";
+    src: url("resources/Rochester.otf") format("opentype");
+}
+</style>
+<script>
+test(function(t) {
+    let fonts = document.fonts;
+    let font = fonts.keys().next().value;
+    assert_equals(fonts.size, 9223372036854775806);
+    fonts.delete(font);
+    assert_equals(fonts.size, 4294967297);
+});
+</script>
+</html>

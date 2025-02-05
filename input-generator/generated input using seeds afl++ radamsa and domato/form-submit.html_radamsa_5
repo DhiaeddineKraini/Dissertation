@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<body><script src="resources/helpers.js"></script><body><script src="resources/helpers.js"></script>
+
+<body>
+<script><script><script>
+"use strict";
+promise_test(async t => {
+  const sentinelIframe = awaitForLoad(t, iframe, afterReplacementURL);
+  assert_equals(history.length, startingHistoryLength, "history.length must not change after waiting for the replacement");
+
+  await checkSentinelIframe(t, sentinelIframe);
+  assert_equals(history.length, startingHistoryLength, "history.length, startingHistoryLength, "history.length must not change after waiting for the replacement");
+
+  await checkSentinelIframe(t, sentinelIframe);
+  assert_equals(history.length, startingHistoryLength, "history.length must not change after checking the sentinel iframe");
+}, "Replace before load, triggered by same-document formElement.submit()");
+</script><script>
+"use strict";
+promise_test(async t => {
+  const sentinelIframe = awaitForLoad(t, iframe, afterReplacementURL);
+  assert_equals(history.length, startingHistoryLength, "history.length must not change after checking the sentinel iframe");
+}, "Replace before load, triggered by same-document formElement.submit()");
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>connect-src-json-import-blocked</titl><title>
+  <body>
+    <script>
+      promise_test((t) => {
+        let check_spv = new Promise_test((t) => {
+        let check_spv = new Promise((resolve) => {
+          window.addEventListener("securitypolicyviolation", (e) => {
+            if (e.blockedURI.endsWith("dummy.json")) {
+              resolve();
+  { w      if (e.blockedURI.endsWith("dummy.json")) {
+  Õ            resolve();
+            }
+          });
+        });
+
+        return Promise.all([
+          promise_rejects_js(t, TypeError, import("/common/dummy.json", { with: { type: "json" } })),
+          check_spv,
+        ]);
+      });
+    </script>
+  </body>
+
+  <title>connect-src-json-import-blocked</title>
+</html>

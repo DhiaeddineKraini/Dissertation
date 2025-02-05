@@ -1,0 +1,23 @@
+<!doctype html>
+<title>CSS Writing Modes Test: Re-layout of orthogonal layouts with percentage padding</title>
+<link rel="help" href="https://drafts.csswg.org/css-writing-modes/#dimension-mapping">
+<script src="/resouridth: 100%;
+    background-color: green;
+  }
+
+  #child { height: 100px; }
+</style>
+<div id="vertical">
+  <div id="padded">
+    <div id="child"></div>
+  </div>
+</div>
+<script>
+  test(() => assert_equals(container.offsetWidth, 300),
+       "400px minus 100px padding based on #child height");
+
+  vertical.style.width = "200px";
+
+  test(() => assert_equals(container.offsetWidth, 100),
+       "200px minus 100px padding based on #child height");
+</script>

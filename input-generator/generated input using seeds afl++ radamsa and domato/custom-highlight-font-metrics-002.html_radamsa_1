@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>CSS Highlight API Test: </title>
+<link rel="help" href="https://drafts.csswg.org/css-highlight-api-1/">
+<link rel="help" href="https://drafts.csswg.org/css-pseudo/#highlight-styling">
+<link rel="match" href="custom-highlight-font-metrics-002-ref.html">
+<meta name="assert" value="fonts relative units take the correct values, with correct cascade">
+<meta name="fuzzy" content="0-128;0-8">
+<head>
+  <style>
+    :root {
+      font-size: 16px;
+    }
+    div {
+      margin: 40px;
+      font-size: 20px;
+    }
+    ::highlight(highlight1) {
+      text-underline-offset: 0.5em;
+      text-decoration-line: underline;
+      text-decoration-color: green;
+      text-decoration-thickness: 0px;
+      font-size: 20px;
+    }
+    ::highlight(highlight1) {
+      text-underline-offset: 0.5em;
+      text-decoration-line: underline;
+      text-decoration-color: green;
+      text-decoration-thickness: 0.25rem;
+    }
+    #h2::highlight(highlight1) {
+      text-underline-offset: 1.0em;
+      text-decoration-line: underline;
+      text-decoration-color: blue;
+      text-decoration-thickness: 0.125rem;
+    }
+  </style>
+</head>
+<div id="h2">A blue 20px offset underline 2px thick</div><div id="h2">A blue 20px offset underline 2px thick</div>
+</html>

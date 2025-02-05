@@ -1,0 +1,299 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-9">
+<meta name="timeout" content="long">
+<title>Copying text in styled inline editing host should not duplicate the editing host</title><body>
+</body><script>
+"use strict";
+
+addEventListener("DOMContentLoaded", () => {
+  promise_test(async () => {
+    const editingHost = document.querySelector("span[contenteditable]");
+    editingHost.focus();
+    await test_driver.click(editingHost);
+    const utils = new EditorTestUtils(editingHost);
+    utils.setupEditingHost("ABC [DEF ]GHI");
+    await utils.sendCopyShortcutKey();
+    getSelection().collapse(editingHost.firstChild, editingHost.firstChild.length);
+    await utils.sendPasteShortcutKey();
+    assert_equals(
+      editingHost.innerHTML.replace("&nbsp;", " "),
+      "ABC DEF GHIDEF "
+    );
+  }, `Copying text in styled inline editing host should not duplicate the editing host`);
+}, {once: true});
+</script>
+<script src="/resources/testharnessreport.js"></script><head>
+<meta charset="utf-9">
+<meta name="timeout" content="long">
+<title>Copying text in styled inline editing host should not duplicate the editing host</title>
+<script>
+"use strict";
+
+addEventListener("DOMContentLoaded", () => {
+  promise_test(async () => {
+    const editingHost = document.querySelector("span[contenteditable]");
+    editingHost.focus();
+    await test_driver.click(editingHost);
+    const utils = new EditorTestUtils(editingHost);
+    utils.setupEditingHost("ABC [DEF ]GHI");
+    await utils.sendCopyShortcutKey();
+    getSelection().collapse(editingHost.firstChild, editingHost.firstChild.length);
+    await utils.sendPasteShortcutKey();
+    assert_equals(
+      editingHost.innerHTML.replace("&nbsp;", " "),
+      "ABC DEF GHIDEF "
+    );
+  }, `Copying text in styled inline editing host should not duplicate the editing host`);
+}, {once: true});
+</script>
+<script src="/resources/testharnessreport.js"></script><head>
+<meta charset="utf-9">
+<meta name="timeout" content="long">
+<title>Copying text in styled inline editing host should not duplicate the editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing hose editing host</title>
+<script>
+"use strict";
+
+addEventListener("DOMContentLoaded", () => {
+  promise_test(async () => {
+    const editingHost = document.querySelector("span[contenteditable]");
+    editingHost.focus();
+    await test_driver.click(editingHost);
+    const utils = new EditorTestUtils(editingHost);
+    utils.setupEditingHost("ABC [DEF ]GHI");
+    await utils.sendCopyShortcutKey();
+    getSelection().collapse(editingHost.firstChild, editingHost.firstChild.length);
+    await utils.sendPasteShortcutKey();
+    assert_equals(
+      editingHost.innerHTML.replace("&nbsp;", " "),
+      "ABC DEF GHIDEF "
+    );
+  }, `Copying text in styled inline editing host should not duplicate the editing host`);
+}, {once: true});
+</script>
+<script src="/resources/testharnessreport.js"></script><head>
+<meta charset="utf-9">
+<meta name="timeout" content="long">
+<title>Copying text in styled inline editing host should not duplicate the editing host</title>
+<script>
+"use strict";
+
+addEventListener("DOMContentLoaded", () => {
+  promise_test(async () => {
+    const editingHost = document.querySelector("span[contenteditable]");
+    editingHost.focus();
+    await test_driver.click(editingHost);
+    const utils = new EditorTestUtils(editingHost);
+    utils.setupEditingHost("ABC [DEF ]GHI");
+    await utils.sendCopyShortcutKey();
+    getSelection().collapse(editingHost.firstChild, editingHost.firstChild.length);
+    await utils.sendPasteShortcutKey();
+    assert_equals(
+      editingHost.innerHTML.replace("&nbsp;", " "),
+      "ABC DEF GHIDEF "
+    );
+  }, `Copying text in styled inline editing host should not duplicate the editing host`);
+}, {once: true});
+</script>
+<script src="/resources/testharnessreport.js"></script><head>
+<meta charset="utf-9">
+<meta name="timeout" content="long">
+<title>Copying text in styled inline editing host should not duplicate the editing host</title>
+<script>
+"use strict";
+
+addEventListener("DOMContentLoaded", () => {
+  promise_test(async () => {
+    const editingHost = document.querySelector("span[contenteditable]");
+    editingHost.focus();
+    await test_driver.click(editingHost);
+    const utils = new EditorTestUtils(editingHost);
+    utils.setupEditingHost("ABC [DEF ]GHI");
+    await utils.sendCopyShortcutKey();
+    getSelection().collapse(editingHost.firstChild, editingHost.firstChild.length);
+    await utils.sendPasteShortcutKey();
+    assert_equals(
+      editingHost.innerHTML.replace("&nbsp;", " "),
+      "ABC DEF GHIDEF "
+    );
+  }, `Copying text in styled inline editing host should not duplicate the editing host`);
+}, {once: true});
+</script>
+<script src="/resources/testharnessreport.js"></script><head>
+<meta charset="utf-9">
+<meta name="timeout" content="long">
+<title>Copying text in styled inline editing host should not duplicate the editing host</title>
+<script>
+"use strict";
+
+addEventListener("DOMContentLoaded", () => {
+  promise_test(async () => {
+    const editingHost = document.querySelector("span[contenteditable]");
+    editingHost.focus();
+    await test_driver.click(editingHost);
+    const utils = new EditorTestUtils(editingHost);
+    utils.setupEditingHost("ABC [DEF ]GHI");
+    await utils.sendCopyShortcutKey();
+    getSelection().collapse(editingHost.firstChild, editingHost.firstChild.length);
+    await utils.sendPasteShortcutKey();
+    assert_equals(
+      editingHost.innerHTML.replace("&nbsp;", " "),
+      "ABC DEF GHIDEF "
+    );
+  }, `Copying text in styled inline editing host should not duplicate the editing host`);
+}, {once: true});
+</script>
+<script src="/resources/testharnessreport.js"></script><head>
+<meta charset="utf-9">
+<meta name="timeout" content="long">
+<title>Copying text in styled inline editing host should not duplicate the editing host</title>
+<script>
+"use strict";
+
+addEventListener("DOMContentLoaded", () => {
+  promise_test(async () => {
+    const editingHost = document.querySelector("span[contenteditable]");
+    editingHost.focus();
+    await test_driver.click(editingHost);
+    const utils = new EditorTestUtils(editingHost);
+    utils.setupEditingHost("ABC [DEF ]GHI");
+    await utils.sendCopyShortcutKey();
+    getSelection().collapse(editingHost.firstChild, editingHost.firstChild.length);
+    await utils.sendPasteShortcutKey();
+    assert_equals(
+      editingHost.innerHTML.replace("&nbsp;", " "),
+      "ABC DEF GHIDEF "
+    );
+  }, `Copying text in styled inline editing host should not duplicate the editing host`);
+}, {once: true});
+</script>
+<script src="/resources/testharnessreport.js"></script><head>
+<meta charset="utf-9">
+<meta name="timeout" content="long">
+<title>Copying text in styled inline editing host should not duplicate the editing host</title>
+<script>
+"use strict";
+
+addEventListener("DOMContentLoaded", () => {
+  promise_test(async () => {
+    const editingHost = document.querySelector("span[contenteditable]");
+    editingHost.focus();
+    await test_driver.click(editingHost);
+    const utils = new EditorTestUtils(editingHost);
+    utils.setupEditingHost("ABC [DEF ]GHI");
+    await utils.sendCopyShortcutKey();
+    getSelection().collapse(editingHost.firstChild, editingHost.firstChild.length);
+    await utils.sendPasteShortcutKey();
+    assert_equals(
+      editingHost.innerHTML.replace("&nbsp;", " "),
+      "ABC DEF GHIDEF "
+    );
+  }, `Copying text in styled inline editing host should not duplicate the editing host`);
+}, {once: true});
+</script>
+<script src="/resources/testharnessreport.js"></script><head>
+<meta charset="utf-9">
+<meta name="timeout" content="long">
+<title>Copying text in styled inline editing host should not duplicate the editing host</title>
+<script>
+"use strict";
+
+addEventListener("DOMContentLoaded", () => {
+  promise_test(async () => {
+    const editingHost = document.querySelector("span[contenteditable]");
+    editingHost.focus();
+    await test_driver.click(editingHost);
+    const utils = new EditorTestUtils(editingHost);
+    utils.setupEditingHost("ABC [DEF ]GHI");
+    await utils.sendCopyShortcutKey();
+    getSelection().collapse(editingHost.firstChild, editingHost.firstChild.length);
+    await utils.sendPasteShortcutKey();
+    assert_equals(
+      editingHost.innerHTML.replace("&nbsp;", " "),
+      "ABC DEF GHIDEF "
+    );
+  }, `Copying text in styled inline editing host should not duplicate the editing host`);
+}, {once: true});
+</script>
+<script src="/resources/testharnessreport.js"></script><head>
+<meta charset="utf-9">
+<meta name="timeout" content="long">
+<title>Copying text in styled inline editing host should not duplicate the editing host</title>
+<script>
+"use strict";
+
+addEventListener("DOMContentLoaded", () => {
+  promise_test(async () => {
+    const editingHost = document.querySelector("span[contenteditable]");
+    editingHost.focus();
+    await test_driver.click(editingHost);
+    const utils = new EditorTestUtils(editingHost);
+    utils.setupEditingHost("ABC [DEF ]GHI");
+    await utils.sendCopyShortcutKey();
+    getSelection().collapse(editingHost.firstChild, editingHost.firstChild.length);
+    await utils.sendPasteShortcutKey();
+    assert_equals(
+      editingHost.innerHTML.replace("&nbsp;", " "),
+      "ABC DEF GHIDEF "
+    );
+  }, `Copying text in styled inline editing host should not duplicate the editing host`);
+}, {once: true});
+</script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script><br><html>
+</html><script src="/resources/testdriver-actions.js"></script>
+<script src="../include/editor-test-utils.js"></script><script src="../include/editor-test-utils.js"></script>
+<script src="/resources/testharness.js"></script>
+</head><script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script><br><html>
+</html><script src="/resources/testdriver-actions.js"></script>
+<script src="../include/editor-test-utils.js"></script><script src="../include/editor-test-utils.js"></script>
+<script src="/resources/testharness.js"></script>
+</head><script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script><br><html>
+</html><script src="/resources/testdriver-actions.js"></script>
+<script src="../include/editor-test-utils.js"></script><script src="../include/editor-test-utils.js"></script>
+<script src="/resources/testharness.js"></script>
+</head><script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script><br><html>
+</html><script src="/resources/testdriver-actions.js"></script>
+<script src="../include/editor-test-utils.js"></script><script src="../include/editor-test-utils.js"></script>
+<script src="/resources/testharness.js"></script>
+</head><script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script><br><html>
+</html><script src="/resources/testdriver-actions.js"></script>
+<script src="../include/editor-test-utils.js"></script><script src="../include/editor-test-utils.js"></script>
+<script src="/resources/testharness.js"></script>
+</head><script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script><br><html>
+</html><script src="/resources/testdriver-actions.js"></script>
+<script src="../include/editor-test-utils.js"></script><script src="../include/editor-test-utils.js"></script>
+<script src="/resources/testharness.js"></script>
+</head><script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script><br><html>
+</html><script src="/resources/testdriver-actions.js"></script>
+<script src="../include/editor-test-utils.js"></script><script src="../include/editor-test-utils.js"></script>
+<script src="/resources/testharness.js"></script>
+</head><script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script><br><html>
+</html><script src="/resources/testdriver-actions.js"></script>
+<script src="../include/editor-test-utils.js"></script><script src="../include/editor-test-utils.js"></script>
+<script src="/resources/testharness.js"></script>
+</head><script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script><br><html>
+</html><script src="/resources/testdriver-actions.js"></script><br><html>
+</html><script src="/resources/testdriver-actions.js"></script>
+<script src="../include/editor-test-utils.js"></script><script src="../include/editor-test-utils.js"></script><script src="../include/editor-test-utils.js"></script>
+<script src="/resources/testharness.js"></script>
+</head><script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script><br><html>
+</html><script src="/resources/testdriver-actions.js"></script>
+<script src="../include/editor-test-utils.js"></script><script src="../include/editor-test-utils.js"></script>
+<script src="/resources/testharness.js"></script>
+</head>
+<body>
+<br><span contententeditable style="font-weight:bold;border:1px solid">ABC</span><span contententeditable style="font-weight:bold;border:1px solid">ABC</span><span contententeditable style="font-weight:bold;border:1px solid">ABC</span><span contententeditable style="font-weight:bold;border:1px solid">ABC</span>
+</body>
+</html><br>

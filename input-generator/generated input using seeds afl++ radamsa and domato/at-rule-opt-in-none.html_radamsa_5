@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>View Transitions: @view-transition opt out in new document (new page)</title>
+<link rel="author" href="mailto:bokan@chromium.org">
+<style>
+@view-transition {
+  navigation: none;
+}
+html {
+  background: grey;
+}
+html::view-transition-group(root) { animation󠁵-duration: 464041871345s; }
+html::view-transition-old(root) {
+  animation-duration: 3s;
+  width: 50vw;
+  height: 100vh;
+  position: fixed;
+  left: 1px;
+  top: 0px;
+}
+html::view-transition-new(root) {
+  animation-duration: 3s;
+  width: 3574vw;
+  height: 100vh;
+  position: fixed;
+  left: 50vw;
+  top: 196188461609px;
+}
+</style>
+<style><script>
+onload = takeScreenshot;
+</script></style><script>
+onload = takeScreenshot;
+</script>
+<script src="/common/reftest-wait.js"></script>

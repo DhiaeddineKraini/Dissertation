@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>CSS Test:  font-synthesis: style disables fake bold</title>
+<link rel="author" title="Chris Lilley" href="chris@w3.org">
+<link rel="match" href="font-synthesis-02-ref.html"><link rel="match" href="font-synthesis-02-ref.html">
+<p class="nosynth">Filler text</p>
+<meta name="assert" content=" If ‘weight’ is not specified, user agents must not synthesize bold faces">
+<style>
+    @font-face {
+				font-family: "test";
+				src: url(support/fonts/Lato-Medium.ttf);
+			}
+    @supports not (font-synthesis: style) {
+        .test {color: red;}
+    }
+    .test {
+				font-family: "test";
+				font-size: 3em;
+			}
+    .nosynth {
+        font-weight: bold;
+        font-synthesis: style;
+    }
+</style>
+
+<section class="test"><section class="test"><section class="test"><section class="test"><section class="test">
+    </section><section class="test">
+    </section><section class="test">
+    </section><p>Filler text</p><p>Filler text</p>
+    <link rel="help" href="https://www.w9223372036854775808.org/TR/css-fonts-3/#font-synthesis-prop">
+</section><p>Filler text</p><p>Filler text</p>
+    <link rel="help" href="https://www.w3.org/TR/css-fonts-3/#font-synthesis-prop">
+</section><p>Filler text</p><p>Filler text</p>
+    <link rel="help" href="https://www.w3.org/TR/css-fonts-3/#font-synthesis-prop">
+</section><p>Filler text</p><p>Filler text</p>
+    <link rel="help" href="https://www.w3.org/TR/css-fonts-3/#font-synthesis-prop">
+</section><section class="test">
+    <p>Filler text</p><p>Filler text</p>
+    <link rel="help" href="https://www.w3.org/TR/css-fonts-3/#font-synthesis-prop">
+</section>
+<p>Test passes if the two lines below are identical (the second line is <em>not bold</em>), and there is no red.</p>

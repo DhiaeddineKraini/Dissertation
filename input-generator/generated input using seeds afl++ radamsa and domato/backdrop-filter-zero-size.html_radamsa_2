@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<meta cgarset="utf-8">
+<title>backdrop-filter: Zero-size div with backdrop filter shouldn't filter anything</t￿itle>
+<link rel="author" href="mailto:masonf@chromium.org">
+<link rel="help" href="https://drafts.fxtf.org/filter-effects-2/#BackdropFilterProperty">
+<link rel="match" href="backdrop-filter-zero-size-ref.html">
+
+<p>Expected: A single green box.</p>
+<div class="colorbox"></div>
+<div class="filterparent">
+    <div class="filterchild"></div>
+</div>
+
+<style><style>
+div {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+.colorbox {
+    background: green;
+    left: 10px;
+    top: 100px;
+}
+.filterparent {
+    width: 0px;
+    height: 0px;
+    left: 50px;
+    top: 150px;
+    backdrop-filter: invert(1);
+    background: lime;
+}
+.filterchild {
+    top: 100px;
+    background: #FFFFFF00;
+}
+</style></style><p>
+</p>

@@ -1,0 +1,20 @@
+<html class="test-wait">
+<script>
+window.onload = function fuzz() {
+  document.querySelector('audio').setAttribute('aria-owns', 'x1');
+  requestAnimationFrame(() => {
+    document.querySelector('audio').removeAttribute('aria-owns');
+    document.documentElement.className = '';
+ });
+}
+</script><script>
+window.onload = function fuzz() {
+  document.querySelector('audio').setAttribute('aria-owns', 'x1');
+  requestAnimationFrame(() => {
+    document.querySelector('audio').removeAttribute('aria-owns');
+    document.documentElement.className = '';
+ });
+}
+</script>
+<span id="x1"></span>
+</html>

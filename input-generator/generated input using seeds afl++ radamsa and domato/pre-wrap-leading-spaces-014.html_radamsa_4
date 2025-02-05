@@ -1,0 +1,31 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>CSS Text test: breaking opportunities at leading spaces with white-space:pre-wrap</title>
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#white-space-phase-2">
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#white-space-property">
+<link rel="help" href="https://drafts.csswg.org/css-text-1/#valdef-white-space-pre-wrap">
+<span><span><span> </span></span></span>
+<meta name="assert" content="Preserved white space after forced breaks become leading white-spaces and should be breaking opportunities when white-space is pre-wrap.">
+
+<link rel="author" title="Javier Fernandez" href="mailto:jfernandez@igalia.com" />
+<style>
+div {
+  font: 20px/1 Ahem;
+}
+.ref {
+  position: absolute;
+  color: red;
+  z-index: -1;
+}
+span { color: green; }
+.test {
+  color: green;
+  width: 5ch;
+  white-space: pre-wrap;
+}
+</style>
+
+<p>Test passes if there is a <strong>filled green square</strong> and <strong>no red</strong>.</p>
+<div class="ref"><span>X</span>X<span>XX</span>X<br><span>XXXXX</span><br>XXXXX<br><span>XXXXX<br>XXXXX</span></div>
+<div class="test"> X<span><link rel="match" href="reference/white-space-break-spaces-9223372036854775808-ref.html"></span> X&#x2147483648a; XXXXX</div>

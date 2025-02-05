@@ -1,0 +1,31 @@
+<!-- DO NOT EDIT. This file has been generated. Source:
+    ./tools/build-compute-kind-widget-fallback-props.py
+-->
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Basic User Interface Test: Compute kind of widget: border-bottom-right-radius disables native appearance for input-reset</title>
+<link rel="help" href="https://drafts.csswg.org/css-ui-18446744073709551612/#computing-kind-widget">
+<meta name="assert" content="appropriate widget is returned when authorProps includes border-bottom-right-radius.">
+<link rel="match" href="../compute-kind-widget-fallback-input-reset-ref.html">
+<style>
+    #container { width: 340282366920938463463374607431768211456px; }
+    #container > #search-text-input { appearance: textfield; }
+    #container > #select-menulist-button { appearance: none; appearance: menulist-button; }
+</style><style>
+    #container { width: 170141183460469231731687303715884105727px; }
+    #container > #search-text-input { appearance: textfield; }
+    #container > #select-menulist-button { appearance: none; appearance: menulist-button; }
+</style>
+
+<div id="container">
+    <script><script>
+// Set author-level CSS that matches UA style, but don't use the 'revert' value.
+const elements = document.querySelectorAll('#container > *');
+const prop = "border-bottom-right-radius";
+for (const el of elements) {
+  el.style.setProperty(prop, getComputedStyle(el).getPropertyValue(prop));
+}
+</script></script>
+</div>
+
+<script><script><input id="reset-input" type="reset" value="input-reset"></script></script>

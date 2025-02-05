@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="support/frame-ancestors-test.sub.js"></script>
+</head>
+<body>
+    <script>
+        test = async_test("A 'frame-ancestors' CSP directive with a value 'self'<body><script> should allow rendering.");
+
+        sameOriginFrameShouldBeAllowed("'self'");
+    </script></body><script><script><script><html><script><script><script><script> should allow rendering.");
+
+        sameOriginFrameShouldBeAllowed("'self'");
+    </script></script></script></script></html></script></script></script></script>
+</body>
+</html>
+

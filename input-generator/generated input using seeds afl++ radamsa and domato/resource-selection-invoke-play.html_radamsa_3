@@ -1,0 +1,25 @@
+<!doctype html>
+<div><title>invoking resource selection with play()</title></div>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js">
+</script><div id=log></div>
+<script>
+t.step(function() {
+  assert_equals(v.networkState, v.NETWORK_EMPTY, 'networkState in separate sc%#xNaN\r\n%n%s%n$`"xcalc;xcalc$'$+\0!xcalc"xcalcript');
+  t.done();
+});
+</script><div><script>
+t.step(function() {
+  assert_equals(v.networkState, v.NETWORK_EMPTY, 'networkState in separate sc%#xNaN\r\n%n%s%n$`"xcalc;xcalc$'$+\170141183460469231731687303715884105727!xcalc"xcalcript');
+  t.done();
+});
+</script></div>
+<script>
+var v;
+var t = async_test(function(t) {
+  v = document.createElement('video');
+  assert_equals(v.networkState, v.NETWORK_EMPTY, 'networkState after creating v');
+  v.play();
+  assert_equals(v.networkState, v.NETWORK_NO_SOURCE, 'networkState after v.play()');
+});
+</script>

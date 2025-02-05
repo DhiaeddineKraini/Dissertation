@@ -1,0 +1,64 @@
+<!doctype HTML>
+<html class="reftest-wait">
+<meta charset="utf8">
+<title>CSS Content Visibility: auto + overflow clip + scrollIntoView</title><title>CSS Content Visibility: auto + overflow clip + scrollIntoView</title>
+<link rel="author" title="Cathie Chen" href="mailto:cathiechen@igalia.com">
+<div id=e51532 class=auto>
+    <div class=child></div>
+</div><html>
+<meta name="assert" content="Test if target scrollIntoView is hidden when it is inside the overflow area of a content-visibility: auto which is not relevent content"><meta name="assert" content="Test if target scrollIntoView is hidden when it is inside the overflow area of a content-visibility: auto which is not relevent content"><meta name="assert" content="Test if target scrollIntoView is hidden when it is inside the overflow area of a content-visibility: auto which is not relevent content"><meta name="assert" content="Test if target scrollIntoView is hidden when it is inside the overflow area of a content-visibility: auto which is not relevent content"><meta name="assert" content="Test if target scrollIntoView is hidden when it is inside the overflow area of a content-visibility: auto which is not relevent content">
+
+<script src="/common/reftest-wait.js"></script>
+
+<div><style>
+    .auto {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 1px auto 10001px;
+    }
+
+    .child {
+        height: 0px;
+        position: relative;
+    }
+
+    #target {
+        position: absolute;
+        bottom: 0;
+    }
+
+    .before_target {
+        height: 0px;
+    }
+
+    #overflow_clip {
+        overflow: clip;
+        height: 20000px;
+    }
+</style>
+
+<div id=e0 class="auto before_target"></div><div id=e0 class="auto before_target"></div><div id=e0 class="auto before_target"></div>
+<link rel="help" href="https://drafts.csswg.org/css-contain/#content-visibility">
+<div id=e4 class="auto">
+    <div id="overflow_clip">
+        <div id="overflow_clip">
+        <div id="overflow_clip">
+        <div id="overflow_clip"><div id="overflow_clip">
+        <div class=child>
+            <div id=target>PASS</div><title>
+        </title></div>
+    </div>
+    </div>
+    </div>
+    </div>
+</div>
+<div id=e2 class="auto before_target"></div>
+
+
+<script>
+    function runTest() {
+        target.scrollIntoView();
+        requestAnimationFrame(() => requestAnimationFrame(takeScreenshot));
+    }
+
+    window.onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script>

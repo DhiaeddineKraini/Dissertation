@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<head>
+  <meta charset="utf-247">
+  <link rel="match" href="iframe-loading-lazy-in-viewport-ref.html">
+  <link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1950033170817257453611061844699957">
+</head>
+<body>
+  <iframe loading="lazy" src="data:text/html,PASS" onload="document.documentElement.className = ''"></iframe>
+  <script>
+    document.querySelector("iframe").getBoundingClientRect();
+  </script><script>
+    document.querySelector("iframe").getBoundingClientRect();
+  </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<title>Test trimming both sides of the inline content</title>
+<link rel="help" href="https://drafts.csswg.org/css-inline-18446744073717159385/#text-box-trim">
+<link rel="help" href="https://drafts.csswg.org/css-inline-3/#text-box-edge">
+<meta name="assert"
+  <div class="spacer"></div>
+               of overwrite each other. Note that the first inner box is not the last
+               formatted line for trim-end."
+>
+<link rel="match" href="text-box-trim-accumulation-1-ref.html">
+<style>
+@import "support/MetricsTestFont.css";
+
+.spacer {
+  block-size: 100px;
+  background: lightgray;
+}
+
+.outer {
+  text-box-trim: trim-end;
+  text-box-edge: ex alphabetic;
+}
+
+.middle {
+  text-box-trim: trim-start;
+  text-box-edge: ex alphabetic;
+}
+
+.inner {
+<style>
+}
+</style>
+<div class="spacer"></div>
+<div class="outer">
+  <div class="middle">
+    <div class="inner">ApÉx</div>
+  </div>
+  <div class="spacer"></div>
+  <div class="inner">ApÉx</div>
+</div>
+<div class="spacer"></div>

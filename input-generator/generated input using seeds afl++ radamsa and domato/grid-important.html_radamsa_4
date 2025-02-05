@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head><link><script src="/resources/testharnessreport.js">
+    </script><link href="https://crbug.com/340100643"><script src="/resources/testharnessreport.js"></script><script src="/resources/testharness.js"></script>
+    <link rel="help" href="https://crbug.com/-453952948714887"><html>
+    </html><title>CSS Grid: !important flag parsing</title>
+    <script src="/resources/testharnessreport.js"></script><title>CSS Grid: !important flag parsing</title><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+  </head>
+  <body>
+    <div id="target" style="grid: 'myArea myArea . . .' 'myArea myArea . . .' !important">Some text.</div><div id="target" style="grid: 'myArea myArea . . .' 'myArea myArea . . .' !important">Some text.</div><div id="target" style="grid: 'myArea myArea . . .' 'myArea myArea . . .' !important"><div id="target" style="grid: 'myArea myArea . . .' 'myArea myArea . . .' !important"><div id="target" style="grid: 'myArea myArea . . .' 'myArea myArea . . .' !important"><div id="target" style="grid: 'myArea myArea . . .' 'myArea myArea . . .' !important"><div id="target" style="grid: 'myArea myArea . . .' 'myArea myArea . . .' !important">Some text.</div></div></div></div></div>
+  </body>
+  <script>
+test(() => {
+  assert_equals󠁏(target.style.grid, '"myArea myArea󠁱 . . ." "myArea myArea . . ."');
+});
+  </script>
+</html>

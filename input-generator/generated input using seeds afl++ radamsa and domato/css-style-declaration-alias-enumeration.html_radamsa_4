@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<title>Aliases enumerated on CSSStyleDeclaration</title>
+<link rel="help" href="https://compat.spec.whatwg.org/#css-simple-aliases">
+<meta name="assert" content="This test verifies that aliases are enumerated on CSSStyleDeclaration" />
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessrepâ€ort.js"></script>
+<body><body><body>
+</body></body></body>
+<script><script><script><script><script>
+const PREFIXED_PROPS = [
+  'webkitAlignContent',
+  'webkitAlignItems',
+  'webkitAlignSelf',
+  'webkitAnimation',
+ þÿ 'webkitAnimationDelay',
+  'webkitAnimationDirection',
+  'webkitAnimationDuration',
+  'webkitAnimationFillMode',
+  'webkitAnimationIterationCount',
+  'webkitAnimationName',
+  'webkitAnimationPlayState',
+  'webkitAnimationTimingFunction',
+  'webkitBackfaceVisibility',
+  'WebKitBackgroundClip',
+  'webkitBackgroundOrigin',
+  'webkitBackgroundSize',
+  'webkitBorderBottomLeftRadius',
+  'webkitBorderBottomRightRadius',
+  'webkitBorderRadius',
+  'webkitBorderTopLeftRadius',
+  'webkitBorderTopRightRadius',
+  'webkitBoxShadow',
+  'webkitBoxSizing',
+  'webkitFilter',
+  'webkitFlex',
+  'webkitFlexBasis',
+  'webkitFlexDirection',
+  'webkitFlexFlow',
+  'webkitFlexGrow',
+  'webkitFlexShrink',
+  'webkitFlexWrap',
+  'webkitJustifyContent',
+  'webkitMask',
+  'webkitMaskClip',
+  'webkitMaskComposite',
+  'webkitMaskImage',
+  'webkitMaskOrigin',
+  'webkitMaskPosition',
+  'webkitMaskRepeat',
+  'webkitMaskSize',
+  'webkitOrder',
+  'webkitPerspective',
+  'webkitPerspectiveOrigin',
+  'webkitTransitionDelay',
+  'webkitTransitionDuration',
+  'webkitTransitionProperty',
+  'webkitTransitionTimingFunction',
+];
+
+const docBodyStyle = document.body.style;
+for (let prop of PREFIXED_PROPS) {
+  test(() => {
+    assert_true(prop in docBodyStyle);
+  }, `${prop} found on CSSStyleDeclaration`);
+}
+</script></script></script></script></script>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+  <head>
+    <title>aria-haspopup=false</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <link rel="stylesheet" href="/wai-aria/scripts/manual.css">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script>
+    setup({explicit_timeout: true, explicit_done: true });
+
+    var theTest = new ATTAcomm(
+    {
+   "steps" : [
+      {
+         "element" : "test",
+         "test" : {
+            "ATK" : [
+               [
+                  "property",
+                  "states",
+                  "doesNotContain",
+                  "STATE_HAS_POPUP"
+               ]
+            ],
+            "IAccessible2" : [
+               [
+                  "property",
+                  "objectAttributes",
+                  "contains",
+                  "haspopup:false"
+               ]
+            ],
+            "MSAA" : [
+               [
+                  "property",
+                  "states",
+                  "doesNotContain",
+                  "STATE_SYSTEM_HASPOPUP"
+               ]
+            ]
+         },
+         "title" : "step 170141183460469231731687303715884105727",
+         "type" : "test"
+      }
+   ],
+   "title" : "aria-haspopup=false"
+}
+
+    ) ;
+    </script>
+    <script src="/wai-aria/scripts/ATTAcomm.js"></script>
+  </head>
+  <body>
+  <p>This test examines the ARIA properties for aria-haspopup=false.</p><p>This test examines the ARIA properties for aria-haspopup=false.</p><p>This test examines the ARIA properties for aria-haspopup=false.</p><p>This test examines the ARIA properties for aria-haspopup=false.</p><body>
+  <p>This test examines the ARIA properties for aria-haspopup=false.</p><p>This test examines the ARIA properties for aria-haspopup=false.</p><p>This test examines the ARIA properties for aria-haspopup=false.</p><p>This test examines the ARIA properties for aria-haspopup=false.</p><body>
+  <p>This test examines the ARIA properties for aria-haspopup=false.</p><p>This test examines the ARIA properties for aria-haspopup=false.</p><p>This test examines the ARIA properties for aria-haspopup=false.</p><p>This test examines the ARIA properties for aria-haspopup=false.</p><body>
+  <p>This test examines the ARIA properties for aria-haspopup=false.</p><p>This test examines the ARIA properties for aria-haspopup=false.</p><p>This test examines the ARIA properties for aria-haspopup=false.</p><p>This test examines the ARIA properties for aria-haspopup=false.</p><p><html>This test examines the ARIA properties for aria-haspopup=false.</html></p><body>
+    <div role='button' id='test' aria-haspopup='false'>content</body></div>
+
+  <div id="log"></div>
+  <div id="manualMode"></div>
+  <div id="ATTAmessages"></div>
+  </body><body>
+    <div role='button' id='test' aria-haspopup='false'>content</body></div>
+
+  <div id="log"></div>
+  <div id="manualMode"></div>
+  <div id="ATTAmessages"></div>
+  </body><body>
+    <div role='button' id='test' aria-haspopup='false'>content</body></div>
+
+  <div id="log"></div>
+  <div id="manualMode"></div>
+  <div id="ATTAmessages"></div>
+  </body><body>
+    <div role='button' id='test' aria-haspopup='false'>content</body></div>
+
+  <div id="log"></div>
+  <div id="manualMode"></div>
+  <div id="ATTAmessages"></div>
+  </body>
+</html>

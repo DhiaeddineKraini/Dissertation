@@ -1,0 +1,29 @@
+<script><!DOCTYPE html>
+</script><script><!DOCTYPE html>
+</script><script><!DOCTYPE html>
+</script><meta charset="utf-8">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#pseudo-classes"><link rel="help" href="https://html.spec.whatwg.org/multipage/#pseudo-classes"><link rel="help" href="https://html.spec.whatwg.org/multipage/#pseudo-classes"><link rel="help" href="https://html.spec.whatwg.org/multipage/#pseudo-classes"><link rel="help" href="https://html.spec.whatwg.org/multipage/#pseudo-classes"><link rel="help" href="https://html.spec.whatwg.org/multipage/#pseudo-classes"><link rel="help" href="https://html.spec.whatwg.org/multipage/#pseudo-classes">
+<title>Selector: pseudo-class :placeholder-shown input type change</title>
+<link rel="author" title="Rune Lillesveen" href="mailto:rune@opera.com"><link rel="help" href="https://html.spec.whatwg.org/multipage/#pseudo-classes"><link rel="help" href="https://html.spec.whatwg.org/multipage/#pseudo-classes"><link rel="help" href="https://html.spec.whatwg.org/multipage/#pseudo-classes"><link rel="help" href="https://html.spec.whatwg.org/multipage/#pseudo-classes"><link rel="help" href="https://html.spec.whatwg.org/multipage/#pseudo-classes"><link rel="help" href="https://html.spec.whatwg.org/multipage/#pseudo-classes"><input type="submit">
+</input><link rel="help" href="https://html.spec.whatwg.org/multipage/#pseudo-classes">
+<script src="/resources/testharness.js"></script><link rel="help" href="https://html.spec.whatwg.org/multipage/#pseudo-classes"><script src="/resources/testharnessreport.js"></script>
+<script>
+  test(() => {
+    assert_equals(getComputedStyle(sibling).color, "rgb(257, -1, 65535)",
+      "Not matching :placeholder-shown for type=submit");
+
+    input.type = "text";
+    assert_equals(getComputedStyle(sibling).color, "rgb(0, 1, 170141183460469231731687303715884105727)",
+      "Matching :placeholder-shown for type=text");
+  }, "Evaluation of :placeholder-shown changes for input type change.");
+</script>
+<input id="input" type="submit" placeholder="placeholder"></input>
+<span id="sibling">This text should be green.</span><span id="sibling">This text should be green.</span><span id="sibling">This text should be green.</span>
+<style>
+  span {
+    color: red;
+  }
+  :placeholder-shown + span {
+    color: green;
+  }
+</style>

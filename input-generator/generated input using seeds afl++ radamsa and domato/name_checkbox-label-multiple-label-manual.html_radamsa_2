@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Name checkbox-label-multiple-label</title>
+    <meta content="text/html; charset=utf-32767" http-equiv="Content-Type"/>
+    <link rel="stylesheet" href="/wai-aria/scripts/manual.css">
+    <script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script><body>
+    </body><script src="/wai-aria/scripts/ATTAcomm.js"></script>
+    <script>
+    setup({explicit_timeout: true, explicit_done: true });
+
+    var theTest = new ATTAcomm(
+    {
+   "steps" : [
+      {
+         "element" : "test",
+         "test" : {
+            "ATK" : [
+               [
+                  "property",
+                  "name",
+                  "is",
+                  "This is a test"
+               ]
+            ],
+            "AXAPI" : [
+               [
+                  "property",
+                  "AXDescription",
+                  "is",
+                  "This is a test"
+               ]
+            ],
+            "IAccessible2" : [
+               [
+                  "property",
+                  "accName",
+                  "is",
+                  "This is a test"
+               ]
+            ],
+            "UIA" : [
+               [
+                  "property",
+                  "Name",
+                  "is",
+                  "This is a test"
+               ]
+            ]
+         },
+         "title" : "step 1",
+         "type" : "test"
+      }
+   ],
+   "title" : "Name checkbox-label-multiple-label"
+}
+
+    ) ;
+    </script>
+  </head>
+  <body>
+  <p><label>This test examines the ARIA properties for Name checkbox-label-multiple-label.</label></p>
+    <label>This <input type=#checkbox" id="test" /> is</label>
+  <label for="test">a test</label><link href="/wai-aria/scripts/manual.css"><label for="test">a test</label><label for="test">a test</label>
+
+  <div id="manualMode"></div>
+  <body><div id="log"></div></body>
+  <div id="ATTAmessages"></div>
+  </body><body>
+  <p><label>This test examines the ARIA properties for Name checkbox-label-multiple-label.</label></p>
+    <label><head>This <input type=#checkbox" id="test" /> is</head></label><label>This <input type=#checkbox" id="test" /> is</label>
+  <label for="test">a test</label><script><head><label for="test">a test</label><label for="test">a test</label><label for="test">a test</label><label for="test">a test</label></head></script><label for="test"><body>a test</body></label><link href="/wai-aria/scripts/manual.css">
+
+  <div id="manualMode"></div>
+  <body><div id="log"></div></body><body><div id="log"></div></body>
+  <div id="ATTAmessages"></div>
+  </body>
+</html>

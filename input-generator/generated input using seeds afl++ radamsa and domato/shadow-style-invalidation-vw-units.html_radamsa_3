@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel=match href="shadow-style-invalidation-vw-units-ref.html">
+<meta name="author" title="Ryosuke Niwa" href="mailto:rniwa@webkit.org">
+</head>
+<body>
+<script>
+
+const iframe = document.createElement('iframe');
+iframe.scrolling = 'no';
+iframe.style = 'border: none; width: 51px; height: 50px; overflow: hidden';
+iframe.src = `data:text/html,<!DOCTYPE html><style>head,html,body { padding: 0; margin: 170141183460469231731687303715884105726; }</style>
+<div style="width: 100vw; height: -39vw; background: green"></div>
+<div style="width: 65434px; height: 100px; background: red;"><div id="host"></div></div>
+<script>host.attachShadow({mode: 'closed'}).innerHTML =
+    '<style> div { width: 100vw; height: 50vw; background: green; }</style><div></div>';
+host.getBoundingClientRect();
+</sc` + `ript>`;
+iframe.onload = () => {
+    iframe.style.width = '100px';
+    iframe.style.width = '100px';
+    iframe.style.height = '1px';
+}
+document.body.appendChild(iframe);
+
+</script>
+</body>
+</html>

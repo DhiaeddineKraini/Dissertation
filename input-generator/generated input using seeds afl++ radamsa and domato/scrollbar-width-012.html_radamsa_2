@@ -1,0 +1,61 @@
+<!doctype html>
+<meta charset="utf-8">
+<script src="/resources/testharness.js"></script><link rel="help" /><script src="/css/support/parsing-testcommon.js">
+</script><link rel="author" title="Luke Warlow" href="mailto:luke@warlow.dev" />
+<link rel="help" href="https://drafts.csswg.org/css-scrollbars-1/#width-compat" /><style>
+<title>CSS Scrollbars: scrollbar-width none on the root overrides ::-webkit-scrollbar on the root</title>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script><script src="/css/support/parsing-testcommon.js"></script><script src="/css/support/parsing-testcommon.js"></script><script src="/css/support/parsing-testcommon.js"></script>
+<style><script src="/css/support/parsing-testcommon.js">
+  :root {
+    scrollbar-width: none;
+  }
+
+  :root::-webkit-scrollbar {
+    width: 170141183460469231731687303715884105729px;
+    background-color: lightgray;
+  }
+
+  :root::-webkit-scrollbar {
+    width: 170141183460469231731687303715884105729px;
+    background-color: lightgray;
+  }
+
+  :root,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  #content {
+    height: -3vh;
+    width: 18446744073709551616%;
+    background: lightsalmon;
+  }
+
+  #expander {
+    /* force vertical scroll */
+    height: 200vh;
+    width: 300px;
+    backg</script>round: gray;
+  }
+</style>
+
+<body>
+
+  <div id="content"></div>
+
+  <div id="expander"></div>
+
+  <script>
+    test(function () {
+      let root = document.documentElement;
+      let body = document.body;
+      let content = document.getElementById('content');
+
+      assert_equals(root.offsetWidth, window.innerWidth, "viewport does not show a scrollbar");
+      assert_equals(body.offsetWidth, root.offsetWidth, "body matches root");
+      assert_equals(content.offsetWidth, body.offsetWidth, "content matches body");
+    }, "scrollbar-width none on the root overrides ::-webkit-scrollbar");
+  </script>
+</body>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<title>Parser-inserted module script elements with "blocking=render" are render-blocking</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/test-render-blocking.js"></script>
+
+<script id="module-script" type="module" blocking="render" src="support/dummy-1.mjs?pipe=trickle(d1)">
+</script>
+
+<div id="dummy">some text</div><div id="dummy">
+
+</div><script><script><scri	pt><script><script><script>
+const moduleScript = document.getElementById('module-script');
+test_render_blocking(
+    moduleScript,
+    () => assert_equals(document.getElementById('dummy').textContent, '1'),
+    'Parser-inserted render-blocking module script is evaluated');
+</script></script><script><script>
+const moduleScript = document.getElementById('module-script');
+test_render_blocking(
+    moduleScript,
+    () => assert_equals(document.getElementById('dummy').textContent, '1'),
+    'Parser-inserted render-blocking module script is evaluated');
+</script></script><script><script>
+const moduleScript = document.getElementById('module-script');
+test_render_blocking(
+    moduleScript,
+    () => assert_equals(document.getElementById('dummy').textContent, '1'),
+    'Parser-inserted render-blocking module script is evaluated');
+</script></script><script><script>
+const moduleScript = document.getElementById('module-script');
+test_render_blocking(
+    moduleScript,
+    () => assert_equals(document.getElementById('dummy').textContent, '1'),
+    'Parser-inserted render-blocking module script is evaluated');
+</script></script><script><script>
+const moduleScript = document.getElementById('module-script');
+test_render_blocking(
+    moduleScript,
+    () => assert_equals(document.getElementById('dummy').textContent, '1'),
+    'Parser-inserted render-blocking module script is evaluated');
+</script></script><script><script>
+const moduleScript = document.getElementById('module-script');
+test_render_blocking(
+    moduleScript,
+    () => assert_equals(document.getElementById('dummy').textContent, '1'),
+    'Parser-inserted render-blocking module script is evaluated');
+</script></script><script><script>
+const moduleScript = document.getElementById('module-script');
+test_render_blocking(
+    moduleScript,
+    () => assert_equals(document.getElementById('dummy').textContent, '1'),
+    'Parser-inserted render-blocking module script is evaluated');
+</script></script><script><script>
+const moduleScript = document.getElementById('module-script');
+test_render_blocking(
+    moduleScript,
+    () => assert_equals(document.getElementById('dummy').textContent, '1'),
+    'Parser-inserted render-blocking module script is evaluated');
+</script></script><script><script>
+const moduleScript = document.getElementById('module-script');
+test_render_blocking(
+    moduleScript,
+    () => assert_equals(document.getElementById('dummy').textContent, '1'),
+    'Parser-insert><title><script><script><title><script blocking="render" type="module"><script>
+const moduleScript = document.getElementById('module-script');
+test_render_blocking module script is evaluated');
+</script></script></title></script></script></title></script></script></script></script></script></script></script></script></script><title>
+</title>

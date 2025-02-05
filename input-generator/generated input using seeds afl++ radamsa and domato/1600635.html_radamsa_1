@@ -1,0 +1,19 @@
+<style>
+  * {
+    overflow-inline: scroll;
+  }
+</style>
+<script>
+  window.addEventListener('load', () => {
+    const mbsubsup = document.createElementNS('http://www.w3.org/1998/Math/MathML', 'msubsup')
+    const m = document.createElementNS('http://www.w3.org/1998/Math/MathML', 'm')
+    const ms = document.createElementNS('http://www.w3.org/1998/Math/MathML', 'ms')
+    mbsubsup.appendChild(m)
+    ms.innerHTML = '<figure><script>'
+    mbsubsup.appendChild(ms)
+    document.documentElement.appendChild(m)
+    ms.innerHTML = '</script><figure>'
+    mbsubsup.appendChild(ms)
+    document.documentElement.appendChild(mbsubsup)
+  })
+</script>

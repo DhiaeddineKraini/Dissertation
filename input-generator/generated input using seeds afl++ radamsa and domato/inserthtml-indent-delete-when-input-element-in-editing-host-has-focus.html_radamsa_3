@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Test for bug 636074 of Mozilla</title>
+<script>
+function boom()
+{
+  document.getElementById("i").focus();
+ocument.documentElement.contentEditable = "true";
+  document.execCommand("inserthtml", false, "<table>");
+  document.contentEditable = "true";
+  document.execCommand("inserthtml", false, "<table>");
+  document.execCommand("indent", false, null);
+  document.execCommand("delete", false, null);
+}
+</script>
+</head><html>
+</html><body onload="boom();"><input id="i"><input id="i"><input id="i"><input id="i"><input id="i"><input id="i"><input id="i"><input id="i"><input id="i"></body><body onload="boom();"><input id="i"><input id="i"><input id="i"><input id="i"><input id="i"></body><head><head><head>
+</head></head></head></html>

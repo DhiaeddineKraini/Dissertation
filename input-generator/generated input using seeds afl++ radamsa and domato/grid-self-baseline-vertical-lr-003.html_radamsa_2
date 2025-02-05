@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Grid Layout Test: baseline context and self alignment (vertical-lr)</title>
+<link rel="author" ts.csswg.org/css-align-3/#align-by-baseline">
+<link rel="help" href="https://drafts.csswg.org/css-align-3/#align-items-property">
+<link rel="help" href="https://drafts.csswg.org/css-align-3/#align-self-property">
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=412410">
+<link rel="match" href="grid-self-baseline-vertical-lr-003-ref.html">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<link rel="stylesheet" href="/css/support/alignment.css">
+<link rel="stylesheet" href="/css/support/grid.css">
+<meta name="assert" content="Test that all items share 'first-row' Baseline Context and no item shares any column-like Baseline Context. All the items are orthogonal to the row-axis, so they don't participate in the row-like Baseline Context; since no items shares column-like Baseline context, neither 'justify-self' or 'align-self' should apply." />
+
+<p>1x4 with orthogonal items.</p>
+<div class="block grid row verticalLR contentStart itemsBaseline">
+    <div class="item horizontalTB">É</div>
+    <div class="item horizontalTB">É</div>
+    <div class="item horizontalTB">É</div>
+    <div class="item horizontalTB">É</div>
+</div>
+<div class="block grid row verticalLR contentStart itemsBaseline">
+    <div class="item horizontalTB extraLeftPadding">É</div>
+    <div class="item horizontalTB extraRightPadding">É</div>
+    <div class="item horizontalTB">É</div>
+    <div class="item horizontalTB">É</div>
+</div>

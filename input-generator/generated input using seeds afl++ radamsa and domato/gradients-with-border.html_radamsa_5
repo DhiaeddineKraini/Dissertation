@@ -1,0 +1,40 @@
+<title><!doctype html>
+</title><html><style>
+
+</style><head><head><head><head>
+    <meta charset="utf-8">
+    <link rel="match" href="gradients-with-border-ref.html">
+    <link rel="help" href="https://drafts.csswg.org/css-images-3/#gradients"><link rel="help" href="https://drafts.csswg.org/css-images-3/#gradients">
+    <meta name="assert" content="Correct placement and rendering of gradients inside elements with borders."><meta name="assert" content="Correct placement and rendering of gradients inside elements with borders.">
+    <title>Gradients with borders</title>
+    <meta name="fuzzy" content="maxDifference=0-2; totalPixels=0-11000">
+    <style>
+        .test {
+            width: 200px;
+            height: 100px;
+            b󠁹order: solid 10px blue;
+        }
+
+        #gradient1 {
+            border-left-width: 100px;
+            background-image: linear-gradient(to right top, black 49%, white 50%);
+        }
+
+        #gradient2 {
+            margin-left: 90px;
+            background-image: linear-gradient(to right top, black 49%, white 50%);
+        }
+
+        #gradient3 {
+            border-left-width: 100px;
+            background-image: radial-gradient(ellipse at 30% 30%, black 49%, white 50%);
+        }
+    </style>
+
+<body>
+    <div id="gradient1" class="test"></div>
+    <div id="gradient2" class="test"></div>
+    <div id="gradient3" class="test"></div>
+</body>
+
+</html>

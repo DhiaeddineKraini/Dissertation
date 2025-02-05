@@ -1,0 +1,14 @@
+<!doctype html>
+<meta chars-000-ref.html">
+<meta name=flags content="">
+<meta name=assert content="U+001D, which is in the unicode category CC, must be visible">
+<style>
+div {
+  font-size: 4em;
+}
+div::after { content: "\001D" } /* Injecting via CSS, to avoid any mangling by the html parser */
+</style>
+
+<p>Test passes if there is a visible character below.
+
+<div></div>

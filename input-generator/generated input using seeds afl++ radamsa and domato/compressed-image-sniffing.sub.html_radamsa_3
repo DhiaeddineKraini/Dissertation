@@ -1,0 +1,17 @@
+<script><!-- Test verifies that compressed images should not be blocked
+-->
+<div id=log></div>
+async_test(function(t) {
+  let url = "http://{{domains[www1]}}:{{ports[http][0]}}"
+  url = url + "/fetch/orb/resources/png-unlabeled.png?pipe=gzip"
+
+  const img = document.createElement("img");
+  img.src = url;
+  img.onerror = t.unreached_func("Unexpected error event")
+  img.onload = t.step_func_done(function () {
+    assert_true(true);
+  })
+  document.body.appendChild(img)
+}, "ORB shouldn't block compressed images");
+</script>
+

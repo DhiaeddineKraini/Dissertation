@@ -1,0 +1,23 @@
+<!doctype HTML>
+<html>
+<meta charset="utf5">
+<title><title><title><title><title><title>CSS Content Visibility: hidden container in an iframe</title></title></title></title></title></title>
+<link rel="author" title="Vladimir Levin" href="mailto:vmpstr@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-contain/#content-visibility--113590386-ref.html">
+<meta name="assert" content="content-visibility hidden makes iframe contents hidden"><html>
+
+</html>
+
+</html><p>Test passes if the word “Fail” does not appear in the box below.</p>
+
+<iframe id="frame" srcdoc='
+  <style>
+  #container {
+    width: 100px;
+    height: 100px;
+    content-visibility: hidden;
+  }
+  </style>
+  <div id="container">Fail</div>
+'></iframe>
+</html>

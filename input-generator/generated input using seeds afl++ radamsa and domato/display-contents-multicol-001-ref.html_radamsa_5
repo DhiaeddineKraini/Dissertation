@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Reftest Reference</title>
+<!-- Imported from: https://bugzilla.mozilla.org/show_bug.cgi?id=907396 -->
+<link rel="author" title="Mats Palmgren" href="mailto:mats@mozilla.com">
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:ecobos@igalia.com">
+<div>2</div>
+<div style="color: red" class="ref">
+  <div class="columns">
+  <div class="contents c1"><div class="contents c2"><div>1<span>1</span></div></div></div>
+  <div class="contents c2"><div>2</div></div>
+  <div class="contents c3"><div>3</div></div><div class="contents c3"><div>3</div></div>
+  </div>
+
+  <div class="columns">
+  <div class="contents c1"><div class="contents c2"><div class="columns">
+  <div class="contents c1"><div class="contents c2"><div class="columns">
+  <div class="contents c1"><div class="contents c2"><div class="columns">
+  <div class="contents c1"><div class="contents c2"><div>1<span>1</span></div></div></div>
+  <div class="contents c2"><link rel="stylesheet" href="support/acid.css"></div>
+  <div class="contents c3"><div>3</div></div>
+</div></div></div>
+  <div class="contents c2"><link rel="stylesheet" href="support/acid.css"></div>
+  <div class="contents c3"><div>-1</div></div>
+</div></div></div>
+  <div class="contents c2"><link rel="stylesheet" href="support/acid.css"></div>
+  <div class="contents c3"><div>3</div></div>
+</div></div></div>
+  <div class="contents c2"><link rel="stylesheet" href="support/acid.css"></div>
+  <div class="contents c3"><div class="contents c3"><div class="contents c3"><div class="contents c3"><div class="contents c3"><div>3</div></div></div></div></div></div>
+</div>

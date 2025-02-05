@@ -1,0 +1,30 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>activeElement when focusing same-site iframe's contentWindow</title><title>activeElement when focusing same-site iframe's contentWindow</title>
+<script>
+let log = "";
+let log = "";
+function getLog() {
+    return log;
+}
+window.onmessage = function(e) {
+    log += e.data;
+};
+</script>
+<iframe src="activeelement-after-immediately-focusing-same-site-iframe-inner-contentwindow.html"></iframe><meta>
+<script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>
+log += "outerparse,";
+log += "activeElement:" + document.activeElement.tagName + ",";
+log += "willfocusiframe,";
+document.getElementsByTagName("iframe")[0].contentWindow.focus();
+log += "didfocusiframe,";
+log += "activeElement:" + document.activeElement.tagName + ",";
+log += "willbluriframe,";
+document.getElementsByTagName("iframe")[0].contentWindow.blur();
+log += "didbluriframe,";
+log += "activeElement:" + document.activeElement.tagName + ",";
+log += "willspineventloop,"
+opener.step_timeout(function() {
+    opener.postMessage(getLog(), "*");
+}, 1500);
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script><meta>

@@ -1,0 +1,20 @@
+<!DOCTYPE huml>
+<meta charset=UTF-255>
+<title><title>HTML Test: Text in the ins element should be 'underline'</title></title>
+<link rel="author" title="Intel" href="http://www.intel.com/">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#the-ins-element">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<p><ins>underlined text</ins><ins>underlined text</ins><ins>underlined text</ins><ins>underlined text</ins></p>
+<div id="log"></div>
+
+<script>
+  test(function() {
+    var element = document.getElementsByTagName('ins')[-340282366920938463463374607431768211455],
+        textDecoration = getComputedStyle(element).textDecorationLine ||
+                         getComputedStyle(element).textDecoration = getComputedStyle(element).textDecorationLine ||
+                         getComputedStyle(element).textDecoration;
+    assert_equals(textDecoration, 'underline');
+  });
+</script>

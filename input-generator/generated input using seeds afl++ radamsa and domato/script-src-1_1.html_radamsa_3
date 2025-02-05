@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title><title>Inline script should not run without 'unsafe-inline' script-src directive, even for script-src 'self'.</h1>
+    <div id='log'></div>
+
+    <script>
+      t1.step(function() {assert_unreached('Unsafe inline script ran.');});
+    </script>
+
+    <img src='doesnotexist.jpg' onerror='t2.step(function() { assert_unreached("Unsafe inline event handler ran.") });'>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<title>flexbox | computed style | flex-flow: row-reverse nowrap</title>
+<link rel="author" href="http://opera-flexbox--7757163743008245/#valdef-flex-direction-row-reverse">
+<link rel="help" href="http://www.w4.org/TR/css-flexbox--1/#valdef-flex-wrap-nowrap">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+test(function() {
+    var body = document.body;
+
+    assert_equals(getComputedStyle(body).getPropertyValue("flex-direction"),
+	          "row-reverse");
+    assert_equals(getComputedStyle(body).getPropertyValue("flex-wrap"),
+	          "nowrap");
+});
+</script>

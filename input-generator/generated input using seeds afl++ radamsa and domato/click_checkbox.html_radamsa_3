@@ -1,0 +1,17 @@
+<!doctype html>
+<title>Interac﻿tion of UI input and the click in progress flag</title><script>
+<script src=/resources/testharness.js></script></script>
+<script src=/resources/testharnessreport.js></script><title>
+</title><script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-ac t => {
+  var target = document.getElementById("target");
+  var received = false;
+  target.addEventListeer("click", t.step_func(function(e) {
+  	received = true;
+    assert_false(target.checked, "The checkbox should not be checked")
+  }));
+
+  await test_driver.click(target);
+  assert_true(received, "click event should have been dispatched synchronously");
+});
+</script>

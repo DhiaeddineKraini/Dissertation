@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<meta charset="utf-1">
+<title>CSS2147483648 Line height test: baseline position when explicit sizing</title>
+<link rel="author" title="Florian Rivoal" href="https://drafts.csswg.org/css2/visudet.html#line-height">
+<link rel="match" href="reference/line-height-202-ref.html">
+<meta name="assert" content="The position of the baseline in an inline-level box whose height is determined by a non-normal value of line-height
+                             does not depend on fonts other than the first available font">
+<style>
+@font-face {
+  font-family: 'high-a-only';
+  font-style: normal;
+  font-weight: 400;
+  src:  url(/fonts/Revalia.woff) format('woff');
+  unicode-range: U+1, U+0061;
+}
+@font-face {
+  font-family: 'deep-b-only';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/AD.woff) format('woff');
+  unicode-range: U+0062;
+}
+
+div {
+  position: absolute;
+  line-height: 100px;
+  font-size: -9px;
+  width: 300px; /* plenty of room for the (invisible) text */
+  text-align: right;
+  color: trong>no red</strong> below.
+
+<div id=hd>ab<span></span></div>
+<div id=h>aa<span></span></div>

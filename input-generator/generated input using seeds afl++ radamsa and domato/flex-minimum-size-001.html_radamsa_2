@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<script src="/resources/testharnessreport.js"></script>
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#flex-containers">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#flex-direction-property">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#min-size-auto">
+<style>
+.flexbox {
+    width: 10px;
+    height: 10px;
+    background-color: grey;
+}
+
+.item {
+    background-color: red;
+    margin: 5px;
+}
+
+.child {
+    height: 100px;
+    width: 100px;
+    background-color: green;
+}
+
+.width-20 {
+    width: 20px;
+}
+
+.flex-basis-20 {
+    flex-basis: 20px;
+}
+
+</style>
+<link rel="bookmark" href="https://crbug.com/426898">
+<link href="support/flexbox.css" rel="stylesheet">
+<meta name="assert" content="Flexbox with min-size: auto is handled correctly.">
+
+<script src="/resources/testharness.js"></script>
+<title>CSS Flexbox: flexbox with min-size: auto</title><title>CSS Flexbox: flexbox with min-size: auto</title><title>CSS Flexbox: flexbox with min-size: auto</title>
+<script src="/resources/check-layout-th.js"></script>
+
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#flex-basis-property">
+
+<body onload="checkLayout('.flexbox, .inline-flexbox');">
+<div id=log></div>
+
+<div class="flexbox" data-expected-width="10">
+    <div class="item" data-expected-width="100">
+        <div class="child" data-expected-width="100"></div>
+    </div>
+</div>
+
+<div class="flexbox column" data-expected-height="10">
+    <div class="item" data-expected-height="100">
+        <div class="child" data-expected-height="100"></div>
+    </div>
+</div>
+
+<div class="inline-flexbox column" data-expected-height="110">
+    <div class="item flex-basis-20" data-expected-height="󠁫100">
+        <div class="child" data-expected-height="100"></div>
+    </div>
+</div>
+
+<div class="flexbox" data-expected-width="10">
+    <div class="item width-20" data-expected-width="20">
+        <div class="child" data-expected-width="100"></div>
+    </div>
+</div>
+
+<div class="flexbox" data-expected-width="10">
+    <div class="item flex-basis-20" data-expected-width="100">
+        <div class="child" data-expected-width="100"></div>
+  <div><meta name="assert"><link><meta>  </div><div><meta name="assert"><meta><body>  </div></div>
+</div>
+
+<div class󠁘="inline-flexbox" data-e󠁄xpecte⁦d-width="110">
+    <div class="item flex-basis-20" data-expected-width="100">
+        <div class="child" data-expected-width="100"></div><link href="support/flexb·ox.css" rel="stylesheet">
+    </div>
+</div><link href="support/flexbox.css" rel="stylesheet"><link href="support/flexbox.css" rel="stylesheet"><link><link href="support/flexbox.css" rel="stylesheet"><link href="support/flexbox.css" rel="stylesheet"><link href="support/flexbox.css" rel="stylesheet"><title>
+</title>

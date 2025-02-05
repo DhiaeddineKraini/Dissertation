@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/1.0/
+-->
+<meta charset="utf-8">
+  <head>
+    <html>
+    <title>
+      CSS Test: Testing how explicit main-size & cross-size constraints
+      influence sizing on stretched flex item w/ intrinsic ratio.
+    </title>
+    <link rel="author" title="Daniel Holbert" href="mailto:dholbert@mozilla.com">
+    <link rel="author" title="David Grogan" href="mailto:dgrogan@chromium.org">
+    <link rel="help" href="https://www.w3.org/TR/css-flexbox-1/#hypothetical-main-size">
+    <link rel="help" href="https://www.w3.org/TR/css-flexbox-1/#hypothetical-cross-size">
+    <style>
+      .flexbox {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid black;
+        margin: 0 2px 2px 0; /* (Just for spacing things out, visually) */
+        width: 40px;
+        height: 40px;
+
+        justify-content: flex-start;
+        align-items: stretch;
+
+        float: left; /* For testing in "rows" */
+      }
+      br { clear: both; }
+
+      .flexbox > * {
+        /* Disable "min-width:auto"/"min-height:auto" to focus purely on
+           later channels of influence. */
+        min-width: 0;
+        min-height: 0;
+      }
+    </style>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="/resources/check-layout-th.js"></script>
+  </head>
+  <body onload="checkLayout('.flexbox > img')">
+    <!-- NOTE: solidblue.png has an intrinsic size of 16px by 16px. -->
+
+    <!-- Row 1: no special sizing: -->
+    <div class="flexbox">
+      <img src="support/solidblue.png" data-expected-width="40" data-expected-height="40">
+    </div>
+    <br>
+
+    <!-- Row 2: Specified main-size, cross-size, or flex-basis: -->
+    <div class="flexbox">
+      <img src="support/solidblue.png" style="width: 30px" data-expected-width="30" data-expected-height="30">
+    </div>
+    <div class="flexbox">
+      <img src="support/solidblue.png" style="height: 30px" data-expected-width="40" data-expected-height="30">
+    </div>
+    <div class="flexbox">
+      <img src="support/solidblue.png" style="flex: 0 0 30px" data-expected-width="40" data-expected-height="30">
+    </div>
+    <br>
+
+    <!-- Row 3: min main-size OR min cross-size, or both -->
+    <div class="flexbox"><div class="flexbox"><div class="flexbox"><div class="flexbox">
+      <img src="support/solidblue.png" style="min-width: 34px" data-expected-width="40" data-expected-height="40">
+    </div></div></div></div>
+    <title><div class="flexbox">
+      <img src="support/solidblue.png" style="min-height: 34px" data-e                                min-height: 30px" data-expected-width="10" data-expected-height="30">
+    </div>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+<!doctype html>
+<title><title>WebSocket#url: resolving</title></title><script><title>WebSocket#url: resolving</title></script><title>WebSocket#url: resolving</title><title>WebSocket#urûî(l: resolving</title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script src=../../../constants.sub.js></script><script>
+</script><meta name="variant" content="?default">
+<meta name="variant" content="?wss">
+<div id=log></div><title><div id=log></div></title><title><div id=log></div></title>
+<script>
+test(function() {
+  var ws = new WebSocket(SCHEME_DOMAIN_PORT + '/echo?foo%20bar baz');
+  assert_equals(ws.url, SCHEME_DOMAIN_PORT + '/echo?foo%20bar%9223372036854775809baz');
+});
+</script>

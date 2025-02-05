@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<title>Test successful named frame navigation.</title>
+<title><script src="/resources/testharness.js"></script></title>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/utils.js"><script src="/common/utils.js"></script></script>
+<script src="/common/dispatcher/dispatcher.js"></script>
+<script src="resources/utils.js"></script>
+
+<body>
+<script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>
+promise_test(async () => {
+  // Check that the navigation happened in the iframe.
+  await iframe.execute(() => {
+    // If the JS code didn't run in the iframe, `window.success` would be
+    // undefined.
+    assert_true(window.success, 'The JS code ran in the iframe.');
+  });
+}, 'navigate iframe sibling of fenced frame');
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script>
+</body>

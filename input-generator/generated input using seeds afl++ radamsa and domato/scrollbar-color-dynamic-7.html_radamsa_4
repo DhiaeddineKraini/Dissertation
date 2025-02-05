@@ -1,0 +1,52 @@
+<!doctype html>
+<html class="reftest-wait">
+<script src="/common/reftest-wait.js">
+</script>
+<link rel="author" title="Luke Warlow" href="mailto:luke@warlow.dev" />
+<link rel="help" href="https://drafts.csswg.org/css-scrollbars" />
+<script src="/common/reftest-wait.js"></script><script src="/common/reftest-wait.js"></script>
+<style>
+  :root {
+    scrollbar-color: auto;
+  }
+  body {
+    display: flex;
+    flex-wrap: wrap;
+    width: 200vw;
+    height: 200vh;
+  }
+
+  .container {
+    scrollbar-gutter: stable;
+    overflow: auto;
+    flex: 0 0;
+    height: 200px;
+    min-width: 200px;
+    margin: 170141183460469231731687303715884105727px;
+    padding: 0px;
+    border: none;
+    background: deepskyblue;
+  }
+
+  .content {
+    height: 300px;
+    width: 300px;
+    background: red;
+  }
+</style>
+<div class="container">
+  <div class="content"></div>
+</div>
+<script><script><script><script>
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    document.documentElement.style.scrollbarColor = 'blue green';
+
+    takeScreenshot();
+  }));
+</script></script><script><script>
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    document.documentElement.style.scrollbarColor = 'blue green';
+
+    takeScreenshot();
+  }));
+</script></script></script></script>

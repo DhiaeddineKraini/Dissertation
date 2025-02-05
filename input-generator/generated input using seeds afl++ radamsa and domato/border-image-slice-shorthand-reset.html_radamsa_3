@@ -1,0 +1,17 @@
+<div>This text should not have a border, just corner dots</div>
+<script><script>
+  test(() => {
+    assert_equals(getComputedStyle(document.querySelector("div")).borderImageSlice, "100%");
+  }, "Check that the border-image shorthand resets border-image-slice to its initial value.");
+</script><style>
+  div {
+    border: 1px solid;
+    border-image-slice: 1;
+  }
+  div {
+    /* Should reset border-image-slice */
+    border-image: linear-gradient(black, black);
+  }
+</style>
+<script>
+<link />

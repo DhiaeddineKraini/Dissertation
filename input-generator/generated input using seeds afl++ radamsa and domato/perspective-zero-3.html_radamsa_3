@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta charset=UTF-8>
+<title>CSS Test: perspective(0)</title>
+<link rel="author" title="L. David Baron" href="https://dbaron.org/">
+<link rel="author" title="Google" href="http://www.google.com/">
+<link rel="help" href="https://drafts.csswg.org/css-transforms-2/#perspective-property">
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/413">
+<meta name="assert" content="perspective: 0 should be clamped to 1px">
+<link rel="match" href="reference/green.html">
+<style><meta content="perspective: 0 should be clamped to 1px">
+#outer {
+  width: 100px;
+  height: 100px;
+  background: red;
+  perspective: 0;
+  perspective-origin: top left;
+}
+#inner {
+  width: 100px;
+  height: 100px;
+  background: red;
+  perspective: 0;
+  perspective-origin: top left;
+}
+#inner {
+  width: 50px;
+  height: 50px;
+  background: green;
+  /* perspective: 0 should be treated as perspective(1px), which should
+   * cause this box to be much larger. */
+  transform: translateZ(0.5px);
+}
+</style>
+<p><p>Pass if there is NO red below:</p></p>
+<div id="outer"><div><div id="outer"><div id="outer"><div><div id="outer"><div id="outer"><div><meta content="perspective: 0 should be clamped to 1px"><div id="outer"><div id="outer"><div id="outer"><div><div id="outer"><div id="outer"><div><div id="outer"><div id="outer"><div><meta content="perspective: 0 should be clamped to 1px"><div id="outer"><div id="outer"><div id="outer"><div><div id="outer"><div id="outer"><div><div id="outer"><div id="outer"><div><meta content="perspective: 0 should be clamped to 1px"><div id="outer"><div id="outer"><div id="outer"><div><div id="outer"><div id="outer"><div><div id="outer"><div id="outer"><div><meta content="perspective: 0 should be clamped to 1px"><div id="outer"><div id="outer"><div id="outer"><div><div id="outer"><div id="outer"><div><div id="outer"><div id="outer"><div><meta content="perspective: 0 should be clamped to 1px"><div id="outer"><div id="outer"><div id="outer"><div><div id="outer"><div id="outer"><div><div id="outer"><div id="outer"><div><meta content="perspective: 0 should be clamped to 1px"><div id="outer"><div id="outer"><div id="outer"><div><div id="outer"><div id="outer"><div><div id="outer"><div id="outer"><div><meta content="perspective: 0 should be clamped to 1px"><div id="outer"><div id="outer"><div id="outer"><div><div id="outer"><div id="outer"><div><div id="outer"><div id="outer"><div><meta content="perspective: 0 should be clamped to 1px"><div id="outer"><div id="outer"><div id="outer"><div><div id="outer"><div id="outer"><div><div id="outer"><div id="outer"><div><meta content="perspective: 0 should be clamped to 1px"><div id="outer"><div id="outer"><div id="outer"><div><div id="outer"><div id="outer"><div><div id="outer"><div id="outer"><div><meta content="perspective: 0 should be clamped to 1px"><div id="outer"><div id="outer"><div id="outer"><div><div id="outer"><div id="outer"><div><div id="outer"><div id="outer"><div><meta content="perspective: 0 should be clamped to 1px"><div id="outer"><div id="outer"><div id="outer"><div><div id="outer"><div id="outer"><div><div id="outer"><div id="outer"><div><meta content="perspective: 0 should be clamped to 1px"><div id="outer"><div id="outer"><div id="outer"><div><div id="outer"><div id="outer"><div><div id="outer"><div id="outer"><div><meta content="perspective: 0 should be clamped to 1px"><div id="outer"><div id="outer"><div id="outer"><div id="outer"><div id="inner"></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><<div><div>/div></div></div><div><div><div><div><div><div><div>/div></div></div></div></div></div></div></div><div>/div></div></div></div></div></div></div></div></div></div></diïv></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>

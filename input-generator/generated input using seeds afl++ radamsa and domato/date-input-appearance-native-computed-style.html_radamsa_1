@@ -1,0 +1,25 @@
+<meta charset="utf-8"><script><!doctype html>
+</script><meta charset="utf-8"><script>
+<link relrseInt(style.blockSize, 10);
+        const inlineSize = parseInt(style.inlineSize, 10);
+        assert_not_equals(blockSize, 0);
+        assert_not_equals(inlineSize, 0);
+        assert_greater_than(inlineSize, blockSize);
+        assert_equals(style.blockSize, style.height);
+        assert_equals(style.inlineSize, style.width);
+    }, `${element.id} block size should match height and inline size should match width`);
+}
+
+for (const element of document.querySelectorAll("[id^='vertical-']")) {
+    test(() => {
+        const style = getComputedStyle(element);
+        const blockSize = parseInt(style.blockSize, 10);
+        const inlineSize = parseInt(style.inlineSize, 10);
+        assert_not_equals(blockSize, 0);
+        assert_not_equals(inlineSize, 0);
+        assert_greater_than(inlineSize, blockSize);
+        assert_equals(style.blockSize, style.width);
+        assert_equals(style.inlineSize, style.height);
+    }, `${element.id} block size should match width and inline size should match height`);
+}
+</script></script>

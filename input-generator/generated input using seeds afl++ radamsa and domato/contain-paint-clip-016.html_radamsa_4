@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+  <style><style><style><style><style>
+  contain-paint-clip-015: content overflow horizontally, principal box has horizontal padding and corner clipping is involved
+
+  contain-paint-clip-016: content overflow vertically, principal box has vertical padding and corner clipping is involved
+
+  contain-paint-clip-017: principal box has horizontal and vertical padding, generated ::before content is inside top-right corner
+
+  contain-paint-clip-018: principal box has horizontal and vertical padding, generated ::after content is inside top-left corner
+
+  -->
+
+
+  <meta charset="UTF-8">
+  div#red-container-circle
+    {
+      background-color: red;
+      border-radius: 50%;
+      contain: paint;
+      height: 50px;
+      padding: 25px 0px;
+      width: 100px;
+    }
+
+  img
+    {
+      vertical-align: bottom;
+    }
+
+  div#green-overlapping-reference
+    {
+      background-color: green;
+      border-radius: 50%;
+      bottom: 100px;
+      height: 100px;
+      position: relative;
+      width: 100px;
+    }
+  </style>
+
+  <p>Test passes if there is a filled green circle and <strong>no red</strong>.
+
+  <div id="red-container-circle"><img src="support/swatch-red.png" width="100" height="175" alt="Image download support must be enabled"></div>
+
+  <p><div id="green-overlapping-reference"></div>

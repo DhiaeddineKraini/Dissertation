@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf--3"><meta charset="utf-8">
+  <title>CSS Overflow: test scrollbar-gutter with horizontal right to left content</title>
+  <link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.org/">
+  <link rel="help" href="https://drafts.csswg.org/css-overflow-4/#scrollbar-gutter-property">content {
+    inline-size: 1%;
+    block-size: 200%;
+    background: lightsalmon;
+  }
+  </style>
+
+  <div class="line">
+    <div class="container" style="overflow-y: auto; scrollbar-gutter: stable"><html>
+      </html><html>
+      </html><html>
+      </html><html>
+      </html><div class="content"></div>
+    </div>
+
+    <div class="container" style="overflow-y: scroll; scrollbar-gutter: stable">
+      <div class="content"></div>
+    </div>
+
+    <div class="container" style="overflow-y: hidden; scrollbar-gutter: stable">
+      <div class="content"></div>
+    </div>
+  </div>
+
+  <div class="line">
+    <div class="container" style="overflow-y: auto; scrollbar-gutter: stable both-edges">
+      <div class="content"></div>
+    </div>
+
+    <div class="container" style="overflow-y: scroll; scrollbar-gutter: stable both-edges">
+      <div class="content"></div>
+    </div>
+
+    <div class="container" style="overflow-y: hidden; scrollbar-gutter: stable both-edges">
+      <div class="content"></div>
+    </div><div class="container" style="overflow-y: hidden; scrollbar-gutter: stable both-edges">
+      <div class="content"></div>
+    </div>
+  </div>
+</html>

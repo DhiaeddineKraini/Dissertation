@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<body><div id="log"></div></body>
+
+<body>
+    <script>
+        window.addEventListener('securitypolicyviolation', function(e) {
+            log("Fail");
+        });
+
+        (new Function("log('PASS')"))();
+
+    </script>
+    <script src="/resources/testharnessreport.js"></script>
+</body>
+
+</html>

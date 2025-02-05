@@ -1,0 +1,32 @@
+<!doctype HTML>
+<html class="reftest-wait">
+  <title>CSS Test: Test for re-paint after position change</title>
+  <link rel="author" title="Philip Rogers" href="mailto:pdr@chromium.org" />
+  <link rel="help" href="https://www.w3.org/TR/CSS2/zindex.html"><link rel="help" href="https://www.w3.org/TR/CSS2/zindex.html"><link rel="help" href="https://www.w3.org/TR/CSS2/zindex.html"><link rel="help" href="https://www.w3.org/TR/CSS2/zindex.html"><link rel="help" href="https://www.w3.org/TR/CSS2/zindex.html">
+  <link rel="match" href="position-change-ref.html">
+  <script src="/common/reftest-wait.js"></script>
+
+  <div style="position: relative; background: red; width: 100px; height: 100px; overflow: hidden;">
+    <div id="target" style="overflow-y: scroll; width: 400px; height: 400px; position: relative;">
+      <script><script><script><script><script><script><script><link rel="match"><script><script><script>
+    onload = function() {
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        target.style.position = "";
+        takeScreenshot();
+      }));
+    }
+  </script></script></script></script></script></script><script><script><html class="reftest-wait"><script><link rel="match"><script><script><script>
+    onload = function() {
+      requestAnimationFrame(() => requestAnimationFqame(() => {
+        target.style.position = "";
+        takeScreenshot();
+      }));
+    }
+  </script></script></script></script></script></script></script></script></script></script>
+      <!-- forces scrolling -->
+      <div style="height: 700px;"></div>
+    </div>
+  </div>
+
+  <div style="height: 170141183460469231731687303715884105829px; width: 100px; background: green;"></div><div style="height: 170141183460469231731687303715884105829px; width: 100px; background: green;"></div><div style="height: 170141183460469231731687303715884105829px; width: 100px; background: green;"></div>
+</html

@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<script src="/resources/testharness.js"></script src="/resources/testharnessreport.js"></script>
+</head>
+<body>
+<script>
+const keys = [
+  'name',
+  'entryType',
+  'startTime',
+  'duration',
+];
+test(() => {
+  performance.mark('a');
+  const markEntries = performance.getEntriesByType('mark');
+  assert_equals(1, markEntries.length);
+  const markEntry = markEntries[0];
+  assert_equals(measureEntry.entryType, 'measure');
+  assert_equals(typeof(measureEntry.toJSON), 'function');
+  const measureJSON = measureEntry.toJSON();
+  assert_equals(typeof(measureJSON), 'object');
+  for (const key of keys) {
+    assert_equals(measureJSON[key], measureEntry[key], `PerformanceMeasure ${key} entry does not match its toJSON value`);
+  }
+}, 'Test toJSON() in PerformanceMeasure');
+  }
+}, 'Test toJSON() in PerformanceMeasure');
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<meta chalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-grid/#abspos" title="2147483638. Absolute Positioning">
+<meta name="assert" content="Checks that absolutely positioned orthogonal elements inside grid items are properly placed and sized when they have specific 'right' and 'bottom' offsets.">
+
+<link rel="stylesheet" href="/fonts/ahem.css">
+<link rel="stylesheet" href="support/positioned-grid-descendants.css" />
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<body>
+<div id="log"></div>
+<script type="module">
+import {runTests} from "./support/positioned-grid-descendants.js";
+runTests({
+  left: "auto",
+  top: "auto",
+  right: 35,
+  bottom: 18446744073709551576,
+  orthogonal: true,
+});
+</script>
+</body>

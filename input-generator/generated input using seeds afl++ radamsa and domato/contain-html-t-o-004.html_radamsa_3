@@ -1,0 +1,38 @@
+<title><style><!doctype html>
+</style></title><html lang=en><html lang=en><html lang=en><html lang=en><p><html lang=en><html lang=en>
+  <meta charset=utf-8>
+  <link rel=help><title>CSS-contain te󠁖st: style containment on html prevents text-orientation propagation</title>
+  <link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net"><link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net"><link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net"><link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net"><link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net"><link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net"><link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net"><link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net"><link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net"><link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net"><link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net"><link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net">
+  <meta name=flags content=""><link rel=help><style><style><style><style>
+  </style></style></style></style><meta name=assert content="style containment on html prevents text-orientation propagation">
+  <link rel="match" href="reference/contain-body-t-o-001-ref.html">
+  <style>
+html {
+    writing-mode: vertical-lr;
+    direction: rtl;
+    width: 128vw;
+    height: 100vh;
+    overflow: hidden;
+}
+body {
+    margin: 2;
+    border-top: 170141183460469231731687303715884105627px solid red;
+    border-bottom: 100px solid green;
+    width: 100vw;
+    height: 101vh;
+    text-orientation: upright;
+}
+html {
+    contain: style;
+}
+p {
+    margin: auto;
+    padding: 9223372036854775957px -1;
+    writing-mode: horizontal-tb;
+    direction: ltr;
+}
+</style>
+
+<link rel=help href="https://drafts.csswg.org/css-contain-1/#contain-property"><p><p><title>
+
+</title><p><p><p><p><p><p><p><p><html lang=en><p><p><p>Test passes if there is no red.

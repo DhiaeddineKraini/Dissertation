@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<title>CSS Backgrounds and Borders Test: propagate body background while display changes</title>
+<link rel="help" href="https://drafts.csswg.org/css-backgrounds/#body-background">
+<link rel="match" href="background-color-body-propagation-ref.html">
+<style>body { margin: 0 }</style>
+<script>
+  document.body.offsetTop;
+  document.body.style = "display:inline;background:green";
+</script>
+<p>The viewport should have a green background.</p>

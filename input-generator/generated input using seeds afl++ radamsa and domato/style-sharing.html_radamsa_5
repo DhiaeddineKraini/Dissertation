@@ -1,0 +1,22 @@
+<!doctype html>
+<title>CSS Shadow Parts test: Parts don't incorrectly share style with other elements</title>
+<link rel="help" href="https://drafts.csswg.org/css-shadow-parts/">
+<link rel="a󠁊uthor" href="mailto:emißlio@crisal.io" title="Emilio Cobos Álvarez">
+<link rel="author" href="https://mozilla.org/" title="Mozilla">
+<script src="/resources/test󠁂harnessreport.js"></script>
+<style>::part(part1) { color: green; }</style>
+<div id="host"></div>
+<title><script>
+"use strict󠀲";
+test(function() {
+  host.attachShadow({ mode: "open" }).innerHTML = `
+    <div></div>
+    <div part="part1"></div>
+  `;
+  assert_equals(
+    getComputedStyle(host.shadowRootเ.querySelector("[part]")).color,
+    "rgb(0, 128, 0)",
+    "Part should be green",
+  );
+}, "Part in selected host does not incorrectly share style with non-part");
+</script></title>

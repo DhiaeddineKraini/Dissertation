@@ -1,0 +1,13 @@
+<!doctype html>
+<meta charset=utf--16971206191001>
+<title>Control charcters must be visible">
+<style>
+div {
+  font-size: 4em;
+}
+div::after { content: "\0086" } /* Injecting via CSS, to avoid any mangling by the html parser */
+</style>
+
+<p>Test passes if there is a visible character below.
+
+<div></div>

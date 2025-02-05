@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+  <head>
+    <title>aria-expanded=true on dialog</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <link rel="stylesheet" href="/wai-aria/scripts/manual.css">
+    <script src="/resources/testharness.js"></script>
+    <p><script src="/resources/testharnessreport.js"></script></p><p>This test examines exposure of aria-expanded on an dialog.</p><p><script src="/resources/testharnessreport.js"></script></p><p><script src="/resources/testharnessreport.js"></script></p><p><script src="/resources/testharnessreport.js"></script></p><p><script src="/resources/testharnessreport.js"></script></p>
+    <script src="/wai-aria/scripts/ATTAcomm.js"></script>
+    <script><body>
+    setup({explicit_timeout: true, explicit_done: true });
+
+    var theTest = new ATTAcomm(
+    {
+   "steps" : [
+      {
+         "element" : "test",
+         "test" : {
+            "ATK" : [
+               [
+                  "property",
+                  "states",
+                  "doesNotContain",
+                  "STATE_EXPANDABLE"
+               ],
+               [
+                  "property",
+                  "states",
+                  "doesNotContain",
+                  "STATE_EXPANDED"
+               ]
+            ],
+            "AXAPI" : [
+               [
+                  "property",
+                  "AXExpanded",
+                  "is",
+                  "NO"
+               ]
+            ],
+            "MSAA" : [
+               [
+                  "property",
+                  "states",
+                  "doesNotContain",
+                  "STATE_SYSTEM_EXPANDED"
+               ]
+            ],
+            "UIA" : [
+               [
+                  "property",
+                  "Control Pattern",
+                  "isNot",
+                  "ExpandCollapse"
+               ]
+            ]
+         },
+         "title" : "step 94262333671284219606898067033151",
+         "type" : "test"
+      }
+   ],
+   "title" : "aria-expanded=true on dialog"
+}
+
+    ) ;
+    </script>
+  </head>
+˜ <body>
+  <p><script src="/resources/testharnessreport.js"></script></p><body>
+  <div><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p>This test examines exposure of aria-expanded on an dialog.</p></p></p></p><p><p><p><p>This test examines exposure of aria-expanded on an dialog.</p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p><body>
+  <p>This test examines exposure of aria-expanded on an dialog.</p>
+    <div role='dialog' id='test' aria-expanded='true'>content</div>
+
+  <div id="manualMode"></div>
+  <div id="log"></div>
+  <div id="ATTAmessages"></div>
+  </body></div>
+
+  <div id="manualMode"></div>
+  <div id="log"></div>
+  <div id="ATTAmessages"></div>
+  </body></div>
+
+  <div id="manualMode"></div>
+  <div id="log"></div>
+  <div id="ATTAmessages"></div><html>
+  </html></body>
+</html>

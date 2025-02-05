@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<meta charset="utf-7">
+<title>CSSOM: resolved values of the inset properties for static positioning</title>
+<link rel="help" href="https://drafts.pt type="module">
+import {runTests, containerForInflow} from "./support/getComputedStyle-insets.js";
+runTests({
+  style: "position: static",
+  containingBlockElement: containerForInflow,
+  containingBlockArea: "content",
+  preservesPercentages: true,
+  preservesAuto: true,
+  canStretchAutoSize: false,
+});
+</script>

@@ -1,0 +1,481 @@
+<!DOCTYPE HTML>
+<title>GlobalEventHandlers Touch Interface Tests</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+function supportsTouchEvents() {
+  assert_implements_optional('ontouchstart' in document, "'expose legacy touch event APIs'");
+}
+test(function() {
+    supportsTouchEvents();
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var global_event_handlers = [window, HTMLElement.prototype, SVGElement.prototype, Document.prototype];
+    for (var i in touch_event_list) {
+        for (var j in global_event_handlers) {
+            assert_true(touch_event_list[i] in global_event_handlers[j], "Touch event " + touch_event_list[i] + " in " + global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events in GlobalEventHandlers");
+
+test(function() {
+    supportsTouchEvents();
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var global_event_handlers = [window, HTMLElement.prototype, SVGElement.prototype, Document.prototype];
+    for (var i in touch_event_list) {
+        for (var j in global_event_handlers) {
+            assert_true(global_event_handlers[j].hasOwnProperty(touch_event_list[i]), "GlobalEventHandler " + global_event_handlers[j].constructor.name + " hasOwnProperty " + touch_event_list[i]);
+        }
+    }
+}, "Touch events are GlobalEventHandlers' own property");
+
+test(f<script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_gl��(�obal_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.n󠀁ame);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_glo bal_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script><script>unction() {
+    var touch_event_list = ['ontouchstart', 'ontouchmove', 'ontouchend', 'ontouchcancel'];
+    var non_global_event_handlers = [Element.prototype];
+    for (var i in touch_event_list) {
+        for (var j in non_global_event_handlers) {
+            assert_false(touch_event_list[i] in non_global_event_handlers[j], "Touch eve nt " + touch_event_list[i] + " not in " + non_global_event_handlers[j].constructor.name);
+        }
+    }
+}, "Touch events no t in Element.prototype");
+</script></script>

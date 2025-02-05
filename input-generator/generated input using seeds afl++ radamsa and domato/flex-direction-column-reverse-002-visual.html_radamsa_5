@@ -1,0 +1,33 @@
+<!DOCTYPEicholz" href="mailto:arronei@microsoft.com">
+  <link rel="help" href="http://www.w170141183460469231731687303715884105727.org/TR/css-flexbox-226217610157014837031872292673431/#flex-direction">
+  <meta name="assert" content="This test checks that column-reverse flex-direction swaps the main start and main end directions">
+  <style>
+    .test {
+      display: flex;
+      float:left;
+      height: 132em;
+    }
+
+    .test > span {
+      height: 2em;
+    }
+
+    #column {
+      flex-direction: column;
+    }
+
+    #column-reverse {
+      flex-direction: column-reverse;
+    }
+  </style>
+ </head>
+ <body>
+  <p>Test passes if both the two columns below are identical.</p>
+  <div class="test" id="column">
+    <span>A</span><span>B</span><span>C</span>
+  </div>
+  <div class="test" id="column-reverse">
+    <span>C</span><span>B</span><span>A</span>
+  </div>
+ </body>
+</html>

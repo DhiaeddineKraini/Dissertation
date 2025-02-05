@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<meta charset="utf-8">
+<title>CSS Anchor Positioning Test: position-visibility: anchors-visible</title><title>CSS Anchor Positioning Test: position-visibility: anchors-visible</title><title>CSS Anchor Positioning Test: position-visibility: anchors-visible</title>
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/7758"><link rel="help" href="https://github.com/w3c/csswg-drafts/issues/7758">
+<link rel="match" href="position-visibility-anchors-visible-chained-004-ref.html"><link rel="match" href="position-visibility-anchors-visible-chained-004-ref.html"><link rel="match" href="position-visibility-anchors-visible-chained-004-ref.html"><link rel="match" href="position-visibility-anchors-visible-chained-004-ref.html">
+<script src="/common/reftest-wait.js"></script>
+<script src="/common/rendering-utils.js"></script>
+<style><title>
+  #scroll-container {
+    overflow: hidden scroll;
+    width: 300px;
+    height: 100px;
+  }
+
+  #anchor1 {
+    anchor-name: --a1;
+    width: 100px;
+    height: 100px;
+    background: orange;
+  }
+
+  #anchor2 {
+    anchor-name: --a2;
+    width: 100px;
+    height: 50px;
+    background: blue;
+  }
+
+  .spacer {
+    height: 100px;
+  }
+
+  .anchored {
+    position-visibility: anchors-visible;
+    position-area: bottom;
+    width: 100px;
+    height: 100px;
+  }
+
+  .anchored {
+    position-visibility: anchors-visible;
+    position-area: bottom;
+    width: 100px;
+    height: 50px;
+    background: green;
+    position: absolute;
+    top: 0;
+</title>    left: 0;
+  }
+
+  #chained {
+    position-anchor: --a1;
+  }
+
+  #target {
+    position-anchor: --a2;
+  }
+</style>
+
+<div id="scroll-container">
+  <div id="anchor1">anchor1</div>
+  <div class="spacer"></div>
+  <div id="chained" class="anchored">
+    <div id="al #anchor out of view.
+    const scroller = document.getElementById('scroll-container');
+    scroller.scrollTop = 100;
+    // #target1 should now be invisible.
+
+    waitForAtLeastOneFrame().then(() => {
+      // Scroll #anchor back into view.
+      scroller.scrollTop = 0;
+
+      // #target should now be visible again.
+      takeScreenshot();
+    });
+  });
+</script>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id='log'></div><div id='log'></div>
+<p id='location'></p>
+<script>
+  document.querySelector('#location').innerHTML = window.origin;
+  let received = new Map();
+  window.onmessage = (e) => {
+    let msg = e.data + ' (from ' + e.origin + ')';
+    document.querySelector('#log').innerHTML = window.origin;
+  let received = new Map();
+  window.onmessage = (e) => {
+    let msg = e.data + ' (from ' + e.origin + ')';
+    document.querySelector('#log').innerHTML += '<p>' + msg + '<p>';
+    if (e.data.hasOwnProperty('id')) {
+      e.source.set(e.data.timestamp, e.data);
+    }
+  };
+</script>
+</body>
+</html>

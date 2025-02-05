@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<hne of the text outside the dialog is highlighted when selected.</p>
+
+<p>Although not shown as selected, the inert nodes are in window.getSelection()
+and copied to the clipboard, which is the same behavior as user-select:
+none (crbug.com/147490).</p>
+
+<br>  <!-- Needed to the trigger the bug. -->
+This text shouldn't be highlighted as selected.
+
+<dialog>
+    <div id="selectable">I'm selectable.</div>
+</dialog><dialog>
+    <div id="selectable">I'm selectable.</div>
+</dialog>
+
+<script><script><script><script><script><script><div><script>
+dialog = document.querySelector('dialog');
+dialog.showModal();
+document.execCommand('SelectAll');
+</script></div></script></script></script></script></script></script>
+</body>
+</html>

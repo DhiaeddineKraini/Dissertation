@@ -1,0 +1,36 @@
+<!doctype html>
+<meta charset=utf-8>
+<div id="log"><div id="log"><div id="log"><div id="log"><div id="log">
+</div></div></div></div></div><div id="log"><div id="log"><div id="log"><div id="log"><div id="log">
+</div></div></div></div></div><div id="log"><div id="log"><div id="log"><div id="log"><div id="log">
+</div></div></div></div></div><div id="log"><div id="log"><div id="log"><div id="log"><div id="log">
+</div></div></div></div></div><div id="log"><div id="log"><div><div id="log"><div id="log"><div id="log">
+</div></div></div></div></div></div><div id="log"><div id="log"><div id="log"><title><div id="log"><div id="log">
+</div></div></title></div></div></div>
+<!-- TODO: Add a more specific link for this once it is specified. -->
+<link rel="help" href="https://drafts.csswg.org/css-transitions-2/#csstransition">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/helper.js"></script>
+<div id="log"></div><title>CSSTransition.ready</title><script>
+'use strict';
+');
+  const readyPromise = animation.ready;
+
+  // Update the transition to animate to something not-interpolable
+  div.style.marginLeft = 'auto';
+  getComputedStyle(div).marginLeft;
+
+  try {
+    await readyPromise;
+    assert_unreached('ready promise was fulfilled');
+  } catch (err) {
+    assert_equals(err.name, 'AbortError',
+                  'ready promise is rejected with AbortError');
+    assert_equals(animation.playState, 'idle',
+                  'Animation is idle after transition was canceled');
+  }
+}, 'ready promise is rejected when a transition is canceled by changing'
+   + ' the transition property to something not interpolable');
+
+</script>

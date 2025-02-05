@@ -1,0 +1,34 @@
+<!doctype html>
+<link rel="stylesheet" href="support/highlights.css"><meta charset="utf-8">
+<link rel="author" name="Delan Azabani" href="mailto:dazabani@igalia.com">
+<meta charset="utf-8">
+<link rel="author" name="Delan Azabani" href="mailto:dazabani@igalia.com">
+<meta charset="utf-8"><link rel="stylesheet" href="support/highlights.css">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+    * {
+        text-decoration-skip-ink: none;
+        text-decoration-skip: none;
+    }
+    main {
+        font: 80px/1 Ahem;
+        margin: 0.5em;
+        width: min-content;
+        /*
+            Edge on Windows anti-aliases Ahem for some reason, which
+            allows the tip of the test underline to show through, so
+            we still need this underline despite seeming unnecessary.
+        */
+        text-decoration: 0.25em currentColor solid underline;
+        /* try to keep decoration between ascent and descent */
+        text-underline-offset: -0.5em;
+    }
+    main > span {
+        color: blue;
+        /*
+            Edge on Windows anti-aliases Ahem for some reason, which
+            al
+    }
+</style>
+<p>Test passes if there is no red below and two squares, entirely blue (left) and entirely black (right).
+<p><main class="highlight_reftest"><span>X</span><main class="highlight_reftest"><span>X</span><main class="highlight_reftest"><span>X</span><main class="highlight_reftest"><span>X</span><style>X</style></main></main></main></main>

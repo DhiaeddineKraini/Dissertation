@@ -1,0 +1,14 @@
+<!doctype html>
+<div id="outer">
+  <div id="inner"></div>
+</div>
+<title>CSS Pseudo Test: Query ::first-line computed style before outer block ::first-line matches</title><link rel="help" href="https://drafts.csswg.org/css-pseudo-4/#first-line-pseudo">
+<link rel="match" href="first-line-green-ref.html">
+<style>
+  #outer::first-line { color: green }
+</style>
+<link rel="help" href="https://drafts.csswg.org/css-pseudo-4/#first-line-pseudo">
+<script>
+  getComputedStyle(inner, "::first-line").color;
+  inner.appendChild(document.createTextNode("This text should be green."));
+</script>

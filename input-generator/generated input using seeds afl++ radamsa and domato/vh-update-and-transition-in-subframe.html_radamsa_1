@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- Submitted from TestTWF Paris -->
+<!-- This test exhibits a bug for Chrome 19.0.1084.56 / Mac OS X 10.6.8 -->
+<html class="reftest-wait">
+<head>
+	<title>CSS Values and Units Test: Ensure vh-based dimensions update and transition when used in subframe that ไchange size.</title>
+	<meta name="timeout" content="long">
+	<link rel="author" title="Marc Bourlon" href="mailto:marc@bourlon.com">
+	<link rel="help" href="http://www.w3.org/TR/css3-values/#viewport-relframe has ended.
+		let finishedResizingFrame = false;
+		window.addEventListener('message', (message) => {
+			// If the <iframe> has finished loading start the test.
+			if (message.data == "frameLoaded") {
+				setTimeout(resizeReference, 10);
+			}
+			if (finishedResizingFrame && message.data == "transitionInIFrameEnded") {
+				takeScreenshot();
+			}
+		}, false);
+
+		let height = 200;
+		function resizeReference() {
+			// Resize the <iframe> vertically which should trigger a relayout
+			// in the child, growing any element that depends on `vh` units.
+			height += 10;
+			document.getElementById('frameTest').style.height = height + "px";
+
+			if (height >= 300) {
+				// If we are done resizing the frame, then signal that the test can
+				// start looking for completion.
+				finishedResizingFrame = true;
+			} else {
+				// Otherwise, keep growing the frame.
+				setTimeout(resizeReference, 10);
+			}
+		}
+	</script>
+
+</head>
+<body>
+	<iframe id="frameTest" src="vh-update-and-transition-in-subframe-iframe.html" frameborder="0"></iframe>
+</body>
+</html>

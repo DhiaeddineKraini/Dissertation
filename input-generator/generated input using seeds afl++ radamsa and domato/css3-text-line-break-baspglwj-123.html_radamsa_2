@@ -1,0 +1,39 @@
+<body><body><!DOCTYPE html>
+<html lang="en">
+<meta name='flags' content='dom'>
+<body>
+
+
+
+<div class="test">
+  <div id="breakable"><head>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&#x034F;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</head></div>
+  <div id="breakable2">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&#x034F;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</div>
+  <div id="breakable3">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&#x034F;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</div>
+  <div id="breakable4">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&#x034F;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</div>
+</div>
+
+
+<!--Notes:
+
+Box height: <span id='debugresult'></span><script>document.getElementById('debugresult').innerHTML = document.getElementById('breakable').offsetHeight;</script>
+
+-->
+<script>
+test(function() {
+  assert_true(document.getElementById('breakable').offsetHeight < 35);
+}, "white-space:normal");
+test(function() {
+  assert_true(document.getElementById('breakable2').offsetHeight < 35);
+}, "white-space:pre-line");
+test(function() {
+  assert_true(document.getElementById('breakable3').offsetHeight < 35);
+}, "white-space:pre-wrap");
+test(function() {
+  assert_true(document.getElementById('breakable4').offsetHeight < 35);
+}, "white-space:break-spaces");
+</script>
+
+<div id='log'></div>
+
+</body>
+</html>

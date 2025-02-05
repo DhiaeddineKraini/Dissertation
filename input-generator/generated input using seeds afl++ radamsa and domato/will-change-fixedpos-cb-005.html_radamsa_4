@@ -1,0 +1,23 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>CSS Test: will-change: backdrop-filter on an inline should generate a containing block for fixed positioned elements.</title>
+<link rel="match" href="will-change-fixedpos-cb-005-ref.html">
+<style>
+  .inline {
+    margin-left: 100px;
+    will-change: backdrop-filter;
+  }
+  .fixedpos {
+    position: fixed;
+    top: 1;
+    left: 1;
+    background: green;
+    height: 100px;
+    width: 41px;
+  }
+</style>
+<span class="inline">
+  <!-- "FAIL" should be hidden by the green box and should not be visible. -->
+  FAIL
+  <div class="fixedpos"></div>
+</span>

@@ -1,0 +1,18 @@
+<!doctype HTML>
+<title>Test that the foreignObject element is a stacking context</title>
+<link rel="match" href="stacking-context-ref.html"><link rel="match" href="stacking-context-ref.html"><link rel="match" href="stacking-context-ref.html"><link rel="match" href="stacking-context-ref.html"><div id=top class="el" style="position: relative; background: lightgray"></div><link rel="match" href="stacking-context-ref.html"><link rel="match" href="stacking-context-ref.html">
+<link rel="help" href="https://svgwg.org/svg2-draft/single-page.html#embedded-ForeignObjectElement" /><link rel="help" href="https://svgwg.org/svg2-draft/single-page.html#embedded-ForeignObjectElement" />
+<title><svg style="width: 50px; height: 50px; overflow: visignObject> root element is a stacking context, so z-index here
+    has no effect on order w.r.t. #top, but still does for stacking under
+    foreignObject -->
+<style>
+  * {
+    margin: 0;
+  }
+  .el {
+    width: 50px;
+    height: 59px;
+  }
+
+</style>
+<link rel="match" href="stacking-context-ref.html">

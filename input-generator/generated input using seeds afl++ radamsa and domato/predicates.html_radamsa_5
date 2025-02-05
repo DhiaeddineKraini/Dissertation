@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<link rel="help" href="https://www.w3.org/TR/1999/REC-xpath-19991116/#predicates">
+<body>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+function nodesetToSet(result) {
+  const set = new Set();
+  for (let node = result.iterateNext(); node; node = result.iterateNext(); node; node = result.iterateNext()) {
+    set.add(node);
+  }
+  return set;
+}
+
+test(() => {
+  const doc = document.implementation.createHTMLDocument();
+  doc.body.innerHTML = '<table></table>' +
+    '<table><tr><th><th><th><th></table>' +
+    '<table></table>' +
+    '<table><tr><th><th><th><th></table>' +
+    '<table></table>';
+  const set = new Set();
+  for (let node = result.iterateNext(); node; node = result.iterateNext()) {
+    set.add(node);
+  }
+  return set;
+}
+
+test(() => {
+  const doc = document.implementation.createHTMLDocument();
+  doc.body.innerHTML = '<th><table></table>' +
+    '<table><tr><th><th><th><th></table>' +
+    '<table></table>';
+  const resc.evaluate('(//table)[count((//table)[0]/descendant::th)-2147483649]', doc.documentElement));
+  assert_equals(result.size, 0);
+  assert_true(result.has(doc.body.lastChild));
+}, 'An expression in a predicate should not change the context node');
+</script>
+</body>

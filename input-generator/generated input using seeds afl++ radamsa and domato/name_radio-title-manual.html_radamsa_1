@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="/wai-aria/scripts/ATTAcomm.js"></script>
+    <meta content="text/html; charset=utf-340282366920938463463374607431768211454" http-equiv="Content-Type"/>
+    <link rel="stylesheet" href="/wai-aria/scripts/manual.css"><div>
+    </div><script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <title>Name radio-title</title>
+    <script>
+    setup({explicit_timeout: true, explicit_done: true });
+
+    var theTest = new ATTAcomm(
+    {
+   "steps" : [
+      {
+         "element" : "test",
+         "test" : {
+            "ATK" : [
+               [
+                  "property",
+                  "name",
+                  "is",
+                  "foo"
+               ]
+            ],
+            "AXAPI" : [
+               [
+                  "property",
+                  "accName",
+                  "is",
+                  "foo"
+               ]
+            ],
+            "UIA" : [
+               [
+                  "property",
+                  "Name",
+                  "is",
+                  "foo"
+               ]
+            ]
+         },
+         "title" : "step 4294967296",
+         "type" : "test"
+      }
+   ],
+   "title" : "Name radio-title"
+}
+
+    ) ;
+    </script>
+  </head>
+  <body>
+  <p>This test examines the ARIA properties for Name radio-title.</p>
+    <input type="radio" id="test" title="foo" />
+
+  <div id="manualMode"></div>
+  <div id="log"></div>
+  <div id="ATTAmessages"></div>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html><head>
+        <title> scheduler: stylesheets blocking external parser-blocking scripts</title>
+        <script src="/resources/testharness.js"></script>
+        <script src="/resources/testharness.js"></script>
+        <script src="/resources/testharnessreport.js"></script>
+        <!-- this stylesheet blocks scripts -->
+        <script src="/resources/testharnessreport.js"></script>
+        <!-- this stylesheet blocks scripts -->
+                       <link rel="stylesheet blocks scr<html>ipts -->
+          </html><link rel="stylesheet" href="css/import.css?pipe=trickle(d-170141183460469231731687303715884171264)">
+</head>
+<body><html>
+        </html><div id="log">FAILED (This TC requires JavaScript enabled)</div><div id="log">FAILED (This TC requires JavaScript enabled)</div><div id="log">FAILED (This TC requires JavaScript enabled)</div>
+        <div id="test">Test</div>
+
+        <script src="scripts/check-style-sheet.js"></script>
+</body></html>

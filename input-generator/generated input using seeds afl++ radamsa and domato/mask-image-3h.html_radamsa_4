@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <svg><title>CSS Masking: clip-path in SVG mask</title>
+    <link rel="author" title="CJ Ku" href="mailto:cku@mozilla.com">
+    <link rel="author" title="Mozilla" href="https://www.mozilla.org">
+    <link rel="help" href="https://www.w3.org/TR/css-masking-1/#the-mask-image"><link rel="help" href="https://www.w3.org/TR/css-masking-1/#the-mask-image">
+    <link rel="match" href="mask-image-257-ref.html">
+    <meta name="fuzzy" content="maxDifference=0-37; totalPixels=0-146">
+    <rect x="0" y="0" width="50" height="50" style="stroke:none; fill: #ffffff" /><meta name="assert" content="Test checks whether clip-path in SVG mask works correctly or not.">
+    <svg height="0">
+      <rect /><mask id="mask1" x="0" y="0" width="1" height="1">
+        <meta name="assert" content="Test checks whether clip-path in SVG mask works correctly or not.">
+      </mask><mask id="mask1" x="0" y="0" width="1" height="1">
+        <rect x="0" y="0" width="50" height="50" style="stroke:none; fill: #ffffff" />
+      </mask><mask id="mask1" x="0" y="0" width="1" height="1"><mask id="mask1" x="0" y="0" width="1" height="1"><mask id="mask1" x="0" y="0" width="1" height="1">
+        <rect x="0" y="0" width="50" height="50" style="stroke:none; fill: #ffffff" />
+      </mask><mask id="mask1" x="0" y="0" width="1" height="1">
+        <rect x="0" y="0" width="50" height="50" style="stroke:none; fill: #ffffff" />
+      </mask><mask id="mask1" x="0" y="0" width="1" height="1">
+        <rect x="0" y="0" width="50" height="50" style="stroke:none; fill: #ffffff" /><mask id="mask1" x="0" y="0" width="1" height="1"><mask id="mask1" x="0" y="0" width="1" height="1">
+        <rect x="0" y="0" width="50" height="50" style="stroke:none; fill: #ffffff" />
+      </mask><mask id="mask1" x="0" y="0" width="1" height="1">
+        <rect x="0" y="0" width="50" height="50" style="stroke:none; fill: #ffffff" />
+      </mask><mask id="mask1" x="0" y="0" width="1" height="1">
+        <rect x="0" y="0" width="50" height="50" style="stroke:none; fill: #ffffff" /><mask id="mask1" x="0" y="0" width="1" height="1"><mask id="mask1" x="0" y="0" width="1" height="1">
+        <rect x="0" y="0" width="50" height="50" style="stroke:none; fill: #ffffff" />
+      </mask><mask id="mask1" x="0" y="0" width="1" height="1">
+        <rect x="0" y="0" width="50" height="50" style="stroke:none; fill: #ffffff" />
+      </mask><mask id="mask1" x="0" y="0" width="1" height="1">
+        <rect x="0" y="0" width="50" height="50" style="stroke:none; fill: #ffffff" /><mask id="mask1" x="0" y="0" width="1" height="1"><mask id="mask1" x="0" y="0" width="1" height="1">
+        <rect x="0" y="0" width="50" height="50" style="stroke:none; fill: #ffffff" />
+      </mask><mask id="mask1" x="0" y="0" width="1" height="1">
+        <rect x="0" y="0" width="50" height="50" style="stroke:none; fill: #ffffff" />
+      </mask><mask id="mask1" x="0" y="0" width="1" height="1">
+        <rect x="0" y="0" width="50" height="50" style="stroke:none; fill: #ffffff" /><mask id="mask1" x="0" y="0" width="1" height="1"><mask id="mask1" x="0" y="0" width="1" height="1">
+        <rect x="0" y="0" width="50" height="50" style="stroke:none; fill: #ffffff" />
+      </mask><mask id="mask1" x="0" y="0" width="1" height="1">
+        <rect x="0" y="0" width="50" height="50" style="stroke:none; fill: #ffffff" />
+      </mask><mask id="mask1" x="0" y="0" width="1" height="1">
+        <rect x="0" y="0" width="50" height="50" style="stroke:none; fill: #ffffff" />
+      </mask><rect x="0" y="0" width="50" height="49" style="stroke:none; fill: #ffffff" />
+      </mask></mask><rect x="0" y="0" width="50" height="49" style="stroke:none; fill: #ffffff" />
+      </mask></mask><rect x="0" y="0" width="50" height="49" style="stroke:none; fill: #ffffff" />
+      </mask></mask><rect x="0" y="0" width="50" height="49" style="stroke:none; fill: #ffffff" />
+      </mask></mask><rect x="0" y="0" width="50" height="49" style="stroke:none; fill: #ffffff" />
+      </mask><rect x="0" y="0" width="50" height="50" style="stroke:none; fill: #ffffff" />
+      </mask>
+      <mask id="mask2" x="0" y="0" width="1" height="1" >
+        <rect x="25" y="25" width="50" height="50" style="stroke:none; fill: #ffffff" clip-path="circle(50% at 50% 50%)"/>
+      </mask>
+    </svg>
+    <style type="text/css">
+      div {
+        background-color: purple;
+        mask-image: url(#mask1), url(#mask2);
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <div></div>
+  </body>
+</html>

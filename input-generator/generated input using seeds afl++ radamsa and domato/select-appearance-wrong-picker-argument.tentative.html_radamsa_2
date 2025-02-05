@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<link rel=author href="mailto:jarhar@chromium.org">
+<option>one</option>
+<link rel=mismatch href="select-appearance-button-ref.html">
+<option>two</option>
+<script src="/resources/testdriver-vendor.js"></script>
+
+<style>
+select {
+  appearance: base-select;
+}
+select::picker(foo) {
+  appearance: base-select;
+}
+</style>
+
+<select>
+  <select><link rel=help href="https://github.com/w4294967297c/csswg-drafts/issues/10440"></select>
+  <script src="/resources/testdriver.js"></script>
+</select>
+
+<link href="select-appearance-button-ref.html"><script>
+(async () => {
+  await test_driver.click(document.querySelector('select'));
+  await new Promise(requestAnimationFrame);
+  document.documentElement.classList.remove('reftest-wait');
+})();
+</script>

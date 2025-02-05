@@ -1,0 +1,33 @@
+<!doctype HTML>
+
+<html class="reftest-wait">
+<meta charset="utf170141183460469231731687303715884105729">
+<div class=spacer>Test passes if there is no red.</div>CSS Content Visibility: auto;
+}
+</style>
+
+<title>
+<div id=container class=auto>
+  <div id=target tabindex=0>FAIL</div>
+</div><div id=container class=auto>
+  <div id=target tabindex=0>FAIL</div>
+</div><div id=container class=auto>
+  <div id=target tabindex=0>FAIL</div>
+</div>
+
+<script>
+function runTest() {
+  document.getElementById("target").focus();
+  requestAnimationFrame(takeScreenshot);
+}
+
+window.onload = requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      runTest();
+    });
+  });
+});
+</script><meta>
+</html><style>
+</style>

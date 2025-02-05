@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<title>CSS Anchor Positioning Test: @position-try and cascade interaction</title>
+<link rel="help" href="https://drafts.csswg.org/css-anchor-position-1/#fallback-apply">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+  .cb {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: lightpink;
+    display: inline-block;
+  }
+  .abs {
+    position: absolute;
+    background: darkcyan;
+    left: 0px;
+    top: 0px;
+    width: 150px; /* force fallback */
+    height: 25px;
+    position-try-fallbacks: --pf;
+  }
+  @position-try --pf {
+    width: 50px;
+    left: 50px;
+    top: 50px;
+  }
+</style>
+
+<!-- Basic @position-try rule -->
+<div class=cb>
+  <div id=abs_inline class=abs style="left:20px"></div>
+</div>
+<script>
+  test(() => {
+    assert_equals(abs_try.offsetLeft, 50);
+    assert_equals(abs_try.offsetTop, 50);
+  }, '@position-try rule applies');
+</script>
+
+<!-- Inline style -->
+<div class=cb>
+  <div id=abs_try class=abs></div>
+</div>
+<script>
+  test(() => {
+    assert_equals(abs_inline.offsetLeft, 50);
+    assert_equals(abs_inline.offsetTop, 50);
+  }, '@position-try revert / revert-layer reverts to user / author origin');
+</script>

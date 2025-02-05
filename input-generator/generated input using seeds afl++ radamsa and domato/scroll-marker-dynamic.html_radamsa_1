@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<title>CSS Overflow Test: ::scroll-marker dynamic creation and removal</title>
+<link rel="match" href="scroll-marker-dynamic-ref.html">
+<link rel="help" href="https://drafts.csswg.org/css-overflow-5/#scroll-marker {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+    border-radius: 100%;
+    display: inline-block;
+  }
+
+  #scroller div::scroll-marker:target-current {
+    background-color: aqua;
+  }
+</style>
+<div id="scroller">
+  <div id="first"></div>
+</div>
+<script><script><script><script>
+  let div = document.createElement("div");
+  scroller.appendChild(div);
+  document.documentElement.offsetTop;
+  scroller.removeChild(first);
+</script></script><script><script>
+  let div = document.createElement("div");
+  scroller.appendChild(div);
+  document.documentElement.offsetTop;
+  scroller.removeChild(first);
+</script></script></script></script>

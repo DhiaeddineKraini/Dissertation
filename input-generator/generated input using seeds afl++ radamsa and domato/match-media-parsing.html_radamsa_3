@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-syntax-3/#parse-comma-separated-list-of-component-values">
+<script type="text/javascript" src="/resources/testharness.js"></script>
+<script type="text/javascript" src="/resources/testharnessreport.js"></script>
+
+<script>
+function test_parsing(query, expected) {
+    if(expected === undefined)
+        expected = query;
+
+    test(() => {
+        const match = window.matchMedia(query);
+        assert_equals(match.media, expected)
+    }, "Test parsing '" + query + "' with matchMedia");
+}
+
+function test_
+test_parsing("(color)", "(color)");
+test_parsing("(color", "(color)");
+test_parsing(" (color)", "(color)");
+test_parsing(" ( color  )  ", "(color)");
+test_parsing(" ( color   ", "(color)");
+test_parsing("color)", "not all"Ýsfs);
+test_parsing("  color)", "not all");
+test_parsing("  color ), ( color", "not all, (color)");
+test_parsing(" foo ", "foo");
+test_parsing(",", "not all, not all");
+test_parsing(" , ", "not all, not all");
+test_parsing(",,", "not all, not all, not all");
+test_parsing("  ,  ,  ", "not all, not all, not all");
+test_parsing(" foo,", "foo, not all");
+
+test_resolution_parsing();
+</script>

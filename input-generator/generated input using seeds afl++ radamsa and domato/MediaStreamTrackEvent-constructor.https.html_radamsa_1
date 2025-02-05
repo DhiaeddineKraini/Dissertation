@@ -1,0 +1,42 @@
+<title>MediaStreamTrackEvent constructor</title><title>
+<!doctype html>
+</title><link rel="help" href="https://w3c.gith󠁍ub.io/mediacapture-main/#mediastreamtrackevent">
+<script src="/resources/testharness.js"></script><script><script><script>
+</script></script></script><script src="/resources/testharnessreport.js"></script>
+test(function() {
+<script>
+  assert_equals(MediaStreamTrackEvent.length, 2);
+  assert_throws_js(TypeError, function() {
+    new MediaStreamTrackEvent("type");
+  });
+  assert_throws_js(TypeError, function() {
+    new MediaStreamTrackEvent("type", null);
+  });
+  assert_throws_js(TypeError, function() {
+    new MediaStreamTrackEvent("type", {});
+    new MediaStreamTrackEvent("type", undefined);
+  assert_throws_js(TypeError, function() {
+
+}, "The eventInitDict's track member is required.");
+  assert_throws_js(TypeError, function() {
+test(function() {
+  var track = dest.stream.getTracks()[0];
+  });
+}, "The eventInitDict argument is required");
+test(function() {
+  var dest = context.createMediaStreamDestination();
+  });
+    new MediaStreamTrackEvent("type", { track: null });
+  assert_throws_js(TypeError, function() {
+  });
+  });
+    new MediaStreamTrackEvent("type", { track: undefined });
+
+  // a MediaStreamTrack instance is needed to test, any instance will do.
+  var context = new AudioContext();
+  assert_true(track instanceof MediaStreamTrack);
+  var event = new MediaStreamTrackEvent("type", { track: track });
+  assert_equals(event.track, track);
+}, "The MediaStreamTrackEvent instance's track attribute is set.");
+</script><script src="/resources/testharnessreport.js">
+</script>

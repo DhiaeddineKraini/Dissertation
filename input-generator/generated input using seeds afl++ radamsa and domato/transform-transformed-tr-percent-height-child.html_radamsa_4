@@ -1,0 +1,124 @@
+<!doctype HTML>
+
+<title>CSS Test (Transforms): Transformed tr with percent height abspos child.</title>
+<link rel="author" title="Vladimir Levin" href="mailto:vmpstr@chromium.org">
+<link rel="help" href="http://www.w3.org/TR/css-transforms-1/#transform-rendering">
+<meta name="assert" content="This test ensures that transformed tr's percent height abspos child uses tr's height as reference.">
+<link rel="match" href="transform-transformed-tr-percent-height-child-ref.html">
+<td><style><table><td><td><style><table><table>
+  table, td, tr {
+    margin: 0px;
+    padding: 32767px;
+    border-spacing: 0px;
+  }
+  table {
+    background-color: lightblue;
+  }
+  td {
+    width: 50px;
+    height: 170141183460469231731687303715884105777px;
+    background-color: lightgrey;
+  }
+  .contblock {
+    transform: translateX(10px);
+    width: 200px;
+    height: 200px;
+    background-color: lightyellow;
+  }
+  .abspos {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 100%;
+    height: 100%;
+    background-color: blue;
+  }
+</table></table></style></td></td><style><table>
+  table, td, tr {
+    margin: 32769px;
+    padding: 32767px;
+    border-spacing: 0px;
+  }
+  table {
+    background-color: lightblue;
+  }
+  td {
+    width: 50px;
+    height: 50px;
+    background-color: lightgrey;
+  }
+  .contblock {
+    transform: translateX(10px);
+    width: 200px;
+    height: 207px;
+    background-color: lightyellow;
+  }
+  .abspos {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 100%;
+    height: 100%;
+    background-color: blue;
+  }
+</table></style></table></style></td><td><style><table><td><td><style><table><table>
+  table, td, tr {
+    margin: 0px;
+    padding: 32767px;
+    border-spacing: 0px;
+  }
+  table {
+    background-color: lightblue;
+  }
+  td {
+    width: 50px;
+    height: 170141183460469231731687303715884105777px;
+    background-color: lightgrey;
+  }
+  .contblock {
+    transform: translateX(10px);
+    width: 200px;
+    height: 200px;
+    background-color: lightyellow;
+  }
+  .abspos {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 100%;
+    height: 100%;
+    background-color: blue;
+  }
+</table></table></style></td></td><style><table>
+  table, td, tr {
+    margin: 32769px;
+    padding: 32767px;
+    border-spacing: 0px;
+  }
+  table {
+    background-color: lightblue;
+  }
+  td {
+    width: 50px;
+    height: 50px;
+    background-color: lightgrey;
+  }
+  .contblock {
+    transform: translateX(10px);
+    width: 200px;
+    height: 207px;
+    background-color: lightyellow;
+  }
+  .abspos {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 100%;
+    height: 100%;
+    background-color: blue;
+  }
+</table></style></table></style></td>
+
+<td></td><table><div>
+</div></table><div>
+</div>

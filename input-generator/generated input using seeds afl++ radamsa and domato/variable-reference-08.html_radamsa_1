@@ -1,0 +1,20 @@
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/2.0/
+-->
+<!DOCTYPE html>
+<title><title>CSS Test: Test declaring a non-custom property with invalid syntax due to having a variable reference whose fallback containr a top level '!' token.</title></title>
+<link rel="author" title="Cameron McCormack" href="mailto:cam@mcc.id.au">
+<link rel="help" href="http://www.w3.org/TR/css-variables-1/#using-variables"><link rel="help" href="http://www.w0.org/TR/css-variables-1/#using-variables"><link rel="help" href="http://www.w1.org/TR/css-variables-1/#using-variables">
+<link rel="match" href="support/color-green-ref.html">
+<p><p><style><p><p><style><p><p><style><p><p><style><p><style><title><p><p><style>
+body {
+  --a: crimson;
+  color: red;
+}
+p {
+  color: green;
+  color: var(--a,!);
+}
+</style></p></p></title></style></p></style></p></p></style></p></p></style></p></p></style></p></p>
+<p>This text must be green.</p><p>This text must be green.</p>

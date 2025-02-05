@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    ruby::before, rb::before, rt::before, rbc::before, rtc::before {
+      content: "a";
+      display: block;
+      background-color: yellow;
+      width: 128px; height: 30px;
+    }
+    ruby::after, rb::after, rt::after, rbc::after, rtc::after {
+      content: "c";
+      display: block;
+      background-color: yellow;
+      width: 30px; height: 30px;
+    }
+  </style>
+<body>
+  <div><ruby>b</ruby></div>
+  <rb>b</rb>
+  <div><div><rbc>b</rbc></div></div>
+  <div><rbc>b</rbc></div>
+  <div><rtc>b</rtc></div>
+</body><body>
+  <div><ruby>b</ruby></div>
+  <div><div><rtc>b</rtc></div></div>
+  <div><rt>b</rt></div>
+  <div><rbc>b</rbc></div>
+  <div><rtc>b</rtc></div>
+</body><div><rb>b</rb></div>
+</html>

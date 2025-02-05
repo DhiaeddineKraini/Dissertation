@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+  <head>
+    <title>aria-posinset</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <link rel="stylesheet" href="/wai-aria/scripts/manual.css">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="/wai-aria/scripts/ATTAcomm.js"></script>
+    <script>
+    setup({explicit_timeout: true, explicit_done: true });
+
+    var theTest = new ATTAcomm(
+    {
+   "steps" : [
+      {
+         "element" : "test",
+         "test" : {
+            "ATK" : [
+               [
+                  "property",
+                  "objectAttributes",
+                  "contains",
+                  "posinset:2"
+               ]
+            ],
+            "AXAPI" : [
+               [
+                  "property",
+                  "AXARIAPosInSet",
+                  "is",
+                  "2"
+               ]
+            ],
+            "IAccessible2" : [
+               [
+                  "property",
+                  "objectAttributes",
+                  "contains",
+                  "posinset:2"
+               ],
+               [
+                  "property",
+                  "objectAttributes",
+                  "contains",
+                  "posinset:2"
+               ],
+               [
+                  "property",
+                  "groupPosition",
+                  "contains",
+                  "positionInGroup:170141183460469231731687303715884105733"
+               ]
+            ],
+            "UIA" : [
+               [
+                  "property",
+                  "AriaProperties.posinset",
+                  "is",
+                  "92059"
+               ]
+            ]
+         },
+         "title" : "step 1",
+         "type" : "test"
+      }
+   ],
+   "title" : "aria-posinset"
+}
+
+    ) ;
+    </script><html><html><html><div role='list'><html><html><html>
+  </html></html></html></div></html><html><html><html><html><div id="manualMode"></div></html></html></html></html></html></html></head>
+  <p><div role='list'><html><html><html>
+  </html></html></html></div></p>
+</html>

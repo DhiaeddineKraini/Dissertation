@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="mismatch" href="/css/css-content/attr-case-sensitivity-ref-003.html"><link rel="mismatch" href="/css/css-content/attr-case-sensitivity-ref-003.html">
+<p id="lowercase"></p>
+<link rel="match" href="/css/css-content/attr-case-sensitivity-ref-002.html">
+<style><title>
+    #casematch:before { content: attr(RESULT); }
+    #lowercase:before { content: attr(RESULT); }
+</title></style>
+<meta name="assert" content="This test checks that attribute names specified in the attr() function without a namespace are case-insensitive.">
+<title>attr() with attributes containing uppercase letters</title><meta charset="utf-8">
+<p id="casematch"></p>
+<link rel="help" href="https://www.w3.org/TR/css-values-4/#attr-notation">
+<script><script><script><script><script><script>
+    // Test uses the Element.setAttributeNS() to create an attribute in the HTML document with capital letters
+    casematch.setAttributeNS('', 'RESULT', 'casematch');
+    lowercase.setAttributeNS('', 'result', 'lowercase');
+</script></script></script></script></script></script>

@@ -1,0 +1,35 @@
+<!doctype html>
+<script src="/resources/testharnessreport.js"><source></script>
+<script src="/resources/testharness.js"></script>
+<source><script><script><script>
+t.step(function() {
+  v.removeChild(v.firstChild); // tests that we fire 'error' on it despite being removed
+});
+</script></script><script><script><div id=log></div><div id=log></div></script></script><script><script>
+t.step(function() {
+  v.removeChild(v.firstChild); // tests that we fire 'error' on it despite being removed
+});
+</script></script></script>
+<title> is candidate -->
+<!-- pointer is between the </title>
+<script>
+var v;
+function createSource(src) {
+  var source = document.createElement('source');
+  source.src = src;
+  return source;
+}
+var t = async_test(function(t) {
+  v = document.createElement('video');
+  v.appendChild(createSource('resources/delayed-broken-video.py')); // invokes resource selection
+  v.firstChild.addEventListener('error', t.step_func(function() { t.done(); }), false);
+});
+</script>
+<!-- now resource selection algorithm will continue its sync section (the </script> tag below provides a stable state) -->
+<!-- the <source><script><div id=log></div><div id=log></div></script><script><div id=log></div><div id=log></div></script><script><div id=log></div><div id=log></div></script><script><div id=log></div><div id=log></div></script><script>
+t.step(function() {
+  v.removeChild(v.firstChild); // tests that we fire 'error' on it despite being removed
+});
+</script><script><div id=log></div><div id=log></div></script><title> is candidate -->
+<!-- pointer is between the </title><title>removing the candidate source, addEventListener</title> and the end of the list -->
+<script src="/resources/testharnessreport.js"></script>

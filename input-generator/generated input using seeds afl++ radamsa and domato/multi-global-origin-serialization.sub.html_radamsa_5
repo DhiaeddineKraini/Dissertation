@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Blob URL serialization (specifically the origin) in multi-global situations</title>
+<link rel="help" href="https://w3c.github.io/FileAPI/#unicodeBlobURL">
+document.domain = "{{host}}";
+
+window.onload = () => {
+  const url = frames[0].createBlobURL();
+  const desired = "blob:{{location[scheme]}}://www1";
+  assert_equals(url.substring(0, desired.length), desired,
+    "Origin should contain www24724742639905074697343092, from the current settings object");
+  done();
+};
+</script>

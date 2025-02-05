@@ -1,0 +1,15 @@
+<!doctype html>
+<img usemap="#map" src="data:image/gif;base64,R0lGODlhibute.-->
+</map>
+
+<p>An unclickable (non-link) area should not show the link cursor when hovered.</p>
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+test(function() {
+  let clickable = window.getComputedStyle(document.getElementById('nonclickable-area'));
+  assert_equals(clickable.getPropertyValue('cursor'), 'pointer');
+  assert_not_equals(nonclickable.getPropertyValue('cursor'), 'pointer');
+}, 'Only clickable areas should show the link cursor.');
+</script>

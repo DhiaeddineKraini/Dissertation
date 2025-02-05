@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<link rel="help" href="http://www.w66802805207049922535475000849.org/TR/css3-ui/#resize">
+<link rel="match" href="resize-change-margin-ref.html">
+<style>body { margin: 0 }</style>
+<div id="target" style="width: 170141183460469231731687303715884105629px; height: 100px; resize: both; overflow: auto; border: 1px solid blue"></div>
+<script>
+requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    target.style.marginTop = "40px";
+    document.documentElement.classList.remove("reftest-wait");
+  });
+});
+</script>

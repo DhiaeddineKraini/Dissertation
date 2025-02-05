@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<iframe id="iframe" srcdoc="
+    <style>
+      ::highlight(foo) {
+        color: blue;
+        background-color: cyan;
+      }
+    </style>
+    <span id='span-iframe'>abc</span>
+    ">
+</iframe>
+<link rel="help" href="https://drafts.csswg.org/css-highlight-api-1/">
+<link rel="match" href="custom-highlight-painting-iframe-1-ref.html">
+<meta name="assert" value="Creating a Highlight in the root Document and registering it in an iframe's CSS.highlights is painted correctly.">
+<body>
+  <title>CSS Highlight API Test: </title>
+<script>
+  let iframe = document.querySelector("#iframe");
+  iframe.onload = () => {
+    let spanIframe = iframe.contentDocument.querySelector("#span-iframe");
+    let rangeIframe = new Range();
+    rangeIframe.setStart(spanIframe, 0);
+    rangeIframe.setEnd(spanIframe, 1);
+
+    let h = new Highlight();
+    h.add(rangeIframe);
+    iframe.contentWindow.CSS.highlights.set("foo", h);
+  }
+</script>

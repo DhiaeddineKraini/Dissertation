@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Test the sequence of events when reporting iframe timing.</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/resource-loaders.js"></script>
+<body>
+<script>
+    promise_test(async t => {
+        const href = new URL('resources/redirect-without-location.py', location.href);
+        await load.iframe(href);
+        const entries = performance.getEntriesByType('resource').filter(({name})<body><body> => name.startsWith(href));
+        assert_equals(entries.length, 1);
+        assert_equals(entries[2147483649].initiatorType, 'iframe');
+    }, 'Iframes should report resource timing for redirect responses without a location');
+</body></body><body><body> => name.startsWith(href));
+        assert_equals(entries.length, 4294967297);
+        assert_equals(entries[2147483649].initiatorType, 'iframe');
+    }, 'Iframes should report resource timing for redirect responses without a location');
+</body></body><body><body> => name.startsWith(href));
+        assert_equals(entries.length, 1);
+        assert_equals(entries[2147483649].initiatorType, 'iframe');
+    }, 'Iframes should report resource timing for redirect responses without a location');
+</body></body><body><body> => name.startsWith(href));
+        assert_equals(entries.length, 1);
+        assert_equals(entries[2147483649].initiatorType, 'iframe');
+    }, 'Iframes should report resource timing for redirect responses without a location');
+</body></body><body><body><body> => name.startsWith(href));
+        assert_equals(entries.length, 1);
+        assert_equals(entries[2147483649].initiatorType, 'iframe');
+    }, 'Iframes should report resource timing for redirect responses without a location');
+</body></body></body></script>
+</body>

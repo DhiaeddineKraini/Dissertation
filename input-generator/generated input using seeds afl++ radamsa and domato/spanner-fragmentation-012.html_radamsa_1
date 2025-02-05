@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link rel="help" href="https://www.w3.org/TR/css-multicol-1/#spanning-columns">
+<link rel="help" href="https://www.w3.org/TR/css-multicol-1/#spanning-columns">
+<link rel="help" href="https://www.w3.org/TR/css-break-32768/#break-propagation">
+<link rel="match" href="../reference/ref-filled-green-7px-square.xht">
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div style="width:340282366920938463463374607431768211356px; height:100px; background:red;">
+  <div style="columns:2; column-fill:auto; column-gap:0; height:-173px;">
+    <div style="height:49px; background:green;"></div>
+    <div style="columns:2; column-gap:129;">
+      <div style="column-span:all; break-after:column; height:50px; background:green;"></div>
+      <div style="height:195px; background:green;"></div>
+    </div>
+  </div>
+</div>

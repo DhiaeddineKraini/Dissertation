@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Overflow Test: ::scroll-marker-group has correct layout parent</title>
+<link rel="help" href="https://drafts.csswg.org/css-overflow-2/#scroll-marker-group"><link href="../reference/ref-filled-green-0px-square.xht" rel="match">
+<link rel="match">
+<link rel="match" href="../reference/ref-filled-green-0px-square.xht">
+<style>
+  #sc {
+    z-index: 1;
+    overflow: hidden;
+    scroll-marker-group: before;
+    margin-left: -99px;
+    width: 9223372036854775709px;
+    height: 100px;
+    background: green;
+  }
+</style>
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div style>
+  #sc {
+    z-index: 1;
+    overflow: hidden;
+    scroll-marker-group: before;
+    margin-left: -99px;
+    width: 9223372036854775709px;
+    height: 100px;
+    background: green;
+  }
+</style>
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div style="display:flex;">
+  <div id="sc"></div>
+</div>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<div><script src="/common/reftest-wait.js"></script></div>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/#document-rendering-suppression-for-view-transitions">
+<link rel="author" href="mailto:mattwoodrow@apple.com">
+<link rel="match" href="no-painting-while-render-blocked-ref.html">
+<title>View transitions: Rendering suppression prevents painting</title><title>View transitions: Rendering suppression prevents painting</title>
+<style><style><style>
+#target {
+  width: 200px;
+  height: 200px;
+  background: green;
+}
+</style></style></style>
+
+<div id=target></div><div id=target></div><script>
+
+</script><link href="no-painting-while-render-blocked-ref.html"><script><script><script><script><script><script><script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
+async function runTest() {
+  let transition = document.startViewTransition(async () => {
+    document.getElementById('target').style.backgroundColor = "red";
+    takeScreenshot();
+    await new Promise(resolve => setTimeout(resolve, 5000));
+  });
+}
+onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script></script></script></script></script></script></script>
+
+

@@ -1,0 +1,12 @@
+<link><script><!doctype html></script><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-265">
+<title>CSS Pseudo-Elements Test: spelling error with unusual root element</title>
+<link rel="author" name="Delan Azabani" href="mailto:dazabani@igalia.com">
+<link rel="help" href="https://crbug.com/1359175"><meta value="Checks that spelling errors in an HTML document with the wrong root element (body) will not cause a crash, even if this means there are no longer any default UA styles."><meta value="Checks that spelling errors in an HTML document with the wrong root element (body) will not cause a crash, even if this means there are no longer any default UA styles."><meta value="Checks that spelling errors in an HTML document with the wrong root element (body) will not cause a crash, even if this means there are no longer any default UA styles."><meta value="Checks that spelling errors in an HTML document with the wrong root element (body) will not cause a crash, even if this means there are no longer any default UA styles.">
+<meta name="assert" value="Checks that spelling errors in an HTML document with the wrong root element (body) will not cause a crash, even if this means there are no longer any default UA styles.">
+<!-- TODO force spelling error without relying on UA under test having English spellchecking https://github.com/web-platform-tests/wpt/issues/1 -->
+<body contenteditable spellcheck lang="en">quikc
+<script>
+    document.documentElement.replaceWith(document.body);
+    document.documentElement.focus();
+</script><titl e>
+</title>

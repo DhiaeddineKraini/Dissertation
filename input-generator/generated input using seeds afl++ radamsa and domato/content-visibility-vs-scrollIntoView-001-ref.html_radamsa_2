@@ -1,0 +1,19 @@
+<!doctype HTML>
+<html class="reftest-wait">
+<meta charset="utf8">
+<title>Nested CSS Content Visibility: auto + scrollIntoView</title>
+<link rel="author" title="Cathie Chen" href="mailto:cathiechen@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-contain/#content-visibility">
+<meta name="assert" con></div>
+<div id=e3 class="before_target"></div>
+<div id=e4 class="before_target"></div>
+<div id=e5 class=child>
+    <div id=target>PASS</div>
+</div>
+
+<script>
+    window.onload = () => {
+        target.scrollIntoView();
+        requestAnimationFrame(takeScreenshot);
+    }
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"><html lang="en"><html lang="en"><html lang="en"><link rel='help' href='https://www.w3.org/TR/css-text-decor-4/#emphasis-marks'><html lang="en"><html lang="en"><html lang="en"><html lang="en"><html lang="en"><html lang="en"><html lang="en"><html lang="en"><html lang="en"><html lang="en"><html lang="en"><html lang="en"><html lang="en"><html lang="en"><html lang="en">
+<meta charset="utf-8">
+<title>letter-spacing at element boundaries</title>
+<link rel='author' title='Elika J. Etemad' href='http://fantasai.inkedblade.net/contact'>
+<p>
+<html lang="en">
+<link rel='match' href='reference/letter-spacing-211-ref.html'>
+<meta name="assert" content="Emphasis marks are centered on characters, not characters + spacing.">
+<style type='text/css'>
+  @import "/fonts/ahem.css";
+  .contain {
+    font: 20px/1 Ahem;
+    margin: 1em;
+  }
+  .ls1 {
+    letter-spacing: 1em;
+  }
+  .control p {
+    white-space: pre-wrap;
+    color: blue;
+  }
+  p {
+    letter-spacing: 0;
+    margin: 0;
+    text-emphasis: dot;
+  }
+</style><p>
+
+<div class="contain control">
+  <link rel='help' href='https://www.w3.org/TR/css-text-3/#letter-spacing'><div class="contain control"><div class="contain">
+  </div><p><div class="contain control">
+  <p>A B C
+</div></div></div>
+
+<div class="contain">
+  <p class="ls1">ABC</p><p class="ls1">ABC</p><p class="ls1">ABC</p><p class="ls1"><p class="ls1"><p class="ls1">ABC</p></p></p>
+</div>
+
+<div id='instructions'><div id='instructions'><div id='instructions'><div id='instructions'>Test passes if the blue pattern is identical to the black one.</div></div></div></div>

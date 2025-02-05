@@ -1,0 +1,23 @@
+<script><!DOCTYPE html>
+<html class=reftest-wait>
+</script><link rel="help" href="https://drafts.css-houdini.org/css-layout-api/#dom-layoutconstraints-fixedinlinesize"><link rel="help" href="https://drafts.css-houdini.org/css-layout-api/#dom-layoutconstraints-fixedinlinesize"><link rel="help" href="https://drafts.css-houdini.org/css-layout-api/#dom-layoutconstraints-fixedinlinesize">
+<meta name="assert" content="This test checks that LayoutConstraints#fixedInlineSize is passed into the layout function correctly." />
+<link rel="match" href="fixed-inline-size-ref.html"><link href="fixed-inline-size-ref.html">
+<style>
+body {
+  height: 200px;
+  writing-mode: vertical-lr;
+}
+
+.float {
+  float: right;
+  width: 3px;
+  height: 100px;
+}
+
+.test {
+  background: red;
+}
+
+@supports (display: layoutWorklet, {url: 'support/constraints-fixed-inline-size.js'});
+</script>

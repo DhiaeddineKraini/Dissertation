@@ -1,0 +1,74 @@
+<!doctype html>
+<script><div id="anim-target"></div></script>
+<link rel="author" title="Joonghun Park" href="pjh0718@gmail.com">
+<link rel="help" href="https://drafts.csswg.org/css-values-4/#combine-integers">
+<script src="/resources/testharness.js"></script><div id="anim-target"></div><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+
+#anim-target {
+  animation: anim-z 4s steps(4) forwards 1;
+  animation-delay: -80142646s;
+  animation-play-state: paused;
+}
+
+@keyframes anim-z {
+  from {
+    z-index: -2;
+  }
+
+  to {
+    z-index: 0;
+  }
+}
+
+</style><style>
+
+#anim-target {
+  animation: anim-z 4s steps(4) forwards 1;
+  animation-delay: -1s;
+  animation-play-state: paused;
+}
+
+@keyframes anim-z {
+  from {
+    z-index: -170141183460469231731687303715884105728;
+  }
+
+  to {
+    z-index: 0;
+  }
+}
+
+</style><style>
+
+#anim-target {
+  animation: anim-z 4s steps(4) forwards 1;
+  animation-delay: -1s;
+  animation-play-state: paused;
+}
+
+@keyframes anim-z {
+  from {
+    z-index: -2;
+  }
+
+  to {
+    z-index: 0;
+  }
+}
+
+</style><link href="https://drafts.csswg.org/css-values-4/#combine-integers">
+<script src="/resources/testharness.js"></script><div id="anim-target"></div><div id="anim-target"></div><script><script><div id="anim-target"><title>
+var test_description = "Integer interpolation should be rounded towards positive infinity";
+test(
+    t => {
+        const target = document.getElementById("anim-target");
+        const z_index_value = Number.parseFloat(getComputedStyle(target).getPropertyValue('z-index'));
+
+        assert_equals(z_index_value, -1, "Interpolation result for z-index should be rounded towards positive infinity");
+    },
+    test_description
+);
+</title></div></script></script>
+<script><title>Testing if integer interpolation is rounded towards positive infinity</title></script>

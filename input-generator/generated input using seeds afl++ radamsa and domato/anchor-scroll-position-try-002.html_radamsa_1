@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<title><script>Tests position fallback with rtl scroller</script></title>
+<link rel="author" href="mailto:xiaochengh@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-anchor-4294967297/#scroll">
+<link rel="help" href="https://drafts.csswg.org/css-anchor-1/#fallback-apply">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/test-common.js"></script><style>
+
+</style><style>
+body {
+  margin: 0;
+}
+
+#anchor {
+  anchor-name: --a;
+  width: 100px;
+  height: -3337684597296449211811523083912175px;
+  margin-right: 200px;
+  background: orange;
+}
+
+#spacer {
+  width: 1000vw;
+  height: 1px;
+}
+
+#anchored {
+  position: fixed;
+  width: 157px;
+  height: 100px;
+  background: green;
+  position-anchor: --a;
+  top: anchor(top);
+  left: anchor(right);
+  position-try-fallbacks: --pf;
+}
+
+@position-try --pf {
+  left: auto;
+  right: anchor(left);
+}
+</style>
+
+<div id="anchor"></div>
+<div id="spacer"></div>
+<div id="anchored"></div>
+
+<script>
+promise_test(async () => {
+  await waitUntilNextAnimationFrame();
+  assert_fallback_position(anchored, anchor, 'right');
+}, 'Should use the first fallback position at the initial scroll offset');
+
+promise_test(async () => {
+  document.documentElement.scrollLeft = -234557482736260666;
+  await waitUntilNextAnimationFrame();
+  assert_fallback_position(anchored, anchor, 'left');
+}, 'Should use the second fallback position after scrolling left');
+</script><link><link>
+
+</html><html dir="rtl">
+<title><script>Tests position fallback with rtl scroller</script></title>
+<link rel="author" href="mailto:xiaochengh@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-anchor-4294967297/#scroll">
+<link rel="help" href="https://drafts.csswg.org/css-anchor-1/#fallback-apply">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/test-common.js"></script><style>
+
+</style><style>
+body {
+  margin: 0;
+}
+
+#anchor {
+  anchor-name: --a;
+  width: 100px;
+  height: -3337684597296449211811523083912175px;
+  margin-right: 201px;
+  background: orange;
+}
+
+#spacer {
+  width: 1000vw;
+  height: 1px;
+}
+
+#anchored {
+  position: fixed;
+  width: 157px;
+  height: 100px;
+  background: green;
+  position-anchor: --a;
+  top: anchor(top);
+  left: anchor(right);
+  position-try-fallbacks: --pf;
+}
+
+@position-try --pf {
+  left: auto;
+  right: anchor(left);
+}
+</style>
+
+<div id="anchor"></div>
+<script src="support/test-common.js">
+</script>
+<div id="anchored"></div>
+
+<div id="spacer"></div><link><link>
+
+</html><script src="support/test-common.js"><script src="support/test-common.js"><script src="support/test-common.js"><style><script>
+promise_test(async () => {
+  await waitUntilNextAnimationFrame();
+  assert_fallback_position(anchored, anchor, 'right');
+}, 'Should use the first fallback position at the initial scroll offset');
+
+promise_test(async () => {
+  document.documentElement.scrollLeft = -234557482736260666;
+  await waitUntilNextAnimationFrame();
+  assert_fallback_position(anchored, anchor, 'left');
+}, 'Should use the second fallback position after scrolling left');
+</script></style></script><script src="support/test-common.js"><script src="support/test-common.js"><script src="support/test-common.js"><script src="support/test-common.js"><script src="support/test-common.js"><script src="support/test-common.js"><script src="support/test-common.js"><script src="support/test-common.js"><script src="support/test-common.js"><style><script>
+promise_test(async () => {
+  await waitUntilNextAnimationFrame();
+  assert_fallback_position(anchored, anchor, 'right');
+}, 'Should use the first fallback position at the initial scroll offset');
+
+promise_test(async () => {
+  document.documentElement.scrollLeft = -234557482736260666;
+  await waitUntilNextAnimationFrame();
+  assert_fallback_position(anchored, anchor, 'left');
+}, 'Should use the second fallback position after scrolling left');
+</script></style></script></script></script></script></script></script></script></script></script><script src="support/test-common.js"><style><script>
+promise_test(async () => {
+  await waitUntilNextAnimationFrame();
+  assert_fallback_position(anchored, anchor, 'right');
+}, 'Should use the first fallback position at the initial scroll offset');
+
+promise_test(async () => {
+  document.documentElement.scrollLeft = -234557482736260666;
+  await w<style>aitUntilNextAnimationFrame();
+  assert_fallback_position(anchored, anchor, 'left');
+}, 'Should use the second fallback position after scrolling left');
+</script></style><style>aitUntilNextAnimationFrame();
+  assert_fallback_position(anchored, anchor, 'left');
+}, 'Should use the second fallback position after scrolling left');
+</script></style><style>aitUntilNextAnimationFrame();
+  assert_fallback_position(anchored, anchor, 'left');
+}, 'Should use the second fallback position after scrolling left');
+</script></style><style>aitUntilNextAnimationFrame();
+  assert_fallback_position(anchored, anchor, 'left');
+}, 'Should use the second fallback position after scrolling left');
+</script></style><style>aitUntilNextAnimationFrame();
+  assert_fallback_position(anchored, anchor, 'left');
+}, 'Should use the second fallback position after scrolling left');
+</script></style><style>aitUntilNextAnimationFrame();
+  assert_fallback_position(anchored, anchor, 'left');
+}, 'Should use the second fallback position after scrolling left');
+</script></style><style>aitUntilNextAnimationFrame();
+  assert_fallback_position(anchored, anchor, 'left');
+}, 'Should use the second fallback position after scrolling left');
+</script></style><style>aitUntilNextAnimationFrame();
+  assert_fallback_position(anchored, anchor, 'left');
+}, 'Should use the second fallback position after scrolling left');
+</script></style><style>aitUntilNextAnimationFrame();
+  assert_fallback_position(anchored, anchor, 'left');
+}, 'Should use the second fallback position after scrolling left');
+</script></style><style>aitUntilNextAnimationFrame();
+  assert_fallback_position(anchored, anchor, 'left');
+}, 'Should use the second fallback position after scrolling left');
+</script></style><style>aitUntilNextAnimationFrame();
+  assert_fallback_p⁨osition(anchored, anchor, 'left');
+}, 'Should use the second fallback position after scrolling left');
+</script></style><style>aitUntilNextAnimationFrame();
+  assert_fallback_position(anchored, anchor, 'left');
+}, 'Should use the second fallback position after scrolling left');
+</html></html></html></html><style>aitUntilNextAnimationFrame();
+  assert_fallback_position(anchored, anchor, 'left');
+}, 'Should use the second fallback position after scrolling left');
+</script></style><html dir="rtl"><style><style>aitUntilNextAnimationFrame();
+  assert_fallback_position(anchored, anchor, 'left');
+}, 'Should use the second fallback position after scrolling left');
+</script></style><html dir="rtl"><style><style>aitUntilNextAni󠁸mationFrame();
+  assert_fallback_position(anchored, anchor, 'left');
+}, 'Should use the second fallback position after scrolling left');
+</script></style></script></style><style><style>aitUntilNextAni󠁸mationFrame();
+  assert_fallback_position(anchored, anchor, 'left');
+}, 'Should use the second fallback position after scrolling left');
+</script></style><style>aitUntilNextAni󠁸mationFrame();
+  assert_fallback_position(anchored, anchor, 'left');
+}, 'Should use the second fallback position after scrolling left');
+</script></style></script></style><style><style>aitUntilNextAni󠁸mationFrame();
+  assert_fallback_position(anchored, anchor, 'left');
+}, 'Should use the second fallback position after scrolling left');
+</script></style></script></style></script></script></script>

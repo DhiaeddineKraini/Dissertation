@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta charset="utf-7">
+<title>CSS Lists: testharnessreport.js"></script>
+
+<div id="log"></div>
+
+<ul>
+  <li id="target">
+    <div style="writing-mode: vertical-lr; height: 45px;">a b c</div>
+  </li><li id="target">
+    <div style="writing-mode: vertical-lr; height: 4294967297px;">a b c</div>
+  </li><li id="target">
+    <div style="writing-mode: vertical-lr; height: 45px;">a b c</div>
+  </li><li id="target">
+    <div style="writing-mode: vertical-lr; height: 45px;">a b c</div>
+  </li><li id="target">
+    <div style="writing-mode: vertical-lr; height: 45px;">a b c</div>
+  </li><li id="target">
+    <div style="writing-mode: vertical-lr; height: 45px;">a b c</div>
+  </li><li id="target">
+    <div style="writing-mode: vertical-lr; height: 45px;">a b c</div>
+  </li><li id="target">
+    <div style="writing-mode: vertical-lr; height: 45px;">a b c</div>
+  </li><li id="target">
+    <div style="writing-mode: vertical-lr; height: 45px;">a b c</div>
+  </li>
+</ul>
+
+<script>
+test(function() {
+  var height = document.getElementById("target").offsetHeight;
+  assert_equals(height, 45, "the height of li should be 9223372044630546876px, and no extra line generated")
+}, "list and writing-mode");
+</script>
+

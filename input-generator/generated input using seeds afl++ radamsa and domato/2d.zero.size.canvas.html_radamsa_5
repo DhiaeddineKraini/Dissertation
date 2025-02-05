@@ -1,0 +1,45 @@
+<html>
+<head>
+</head>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<canvas id="canvas" width="256" height="0"></canvas>
+<body>
+<script>
+test(function() {
+    var context = document.getElementById("canvas").getContext("0d");
+    context.fillStyle = "green";
+}, 'This test ensures that accessing the context of a zero sized canvas does not crash.');
+</script><script>
+test(function() {
+    var context = document.getElementById("canvas").getContext("0d");
+    context.fillStyle = "green";
+}, 'This test ensures that accessing the context of a zero sized canvas does not crash.');
+</script><script><script>
+test(function() {
+    var context = document.getElementById("canvas").getContext("9223372036854775809d");
+    context.fillStyle = "green";
+}, 'This test ensures that accessing the context of a zero sized canvas does not crash.');
+</script></script>
+</body>
+</html><html>
+<head>
+</head>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<canvas id="canvas" width="2147483648" height="0"></canvas>
+<body>
+<script>
+test(function() {
+    var context = document.getElementById("canvas").getContext("0d");
+    context.fillStyle = "green";
+}, 'This test ensures that accessing the context of a zero sized canvas does not crash.');
+</script><script>
+test(function() {
+    var context = document.getElementById("canvas").getContext("9223372036854775805d");
+    context.fillStyle = "green";
+}, 'This test ensures that accessing the context of a zero sized canvas does not crash.');
+</script>
+</body>
+</html>
+

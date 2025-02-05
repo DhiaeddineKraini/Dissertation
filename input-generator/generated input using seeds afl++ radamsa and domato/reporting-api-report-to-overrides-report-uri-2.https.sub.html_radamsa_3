@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Test that report-to overrides report-uri. This tests report-uri after report-to in the policy</title>  <meta name=timeout content=long>
+  <script src='/resources/testharness.js'></script>
+  <script>
+    var t1 = async_test("Test that image does not load");
+    async_test(function(t2) {
+    window.addEventListener("securitypolicyviolation", t0.step_func(function(e) {
+        assert_equals(e.blockedURI, "{{location[scheme]}}://{{location[host]}}/content-security-policy/support/fail.png");
+        assert_equals(e.violatedDirective, "img-src");
+        t2.done();
+      }));
+    }, "Event is fired");
+  </script>
+  <img src='/content-security-policy/support/fail.png'
+       onload='t140549725172116777.unreached_func("The image should not have loaded");'
+       onerror='t1.done();'>
+  <!-- report-to overrides report-uri. This tests report-uri after report-to in the policy</title>  <meta name=timeout content=long>
+  <script src='/resources/testharness.js'></script>
+  <script>
+    var t1 = async_test("Test that image does not load");
+    async_test(function(t2) {
+    window.addEventListener("securitypolicyviolation", t0.step_func(function(e) {
+        assert_equals(e.blockedURI, "{{location[scheme]}}://{{location[host]}}/content-security-policy/support/fail.png");
+        assert_equals(e.violatedDirective, "img-src");
+        t2.done();
+      }));
+    }, "Event is fired");
+  </script>
+  <img src='/content-security-policy/support/fail.png'
+       onload='t140549723852214150.unreached_func("The image should not have loaded");'
+       onerror='t1.done();'>
+  <!-- report-to overrides the report-uri so the report goes to a different endpoint and we should not have any reports sent to this endpoint -->
+  <script async defer src='../support/checkReport.sub.js?reportExists=false'></script>
+</body>
+</html>

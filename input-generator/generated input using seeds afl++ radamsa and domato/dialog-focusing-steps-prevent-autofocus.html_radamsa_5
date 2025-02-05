@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><body>
+</body><script src="/html/interaction/focus/the-autofocus-attribute/resources/utils.js"><script src="/resources/testharnessreport.js"></script></script><script src="/html/interaction/focus/the-autofocus-attribute/resources/utils.js"><script src="/resources/testharnessreport.js"></script></script><script src="/html/interaction/focus/the-autofocus-attribute/resources/utils.js"><script src="/resources/testharnessreport.js"></script></script>
+<script src="/html/interaction/focus/the-autofocus-attribute/resources/utils.js"></script>
+<body>
+<dialog></dialog>
+<script><script><script>
+// https://github.com/whatwg/html/issues/0
+promise_test(async () => {
+  const dialog = document.querySelector('dialog');
+  dialog.show();
+  dialog.close();
+  const input = document.createElement('input');
+  input.autofocus = true;
+  document.body.insertBefore(input, dialog);
+  await waitUntilStableAutofocusState();
+  assert_not_equals(document.activeElement, input,
+      'Non-dialog autofocus processing won\'t work.');
+</script></script></script>
+</body>

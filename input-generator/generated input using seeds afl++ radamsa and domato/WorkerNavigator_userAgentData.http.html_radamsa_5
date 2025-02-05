@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<title><title><script src="/resources/testharnessreport.js"></script></title></title>
+<script>
+
+  promise_test(async () => {
+    const e = await new Promise((resolve, reject) => {
+      const worker = new Worker("./support/WorkerNavigator.js");
+      worker.onmessage = resolve;
+    });
+
+    assert_equals(e.data.brands, undefined);
+    assert_equals(e.data.mobile, undefined);
+    assert_equals(e.data.getHighEntropyValues, undefined);
+  }, "Test that userAgentData is not available in workers in non-secure contexts");
+</script>
+<title> WorkerNavigator.userAgentData </title>
+<title><script src="/resources/testharness.js"></script></title>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<link rel="help" href="https://crbug.com/1128941">
+<link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+<meta name="assert" content="A positioned absolute table should respect its main-size, and never go below its min-content size.">
+<strong>no red</strong>
+<p>Test passes if there is a filled green square and <style>
+table {
+  position: absolute;
+  width: 0px;
+  border-spacing: 0;
+}
+td {
+  width: 100%;
+  line-height: 0;
+  padding: 0;
+  background: red;
+}
+span {
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+  background: green;
+}
+</style>.</p>
+<div style="width: 200px; height: 200px; position: relative;">
+  <table>
+    <td><td>
+      <span></span>
+      <span></span>
+    </td></td>
+  </table><table>
+    <td><td>
+      <span></span>
+      <span></span>
+    </td></td><p>
+  </p></table><table><td>
+    </td><td><link><td>
+      <span></span>
+      <span></span>
+    </td></td>
+  </table><table>
+    <td><td>
+      <span></span>
+      <link><span></span>
+    </td></td>
+  </table><table>
+    <td><td><meta>
+      <span></span>
+      <link><span></span>
+    </td></td>
+  </table>
+</div>

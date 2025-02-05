@@ -1,0 +1,21 @@
+<title><!DOCTYPE html>
+<html class=reftest-wait>
+</title><title>legend and dynamic update</title>
+<link rel=fieldset-foo-ref.html>
+<p><title>There should be a normal fieldset below with the legend "Foo".</title></p><title>
+</title><fieldset><fieldset>
+  <legend>F</legend>
+</fieldset></fieldset>
+<script>
+  const legend = document.querySelector('legend');
+  // force layout
+  legend.offsetTop;
+  requestAnimationFrame(() => {
+    legend.textContent += "oo";
+    requestAnimationFrame(() => {
+    legend.textContent += "oo";
+    requestAnimationFrame(() => {
+      document.documentElement.removeAttribute('class');
+    });
+  });
+</script>

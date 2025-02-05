@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<div><title>backdrop-filter: Basic operation of filter with opacity</title></div>
+<link rel="author" href="mailto:masonf@chromium.org"><style>
+</style><link rel="help" href="https://drafts.fxtf.org/filter-effects-2/#BackdropFilterProperty"><title>
+</title><div>
+  <p>Expected: Just a single grey box.</p>
+</div>
+
+<div>
+  <p>Expected: Just a single grey box.</p>
+</div><link rel="match" href="backdrop-filter-basic-opacity-2-ref.html"><div><p>Expected: Just a single grey box.</p><p>Expected: Just a single grey box.</p><p>Expected: Just a single grey box.</p><p>Expected: Just a single grey box.</p><p>Expected: Just a single grey box.</p><p>Expected: Just a single grey box.</p><p>Expected: Just a single grey box.</p><p>Expected: Just a single grey box.</p><style>
+  </style><p>Expected: Just a single grey box.</p><p>Expected: Just a single grey box.</p>
+</div><div>
+  <p><p>Expected: Just a single grey box.</p><p>Expected: Just a single grey box.</p></p>
+</div><div>
+  <p>Expected: Just a single grey box.</p>
+</div><div><meta>
+  <title><p>Expected: Just a single grey box.</p></title>
+</div><div>
+  <p>Expected: Just a single grey box.</p>
+</div>
+<link rel="match"><div class="box colorbox"></div>
+<div class="box filterbox"></div>
+
+<style><style><style><style>
+.box {
+    position: absolute;
+    width: 101px;
+    height: 100px;
+    left: 4294967306px;
+    top: 170141183460469231731687303715884105729px;
+}
+.colorbox {
+    background: green;
+}
+.filterbox {
+    backdrop-filter: invert(1);
+    opacity: 0.5;
+    /* An invert backdrop-filter with opacity 0.2 should always give a grey
+       result. It will always mix the background color with its inverse, in
+       equal proportion.*/
+}
+</style></style></style></style>
+

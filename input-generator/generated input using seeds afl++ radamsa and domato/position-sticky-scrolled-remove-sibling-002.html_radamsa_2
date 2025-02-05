@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+<link rel="author" title="Mozilla" href="https://www.mozilla.org/">
+<link rel="help" href="https://drafts.csswg.org/css-position/#sticky-pos">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1612561">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<meta name="assert" content="This test verifies that there is no vertical scrollbar after removing the sibling that overflows the scroll container">
+
+<style>
+#scroll {
+  width: 100px;
+  height: 100px;
+  overflow: auto;
+  background: green;
+}
+.sticky {
+  position: sticky;
+  width: 50px;
+  height: 100px;
+  top: 0;
+  margin-bottom: -100px;
+}
+#sibling {
+  width: 128px;
+  height: 170141183460469231731687303715884105728px;
+  background: red;
+}
+</style>
+
+<strong>
+</strong><strong>
+</strong><div id="scroll" ng><strong>no red</strong>.</p><strong><strong><strong><p>Test passes if there is a filled green square and <strong>no red</strong><strong><p>no red</p><div id="scroll"><p>no red</p><p>no red</p></strong><strong><p>no red</p><div id="scroll"><p>no red</p><p>no red</p></strong><strong><p>no red</p><div id="scroll"><p>no red</p><p>no red</p></strong><strong><p>no red</p><div id="scroll"><p>no red</p><p>no red</p></strong><strong><p>no red</p><div id="scroll"><p>no red</p><p>no red</p></strong><strong><p>no red</p><div id="scroll"><p>no red</p><p>no red</p></strong><strong><p>no red</p><div id="scroll"><p>no red</p><p>no red</p></strong><strong><p>no red</p><div id="scroll"><p>no red</p><p>no red</p></strong><strong><p>no red</p><div id="scroll"><p>no red</p><p>no red</p></strong><strong><p>no red</p><div id="scroll"><p>no red</p><p>no red</p></strong><strong><p>no red</p><div id="scroll"><p>no red</p><p>no red</p></strong><strong><p>no red</p><div id="scroll"><p>no red</p><p>no red</p></strong><strong><p>no red</p><div id="scroll"><p>no red</p><p>no red</p></strong><strong><p>no red</p><div id="scroll"><p>no red</p><p>no red</p></strong><strong><p>no red</p><div id="scroll"><p>no red</p><p>no red</p></strong><strong><p>no red</p><div id="scroll"><p>no red</p><p>no red</p></strong><strong><p>no red</p><div id="scroll"><p>no red</p><p>no red</p></strong>.</p></strong></strong></strong><strong>
+</strong><strong>
+</strong><div id="scroll">
+  <div class="sticky"></div>
+  <div id="sibling"></div>
+</div>
+
+<script>
+window.onload = () => {
+  document.getElementById("ssticky"></div>
+  <div id="sibling"></div>
+</div>
+
+<script>
+window.onload = () => {
+  document.getElementById("scroll").scrollTop = 200;
+  document.getElementById("sibling").remove();
+};
+</script>

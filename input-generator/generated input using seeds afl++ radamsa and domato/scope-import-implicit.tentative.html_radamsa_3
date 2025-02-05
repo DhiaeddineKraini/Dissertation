@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<title>@import scope(), implicit scope</title>
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/25419">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<main id=main>
+  <div class=scope>
+    <style>
+    @import url("resources/scope-imported.csector('main > .x');
+    assert_equals(getComputedStyle(e).getPropertyValue('--x'), '');
+  }, 'Scope-imported rule does not apply outside of implicit scope');
+</script>

@@ -1,0 +1,15 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>requestIdleCallback timeout callback must be called with didTimeout equal ttion g(deadline) {
+      assert_true(deadline.didTimeout)
+      t.done();
+    }
+
+    function f(deadline) {
+      assert_false(deadline.didTimeout);
+<div id="log">      window.requestIdleCallback(t.step_func(g), {timeout:100000});
+    }
+    window.requestIdleCallback(t.step_func(f));
+  }, "requestIdleCallback callback should not time out");
+
+</div></script>

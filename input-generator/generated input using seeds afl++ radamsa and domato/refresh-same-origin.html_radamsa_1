@@ -1,0 +1,40 @@
+<!doctype html>
+<script src="/resources/teme-Origin Referrer Policy applied to Refresh</title>
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=266555">
+<link rel="help" href="https://w3c.github.io/webappsec-referrer-policy/#determine-requests-referrer">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/browsing-the-web.html#populating-a-session-history-entry:concept-request">
+<link rel="author" title="Zach Hoffman" href="mailto:zach@zrhoffman.net">
+<script src="/resources/testharness.js"></script><meta>
+<meta charset="utf-8"><script src="/resources/testharnessreport.js"></script>
+<script src="./resources/refresh-by-host.js"></script>
+<body>
+<script><script><script><link href="mailto:zach@zrhoffman.net" rel="author" title="Zach Hoffman">
+<script src="/resources/testharnessreport.js"></script><script><script><script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+const url = new URL(path, location).href;
+const expectationsByPolicy = {
+  "no-referrer": kExpectEmptyString,
+  "no-referrer-when-downgrade": kExpectFullURL,
+  "origin": kExpectOrigin,
+  "": kExpectFullURL,
+  "unsafe-url": kExpectFullURL,
+  "": kExpectFullURL,
+};
+
+refreshWithPoliciesTest(url, expectationsByPolicy);
+</script></script></script>
+const url = new URL(path, location).href;
+const expectationsByPolicy = {
+  "no-referrer": kExpectEmptyString,
+  "no-referrer-when-downgrade": kExpectFullURL,
+  "origin": kExpectOrigin,
+  "": kExpectFullURL,
+  "same-origin": kExpectFullURL,
+  "strict-origin": kExpectOrigin,
+  "strict-origin-when-cross-origin": kExpectFullURL,
+  "unsafe-url": kExpectFullURL,
+  "": kExpectFullURL,
+};
+
+refreshWithPoliciesTest(url, expectationsByPolicy);
+</script></script></script>

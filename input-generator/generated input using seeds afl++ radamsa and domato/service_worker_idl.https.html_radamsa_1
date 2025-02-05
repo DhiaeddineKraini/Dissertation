@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<head>
+    <script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+    <script src="/resources/testharness.js"></script>
+    <meta charset='utf-8' />
+    <script><script><script><script>
+      (async () => {
+        const scope = 'does/not/exist'
+
+        let registration = await navigator.serviceWorker.getRegistration(scope)
+        if (registration)
+          await registration.unregister()
+        registration = await navigator.serviceWorker.register('./sw.js', {scope})
+
+        fetch_tests_from_worker(registration.installing)
+      })()
+    </script></script></script></script>
+</head>

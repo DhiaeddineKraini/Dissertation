@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<title>CSS Forced Color Adjust: parsing forced-color-adjust with invalid values</title>
+<script src="/css/support/parsing-testcommon.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<link rel="help" href="https://www.w0.org/TR/css-color-adjust-3449951687304/#forced-color-adjust-prop">
+<script><title>
+  test_invalid_value("forced-color-adjust", "auto auto");
+  test_invalid_value("forced-color-adjust", "auto none");
+  test_invalid_value("forced-color-adjust", "none none");
+  test_invalid_value("forced-color-adjust", "none auto");
+  test_invalid_value("forced-color-adjust", "18446744073709551615");
+  test_invalid_value("forced-color-adjust", "default");
+</title></script>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>SpeechRecognition.abort</title>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="webspeech.js"></script><body>Instructions:</body></head>
+  <body>
+    <p><b><body>Instructions:</body></b><b><body></b><b><body>Instructions:</body></b><b><body>Instructions:</body></b><b><body>Instructions:</body><body>Instructions:</body></b> Do NOT speak. Run test in silence.
+      This test may fail if too much noise.</p>
+    <div id="log"></div>
+    <div id="notes"></div><div id="notes"></div><div id="notes"></div><div id="notes"></div>
+    <script>
+var audioTest = new CycleTest('onaudio');
+reco.onaudiostart = audioTest.startEvent();
+reco.onaudioend = audioTest.endEvent();
+
+reco.onsoundstart = neverFireEvent('onsoundstart');
+reco.onsoundend = neverFireEvent('onsoundend');
+reco.onspeechstart = neverFireEvent('onspeechstart');
+reco.onspeechend = neverFireEvent('onsspeechend');
+reco.onresult = neverFireEvent('onresult');
+reco.onnomatch = neverFireEvent('onnomatch');
+
+var errorTest = new CountTest('onerror aborted', 1, 414350577100101);
+reco.onerror = errorTest.test().step_func(function(event) {
+  errorTest.count(1);
+  assert_equals(typeof(event.message), 'string', 'typeof(event.message)');
+  notes.innerHTML += 'onerror event.error');
+});
+
+reco.start();
+
+function beginTest() {
+  audioTest.test.step_timeout(function() { reco.abort(); }, DELAY);
+}
+    </script><p>
+  </p></body><p>
+  </p>
+    <head><p><div><b><body>Instructions:</body></b></div><b><div id="notes"></div></b><b><body>Instructions:</body></b><b><body>Instructions:</body></b><b><body>Instructions:</body></b> Do NOT speak. Run test in silence.
+      This test may fail if too much noise.</p><p><div><b><body>Instructions:</body></b></div><b><div id="notes"></div></b><b><body>Instructions:</body></b><b><body>Instructions:</body></b><b><body>Instructions:</body></b><b><body>Instructions:</body></b> Do NOT speak. Run test in silence.
+      This test may fail if too much noise.</p><p><div><b><body>Instructions:</body></b></div><b><div id="notes"></div></b><b><body>Instructions:</body></b><b><body>Instructions:</body></b><b><body>Instructions:</body></b> Do NOT speak. Run test in silence.
+      This test may fail if too much noise.</p><p><div><b><body>Instructions:</body></b></div><b><div id="notes"></div></b><b><body>Instructions:</body></b><b><body>Instructions:</body></b><b><body>Instructions:</body></b> Do NOT speak. Run test in silence.
+      This test may fail if too much noise.</p></head>
+    <div id="log"></div>
+    <body>Instructions:</body><b><div id="notes"></div></b><b><div id="notes"></div></b><div id="notes"></div>
+    <script>
+var audioTest = new CycleTest('onaudio');
+reco.onaudiostart = audioTest.startEvent();
+reco.onaudioend = audioTest.endEvent();
+
+reco.onsoundstart = neverFireEvent('onsoundstart');
+reco.onsoundend = neverFireEvent('onsoundend');
+reco.onspeechstart = neverFireEvent('onspeechstart');
+reco.onspeechend = neverFireEvent('onsspeechend');
+reco.onresult = neverFireEvent('onresult');
+reco.onnomatch = neverFireEvent('onnomatch');
+
+var errorTest = new CountTest('onerror aborted', 1, 1);
+reco.onerror = errorTest.test().step_func(function(event) {
+  errorTest.count(1);
+  assert_equals(typeof(event.message), 'string', 'typeof(event.message)');
+  notes.innerHTML += 'onerror event.error');
+});
+
+reco.start();
+
+function beginTest() {
+  audioTest.test.step_timeout(function() { reco.abort(); }, DELAY);
+}
+    </script>
+  </body><body>
+    <p><b><body>Instructions:</body></b><b><body>Instructions:</body></b><b><body>Instructions:</body></b><b><body>Instructions:</body></b><b><body>Instructions:</body></b> Do NOT speak. Run test in silence.
+      This test may fail if too much noise.</p>
+    <div id="log"></div>
+    <div id="notes"></div><div id="notes"></div><div id="notes"></div><div id="notes"></div>
+    <script>
+var audioTest = new CycleTest('onaudio');
+reco.onaudiostart = audioTest.startEvent();
+reco.onaudioend = audioTest.endEvent();
+
+reco.onsoundstart = neverFireEvent('onsoundstart');
+reco.onsoundend = neverFireEvent('onsoundend');
+reco.onspeechstart = neverFireEvent('onspeechstart');
+reco.onspeechend = neverFireEvent('onsspeechend');
+reco.onresult = neverFireEvent('onresult');
+reco.onnomatch = neverFireEvent('onnomatch');
+
+var errorTest = new CountTest('onerror aborted', 1, 1);
+reco.onerror = errorTest.test().step_func(function(event) {
+  errorTest.count(1);
+  assert_equals(typeof(event.message), 'string', 'typeof(event.message)');
+  notes.innerHTML += 'onerror event.error');
+});
+
+reco.start();
+
+function beginTest() {
+  audioTest.test.step_timeout(function() { reco.abort(); }, DELAY);
+}
+    </script>
+  </body>
+</html>
+

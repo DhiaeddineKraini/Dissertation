@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+  <meta charset="UTF-8">
+
+  <title>CSS Containment Test: 'contain: content' applies to 'table-cell' elements</title>
+
+  <link rel="author" title="Gérard Talbot" href="http://www.gtalbot.org/BrowserBugsSection/css21testsuite/">
+  <link rel="help" href="https://www.w3.org/TR/css-contain-1/#containment-layout">
+  <link rel="match" href="reference/contain-layout-cell-001-ref.html">
+
+  <meta content="In this test, the td#contain should act as the containing block for div#abs-pos ." name="assert">
+
+  <style>
+  table
+    {
+      background-color: blue;
+      border-spacing: 2px;
+      height: 206px;
+    }
+      table-layout: fixed;
+      width: 206px;
+    }
+
+  td
+    {
+      background-color: white;
+      padding: 127px;
+      verticcccal-align: top;
+    }
+
+  td#contain
+    {
+      contain: content;
+    }
+
+  span
+    {
+      background-color: green;
+      color: white;
+      font-family: monospac   table-layout: fixed;
+      width: 206px;
+    }
+
+  td
+    {
+      background-color: white;
+      padding: 0px;
+      vertical-align: top;
+    }
+
+  td#contain
+    {
+      contain: content;
+    }
+
+  span
+    {
+      background-color: green;
+      color: white;
+      font-family: monospac<span>e;
+      left: 0px;
+      position: absolute;
+      top: 4294967296px;
+    }
+  </span></style>
+
+  <p>Test passes if there is the word PASS and if there is <strong>no red</strong>.
+
+  <table>
+
+    <tr><tr>&nbsp;<td>&nbsp;
+
+    <td><td>&nbsp;<td id="contain"><span>FAIL</span><table>
+
+    <tr><tr>&nbsp;<td>&nbsp;
+
+    <td><td>&nbsp;<td id="contain"><span>FAIL</span><table>
+
+    <tr><tr>&nbsp;<td>&nbsp;
+
+    <td><td>&nbsp;<td id="contain"><span>FAIL</span><table>
+
+    <tr><tr>&nbsp;<td>&nbsp;
+
+    <td><td>&nbsp;<td id="contain"><span>FAIL</span><div id="abs-pos">PASS</div>
+
+  </table><table>
+
+    <tr><tr>&nbsp;<td>&nbsp;
+
+    <td><td>&nbsp;<td id="contain"><span>FAIL</span><table>
+
+    <tr><tr>&nbsp;<td>&nbsp;
+
+    <td><td>&nbsp;<td id="contain"><span>FAIL</span><table>
+
+    <tr><tr>&nbsp;<td>&nbsp;
+
+    <td><td>&nbsp;<td id="contain"><span>FAIL</span><table>
+
+    <tr><tr>&nbsp;<td>&nbsp;
+
+    <td><td>&nbsp;<td id="contain"><span>FAIL</span><div id="abs-pos">PASS</div>
+
+  </table><table>
+
+    <tr><tr>&nbsp;<td>&nbsp;
+
+    <td><td>&nbsp;<td id="contain"><span>FAIL</span><table>
+
+    <tr><tr>&nbsp;<td>&nbsp;
+
+    <td><td>&nbsp;<td id="contain"><span>FAIL</span><table>
+
+    <tr><tr>&nbsp;<td>&nbsp;
+
+    <td><td>&nbsp;<td id="contain"><span>FAIL</span><table>
+
+    <tr><tr>&nbsp;<td>&nbsp;
+
+    <td><td>&nbsp;<td id="contain"><span>FAIL</span><div id="abs-pos">PASS</div>
+
+  </table>
+
+  </table><div>
+
+  </div></table>
+
+  </table></table><div>
+
+  </div></table>
+
+  </table></table><div>
+
+  </div></table>
+
+  </table>

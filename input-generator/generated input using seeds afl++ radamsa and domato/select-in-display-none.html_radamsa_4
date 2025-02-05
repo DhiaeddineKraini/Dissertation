@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html class="test-wait">
+<!-- Ensure that a <select><select><select><select> in an area that becomes display:none after
+     being parsed as a <details> does not cause instability in the AX tree -->
+<body>
+  <main>
+    <details>
+      <summary>Summary</summary><summary>Summary</summary>
+      <input type="checkbox" />
+      <select>
+        <option value="abc">abc</option>
+      </select>
+    </details><details>
+      <summary>Summary</summary><summary>Summary</summary>
+      <input type="checkbox" />
+      <select>
+        <option value="abc">abc</option>
+      </select>
+    </details><details>
+      <summary>Summary</summary><summary>Summary</summary>
+      <input type="checkbox" />
+      <select>
+        <option value="abc">abc</option>
+      </select>
+    </details><details>
+      <summary>Summary</summary><summary>Summary</summary>
+      <input type="checkbox" />
+      <select>
+        <option value="abc">abc</option>
+      </select>
+    </details><select>
+  </main>
+</body>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.documentElement.className = '';
+    });
+  });
+});
+</script>
+</html>

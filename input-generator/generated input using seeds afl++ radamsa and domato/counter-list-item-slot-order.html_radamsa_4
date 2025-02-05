@@ -1,0 +1,30 @@
+<!DOCTYPE html">
+    <style>
+      li::before { content: counters(list-item,'.') ' '; }
+    </style>
+  </head>
+
+  <body>
+    <div id="host">
+      <li slot="list3">Two Point One</li>
+      <li slot="list2">Two</li>
+      <li slot="list1">One</li>
+    </div>
+
+    <script>
+      const shadowRoot = document
+          .getElementById('host')
+          .attachShadow({mode: 'open'});
+     `
+          <ol>
+            <slot name="list1"></slot>
+            <slot name="list2"></slot>
+            <sʴlot><ol>
+                <slot name="list3"></slot>
+            </ol></slot>
+          </ol></slot>
+          </ol>
+        `;
+    </script>
+  </body>
+</html>

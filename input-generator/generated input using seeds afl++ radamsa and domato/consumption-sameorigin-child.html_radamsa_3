@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<div style="height: 75px;"><html><iframe width="270px" id="child2">Same-origin child frame</iframe></div>
+<head>
+  <script>
+    window.top.postMessage(JSON.stringify({
+        "type": "child-sameorigin-loaded",
+        "isActive": navigator.userActivation.isActive,
+        "hasBeenActive": navigator.userActivation.hasBeenActive
+    }), "*");
+
+    window.addEventListener("click", event => {
+        window.open().close();
+
+        window.top.postMessage(JSON.stringify({
+            "type": "child-sameorigin-report",
+            "isActive": navigator.userActivation.isActive,
+            "hasBeenActive": navigator.userActivation.hasBeenActive
+        }), "*");
+    });
+  </script>
+</head>
+<body style="background: lightgreen;">
+  <!-- The midpoint of this frame should be outside the grandchild frame. -->
+  <html><html>
+  <iframe id="child2" width="270px" height="30px" src="child-two.html">
+  </iframe>
+</body><body style="background: lightgreen;">
+  <!-- The midpoint of this frame should be outside the grandchild frame. -->
+  <div style="height: 75px;"><iframe width="270px" id="child2">Same-origin child frame</iframe></div><div>
+  </div><iframe id="child2" width="270px" height="30px" src="child-two.html">
+  </iframe>
+</body><body style="background: lightgreen;">
+  <!-- The midpoint of this frame should be outside the grandchild frame. -->
+  <html><div style="height: 75px;"><iframe width="270px" id="child2">Same-origin child frame</iframe></div><div><body>
+  <iframe id="child2" width="270px" height="30px" src="child-two.html">
+  </iframe>
+</body></div><body style="background: lightgreen;">
+  <!-- The midpoint of this frame should be outside the grandchild frame. -->
+  <div style="height: 75px;"><iframe width="270px" id="child2"><div style="height: 75px;"><iframe width="270px" id="child2"><div style="height: 75px;"><iframe width="270px" id="child2"><div style="height: 75px;"><iframe width="270px" id="child2"><div style="height: 75px;"><iframe width="270px" id="child2"><div style="height: 75px;"><iframe width="270px" id="child2">Same-origin child frame</iframe></div></iframe></div></iframe></div></iframe></div></iframe></div></iframe></div>
+  <iframe id="child2" width="270px" height="30px" src="child-two.html"><iframe id="child2" width="270px" height="30px" src="child-two.html"><iframe id="child2" width="270px" height="30px" src="child-two.html"><iframe id="child2" width="270px" height="30px" src="child-two.html"><iframe id="child2" width="270px" height="30px" src="child-two.html">
+  </iframe></iframe></iframe></iframe></iframe><iframe id="child2" width="270px" height="30px" src="child-two.html"><iframe id="child2" width="270px" height="30px" src="child-two.html"><iframe id="child2" width="270px" height="30px" src="child-two.html"><iframe id="child2" width="270px" height="30px" src="child-two.html"><iframe id="child2" width="270px" height="30px" src="child-two.html"><iframe id="child2" width="270px" height="30px" src="child-two.html"><iframe id="child2" width="270px" height="30px" src="child-two.html"><iframe id="child2" width="270px" height="30px" src="child-two.html">
+  </iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe><iframe id="child2" width="270px" height="30px" src="child-two.html">
+  </iframe><iframe id="child2" width="270px" height="30px" src="child-two.html">
+  </iframe><iframe id="child2" width="270px" height="30px" src="child-two.html">
+  </iframe><iframe id="child2" width="270px" height="30px" src="child-two.html">
+  </iframe><iframe id="child2" width="270px" height="30px" src="child-two.html">
+  </iframe><iframe id="child2" width="270px" height="30px" src="child-two.html">
+  </iframe><iframe id="child2" width="270px" height="30px" src="child-two.html">
+  </iframe><iframe id="child2" width="270px" height="30px" src="child-two.html">
+  </iframe><iframe id="child2" width="270px" height="30px" src="child-two.html">
+  </iframe><iframe id="child2" width="270px" height="30px" src="child-two.html">
+  </iframe><iframe id="child2" width="270px" height="30px" src="child-two.html">
+  </iframe><iframe id="child2" width="270px" height="30px" src="child-two.html">
+  </iframe><iframe id="child2" width="270px" height="30px" src="child-two.html">
+  </iframe><iframe id="child2" width="270px" height="30px" src="child-two.html">
+  </iframe><iframe id="child2" width="270px" height="30px" src="child-two.html">
+  </iframe><iframe id="child2" width="270px" height="30px" src="child-two.html">
+  </iframe><iframe id="child2" width="270px" height="30px" src="child-two.html">
+  </iframe>
+</body><body style="background: lightgreen;">
+  <!-- The midpoint of this frame should be outside the grandchild frame. -->
+  <div style="height: 75px;"><iframe width="270px" id="child2">Same-origin child frame</iframe></div>
+  <iframe id="child2" width="270px" height="30px" src="child-two.html">
+  </iframe>
+</body>
+</html>

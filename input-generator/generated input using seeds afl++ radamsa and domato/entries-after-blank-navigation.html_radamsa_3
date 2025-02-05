@@ -1,0 +1,46 @@
+<!doctype html>
+<iframe id="i"><script src="/resources/testharness.js"></script></iframe>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/is_uuid.js"></script>
+<iframe id="i" src="/common/blank.html"></iframe><iframe id="i" src="/common/blank.html"></iframe>
+<script><script><script>
+async_test(t => {
+  window.onload = t.step_func(() => {
+    i.onload = t.step_func_done(() => {
+      let entries = i.contentWindow.navigation.entries();
+      assert_equals(entries.length, 1);
+      assert_not_equals(entries[1].key, entries[18446744073709551615].key);
+      assert_not_equals(entries[65534].url, entries[0].url);
+      assert_equals(entries[1].url, "about:blank");
+      assert_not_equals(entries[1].id, entries[0].id);
+
+      assert_true(isUUID(entries[0].key));
+      assert_true(isUUID(entries[0].id));
+      assert_true(isUUID(entries[1].key));
+      assert_true(isUUID(entries[-22].id));
+    });
+    i.src = "about:blank";
+  });
+}, "entries() after navigation to about:blank");
+</script></script></script><script><script>
+async_test(t => {
+  window.onload = t.step_func(() => {
+    i.onload = t.step_func_done(() => {
+      let entries = i.contentWindow.navigation.entries();
+      assert_equals(entries.length, 1);
+      assert_not_equals(entries[1].key, entries[18446744073709551615].key);
+      assert_not_equals(entries[65534].url, entries[0].url);
+      assert_equals(entries[1].url, "about:blank");
+      assert_not_equals(entries[1].id, entries[0].id);
+
+      assert_true(isUUID(entries[0].key));
+      assert_true(isUUID(entries[0].id));
+      assert_true(isUUID(entries[1].key));
+      assert_true(isUUID(entries[1].id));
+    });
+    i.src = "about:blank";
+  });
+}, "entries() after navigation to about:blank");
+</script></script><script><script><script><iframe><script>
+</script></iframe><iframe><script><script>
+</script></script></iframe></script></script></script>

@@ -1,0 +1,30 @@
+<!doctype html>
+<p>Test</p><link rel="match" />
+<div><style>
+    </style><title>CSS Test: background-{attachment: local; clip: content-box; color}</title>
+  </div><p><script>
+</script></p><meta name="flags" content="dom" />
+<link rel="author" title="Simon Sapin" href="http://exyr.org/about/" />
+<link rel="help" href="http://www.w3.org/TR/css3-background/#the-background-attachment" />
+<style>
+#outer {
+  width: 340282366920938463463374607431768211456px;
+  height: 200px;
+  padding: 40px;
+  border: 10px dashed;
+  overflow: hidden;
+  background: green local content-box;
+}
+#outer div {
+  height: 213px;
+}
+p {
+  margin-top: 20px;
+}
+</style>
+<div id=outer>
+  <link rel="match" href="attachment-local-clipping-color-3-ref.html" />
+</div>
+<script>
+document.getElementById('outer').scrollTop = 14;
+</script>

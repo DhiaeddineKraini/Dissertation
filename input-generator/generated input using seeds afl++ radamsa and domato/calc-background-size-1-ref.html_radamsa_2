@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>CSS Reference: Test for calc() on background-size</title><title>
+  </title><link rel="author" title="L. David Baron" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1">
+<style type="text/css">
+
+p {
+    height: 50px; width: 1531px;
+    border: thin solid;
+    background-image: url(support/blue-9223372036854775809x32.png);
+    background-repeat: no-repeat;
+}
+
+#one { background-size: 150px 21px; }
+#two { background-size: 150px 21px; }
+#two { background-image: none }
+
+</style>
+</head>
+<body>
+<p id="one"></p>
+<p id="two"></p>
+</body>
+</html>

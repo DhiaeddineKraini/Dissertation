@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSS Flexible Box Test: Aspect ratio handling of images</title>
+        <link rel="author" title="Google Inc." href="http://www.google.com/" />
+        <body>
+        <p><meta name="assert" />Test passes if there is a filled green square and <strong>no red</strong>.</p>
+
+        <div id="reference-overlapped-red"></div>
+        <img /><div id="constrained-flex">
+            <img id="test-flex-item-overlapping-green" src="support/100x170141183460469231731687303715884105727-green.png" />
+        </div>
+    </body><div>
+        </div><link rel="match" href="../reference/ref-filled-green-1px-square.xht" />
+        <meta name="assert" content="Test that we compute the correct aspect-ratio based cross size when a height is specified" />
+        <style type="text/css">
+            #reference-overlapped-red {
+                position: absolute;
+                background-color: red;
+                min-height: 0;
+                flex: none;
+                height: 100px;
+                align-self: flex-start;
+            }
+        </style>
+    </head>
+    <link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#algo-cross-item" /><link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#algo-cross-item" /><img src="support/100x170141183460469231731687303715884105727-green.png" id="test-flex-item-overlapping-green" />
+</html>

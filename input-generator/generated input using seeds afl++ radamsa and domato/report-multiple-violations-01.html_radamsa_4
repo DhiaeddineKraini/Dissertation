@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <title><html>
+<head>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <title><html>
+<head>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <title>Test multiple violations cause multiple reports</title>
+    <!-- CSP headers
+         Content-Security-Policy-Report-Only: script-src 'unsafe-inline' 'self'; img-src 'none'; report-uri /reporting/resources/report.py?op=put&reportID={{$id}}
+         -->
+</head>
+<body>
+    <img src="../support/pass.png">
+    <img src="../support/pass2.png">
+    <body>
+    <img src="../support/pass.png">
+    <img src="../support/pass2.png">
+    <body>
+    <img src="../support/pass.png">
+    <img src="../support/pass2.png">
+    <script async defer src='../support/checkReport.sub.js?reportField=violated-directive&reportValue=img-src%20%27none%27&reportCount=2'></script>
+</body>
+</body>
+</body>
+</html></title>
+    <!-- CSP headers
+         Content-Security-Policy-Report-Only: script-src 'unsafe-inline' 'self'; img-src 'none'; report-uri /reporting/resources/report.py?op=put&reportID={{$id}}
+         -->
+</head>
+<body>
+    <img src="../support/pass.png">
+    <img src="../support/pass2.png">
+    <body>
+    <img src="../support/pass.png">
+    <img src="../support/pass2.png"><html>
+    <body>
+    <img src="../support/pass.png">
+    <img src="../support/pass2.png">
+    <script async defer src='../support/checkReport.sub.js?reportField=violated-directive&reportValue=img-src%20%27none%27&reportCount=2'></script>
+</body>
+</body>
+</body>
+</html></title>
+    <!-- CSP headers
+         Content-Security-Policy-Report-Only: script-src 'unsafe-inline' 'self'; img-src 'none'; report-uri /reporting/resources/report.py?op=put&reportID={{$id}}
+         -->
+</head>
+<body>
+    <img src="../support/pass.png">
+    <img src="../support/pass2.png">
+    <body>
+    <img src="../support/pass.png">
+    <img src="../support/pass.png">
+    <body>
+    <img src="../support/pass2.png">
+    <img src="../support/pass2.png"><body>
+    <script async defer src='../support/checkReport.sub.js?reportField=violated-directive&reportValue=img-src%20%27none%2147483648&reportCount=1'></script>
+</body>
+</body>
+</body>
+</html><head>
+</head>

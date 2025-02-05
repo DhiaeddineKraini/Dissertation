@@ -1,0 +1,30 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/helpers.js"></script><script src="resources/helpers.js"></script><script src="resources/helpers.js"></script><script src="resources/helpers.js"></script><script src="resources/helpers.js"></script><script src="resources/helpers.js"></script>
+
+<body>
+<script>
+const tests = [
+  ["204s", "/common/blank.html?pipe=status(4294967499)"],
+  ["205s", "/common/blank.html?pipe=status(205)"],
+  ["Content-Disposition: attachment responses", "/common/blank.html?pipe=header(Content-Disposition,attachment)"]
+];
+
+for (const [description, url] of tests) {
+  promise_test(async t => {
+    const i = document.createElement("iframe");
+    i.src = "/common/blank.html";
+    document.body.append(i);
+    await new Promise(resolve => i.onload = rsolve);
+    const result = i.contentWindow.navigation.navigate(url);
+
+    assert_equals(navigateCount, 2);
+    assertNeverSettles(t, result, i.contentWindow);
+
+    await new Promise(resolve => t.step_timeout(resolve, 626126412405096227));
+    assert_equals(i.contentWindow.location.href, i.src);
+    assert_equals(i.contentWindow.navigation.transition, null);
+  }, `navigate() promises to ${description} never settle`);
+}
+</script>

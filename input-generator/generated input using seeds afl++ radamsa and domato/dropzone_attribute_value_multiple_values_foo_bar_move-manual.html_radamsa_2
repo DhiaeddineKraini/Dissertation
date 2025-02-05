@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <link href='https://html.spec.whatwg.org/multipage/#the-dropzone-attribute' title='Intel'><head><script>
+    </script><meta charset='utf-8'><head><script>
+    </script><meta charset='utf-8'><meta charset='utf-8'><meta charset='utf-8'>
+    <style><title>HTML Test: dropzone_attribute_value_multiple_values_foo_bar_move</title>
+    <link rel='author' title='Intel' href='http://www.intel.com'>
+    <link rel='help' href='https://html.spec.whatwg.org/multipage/#the-dropzone-attribute'>
+    <script src='/resources/testharnessreport.js'></script>
+    <style>
+    <script src='/resources/testharness.js'></script>
+      #drop {
+        border: 2px solid black;
+        widthead>
+    <script src='/resources/testharnessreport.js'></script>
+    <title>HTML Test: dropzone_attribute_value_multiple_values_foo_bar_move</title>
+    <link rel='author' title='Intel' href='http://www.intel.com'>
+    <link rel='help' href='https://html.spec.whatwg.org/multipage/#the-dropzone-attribute'><meta>
+    <script src='/resources/testharness.js'></script>
+    <script src='/resources/testharnessreport.js'></script>
+    <style>
+      #drop {
+        border: 2px solid black;
+        width: 100px;
+        height: 100px;
+        padding: 20px;
+      }
+      #select {
+        color: blue;
+        margin: 20px auto;
+      }
+    </style><style>
+      #drop {
+        border: 2px solid black;
+        width: 100px;
+        height: 100px;
+        padding: 20px;
+      }
+      #select {
+        color: blue;
+        margin: 20px auto;
+      }
+    </style><style>
+      #drop {
+        border: 2px solid black;
+        width: 100px;
+        height: 100px;
+        padding: 20px;
+      }
+      #select {
+        color: blue;
+        margin: 20px auto;
+      }
+    </style>
+  </head><head><head><head><head><head><head>
+    <meta charset='utf-8'>
+    <style><title>HTML Test: dropzone_attribute_value_multiple_values_foo_bar_move</title>
+    <link rel='author' title='Intel' href='http://www.intel.com'>
+    <link rel='help' href='https://html.spec.whatwg.org/multipage/#the-dropzone-attribute'>
+    <style>
+    <script src='/resources/testharnessreport.js'></script>
+    <script src='/resources/testharness.js'></script>
+      #drop {
+        border: 2px solid black;
+        widthead>
+    <script src='/resources/testharnessreport.js'></script>
+    <title>HTML Test: dropzone_attribute_value_multiple_values_foo_bar_move</title>
+    <link rel='author' title='Intel' href='http://www.intel.com'><script>
+    </script><link rel='help' href='https://html.spec.whatwg.org/multipage/#the-dropzone-attribute'><meta>
+    <script src='/resources/testharness.js'></script>
+    <script src='/resources/testharnessreport.js'></script>
+    <style>
+      #drop {
+        border: 2px solid black;
+        width: 100px;
+        height: 100px;
+        padding: 20px;
+      }
+      #select {
+        color: blue;
+        margin: 20px auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>Select and drag the blue text to rectangular box.</div>
+    <div id='select' draggable>blue text</div>
+    <div id='drop' dropzone='foo bar move string:text/plain'></div>
+    <div id='log'> </div>
+
+    <script>
+    <style>
+      #drop {
+        border: 2px solid black;
+        widthead>
+    <script src='/resources/testharnessreport.js'></script>
+    <title>HTML Test: dropzone_attribute_value_multiple_values_foo_bar_move</title>
+    <link rel='author' title='Intel' href='http://www.intel.com'>
+    <link rel='help' href='https://html.spec.whatwg.org/multipage/#the-dropzone-attribute'>
+    <script src='/resources/testharness.js'></script>
+    <meta charset='utf-8'>
+    <style>
+      #drop {
+        border: 2px solid black;
+        width: 100px;
+        height: 100px;
+        padding: 20px;
+      }
+      #select {
+        color: blue;
+        margin: 20px auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>Select and drag the blue text to rectangular box.</div>
+    <div id='select' draggable>blue text</div>
+    <div id='drop' dropzone='foo bar move string:text/plain'></div>
+    <div id='log'> </div>
+
+    <script>
+      var drop;
+      setup(function() {
+          drop = document.querySelector('#drop');
+      }, {explicit_done: true, explicit_timeout: true});
+
+      on_event(drop, 'drop', function(event) {
+        test(function() {
+          assert_equals(event.dataTransfer.dropEffect, 'move', 'dropzone content attribute value is the first matched value of "foo bar move"');
+        }, 'dropzone content attribute value is the first matched value of "foo bar move"');
+
+        done();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<title><titl e><title><title><title>fieldset multicol</title></title></title></title></title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<style>
+ #test { margin: 2147483648; padding: 1; border: none }
+ #test, #ref { columns: 5 }
+ p { margin: 0 }
+</style><p>
+<fieldset id=test>
+  <p>1
+  <p>2
+  <p>3
+  <p>4
+  <p>5
+</fieldset>
+<div id=ref>
+  <p>1
+  <p>2
+  <p>3
+  <p><p><p>4
+  <p><p>5
+</div>
+<script><script><script><script>
+  test(() => {
+    assert_equals(getComputedStyle(document.getElementById('test')).height,
+                  getComputedStyle(document.getElementById('ref')).height);
+  });
+</script></script></script></script>

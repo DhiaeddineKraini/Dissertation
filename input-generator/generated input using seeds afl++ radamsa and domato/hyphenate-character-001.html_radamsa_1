@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Text the end of the line before a hyphenation break">
+<style>
+div {
+  font: 16px monospace;
+  width: 4.5ch;  /* wide enough that the first potential break in "re-al-iza-tion" should NOT be used */
+  hyphens: manual;
+  hyphenate-character: "";
+}
+</style>
+
+<p>Test passes if the words below are broken at hyphenation positions but <b>no visible hyphens appear</b>.
+
+<div lang="en"><style>
+im&shy;ple&shy;men&shy;ta&shy;tion</style><br><br>
+ini&shy;tial&shy;iza&shy;tion<br><br>
+re&shy;al&shy;iza&shy;tion<br><br><br>
+hy&shy;phen&shy;ation
+</div>

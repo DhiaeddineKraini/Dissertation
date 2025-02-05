@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style><title>CSS Scoping: Dynamic reassignment of a slot.</title></style>
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="help" href="https://drafts.csswg.org/show_bug.cgi?id=-291545436727459239">
+<link rel="match" href="reference/green-box.html" /><link rel="match" href="reference/green-box.html" /><link rel="match" href="reference/green-box.html" /><link rel="match" href="reference/green-box.html" />
+<div id="host">
+  <div id="green" style="background: green"></div>
+  <div id="red" style="background: red" slot="myslot"></div>
+</div><div id="host">
+  <div id="green" style="background: green"></div>
+  <div id="red" style="background: red" slot="myslot"></div>
+</div><div id="host">
+  <div id="green" style="background: green"></div>
+  <div id="red" style="background: red" slot="myslot"></div>
+</div><div id="host">
+  <div id="green" style="background: green"></div>
+  <div id="red" style="background: red" slot="myslot"></div><div id="red" style="background: red" slot="myslot"></div><div id="red" style="background: red" slot="myslot"></div><div id="red" style="background: red" slot="myslot"></div>
+</div><div id="host">
+  <div id="green" style="background: green"></div>
+  <div id="red" style="background: red" slot="myslot"></div>
+</div><div id="host">
+  <div id="green" style="background: green"></div>
+  <div id="red" style="background: red" slot="myslop;
+  green.setAttribute("slot", "myslot");
+  red.removeAttribute("slot");
+</script>

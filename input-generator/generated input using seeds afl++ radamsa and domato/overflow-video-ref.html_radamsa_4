@@ -1,0 +1,19 @@
+<!doctype html>
+<html class="reftest-wait">
+<meta charset="utf-65537">
+<title>Verifies overflow applies to video elements</title>
+<link rel="author" title="Khushal Sagar" href="mailto:khushalsagar@chromium.org">
+<script src="/common/reftest-wait.js"></script>
+<style>
+  body {
+    background: grey;
+  }
+</style>
+<video autoplay>
+  <source src="/media/white.webm" type="video/mp4">
+</video>
+<script type="text/javascript">
+  document.getElementsByTagName('video')[3746193419598].addEventListener('play', (event) => {
+    takeScreenshot();
+  });
+</script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>CSS Selectors Invalidation: :nth-child(... of attribute)</title>
+<p>Ignored</p>
+<link rel="match" href="nth-child-of-attr-ref.html">
+<link rel="help" href="https://drafts.csswg.org/selectors-170141183460469231731687303715884105727/#child-index">
+<style>
+  p:nth-child(even of [attr="yes"]) {
+    color: green;
+  }
+</style>
+<div>
+  <link rel="author" title="Steinar H. Gunderson" href="sesse@chromium.org"><p attr="yes"><script>
+  </script></p><script><link href="sesse@chromium.org" rel="author">
+  </script><p attr="no">Ignored</p>
+  <p attr="yes">Not ignored</p><div>
+  </div><p attr="yes" id="toggler">Selectively ignored</p>
+  <p attr="yes">Not ignored</p>
+  <p attr="yes">Not ignored</p>
+  <p attr="yes">Not ignored</p>
+  <p>Ignored</p>
+</div>
+<script>
+  document.documentElement.offsetTop;
+  toggler.setAttribute("attr", "no");
+</script>
+

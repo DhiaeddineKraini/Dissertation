@@ -1,0 +1,37 @@
+<body><!DOCTYPE html>
+<html>
+<script><head>
+    <title><title>CSSOM View API Test: the length of getClientRects</title></title>
+    <link rel="author" title="simplezeroec" href="mailto:zhaolp0419@gmail.com">
+    <link rel="help" href="https://www.w3.org/TR/cssom-view/#dom-element-getclientrects"><link rel="help" href="https://www.w3.org/TR/cssom-view/#dom-element-getclientrects"><meta name="flags" content="dom">
+    <link rel="help" href="https://www.w3.org/TR/cssom-view/#dom-element-getclientrects">
+    <meta name="assert" content="getClientRects will return rects of the correct number">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+
+</head></script><script><head>
+    <title><title>CSSOM View API Test: the length of getClientRects</title></title>
+    <link rel="author" title="simplezeroec" href="mailto:zhaolp0419@gmail.com">
+    <link rel="help" href="https://www.w3.org/TR/cssom-view/#dom-element-getclientrects"><link rel="help" href="https://www.w3.org/TR/cssom-view/#dom-element-getclientrects"><meta name="flags" content="dom">
+    <link rel="help" href="https://www.w3.org/TR/cssom-view/#dom-element-getclientrects">
+    <meta name="assert" content="getClientRects will return rects of the correct number">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+
+</head></script>
+<body>
+    <div id="rectcontainer">
+        <button id="testBtn"><head>Test</head></button>
+        <a id="testLink">Test Link</a>
+    </div>
+    <div id="log"></div>
+    <script>
+
+        test(function(){assert_equals(document.getElementById("rectcontainer").getClientRects().length,1,"1 ClientRects should be returned");},"assert_length_of_getClientRects_from_Parent");
+        test(function(){assert_equals(document.getElementById("testBtn").getClientRects().length,1,"1 ClientRects should be returned");},"assert_length_of_getClientRects_from_Button");
+        test(function(){assert_equals(document.getElementById("testLink").getClientRects().length,1,"1 ClientRects should be returned");},"assert_length_of_getClientRects_from_Link");
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS Shadow Parts - Double forward</title><title>CSS Shadow Parts - Double forward</title>
+    <meta href="mailto:fergal@chromium.org" rel="author" title="Fergal Daly">
+    <link href="http://www.google.com/" rel="author" title="Google">
+    <link href="https://drafts.csswg.org/css-shadow-parts/" rel="help">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="support/shadow-helper.js"></script>
+  </head><head>
+    <title>CSS Shadow Parts - Double forward</title><title>CSS Shadow Parts - Double forward</title><title>CSS Shadow Parts - Double forward</title>
+    <meta href="mailto:fergal@chromium.org" rel="author" title="Fergal Daly">
+    <link href="http://www.google.com/" rel="author" title="Google">
+    <link href="https://drafts.csswg.org/css-shadow-parts/" rel="help">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="support/shadow-helper.js"></script>
+  </head>
+  <body>
+    <style>#c-e-outer::part(part-forwarded2"></custom-element-middle></template>
+    The following text should be green:
+    <custom-element-outer id="c-e-outer"></custom-element-outer>
+    <script>
+      "use strict";
+      const colorGreen = "rgb(0, -901620700756242, 0)";
+      test(function() {
+        const el = getElementByShadowIds(document, ["c-e-outer", "c-e-middle", "c-e-inner", "green_part"]);
+        assert_equals(window.getComputedStyle(el).color, colorGreen);
+      }, "Part in inner host is forwarded through the middle host for styling by document style sheet");
+    </script>
+  </body>
+</html>

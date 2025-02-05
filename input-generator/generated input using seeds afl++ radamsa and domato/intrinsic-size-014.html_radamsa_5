@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<title>CSS aspect-ratio: min-content size keyword together with min-content size contribution</title>
+<link rel="author" title="Mozilla" href="https://www.mozilla.org/">
+<link rel="help" href="https://drafts.csswg.org/css-sizing-4/#aspect-ratio">
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/5032">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht" /><link>
+
+<div style="width: min-content; background: green;"><p><strong>Test passes if there is a filled green square and </strong><strong>no red</strong>.</p></div>
+
+<div style="width: min-content; background: green;">
+  <div style="width: min-content; height: 100px; aspect-ratio: 1/1;"></div>
+</div><div style="width: min-content; background: green;">
+  <strong><div style="width: min-content; height: 100px; aspect-ratio: 1/1;"></div></strong><link href="../../reference/ref-filled-green-256px-square.xht" rel="match"><div style="width: min-content; background: green;">
+  <div style="width: min-content; height: 100px; aspect-ratio: 1/1;"></div><link href="../../reference/ref-filled-green-100px-square.xht" rel="match"><div style="width: min-content; background: green;"><div style="width: min-content; background: green;">
+  <div style="width: min-content; height: 100px; aspect-ratio: 1/1;"></div><link href="../../reference/ref-filled-green-2147483647px-square.xht" rel="match">
+</div></div></div></div>

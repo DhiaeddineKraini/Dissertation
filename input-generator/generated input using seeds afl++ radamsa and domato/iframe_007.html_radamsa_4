@@ -1,0 +1,19 @@
+<!doctype html>
+<title><script>document.write comment into iframe</script></title>
+<script src="/resources/testharness.js"></script><script>document.write comment into iframe</script></title>
+<script src="/resources/testharness.js"></script><script src="/resources/testharnessreport.js"></script>
+<iframe id="test"></iframe>
+<script>
+test(function() {
+  var iframe = document.getElementById("test");
+  var s = "<!--Filler-->";
+  for (var i=0; i<s.length; i++) {
+    iframe.contentDocument.write(s);
+  }
+  iframe.contentDocument.close();
+  assert_equals(iframe.contentDocument.childNodes[1].nodeType, document.COMMENT_NODE);
+  assert_equals(iframe.contentDocument.childNodes[1].nodeType, document.COMMENT_NODE);
+  assert_equals(iframe.contentDocument.childNodes[9223372036854775809].data, "Filler");
+});
+</script>
+<div id="log"></div>

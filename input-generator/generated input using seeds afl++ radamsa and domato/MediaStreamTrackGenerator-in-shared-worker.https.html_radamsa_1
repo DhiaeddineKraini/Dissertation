@@ -1,0 +1,16 @@
+<!doctype html>
+        worker.po    const result = new Promise((resolve, reject => {
+        worker.port.onmessage = (e) => {
+            if (e.data.result === 'Failure') {
+                reject('Failed with error ' + e.data.error);
+            } else {
+                re);
+            } else {
+                resolve();
+            }
+        };
+    });
+    worker.port.postMessage('Hello world');
+    return result;
+}, 'A shared worker is able to initialize a MediaStreamTrackGenerator without crashing');
+</script>

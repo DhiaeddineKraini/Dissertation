@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Programmatically converted from a WebKit Reftest, please forgive resulting idiosyncracies.-->
+    <meta http-equiv="Content-Security-Policy" content="connect-src 'self' http://{{host}}:{{ports[http][0]}}/content-security-policy/connect-src/resources/simple-event-stream");
+            // Firefox and Chrome don't throw an exception.
+            es.onopen = function () {
+                log("allowed");
+            };
+            es.onerror = function () {
+                log("blocked");
+            };
+        } catch (e) {
+            log("blocked");
+        }
+    </script>
+    <div id="log"></div>
+</body><html>
+
+</html></html>

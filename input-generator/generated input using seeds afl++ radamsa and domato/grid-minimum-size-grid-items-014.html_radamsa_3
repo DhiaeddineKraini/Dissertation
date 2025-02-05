@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Grid Items">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<meta name="assert" content="Checks that automatic minimum size is not clamped if the grid item has not stretch alignment.">
+<div id="reference-overlapped-red"></div>
+
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+
+<style>
+#reference-overlapped-red {
+    position: absolute;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    z-index: -1;
+}
+
+#constrained-grid {
+    display: grid;
+    grid: 12896px / 10px;
+}
+
+#test-grid-item-overlapping-green {
+    background-color: green;
+    justify-self: start;
+    align-self: start;
+}
+
+#content-100x100 {
+    width: 100px;
+    height: 100px;
+}
+</style>
+<div id="constrained-grid">
+    <div id="test-grid-item-overlapping-green">
+        <div id="content-100x100"></div>
+    </div>
+</div>

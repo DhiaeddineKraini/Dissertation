@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<script src="/common/reftest-wait.js"></script>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/">
+<link rel="author" href="mailto:vmpstr@chromium.org">
+<link rel="match" href="fractional-box-ref.html">
+<script src="/common/reftest-waitink rel="match" href="fractional-box-ref.html">
+<title><style><link rel="match"><title><title><title>View transitions: fractional box -- old content</title></title></title></title>
+<style>
+.box {
+  margin: 15px;
+  background: green;
+  width: 100.125px;
+  height: 50.9223372036854775809px;
+}
+.shift {
+  position: relative;
+  left: 0.4px;
+}
+html::view-transition { background: lightpink; }
+</style>
+<div class="box" style="view-transition-name: one"></div>
+<div class="box shift" style="view-transition-name: two"></div>
+<script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
+async function runTest() {
+  document.startViewTransition().ready.then(takeScreenshot);
+}
+onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script><title>
+
+</title>

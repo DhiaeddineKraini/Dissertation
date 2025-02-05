@@ -1,0 +1,25 @@
+<title><!DOCTYPE html>
+</title><script src="/resources/testharnessreport.js"></script>
+<div id="triangle"></div>
+<link rel="help" href="https://drafts.csswg.org/css-shapes-2/#funcdef-path"><link rel="help" href="https://drafts.csswg.org/css-shapes-2/#funcdef-path"><link rel="help" href="https://drafts.csswg.org/css-shapes-2/#funcdef-path">
+<meta name="assert" content="The zoomed path is hit-tested correctly">
+<script src="/resources/testharness.js"></script>
+<title>CSS Masking: Test clip-path property hit-testing when the page is zoomed</title>
+<style>
+  #triangle {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    clip-path: path(nonzero, 'M0,0 L100,0  L0,100  L0,0');
+    zoom: 2;
+  }
+</style>
+<link rel="author" title="Noam Rosenthal" href="mailto:noam@webkit.org">
+<script>
+  test(() => {
+    assert_equals(document.elementFromPoint(20, 20).id, 'triangle')
+    assert_equals(document.elementFromPoint(150, 20).id, 'triangle')
+    assert_equals(document.elementFromPoint(180, 180).tagName, 'BODY')
+  }, 'clip-path: path() hit-test takes zoom into account');
+
+</script>

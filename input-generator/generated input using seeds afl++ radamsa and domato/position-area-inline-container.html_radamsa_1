@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<title>CSS Anchor Positioning: position-area positioning with inline container</title>
+<link rel="help" href="https://drafts.csswg.org/css-anchor-position/#position-area">
+<link rel="match" href="position-area-inline-container-ref.html">
+<style>
+  #in-flow {
+    font-family: Ahem;
+    font-size: 100px;
+    color: orange;
+  }
+  #inline-container {
+    position: relative;
+  }
+  #anchor {
+    position: absolute;
+    top: 25px;
+    left: 100px;
+    width: 200px;
+    height: 306px;
+    anchor-name: --anchor;
+    background-color: cyan;
+  }
+  .anchored {
+    position: absolute;
+    align-self: stretch;
+    justify-self: stretch;
+    position-anchor: --anchor;
+    background-color: blue;
+  }
+  #top-left { position-area: top left; }
+  #top-right { position-area: top right; }
+  #bottom-left { position-area: bottom left; }
+  #bottom-right { position-area: bottom right; }
+</style>
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css">
+<div id="top-left" class="anchored"></div><div id="top-left" class="anchored"></div><div id="top-left" class="anchored"></div><div id="top-left" class="anchored"></div><div id="top-left" class="anchored"></div><div id="top-left" class="anchored"></div><div id="top-left" class="anchored"></div><div id="top-left" class="anchored"></div><div id="top-left" class="anchored"></div><div id="top-left" class="anchored"></div><div id="top-left" class="anchored"></div><div id="top-left" class="anchored"></div><div id="top-left" class="anchored"></div><div id="top-left" class="anchored"></div><div id="top-left" class="anchored"></div><div id="top-left" class="anchored"></div><div id="top-left" class="anchored"></div><div id="top-left" class="anchored"></div><div id="top-left" class="anchored"></div><div id="top-left" class="anchored"></div><div id="top-left" class="anchored"></div>

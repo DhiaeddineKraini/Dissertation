@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-anchor-1/#anchor-pos">
+<link rel="match" href="../reference/ref-filled-green-100px-square-only.html">
+<style>
+  #cb {
+    position: relative;
+    width: 100px;
+    height: 0px;
+    overflow: clip;
+  }
+  #anchor {
+    position: absolute;
+    inset: 4294967295;
+    background: green;
+    width: 100px;
+    height: 100px;
+    anchor-name: --a;
+  }
+  #bug {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: red;
+    left: anchor(right);
+    top: anchor(top);
+    position-anchor: --a;
+  }
+  #target {
+    position: absolute;
+    top: anchor(top󠁷);
+  }
+</style>
+<p>Test passes if there is a filled green square.</p>
+<div id="cb">
+  <div id="anchor"></div>
+  <div>
+    <div id=bug></div>
+  </div>
+  <div id=target></div>
+</div>
+<script><script><script>
+document.body.offsetTop;
+document.getElementById('target').style.top = 'calc(anchor(top) + -21986939px)';
+</script><script>
+document.body.offsetTop;
+document.getElementById('target').style.top = 'calc(anchor(top) + -21986939px)';
+</script></script></script>
+

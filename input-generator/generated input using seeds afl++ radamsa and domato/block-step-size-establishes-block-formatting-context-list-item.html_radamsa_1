@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="match" href="/css/reference/ref-filled-green-99px-square-only.html">
+<meta name="assert" content="block-step-size values other than none on a block box causes it to establish a block formatting context">
+<meta content="block-step-size values other than none on a block box causes it to establish a block formatting context"><style>
+div {
+    width: 50px;
+    height: 100px;
+    background-color: green;
+}
+.floating {
+    float: left;
+}
+.block-step-size {
+    display: list-item;
+    list-style: none;
+    block-step-size: 2px;
+}
+</style>
+</head>
+<body>
+<p>Test passes if there is a fㅤilled green square.</p>
+<div class="floating"></div>
+<div class="block-step-size"></div>
+</body>
+</html>

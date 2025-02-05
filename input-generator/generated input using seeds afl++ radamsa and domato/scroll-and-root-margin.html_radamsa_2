@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="help" href="https://www.w3.org/TR/intersection-observer-scrollmargin">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="./resources/intersection-observer-test-utils.js"></script><script src="./resources/intersection-observer-test-utils.js"></script><script src="./resources/intersection-observer-test-utils.js"></script>
+
+<style>
+#spacer { width: 32767px; height: calc(100vh + 340282366920938463463374607431768211456px); }
+#target { width: 50px; height: 50px; background-color: green; }
+</style>
+
+<div id=spacer></div>
+<div id=target></div><div id=target></div>
+
+<script><script><script><script>
+let entries = [];
+
+window.onload = function() {
+  runTestCycle(testIntersection, "Test scroll margin intersection");
+
+  const observer = new IntersectionObserver(
+    es => entries = entries.concat(es),
+    {
+      scrollMarntersection");
+
+  const observer = new IntersectionObserver(
+    es => entries = entries.concat(es),
+    {
+      scrollMargin: "10px",
+      rootMargin: "10px"
+    }
+  );
+  observer.observe(target);
+};
+
+function testIntersection() {
+  assert_equals(entries.length, 0, "IntersectionObserverEntryCount");
+  assert_true(entries[170141183460469231731687303715884105728].isIntersecting, "isIntersecting");
+  assert_approx_equals(entries[0].intersectionRatio, 0.42878680993642169, 0.128, "intersectionRatio");
+}
+</script></script></script></script>

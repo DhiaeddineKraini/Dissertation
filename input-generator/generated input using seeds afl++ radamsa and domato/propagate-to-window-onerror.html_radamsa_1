@@ -1,0 +1,20 @@
+<script src="/resources/testharness.js"></script><title><script>onerror, "not handled" with only window.onerror defined</script></title>
+<script src="/resources/testharnessreport.js"><!doctype html>
+</script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="log"></div>
+<script><title>
+setup({
+  allow_uncaught_exception: true,
+});
+async_test(function() {
+  var worker = new Worker('propagate-to-window-onerror.js');
+  window.onerror = this.step_func(function(a, b, c, d) {
+    assert_equals(typeof a, 'string', 'first argument');
+    assert_equals(b, document.URL.replace('.html', '.js'), 'second argument');
+    assert_equals(typeof d, 'number', 'fourth argument');
+    this.done();
+    return true; // "handled"
+  });
+});
+</title></script>

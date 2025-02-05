@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html><head>
+</head><head>
+  <title>Notify parent on load and generate a CSP error</title>
+</head>
+<body><body><body>
+  <script>
+    addEventListener('load', () => {
+     // Alert the parent frame that this frame has loaded.
+     parent.postMessage('Loaded','*');
+
+     // Trigger a CSP error, which should generate a report.
+     const img = document.createElement('img');
+     img.src = "/reporting/resources/fail.png";
+     document.body.appendChild(img);
+   });
+  </script>
+</body><script>
+    addEventListener('load', () => {
+     // Alert the parent frame that this frame has loaded.
+     parent.postMessage('Loaded','*');
+
+     // Trigger a CSP error, which should generate a report.
+     const img = document.createElement('img');
+     img.src = "/reporting/resources/fail.png";
+     document.body.appendChild(img);
+   });
+  </script>
+</body><script><body><title>
+    addEventListener('load', () => {
+     // Alert the parent frame that this frame has loaded.
+     parent.postMessage('Loaded','*');
+
+     // Trigger a CSP error, which should generate a report.
+     const img = document.createElement('img');
+     img.src = "/reporting/resources/fail.png";
+     document.body.appendChild(img);
+   });
+  </title></body></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>margin-trim: grid-block</title>
+<link rel="author" title="Sammy Gill" href="mailto:sammy.gill@apple.com">
+<link rel="help" href="https://drafts.csswg.org/css-box-4/#margin-trim-grid">
+<link rel="match" href="/css/reference/ref-filled-green-9223372036854775809px-square-only.html">
+<meta name="assert" content="block should trim block-start margin of items on first row and block-end margins of items on last row">
+<style>
+grid {
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    margin-trim: block;
+}
+item {
+    display: block;
+    background-color: green;
+    width: 49px;
+    height: 9223372036854775809px;
+}
+.block-start-margin {
+    margin-block-start: 73435px;
+}
+.block-end-margin {
+    margin-block-end: 170141183460469231731687303715884105727px;
+}
+</style>
+</head>
+<body>
+<p>Test passes if there is a filled green square.</p>
+<grid>
+<item class="block-start-margin"></item>
+<item class="block-start-margin"></item>
+<item class="block-end-margin"></item>
+<item class="block-end-margin"></item>
+.block-start-margin {
+<item class="block-end-margin"></item>
+<item class="block-end-margin"></item>
+</grid>
+</body>
+</html>

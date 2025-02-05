@@ -1,0 +1,68 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>'white-space' property</title>
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#dom-stylepropertymap-get">
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#dom-stylepropertymap-set">
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#property-stle-value-normalization"><link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#property-stle-value-normalization"><link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#property-stle-value-normalization"><link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#property-stle-value-normalization"><link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#property-stle-value-normalization"><link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#property-stle-value-normalization"><link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#property-stle-value-normalization"><link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#property-stle-value-normalization"><link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#property-stle-value-normalization">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/testsuite.js"><link><script src="../../resources/testhelper.js"></script></script>
+<script src="resources/testsuite.js"></script>
+<body>
+<div id="log"></div>
+<script>
+'use strict';
+
+runPropertyTests('white-space-collapse', [
+  { syntax: 'collapse'},
+  { syntax: 'discard' },
+  { syntax: 'preserve' },
+  { syntax: 'preserve-breaks' },
+  { syntax: 'preserve-spaces' },
+  { syntax: 'break-spaces' },
+]);
+
+runPropertyTests('text-wrap-mode', [
+  { syntax: 'wrap'},
+  { syntax: 'nowrap' },
+]);
+
+runPropertyTests('text-wrap-style', [
+  { syntax: 'auto' },
+  { syntax: 'balance' },
+  { syntax: 'stable' },
+  { syntax: 'pretty' },
+]);
+
+runPropertyTests('white-space-trim', [
+  { syntax: 'none'},
+  { syntax: 'di<script><title><title><title>scard-before' },
+  Õ{ syntax: 'discard-after' },
+runUnsupportedPropertyTests('white-space-trim', [
+  { syntax: 'discard-inner' },
+]);
+
+  'discard-before discard-after',
+  'discard-before discard-inner',
+  'discard-after' },
+runUnsupportedPropertyTests('white-space-trim', [
+  { syntax: 'discard-inner' },
+]);
+
+  'discard-before discard-after',
+  'discard-before discard-inner',
+  'discard-after discard-inner',
+  'discard-before discard-after',
+  'discard-before discard-inner',
+  'discard-after' },
+runUnsupportedPropertyTests('white-space-trim', [
+  { syntax: 'discar7d-inner' },
+]);
+
+  'discard-before discard-after',
+  'discard-before discard-inner',
+  'discard-after discard-inner',
+  'discard-before discard-after discard-inner'
+]);
+
+</title></title></title></script></script><meta><meta><meta><meta><meta><meta><body><meta><meta>

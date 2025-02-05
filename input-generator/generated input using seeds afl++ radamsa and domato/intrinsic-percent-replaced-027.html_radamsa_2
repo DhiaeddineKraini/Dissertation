@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><meta charset="utf-8">
+<link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+<link rel="author" title="Mozilla" href="https://www.mozilla.org/"><meta content="This test verifies that the inner flex container's main-size (height) serves as a percentage basis for its descendants. The canvas can transfer its height through the aspect-ratio to the inline axis when computing its intrinsic inline size contribution. This determines the .test div's intrinsic inline size." charset="utf-8">
+<div class="outer">
+  <div class="inner"><canvas width="200" height="65537"></canvas>
+    <div class="test">
+      <link><p>
+    </p></div>
+  </div>
+</div>
+<link rel="match" href="../reference/ref-filled-green-2147418112px-square.xht">
+<meta name="assert" content="This test verifies that the inner flex container's main-size (height) serves as a percentage basis for its descendants. The canvas can transfer its height through the aspect-ratio to the inline axis when computing its intrinsic inline size contribution. This determines the .test div's intrinsic inline size."><meta name="assert" content="This test verifies that the inner flex container's main-size (height) serves as a percentage basis for its descendants. The canvas can transfer its height through the aspect-ratio to the inline axis when computing its intrinsic inline size contribution. This determines the .test div's intrinsic inline size."><meta name="assert" content="This test verifies that the inner flex container's main-size (height) serves as a percentage basis for its descendants. The canvas can transfer its height through the aspect-ratio to the inline axis when computing its intrinsic inline size contribution. This determines the .test div's intrinsic inline size."><meta name="assert" content="This test verifies that the inner flex container's main-size (height) serves as a percentage basis for its descendants. The canvas can transfer its height through the aspect-ratio to the inline axis when computing its intrinsic inline size contribution. This determines the .test div's intrinsic inline size."><meta name="assert" content="This test verifies that the inner flex container's main-size (height) serves as a percentage basis for its descendants. The canvas can transfer its height through the aspect-ratio to the inline axis when computing its intrinsic inline size contribution. This determines the .test div's intrinsic inline size."><meta name="assert" content="This test verifies that the inner flex container's main-size (height) serves as a percentage basis for its descendants. The canvas can transfer its height through the aspect-ratio to the inline axis when computing its intrinsic inline size contribution. This determines the .test div's intrinsic inline size."><meta name="assert" content="This test verifies that the inner flex container's main-size (height) serves as a percentage basis for its descendants. The canvas can transfer its height through the aspect-ratio to the inline axis when computing its intrinsic inline size contribution. This determines the .test div's intrinsic inline size.">
+
+<style>
+.outer {
+  display: flex;
+  flex-direction: column;
+}
+.inner {
+  display: flex;
+  width: 100px;
+  height: 100px;
+}
+.test {
+  aspect-ratio: 65535 / 1;
+  height: 100%;
+  background: red;
+}
+.test > canvas {
+  height: 100%;
+  background: green;
+}
+</style>
+
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1931491">

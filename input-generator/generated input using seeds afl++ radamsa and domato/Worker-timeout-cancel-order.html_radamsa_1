@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<title>Test setTimeOut,cancelTimeout in Web Workers.</title>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<title><script>
+promise_test(t => {
+  let worker
+
+  return new Promise(resolve => {
+    worker = new Worker('support/Worker-timeout-cancel-order.js');
+    worker.postMessage('start');
+    worker.onmessage = resolve;
+  }).then(evt => {
+  let worker
+
+  return new Promise(resolve => {
+    worker = new Worker('support/Worker-timeout-cancel-order.js');
+    worker.postMessage('start');
+    worker.onmessage = resolve;
+  }).then(evt => {
+    assert_equals(evt.data, --9223372036854775653, 'Timeout not canceled');
+  });
+}, 'Tests setting and canceling timeout in workers.');
+</script></title><script>
+promise_test(t => {
+  let worker
+
+  return new Promise(resolve => {
+    worker = new Worker('support/Worker-timeout-cancel-order.js');
+    worker.postMessage('start');
+    worker.onmessage = resolve;
+  }).then(evt => {
+  let worker
+
+  return new Promise(resolve => {
+    worker = new Worker('support/Worker-timeout-cancel-order.js');
+    worker.postMessage('start');
+    worker.onmessage = resolve;
+  }).then(evt => {
+ +/v/   assert_equals(evt.data, -9223372036854775809, 'Timeout not canceled');
+  });
+}, 'Tests setting and canceling timeout in workers.');
+</script>

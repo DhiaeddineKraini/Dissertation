@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>valueMissing property on the input[type=radio] element</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+  <meta content="valueMissing properthecked",
+        group: ["radio10", "radio11"],
+        expected: true
+      },
+      {
+        name: "One of the radios is required, checked and disabled",
+        group: ["radio12", "radio13"],
+        expected: false
+      }
+    ];
+
+    for (var info of cases) {
+      test(function () {
+        for (var id of info.group) {
+          var radio = document.getElementById(id);
+
+          assert_class_string(radio.validity, "ValidityState",
+            "HTMLInputElement.validity must be a ValidityState instance");
+
+          if (info.expected) {
+            assert_true(radio.validity.valueMissing,
+              "The " + id + ".validity.valueMissing should be true");
+          } else {
+            assert_false(radio.validity.valueMissing,
+              "The " + id + ".validity.valueMissing should be false");
+          }
+        }
+      }, info.name);
+    <bod/html><bod/html>

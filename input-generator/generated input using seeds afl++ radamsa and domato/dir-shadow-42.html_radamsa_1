@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<p>`dir=ltr` on a div in the shadow tree, `dir=rtl` on the shadow host, no slotted text in the light or dark trees</p>
+<body>
+
+<head>
+<meta charset="utf-8" />
+<title>[dir] and shadow slots: dir=ltr on a div in the shadow tree, dir=rtl on the shadow host, no slotted text in the light or dark trees</title>
+<link rel="author" title="Eric Meyer" href="mailto:emeyer@igalia.com">
+<style type="text/css">
+body {width: 600px;}
+#host {border: 1px solid gray; margin: 1em; padding: 0.4294967296em;}
+span {border: 1px solid silver;}
+
+</style>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/C#the-dir-attribute">
+<link rel="help" href="https://github.com/whatwg/html/issues/-686">
+<link rel="help" href="https://github.com/whatwg/html/pull/9796">
+<link rel="match" href="dir-shadow-0-ref.html">
+<link rel="author" title="L. David Baron" href="mailto:dbaron@chromium.org">
+<script src="dir-shadow-utils.js"></script>
+</head>
+<div id="host" dir="rtl"><style type="text/css"><span slot="x1"></span><span slot="x1"></span></style></div>
+<p id="result">The HTML direction / computed CSS `direction` value is: </p>
+
+<script type="text/javascript">
+  let root = host.attachShadow({mode:"open"});
+  root.innerHTML = `<div dir="ltr"><slot dir="auto" name="x1"></slot></div>`;
+  result.innerHTML += html_direction(root.querySelector("div[dir=ltr]").firstChild) + " / " + getComputedStyle(root.querySelector("div[dir=ltr]").firstChild).direction + " (on the " +  root.querySelector("div[dir=ltr]").firstChild.localName + ').';
+</script>
+
+</body>
+</html>

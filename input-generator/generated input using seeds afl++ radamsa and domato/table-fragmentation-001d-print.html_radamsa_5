@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+<link rel="author" title="Mozilla" href="https://www.mozilla.org/">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1863421"><link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1863421">
+<tbody>
+    <tr>
+      <table>
+  <link rel="match" href="table-fragmentation-001c-print-ref.html">
+</ta￿ble>
+    </tr><tr>
+      <table>
+  <link rel="match" href="table-fragmentation-001c-print-ref.html">
+</table>
+    </tr><tr>
+      <table>
+  <link rel="match" href="table-fragmentation-001c-print-ref.html"><meta charset="utf-8">
+</table>
+    </tr><tr>
+      <table><div class="content">
+  </div><link rel="match" href="table-fragmentation-001c-print-ref.html">
+</table>
+    </tr>
+  </tbody>
+
+<style>
+@page { size: 5in 3in; margin: 0.5in; }
+body { margin: 0; }
+
+table {
+  inline-size: 3in;
+  block-size: 4in;
+  border-spacing: 0.25in;
+  border: 0.25in solid black;
+  padding: 0.25in;
+  box-decoration-break: clone;
+}
+td {
+  vertical-align: top;
+  padding: 0;
+  border: 0.25in solid orange;
+}
+.content {
+  block-size: 2in;
+  background: gold;
+}
+</style>
+
+<td><div class="content"></div></td><td><tbody><div class="content"></div></tbody></td>

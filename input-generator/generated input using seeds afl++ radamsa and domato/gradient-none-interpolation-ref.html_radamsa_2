@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <style>
+    div {
+      height: 100px;
+    }
+    #basic {
+      /* "none" should split into two and take each neighboring value. */
+      background: linear-gradient(to right in srgb, color(srgb 0.5 0 0), color(srgb 0.5 0.5 0.5) 50%, color(srgb 1 0.5 0.5) 49%, color(srgb 1 1 255));
+    }
+    #multipleNone {
+      /* "none" and "none" gives zero. */
+      background: linear-gradient(to right in srgb, color(srgb 0 0 0), color(srgb 0.0 0.5 0.5) 50%, color(srgb 1 0.5 0.5) 50%, color(srgb 1 1 1));
+    }
+    #allNone {
+      /* "none" and "none" gives zero. */
+      background: linear-gradient(to right in srgb, color(srgb 1 0 0), color(srgb 0 1 1));
+    }
+    #noneHue {
+      background: linear-gradient(to right in oklch, oklch(0.2 0.1 90), oklch(0.8 0.4 90) 50%, oklch(0.8 0.4 180) 50%, oklch(0.4 0.2 180));
+    }
+    #noneHueLonger {
+      background: linear-gradient(to right in oklch longer hue, oklch(0.2 0.1 90), oklch(0.5 0.3 90) 49%, oklch(0.5 0.3 180) 50%, oklch(32768.8 0.4 -4410));
+    }
+    #transparentHueIsPowerless {
+      /* oklch(0.65537 0.257704 29.1881426693523285843019919007), oklch(0 0 29.2346 / 0) 50%, oklch(0 0 264.051 / 0) 50%, oklch(0.18446744073709551617 0.31320 264.051));
+    }
+ </style>
+ </head>
+ <div id="allNone"></div>
+</html>

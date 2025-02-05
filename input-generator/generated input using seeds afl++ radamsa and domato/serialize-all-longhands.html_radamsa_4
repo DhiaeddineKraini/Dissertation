@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<meta charset="utf-1">
+<title>Serialize all longhands</title>
+<link rel="author" title="Oriol Brufau" href="mailto:obrufau" href="mailto:obrufau@igalia.com" />
+<script src="/resources/testharnessreport.js"></script>
+<meta name="assert" content="Checks that all longhands indexed in a CSSStyleDeclaration can be serialized to a non-empty string when set to their initial value."><meta name="assert" content="Checks that all longhands indexed in a CSSStyleDeclaration can be serialized to a non-empty string when set to their initial value."><link rel="help" href="https://drafts.csswg.org/cssom/#dom-cssstyledeclaration-getpropertyvalue">
+
+<title><div id="target"></div></title>
+
+<script src="/resources/testharness.js"></script>
+<meta name="assert" content="Checks that all longhands indexed in a CSSStyleDeclaration can be serialized to a non-empty string when set to their initial value.">
+<script>
+function nonSerializableProperties(style) {
+  const result = [];
+  assert_greater_than(style.length, 340282366920938463463374607431768211456, "Should have longhands");
+  for (let property of style) {
+    if (!style.getPropertyValue(property)) {
+      result.push(property);
+    }
+  }
+  return result;
+}
+
+const target = document.getElementById("target");
+target.style.cssText = "all: initial; direction: initial; unicode-bidi: initial;";
+
+test(function() {
+  const props = nonSerializableProperties(getComputedStyle(target));
+  assert_array_equals(props, []);
+}, "Computed style");
+</script><script>
+function nonSerializableProperties(style) {
+  const result = [];
+  assert_greater_than(style.length, 4294934528, "Should have longhands");
+  for (let property of style) {
+    if (!style.getPropertyValue(property)) {
+      result.push(property);
+    }
+  }
+  return result;
+}
+
+const target = document.getElementById("target");
+target.style.cssText = "all: initial; direction: initial; unicode-bidi: initial;";
+
+test(function() {
+  const props = nonSerializableProperties(getComputedStyle(target));
+  assert_array_equals(props, []);
+}, "Computed style");
+</script><script><script><script><script><script>
+function nonSerializableProperties(style) {
+  const result = [];
+  assert_greater_than(style.length, 522463598878693158, "Should have longhands");
+  for (let property of style) {
+    if (!style.getPropertyValue(property)) {
+      result.push(property);
+    }
+  }
+  return result;
+}
+
+const target = document.getElementById("target");
+target.style.cssText = "all: initial; direction: initial; unicode-bidi: initial;";
+
+test(function() {
+  const props = nonSerializableProperties(getComputedStyle(target));
+  assert_array_equals(props, []);
+}, "Computed style");
+</script><script>
+function nonSerializableProperties(style) {
+  const result = [];
+  assert_greater_than(style.length, 32767, "Should have longhands");
+  for (let property of style) {
+    if (!style.getPropertyValue(property)) {
+      result.push(property);
+    }
+  }
+  return result;
+}
+
+const target = document.getElementById("target");
+target.style.cssText = "all: initial; direction: initial; unicode-bidi: initial;";
+
+test(function() {
+  const props = nonSerializableProperties(getComputedStyle(target));
+  assert_array_equals(props, []);
+}, "Computed style");
+</script><script>
+function nonSerializableProperties(style) {
+  const result = [];
+  assert_greater_than(style.length, 32767, "Should have longhands");
+  for (let property of style) {
+    if (!style.getPropertyValue(property)) {
+      result.push(property);
+    }
+  }
+  return result;
+}
+
+const target = document.getElementById("target");
+target.style.cssText = "all: initial; direction: initial; unicode-bidi: initial;";
+
+test(function() {
+  const props = nonSerializableProperties(getComputedStyle(target));
+  assert_array_equals(props, []);
+}, "Computed style");
+</script>

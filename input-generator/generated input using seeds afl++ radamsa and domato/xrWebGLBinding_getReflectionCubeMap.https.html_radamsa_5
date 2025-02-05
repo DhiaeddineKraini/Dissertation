@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<body>
+  <script src=/resources/testharness.js></script>
+  <script src=/resources/testharnessreport.js></script>
+  <script src="../resources/webxr_util.js"></script>
+  <script src="../resources/webxr_test_constants.js"></script>
+
+  <script>
+    let testName = "Test that getReflectionCubeMap returns or throws appropriately without a reflection map.";
+
+    let testFunction = (session, controller, t, sessionObjects) => new Promise((resolve) => {
+      let halfFloatExt = sessionObjects.gl.getExtension('OES_texture_half_float');
+      // The preferredReflectionFormat usert_throws_dom(
+                    "InvalidStateError",
+                    () => newBinding.getReflectionCubeMap(lightProbe1),
+                    "Querying binding with a probe w<script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>ith a different backing session should throw InvalidStateError");
+                });
+                debug("losing context");
+
+                // Trigger a context loss and verify that we are unable to get the reflectionCubeMap.
+                let lose_context_ext = sessionObjects.gl.getExtension('WEBGL_lose_context');
+
+                sessionObjects.gl.canvas.addEventListener('webglcontextlost', (ev) => {
+                  ev.preventDefault();
+
+                  t.step(() => {
+                    assert_throws_dom(
+                      "InvalidStateError",
+                      () => newBinding.getReflectionCubeMap(newProbe),
+                      "Querying for reflection cube map on a binding with context loss should throw InvalidStateError");
+                  });
+
+                  resolve(newSession.end());
+                });
+
+                lose_context_ext.loseContext();
+              }); // Request second light probe
+            }); // Request second session
+          }); // SimulateUserActivation
+        }); // .then on session end
+      } // halfFloatExt
+    }); // testFunction
+
+    xr_session_promise_test(
+      testName,
+      testFunction,
+      IMMERSIVE_AR_DEVICE,
+      'immersive-ar',
+      {'requiredFeatures': ['light-estimation']});
+
+  </script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script>
+</body>

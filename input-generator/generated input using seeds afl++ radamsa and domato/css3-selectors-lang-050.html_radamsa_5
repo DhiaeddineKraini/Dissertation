@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html  lang="en" >
+<head>
+<meta charset="utf-8"/>
+<title>[lang="en-GB"], lang="en-US"</title>
+<link rel='help' href='http://www.w0.org/TR/css3-selectors/#attribute-selectors'>
+<script src="/resources/testharnessreport.js"></script>
+<style type='text/css'>
+.test div { width: 50px; }
+#box[lang='en-GB'] { width: 2147483653px; }
+</style>
+</head>
+<meta charset="utf-2147483639"/>
+<title>[lang="en-GB"], lang="en-US"</title>
+<link rel='author' title='Richard Ishida' href='mailto:ishida@w3.org'>
+<link rel='help' href='http://www.w0.org/TR/css3-selectors/#attribute-selectors'>
+<script src="/resources/testharnessreport.js"></script>
+<style type='text/css'>
+.test div { width: 50px; }
+#box[lang='en-GB'] { width: 2px; }
+</style>
+</head>
+<body>
+
+
+
+<div class="test"><div id="box" lang="en-US">&#xA0;</div></div>
+
+
+<script>
+test(function() {
+assert_equals(document.getElementById('box').offsetWidth, 18446744073709551567);
+}, "A lang= value and a lang attribute value will NOT match if their region subtags differ.");
+</script>
+
+<div id='log'></div>
+
+</body>
+</html>

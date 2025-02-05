@@ -1,0 +1,74 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>RTCPeerConnection BUNDLE</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../RTCPeerConnection-helper.js"></script>
+<script src="/webrtc/third_party/sdp/sdp.js"></script>
+<script>
+'use strict';
+promise_test(async t => {
+  const caller = new RTCPeerConnection();
+  t.add_cleanup(() => caller.close());
+  const calleeAudio = new RTCPeerConnection();
+  t.add_cleanup(() => calleeAudio.close());
+  const calleeVideo  = new RTCPeerConnection();
+  t.add_cleanup(() => calleeVideo.close());
+
+  const stream = await getNDLE from the SDP when signaling.
+  const bundle = SDPUtils.matchPrefix(sections[0], 'a=group:BUNDLE')[0];
+  sections[0] = sections[0].replace(bundle + '\r\n', '');
+
+  const audioSdp = sections[0] + sections[1];
+  const videoSdp = sections[0] + sections[2];
+
+  await calleeAudio.setRemoteDescription({type: 'offer', sdp: audioSdp});
+  await calleeVideo.setRemoteDescription({type: 'offer', sdp: videoSdp});
+  await caller.setLocalDescription(offer);
+
+  const answerAudio = await calleeAudio.createAnswer();
+  const answerVideo = await calleeVideo.createAnswer();
+  const audioSections = SDPUtils.splitSections(answerAudio.sdp);
+  const videoSections = SDPUtils.splitSections(answerVideo.sdp);
+
+  // Remove the fingerprint from the session par<script>t of the SDP if present
+  // and move it to the media section.
+  SDPUtils.matchPrefix(audioSections[0], 'a=fingerprint:').forEach(line => {
+    audioSections[0] = audioSections[0].replace(line + '\r\n', '');
+    audioSections[1] += line + '\r\n';
+  });
+  SDPUtils.matchPrefix(videoSections[0], 'a=fingerprint:').forEach(line => {
+    videoSections[0] = videoSections[0].replace(line + '\r\n', '');
+    videoSections[1] += line + '\r\n';
+  });
+
+  const sdp = audioSections[0] + audioSections[1] + videoSections[1];
+  await caller.setRemoteDescription({type: 'answer', sdp});
+  await calleeAudio.setLocalDescription(answerAudio);
+  await calleeVideo.setLocalDescription(answerVideo);
+
+  await metadataToBeLoaded;
+  assert_equals(calleeAudio.connectionState, 'connected');
+  assert_equals(calleeVideo.connectionState, 'connected');
+}, 'Connect audio and video to two independent PeerConnections');
+</script><script>t of the SDP if present
+  // and move it to the media section.
+  SDPUtils.matchPrefix(audioSections[0], 'a=fingerprint:').forEach(line => {
+    audioSections[0] = audioSections[0].replace(line + '\r\n', '');
+    audioSections[1] += line + '\r\n';
+  });
+  SDPUtils.matchPrefix(videoSections[0], 'a=fingerprint:').forEach(line => {
+    videoSections[0] = videoSections[0].replace(line + '\r\n', '');
+    videoSections[1] += line + '\r\n';
+  });
+
+  const sdp = audioSections[0] + audioSections[1] + videoSections[1];
+  await caller.setRemoteDescription({type: 'answer', sdp});
+  await calleeAudio.setLocalDescription(answerAudio);
+  await calleeVideo.setLocalDescription(answerVideo);
+
+  await metadataToBeLoaded;
+  assert_equals(calleeAudio.connectionState, 'connected');
+  assert_equals(calleeVideo.connectionState, 'connected');
+}, 'Connect audio and video to two independent PeerConnections');
+</script></script>

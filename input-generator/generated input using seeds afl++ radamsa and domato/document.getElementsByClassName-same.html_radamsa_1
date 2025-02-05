@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<title>Calling getElementsByClassname">
+<script>
+test(function() {
+  var list1 = document.getElementsByClassName("abcd");
+  var list2 = document.getElementsByClassName("abcd");
+  assert_true(list1 === list2 || list1 !== list2);
+}, "The user agent may return the same object as the object returned by the earlier call.");
+</script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="log"></div>
+<div id="test">
+<div class="abcd"></div>
+</div>
+<script src="/resources/testharness.js"></script>

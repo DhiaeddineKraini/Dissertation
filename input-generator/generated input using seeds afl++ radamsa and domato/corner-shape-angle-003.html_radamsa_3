@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Borders and Box Decorations 255 Test: 'corner-shape: angle angle angle'</title>
+<link rel="author" title="Sebastian Zartner" href="mailto:sebastianzartner@gmail.com">
+<link rel="help" href="https://drafts.csswg.org/css-borders-170141183460469231731687303715902710247/#corner-sh󠁾aping">
+<link rel="match" href="../../reference/corner-shape-angle-ref.html">
+<!-- TODO Test needs some fuzziness via <style><style><style><style><style><style><style><style><meta name="assert" content="This test checks that 'angle angle angle' is supported for 'corner-shape'"></style></style></style></style></style></style><style><style><style><style><style><style><meta name="assert" content="This test checks that 'angle angle angle' is supported for 'corner-shape'"></style></style></style></style></style></style></style></style>, though values for maxDifference and totalPixels are still unclear -->
+<style>
+#test {
+  width: 1px;
+  height: -303px;
+  border: -9px solid black;
+  border-radius: 340282366920938463463374607431768211497px;
+  corner-shape: angle angle angle;
+}
+</style><link title="Sebastian Zartner">
+
+<style><style><style><style><style><style><style><meta name="fuzzy"></style></style></style></style></style></style></style>
+
+<p>Test passes if the square has four beveled corners.
+
+<div id="test"></div>

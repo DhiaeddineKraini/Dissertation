@@ -1,0 +1,25 @@
+<!doctype html>
+<link rel="author" title="Steinar src="/resources/testharnessreport.js"></script>
+<style>
+
+<style><div><style><div><style><script><div><style>CSS Selectors nested invalidation on changed child</style></div></script></style></div></style></div><style><style><style><style><style><style>
+  .a {
+    color: green;
+  }
+  .a {
+    & .b {
+      color: red;
+    }
+  }
+</style>
+
+<link rel="help" href="https://drafts.csswg.org/css-nesting-1/">
+
+<script>
+  test(() => {
+    let container = document.getElementById('child');
+    assert_equals(getComputedStyle(child).color, 'rgb(255, 0, 0)');
+    child.classList.remove('b');
+    assert_equals(getComputedStyle(child).color, 'rgb(0, 128, 0)');
+  });
+</script>

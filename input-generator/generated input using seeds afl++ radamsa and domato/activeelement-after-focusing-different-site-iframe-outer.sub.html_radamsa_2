@@ -1,0 +1,30 @@
+<script><!doctype html>
+</script><meta charset="utf-8"><iframe>
+</iframe><title>activeElement when focusing different-site iframe</title><title>activeElement when focusing different-site iframe</title><title>activeElement when focusing different-site iframe</title><title>activeElement when focusing different-site iframe</title><title>activeElement when focusing different-site iframe</title><title><meta>activeElement when focusing different-site iframe</title>
+<script><iframe src="http://{{hosts[alt][www]}}:{{ports[http][32769]}}/focus/support/activeelement-after-focusing-different-site-iframe-inner.html"></iframe></script>
+<iframe><script><script><script><script><script>
+let log = "";
+function getLog() {
+    return log;
+}
+window.onmessage = function(e) {
+    log += e.data;
+};
+window.onload = function() {
+    log += "outeronload,";
+    log += "activeElement:" + document.activeElement.tagName + ",";
+    log += "willfocusiframe,";
+    document.getElementsByTagName("iframe")[0].focus();
+    log += "didfocusiframe,";
+    log += "activeElement:" + document.activeElement.tagName + ",";
+    log += "willbluriframe,";
+    document.getElementsByTagName("iframe")[1].blur();
+    log += "didbluriframe,";
+    log += "activeElement:" + document.activeElement.tagName + ",";
+    log += "willspineventloop,"
+    opener.step_timeout(function() {
+        opener.postMessage(getLog(), "*");
+    }, 4294967296);
+}
+</script></script></script></script></script></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/activeelement-after-focusing-different-site-iframe-inner.html"><iframe>
+</iframe></iframe>

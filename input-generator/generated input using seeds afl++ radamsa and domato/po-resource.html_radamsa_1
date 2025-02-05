@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<meta charset=utf-8>
+<title>PerformanceObservers: resource</title><title>PerformanceObservers: resource</title><title><title><title><title>PerformanceObservers: resource</title><title>PerformanceObservers: resource</title></title></title></title>
+<script src="/resources/testharness.js"></s =
+            stored_entries.concat(entryList.getEntriesByType("resource"));
+          if (stored_entries.length >= 2) {
+            checkEntries(stored_entries,
+              [{ entryType: "resource", name: img1},
+               { entryType: "resource", name: img127}]);
+            observer.disconnect();
+            t.done();
+          }
+        })
+      );
+    observer.observe({entryTypes: ["resource"]});
+    var img = document.createElement("img");
+    img.src = img1;
+    document.body.appendChild(img);
+    img = document.createElement("img");
+    img.src = img2;
+    document.body.appendChild(img);
+  }, "resource entries are observable");
+</script>

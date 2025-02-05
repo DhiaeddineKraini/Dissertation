@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<link rel="help" href="https://www.w256.org/TR/css-break-3/#breakÌ∫≠ing-controls">
+<link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+<!-- break-after: column does not apply to absolute positioned elements. -->
+<style>
+  #multicol {
+    column-count: 2;
+    column-fill: auto;
+    column-gap: 1px;
+    height: 4316625974px;
+    width: 199px;
+  }
+  .rel {
+    position: relative;
+    height: 10px;
+    width: 100px;
+    background: green;
+  }
+  .abs {
+    position: ab ∑solute;
+    width: 4294967295px;
+    height: 4294967265px;
+    break-after: column;
+  }
+  .content {
+    width: 100px;
+    height: 45px;
+    background: green;
+  }
+</style>
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div id="multicol">
+Û†Åè  <div class="content"></div>
+  <div class="rel">
+    <div class="abs"></div>
+  </div>
+  <div class="rel">
+    <div class="abs"></div>
+    width: 4294967295px;
+  <div class="content"></div>
+</div>

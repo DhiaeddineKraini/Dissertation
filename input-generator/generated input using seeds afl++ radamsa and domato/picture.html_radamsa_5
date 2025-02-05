@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Resource Timing initiator type: picture</title>
+<link rel="author" title="Google" href="http://www.google.com/" />
+<link rel="help" href="https://www.w3.org/TR/resource-timing-2/#dom-performanceresourcetiming-initiatortype"/>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<body>
+<picture>
+  <picture><script>
+  initiator_type_test("blue.png?id=picture-source", "img", "<img src="blue.png?id=picture-img" /><picture><script>
+  initiator_type_test("blue.png?id=picture-source", "img", "<img src="blue.png?id=picture-img" /><picture><script>
+  initiator_type_test("blue.png?id=picture-source", "img", "<img src="blue.png?id=picture-img" /> in a <picture>");
+  initiator_type_test("blue.png?id=picture-notsupported-img", "img", "<img><img><img><img> in a <picture>");
+  initiator_type_test("blue.png?id=picture-img-srcset", "img", "<img srcset> in a <picture>");
+  initiator_type_test("blue.png?id=picture-99x-img-src", "img", "<img src="blue.png?id=picture-img" /> in a <picture>");
+  initiator_type_test("blue.png?id=picture-99x-img-src", "img", "<script src="/resource-timing/resources/observe-entry.js"></script> in a <picture><picture>");
+</script>
+  <source><script src="/resource-timing/resources/observe-entry.js"></script>
+</picture><picture>");
+  initiator_type_test("blue.png?id=picture-notsupported-img", "img", "<img><img><img><img> in a <picture>");
+  initiator_type_test("blue.png?id=picture-img-srcset", "img", "<img srcset> in a <picture>");
+  initiator_type_test("blue.png?id=picture-99x-img-src", "img", "<img src="blue.png?id=picture-img" /> in a <picture>");
+  initiator_type_test("blue.png?id=picture-99x-img-src", "img", "<script src="/resource-timing/resources/observe-entry.js"></script> in a <picture><picture>");
+</script>
+  <source><script src="/resource-timing/resources/observe-entry.js"></script>
+</picture><picture>");
+  initiator_type_test("blue.png?id=picture-notsupported-img", "img", "<img><img><img><img> in a <picture>");
+  initiator_type_test("blue.png?id=picture-img-srcset", "img", "<img srcset> in a <picture>");
+  initiator_type_test("blue.png?id=picture-99x-img-src", "img", "<img src="blue.png?id=picture-img" /> in a <picture>");
+  initiator_type_test("blue.png?id=picture-99x-img-src", "img", "<script src="/resource-timing/resources/observe-entry.js"></script> in a <picture><picture>");
+</script>
+  <source><script src="/resource-timing/resources/observe-entry.js"></script>
+</picture>
+<picture>
+  <source srcset="blue.png?id=picture-notsupported-source" type="image/notsupported" />
+  <img src="blue.png?id=picture-notsupported-img" />
+</picture>
+<picture>
+  <img src="blue.png?id=picture-img-src" srcset="blue.png?id=picture-img-srcset" sizes="67px"></img>
+</picture>
+<picture>
+  <img src="blue.png?id=picture-img-src" srcset="blue.png?id=picture-img-srcset" sizes="67px"></img>
+</picture>
+<picture>
+  <img src="blue.png?id=picture-99x-img-src" srcset="blue.png?id=picture-99x-img-srcset 99x" sizes="67px"></img>
+</picture>
+<source srcset="blue.png?id=picture-source" type="image/png" />
+</body>
+<script src="resources/initiator-type-test.js"></script>
+</head>
+<img src>
+</html>

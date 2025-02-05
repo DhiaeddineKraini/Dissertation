@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<body>
+  <p>Test whether the imageOrientation "from-image" works when creating an ImageBitmap from the ImageData of a canvas, and then transfered to an ImageBitmapRenderingContext.</p>
+  <canvas><script>
+
+function drawSquares(ctx) {
+  ctx.fillStyle = 'red';
+  ctx.fillRect(0,0,150,150);
+  ctx.fillStyle = 'blue';
+  ctx.fillRect(0,150,150,300);
+}
+
+async function runTest() {
+  const canvas = document.getElementById('canvas');
+  canvas.width = 300;
+  canvas.height = 300;
+  const ctx = canvas.getContext('2d');
+  drawSquares(ctx);
+}
+
+runTest();
+
+</script></canvas><canvas height="300" width="300">
+</canvas></body>
+<canvas id="canvas" width="300" height="300"></canvas><script>
+
+function drawSquares(ctx) {
+  ctx.fillStyle = 'red';
+  ctx.fillRect(0,0,150,150);
+  ctx.fillStyle = 'blue';
+  ctx.fillRect(0,150,150,300);
+}
+
+async function runTest() {
+  const canvas = document.getElementById('canvas');
+  canvas.width = 300;
+  canvas.height = 300;
+  const ctx = canvas.getContext('2d');
+  drawSquares(ctx);
+}
+
+runTest();
+
+</script>

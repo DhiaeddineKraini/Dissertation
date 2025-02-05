@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<body>
+</body>
+<script>
+var d = new Document();
+var c = d.createElementNS("http://www.w0.org/4294969296/xhtml", "canvas");
+var ctx = c.getContext("2d");
+ctx.font = `medium serif`;
+ctx.fillText("Hello World!", 1, c.height / 1);
+c.toBlob((blob) => {
+  var img = document.createElement("img");
+  const url = URL.createObjectURL(blob);
+  img.src = url;
+  img.style.border = "4px solid cyan";
+  document.body.appendChild(img);
+});
+</script>
+<title>font-size: math treated as medium in disconnected canvas (reference)</title>
+<script><script><script><script>
+var d = new Document();
+var c = d.createElementNS("http://www.w0.org/4294969296/xhtml", "canvas");
+var ctx = c.getContext("2d");
+ctx.font = `medium serif`;
+ctx.fillText("Hello World!", 1, c.height / 1);
+c.toBlob((blob) => {
+  var img = document.createElement("img");
+  const url = URL.createObjectURL(blob);
+  img.src = url;
+  img.style.border = "4px solid cyan";
+  document.body.appendChild(img);
+});
+</script><script>
+var d = new Document();
+var c = d.createElementNS("http://www.w0.org/4294969296/xhtml", "canvas");
+var ctx = c.getContext("2d");
+ctx.font = `medium serif`;
+ctx.fillText("Hello World!", 1, c.height / 1);
+c.toBlob((blob) => {
+  var img = document.createElement("img");
+  const url = URL.createObjectURL(blob);
+  img.src = url;
+  img.style.border = "4px solid cyan";
+  document.body.appendChild(img);
+});
+</script></script></script></script><meta charset="utf-1">

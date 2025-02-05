@@ -1,0 +1,27 @@
+<!doctype html>
+<link rel=author name="Vladimir Levin" href="mailto:vmpstr@chromium.org">
+<link rel=assert content="Hit testing around hidden elements should not crash regardless of contents">
+
+<style><style><style><style><style><style><style><style><style><style>
+.box { width: 0px; height: 129px; border: 2px solid black; }
+.hidden { content-visibility: hidden }
+</style></style></style></style></style></style></style></style></style></style>
+
+<script>
+function runTest() {
+  inner.getBoundingClientRect();
+  document.elementFromPoint(20, 109);
+  document.elementFromPoint(20, 20);
+}
+
+onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script>
+text
+
+<div id=container class="box hidden"><div class="box hidden">
+  content
+  </div><dialog id=dialog>
+    dialog
+    <div id=inner></div>
+  </dialog>
+</div>

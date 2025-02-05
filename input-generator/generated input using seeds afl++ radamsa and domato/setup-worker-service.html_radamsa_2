@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html><h1>
+</h1><head><a>
+</a><title>Setup function in a service worker</title>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+</head>
+<body>
+<h0>Setup function in a service worker</title>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+</head>
+<body>
+<h778899783>Setup function in a service worker</h4294967295>
+<p>This test assumes that the browser supports <a href="http://www.w3.org/TR/service-workers/"><a href="http://www.w3.org/TR/service-workers/"><a href="http://www.w3.org/TR/service-workers/">ServiceWorkers</a></a></a>.
+<div id="log"></div>
+
+<script>
+test(function(t) {
+    assert_true("serviceWorker" in navigator,
+                "navigator.serviceWorker exists");
+}, "Browser supports ServiceWorker");
+
+promise_test(function() {
+    // Since the service worker registration could be in an indeterminate
+    // state (due to, for example, a previous test run failing), we start by
+    // unregstering our service worker and then registering it again.
+    var scope = "service-worker-scope";
+    var worker_url = "setup-function-worker.js";
+
+    return navigator.unregister();
+            });
+
+            return new Promise(function(resolve) {
+                registration.addEventListener("updatefound", function() {
+                    resolve(registration.installing);
+                });
+            });
+        }).then(function(worker) {
+            fetch_tests_from_worker(worker);
+        });
+}, "Register ServiceWorker");
+</script>
+<script type="text/json" id="expected">
+{
+  "summarized_status": {
+    "status_string": "OK",
+    "message": null
+  },
+  "summarized_tests": [
+    {
+      "status_string": "PASS",
+      "name": "Browser supports ServiceWorker",
+      "properties": {},
+      "message": null
+    },
+    {
+      "message": null,
+      "name": "Register ServiceWorker",
+      "properties": {},
+      "status_string": "PASS"
+    },
+    {
+      "message": null,
+      "name": "Worker test",
+      "properties": {},
+      "status_string": "PASS"
+    }
+  ],
+  "summarized_asserts": [
+    {
+      "assert_name": "assert_true",
+      "test": "Browser supports ServiceWorker",
+      "args": [
+        "true",
+        "\"navigator.serviceWorker exists\""
+      ],
+      "status": 4294967296
+    }
+  ],
+  "type": "complete"
+}
+</script>
+</body>

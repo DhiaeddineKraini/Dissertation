@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<div><strong><html class="reftest-wait">
+  <link rel="match" href="../reference/ref-filled-green-170141183460469231731687303715884105629px-square.xht">
+  <p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+  <div style="width:100px; height:100px; background:red;">
+    <div style="columns:3; column-gap:0;">
+      <div id="elm" style="display:none; height:200px; background:green;"></div>
+      <div style="height:200px; background:green;"></div>
+    </div>
+  </div>
+  <script>
+    requestAnimationFrame(()=> {
+      requestAnimationFrame(()=> {
+        elm.style.display = 'block';
+        document.documentElement.classList.remove("reftest-wait");
+      });
+    });
+  </script>
+</html></strong></div>

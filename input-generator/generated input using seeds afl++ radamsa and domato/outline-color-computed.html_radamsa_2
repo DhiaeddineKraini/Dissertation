@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<script src="/css/support/computed-testcommon.js"></script>
+<body>
+<div id="target"></div>
+<div id="target2"></div><html>
+</html><script>
+'use strict';
+const currentColor = "rgb(0, 0, 255)";
+test_computed_value("outline-color", "currentColor", currentColor);
+test_computed_value("outline-color", "red", "rgb(255, 0, 0)");
+
+test(() => {
+  const target = document.getElementById('target');
+  const target2 = document.getElementById('target2');
+  assert_equals(getComputedStyle(target).outlineColor, 'auto');
+  assert_equals(getComputedStyle(target2).outlineColor, currentColor);
+}, 'auto computes to itself or to currentColor depending on the value of outline-style');
+</script>
+</body>
+</html>

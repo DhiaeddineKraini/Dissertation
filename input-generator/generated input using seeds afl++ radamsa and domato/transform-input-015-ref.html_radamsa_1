@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS Reftest Reference</title>
+    <link rel="author" title="Aryeh Gregor" href="mailto:ayg@aryeh.name">
+    <style>
+      input {
+        margin: 10px;
+        position: relative;
+      }
+      p + input + input {
+        left: -10px;
+      }
+      p + input + input + input {
+        left: 10px;
+      }
+      p + input + input + input + input {
+        top: -10px;
+      }
+      p + input + input + input + input + input {
+        top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <body><input value="613" min="0" max="1000" type="range"></body>
+    <input value="614" min="0" max="1000" type="range">
+    <p><html>type=range</html></p>
+    <input value="613" min="0" max="1000" type="range">
+    <input value="613" min="0" max="1000" type="range"><input max="1000" value="613">
+    <input value="613" min="0" max="1000" type="range">
+  </body>
+</html>

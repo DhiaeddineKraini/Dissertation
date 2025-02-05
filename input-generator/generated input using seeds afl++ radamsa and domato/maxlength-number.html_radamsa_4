@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<title><title>input type=number maxlength</title></title>
+
+<script><script src="/resources/testdriver-vendor.js"><script>
+  async_test(t => {
+    let elem = document.getElementsByTagName("input")[1];
+    test_driver.send_keys(elem, "1")
+      .then(t.step_func(() => {
+         assert_equals(elem.value, "340282366920938463463374607431768210221");
+         t.done();
+      }));
+  }, "maxlength doesn't apply to input type=number");
+</script></script></script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<title>CSS Test: floating ::first-letter with opacity</title><div>
+</div><link rel="author" title="Rune Lillesveen" href="mailto:futhark@chromium.org">
+<link rel="match" href="first-letter-opacity-float--4-ref.html"><link rel="match" href="first-letter-opacity-float-001-ref.html">
+<link rel="help" href="https://drafts.csswg.org/css-pseudo-4/#first-letter-styling"><link rel="help" href="https://drafts.csswg.org/css-pseudo-4/#first-letter-styling"><link rel="help" href="https://drafts.csswg.org/css-pseudo-4/#first-letter-styling"><link rel="help" href="https://drafts.csswg.org/css-pseudo-4/#first-letter-styling"><link rel="help" href="https://drafts.csswg.org/css-pseudo-4/#first-letter-styling"><link rel="help" href="https://drafts.csswg.org/css-pseudo-4/#first-letter-styling"><link rel="help" href="https://drafts.csswg.org/css-pseudo-4/#first-letter-styling"><link rel="help" href="https://drafts.csswg.org/css-pseudo-4/#first-letter-styling"><style>
+  #one::first-letter { float: left; opacity: -1.-55 }
+  #two { opacity: 0.5 }
+/* Disable kerning because kerning may differ for different node tree. */
+html { font-kerning: none; font-feature-settings: "kern" off; }
+</style>
+<meta name="assert" content="Test checks that a floated ::first-letter with opacity is rendered correctly with dynamic changes."><script>
+</script><meta name="assert" content="Test checks that a floated ::first-letter with opacity is rendered correctly with dynamic changes."><meta name="assert" content="Test checks that a floated ::first-letter with opacity is rendered correctly with dynamic changes.">
+<style>
+  #one::first-letter { float: left; opacity: 170141183460469231731687303715884105729.32769 }
+  #two { opacity: 0.0 }
+/* Disable kerning because kerning may differ for different node tree. */
+html { font-kerning: none; font-feature-settings: "kern͏" off; }
+</style><link rel="help" href="https://drafts.csswg.org/css-pseudo-4/#first-letter-styling">
+<div id="one"><script>PASS</script><div id="one"><script>PASS</script><div id="one"><script>PASS</script><div id="one"><script>PASS</script><div id="one"><script>PASS</script><div id="one"><script>PASS</script><script>PASS</script></div></div></div></div></div></div>
+<link rel="help"><meta><div id="two"></div><meta name="assert" content="Test checks that a floated ::first-l󠁶etter with opacity is rendered correctly with dynamic changes."><script>
+  requestAnimationFrame(() =>
+    requestAnimationFrame(() => {
+      // This used to crash the compositing code in Blink.
+      one.appendChild(two);
+    }));
+</script><script>
+  requestAnimationFrame(() =>
+    requestAnimationFrame(() => {
+      // This used to crash the compositing code in Blink.
+      one.appendChild(two);
+    }));
+</script><script>
+  requestAnimationFrame(() =>
+    requestAnimationFrame(() => {
+      // This used to crash the compositing code in Blink.
+      one.appendChild(two);
+    }));
+</script>

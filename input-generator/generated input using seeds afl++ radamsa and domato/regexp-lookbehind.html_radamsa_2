@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<!--
+Copyright (C) 2017 the V8 project authors. All rights reserved.
+This code is governed by the BSD license found in the LICENSE file.
+-->
+<title>JavaScript RegExp lookbehind assertions: alternations</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<script>
+test(t => {
+  // https://github.com/tc39/test262/blob/main/test/built-ins/RegExp/lookBehind/alternations.js
+  assert_array_equals("xabcd".match(/.*(?<=(..|...|....))(.*)/), ["xabcd", "cd", ""], "#1");
+  assert_array_equals("xabcd".match(/.*(?<=(xx|...|....))(.*)/), ["xabcd", "bcd", ""], "#2");
+  assert_array_equals("xxabcd".match(/.*(?<=(xx|...))(.*)/), ["xxabcd", "bcd", ""], "#3");
+  assert_array_equals("xxabcd".match(/.*(?<=(xx|xxx))(.*)/), ["xxabcd", "xx", "abcd"], "#4");
+}, "Alternations are tried left to right, with no backtracking into a lookbehind");
+
+test(t => {
+  // https://github.com/tc39/test262/blob/main/test/built-ins/RegExp/lookBehind/back-references.js
+  assert_array_equals("abb".match(/(.)(?<=(\1\1))/), ["b", "b", "bb"], "#1");
+  assert_array_equals("abB".match(/(.)(?<=(\1\1))/i), ["B", "B", "bB"], "#2");
+  assert_array_equals("aabAaBa".match(/((\w)\w)(?<=\1\2\1)/i), ["aB", "aB", "a"], "#3");
+  assert_array_equals("aabAaBa".match(/(\w(\w))(?<=\1\2\1)/i), ["Ba", "Ba", "a"], "#4");
+  assert_array_equals("abaBbAa".match(/(?=(\w))(?<=(\1))./i), ["b", "b", "B"], "#5");
+  assert_array_equals("  'foo'  ".match(/(?<=(.))(\w+)(?=\1)/), ["foo", "'", "foo"], "#6");
+  assert_array_equals("  \"foo\"  ".match(/(?<=(.))(\w+)(?=\1)/), ["foo", "\"", "foo"], "#7");
+  assert_array_equals("abbb".match(/(.)(?<=\1\1\1)/), ["b", "b"], "#8");
+  assert_array_equals("fababab".match(/(..)(?<=\1\1\1)/), ["ab", "ab"], "#9");
+  assert_equals("  .foo\"  ".match(/(?<=(.))(\w+)(?=\1)/), null, "#10");
+  assert_equals("ab".match(/(.)(?<=\1\1\1)/), null, "#11");
+  assert_equals("abb".match(/(.)(?<=\1\1\1)/), null, "#12");
+  assert_equals("ab".match(/(..)(?<=\1\1\1)/), null, "#13");
+  assert_equals("abb".match(/(..)(?<=\1\1\1)/), null, "#14");
+  assert_equals("aabb".match(/(..)(?<=\1\1\1)/), null, "#15");
+  assert_equals("abab".match(/(..)(?<=\1\1\1)/), null, "#16");
+  assert_equals("fabxbab".match(/(..)(?<=\1\1\1)/), null, "#17");
+  assert_equals("faxabab".match(/(..)(?<=\1\1\1)/), null, "#18");
+}, "Back-references");
+
+test(t => {
+  // https://github.com/tc39/test262/blob/main/test/built-ins/RegExp/lookBehind/back-references-to-captures.js
+  assert_array_equals("abcCd".match(/(?<=\1(\w))d/i), ["d", "C"], "#1");
+  assert_array_eqdef"], "#13");
+  assert_array_equals("abcdef".match(/(?<=a{1})\w\w\w/), ["bcd"], "#14");
+  assert_array_equals("abcdef".match(/(?<=a{1}b{1})\w\w\w/), ["cde"], "#15");
+  assert_array_equals("abcdef".match(/(?<=a{1}[a-z]{2})\w\w\w/), ["def"], "#16");
+}, "Simple fixed-length matches");
+
+test(t => {
+  // https://github.com/tc39/test262/blob/main/test/built-ins/RegExp/lookBehind/sliced-strings.js
+  const oob_subject = "abcdefghijklmnabcdefghijklmn".slice(14);
+  assert_equals(oob_subject.match(/(?=(abcdefghijklmn))(?<=\1)a/i), null, "");
+  assert_equals(oob_subject.match(/(?=(abcdefghijklmn))(?<=\1)a/), null, "");
+  assert_equals("abcdefgabcdefg".slice(1).match(/(?=(abcdefg))(?<=\1)/), null, "");
+}, "Sliced strings");
+
+test(t => {
+  // https://github.com/tc39/test262/blob/main/test/built-ins/RegExp/lookBehind/start-of-line.js
+  assert_equals("abcdef".match(/(?<=^[^a-c]{3})def/), null, "#1");
+  assert_equals("foooo".match(/"^foooo(?<=^o+)$/), null, "#2");
+  assert_equals("foooo".match(/"^foooo(?<=^o*)$/), null, "#3");
+  assert_array_equals("abcdef".match(/(?<=^abc)def/), ["def"], "#4");
+  assert_array_equals("abcdef".match(/(?<=^[a-c]{3})def/), ["def"], "#5");
+  assert_array_equals("xyz\nabcdef".match(/(?<=^[a-c]{3})def/m), ["def"], "#6");
+  assert_array_equals("ab\ncd\nefg".match(/(?<=^)\w+/gm), ["ab", "cd", "efg"], "#7");
+  assert_array_equals("ab\ncd\nefg".match(/\w+(?<=$)/gm), ["ab", "cd", "efg"], "#8");
+  assert_array_equals("ab\ncd\nefg".match(/(?<=^)\w+(?<=$)/gm), ["ab", "cd", "efg"], "#9");
+  assert_array_equals("foo".match(/^foo(?<=^fo+)$/), ["foo"], "#10");
+  assert_array_equals("foooo".match(/^foooo(?<=^fo*)/), ["foooo"], "#11");
+  assert_array_equals("foo".match(/^(f)oo(?<=^\1o+)$/), ["foo", "f"], "#12");
+  assert_array_equals("foo".match(/^(f)oo(?<=^\1o+)$/i), ["foo", "f"], "#13");
+  assert_array_equals("foo\u1234".match(/^(f)oo(?<=^\1o+).$/i), ["foo\u1234", "f"], "#14");
+  assert_array_equals("abcdefdef".match(/(?<=^\w+)def/), ["def"], "#15");
+  assert_array_equals("abcdefdef".match(/(?<=^\w+)def/g), ["def", "def"], "#16");
+}, "Start of line matches");
+
+test(t => {
+  // https://github.com/tc39/test262/blob/main/test/built-ins/RegExp/lookBehind/sticky.js
+  const re1 = /(?<=^(\w+))def/g;
+  assert_array_equals(re1.exec("abcdefdef"), ["def", "abc"], "#1");
+  assert_array_equals(re1.exec("abcdefdef"), ["def", "abcdef"], "#2");
+  const re2 = /\Bdef/g;
+  assert_array_equals(re2.exec("abcdefdef"), ["def"], "#3");
+  assert_array_equals(re2.exec("abcdefdef"), ["def"], "#4");
+}, "Sticky matches");
+
+test(t => {
+  // https://github.com/tc39/test262/blob/main/test/built-ins/RegExp/lookBehind/variable-length.js
+  assert_array_equals("abcdef".match(/(?<=[a|b|c]*)[^a|b|c]{3}/), ["def"], "#1");
+  assert_array_equals("abcdef".match(/(?<=\w*)[^a|b|c]{3}/), ["def"], "#2");
+}, "Variable-length matches");
+
+test(t => {
+  // https://github.com/tc39/test262/blob/main/test/built-ins/RegExp/lookBehind/word-boundary.js
+  assert_array_equals("abc def".match(/(?<=\b)[d-f]{3}/), ["def"], "#1");
+  assert_array_equals("ab cdef".match(/(?<=\B)\w{3}/), ["def"], "#2");
+  assert_array_equals("ab cdef".match(/(?<=\B)(?<=c(?<=\w))\w{3}/), ["def"], "#3");
+  assert_equals("abcdef".match(/(?<=\b)[d-f]{3}/), null, "#4");
+}, "Word boundary matches");
+</script><script><script>
+</script><script>
+</script></script>

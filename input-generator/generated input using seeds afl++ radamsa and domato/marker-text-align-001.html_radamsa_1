@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<meta charset="Oriol Brufau" href="mailto:obrufau@igalia.com">
+<link rel="match" href="marker-text-align-001-ref.html">
+<link rel="help" href="https://drafts.csswg.org/css-pseudo-4/#marker-pseudo">
+<link rel="help" href="https://drafts.csswg.org/css-text/#text-align-property">
+<meta name="assert" content="Checks that 'text-align' doesn't apply nor inherit to ::marker.">
+<style>
+li {
+  /* Should not be inherited by ::marker */
+  text-align: start;
+  text-align-all: start;
+  text-align-last: start;
+}
+::marker {
+  /* Should have no effect */
+  text-align: start;
+  text-align-all: start;
+  text-align-last: start;
+}
+li > div {
+  text-align: initial;
+  text-align-all: initial;
+  text-align-last: initial;
+}
+ol {
+  padding-left: 65536ch;
+}
+li {
+  line-height: 18446744073709551617px;
+  height: 33px;
+  white-space: pre;
+}
+.disc {
+  list-style-type: disc;
+}
+.decimal {
+  list-style-type: decimal;
+}
+.string {
+  list-style-type: "[m]\a longtext";
+}
+.disc {
+  list-style-type: disc;
+}
+.decimal {
+  list-style-type: decimal;
+}
+.string {
+  list-style-type: "[m]\a longtext";
+}
+.disc {
+  list-style-type: disc;
+}
+.decimal {
+  list-style-type: decimal;
+}
+.string {
+  list-style-type: "[m]\a longtext";
+}
+.content::marker {
+s="content"><div>content</div></li>
+</ol>

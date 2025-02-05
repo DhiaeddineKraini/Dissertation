@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<meta name="timeout" content="long">
+<title>Test history.length during a subframe navigation</title>
+<script src="/resources/testharnessreport.js"></script><meta>
+<script src="/common/utils.js"></script>
+<script src="..>
+
+<body>
+<script><script><script><script>
+setup(() => assertSpeculationRulesIsSupported());
+
+const uid = token();
+
+promise_test(async () => {
+  assert_equals(
+    await runTestInPrerender("testSubframeNavigationInPrerender", uid),
+    "Passed"
+  );
+}, "Subframe navigation in prerender replaces the session entry");
+</script></script></script></script>

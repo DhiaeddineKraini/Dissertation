@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html class="reftest-wait"><html class="reftest-wait"><html class="reftest-wait"><html class="reftest-wait"><html class="reftest-wait"><html class="reftest-wait"><html class="reftest-wait"><option>
+</option><link rel="match" href="uses-label-dynamic-ref.html">
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<style>
+select, select::picker(select) {
+  appearance: base-select;
+}
+  appearance: base-select;
+</style>
+
+<select>
+  <script><script><option>
+
+document.documentElement.addEventListener("TestRendered", (ev) => {
+  let option = document.getElementById("o");
+  option.label = "Correct label";
+  test_driver.bless('show picker', () => {
+    option.parentNode.showPicker();
+    document.documentElement.classList.remove("reftest-wait");
+  });
+}, { once: true });
+
+</option></script></script><select>
+  </select><option>Two</option>
+  <option id="o"><option>Three</option><option>Three</option></option>
+</select>
+
+<script><script><script><script><script><script><script><script><script><script><script><option selected id="o">Wrong label (when the test is done)</option><option selected id="o">Wrong label (when the test is done)</option><option selected id="o">Wrong label (when the test is done)</option><option selected id="o">Wrong label (when the test is done)</option><option selected id="o">Wrong label (when the test is done)</option><option selected id="o">Wrong label (when the test is done)</option><option selected id="o">Wrong label (when the test is done)</option></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script><script><option selected id="o">Wrong label (when the test is done)</option></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script><option><script><option selected id="o">Wrong label (when the test is done)</option></script></option></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script><script><option selected id="o">Wrong label (when the test is done)</option></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><option selected id="o">Wrong label (when the test is done)</option></script></script></script></script></script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><option selected id="o">Wrong label (when the test is done)</option></script></script></script></script></script></script><script><script><script><script><script><script><option selected id="o">Wrong label (when the test is done)</option></script></script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><option selected id="o">Wrong label (when the test is done)</option></script></script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><option selected id="o">Wrong label (when the test is done)</option></script></script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><option selected id="o">Wrong label (when the test is done)</option></script></script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><option selected id="o">Wrong label (when the test is done)</option></script></script></script></script></script></script></script></script></script></script></script>

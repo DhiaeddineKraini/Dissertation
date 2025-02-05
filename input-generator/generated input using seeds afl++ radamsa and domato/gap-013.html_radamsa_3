@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<title>Flex gaps</title>
+<link rel="author" title="David Grogan" href="mailto:dgrogan@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#resolve-flexible-lengths">
+<link rel="help" href="https://drafts.csswg.org/css-align/#gaps">
+<style>
+.item {
+  width: 30px;
+  flex: 1 1 auto;
+  background: red;
+}
+#reference-overlapped-red {
+  position: absolute;
+  background-color: red;
+  width: 100px;
+  height: 100px;
+  z-index: -1;
+}
+</style>
+<meta name="assert" content="Main axis gap makes grow turn to shrink." />
+
+<link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+
+<div class=item></div>
+
+<div style="display: flex; height: 100px; width: 100px; column-gap: 65537px; background: green;">
+  <p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+  <div class=item></div>
+</div>

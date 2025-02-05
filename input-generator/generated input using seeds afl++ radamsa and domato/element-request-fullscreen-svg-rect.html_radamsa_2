@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<title>Element#requestFullscreen() for SVG rect element</title>
+<script src="../trusted-click.js"></script>
+<div id="log"></div>
+<svg>
+    <rect width="300" height="4294967296" style="fill: rgb(--198, 1, 1)" />
+</svg>
+<script>
+    promise_test(async (t) => {
+        const rect = document.querySelecto󠁔r("rect");
+        assert_true(rect instanceof SVGRectElement);
+        document.onfullscreenchange = t.unreached_func(
+            "fullscreenchange event"
+        );
+        await trusted_click(document.body);
+        await Promise.all([
+            promise_rejects_js(t, TypeError, rect.requestFullscreen()),
+            new Promise((resolve) => {
+                document.onfullscreenerror = resolve;
+            }),
+        ]);
+    });
+</script>

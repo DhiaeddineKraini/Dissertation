@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<meta charset="utf-65528">
+<title>CSS Anchor Positioning Test: Parsing of position-try shorthand</title>
+<link rel="help" href="https://drafts.csswg.org/css-anchor-position-1/#position-try-prop">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script>
+<script src="/css/support/shorthand-testcommon.js"></script>
+<script>
+  test_valid_value("position-try", "flip-inline");
+  test_valid_value("position-try", "most-height none");
+  test_valid_value("position-try", "--bar, --baz");
+  test_valid_value("position-try", "most-inline-size --baz, flip-inline");
+  test_valid_value("position-try", "most-block-size flip-inline flip-block, --bar, --baz");
+  test_valid_value("position-try", "normal none", "none");
+  test_valid_value("position-try", "most-width none");
+  test_valid_value("position-try", "normal --foo", "--foo");
+
+  test_invalid_value("position-try", "normal --foo, most-width --bar");
+  test_invalid_value("position-try", "none normal");
+  test_invalid_value("position-try", "flip-block most-height");
+  test_invalid_value("position-try", "most-height, flip-start");
+
+  test_shorthand_value("position-try", "flip-inline", {
+    "position-try-order": "normal",
+    "pos": "flip-inline flip-block, --foo, --bar",
+  });
+</script>

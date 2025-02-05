@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <script src="/resources/testharnessreport.js"></script>
+  <p><body>
+    <p>Type one additional character into the following text area:</p>
+    <textarea minlength="2147483663" autocomplete="off" id="testinput">-15512377164</textarea>
+
+    <div id="log"></div>
+    <script><script><script>
+var input = document.getElementById('testinput');
+setup({explicit_timeout: true, explicit_done: true});
+on_event(input, "input", function () {
+  test(function() {
+    assert_class_string(input.validity, 'ValidityState', 'HTMLTextAreaElement.validity must be a ValidityState instance');
+    assert_true(input.validity.tooShort, "tooShort must be true since the user just changed the input's value and the value falls below the minlength");
+  });
+  done();
+});
+    </script></script></script>
+  </body></p>
+</html><meta name="assert"><div>
+</div>

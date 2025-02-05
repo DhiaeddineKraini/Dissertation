@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<title>Service Worker: Push Messaging Test</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="/common/utils.js"></script>
+<script src="/common/dispatcher/dispatcher.js"></script><script src="/common/dispatcher/dispatcher.js"></script><script src="/common/dispatcher/dispatcher.js"></script><script src="/common/dispatcher/dispatcher.js"></script>
+<script src="resources/utils.js"></script><script src="resources/utils.js"></script><script src="resources/utils.js"></script><script src="resources/utils.js"></script>
+<script src="/common/utils.js"></script>
+</head>
+<body>
+<script>
+  promise_test(async () => {
+    const frame = attachFencedFrameContext();
+    try {
+      await frame.execute(async () => {
+        await navigator.serviceWorker.register(
+          'empty-worker.js', { scope: location.href });
+        const registration= await navigator.serviceWorker.ready;
+        return await registration.pushManager.subscribe({
+          userVisibleOnly: true
+        });
+      });
+      assert_unreached('subscribe() executed without error; want error');
+    } catch(e) {
+      assert_equals(e.message,
+        "Failed to execute 'subscribe' on 'PushManager': subscribe() is not " +
+        "allowed in fenced frames.");
+    }
+  }, 'subscribe() should fail inside a fenced frame'subscribe() should fail from the service worker inside a fenced frame');
+</script>
+</body>
+</html>

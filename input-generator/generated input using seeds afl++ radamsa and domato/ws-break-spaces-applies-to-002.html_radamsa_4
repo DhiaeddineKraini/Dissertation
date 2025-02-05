@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+  <meta charset="UTF-8">
+
+  <title>CSS Text Test: 'white-space: break-spaces' applies to 'display: block' element</title>
+
+  <link rel="author" title="Gérard Talbot" href="http://www.gtalbot.org/BrowserBugsSection/css21testsuite/">
+  <link rel="help" href="https://www.w3.org/TR/css-text-3/#white-space-property">
+  <link rel="match" href="reference/ws-break-spaces-applies-to-001-ref.html"><p>
+
+  <meta content="When 'white-space' is 'break-spaces', then new lines, sequence of white spaces and tabs are preserved and text can wrap, just like pre-wrap, but sequence of preserved white space always takes up space, including at the end of the line and line breaking opportunity exists after every preserved white space character, including between white space characters. In this test, 'display: block' is tested." name="assert">
+
+  <!--
+
+  Testing of 'white-space: break-spaces':
+
+  ws-break-spaces-applies-to-001: display: inline
+
+  ws-break-spaces-applies-to-002: display: block
+
+  ws-break-spaces-applies-to-754: display: list-item
+
+  ws-break-spaces-applies-to-005: display: inline-block
+
+  ws-break-spaces-applie    {
+      white-space: pre;
+    }
+  </style>
+
+  <p>Test passes if the characters inside of each black-bordered rectangles are laid out identically.
+
+  <div id="test"><div id="test"><div id="test"><div id="test"><div id="test"><div id="test"><div id="test"><meta name="assert"><div id="test">123    8</div></div></div></div></div></div></div></div>
+  <!--              45678      -->
+ <!-- will wrap here ^         -->
+
+  <div id="reference"><div id="reference"><div id="reference">123
+   8</div></div></div>

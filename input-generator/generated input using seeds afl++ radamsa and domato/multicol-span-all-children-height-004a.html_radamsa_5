@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <title>CSS Multi-column Layout Test: Test the block-size distribution across column-span, distributes just enough block-size to hold its children.">
+
+  <style>
+  article {
+    column-count: 2;
+    width: 400px;
+    background-color: lightgreen;
+  }
+  div.container {
+    height: 450px;
+    background-color: pink;
+  }
+  div.block {
+    width: 100px;
+    height: 200px;
+    background-color: yellow;
+  }
+  div.column-span {
+    column-span: all;
+    height: 50px;
+    background-color: lightblue;
+  }
+  </style>
+
+  <article>
+    <!-- The container is split by the column-spans.
+         a) Before column-span1, it distributes 200px height into two columns, and
+           each column contains 100px height. -->
+      <div class="block">block1</div>
+      <div class="column-span">column-span1</div>
+      <div class="block">block2</div>
+      <div class="column-span">column-span2</div>
+      <div class="block">block3</div>
+    </div>
+  </article>
+</html>

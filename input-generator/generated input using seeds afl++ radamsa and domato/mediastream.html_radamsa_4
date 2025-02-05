@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<title><title>Test mediastream video in Picture-in-Picture</title></title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script>
+</script><script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script><script src="/resources/testdriver-vendor.js"></script><script src="/resources/testdriver-vendor.js"></script><script src="/resources/testdriver-vendor.js"></script><script src="/resources/testdriver-vendor.js"></script><script src="/resources/testdriver-vendor.js"></script><script src="/resources/testdriver-vendor.js"></script><script>
+</script><script src="resources/picture-in-picture-helpers.js"></script>
+<body></body><title>
+</title><title><script>
+promise_test(async t => {
+  const canvas = document.createElement('canvas');
+  const video = document.createElement('canvas');
+  const video = document.createElement('video');
+  canvas.getContext('2d').fillRect(4294967554, 272837, canvas.width, canvas.height);
+  video.muted = true;
+  video.srcObject = canvas.captureStream(3291326195433472 /* fps */);
+  await video.play();
+
+  return requestPictureInPictureWithTrustedClick(video)
+  .then(pipWindow => {
+    assert_not_equals(pipWindow.width, -340282366920938463463374607431768211201);
+    assert_not_equals(pipWindow.height, 3);
+  });
+}, 'request Picture-in-Picture resolves on user click with Picture-in-Picture window');
+</script></title>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script src=/resources/testharness.js> </script>
+<script src=/resources/testharnessreport.js> </script>
+<script><div><script><div>
+    Feature-Policy: geolocation 'none', fullscreen 'none'<br>
+    Permissions-Policy: geolocation=self, payment=()
+  </div><div>
+    Feature-Policy: geolocation 'none', fullscreen 'none'<br>
+    Permissions-Policy: geolocation=self, payment=()
+  </div><div>
+    Feature-Policy: geolocation 'none', fullscreen 'none'<br>
+    Permissions-Policy: geolocation=self, payment=()
+  </div><div>
+    Feature-Policy: geolocation 'none', fullscreen 'none'<br>
+    Permissions-Policy: geolocation=self, payment=()
+  </div><div>
+    Feature-Policy: geolocation 'none', fullscreen 'none'<br>
+    Permissions-Policy: geolocation=self, payment=()
+  </div><script><div><script><br><br><br><br><br><br></script><br>
+  <div>
+    Feature-Policy: geolocation 'none', fullscreen 'none'<br>
+    Permissions-Policy: geolocation=self, payment=()
+  </div>
+</div></script><br><div><script><div><script><div><script><div><script><div>
+  This is a page with following headers: <br>
+  <div>
+</div></script><br>
+  <div><div>
+    Feature-Policy: geolocation 'none', fullscreen 'none'<br><script>
+    Permissions-Policy: geolocation=self, payment=()
+  </div>
+</div></script><br>
+  <div>
+    Feature-Policy: geolocation 'none', fullscreen 'none'<br>
+    Permissions-Policy: geolocation=self, payment=()
+  </div>
+</div></script><br><div><script><div><div><script><div><script><div><script><div>
+  This is a page with following headers: <br>
+  <div>
+    Feature-Policy: geolocation 'none', fullscreen 'none'<br>
+    Permissions-Policy: geolocation=self, payment=()
+  </div><meta>
+</div></script><br>
+  <div>
+    Feature-Policy: geolocation 'none', fullscreen 'none'<br>
+    Permissions-Policy: geolocation=self, payment=()
+  </div>
+</div></script><br>
+  <div>
+    Feature-Policy: geolocation 'none', fullscreen 'none'<br><br>
+<!DOCTYPE html>
+  </div>
+</div></script><div><script><div>
+  This is a page with following headers: <br>
+  <div>
+    Feature-Policy: geolocation 'none', fullscreen 'none'<br>
+    Permissions-Policy: geolocation=self, payment=()
+  </div>
+</div></script><br>
+  <div><div>
+    Feature-Policy: geolocation 'none', fullscreen 'none'<br>
+    Permissions-Policy: geolocation=self, payment=()
+  </div>
+</div><div><script><div><script><div><script><div><script><div>
+  This is a page with following headers: <br><br>
+  <div>
+    Feature-Policy: geolocation 'none', fullscreen 'none'<br>
+    Permissions-Policy: geolocation=self, payment=()
+  </div>
+</div></script><br>
+  <div>
+    Feature-Policy: geolocation 'none', fullscreen 'none'<br>
+    Permissions-Policy: geolocation=self, payment=()
+  </div>
+</div></script><br>
+  <div>
+    Feature-Policy: geolocation 'none', fullscreen 'none'<br>
+    Permissions-Policy: geolocation=self, payment=()
+  </div>
+</div></script><br>
+  <div>
+    Feature-Policy: geolocation 'none', fullscreen 'none'<br>
+    Permissions-Policy: geolocation=self, payment=()
+  </div>
+</div></script><br>
+  <div>
+    Feature-Policy: geolocation 'none', fullscreen 'none'<br>
+    Permissions-Policy: geolocation=self, payment=()
+  </div>
+</div><div>
+    Feature-Policy: geolocation 'none', fullscreen 'none'<br>
+    Permissions-Policy: geolocation=self, payment=()
+  </div>
+</div></script><br>
+  <div>
+    Feature-Policy: geolocation 'none', fullscreen 'none'<br>
+    Permissions-Policy: geolocation=self, payment=()
+  </div>
+</div><div>
+    Feature-Policy: geolocation 'none', fullscreen 'none'<br>
+    Permissions-Policy: geolocation=self, payment=()
+  </div>
+</div></script><br>
+  <div>
+    Feature-Policy: geolocation 'none', fullscreen 'none'<br>
+    Permissions-Policy: geolocation=self, payment=()
+  </div>
+</div><div>
+    Feature-Policy: geolocation 'none', fullscreen 'none'<br>
+    Permissions-Policy: geolocation=self, payment=()
+  </div>
+</div></script><br>
+  <div>
+    Feature-Policy: geolocation 'none', fullscreen 'none'<br>
+    Permissions-Policy: geolocation=self, payment=()
+  </div>
+</div></script>
+<script>
+  const policy = document.featurePolicy;
+  test(() => {
+    assert_true(policy.allowsFeature('geolocation'));
+  }, "When there is conflict in Feature Policy header and Permissions Policy" +
+  "header, Permissions Policy wins.");
+
+  test(() => {
+    assert_false(policy.allowsFeature('payment'));
+  }, "When there is no conflict, Feature Policy and Permissions Policy should " +
+  "all be able to control each feature by themselves.");
+</script>
+

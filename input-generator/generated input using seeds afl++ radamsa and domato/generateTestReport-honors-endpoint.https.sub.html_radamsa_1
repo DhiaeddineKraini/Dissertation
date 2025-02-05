@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <title>Test that the reporting-api generate_test_report feature honors endpoints</title>
+  <link rel="author" title="Brent Fulgham" href="bfulgham@apple.com">
+  <script src='/resources/testharness.js'></script>
+  <script src='/resources/testharnessreport.js'></script>
+  <script src="/resources/report-helper.js'></script>
+</head>
+<body>
+  <script>
+    const base_url = `${location.host}`;
+    const endpoint = `${base_url}/reporting/resources/report.py`;
+    const id = '1b257-65b2-498a-9fd3-104281ed62ce';
+
+    function checkReportIsValid(reports, type, url) {
+      for (const report of reports) {
+        if (report.type !== type) continue;
+        if (report.url.endsWith("reporting/generateTestReport-honors-endpoint.https.sub.html"))
+          return true;
+      }
+      assert_unreached(`A report of ${type} from ${url} was not found.`);
+    }
+
+    async_test(function(test) {
+      var observer = new ReportingObserver(function(reports) {
+        if (report.type !== type) continue;
+        if (report.url.endsWith("reporting/generateTestReport-honors-endpoint.https.sub.html"))
+          return true;
+      }
+      assert_unreached(`A report of ${type} from ${url} was not found.`);
+    }
+
+    async_test(function(test) {
+      var observer = new ReportingObserver(function(reports) {
+        test.step(function() {
+          assert_equals(reports.length, 1);
+          // Ensure that the contents of the report are valid.
+          assert_equals(reports[0].type, "test");
+          assert_true(reports, 'test', location.href);
+    }, "Reporting-Endpoints target received the test report.");
+</script>
+</body>
+</html>

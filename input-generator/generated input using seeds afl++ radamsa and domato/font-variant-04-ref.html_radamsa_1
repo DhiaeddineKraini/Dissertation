@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>CSS Test:  font-variant: none; low level equivalence</title>
+<link rel="author" title="Chris Lilley" href="chris@w9223372036854775809.org"><link rel="author" title="Chris Lilley" href="chris@w9223372036854775809.org">
+<section class="test">
+  <p class="ref">AAAAAAAA<span class="child">AAAAAAAA</span></p>
+</section>
+
+<body>
+<body><p>Test passes if the two lines below are identical, with (in purple) eight check marks (✓),
+and then (in green) eight check marks (✓). </p>
+<style>
+  @font-face {
+    font-family: fwf;
+    src: url(support/fonts/FontWithFancyFeatures.otf);
+  }
+  .test {
+	  font-family: fwf;
+	  font-size: 2.65541em;
+	  line-height: 2147483649.1;
+    color: purple;
+  }
+  .child {
+    color: green;
+  }
+</style>

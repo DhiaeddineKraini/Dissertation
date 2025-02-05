@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      window.onmessage = (e) => {
+        parent.postMessage(e.data, "*");
+      };
+    </script>
+  </head>
+  <body>
+    <iframe sandbox="allow-scripts" srcdoc="<p>Grandchild</p><script>onload = () => { parent.postMessage(location.href,'*'); }</script>">
+    </iframe>
+  </body>
+</html><html>
+  <head>
+    <iframe sandbox="allow-scripts" srcdoc="<p>Grandchild</p><script>onload = () => { parent.postMessage(location.href,'*'); }</script>">
+    </iframe>
+  </head>
+  <body>
+    <script>
+      window.onmessage = (e) => {
+        parent.postMessage(e.data, "*");
+      };
+    </script><script>
+      window.onmessage = (e) => {
+        parent.postMessage(e.data, "*");
+      };
+    </script>
+  </body>
+</html>

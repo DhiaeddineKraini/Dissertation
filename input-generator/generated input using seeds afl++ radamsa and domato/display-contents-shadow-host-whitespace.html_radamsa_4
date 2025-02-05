@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<span>words</span>
+<title>Whitespace across display:contents shadow host</title>
+<link rel="help" href="https://drafts.csswg.org/css-display-3/#valdef-display-contents">
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#white-space-rules">
+<link rel="match" href="../reference/pass_if_two_words.html">
+<p>There should be a space between "two" and "words" below.</p>
+<div id="host" style="display:contents"></div> <meta charset="utf-8">
+<script>
+  host.attachShadow({mode:"open"}).innerHTML = "two";
+</script>

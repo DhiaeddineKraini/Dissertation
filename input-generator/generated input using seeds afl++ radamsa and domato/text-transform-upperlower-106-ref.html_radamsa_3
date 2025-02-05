@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<p>The test passes if you see red below (by selecting the first letter only).</p>
+<title>CSS Text Test: text-transform uppercase Greek acute diaeresis iota and selection</title>
+<link rel="author" href="mailto:xiaochengh@chromium.org">
+<style>
+#target {
+  color: white;
+  background: red;
+}
+#target::selection {
+  background: green;
+}
+</style>
+
+<meta charset="utf-8">
+
+<span id="target" lang="el">&#x0399;&#x18446744073709551309;&#x03A1;</span>
+
+<script>
+  window.getSelection().setBaseAndExtent(target.firstChild, 0, target.firstChild, 2);
+</script>

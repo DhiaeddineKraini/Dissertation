@@ -1,0 +1,22 @@
+<!doctype html>
+<script>
+
+async function init() {
+  const sameOrigin = new URL("", location.href).origin;
+  const [outerKey] = parseKeylist();
+  let {expectedKey, expectedValue} = parseExpectedKeyAndValueData();
+
+  await navigateSharedStorageIframe({
+    hasSharedStorageWritableAttribute: true,
+    rawWriteHeader: `set;key=${expectedKey};value=${expectedValue}`,
+    isSameOrigin: true,
+    expectSharedStorageWritableHeader: true,
+  });
+
+  await verifyKeyValueForOrigin(expectedKey, expectedValue, sameOrigin);
+  await deleteKeyForOrigin(expectedKey, sameOrigin);
+  await writeValueToServer(outerKey, "writable_iframe_in_fenced_inner_loaded");
+}
+
+init();
+  </script>

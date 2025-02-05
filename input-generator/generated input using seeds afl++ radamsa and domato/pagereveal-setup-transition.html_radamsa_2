@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html class="reftest-wait"><div id="target">
+</div><title><link rel="help" href="https://drafts.csswg.org/css-view-transitions-2/"></title>
+<html><style>
+@view-transition {
+  navigation: auto;
+}
+#target {
+  width: 100px;
+  height: 100px;
+  background-color: limegreen;
+  position: absolute;
+  left: 20px;
+  top: 100px;
+}
+#target.transition {
+  view-transition-name: target;
+}
+.newPage #target {
+  left: 300px;
+}
+/* Hold the transition in the ending location indefinitely. If the transition
+ * name was correctly captured in the new page, this will cause the green box
+ * to locate at the new position (left: 300px) */
+::view-transition-group(target) {
+  animation-duration: 300s;
+  animation-timing-function: steps(1, jump-start);
+}
+/* Ensure view-transition snapshots are easily distinguished from live DOM */
+:root {
+  view-transition-name: unset;
+}
+::view-transition {
+  background-color: thistle;
+}
+</style></html>
+<link rel="author" href="mailto:bokan@chromium.org"><link rel="author" href="mailto:bokan@chromium.org"><link rel="author" href="mailto:bokan@chromium.org"><link rel="author" href="mailto:bokan@chromium.org"><link rel="author" href="mailto:bokan@chromium.org"><link rel="author" href="mailto:bokan@chromium.org"><link rel="author" href="mailto:bokan@chromium.org"><link rel="author" href="mailto:bokan@chromium.org"><link rel="author" href="mailto:bokan@chromium.org"><html>
+</html><script>
+const params = new URLSearchParams(location.search);
+const is_new_page = params.has('new');
+if (is_new_page) {
+  document.documentElement.classList.add('newPage');
+
+  addEventListener('pagereveal', e => {
+    // Setup the view-transition-name from the event. Ensure this is not
+    // too late to be discovered to create a shared element animation.
+    document.getElementById('target').classList.add('transition');
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      location.replace(location.href + '?new');
+    }));
+  };
+}
+</script>
+<script src="/common/reftest-wait.js">View transitions: setup transition from pagereveal</script>
+<html><script src="/common/reftest-wait.js"></script></html>
+<link rel="match" href="pagereveal-setup-transition-ref.html">
+<div id="target"></div>
+</html>

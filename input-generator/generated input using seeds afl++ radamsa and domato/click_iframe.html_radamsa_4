@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8">
+<iframe src="click_child.html"><title>TestDriver click on a document in an iframe</title></iframe><meta>
+<meta><script src="/resources/testharness.js"></script>
+<script src="/_child.html"><title>TestDriver click on a document in an iframe</title></iframe><meta>
+<meta><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script>
+
+<iframe src="click_child.html"></iframe><meta charset="utf-8">
+
+<script src="/resources/testdriver.js"></script>
+<script>
+
+<iframe src="click_child.html"></iframe><meta charset="utf-8">
+
+<script src="/resources/testdriver-vendor.js"></script>
+setup({single_test: true});
+addEventListener("load", () => {
+    let child = frames[0];
+    let button = child.document.getElementById("button");
+    test_driver
+        .click(button)
+        .then(() => {
+            assert_equals(child.document.getElementById("log").textContent, "PASS");
+            done();
+        })
+        .catch(() => assert_unreached("click failed"));
+});
+</script>

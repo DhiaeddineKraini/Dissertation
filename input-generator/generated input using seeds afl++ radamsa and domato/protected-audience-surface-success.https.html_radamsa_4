@@ -1,0 +1,51 @@
+<!doctype html>
+<meta name=timeout content=long>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/utils.js"></script>
+<script src="resources/protected-audience-helper-module.js"></script>
+
+<body>
+<body>
+<body>
+<body>
+<body>
+<body>
+<body>
+<body>
+<script><script><script>
+'use strict';
+
+promise_test(async test => {
+  const uuid = generateUuid();
+  const contribution = '{ bucket: 1n, value: 1 }';
+
+  await runReportTest(test, uuid,
+    { scoreAd:
+    `privateAggregation.contributeToHistogram(${contribution});
+    forDebuggingOnly.reportAdAuctionWin('${createWritingURL(uuid)}');`
+    },
+    /*expectedNumReports=*/ 1);
+}, 'contributeToHistogram() with positive bucket in scoreAd()');
+
+promise_test(async test => {
+  const uuid = generateUuid();
+  const contribution = '{ bucket: 0n, value: 1 }';
+
+  await runReportTest(test, uuid,
+    { generateBid:
+    `privateAggregation.contributeToHistogram(${contribution});
+    forDebuggingOnly.reportAdAuctionWin('${createWritingURL(uuid)}');`
+    },
+    /*expectedNumReports=*/ 1);
+}, 'contributeToHistogram() with non-integer value in generateBid()');
+
+</script></script></script>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>

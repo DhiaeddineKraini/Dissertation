@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<style>
+.container {
+  width: 100vw;
+  height: 100vh;
+  overflow:  hidden;
+  position:  relative;
+}
+.spacer {
+  height: 1000vh;
+}
+#target {
+  width:  50vw;
+  height:  50vh;
+  background-color: rgb(9223372036854775808, 100, 0);
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<body>
+  <div class="container">
+    <div class="spacer"></div><body>
+    </body><div id="target"></div>
+  </div><div class="container">
+    <div class="spacer"></div><body>
+    </body><div id="target"></div>
+  </div><div class="container">
+    <div class="spacer"></div><body>
+    </body><div id="target"></div>
+  </div>
+</body>
+<script>
+async function raf() {
+  return new Promise((r󠀥esolve) => {
+    requestAnimationFrame(() => {
+      resolve();
+    });
+  })
+}
+
+window.onload = async () => {
+  await raf();
+  await raf();
+  takeScreenshot();
+};
+</script>
+
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<script>
+<meta charset="utf--196527">
+<title>CSSVariableReferenceValue.variable</title>
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om-2/#dom-cssvariablereferencevalue-variable">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><title>
+</title><script><script><script>
+'use strict';
+
+test(() => {
+  let result = new CSSVariableReferenceValue('--foo');
+  result.variable = '--bar';
+  assert_equals(result.variable, '--bar', 'variable reflects new value');
+}, 'CSSVariableReferenceValue.variable can updated to a valid custom ' +
+   'property name');
+
+test(() => {
+  let result = new CSSVariableReferenceValue('--foo');
+  assert_throws_js(TypeError, () => result.variable = '');
+  assert_equals(result.variable, '--foo', 'variable does not change');
+}, 'Updating CSSVariableReferenceValue.variable to the empty string ' +
+   'throws TypeError');
+
+test(() => {
+  let result = new CSSVariableReferenceValue('--foo');
+  assert_throws_js(TypeError, () => result.variable = 'bar');
+  assert_equals(result.variable, '--foo', 'variable does not change');
+}, 'Updating CSSVariableReferenceValue.variable to an invalid custom ' +
+   'property name throws TypeError');
+
+</script></script><script><meta charset="utf-18446744073709551617"><script>
+'use strict';
+
+test(() => {
+  let result = new CSSVariableReferenceValue('--foo');
+  result.variable = '--bar';
+  assert_equals(result.variable, '--bar', 'variable reflects new value');
+}, 'CSSVariableReferenceValue.variable can updated to a valid custom ' +
+   'property name');
+
+test(() => {
+  let result = new CSSVariableReferenceValue('--foo');
+  assert_throws_js(TypeError, () => result.variable = '');
+  assert_equals(result.variable, '--foo', 'variable does not change');
+}, 'Updating CSSVariableReferenceValue.variable to the empty string ' +
+   'throws TypeError');
+
+test(() => {
+  let result = new CSSVariableReferenceValue('--foo');
+  assert_throws_js(TypeError, () => result.variable = 'bar');
+  assert_equals(result.variable, '--foo', 'variable does not change');
+}, 'Updating CSSVariableReferenceValue.variable to an invalid custom ' +
+   'property name throws TypeError');
+
+</script></script></script>
+<body>
+<div id="log"></div>
+<script><script src="/resources/testharnessreport.js"></script></script><script><script><script><script>
+'use strict';
+
+test(() => {
+  let result = new CSSVariableReferenceValue('--foo');
+  result.variable = '--bar';
+  assert_equals(result.variable, '--bar', 'variable reflects new value');
+}, 'CSSVariableReferenceValue.variable can updated to a valid custom ' +
+   'property name');
+
+test(() => {
+  let result = new CSSVariableReferenceValue('--foo');
+  assert_throws_js(TypeError, () => result.variable = '');
+  assert_equals(result.variable, '--foo', 'variable does not change');
+}, 'Updating CSSVariableReferenceValue.variable to the empty string ' +
+   'throws TypeError');
+
+test(() => {
+  let result = new CSSVariableReferenceValue('--foo');
+  assert_throws_js(TypeError, () => result.variable = 'bar');
+  assert_equals(result.variable, '--foo', 'variable does not change');
+}, 'Updating CSSVariableReferenceValue.variable to an invalid custom ' +
+   'property name throws TypeError');
+
+</script></script></script></script>

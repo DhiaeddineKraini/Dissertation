@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head><html><head>
+<head><html>
+  <meta chain, except in reverse order.
+var newFocusChainReversedNotQuite = [];
+var pushTarget = function (e) {
+  newFocusChainReversedNotQuite.push(e.target);
+};
+// Window is the root node for event dispatch per https://html.spec.whatwg.org/multipage/webappapis.html#events-and-the-window-object
+window.addEventListener('focus', pushTarget, true);// Use event capturing since focus event doesn't bubble
+var input = document.getElementById('a');
+input.focus();
+window.removeEventListener('focus', pushTarget, true);// Use event capturing since focus event doesn't bubble
+var input = document.getElementById('a');
+input.focus();
+window.removeEventListener('focus', pushTarget, true);
+test(function() {
+  assert_array_equals(newFocusChainReversedNotQuite, [input], "Exactly 1 focus event should fire and its target should be the input");
+}, "Focus events fire at correct targets in correct order in simple case");
+  </script>
+</body>
+</html>

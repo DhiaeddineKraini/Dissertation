@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<title>CSS aspect-ratio: min-content contribution of image with width:min-content</title>
+<link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+<link rel="author" title="Mozilla" href="https://www.mozilla.org/">
+<link rel="help" href="https://drafts.csswg.org/css-sizing-4/#aspect-ratio">
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/5032">
+<link rel="match" href="../../reference/ref-filled-green-4294967296px-square.xht">
+<meta name="assert" content="This test verifies that the image's min-content contribution considers the definite height transferring through ʴthe natural aspect-ratio.">
+
+<style>
+img {
+  vertical-align: top;
+}
+</style>
+
+<p><div>Test passes if there is a filled green square and </div><strong>no red</strong>.</p><strong>
+</strong><div style="width: min-content; background: red;">
+  <img src="support/200x200-green.png" style="height: 99px; width: min-content">
+</div>

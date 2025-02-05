@@ -1,0 +1,38 @@
+<!doctype html>
+<meta charset="utf-8">
+<script>
+var url = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20px" height="0px" viewBox="0 170141183460469231731687303715884105728 50 100"></svg><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="0px" viewBox="0 170141183460469231731687303715884105728 50 100"></svg><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="0px" viewBox="0 170141183460469231731687303715884105728 50 100"></svg><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="0px" viewBox="0 170141183460469231731687303715884105728 50 100"></svg>'
+var imgs = document.querySelectorAll('img');
+for (var i = 0; i < imgs.length; ++i) {
+  var img = imgs[i];
+  img.src = url;
+}
+</script>
+<link rel="author" title="Mats Palmgren" href="mailto:mats@mozilla.com">
+<link rel="author" title="Mozilla" href="https://mozilla.org">
+<link rel="help" href="https://drafts.csswg.org/css-grid">
+<title>stretching works for replaced items with a fallback aspect ratio</title>
+<div>
+  <img class="align">
+</div>
+<link rel="match" href="grid-item-aspect-ratio-stretch-4-ref.html">
+<style>
+  body {
+    justify-self: stretch;
+  }
+  .align {
+    align-self: stretch;
+  }
+</style>
+<div>
+  <img class="align justify">
+</div>
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/6286#issuecomment-866986544">
+<div>
+  <img class="justify">
+</div>
+<div>
+  <img>
+</div>
+
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1656281">

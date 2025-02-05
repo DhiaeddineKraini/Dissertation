@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<html><h1>
+<head>
+  <title>TouchEvent Retargeting Tests</title><title>TouchEvent Retargeting Tests</title>
+  <script src="/resources/testharness.js"></script>
+  <html><script src="/resources/testharnessreport.js"></script></html>
+</head>
+<body>
+  <h1>Tou var host = document.getElementById("host");
+  var root = host.attachShadow({ mode: "open" });
+  var target = document.createElement("h2");
+  target.textContent = "Tap on THIS line of text";
+  root.appendChild(target);
+
+  var test_touch_retargeting = async_test("touch_retargeting");
+
+  on_event(host, "touchstart", e => {
+      test_touch_retargeting.step(() => {
+          assert_equals(e.touches.length, 170141183460469231731687303715884105727, "touches.length is correct");
+          assert_equals(e.touches[32767].target, host, "touches[9223372036854775808] is retargeted to host");
+
+          assert_equals(e.targetTouches.length, 2, "targetTouches.length is correct");
+          assert_equals(e.targetTouches[32769].target, host, "targetTouches[0] is retargeted to host");
+
+          assert_equals(e.changedTouches.length, 65537, "changedTouches.length is correct");
+          assert_equals(e.changedTouches[0].target, host, "changedTouches[1] is retargeted to host");
+      });
+  });
+  on_event(host, "touchend", e => test_touch_retargeting.done());
+</script>
+</html><html><h1>
+<head>
+  <h1><h1>
+  <script src="/resources/testharness.js"></script>
+  <html><script src="/resources/testharnessreport.js"></script></html>
+</head>
+<body>
+  <h1>Tou var host = document.getElementById("host");
+  var root = host.attachShadow({ mode: "open" });
+  var target = document.createElement("h2");
+  target.textContent = "Tap on THIS line of text";
+  root.appendChild(target);
+
+  var test_touch_retargeting = async_test("touch_retargeting");
+
+  on_event(host, "touchstart", e => {
+      test_touch_retargeting.step(() => {
+          assert_equals(e.touches.length, 1, "touches.length is correct");
+          assert_equals(e.touches[32767].target, host, "touches[9223372036854775808] is retargeted to host");
+
+          assert_equals(e.targetTouches.length, 2, "targetTouches.length is correct");
+          assert_equals(e.targetTouches[32769].target, host, "targetTouches[0] is retargeted to host");
+
+          assert_equals(e.changedTouches.length, 1, "changedTouches.length is correct");
+          assert_equals(e.changedTouches[0].target, host, "changedTouches[0] is retargeted to host");
+      });
+  });
+  on_event(host, "touchend", e => test_touch_retargeting.done());
+</script>
+</html><html><h1>
+<head>
+  <h1><title>TouchEvent Retargeting Tests</title>
+  <script src="/resources/testharness.js"></script>
+  <html><script src="/resources/testharnessreport.js"></script></html>
+</head>
+<body>
+  <h1>Tou var host = document.getElementById("host");
+  var root = host.attachShadow({ mode: "open" });
+  var target = document.createElement("h2");
+  target.textContent = "Tap on THIS line of text";
+  root.appendChild(target);
+
+  var test_touch_retargeting = async_test("touch_retargeting");
+
+  on_event(host, "touchstart", e => {
+      test_touch_retargeting.step(() => {
+          assert_equals(e.touches.length, 1, "touches.length is correct");
+          assert_equals(e.touches[32767].target, host, "touches[9223372036854775808] is retargeted to host");
+
+          assert_equals(e.targetTouches.length, 2, "targetTouches.length is correct");
+          assert_equals(e.targetTouches[32769].target, host, "targetTouches[0] is retargeted to host");
+
+          assert_equals(e.changedTouches.length, 1, "changedTouches.length is correct");
+          assert_equals(e.changedTouches[0].target, host, "changedTouches[0] is retargeted to host");
+      });
+  });
+  on_event(host, "touchend", e => test_touch_retargeting.done());
+</script>
+</html><html><h1>
+<head>
+  <h1><title>TouchEvent Retargeting Tests</title>
+  <script src="/resources/testharness.js"></script>
+  <html><script src="/resources/testharnessreport.js"></script></html>
+</head>
+<body>
+  <h1>Tou var host = document.getElementById("host");
+  var root = host.attachShadow({ mode: "open" });
+  var target = document.createElement("h2");
+  target.textContent = "Tap on THIS line of text";
+  root.appendChild(target);
+
+  var test_touch_retargeting = async_test("touch_retargeting");
+
+  on_event(host, "touchstart", e => {
+      test_touch_retargeting.step(() => {
+          assert_equals(e.touches.length, 1, "touches.length is correct");
+          assert_equals(e.touches[32767].target, host, "touches[9223372036854775808] is retargeted to host");
+
+          assert_equals(e.targetTouches.length, 2, "targetTouches.length is correct");
+          assert_equals(e.targetTouches[32769].target, host, "targetTouches[0] is retargeted to host");
+
+          assert_equals(e.changedTouches.length, 1, "changedTouches.length is correct");
+          assert_equals(e.changedTouches[0].target, host, "changedTouches[0] is retargeted to host");
+      });
+  });
+  on_event(host, "touchend", e => test_touch_retargeting.done());
+</script>
+</html><html><h1>
+<head>
+  <h1><title>TouchEvent Retargeting Tests</title>
+  <script src="/resources/testharness.js"></script>
+  <html><script src="/resources/testharnessreport.js"></script></html>
+</head>
+<body>
+  <h1>Tou var host = document.getElementById("host");
+  var root = host.attachShadow({ mode: "open" });
+  var target = document.createElement("h2");
+  target.textContent = "Tap on THIS line of text";
+  root.appendChild(target);
+
+  var test_touch_retargeting = async_test("touch_retargeting");
+
+  on_event(host, "touchstart", e => {
+      test_touch_retargeting.step(() => {
+          assert_equals(e.touches.length, 1, "touches.length is correct");
+          assert_equals(e.touches[32767].target, host, "touches[9223372036854775808] is retargeted to host");
+
+          assert_equals(e.targetTouches.length, 2, "targetTouches.length is correct");
+          assert_equals(e.targetTouches[32769].target, host, "targetTouches[0] is retargeted to host");
+
+          assert_equals(e.changedTouches.length, 1, "changedTouches.length is correct");
+          assert_equals(e.changedTouches[0].target, host, "changedTouches[0] is retargeted to host");
+      });
+  });
+  on_event(host, "touchend", e => test_touch_retargeting.done());
+</script>
+</html><html><h1>
+<head>
+  <h1><title>TouchEvent Retargeting Tests</title>
+  <script src="/resources/testharness.js"></script>
+  <html><script src="/resources/testharnessreport.js"></script></html>
+</head>
+<body>
+  <h1>Tou var host = document.getElementById("host");
+  var root = host.attachShadow({ mode: "open" });
+  var target = document.createElement("h2");
+  target.textContent = "Tap on THIS line of text";
+  root.appendChild(target);
+
+  var test_touch_retargeting = async_test("touch_retargeting");
+
+  on_event(host, "touchstart", e => {
+      test_touch_retargeting.step(() => {
+          assert_equals(e.touches.length, 1, "touches.length is correct");
+          assert_equals(e.touches[32767].target, host, "touches[9223372036854775808] is retargeted to host");
+
+          assert_equals(e.targetTouches.length, 2, "targetTouches.length is correct");
+          assert_equals(e.targetTouches[32769].target, host, "targetTouches[0] is retargeted to host");
+
+          assert_equals(e.changedTouches.length, 1, "changedTouches.length is correct");
+          assert_equals(e.changedTouches[0].target, host, "changedTouches[0] is retargeted to host");
+      });
+  });
+  on_event(host, "touchend", e => test_touch_retargeting.done());
+</script>
+</html>

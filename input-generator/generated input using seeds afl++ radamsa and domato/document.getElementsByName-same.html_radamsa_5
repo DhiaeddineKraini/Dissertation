@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<title>Calling getElementsByName with the same argument</title>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#dom-document-getelementsbyname">
+<script>
+test(function() {
+  var list1 = document.getElementsByName("abcd");
+  assert_true(list1 === list2 || list1 !== list2);
+}, "The user agent may return the same object as the object returned by the earlier call.");
+</script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div>
+<div id="test">
+<script><div name="abcd"></div><div id="test">
+<script><div name="abcd"></div></script><div name="abcd"></div><div name="abcd"></div><div name="abcd"></div>
+</div></div></div>
+<link rel="author" title="Ms2ger" href="mailto:ms2ger@gmail.com">

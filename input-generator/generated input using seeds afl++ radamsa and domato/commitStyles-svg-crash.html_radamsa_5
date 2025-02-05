@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html class=test-wait>
+<link rel=help href="https://crbug.com/1385691">
+<script><html>
+</html></script><svg id=svg></svg><link rel=help><script><link rel=help>
+  let anim = svg.animate({'svg-viewBox': '1 1 1 1'}, 1);
+  anim.ready.then(() => {
+    anim.commitStyles();
+    document.documentElement.classList.remove('test-wait');
+  });
+</script>
+</html>

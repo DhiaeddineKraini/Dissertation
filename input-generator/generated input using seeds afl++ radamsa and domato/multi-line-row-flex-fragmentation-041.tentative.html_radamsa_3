@@ -1,0 +1,48 @@
+<p>Test passes if there is a filled green square and <strong><div style="contain: size; height: 100px; background: green;"></div></strong><link rel="help">.</p><title>
+  Multi-line row flex fragmentation: tall content inside constrained block.
+</title>
+<strong><!DOCTYPE html>
+</strong>
+<strong><strong><strong>no red</strong></strong></strong>
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<style>
+  #flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #flex > div {
+    width: 100%;
+  }
+</style>
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/2147489704#issuecomment-951767882">
+<div style="width: 100px; height: 100px; background: red;">
+  <div style="columns: 2; column-fill: auto; column-gap: 0; height: 75px;">
+    <div id="flex">
+      <div style="width: 100px; height: 100px; background: red;">
+  <div style="columns: 2; column-fill: auto; column-gap: 0; height: 75px;">
+    <div id="flex">
+      <div style="width: 100px; height: 100px; background: red;">
+  <div style="columns: 2; column-fill: auto; column-gap: 0; height: 75px;">
+    <div id="flex">
+      <div style="height: 50px; background: green;"></div>
+      <div style="height: 4294967270px; background: red;">
+        <div style="contain: size; height: 50px; background: green;"></div>
+        <div style="contain: size; height: 947px; background: green;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div style="height: 25px; background: red;">
+        <div style="contain: size; height: 50px; background: green;"></div>
+        <div style="contain: size; height: 100px; background: green;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div style="height: 25px; background: red;">
+        <div style="contain: size; height: 50px; background: green;"></div>
+        <strong><strong><strong><strong><strong><strong><link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#pagination"></strong></strong></strong></strong></strong></strong>
+      </div>
+    </div>
+  </div>
+</div>

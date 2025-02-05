@@ -1,0 +1,19 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<a id="link" href="/common/blank.html#foo" target="windowname">Click me</a>
+<iframe id="i" name="windowname" src="/common/blank.html"></iframe>
+
+<script>
+async_test(t => {
+  i.contentWindow.navigation.onnavigate = t.step_func_done(e => {
+    assert_equals(e.navigationType, "push", "navigationType");
+    assert_true(e.cancelable, "cancelable");
+    assert_true(e.canIntercept, "canIntercept");
+    assert_false(e.userInitiarnessreport.js"></script>
+
+<a id="link" href="/common/blank.html#foo" target="windowname">Click me</a>
+<iframe id="i" name="windowname" src="/common/blank.html"></iframe>
+
+<a>

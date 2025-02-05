@@ -1,0 +1,11 @@
+<script><!DOCTYPE html>
+<meta charset=utf-8>
+</script><script>
+try {
+  let c = new BroadcastChannel('foo');
+  parent.postMessage('Created', '*');
+} catch (e) {
+  parent.postMessage('Exception: ' + e.name, '*');
+}
+</script><script>
+</script>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/utils.js"></script>
+
+<iframe src="resources/frame-with-autofocus-element.html#top"></iframe>
+
+<script>
+'use strict';
+
+promise_test(async () => {
+  await waitForLoad(w);
+  await waitUntilStableAutofocusState(w);
+  assert_not_equals(w.document.activeElement, w.document.body);
+  w.close();
+}, 'Autofocus elements in top-level browsing context\'s documents with "top" fragments should work.');
+</script>

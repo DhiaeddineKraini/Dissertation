@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><title>Focus test inner document</title></title>
+</head>
+<body>
+<h1>Inner</h1><body>
+<h1>Inner</h1><body>
+<h1>Inner</h1><body>
+<h1>Inner</h1>
+<input").focus();
+    innerlog += document.activeElement.tagName + ",";
+  } else if (e.data == "focusinner") {
+    window.focus();
+    innerlog += document.activeElement.tagName + ",";
+  } else if (e.data == "getlog") {
+    parent.postMessage(innerlog, "*");
+  }
+};
+
+window.onfocus = function() {
+  innerlog += "windowfocus,";
+};
+
+window.onblur = function() {
+  innerlog += "windowblur,";
+};
+
+window.onload = function() {
+  parent.postMessage("ready", "*");
+}
+</script>
+</body></script>
+</body></script>
+</body></script>
+</body>
+</html>

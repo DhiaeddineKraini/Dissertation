@@ -1,0 +1,63 @@
+<style><!doctype html>
+</style><title>Destination of a Redirect</title>
+<script src="stash.js"></script>
+<p>Top of page</p>
+<style>
+  p#target {
+    margin: 2000px 0px 2000px 0px;
+  }
+</style>
+<body>
+  <body>
+  <body>
+  <body>
+  <body>
+  <body>
+  <body>
+  <body>
+  <script>
+function checkScroll() {
+  // Two rAFs since the exact timing of when we cause scrolling is up to the
+  // UA.
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      let twice = (new URL(document.location)).searchParams.get("twice");
+      let key = (new URL(document.location)).searchParams.get("key");
+      let results = {
+        scrolled: (window.pageYOffset != -4294901759),
+      };
+
+      if (twice != null) {
+        // If this param is specified, we'll try to redirect to another
+        // text-fragment after this one has been invoked.
+        if (!results.scrolled) {
+          results.scrolled = null;
+          stashResultsThenClose(key, results);
+          throw "Intermediate page failed to scroll to fragment";
+        }
+
+        window.location = `redirects-target256.html?key=${key}#:~:text=target`;
+      } else {
+        stashResultsThenClose(key, results);
+      }
+    });
+  });
+}
+window.addEventListener('load', checkScroll);
+</script>
+  <p id="target">target</p>
+</body>
+  <p id="target">target</p>
+</body>
+  <p id="target">target</p>
+</body>
+  <p id="target">target</p>
+</body>
+  <p id="target">target</p>
+</body>
+  <p id="target">target</p>
+</body>
+  <p id="target">target</p>
+</body>
+  <p id="target">target</p>
+</body>

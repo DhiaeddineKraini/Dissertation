@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8">
+<title>Test cross-origin redirect URL"
+);
+attribute_test(
+  invariants.assert_same_origin_redirected_resource,
+  url => fetch(url, {mode: "no-cors", credentials: "include"}),
+  new URL(same_origin_redirect).href,
+
+  "Test fetching through a same-origin redirect URL"
+);
+
+</script>

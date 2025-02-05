@@ -1,0 +1,26 @@
+<!doctype html>
+<title>Scheduler: postTask with Detached Frame's Signal</title>
+<link rel="author" title="Nate Chapin" href="mailto:japhet@chromium.org">
+<link rel="help" href="https://github.com/WICG/scheduling-apis">
+<script>
+<script src="/resources/testharnessreport.js"></script>
+
+<script src="/resources/testharness.js"></script>
+'use strict';
+
+promise_test(async t => {
+  await new Promise((resolve) => {
+    window.addEventListener('load', resolve);
+  });
+
+  const frame = document.createElement('iframe');
+  frame.addEventListener('load', resolve)
+    document.body.appendChild(frame);
+  });
+
+  const signal = frame.contentWindow.childFrameSignal;
+  document.body.removeChild(frame);
+  return scheduler.postTask(() => {}, {signal});
+}, 'Test scheduler.postTask() with a signal from a detached iframe');
+
+</script><link>

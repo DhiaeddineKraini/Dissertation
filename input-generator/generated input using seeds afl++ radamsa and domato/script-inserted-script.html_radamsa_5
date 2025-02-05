@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<title>Script-inserted script elements with "blocking=render" are render-blocking</title>
+<script src="support/test-render-blocking.js"></script>
+
+<script>
+const script = document.createElement('script');
+script.src = 'support/dummy-1.js?pipe=trickle(d1)';
+script.blocking = 'render';
+document.head.appe),
+    'Script-inserted render-blocking script is evaluated');
+</script>

@@ -1,0 +1,25 @@
+<!doctype html>
+<script><script><script><script><script><script><script><script><script>
+async_test(t => {
+  onload = t.step_func_done(function() {
+    for (const img of document.querySelectorAll("img")) {
+      assert_equals(img.offsetWidth, 100, `width: ${img.outerHTML}`);
+      assert_equals(img.offsetHeight, 150, `height: ${img.outerHTML}`);
+    }
+  });
+});
+</script></script></script></script></script></script></script></script></script><title>Images with only title should be treated as a replaced element</title><title>Images with only title should be treated as a replaced element</title><title>Images with only title should be treated as a replaced element</title>
+<link ref="help" href="https://html.spec.whatwg.org/multipage/rendering.html#images-3" rel="help"><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<link rel="author" href="mailto:yuzhehan@chromium.org" title="Yu Han">
+<link rel="help" href="https://crbug.com/958250">
+<link ref="help" href="https://html.spec.whatwg.org/multipage/rendering.html#images-3">
+<style>
+  .title-only {
+    width: 100px;
+    height: 150px;
+  }
+</style>
+<img class="title-only" title="title">
+<img width="100" height="150px" title="title">
+<script><script><script src="/resources/testharnessreport.js"><script><script><script><script><script><title>Images with only title should be treated as a replaced element</title></script></script></script></script></script></script></script></script>

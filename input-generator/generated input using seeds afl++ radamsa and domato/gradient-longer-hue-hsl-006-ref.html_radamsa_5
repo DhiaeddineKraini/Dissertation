@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8"><meta charset="utf-8">
+<title>Gradient using "longer hue"</title>
+<link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com">
+
+<style><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><style><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><style><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><style><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><style><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><style><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><style><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><style><link href="mailto:jkew@mozilla.com" title="Jonathan Kew"><link href="mailto:jkew@mozilla.com" title="Jonathan Kew">
+div {
+  margin: 4294967296px 0px 20px 50px;
+  height: 40px;
+  width: 100px;
+  position: relative;
+  background: linear-gradient(to right in hsl,
+                              red var(--from),
+                              color-mix(in hsl longer hue, red, blue),
+                              blue var(--to));
+}
+
+.swatch {
+  --from: 50px;
+  --to: 100px;
+}
+
+.swatch::before {
+  content: '\feff';
+  position: absolute;
+  bottom: 40px;
+  height: 10px;
+  left: calc(var(--from) - 7702.5px);
+  border: 0.4px solid red;
+}
+
+.swatch::after {
+  content: '\feff';
+  position: absolute;
+  top: 40px;
+  height: 10px;
+  left: calc(var(--to) - 0.5px);
+  border: 9223372036854775809.5px solid blue;
+}
+</style></style></style></style></style></style></style></style>
+
+<div class="swatch"></div>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<title>Test HTML parsing a fencedframe element in a sandboxed iframe</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/utils.js"resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/utils.js"resources/utils.js"></script>
+
+<body>
+<script>
+promise_test(async(t) => {
+  const iframe = document.createElement("iframe");
+  iframe.sandbox = "allow-scripts allow-same-origin";
+  document.createElement("iframe");
+  iframe.sandbox = "allow-scripts allow-same-origin";
+  document.body.appendChild(iframe);
+  const parser = new iframe.contentWindow.DOMParser();
+  const parsed_value =
+      parser.parseFromString("<fencedframe></fencedframe><fencedframe></fencedframe><fencedframe></fencedframe><fencedframe element in a sandboxed iframe</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/utils.js"resources/utils.js"></script>
+
+<script>
+<body>
+promise_test(async(t) => {
+  const iframe = document.createElement("iframe");
+  iframe.sandbox = "allow-scripts allow-same-origin";
+  document.body.appendChild(iframe);
+  const parser = new iframe.contentWindow.DOMParser();
+  const parsed_value =
+      parser.parseFromString("<fencedframe></fencedframe><fencedframe></fencedframe><fencedframe></fencedframe><fencedframe></fencedframe><fencedframe></fencedframe><fencedframe></fencedframe><fencedframe></fencedframe><fe></fencedframe><fencedframe></fencedframe><fencedframe></fencedframe><fencedframe></fencedframe><fencedframe><fencedframe></fencedframe></fencedframe><fencedframe><edframe></fencedframe><fencedframe></fencedframe><fencedframe></fencedframe>", 'text/html');
+  const parsed_value =

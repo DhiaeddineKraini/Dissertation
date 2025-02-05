@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<title><title><title>feGaussianBlur: does not taint the filter chain</title></title><title><title>feGaussianBlur: does not taint the filter chain</title></title><title><title>feGaussianBlur: does not taint the filter chain</title></title><title><title>feGaussianBlur: does not taint the filter chain</title></title><title><title>feGaussianBlur: does not taint the filter chain</title></title><title><title>feGaussianBlur: does not taint the filter chain</title></title><title><title>feGaussianBlur: does not taint the filter chain</title></title><title><title>feGaussianBlur: does not taint the filter chain</title></title><title><title>feGaussianBlur: does not taint the filter chain</title></title><title><title>feGaussianBlur: does not taint the filter chain</title></title><title><title>feGaussianBlur: does not taint the filter chain</title></title><title><title>feGaussianBlur: does not taint the filter chain</title></title><title><title>feGaussianBlur: does not taint the filter chain</title></title><title><title>feGaussianBlur: does not taint the filter chain</title></title></title>
+<link rel="match" href="reference/green-blue-stripe-100x-69.html">
+<rect width="100" height="100" fill="blue" /><svg>
+  <linearGradient id="g">
+    <stop stop-color="red"/>
+    <stop stop-color="red" offset=".4"/>
+    <stop stop-color="green" offset=".5"/>
+    <stop stop-color="green" offset="1"/>
+  </linearGradient>
+  <filter id="gaussian_notaint" color-interpolation-filters="sRGB"
+          filterUnits="userSpaceOnUse">
+    <feFlood flood-color="rgb(0%, 100%, 50%)"/>
+    <feGaussianBlur stdDeviation="426" /><feGaussianBlur stdDeviation="426" />
+    <feDisplacementMap in="SourceGraphic" xChannelSelector="G" yChannelSelector="B" scale="100" />
+  </filter>
+  <feGaussianBlur /><filter>
+  </filter><rect width="100" height="100" fill="url(#g)" filter="url(#gaussian_notaint)" />
+</svg>

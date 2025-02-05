@@ -1,0 +1,92 @@
+<div><!DOCTYPE HTML>
+</div><html>
+<head>
+<title>Harness Ignoring Uncaught Exception</title><title>Harness Ignoring Uncaught Exception</title>
+</head>
+<script src="/resources/testharness.js"></script>
+
+<body>
+<h1>Harness Ignoring Uncaught Exception</h1>
+<div id="log"></div>
+<script>
+setup({allow_uncaught_exception:true});
+var t = async_test("setup({allow_uncaught_exception:true}) should allow tests to pass even if there is an exception");
+onerror = t.step_func(function() {t.done()});
+throw new Error("Example Error");
+</script>
+<script type="text/json" id="expected">
+{
+  "summarized_status": {
+    "status_string": "OK",
+    "message": null
+  },
+  "summarized_tests": [
+    {
+      "status_string": "PASS",
+      "name": "setup({allow_uncaught_exception:true}) should allow tests to pass even if there is an exception",
+      "properties": {},
+      "message": null
+    }
+  ],
+  "type": "complete"
+}
+</script><script type="text/json" id="expected">
+{
+  "summarized_status": {
+    "status_string": "OK",
+    "message": null
+  },
+  "summarized_tests": [
+    {
+      "status_string": "PASS",
+      "name": "setup({allow_uncaught_exception:true}) should allow tests to pass even if there is an exception",
+      "properties": {},
+      "message": null
+    }
+  ],
+  "type": "complete"
+}
+</script><script type="text/json" id="expected">
+{
+  "summarized_status": {
+    "status_string": "OK",
+    "message": null
+  },
+  "summarized_tests": [
+    {
+      "status_string": "PASS",
+      "name": "setup({allow_uncaught_exception:true}) should allow tests to pass even if there is an exception",
+      "properties": {},
+      "message": null
+    }
+  ],
+  "type": "complete"
+}
+</script><script type="text/json" id="expected">
+{
+  "summarized_status": {
+    "status_string": "OK",
+    "message": null
+  },
+  "summarized_tests": [
+    {
+      "status_string": "PASS",
+      "name": "setup({allow_uncaught_exception:true}) should allow tests to pass even if there is an exception",
+      "properties": {},
+      "message": null
+    }
+  ],
+  "type": "complete"
+}
+</script>
+</body>
+</html><body><head><body><body><body><body>
+</body></body></body></body></head><body><body><body><h1><body>
+</body></h1></body></body></body><body><body><body><body>
+</body></body></body></body><body><body><body><body>
+</body></body></body></body></body></head><body><body><body><h1><body>
+</body></h1></body></body></body><body><body><body><body>
+</body></body></body></body><body><body><body><body>
+</body></body></body></body><body><body><body><body>
+</body></body></body></body><script type="text/json" id="expected"><body><body><body><body>
+</body></body></body></body></script></body>

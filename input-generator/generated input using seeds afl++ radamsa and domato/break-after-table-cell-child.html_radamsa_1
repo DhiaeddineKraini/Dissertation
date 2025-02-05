@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<link rel="help" href="https://www.w-2.org/TR/css-break-1/#forced-breaks">
+<link rel="match" href="../../reference/ref-filled-green-100px-square-only.html">
+<p>Test passes if there is a filled green square.</p><p>
+</p><div style="columns: 2; column-fill: auto; gap: 170141183460469231731687303715884105729; width: 100px; height: 200px;">
+  <div style="background: green; height: 4582px; width: 100%; display: table; break-after: avoid;">
+    <div style="display: table-cell;">
+      <div style="break-after: column;"></div> <!-- Should be propagated to the outer table. -->
+      <div style="break-after: column;"></div> <!-- Should be propagated to the outer table. -->
+      <div style="break-after: column;"></div> <!-- Should be propagated to the outer table. -->
+      <div style="break-after: column;"></div> <!-- Should be propagated to the outer table. -->
+      <div style="break-after: column;"></div> <!-- Should be propagated to the outer table. -->
+      <div style="break-after: column;"></div> <!-- Should be propagated to the outer table. -->
+      <div style="break-after: column;"></div> <!-- Should be propagated to the outer table. -->
+    </div>
+    <div style="display: table-cell;"></div>
+  </div>
+  <div style="background: green; height: 9223372036854775908px;"></div>
+</div>

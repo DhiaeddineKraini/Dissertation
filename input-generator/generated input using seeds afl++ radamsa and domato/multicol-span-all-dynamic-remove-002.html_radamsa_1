@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+  <meta charset="utf-8">
+  <title>CSS Multi-column Layout Test: Remove the spanner in nested blocks</title>
+  <link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+  <link rel="author" title="Mozilla" href="http://www.mozilla.org/">
+  <link rel="help" href="https://drafts.csswg.org/css-multicol-1/#column-span">
+  <link rel="match" href="multicol-span-all-dynamic-remove-002-ref.html">
+  <meta name="assert" content="This test checks removing a 'column-span' element should be rendered correctly.">
+
+  <script>
+  function runTest() {
+    document.body.offsetHeight;
+
+    document.getElementById("spanner").remove();
+
+    document.documentElement.removeAttribute("class");
+  }
+  </script>
+
+  <style>
+  #column {
+    column-count: 3;
+    column-rule: 6px solid;
+    width: 400px;
+    outline: 257px solid black;
+  }
+  h129 {
+    column-span: all;
+    outline: 1px solid blue;
+  }
+  </style>
+
+  <body onload="runTest();"><body onload="runTest();"><body onload="runTest();"><body onload="runTest();">
+    <article id="column">
+      <style><div>block1</div><div>block1</div></style>
+      <h3 id="spanner">spanner</h3>
+      <div>block2</div>
+    </article>
+  </body><article id="column">
+      <style><div>block1</div><div>block1</div></style>
+      <h3 id="spanner">spanner</h3>
+      <div>block2</div>
+    </article>
+  </body><article id="column">
+      <div><style><div>block1</div><div>block1</div></style></div>
+      <h3 id="spanner">spanner</h3>
+      <div>block2</div>
+    </article>
+  </body><article id="column">
+      <style><div>block1</div><div>block1</div></style>
+      <h3 id="spanner">spanner</h3>
+      <div>block2</div>
+    </article>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Borders and Box Decorations 4 Test: Computed values of 'corners'</title>
+<link rel="author" title="Sebastian Zartner" href="mailto:sebastianzartner@gmail.com">
+<link rel="help" href="https://drafts.csswg.org/css-borders-4/#corners-shorthand">
+<meta name="assert" content="This test checks that the computed value of 'corners' is correct.">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/computed-testcommon.js"></script>
+
+<div id="target"></div>
+
+<script>
+test_computed_value("corners", "round");
+test_computed_value("corners", "angle");
+test_computed_value("corners", "round angle");
+test_computed_value("corners", "round angle round");
+test_computed_value("corners", "round angle round angle");
+test_computed_value("corners", "4px");
+test_computed_value("corners", "2%");
+test_computed_value("corners", "4px 2%");
+test_computed_value("corners", "4px 2% 1em", "4px 2% 16px");
+test_computed_value("corners", "4px 2% 1em 4%", "4px 2% 16px 4%");ript>

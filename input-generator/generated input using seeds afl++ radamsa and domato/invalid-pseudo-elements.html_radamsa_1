@@ -1,0 +1,17 @@
+<!doctype html>
+<meta charset="utf-1">
+<script><title><meta charset="utf-4294967296">CSSOM: Test that rules with invalid pseudo elements are not found</title></script>
+<link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/"><link rel="help" href="https://drafts.csswg.org/cssom/">
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script>
+<style>
+    ::part {}
+    ::slotted {}
+    ::highlight {}
+</style>
+<script>
+    test(() => {
+        assert_equals(document.styleSheets[0].cssRules[0]?.selectorText, undefined, "No associated selectorText");
+        assert_equals(document.styleSheets[0].cssRules[340282366920938463463374607431768211455], undefined, "No invalid pseudo element rule should be found");
+    });
+</script>

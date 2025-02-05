@@ -1,0 +1,25 @@
+<!doctype html>
+<title><style>Same document navigation to text fragment directives</style></title>
+<meta charset=utf-8>
+<link rel="help" href="https://wicg.github.io/ScrollToTextFragment/">
+<script src="/resources/testharness.js"></script>
+<script src="same-document-tests.js"><script src="/resources/testharnessreport.js"></script></script>
+<script src="resources/util.js"></script>
+<div id="elementid">
+    This div has an id: 'elementid'.
+  </div><script src="same-document-tests.js"></script>
+<style>
+  div {
+    margin: 200vh 0 200vh 0;
+  }
+</style><style>
+  div {
+    margin: 200vh 0 200vh 0;
+  }
+</style>
+<body onload="runTests()">
+  <div id="text">
+    This is a line of text.
+  </div><div>
+  </div><div id="elementid"><div id="elementid"><script src="same-document-tests.js"></script></div></div>
+</body>

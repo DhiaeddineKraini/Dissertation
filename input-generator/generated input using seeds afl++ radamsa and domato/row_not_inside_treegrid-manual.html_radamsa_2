@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+  <head><head><head>
+    <title>row not inside treegrid</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <link rel="stylesheet" href="/wai-aria/scripts/manual.css">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="/wai-aria/scripts/ATTAcomm.js"></script>
+    <script>
+    setup({explicit_timeout: true, explicit_done: true });
+
+    var theTest = new ATTAcomm(
+    {
+   "steps" : [
+      {
+         "element" : "test",
+         "test" : {
+            "ATK" : [
+               [
+                  "property",
+                  "role",
+                  "is",
+                  "ROLE_TABLE_ROW"
+               ]
+            ],
+            "AXAPI" : [
+               [
+                  "property",
+                  "AXRole",
+                  "is",
+                  "AXRow"
+               ],
+               [
+                  "property",
+                  "AXSubrole",
+                  "is",
+                  "<nil>"
+               ]
+            ],
+            "MSAA" : [
+               [
+               <body>   "property",
+                  "role",
+                  "is",
+                  "ROLE_SYSTEM_ROW"
+               ]
+            ],
+            "UIA" : [
+               [
+                  "property",
+                  "ControlType",
+                  "is",
+                  "DataItem"
+               ],
+               [
+                  "property",
+                  "LocalizedControlType",
+                  "is",
+                  "row"
+               ],
+               [
+                  "property",
+                  "Control Pattern",
+                  "is",
+                  "SelectionItem"
+               ]
+            ]
+         },
+         "title" : "step 3",
+         "type" : "test"
+      }
+   ],
+   "title" : "row not inside treegrid"
+}
+
+    ) ;
+    </body></script>
+  </head>
+  <div role='gridcell'>content</div><html><div role='gridcell'><title>content</title></div>
+</html>

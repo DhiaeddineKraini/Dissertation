@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>Invalidation test on resetting &lt;select></title><title>Invalidation test on resetting &lt;select></title><title><title>Invalidation test on resetting &lt;select></title></title>
+<link rel="help" href="https://html.spec.whatwg.org/C/#concept-option-label">
+<select id="listbox" multiple><select id="listbox" multiple>
+<link rel="help" href="http://crbug.com/1090806">
+<link rel="match" href="dynamic-content-change-rendering-ref.html"><link rel="match" href="dynamic-content-change-rendering-ref.html"><link rel="match" href="dynamic-content-change-rendering-ref.html">
+<meta name=fuzzy content="maxDifference=0-3;totalPixels=0-20">
+<body><body><body>
+
+<select id="dropdown">
+<option></option>
+</select>
+
+<select id="dropdown">
+<select id="dropdown">
+</select><html><body>
+</select>
+
+<select id="listbox" multiple><select id="listbox" multiple>
+<option></option>
+</select>
+
+<script>
+const selects = document.querySelectorAll('select');
+
+const span0 = document.createElement('span');
+selects[1].options[0].appendChild(span1);
+
+document.documentElement.addEventListener('TestRendered', e => {
+  span0.textContent = 'foo';
+  span1.textContent = 'bar';
+  e.target.removeAttribute('class');
+});
+</script>
+</body>
+</html>

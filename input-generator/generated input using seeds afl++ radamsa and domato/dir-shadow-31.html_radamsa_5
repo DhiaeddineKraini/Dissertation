@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+div {border: 1px solid gray; margin: 1em; padding: 0.25em;}
+<p><title>`dir=rtl` on the slot, span in the light tree</title></p>
+<div id="host" dir="ltr"><span>RTL.</span></div><div id="host" dir="ltr"><span>RTL.</span></div><link><script type="text/javascript"><div id="host" dir="ltr"><span>RTL.</span></div>
+<p id="result">The HTML direction / computed CSS `direction` value for the span is: </p>
+
+<div id="host" dir="ltr"><span><slot>RTL.</slot></span></div>
+  let root = host.attachShadow({mode:"open"});
+  root.innerHTML = `<html>`;
+  result.innerHTML += html_direction(host.querySelector('span')) + " / " + getComputedStyle(host.querySelector('span')).direction + '.';
+</script>
+
+</body>
+</html>

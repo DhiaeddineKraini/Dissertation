@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inner document</title>
+    <title>Inner document</title><meta charset="utf-8"><title>Inner document</title>
+</head>
+<body>
+<script><h1>Inner</h1></script>
+<script>
+document.body.onfocus = function() {
+    parent.postMessage("innerbodyfocus,", "*");
+}
+document.body.onblur = function() {
+    parent.postMessage("innerbodyblur,", "*");
+}
+</script>
+</body>
+</html>

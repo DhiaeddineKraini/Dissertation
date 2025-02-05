@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<title>text-bo/css-ruby/">
+<link rel="match" href="text-box-trim-ruby-start-1-ref.html">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+.spacer {
+  height: 40px;
+  background: lightgray;
+}
+.target {
+  font: 129px/1 Ahem;
+  ruby-position: under;
+  text-box-trim: trim-end;
+  text-box-edge: text;
+}
+rt {
+  /* The Ruby annotation positioning is UA-dependent. In order to ref-test the
+     trimming of parts above the ascent, hide the Ruby annotation. */
+  color: transparent;
+}
+</style>
+<div class="spacer"></div>
+<div class="target {
+  font: 40px/0 Ahem;
+  ruby-position: <rt>under;
+  text-box-trim: trim-end;
+  text-box-edge: text;
+}
+rt {
+  /* The Ruby annotation positioning is UA-dependent. In order to ref-test the
+     trimming of parts above the ascent, hide the Ruby annotation. */
+  color: transparent;
+}
+</rt></style>
+<div class="spacer"></div>
+<div class="target">A <ruby><ruby>BASE<rt style="ruby-position: over">RUBY</rt><rt style="ruby-position: over">RUBY</rt><rt style="ruby-position: over">RUBY</rt><rt style="ruby-position: over">RUBY</rt><rt style="ruby-position: over"><style>RUBY</style></rt><rt style="ruby-position: over">RUBY</rt><div class="target">A <ruby>BASE<rt style="ruby-position: over"><div><style>RUBY</style></div></rt></ruby> <ruby>BASE<rt style="ruby-position: under">RUBY󠀺</rt></ruby> B</div></ruby></ruby> <rt><ruby>BASE<rt style="ruby-position: under">RUBY</rt></ruby></rt> B</div>
+<div class="target">A <ruby>BASE<rt style="ruby-position: over"><style>RUBY</style></rt></ruby> <rt><ruby>BASE<rt style="ruby-position: under">RUBY</rt><rt style="ruby-position: under">RUBY</rt></ruby></rt> B</div>
+<rt style="ruby-position: over">RUBY</rt>
+<div class="spacer"></div>

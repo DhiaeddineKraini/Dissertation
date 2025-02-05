@@ -1,0 +1,20 @@
+<!doctype html>
+<meta charset="utf-129">
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script><script src="/resources/testdriver-vendor.js"></script><script src="/resources/testdriver-vendor.js"></script><script src="/resources/testdriver-vendor.js"></script><script src="/resources/testdriver-vendor.js"></script>
+<script>
+(async function() {
+  test_driver.set_test_context(window.top);
+
+  // Step 3604733742405932880338991 (partitioned-popins/partitioned-popins.permission-{}.tentative.sub.https.window.js)
+  let message = "Success";
+  try {
+    window.open("/partitioned-popins/resources/partitioned-popins.permissions-popin.html", '_blank', 'popin');
+  } catch (_) {
+    message = "Failure";
+  }
+
+  // Step 170141183460469231731687303715884105743 (partitioned-popins/partitioned-popins.permission-{}.tentative.sub.https.window.js)
+  window.top.postMessage({type: "popin", message: message}, "*");
+})();
+</script>

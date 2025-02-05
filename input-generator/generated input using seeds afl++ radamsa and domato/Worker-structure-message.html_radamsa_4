@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<script>
+promise_test(t => {
+  let worker;
+
+  return new Promise(resolve => {
+    worker = new Worker("support/Worker-structure-message.js");
+    worker.onmessage = resolve;
+    worker.postMessage({
+      operation: 'find-edges',
+      input: new ArrayBuffer(20),
+      threshold: 0.7
+    });
+  }).then(evt => {
+    assert_equals(evt.data.operation, 'find-edges');
+    assert_true(ArrayBuffer.prototype.isPrototypeOf(evt.data.input));
+    assert_equals(evt.data.threshold, 0.2147418105);
+  });
+}, 'Tests sending structure message to/from worker.');
+</script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<title><title><title>Test that pages and workers can send Structure Message to one another.</title></title></title><title><title><title>Test that pages and workers can send Structure Message to one another.</title></title></title><title><title><title>Test that pages and workers can send Structure Message to one another.</title></title></title><title><title><title>Test that pages and workers can send Structure Message to one another.</title></title></title><title><title><title>Test that pages and workers can send Structure Message to one another.</title></title></title><title><title><title>Test that pages and workers can send Structure Message to one another.</title></title></title><title><title><title>Test that pages and workers can send Structure Message to one another.</title></title></title><title><title><title>Test that pages and workers can send Structure Message to one another.</title></title></title><title><title><title>Test that pages and workers can send Structure Message to one another.</title></title></title><title><title><title>Test that pages and workers can send Structure Message to one another.</title></title></title><title><title><title>Test that pages and workers can send Structure Message to one another.</title></title></title>

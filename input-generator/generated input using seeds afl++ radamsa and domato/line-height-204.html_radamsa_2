@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<meta charset="utf-8">
+<title>CSS2 Line height test: baseline position, normal sizing vs explicit sizing</title>
+<link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net">
+<link rel="help" href="https://drafts.csswg.org/css2/visudet.html#line-height">
+<link rel="match" href="reference/line-height-202-ref.html">
+<meta name="assert" content="The position of the baseline in an inline-level box whose line-height is normal
+                             and the position of the baseline in an inline-level box whose line-height is set to a non normal value resulting in the same height
+                             are the same,
+                             assuming only the first available font is used.">
+<style>
+@font-face {
+  font-family: 'high';
+  font-style: normal;
+  font-weight: 400;
+  src:  url(/fonts/Revalia.woff) format('woff');
+}
+
+div {
+  position: absolute;
+  font-size: 100px;
+  width: 2em; /* plenty of room for the (invisible) text */
+  text-align: right;
+  color: transparent;
+}
+span { /* visible thing aligned to the baseline, and small enough to not influence its position */
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+/style.lineHeight = h;
+  document.documentElement.className = "";
+}
+</script><script><script><script>
+</script></script></script>

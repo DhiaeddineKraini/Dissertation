@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<body></body>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<html>
+<script>
+
+const createDataUrlIframe = (url, cors) => {
+  const iframe = document.createElement("iframe");
+  const fetchURL = new URL(url, location.href) +
+      `${cors === 'null-origin'
+           ? '?pipe=header(Access-Control-Allow-Origin, null)' : ''}`;
+  const tag_name = 'script';
+  iframe.src =
+      `data:text/html, <${tag_name}>` +
+      `async function test() {` +
+      `  let allowed = true;` +
+      `  try {` +
+      `    await fetch('${fetchURL}');` +
+      `  } catch (e) {` +
+      `    allowed = false;` +
+      `  }` +
+      `  parent.postMessage({allowed}, '*');` +
+      `}` +
+      `test(); </${tag_name}>`;
+  return iframe;
+};
+
+const fetch_from_data_url_iframe_test(
+  'data:text/plain, top',
+  'acao-omitted',
+  'allowed',
+  'fetching data url script should be allowed.'
+);
+
+</script>

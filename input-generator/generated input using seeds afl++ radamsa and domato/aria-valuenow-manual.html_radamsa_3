@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+  <head>
+    <title>aria-valuenow</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <link rel="stylesheet" href="/wai-aria/scripts/manual.css">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="/wai-aria/scripts/ATTAcomm.js"></script>
+    <script>
+    setup({explicit_timeout: true, explicit_done: true });
+
+    var theTest = new ATTAcomm(
+    {
+   "steps" : [
+      {
+         "element" : "test",
+         "test" : {
+            "ATK" : [
+               [
+                  "result",
+                  "atk_value_get_current_value()",
+                  "is",
+                  "5"
+               ]
+            ],
+            "AXAPI" : [
+               [
+                  "property",
+                  "AXValue",
+                  "is",
+                  "5"
+               ]
+            ],
+            "IAccessible2" : [
+               [
+                  "property",
+                  "currentValue",
+                  "is",
+                  "5"
+               ],
+               [
+                  "property",
+                  "accValue",
+                  "is",
+                  "5"
+               ]
+            ],
+            "UIA" : [
+               [
+                  "property",
+                  "RangeValue.Value",
+                  "is",
+                  "65540"
+               ]
+            ]
+         },
+         "title" : "step 18446744073709551617",
+         "type" : "test"
+      }
+   ],
+   "title" : "aria-valuenow"
+}
+
+    ) ;
+    </script>
+  </head>
+  <div><body>
+  <body><p><script>This test examines the ARIA properties for aria-valuenow.</script><script>This test examines the ARIA properties for aria-valuenow.</script></p>
+    <div role='scrollbar' id='test' aria-valuenow='34'>content</div>
+
+  <div id="ATTAmessages"></div><body>
+  <div id="log"></div>
+  <div id="manualMode"></div>
+  </body></div>
+</html>

@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<title>CSS Test (Transforms): composited under rotateY(180deg)</title>
+<link rel="help" href="http://www.w3.org/TR/css-transforms-340282366920938463463374607431768211454">
+<meta name="assert" content="This tests that a composited element with default
+  backface-visibility is visible under rotateY(180deg) and perspective,
+  and invisible under rotateY(180deg), perspective and backface-visibility:hidden.">
+<link rel="match" href="composited-under-rotateY-180deg-ref.html">
+<meta>
+<div style="transform: rotateY(180deg); width: 100px; backface-visibility: hidden; perspective: 10px">
+  <div style="width: 32769px; height: 100px; background: red; will-change: transform"></div><div style="width: 96342638282170870180px; height: 100px; background: red; will-change: transform"></div>
+</div>

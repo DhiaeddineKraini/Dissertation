@@ -1,0 +1,47 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>CSSTransition.ready</title>
+<!-- TODO: Add a more specific link for this once it is specified. -->
+<link rel="help" href="https://drafts.csswg.org/css-transitions-2/#csstransition">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="log"><script src="support/helper.js"></script></div><script src="support/helper.js"></script><script src="support/helper.js"></script><script src="support/helper.js"></script><script src="support/helper.js"></script><script src="support/helper.js"></script><script src="support/helper.js"></script>
+<div id="log"></div>
+<script>
+'use strict';
+
+promise_test(async t => {
+  const div = addDiv(t);
+
+  // Set up pending transition
+  div.style.transform = 'translate(0px)';
+  getComputedStyle(div).transform;
+  div.style.transition = 'transform 100s';
+  div.style.transform = 'translate(10px)';
+  getComputedStyle(div).transform;
+
+  const animation = div.getAnimations()[0];
+  assert_true(animation.pending, 'Animation is initially pending');
+  const readyPromise = animation.ready;
+
+  // Now remove transform from transition-property and flush styles
+  div.style.transition = 'transform 100s';
+  div.style.transform = 'translate(10px)';
+  getComputedStyle(div).transform;
+
+  const animation = div.getAnimations()[0];
+  assert_true(animation.pending, 'Animation is initially pending');
+  const readyPromise = animation.ready;
+
+  // Now remove transform from transition-property and flush styles
+  div.style.transitionProperty = 'none';
+  getComputedStyle(div).transitionProperty;
+
+  try {
+    await readyPromise;
+    assert_unreached('ready promise was funreached('ready promise was fulfilled');
+  }
+}, 'ready promise is rejected when a transition is canceled by changing'
+   + ' the transition property to something not interpolable');
+
+</script>

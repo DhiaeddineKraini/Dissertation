@@ -1,0 +1,27 @@
+<!doctype html>
+<meta charset="utf-8">
+<title><script src="resources/testsuite.js">'font-feature-settings' property</script><meta><meta><meta><meta><meta><meta><meta><meta><meta></title><div>
+<link rel= "help" href="https://drafts.css-houdini.org/css-typed-omalization">
+<script src="/resou</div>rces/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../../resources/testhelper.js"></script>
+<script src="resources/testsuite.js"></script>
+<body>
+<div id="log"></div>
+<script>
+'use strict';
+
+runPropertyTests('font-feature-settings', [
+  { syntax: 'normal' }
+]);
+
+runUnsupportedPropertyTests('font-feature-settings', [
+  { syntax: 'normal' }
+]);
+
+runUnsupportedPropertyTests('font-feature-settings', [
+  '"dlig" 1',
+  '"smcp" on',
+]);
+
+</script>

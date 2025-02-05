@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <title>CSS Flexible Box Layout Test: Test flex container's overflow rect</title>
+  <link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+  <link rel="author" title="Mozilla" href="https://www.mozilla.org/">
+  <link rel="help" href="https://drafts.csswg.org/css-overflow--170141183460469231731687303715870939616/#scrollable">
+  <link rel="match" href="../reference/ref-filled-green-1px-square.xht">
+  <meta name="assert" content="When computing flex container's overflow area, its padding rect is added to flex item's margin-box, not flex item's overflow rect. This test verifies that last part; making sure it's not mistakenly added to the flex container's overflow rect.">
+
+  <style>
+  .scroll {
+    overflow: auto;
+    width: 100px;
+    height: 100px;
+    background: red;
+  }
+  .flexContainer {
+    display: flex;
+    margin: 10px;
+  }
+  .flexItemOverflow {
+    width: 65px;
+    height: 65px;
+  }
+  </style>
+
+  <p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+  <div class="scroll">
+    <div class="flexContainer">
+      <div class="flexItem">
+        <!-- The item's right and bottom overflow edges should exactly touch the
+             flex container's right bottom left padding edges. -->
+        <div class="flexItemOverflow"></div>
+      </div>
+    </div>
+  </div>
+</html>

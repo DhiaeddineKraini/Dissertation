@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="/resources/testharness.js"></script>
+        <script src="/resources/testharnessreport.js"></script>
+    </head><head>
+        <meta charset="utf-8">
+        <script src="/resources/testharness.js"></script>
+        <script src="/resources/testharnessreport.js"></script>
+    </head>
+    <body>
+        <script src="../service-workers/service-worker/resources/test-helpers.sub.js"></script>
+        <script>
+async function createConnections(test, firstConnectionCallback, secondConnectionCallback)
+{
+    const pc1 = new RTCPeerConnection();
+    const pc2 = new RTCPeerConnection();
+
+    test.add_cleanup(() => pc1.close());
+    test.add_cleanup(() => pc2.close());
+
+    pc1.onicecandidate = (e) => pc2.addIceCandidate(e.candidate);
+    pc2.onicecandidate = (e) => pc1.addIceCandidate(e.candidate);
+
+    firstConnectionCallback(pc1);
+
+    const offer = await pc1.createOffer();
+    await pc1.setLocalDescription(offer);
+    await pc2.setRemoteDescription(offer);
+
+    secondConnection) => {
+            secondConnection.ondatachannel = (event) => {
+                remoteChannel = event.channel;
+                remoteChannel.onopen = resolve;
+            };
+        });
+    });
+
+    const promise = waitForMessage(messageChannel.port1, "OK");
+    remoteChannel.send("OK");
+    await promise;
+
+    const data = new Promise(resolve => remoteChannel.onmessage = (event) => resolve(event.data));
+    messageChannel.port1.postMessage({message: "OK2"});
+    assert_equals(await data, "OK2");
+}, "offerer data channel in service worker");
+        </script>
+    </body>
+</html>

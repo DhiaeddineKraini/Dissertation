@@ -1,0 +1,21 @@
+<!doctype html>
+<html class=reftest-wait.js></script>
+<input type=range step=3 value=1 min=-5 max=5 list=firstlist>
+<datalist id=firstlist>
+  <option value=1></option>
+  <option value=-5></option>
+</datalist>
+<script>
+  requestAnimationFrame(() =>
+    requestAnimationFrame(() => {
+      const firstList = document.querySelector("datalist#firstlist");
+      const secondList = document.querySelector("datalist#secondlist");
+      secondList.id = "firstlist";
+      firstList.parentNode.insertBefore(secondList, firstList);
+      takeScreenshot();
+    }));
+</script>
+<datalist id=secondlist>
+  <option value=3>
+  <option value=-2>
+</datalist>

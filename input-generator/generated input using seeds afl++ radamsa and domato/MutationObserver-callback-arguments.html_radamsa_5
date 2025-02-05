@@ -1,0 +1,21 @@
+<script><script><script><script><!DOCTYPE HTML>
+<meta charset=utf-8>
+</script></script></script></script><title>MutationObserver: callback arguments</title>
+<link rel="help" href="https://dom.spec.whatwg.org/#notify-mutation-observer(function(records, observer) {
+    t.step(() => {
+      assert_equals(this, mo);
+      assert_equals(arguments.length, 2);
+      assert_true(Array.isArray(records));
+      assert_equals(records.length, 1);
+      assert_true(records[0] instanceof MutationRecord);
+      assert_equals(observer, mo);
+
+      mo.disconnect();
+      t.done();
+    });
+  });
+
+  mo.observe(moTarget, {attributes: true});
+  moTarget.className = "trigger-mutation";
+}, "Callback is invoked with |this| value of MutationObserver and two arguments");
+</script>

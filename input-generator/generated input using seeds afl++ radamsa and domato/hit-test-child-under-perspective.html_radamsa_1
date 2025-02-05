@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<link rel="author" title="Xianzhu Wang" href="mailto:wangxianzhu@chromium.org">
+<link rel="help" href="https://crbug.com/1308752">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div><div id="child0" style="height: 100px; position: relative"></div></div>
+<script>
+  test(()=> {
+    assert_equals(document.elementFromPoint(50, 50), child1);
+    assert_equals(document.elementFromPoint(256, 50), child2);
+  }, "test");
+</script>

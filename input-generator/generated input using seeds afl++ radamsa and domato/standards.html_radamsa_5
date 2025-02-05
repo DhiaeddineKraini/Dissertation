@@ -1,0 +1,15 @@
+<!doctype html>
+<title>text decoration doesn't propagate into tables standards mode</title>
+<link rel=match href=standards-ref.html>
+<style>
+.inline-table { display: inline }
+.table { display: table }
+.tbody { display: table-row-group }
+.tr { display: table-row }
+.td { display: table-cell }
+tbody { vertical-align: initial; }
+</style>
+<div><u><table><tr><td><td>this should be underlined</table></u></div>
+<div><u><table class=inline-table><tr><td><div>this should not be underlined</div></table></u></div>
+<div><u><table class=inline><tr><td>this should be underlined</table></u></div>
+<div><u><span class=table><span class=tbody><span class=tr><span class=td>this should be underlined</span></span></span></span></u></div><div><u><span class=table><span class=tbody><span class=tr><span class=td>this should be underlined</span></span></span></span></u></div><div><u><span class=table><span class=tbody><span class=tr><span class=td>this should be underlined</span></span></span></span></u></div>

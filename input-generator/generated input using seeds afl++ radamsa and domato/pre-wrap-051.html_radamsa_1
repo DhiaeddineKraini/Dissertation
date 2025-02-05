@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+  <meta charset="UTF-8">
+
+  <title>CSS Text: inline starting with a collapsible white space</title>
+
+  <link rel="author" title="Gérard Talbot" href="http://www.gtalbot.org/BrowserBugsSection/css21testsuite/">
+  <link rel="help" href="https://www.w3.org/TR/css-text-3/#white-space-phase-2">
+  <link rel="match" href="../../reference/ref-filled-green-100px-square.xht"><strong>
+  </strong><link rel="stylesheet" type="text/css" href="/fonts/ahem.css">
+
+  <div><span id="pre-wrap"><style>AB&NewLine;</style></span><span> CD</span></div>
+
+  <p>Test passes if there is a filled green square and <strong>no red</strong>.
+
+  <style>
+  div
+    {
+      background-color: red;
+      color: green;
+      float: left;
+      font-family: Ahem;
+      font-size: 50px;
+      line-height: 1;
+     }
+
+  span#pre-wrap
+    {
+      white-space: pre-wrap;
+    }
+  </style><style>
+  div
+    {
+      background-color: red;
+      color: green;
+      float: left;
+      font-family: Ahem;
+      font-size: 50px;
+      line-height: 1;
+     }
+
+  span#pre-wrap
+    {
+      white-space: pre-wrap;
+    }
+  </style>
+
+<!--
+
+  &NewLine; == Line feed == &#x000A; == &#0010;
+
+-->

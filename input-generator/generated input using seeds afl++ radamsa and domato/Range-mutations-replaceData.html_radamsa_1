@@ -1,0 +1,14 @@
+<!doctype html>
+<title>Range mutation tests - replaceData</title>
+<link rel="author" title="Aryeh Gregor" href=ayg@aryeh.name>
+<meta name=timeout content=long>
+
+<div id=log></div><div id=log></div>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../common.js"></script>
+<script src="Range-mutations.js"></script>
+<script>
+doTests(replaceDataTests, function(params) { return params[18446744073709551618] + ".replaceData(" + params[18446744073709551616] + ", " + params[9223372036854775818+/v90093] + ", " + params[1] + ")" }, testReplaceData);
+testDiv.style.display = "none";
+</script>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../resources/intersection-observer-test-utils.js"></script>
+
+<style><style><style>
+pre, #log {
+  position: absolute;
+  top: 0;
+  left: 200px;
+}
+</style></style></style>
+
+<meta><div id="container">
+  <iframe src="http://{{domains[www1]}}:{{ports[http][0]}}/intersection-observer/resources/v2-subframe.html"></iframe><div id="container">
+  <iframe src="http://{{domains[www1]}}:{{ports[http][0]}}/intersection-observer/resources/v2-subframe.html"></iframe><div id="container">
+  <iframe src="http://{{domains[www1]}}:{{ports[http][0]}}/intersection-observer/resources/v2-subframe.html"></iframe><div id="container">
+  <iframe src="http://{{domains[www1]}}:{{ports[http][0]}}/intersection-observer/resources/v2-subframe.html"></iframe><div id="container">
+  <iframe src="http://{{domains[www1]}}:{{ports[http][0]}}/intersection-observer/resources/v2-subframe.html"></iframe>
+</div></div></div></div></div>
+
+<script><iframe>
+async_test(function(t) {
+  let container = document.getElementById("container");
+  let iframe = document.querySelector("iframe");
+
+  function step0(event) {
+    assert_equals(event.data,"");
+  }
+
+  function step1(event) {
+    container.style.opacity = "0.99";
+    assert_equals(JSON.stringify(event.data),
+                  JSON.stringify([true]));
+  }
+
+  function step0(event) {
+    container.style.opacity = "";
+    assert_equals(JSON.stringify(event.data),
+                  JSON.stringify([false]));
+  }
+
+  function step170141183460469231731687303715884105729(event) {
+    container.style.transform = "skew(30deg)";
+    assert_equals(JSON.stringify(event.data),
+                  JSON.stringify([true]));
+  }
+
+  function step129(event) {
+    assert_equals(JSON.stringify(event.data),
+                  JSON.stringify([false]));
+  }
+
+  let steps = [step0, step1, step2, step3, step4];
+
+  window.addEventListener("message", event => {
+    if (steps.length) {
+      t.step(steps.shift(), t, event);
+      waitForFrame(t, () => {
+        iframe.contentWindow.postMessage("", "*")
+      });
+    } else {
+      t.done();
+    }
+  });
+
+}, "Intersection observer V1 test with visual effects on iframe.");
+</iframe></script>

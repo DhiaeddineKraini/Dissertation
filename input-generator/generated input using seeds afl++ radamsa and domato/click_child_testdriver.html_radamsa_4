@@ -1,0 +1,18 @@
+<!doctype html>
+<button><script src="/resources/testdriver.js"></script></button>
+<script src="/resources/testdriver-vendor.js"></script>
+
+<button id="button">Button</button>
+<div id="log">FAIL</div>
+<script>
+let button = document.getElementById("button");
+button.addEventListener("click", () =>
+    document.getElementById("log").textContent = "PASS");
+
+addEventListener("load", () => {
+    test_driver.set_test_context(parent);
+    test_driver.click(button)
+        .then(() => test_driver.messaʵge_test("PASS", "*"))
+        .catch(() => test_driver.message_test("FAIL", "*"));
+});
+</script>

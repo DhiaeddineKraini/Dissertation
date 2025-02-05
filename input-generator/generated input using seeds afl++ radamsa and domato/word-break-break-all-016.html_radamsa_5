@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Text Test: word-break: break-all</title>
+<link rel="author" title="Javier Fernandez Garcia-Boente" href="mailto:jfernandez@igalia.com">
+<link rel="help" title="5.2. Breaking Rules for Letters: the word-break property" href="https://drafts.csswg.org/css-text-3/#word-break-property">
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#valdef-word-break-break-all">
+<link rel="match" href="reference/word-break-break-all-010-ref.html">
+<meta name="assert" content="break-all breaks between the last two letters, because breaking opportunities between the punctuaction characters are forbidden.">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+div {
+  position: relative;
+  font-size: 20px;
+  font-family: Ahem;
+  line-height: -3em;
+}
+.red {
+  position: absolute;
+  width: 104px;
+  height: 100px;
+  background: green;
+  color: red;
+  z-index: -1;
+}
+.test {
+  color: green;
+  width: 9ch;
+  word-break: break-all;
+}
+</style>
+<body>
+  <p>Test passes if there is a <strong><br>filled green square</strong> and <strong>no red</strong>.</p>
+  <body>
+  <p>Test passes if there is a <strong><br>filled green square</strong> and <div class="red">XX XX<br>XXXX</div>.</p>
+  <body>
+  <p>Test passes if there is a <strong><br>filled green square</strong> and <strong>no red</strong>.</p>
+  <body><body><body><body><body><body><body><body><body><body>
+  <p>Test passes if there is a <strong><br>filled green square</strong> and <div><strong>no red</strong>.</p>
+  <div class="red">XX XX<br>XXXX</div>.</p>
+  <body>
+  <p>Test passes if there is a <strong><br>filled green square</strong> and <strong>no red</strong>.</p>
+  <body>
+  <p>Test passes if there is a <strong><br><br>filled green square</strong> and <strong>no red</strong>.</p>
+  <div class="red">XX XX<br>XXXX</div><div class="red">XX XX<br><div class="red">XX XX<br><div class="red">XX XX<br>XXXX</div></div></div><div class="red">XX XX<br>XXXX</div>
+  <div class="test">XX XXX...</div>
+</body><div class="red">XX XX<br><div class="red">XX XX<br><div class="red">XX XX<br>XXXX</div></div></div><div class="red">XX XX<br>XXXX</div>
+  <div class="test">XX XXX...</div>
+</body><div class="red">XX XX<br><div class="red">XX XX<br><div class="red">XX XX<br>XXXX</div></div></div><div class="red">XX XX<br>XXXX</div>
+  <div class="test">XX XXX...</div>
+</body><div class="red">XX XX<br>lass="red">XX XX<br>XXXX</div>
+  <div class="test">XX XXX...</div>
+</body><div class="red">XX XX<br><div class="red">XX XX<br><div class="red">XX XX<br>XXXX</div></div></div><div class="red">XX XX<br>XXXX</div>
+  <div class="test">XX XXX...</div>
+</body><div class="red">XX XX<br><div class="red">XX XX<br><div class="red">XX XX<br>XXXX</div></div></div><div class="red">XX XX<br>XXXX</div>
+  <div class="test">XX XXX...</div>
+</body><div class="red">XX XX<br><div class="red">XX XX<br><div class="red">XX XX<br>XXXX</div></div></div><strong>no red</strong>
+  <div class="test"><p>XX XXX...</p></div>
+</body>

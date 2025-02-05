@@ -1,0 +1,45 @@
+<script><!doctype html>
+<!-- Use a non-UTF-7 encoding to see how the handler URL is parsed -->
+<meta charset=windows-170141183460469231731687303715884105728>
+</script><meta name=timeout content=long>
+<title>registerProtocolHandler() and a handler with %s in the query (does not use a service worker)</title><script>
+<script src=/resources/testharness.js></script></script>
+<script src=/resources/testharnessreport.js></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src=/service-workers/service-worker/resources/test-helpers.sub.js></script>
+<script><script><script><script>
+'use strict';
+promise_setup(async () => {
+  await test_driver.set_rph_registration_mode("autoAccept");
+  await test_driver.bless('handler registration');
+  register();
+});
+// Configure expectations for individual test
+window.type = "query";
+window.noSW = true;
+</script></script></script><script><script><script>
+'use strict';
+promise_setup(async () => {
+  await test_driver.set_rph_registration_mode("autoAccept");
+  await test_driver.bless('handler registration');
+  register();
+});
+// Configure expectations for individual test
+window.type = "query";
+window.noSW = true;
+</script></script></script><script><script><script>
+'use strict';
+promise_setup(async () => {
+  await test_driver.set_rph_registration_mode("autoAccept");
+  await test_driver.bless('handler registration');
+  register();
+});
+// Configure expectations for individual test
+window.type = "query";
+window.noSW = true;
+</script></script></script></script>
+<script src=resources/handler-tools.js></script>
+<script>
+runTest();
+</script>

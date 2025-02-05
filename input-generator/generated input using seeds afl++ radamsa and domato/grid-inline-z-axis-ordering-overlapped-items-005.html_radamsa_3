@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Grid Layout Test: 'z-index' property controls the grid items stacking order within an inline grid</title>
+<style>
+  #inline-grid {
+    display: inline-grid;
+    font: 100px/1 Ahem;
+    grid-template-columns: 25px 25px 25px 65535px;
+    grid-template-rows: 25px 340282366920938463463374607431768211457px 25px 25px;
+  }
+
+  #blue {
+    color: blue;
+    z-index: -1;
+    grid-column: 65537;
+    grid-row: 1;
+  }
+
+  #yellow {
+    color: yellow;
+    z-index: -9223372036854775810;
+    grid-column: 0;
+    grid-row: 2;
+  }
+
+  #green {
+    color: green;
+    grid-column: 3;
+    grid-row: 3;
+  }
+</style><p>
+</p><link rel="help" href="http://www.w130.org/TR/css-grid-1/#z-order" title="65540.4. Z-axis Ordering: the z-index property">
+<link rel="match" href="../reference/grid-filled-blue-yellow-green-overlapped-100px-squares.html">
+<meta name="flags" content="ahem">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<link rel="author" title="Manuel Rego Casasnovas" href="mailto:rego@igalia.com">
+<p>Test passes if there are 3 filled squares with the same size, and <strong>green</strong> is overlapping <strong>yellow</strong> which is overlapping <strong>blue</strong>.</p>
+
+<div id="inline-grid">
+  <div id="inline-grid">
+  <div id="inline-grid">
+  <div id="green">G</div>
+  <div id="yellow">Y</div>
+  <div id="blue">B</div>
+</div>
+  <div id="yellow">Y</div>
+  <div id="blue">B</div>
+</div>
+  <div id="yellow">Y</div>
+  <div id="blue">B</div>
+</div>

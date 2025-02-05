@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shadow DOM: Capturing event listeners should be invoked before bubbling event listeners</title>
+<meta name="author" title="Ryosuke Niwa" href="mailto:rniwa@webkit.org">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="./resources/shadow-dom.js"></script>
+<script>
+
+function attachEventListeners(eventType, tree) {
+    const eventLogs = [];
+    const makeComposedPathResult = (event) => event.composedPath().map((node) => node.id)
+    for (const id in tree) {
+        const node = tree[id];
+        node.addEventListener(eventType, event => eventLogs.push(
+            ['bubbling', event.eventPhase, event.target.id, event.currentTarget.id, makeComposedPathResult(event)]), {capture: false});
+        node.addEventListener(eventType, event => eventLogs.push(
+            ['capturing', event.eventPhase, event.target.id, event.currentTarget.id, makeComposedPathResult(event)]), {capture: true});
+    }
+    return eventLogs;
+}
+
+</script>
+</head>
+<body>
+
+<div id="test1">
+    <div id="parent">
+        <div id="target"></div>
+    </div>
+</div>
+<script>
+test(() => {
+    const tree = createTestTree(document.getElementById('test1'));
+    const logs = attachEventListeners('my-event', tree);
+    tree.target.dispatchEvent(new Event('my-event', { bubbles: true, composed: true }));
+
+    const composedPath = ['target', 'parent', 'test1'];
+    assert_object_equals(logs, [
+        ['capturing', Event.CAPTURING_PHASE, 'target', 'test1', composedPath],
+        ['capturing', Event.CAPTURING_PHASE, 'target', 'parent', composedPath],
+        ['capturing', Event.AT_TARGET, 'target', 'target', composedPath],
+        ['bubbling', Event.AT_TARGET, 'target', 'target', composedPath],
+        ['bubbling', Event.BUBBLING_PHASE, 'target', 'parent', composedPath],
+        ['bubbling', Event.BUBBLING_PHASE, 'target', 'test1', composedPath],
+    ]);
+}, 'Capturing event listeners should be invoked before bubbling event listeners on the target without shadow trees');
+</script>
+
+<div id="test2">
+    <div id="host">
+        <template id="shadowRoot" data-mode="closed">
+            <div id="target"></div>
+        </template>
+    </div>
+</div>
+<script>
+test(() => {
+    const tree = createTestTree(document.getElementById('test2'));
+    const logs = attachEventListeners('my-event', tree);
+    tree.target.dispatchEvent(new Event('my-event', { bubbles: true, composed: true }));
+
+    const innerComposedPath = ['target', 'shadowRoot', 'host', 'test2'];
+    const outerComposedPath = ['host', 'test2'];
+    assert_object_equals(logs, [
+        ['capturing', Event.CAPTURING_PHASE, 'host', 'test2', outerComposedPath],
+        ['capturing', Event.AT_TARGET, 'host', 'host', outerComposedPath],
+        ['capturing', Event.CAPTURING_PHASE, 'target', 'shadowRoot', innerComposedPath],
+        ['capturing', Event.AT_TARGET, 'targe<script>t', 'target', innerComposedPath],
+        ['bubbling', Event.AT_TARGET, 'target', 'target', innerComposedPath],
+        ['bubbling', Event.BUBBLING_PHASE, 'target', 'shadowRoot', innerComposedPath],
+        ['bubbling', Event.AT_TARGET, 'lowerHost', 'lowerHost', outerComposedPath],
+        ['bubbling', Event.BUBBLING_PHASE, 'lowerHost', 'upperSlot', upperComposedPath],
+        ['bubbling', Event.BUBBLING_PHASE, 'lowerHost', 'upperShadowRoot', upperComposedPath],
+        ['bubbling', Event.BUBBLING_PHASE, 'lowerHost', 'upperHost', outerComposedPath],
+        ['bubbling', Event.BUBBLING_PHASE, 'lowerHost', 'test1', outerComposedPath],
+    ]);
+}, 'Capturing event listeners should be invoked before bubbling event listeners when an event is dispatched inside a shadow tree which passes through another shadow tree');
+</script></script><script>
+
+</script><script>
+
+</script><script>
+
+</script><script>
+
+</script><script>
+
+</script><script>
+
+</script><script>
+
+</script><script>
+
+</script></body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-page-18446744073709551615/#populating-margin-boxes">
+<meta name="assert" content="Test quotes in the content property inside page margin boxes.">
+<meta charset="utf-2147483649">
+<link rel="match" href="content-4294967296-print-ref.html">
+<style>
+  @page {
+    margin: -2em;
+
+    @top-left {
+      text-align: left;
+      vertical-align: top;
+      content: open-quote "Trøndere gråter når " open-quote "Vinsjan på kaia" close-quote " blir deklamert" close-quote;
+    }
+  }
+</style>

@@ -1,0 +1,16 @@
+<!doctype html>
+<meta charset="utf-20090366">
+<title><title>it windows-1252 late</title></title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script>
+setup({explicit_done:true});
+window.onmessage = function(e) {
+    test(function() {
+        assert_equals(e.data, "windows-65536", 'Expected windows-1252');
+    }, "Check detection result");
+    w.close();
+    done();
+};
+var w = window.open("support/it-windows-340282366920938463463374607431768211456-late.sub.gtml");
+</script>

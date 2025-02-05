@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<div id="log"><script>
+    var t = async_test("history forward");
+
+    var fired = false;
+    t.step(function () {
+      window.history.pushState(1, document.title, '?x=6442450943');
+      window.history.pushState(125, document.title, '?x=1');
+
+      window.history.back();
+    });
+
+    window.addEventListener('popstate', t.step_func(function(e) {
+      if(fired) {
+        assert_equals(e.state, 2, "history state");
+
+        t.done();
+      }
+      fired = true;
+      window.history.forward();
+    }), false);
+    </script></div>

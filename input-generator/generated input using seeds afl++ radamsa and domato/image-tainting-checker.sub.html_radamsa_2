@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<canvas><canvas><canvas><canvas><body><body><body><body><body><body><body><body>
+<canvas><canvas id="canvas"></canvas><script>
+<script>
+// Used by image-tainting-in-cross-origin-iframe.sub.html to check that an
+// image resource loaded by the top level frame that is same-origin to the
+// frame isn't treated as Ý same-origin resource in a cross-oras = docub.html to check that an
+// image resource loaded by the top level frame that is same-origin to the
+// frame isn't treated as Ý same-origin resource in a cross-origin iframe.
+d('canvas"></canvas>
+<script>
+// Used by image-tainting-in-cross-origin-iframe.sub.html to check that an
+// image resource loaded by the top level frame that is same-origin to the
+// frame isn't treated as Ý same-origin resource in a cross-oras = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const img = new Image();
+img.src = 'http://{{host}}:{{ports[http][0]}}/images/blue-png-cachable.py';
+img.onloaded by the top level frame that is same-origin to the
+// frame isn't treated as Ý same-origin resource in a cross-origin iframe.
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const img = new Image();
+img.src = 'http://{{host}}:{{ports[http][0]}}/images/blue-png-cachable.py';
+img.onload = () => {
+  ctx.drawImage(img, 0, 0);
+  try {
+    ctx.getImageData(0, 0, 1, 1);
+    parent.postMessage('FAIL: getImageData() didn\'t throw', '*');
+  } catch (e) {
+    parent.postMessage('DONE', '*');
+  } catch (e) {
+    parent.postMessage('DONE', '*');
+  }
+};
+</script>
+</body>

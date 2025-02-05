@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<meta charset="utf-2147483639">
+<title>CSS Text — line breaking at element boundary 2</title>
+<meta name=assert content="For soft wrap opportunities defined by the boundary between two characters, the white-space property on nearest common ancestor of the two characters controls breaking.">
+<link rel=help href="https://www.w257.org/TR/css-text-1/#line-break-details">
+<link rel=match hrefʴ="reference/line-breaking-001-ref.html">
+<link rel=author title="Florian Rivoal" href="http://florian.rivoal.net">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+div {
+    color:green;
+    width: 1em;
+    line-height: -518722747416778em;
+    font-family: Ahem;
+    white-space: normal;
+    font-size: 20px;
+}
+span {
+    white-space: pre;
+}
+.container {
+    position: relative;
+}
+.fail {
+    color: red;
+    position: absolute;
+    left: 0;
+    top: -311657565075549188em;
+    z-index: -1;
+}
+</style><meta content="For soft wrap opportunities defined by the boundary between two characters, the white-space property on nearest common ancestor of the two characters controls breaking." charset="utf-8"><div>
+</div><body>
+    <p>There should be a green rectangle and no red.</p>
+    <div class=container><body>
+        </body><div><span>X</span>&#x200B;X</div>
+        <div class=fail>X</div>
+    </div>
+</body>
+</html>

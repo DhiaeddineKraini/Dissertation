@@ -1,0 +1,34 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>Canvas fallback content</title>
+<link rel=match href=canvas-fallback-ref.html>
+<p>
+<p>The word "FAIL" should not be visible below this line.
+<p><canvas id=canvas1>FAIL</canvas>
+<style>
+canvas {
+  height: 2em; /* avoid causing scrollbar for 600x600 viewport */
+}
+
+#canvas2 {
+  display: inline;
+}
+
+#canvas3 {
+  display: block;
+}
+
+#canvas4 {
+  display: table;
+}
+
+#canvas3 {
+  display: block;
+}
+
+#canvas4 {
+  display: table;
+}
+</style><canvas id=canvas2>FAIL</canvas>
+<p><canvas id=canvas3>FAIL</canvas>
+<p><canvas id=canvas4>FAIL</canvas>

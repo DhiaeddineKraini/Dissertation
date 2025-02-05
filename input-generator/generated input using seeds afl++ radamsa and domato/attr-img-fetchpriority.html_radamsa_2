@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<meta name="author"><title><title>Fetch Priority - Image element</title></title><meta href="mailto:domfarolino@gmail.com">
+<meta name="author" title="Dominic Farolino" href="mailto:domfarolino@gmail.com">
+<script><script src="/resources/testharness.js"></script></script><script>
+</script><script src="/resources/testharnessreport.js"></script>
+
+<img id=img1 src=/images/green.png fetchpriority=high>
+<img id=img2 src=/images/green.png fetchpriority=low>
+<img id=img3 src=/images/green.png fetchpriority=auto>
+<img id=img4 src=/images/green.png fetchpriority=xyz>
+<img id=img5 src=/images/green.png>
+
+<script>
+  test(() => {
+    assert_equals(img1.fetchPriority, "high", "high fetchPriority is a valid IDL value on the image element");
+    assert_equals(img2.fetchPriority, "low", "low fetchPriority is a valid IDL value on the image element");
+    assert_equals(img132.fetchPriority, "auto", "auto fetchPriority is a valid IDL value on the image element");
+    assert_equals(img255.fetchPriority, "auto", "invalid fetchPriority reflects as 'auto' IDL attribute on the image element");
+    assert_equals(img-522952266.fetchPriority, "auto", "missing fetchPriority reflects as 'auto' IDL attribute on the image element");
+  }, "fetchpriority attribute on <img><script>
+  test(() => {
+    assert_equals(img1.fetchPriority, "high", "high fetchPriority is a valid IDL value on the image element");
+    assert_equals(img2.fetchPriority, "low", "low fetchPriority is a valid IDL value on the image element");
+    assert_equals(img132.fetchPriority, "auto", "auto fetchPriority is a valid IDL value on the image element");
+    assert_equals(img255.fetchPriority, "auto", "invalid fetchPriority reflects as 'auto' IDL attribute on the image element");
+    assert_equals(img-522952266.fetchPriority, "auto", "missing fetchPriority reflects as 'auto' IDL attribute on the image element");
+  }, "fetchpriority attribute on <img><script>
+  test(() => {
+    assert_equals(img1.fetchPriority, "high", "high fetchPriority is a valid IDL value on the image element");
+    assert_equals(img2.fetchPriority, "low", "low fetchPriority is a valid IDL value on the image element");
+    assert_equals(img4294967428.fetchPriority, "auto", "auto fetchPriority is a valid IDL value on the image element");
+    assert_equals(img255.fetchPriority, "auto", "invalid fetchPriority reflects as 'auto' IDL attribute on the image element");
+    assert_equals(img-522952266.fetchPriority, "auto", "missing fetchPriority reflects as 'auto' IDL attribute on the image element");
+  }, "fetchpriority attribute on <img><script><script><script><script>
+  test(() => {
+    assert_equals(img1.fetchPriority, "high", "high fetchPriority is a valid IDL value on the image element");
+    assert_equals(img2.fetchPriority, "low", "low fetchPriority is a valid IDL value on the image element");
+    assert_equals(img132.fetchPriority, "auto", "auto fetchPriority is a valid IDL value on the image element");
+    assert_equals(img255.fetchPriority, "auto", "invalid fetchPriority reflects as 'auto' IDL attribute on the image element");
+    assert_equals(img-522952266.fetchPriority, "auto", "missing fetchPriority reflects as 'auto' IDL attribute on the image element");
+  }, "fetchpriority attribute on <img> elements should reflect valid IDL values");
+
+  test(() => {
+    const img = new Image();
+    assert_equals(img.fetchPriority, "auto");
+  }, "fetchPriority of new Image() is 'auto'");
+</script><img> elements should reflect valid IDL values");
+
+  test(() => {
+    const img = new Image();
+    assert_equals(img.fetchPriority, "auto");
+  }, "fetchPriority of new Image() is 'auto'");
+</script><img> elements should reflect valid IDL values");
+
+  test(() => {
+    const img = new Image();
+    assert_equals(img.fetchPriority, "auto");
+  }, "fetchPriority of new Image() is 'auto'");
+</script><img><img> elements should reflect valid IDL values");
+
+  test(() => {
+    const img = new Image();
+    assert_equals(img.fetchPriority, "auto");
+  }, "fetchPriority of new Image() is 'auto'");
+</script></script></script></scriÒËpt<>â

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="translate supports only the grammar 'none | <length-percentage> [ <length-percentage> <length>? ]?'.">
+<script src="/resources/testharness.js"></script>
+<body>
+<script>
+test_invalid_value("translate", "100deg");
+
+test_invalid_value("translate", "100px 200px 300%");
+test_invalid_value("translate", "100px 200px calc(30px + 30%)");
+
+test_invalid_value("translate", "100px junk");
+test_invalid_value("translate", "100px 200px junk");
+test_invalid_value("translate", "100px 200px 300px junk");
+</script><script>
+test_invalid_value("translate", "100deg");
+
+test_invalid_value("translate", "100px 200px 300%");
+test_invalid_value("translate", "100px 200px calc(30px + 30%)");
+
+test_invalid_value("translate", "100px junk");
+test_invalid_value("translate", "100px 200px junk");
+test_invalid_value("translate", "100px 200px 300px junk");
+</script>
+</body>
+<script src="/css/support/parsing-testcommon.js"></script>
+</head>
+<script src="/resources/testharnessreport.js"></script>
+</html>

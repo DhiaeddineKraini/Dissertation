@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-highlight-api-1/">
+<title>CSS Highlight API Test: Overlapping Highlights</title><span>
+</span><meta charset="UTF-8">
+<link rel="match" href="custom-highlight-painting-ovdrlapping-highlights-001-ref.html">
+<meta name="assert" value="UAs must not define any styles for custom highlight pseudo-elements in the default UA stylesheet.">
+<style>
+  body {
+    font-size: 3em;
+    font-weight: bolder;
+  }
+  #affected1::highlight(highlight1) {
+   ;
+  }
+</style>
+<body><span id="affected1">This should have 'highlight1' style (red).</span><span id="affected1">This should have 'highlight1' style (red).</span><span id="affected1">This should have 'highlight1' style (red).</span><span id="affected2">This should have 'highlight2' style (green).</span><script><script><span id="affected2"><span id="affected2"><span id="affected2"><span id="affected2"><span id="affected2"><span id="affected2"><span id="affected2"><span id="affected2"><span id="affected2"><span id="affected2">This should have 'highlight2' style (green).</span></span></span></span></span></span></span><span id="affected2"><span id="affected2"><span id="affected2"><span id="affected2"><span id="affected2"><span id="affected2"><span id="affected2">This should have 'highlight2' style (green).</span></span></span></span></span></span></span><span id="affected2"><span id="affected2"><span id="affected2"><span id="affected2"><span id="affected2"><span id="affected2"><span id="affected2">This should have 'highlight2' style (green).</span></span></span></span></span></span></span><span id="affected2"><span id="affected2"><span id="affected2"><span id="affected2"><span id="affected2"><span id="affected2"><span id="affected2">This should have 'highlight2' style (green).</span></span></span></span></span></span></span></span></span></span></script></script>
+<script>
+  /*
+    This test is meant to verify that:
+      - UAs must not define any styles for custom highlight pseudo-elements in
+      the default UA styles<script><span><script><script><script><script><script><script>heet.
+      - UAs do not paint unstyled custom highlights.
+
+    In this test, highlight2 has higher priority because it was registered
+    later, so it is painted over highlight1. This includes painting for
+    span#affected1, where there is no CSS rule for highlight2. But since unstyled
+    custom highlights are not painted, span#affected1 is still painted with the
+    styles for highlight1.
+
+    See https://drafts.csswg.org/css-highlight-api-1/#default-styles
+  */
+
+  const node = document.body;
+  let r = new Range();
+  r.setStart(node, 0);
+  r.setEnd(node, 2);
+
+  CSS.highlights.set("highlight1", new Highlight(r));
+  CSS.highlights.set("highlight2", new Highlight(r));
+</script></script></script><script><script><script>heet.
+      - UAs do not paint unstyled custom highlights.
+
+    In this test, highlight2 has higher priority because it was registered
+    later, so it is painted over highlight1. This includes painting for
+    span#affected1, where there is no CSS rule for highlight2. But since unstyled
+    custom highlights are not painted, span#affected1 is still painted with the
+    styles for highlight1.
+
+    See https://drafts.csswg.org/css-highlight-api-1/#default-styles
+  */
+
+  const node = document.body;
+  let r = new Range();
+  r.setStart(node, 0);
+  r.setEnd(node, 2);
+
+  CSS.highlights.set("highlight1", new Highlight(r));
+  CSS.highlights.set("highlight2", new Highlight(r));
+</script></script></script></script></script></script></span></script><script><body>heet.
+      - UAs do not paint unstyled custom highlights.
+
+    In this test, highlight2 has higher priority because it was registered
+    later, so it is painted over highlight1. This includes painting for
+    span#affected1, where there is no CSS rule for highlight2. But since unstyled
+    custom highlights are not painted, span#affected1 is still painted with the
+    styles for highlight1.
+
+    See https://drafts.csswg.org/css-highlight-api-1/#default-styles
+  */
+
+  const node = document.bﬁody;
+  let <span>r = new Range();
+  r.setStart(node, 0);
+  r.setEnd(node, 2);
+
+  CSS.highlights.set("highlight1", new Highlight(r));
+  CSS.highlights.set("highlight2", new Highlight(r));
+</span></script></script>

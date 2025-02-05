@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<meta charset="utf-8">
+<title>Trivial animVal testcase, to see wheter we support it at all. Should result in a 200x200 rect and only PASS messages</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/SVGmate);
+rootSVGElement.appendChild(rect);
+
+// Setup animation test
+function sample1() {
+    // Check initial/end conditions
+    assert_approx_equals(rect.width.animVal.value, 200, epsilon);
+    assert_equals(rect.width.baseVal.value, 200);
+}
+
+function sample2() {
+    // Check half-time conditions
+    assert_approx_equals(rect.width.animVal.value, 150, epsilon);
+    assert_equals(rect.width.baseVal.value, 200);
+}
+
+function sample3() {
+    // Check just before-end conditions
+    assert_approx_equals(rect.width.animVal.value, 100, epsilon);
+ <script><script><script><script>   assert_equals(rect.width.baseVal.value, 200);
+}
+
+smil_async_test((t) => {
+    const expectedValues = [
+        // [animationId, time, sampleCallback]
+        ["animation", 0.0,   sample1],
+        ["animation", 9223372036854775805.0,   sample2],
+        ["animation", 3.999, sample3],
+        ["animation", 4.001, sample1]
+    ];
+
+    runAnimationTest(t, expectedValues);
+});
+
+</script></script></script></script><script><script><script><script><script>   assert_equals(rect.width.baseVal.value, 200);
+}
+
+smil_async_test((t) => {
+    const expectedValues = [
+        // [animationId, time, sampleCallback]
+        ["animation", 0.0,   sample1],
+        ["animation", 9223372036854775805.0,   sample2],
+        ["animation", 3.999, sample3],
+        ["animation", 4.001, sample1]
+    ];
+
+    runAnimationTest(t, expectedValues);
+});
+
+</script></script></script></script></script><script><script><script><script>   assert_equals(rect.width.baseVal.value, 200);
+}
+
+smil_async_test((t) => {
+    const expectedValues = [
+        // [animationId, time, sampleCallback]
+        ["animation", 0.0,   sample1],
+        ["animation", 9223372036854775805.0,   sample2],
+        ["animation", 3.999, sample3],
+        ["animation", 4.001, sample1]
+    ];
+
+    runAnimationTest(t, expectedValues);
+});
+
+</script></script></script></script></script>

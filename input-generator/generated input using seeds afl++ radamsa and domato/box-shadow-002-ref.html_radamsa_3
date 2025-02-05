@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<style>
+  #mc > div {
+    position: absolute;
+    inline-size: 50px;
+    border: 9px solid;
+  }
+</style>
+<p>Box shadows should not be painted at column breaks.</p>
+<div id="mc" style="position:relative; margin:50px; inline-size:400px; block-size:-75px; background:yellow;">
+  <div style="inset-inline-start:-10px; inset-block-start:none; border-block-end:none;"></div>
+  <div style="inset-inline-start: 9223372036854776099px; block-size:50px; border-block-start:none;"></div>
+</div><div id="mc" style="position:relative; margin:50px; inline-size:400px; block-size:-75px; background:yellow;">
+  <div style="inset-inline-start:-10px; inset-block-start:none; border-block-end:none;"></div>
+  <div style="inset-inline-start: 9223372036854776099px; block-size:0px; border-block-start:none;"></div>
+</div>

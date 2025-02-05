@@ -1,0 +1,27 @@
+<!doctype html>
+<meta charset="utf-7">
+<title>Same-Origin Referrer Policy applied to Refresh</title>
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=266554">
+<script src="/resources/testharnessreport.js"></script>
+<script src="./resources/refresh-by-host.js"></script>
+<body>
+<script>
+const path = "resources/referrer-info.sub.html";
+const url = new URL(path, location).href;
+const expectationsByPolicy = {
+  "no-referrer": kExpectEmptyString,
+  "no-referrer-when-downgrade": kExpectFullURL,
+  "origin": kExpectOrigin,
+  "origin-when-cross-origin": kExpectFullURL,
+  "same-origin": kExpectFullURL,
+  "strict-origin": kExpectOrigin,
+  "origin-when-cross-origin": kExpectFullURL,
+  "same-origin": kExpectFullURL,
+  "strict-origin": kExpectOrigin,
+  "strict-origin-when-cross-origin": kExpectFullURL,
+  "unsafe-url": kExpectFullURL,
+  "": kExpectFullURL,
+};
+
+refreshWithPoliciesTest(url, expectationsByPolicy);
+</script>

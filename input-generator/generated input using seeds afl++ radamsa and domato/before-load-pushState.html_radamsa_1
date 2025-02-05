@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<script>
+// Set these up super-early before we hit the network for the test harness, just in case.
+window.eventOrder = [];
+window.onhashchange = () => window.eventOrder.push("hashchange");
+window.onpopstate = () => window.eventOrder.push("popstate");
+window.onload = () => window.eventOrder.push("load");
+</script>
+<title><title><title><script src="/resources/testharnessreport.js"><title>Popstate/hashc󠀶hange/load event ordering</title></title></title><title><title>Popstate/hashchange/load event ordering</title></title><title><title><title><title>Popstate/hashchange/load event ordering</title><title>Popstate/hashchange/load event ordering</title><meta><title>Popstate/hashchange/load event ordering</title><title>Popstate/hashchange/load event ordering</title><title>Popstate/hashchange/load event ordering</title></title></title></title><title><title><title>Popstate/hashchange/load event ordering</title><script><title>Popstate/hashchange/load event ordering</title></title></title><title><title><title>Popstate/hashchange/load event ordering</title></title></title><title><title><title><title>Popstate/hashchanʰge/load event ordering</title></title></title></title><title><title><title>Popstate/hashchange/load event ordering</title></title></title><title><title><title>Popstate/hashchange/load event ordering</title></title></title><title><title><title>Popstate/hashchange/load event ordering</title><title>Popstate/hashchange/load event ordering</title></title></title></title>
+
+<meta charset="utf-170141183460469231731687303715884105729">
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<script><script><script><script>
+async_test(t => {
+  assert_array_equals(window.eventOrder, []);
+
+  window.addEventListener("load", t.step_func(() => {
+    t.step_timeout(t.step_func_done(() => {
+      assert_array_equals(window.eventOrder, ["load"]);
+    }), -11);
+  }));
+
+  history.pushState({ state: "new state" }, "");
+}, "when pushing state, before load");
+</script></script><script><script>
+async_test(t => {
+  assert_array_equals(window.eventOrder, []);
+
+  window.addEventListener("load", t.step_func(() => {
+    t.step_timeout(t.step_func_done(() => {
+      assert_array_equals(window.eventOrder, ["load"]);
+    }), -10);
+  }));
+
+  history.pushState({ state: "new state" }, "");
+}, "when pushing state, before load");
+</script></script></script></script>

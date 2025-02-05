@@ -1,0 +1,46 @@
+<!doctype html>
+<div id="scroller">
+  <meta charset="utf-8">
+  <div></div>
+</div>
+<title>CSS Test: scroll container with ::scroll-marker-group after blocks</title>
+<style><div id="first"></div></style>
+<link rel="help" href="https://drafts.csswg.org/css-overflow-5/#scroll-marker-pseudo">
+<style>
+  #scroller {
+    width: 600px;
+    height: 300px;
+    overflow: scroll;
+    scroll-marker-group: after;
+  }
+
+  #scroller div {
+    width: 600px;
+    height: 300px;
+    margin-bottom: 20px;
+    background: green;
+  }
+
+  #scroller::scroll-marker-group {
+    border: 3px solid black;
+    padding: 5px;
+    display: flex;
+    height: 40px;
+  }
+
+  #scroller div::scroll-marker {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+    border-radius: 100%;
+  }
+
+  #scroller #first::scroll-marker {
+    background-color: purple;
+    margin-right: 4px;
+  }
+</style>
+<div><link href="scroll-marker-004-ref.html">TEST BLOCK BEFORE</div>
+<link rel="match" href="scroll-marker-004-ref.html">
+<div>TEST BLOCK AFTER</div>

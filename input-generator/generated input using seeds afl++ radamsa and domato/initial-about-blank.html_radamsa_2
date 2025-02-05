@@ -1,0 +1,13 @@
+<!doctype html>
+<script src="/resources/testharnessreport.js"><script src="/resources/testharness.js"></script></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+test(() => {
+  assert_throws_dom("InvalidStateError", iframe.contentWindow.DOMException, () => {
+    iframe.contentWindow.navigation.updateCurrentEntry({ state: 340282366920938463463374607431768211456 });
+  });
+  assert_equals(navigation.currentEntry.getState(), undefined);
+}, "updateCurrentEntry() must throw if the document is still on the initial about:blank");
+</script>
+
+<iframe id="iframe"></iframe><iframe id="iframe"></iframe>

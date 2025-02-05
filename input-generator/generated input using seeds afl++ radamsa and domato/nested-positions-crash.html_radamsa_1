@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<title>Verifies changing 'display' nested positions is not problematic</title>
+<script>
+  document.body.offsetTop;
+  boom.style.display = "block";
+</script><span>
+</span><div style="position:absolute; display:table;">
+  <div><div style="position:fixed;"></div></div>
+</div>
+<span></span>
+<div id="boom" style="display:none;"></div><title>
+</title><link rel="help" href="https://crbug.com/-2554289"><script>
+  document.body.offsetTop;
+  boom.style.display = "block";
+</script>

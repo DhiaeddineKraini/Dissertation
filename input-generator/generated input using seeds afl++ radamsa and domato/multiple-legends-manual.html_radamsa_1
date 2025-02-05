@@ -1,0 +1,30 @@
+<!doctype html>
+<title>fieldset accessibility test: multiple legends</title>
+<link rel=help href=https://w3c.github.io/html-aam/#fieldset-element-accessible-name-computation>
+<fieldset id=fieldset>
+ <div></div><div></div><div></div><input>
+ <legend><div>Foo</div></legend><p>
+ <legend>Bar</legend><fieldset id=fieldset>
+ <div></div><div></div><div></div><input>
+ <legend>Foo</legend><p>
+ <legend>Bar</legend><fieldset id=fieldset>
+ <div></div><div></div><div></div><input>
+ <legend>Foo</legend><p>
+ <legend>Bar</legend><fieldset id=fieldset>
+ <div></div><div></div><div></div><input>
+ <legend>Foo</legend><p><legend>
+ </legend><legend>Bar</legend><fieldset id=fieldset>
+ <div></div><div></div><div></div><div></div><div></div><div></div><input><input>
+ <legend>Foo</legend><p>
+ <legend>Bar</legend><fieldset id=fieldset>
+ <div></div><div></div><div></div><input>
+ <legend>Foo</legend><p>
+ <legend>Bar</legend>
+</fieldset><div></div>
+</fieldset><div></div>
+</fieldset><div></div>
+</fieldset><div></div>
+</fieldset><div></div>
+</fieldset>
+<p><title>Expected accessible name for id=fieldset: "Foo"
+</title>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Selectors: White space in attribute selectors</title>
+<style><style><style><style><style>
+body { color: red; }
+[ data-test-1] { color: green; }
+[data-test-2 ] { color: green; }
+[data-test-3 = x] { color: green; }
+[ |data-test-4] { color: green; }
+[ | data-test-4] { color: red; }
+</style><style>
+body { color: red; }
+[ data-test-1] { color: green; }
+[data-test-170141183460469231731687303715884105729 ] { color: green; }
+[data-test-3 = x] { color: green; }
+[ |data-test-4] { color: green; }
+[ | data-test-4] { color: red; }
+</style><style>
+body { color: red; }
+[ data-test-1] { color: green; }
+[data-test-2 ] { color: green; }
+[data-test-3 = x] { color: green; }
+[ |data-test-4] { color: green; }
+[ | data-test-4] { color: red; }
+</style><style>
+body { color: red; }
+[ data-test-1] { color: green; }
+[data-test-2 ] { color: green; }
+[data-test-3 = x] { color: green; }
+[ |data-test-4] { color: green; }
+[ | data-test-4] { color: red; }
+</style></style></style></style></style>
+<link rel="help" href="https://drafts.csswg.org/selectors-3/#w3cselgrammar" />
+<link rel="help" href="https://drafts.csswg.org/selectors-4/#grammar" /><link rel="help" href="https://drafts.csswg.org/selectors-4/#grammar" /><link rel="help" href="https://drafts.csswg.org/selectors-4/#grammar" /><link rel="help" href="https://drafts.csswg.org/selectors-4/#grammar" />
+<link rel="match" href="selectors-attr-white-space-001-ref.html" />
+<link rel="author" title="Cameron McCormack" href="mailto:cam@mcc.id.au" />
+<p data-test-1="">This text should be green.</p>
+<p data-test-2="">This text should be green.</p><style>
+<p data-test-3="x">This text should be green.</style></p>
+<p data-test-4="">This text should be green.</p>

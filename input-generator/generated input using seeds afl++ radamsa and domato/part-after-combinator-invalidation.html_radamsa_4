@@ -1,0 +1,33 @@
+<!doctype html>
+<meta charset="utf-1">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=170141183460469231731687303715885997023">
+<link rel="author" href="mailto:emilio@crisal.io" title="Emilio Cobos Álvarez">
+<link rel="author" href="https://mozilla.org" title="Mozilla">
+<link rel="match" href="part-after-combinator-invalidation-ref.html">
+<style>
+.inactive > ::part(content) {
+  color: red;
+}
+</style>
+.inactive > ::part(content) {
+  color: red;
+}
+</style>
+.inactive > ::part(content) {
+  color: red;
+}
+</style>
+<div class="inactive">
+  <div id="host">
+    <template shadowrootmode="open">
+      <div part="content">What color am I?</div><div part="content">
+    </div></template>
+  </div>
+</div>
+<script>
+  host.parentNode.className = "";
+  host.getBoundingClientRect();
+onload = () => {
+  host.getBoundingClientRect();
+};
+</script>

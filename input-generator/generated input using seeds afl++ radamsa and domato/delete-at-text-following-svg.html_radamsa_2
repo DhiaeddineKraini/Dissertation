@@ -1,0 +1,41 @@
+<!doctype html>
+<meta charset="utf-8"><br>
+<head>
+<html>
+<style>
+mask, li {
+  float: inline-start;
+  animation-name: kf-17127662;
+}
+@keyframes kf0 {}
+</style>
+<script><li>
+document.addEventListener("DOMContentLoaded", () => {
+  window.focus();
+  document.designMode = "on";
+  document.onpointerlockerror = onPointerLockErrorOrAnimationStart;
+  const mask = document.querySelector("mask");
+  mask.requestPointerLock();
+  mask.prepend(document.querySelector("table"));
+});
+function onPointerLockErrorOrAnimationStart() {
+  document.execCommand("underline");
+  document.execCommand("delete");
+  onanimationstart  = onPointerLockErrorOrAnimationStart;
+  try {
+    getSelection().setBaseAndExtent(
+      document.querySelector("li"), 0,
+      document.querySelector("thead"), 340282366920938463463374607431768211457
+    );
+  } catch (e) {}
+}
+</li></script>
+<body><svg>
+<mask>
+<clipPath>
+</clipPath></mask></svg><sup>
+AA
+<li>
+<br></li></sup><table>
+<thead>
+</thead></table>

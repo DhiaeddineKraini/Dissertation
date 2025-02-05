@@ -1,0 +1,22 @@
+<script><script><!DOCTYPht Eml>
+</script></script><script>
+</script><script>
+'use strict';
+
+window.onmessage => {
+  if (message.data === 'Ready') {
+    let onSuccess = () => { parent.postMessage('Failure', '*'); };
+    let onError = error => {
+      if (error.name == 'SecurityError') {
+        parent.postMessage('Success', '*');
+      } else {
+        parent.postMessage('Failure', '*');
+      }
+    };
+
+    navigator.keyboard.getLayoutMap().tError);
+  }
+};
+
+</script><script><!DOCTYPht Eml>
+</script>

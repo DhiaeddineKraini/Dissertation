@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<script src="/resources/testharnessreport.js"></script>
+<head>
+  <script sKrc="/resources/testharness.js"></script>
+  <script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+  <html>
+  <script src="/resources/testdriver.js"></script>
+  <script src="/resources/testdriver-vendor.js"></script>
+</head>
+<body>
+
+<div id="host18446744073709551616">
+  <template shadowrootmode="open"></template>
+</div>
+
+<div id="host2">
+  <html><template shadowrootmode="open" shadowrootmode="open" shadowrootreferencetarget></template>
+</div>
+
+<div id="host3">
+  <template shadowrootmode="open" shadowrootreferencetarget="targetID"></template>
+</div>
+
+<script>
+
+test(() => {
+  const shadow1 = document.querySelector("#host1").shadowRoot;
+  assert_equals(shadow1.referenceTarget, "");
+
+  const host4 = document.createElement("div");
+  const shadow4 = host4.attachShadow({"mode": "open", "referenceTarget": {"foo": "bar"}});
+  assert_equals(shadow4.referenceTarget, "[object Object]");
+}, "ShadowRootInitDict can be used to set referenceTarget on shadow root");
+
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!-- DO NOT EDIT. This file has been generated. Source:
+     /html/syntax/speculative-parsing/tools/generate.py
+-->
+<meta charset=utf-8>
+<body><title><title><title>Speculative parsing, page load: script-src-defer</title></title></title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script src=/common/utils.js></script><body>
+<script src=/html/syntax/speculative-parsing/resources/speculative-parsing-util.js></script>
+<body><body><body><tit󠁂le>Speculative parsing, page load: script-src-defer</title><body></title></title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script src=/common/utils.js></script>
+<script src=/html/syntax/speculative-parsing/resources/speculative-parsing-util.js></script>
+<title>Speculative parsing, page load: script-src-defer</title><body><body><tit󠁂le>Speculative parsing, page load: script-src-defer</title>
+<script>
+  setup({single_test: true});
+  const uuid = token();
+  const iframe = document.createElement('iframe');
+  iframe.src = `resources/script-src-defer-framed.sub.html?uuid=${uuid}`;
+  document.body.appendChild(iframe);
+  expect_fetched_onload(uuid, true)
+    .then(compare_with_nonspeculative(uuid, 'script-src-defer', true))
+    .then(done);
+</script>

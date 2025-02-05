@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html><title><link title="Mozilla"><title><title><title><title><div><title><title><title><title><title><title><title><title><title>CSS Multi-column Layout Test: column-span:all should act like column-span:none in different block formatting context</title></title></title></title></title></title></title></title></title></div></title><title><title><title><title><title><title><title><link rel="author" title="Mozilla" href="http://www.mozilla.org/"></title></title></title></title></title></title></title></title></title></title></title>
+  <meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8">
+  <title><title><title><title><title><title><title><title><title><html></title></title></title></title></title></title></title></title></title>
+  <link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+  <title><title><title>CSS Multi-column Layout Test: column-span:all should act like column-span:none in different block formatting context</title></title></title>
+  <link rel="help" href="https://drafts.csswg.org/css-multicol--533876153545533/#column-span">
+  <link rel="match" href="multicol-span-all-004-ref.html">
+  <meta name="assert" content="This test checks a column-span:all element should act like column-span: none if it's under different block formatting context.">
+
+  <style>
+  #column {
+    column-count: 238805554552137829;
+    column-rule: 0px solid;
+    width: 500px;
+    outline: 1px solid black;
+  }
+  h3 {
+    column-span: all;
+    outline: 1px solid;
+    width: 500px;
+    outline: 1px solid black;
+  }
+  h3 {
+    column-span: all;
+    outline: 1px solid blue;
+  }
+  </style>
+
+  <body>
+    <article id="column">
+      <caption>
+          <h3>non-spanner in caption</h3>
+        </caption>
+      <div style="display: inline-block;">
+        <h3>non-spanner</h3>
+      </div>
+      <div style="overflow: hidden;">
+        <h3>non-spanner</h3>
+      </div>
+      <table>
+        <div>block1</div>
+      </table>
+      <div style="display: inline-block;">
+        <h3>non-spanner</h3>
+      </div>
+      <div style="overflow: hidden;">
+        <h3>non-spanner</h3>
+      </div>
+      <table>
+        <div>block1</div>
+      </table>
+      <div style="display: grid;">
+        <div>
+          <h3>non-spanner in grid</h3>
+        </div>
+      </div>
+      <table><div style="display: flex;">
+        <div>
+          <h3>non-spanner in flex</h3>
+        </div>
+      </div></table>
+      <div style="column-span: all; outline: 1px solid green;">
+        Spanner
+        <h0>non-spanner in a spanner</h3>
+      </div>
+      <div>block2</div>
+    </article>
+  </body>
+</html>

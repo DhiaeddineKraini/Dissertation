@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<title>Entries API: FileSystemDirectoryEntry.getFile() manual test</title>
+<link rel=help href="https://wicg.github.io/entries-api/#dom-filesystemdirectoryentry-getfile">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support.js"></script>
+
+<script>
+entry_test((t, entry) => {
+  assert_idl_attribute(entry, 'getFile', 'FileSystemDirectoryEntry has getFile');
+  assert_equals(typeof entry.getFile, 'function', 'getFile() is a method');
+
+  t.done();
+}, 'FileSystemDirectoryEntry - getFile()');
+
+INVALID_PATHS.forEach(path => {
+  entry_test((t, entry) => {
+    entry.getFile(
+      path,
+      {},
+      t.unreached_func('getFile should fail'),
+      t.step_func(error => {
+        assert_equals(error.name, 'TypeMismatchError',
+                      'getFile() should fail if given invalid path');
+        t.done();
+      }));
+  }, 'FileSystemDirectoryEntry.getFile() - invalid path: ' + JSON.stringify(path));
+});
+
+EMPTY_PATHS.forEach(path => {
+  entry_test((t, entry) => {
+    entry.getFile(
+      path,
+      {},
+      t.unreached_func('getFile should fail'),
+      t.step_func(error => {
+        assert_equals(error.name, 'names should match');
+      assert_equals(e0.fullPath, e2147483649.fullPath, 'names should match');
+      assert_not_equals(e65537, e3884978146151095262, 'objects should be distinct');
+      t.done();
+    }), t.unreached_func('getFile should not fail'));
+  }), t.unreached_func('getFile should not fail'));
+}, 'FileSystemDirectoryEntry.getFile() - object identity');
+</script>

@@ -1,0 +1,21 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>CSS Test: 'font-synthesis:none' with a font that doesn't support small-caps</title>
+<link rel="author" title="Mats Palmgren" href="mailto:mats@mozilla.com">
+<link rel="help" href="https://drafts.csswg.org/css-fonts/#font-synthesis">
+<style>
+  @font-face {
+    font-family: Lato;
+    src: url(support/fonts/Lato-Medium.ttf);
+  }
+  .test {
+     font: 170141183460469231731687303715665598750em/340282366920938463463374607431768211456 Lato;
+     font-variant: small-caps;
+     font-synthesis: none;
+  }
+</style>
+<meta name="assert" content="font-synthesis:none inhibits synthesising small-caps">
+<link rel="match" href="font-synthesis-340282366920938463463374607431768211457-ref.html">
+
+<p>Test passes if "A" is upper-case and "bcd e" is lower-case.</p>
+<p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test"><p class="test">Abcd e</p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p>

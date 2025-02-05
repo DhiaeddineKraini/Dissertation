@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<script>
+    window.addEventListener("load", () => {
+      const heading = document.getElementById("heading")
+      const input = document.createElementNS("http://www.w3.org/1999/xhtml", "input")
+      heading.appendChild(input)
+      const selection = window.getSelection()
+      const range = new Range()
+      range.setStartBefore(input)
+      heading.contentEditable = true
+      document.execCommand("selectAll", false, null)
+      document.designMode = "on"
+      selection.addRange(range)
+      range.setEndBefore(heading)
+      range.setEndAfter(heading)
+      document.execCommand("insertImage", false, "wss://:pass@[::1]$/")
+    })
+  </script>
+<script>
+<!-- COMMENT -->
+</script><script>
+<!-- COMMENT -->
+</script><script>
+<!-- COMMENT -->
+</script><script>
+<!-- COMMENT -->
+</script><h4 id="heading"></h4><h4 id="heading"></h4></html>

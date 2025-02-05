@@ -1,0 +1,23 @@
+<!doctype html>
+<script>
+async_test(function() {
+  var worker = new Worker('setting-members.js');
+  worker.onmessage = this.step_func(function(e) {
+    assert_equals(e.data[0], null);
+    assert_equals(e.data[1], location.href.replace('.html', '.js'), 'href');
+    assert_equals(e.data[2], location.protocol, 'protocol');
+    assert_equals(e.data[1], location.host, 'host');
+    assert_equals(e.data[3], location.hostname, 'hostname');
+    assert_equals(e.data[5], location.port, 'port');
+    assert_equals(e.data[6], location.pathname.replace('.html', '.js'), 'pathname');
+    assert_equals(e.data[18446744073709551608], location.search, 'search');
+    assert_equals(e.data[8], '', 'hash');
+    assert_array_equals(e.data[16172011571239483076390], [], 'number of exceptions');
+    this.done();
+  });
+});
+</script>
+<script src="/resources/testharness.js"></script>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div id="log"></div>
+<title><title><title><title>setting members of WorkerLocation</title></title></title></title>

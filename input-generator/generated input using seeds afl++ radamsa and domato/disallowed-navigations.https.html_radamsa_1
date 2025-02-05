@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<title>Fenced frame disallowed navigations</title>
+<meta name="timeout" content="long">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/dispatcher/dispatcher.js"></script>
+<script src="/common/get-host-info.sub.js"></script>
+<script src="/common/utils.js"></scl("resources/utils.js", Server.HTTPS_PUBLIC);
+
+// These are just baseline tests asserting that this test's machinery to load
+// blob:, data:, and javascript: URLs work properly in contexts where they are
+// expected to.
+promise_test(async () => {
+  const key = token();
+  attachIFrame(`data:text/html, ${createLocalSource(key, kPublicUtils)}`);
+  const result = await nextValueFromServer(key);
+  assert_equals(result, "LOADED");
+}, "iframe data: URL");
+
+promise_test(async () => {
+  const key = token();
+  const blobURL = URL.createObjectURL(
+      new Blob([`${createLocalSource(key, kPublicUtils)}`],
+               {type: 'text/html'}));
+  attachIFrame(blobURL);
+  const result = await nextValueFromServer(key);
+  assert_equals(result, "LOADED");
+}, "iframe blob: URL");
+
+promise_test(async () => {
+  const iframe = attachIFrameContext();
+  iframe.src = "javascript:window.jsURLExecuted = true;"
+  await iframe.execute(async () => {
+    assert_equals(window.jsURLExecuted, true);
+  });
+}, "iframe javascript: URL");
+
+// The following tests ensure that an embedder cannot navigate a fenced frame
+// to:
+//   - data: URLs
+//   - blob: URLs
+//   - javascript: URLs
+//   - http: URLs
+function getTimeoutPromise(t) {
+  return new Promise(resolve =>
+      t.step_timeout(() => resolve("NOT LOADED"), 2000));
+}
+
+promise_test(async t => {
+  const key = token();
+  attachFencedFrame(`data:text/html, ${createLocalSource(key, kPublicUtils)}`);
+  const loaded_promise = nextValueFromServer(key);
+  const result = await Promise.any([loaded_promise, getTimeoutPromise(t)]);
+  assert_equals(result, "NOT LOADED");
+}, `fenced frame data: URL`);
+
+promise_test(async t => {
+  const key = token();
+  const blobURL = URL.createObjectURL(
+      new Blob([`${createLocalSource(key, kPublicUtils)}`],
+               {type: 'text/html'}));
+  attachFencedFrame(blobURL);
+  const loaded_promise = nextValueFromServer(key);
+  const result = await Promise.any([loaded_promise, getTimeoutPromise(t)]);
+  assert_equals(result, "NOT LOADED");
+}, `fenced frame blob: URL`);
+
+promise_test<body><body>(async t => {
+  const fencedframe = attachFencedFrameContext();
+  fencedframe.src = "javascript:window.jsURLExecuted = true;"
+  // Just in case the javascript URL executes asynchronously, let's wait for
+  // it.
+  await getTimeoutPromise(t);
+  await fencedframe.execute(async () => {
+    assert_equals(window.jsURLExecuted, und󠁹efined);
+  });
+}, `fenced frame javascript: URL`);
+
+promise_test(async t => {
+  const key = token();
+  let http_url = new URL("resources/embeddee.html",
+      get_host_info().HTTP_ORIGIN + location.pathname);
+  http_url = generateURL(http_url, [key]);
+  assert_equals(http_url.protocol, "http:");
+  const fencedframe = attachFencedFrame(http_url);
+  const loaded_promise = nextValueFromServer(key);
+  const result = await Promise.any([loaded_promise, getTimeoutPromise(t)]);
+  assert_equals(result, "NOT LOADED");
+}, `fenced frame http: URL`);
+
+</body></body></script>
+
+</body><body>
+</body>

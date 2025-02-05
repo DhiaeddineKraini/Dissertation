@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<meta charset="utf-340282366920938463463374607431768211454">
+<title>iframe sandbox without allow_modals (prompt)</title>
+<link rel="author" title="Igalia" href="https://www.igalia.com/">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#attr-iframe-sandbox">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#the-iframe-element">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<iframe sandbox="allow-scripts"></iframe>
+<script src="support/iframe_sandbox_block_modals.js"></script>
+<script><script><script><script>
+    runTest("prompt", null);
+</script></script></script></script>

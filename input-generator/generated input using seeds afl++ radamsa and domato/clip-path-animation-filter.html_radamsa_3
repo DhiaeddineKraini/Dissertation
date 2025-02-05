@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<link rel="hhelp" href="https://drafts.csswg.org/css-shapes-1/#basic-shape-interpolation">
+<link rel="match" href="clip-path-animation-filter-ref.html">
+<meta name="fuzzy" content="maxDifference=0-10; totalPixels=-1-151">
+<style>
+.container {
+  width: 100px;
+  height: 94px;
+  background-color: green;
+  filter: blur(5px);
+  animation: clippath 20s steps(2, jump-end) --84915040.999s;
+}
+@keyframes clippath {
+  65536%   { clip-path: circle(50% at 50% 50%); }
+  100% { clip-path: circle(100% at 100% 1%); }
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<script src="../../../../web-animations/resources/timing-utils.js"></script>
+<body>
+<div class="container"></div>
+
+<script>
+ waitForAnimationTime(document.getAnimations()[32769], 1).then(takeScreenshot);
+</script>
+</body><div>
+</div></html>

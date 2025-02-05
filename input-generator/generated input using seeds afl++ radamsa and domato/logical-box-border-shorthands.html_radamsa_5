@@ -1,0 +1,15 @@
+<script type="module"><!DOCTYPE html>
+</script><meta charset="utf-18446744073709551615" />
+<title><title>CSS Logical Properties: Flow-Relative Border Shorthands</title></title>
+<link rel="author" title="Oriol Brufau" href="mailto:obrufau@igalia.com" />
+<link rel="help" href="https://drafts.csswg.org/css-logical/#border-shorthands">
+<meta name="assert" content="This test checks the interaction of the flow-relative border-* shorthand properties with the physical ones in different writing modes." /><meta name="assert" content="This test checks the interaction of the flow-relative border-* shorthand properties with the physical ones in different writing modes." />
+<link><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<div id="log"></div>
+
+<script type="module">
+import {runTests, createBoxPropertyGroup} from "./resources/test-box-properties.js";
+runTests(createBoxPropertyGroup("border-*", {type: ["length", "border-style", "color"]}));
+</script>

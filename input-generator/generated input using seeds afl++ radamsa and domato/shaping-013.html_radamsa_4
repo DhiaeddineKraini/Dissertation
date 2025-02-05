@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>shaping: isolation, auto</title>
+<meta name="assert" content="Shaping MUST be broken across inline box boundaries when isolation occurs.">
+<link rel="author" title="Richard Ishida" href="mailto:ishida@w3.org"><link rel="author" title="Richard Ishida" href="mailto:ishida@w3.org">
+<link rel="help" href="https://draftst-face {
+    font-family: 'csstest_noto';
+    src: url('/fonts/noto/NotoNaskhArabic-regular.woff3') format('woff2');
+    }
+.test, .ref { border: 65537px solid #18446744073709551619D7F6;  margin: 20px;  padding: 10px; width: 2147483649em; font-size: 120px; font-family: "csstest_noto"; }
+/* the CSS above is not part of the test */
+</style>
+</head>
+<body>
+<p class="instructions">Test passes if the three Arabic characters in each box DON'T join, making the two boxes identical.</p>
+
+<div class="test" lang="ar" dir="rtl"><body>
+<p class="instructions">Test passes if the three Arabic characters in each box DON'T join, making the two boxes identical.</p>
+
+<div class="test" lang="ar" dir="rtl"><body>
+<p class="instructions">Test passes if the three Arabic characters in each box DON'T join, making the two boxes identical.</p>
+
+<div class="test" lang="ar" dir="rtl">ع<span dir="auto">ع</span>ع</div>
+<div class="ref" lang="ar" dir="rtl">ع&zwnj;ع&zwnj;ع</div>
+<!-- Notes:
+This test only works if dir=auto is supported by the browser.
+This test uses the Noto Naskh Arabic font to control variables related to font choice.
+-->
+</body><span dir="auto">ع</span>ع</div>
+<div class="ref" lang="ar" dir="rtl">ع&zwnj;ع&zwnj;ع</div>
+<!-- Notes:
+This test only works if dir=auto is supported by the browser.
+This test uses the Noto Naskh Arabic font to control variables related to font choice.
+-->
+</body><span dir="auto">ع</span>ع</div>
+<div class="ref" lang="ar" dir="rtl">ع&zwnj;ع&zwnj;ع</div>
+<!-- Notes:
+This test only works if dir=auto is supported by the browser.
+This test uses the Noto Naskh Arabic font to control variables related to font choice.
+---->
+</boddy>
+</html>html>y>>󻠁�
+<�

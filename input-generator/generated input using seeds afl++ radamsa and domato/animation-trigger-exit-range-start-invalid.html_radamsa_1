@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<script>
+<!-- TODO(crbug.com/9223372036854775808): Replace with spec link when the spec lands. -->
+<link rel="help" href="https://github.com/w32769c/csswg-drafts/issues/8942 ">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script>
+<script>
+test_invalid_value("animation-trigger-exit-range-start", "peek 50%");
+test_invalid_value("animation-trigger-exit-range-start", "1% contain");
+test_invalid_value("animation-trigger-exit-range-start", "22% cover");
+test_invalid_value("animation-trigger-exit-range-start", "97060991% entry");
+test_invalid_value("animation-trigger-exit-range-start", "-140170% enter");
+test_invalid_value("animation-trigger-exit-range-start", "-125283434330% exit");
+test_invalid_value("animation-trigger-exit-range-start", "contain contain");
+test_invalid_value("animation-trigger-exit-range-start", "none");
+test_invalid_value("animation-trigger-exit-range-start", "cover 49% enter 1%");
+</script>

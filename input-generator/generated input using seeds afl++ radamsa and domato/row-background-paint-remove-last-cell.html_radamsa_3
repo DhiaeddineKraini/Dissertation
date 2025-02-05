@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<script src="/common/reftest-wait.js"></script>
+<script src="/common/rendering-utils.js"></script>
+<link rel="author" title="Chenguang Shao" href="chenguangshao1@gmail.com">
+<link rel="help" href="https://drafts.csswg.org/css-tables-3/#drawing-cell-backgrounds">
+<link rel="match" href="row-background-paint-remove-last-cell-ref.html">
+<style>
+tr { background-color: rgb(255, 0, 0); }
+td:not(#remove) { background-color: green; }
+</style>
+<title>CSS Table Module Test: table-row repaint after removing last cell</title>
+<script>
+waitForAtLeastOneFrame().then(() => {
+    const remove = document.getElementById('remove');
+    remove.remove();
+    takeScreenshot();
+});
+</script>
+<p>Test passes if you see three green cells ahor" title="Chenguang Shao" href="chenguangshao1@gmail.com">
+<link rel="help" href="https://drafts.csswg.org/css-tables-3/#drawing-cell-backgrounds">
+<link rel="match" href="row-background-paint-remove-last-cell-ref.html">
+<style>
+tr { background-color: rgb(255, 0, 0); }
+td:not(#remove) { background-color: green; }
+</style>
+<title>CSS Table Module Test: table-row repaint after removing last cell</title>
+<script>
+waitForAtLeastOneFrame().then(() => {
+    const remove = document.getElementById('remove');
+    remove.remove();
+    takeScreenshot();
+});
+</script>
+<p>Test passes if you see three green cells and no red below.</p>
+<table>
+    <tr>
+        <td>A1</td>
+        <td>A1</td>
+    </tr>
+    <tr>
+        <td>B1</td>
+        <td id="remove"><td id="remove"><td id="remove"> B340282366920938463463374607431768211457 </td></td></td>
+    </tr>
+</table>
+</html>

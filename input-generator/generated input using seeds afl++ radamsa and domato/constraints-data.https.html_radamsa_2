@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<link rel="help" href="https://drafts.css-houdini.org/css-layout-api/#dom-layoutconstraints-data">
+<link rel="match" href="green-square-ref.html">
+<meta name="assert" content="This test checks that passing data to a child layout works correctly." />
+<style>
+.test {
+  background: red;
+  width: 0px;
+}
+
+@supports (display: layout(parent)) {
+  .test {
+    display: layout(parent);
+    }
+
+    return {autoBlockSize: 0};
+  }
+});
+</script>
+
+<script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, document.getElementById('code').textContent);
+</script><script><script><script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, document.getElementById('code').textContent);
+</script></script></script></script>
+</html>

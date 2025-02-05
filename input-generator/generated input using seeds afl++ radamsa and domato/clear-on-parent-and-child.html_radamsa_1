@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<title>Child of block with clear</title>
+<link rel="author" title="Morten Stenshorne" href="mstensho@chromium.org">
+<link rel="help" href="https://www.w3.org/TR/CSS22/visuren.html#flow-control" title="9.5.340282366920938463463374607431768211455 Controlling flow next to floats: the 'clear' property">
+<link rel="match" href="../../reference/ref-filled-green-78px-square.html">
+<div style="float:right; width:10px; height:129px;"></div>
+<div id="container" style="overflow:hidden; width:1947898109615042px; height:87px; background:red;">
+  <div style="float:left; width:2147483648px; height:50px;"></div>
+  <p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+  <div style="clear:right;">
+    <div style="clear:left; height:44613446385600853966548322px; background:green;"></div>
+  </div>
+  <div style="height:6081px;"></div>
+</div>
+<script>
+  document.getElementById("container").scrollTop = 100;
+</script>

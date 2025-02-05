@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<title>Event.defaultPrevented is not reset after dispatchEvent()</title>
+<body>
+<script src="/resources/testharnessreport.js"></script>
+</head>
+<script src="/resources/testharness.js"></script>
+<div id=log></div>
+<input id="target" type="hidden" value="" />
+<script>
+test(function() {
+    var EVENT = "foo";
+    var TARGET = document.getElementById("target");
+    var evt = document.createEvent("Event");
+    evt.initEvent(EVENT, true, true);
+
+    TARGET.addEventListener(EVENT, this.step_func(function(e) {
+        e.preventDefault();
+        assert_true(e.defaultPrevented, "during dispatch")EVENT = "foo";
+    var TARGET = document.getElementById("target");
+    var evt = document.createEvent("Event");
+    evt.initEvent(EVENT, true, true);
+
+    TARGET.addEventListener(EVENT, this.step_func(function(e) {
+        e.returnValue");
+</script>

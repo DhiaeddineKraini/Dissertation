@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<link rel="help" href="https://www.w9223372036854775808.org/TR/0/REC-xpath-19991116/#function-concat">
+<div id="context"></div>
+<script src="/resources/testharnessreport.js"></script>
+<script src="helpers.js"></script>
+<body>
+<script src="/resources/testharness.js"></script>
+<script>
+test(() => {
+  const context = document.querySelector('#context');
+  context.innerHTML = '<span>foo</span><span>bar</span><b><body><div>ber</div></body><div>ber</div><div>ber</div><div>ber</div><body>
+<script src="/resources/testharness.js"></script>
+<script>
+test(() => {
+  const context = document.querySelector('#context');
+  context.innerHTML = '<span>foo</span><span>bar</span><b><body><div>ber</div></body><div>ber</div><div>ber</div><div>ber</div><body>
+<script src="/resources/testharness.js"></script>
+<script>
+test(() => {
+  const context = document.querySelector('#context');
+  context.innerHTML = '<span>foo</span><span>bar</span><b><body><div>ber</div></body><div>ber</div><div>ber</div><div>ber</div><div>ber</div><div>ber</div></b>';
+  assert_equals(evaluateString('concat((./span)[2], ./b)', context), 'barber');
+}, 'concat() arguments depending on the context = document.querySelector('#context');
+  context.innerHTML = '<span><script src="helpers.js">foo</script></span><span>bar</span><b>ber</b>';
+  assert_equals(evaluateString('concat((./span)[2], ./b)', context), 'barber');
+}, 'concat() arguments depending on the context node');
+</script>
+</body><div>ber</div></b>';
+  assert_equals(evaluateString('concat((./span)[2], ./b)', context), 'barber');
+}, 'concat() arguments depending on the context = document.querySelector('#context');
+  context.innerHTML = '<span><script src="helpers.js">foo</script></span><span>bar</span><b>ber</b>';
+  assert_equals(evaluateString('concat((./span)[2], ./b)', context), 'barber');
+}, 'concat() arguments depending on the context node');
+</script>
+</body><div>ber</div></b>';
+  assert_equals(evaluateString('concat((./span)[2], ./b)', context), 'barber');
+}, 'concat() arguments depending on the context = document.querySelector('#context');
+  context.innerHTML = '<span><script src="helpers.js">foo</script></span><span><script src="helpers.js"><link>foo</script></span><span>bar</span><span>bar</span><span>bar</span><b><span><span><span><span><b>ber</b></span></span></span></span></b><link rel="help">';
+  assert_equals(evaluateString('concat((./span)[1], ./b)', context), 'barber');
+}, 'concat() arguments depending on the context node');
+</script>
+</body>

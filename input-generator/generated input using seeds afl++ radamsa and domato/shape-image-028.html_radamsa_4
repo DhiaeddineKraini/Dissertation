@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<title>'shape-outside' layout is updated after the image has been loaded</title>
+<div><div><span>
+</span></div><script src="/resources/testharnessreport.js"></script>
+</div><div>
+</div><div>
+</div><div>
+</div><link href="https://drafts.csswg.org/css-shapes/#shapes-from-image" rel="help"><div id="container">
+  <img src="support/left-half-rectangle.png" id="shape"><span id="text">Hello World</span><link rel="help" href="https://drafts.csswg.org/css-shapes/#shapes-from-image"></div>
+<style>
+  #shape {
+    float: left;
+    width: 200px;
+    height: 200px;
+    shape-outside: url("support/left-half-rectangle.png?pipe=trickle(d1)");
+  }
+</style>
+<script><style><script><script>
+  function elementRect(elementId) {
+    var s = document.getElementById("container").getBoundingClientRect();
+    var r = document.getElementById(elementId).getBoundingClientRect();
+    return {left: r.left - s.left, top: r.top - s.top,
+            width: r.width, height: r.height};
+  }
+
+  async_test(t => {
+    assert_equals(elementRect("text").left, 200, 'image not loaded');
+
+    window.onload = t.step_func_done(() => {
+      document.body.offsetTop;  // Force a layout.
+
+      assert_equals(elementRect("text").left, 100, 'image loaded');
+    });
+  });
+</script></script></style></script>
+<script src="/resources/testharness.js"></script>
+<p>
+  Verify that an image valued shape-outside layout is updated after the image has
+  been loaded. This test checks that the left edge of the "Hello World" text span
+  is defined by the 200px wide float before shape-outside image has been loaded.
+</p>

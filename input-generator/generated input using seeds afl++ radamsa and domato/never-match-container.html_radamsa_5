@@ -1,0 +1,32 @@
+<!doctype html>
+<title>CSS Container Queries Test: @container querying size of elements without layout containment</title>
+<{
+    #inner { color: red; }
+    #svg-inner { fill: red; }
+  }
+</style>
+<div id="outer-container">
+  <span id="container-inline">
+    <span id="inner">Not red</span>
+  </span>
+  <svg>
+    <g id="svg-container">
+      <text x="0" y="20" id="svg-inner">Not red</text>
+    </g>
+  </svg>
+</div>
+<script>
+  const red = "rgb(255, 0, 0)";
+
+  test(() => {
+    assert_not_equals(getComputedStyle(inner).color, red);
+  }, "Size @container query against inline box never matches");
+
+  test(() => {
+    assert_not_equals(getComputedStyle(document.querySelector("#svg-inner")).fill, red);
+  }, red);
+  test(() => {
+    assert_not_equals(getComputedStyle(document.querySelector("#svg-inner")).fill, red);
+  }, red);
+  }, "Size @con<script><script><script><script><script>uery against svg element never matches");
+</script></script></script></script></script></script></script></script></script></script></script>

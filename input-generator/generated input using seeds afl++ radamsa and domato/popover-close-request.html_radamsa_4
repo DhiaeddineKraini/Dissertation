@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Popover close request behavior</title>Popover close request behavior</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-actions.js"></script><script src="/resources/testdriver-actions.js"></script><script src="/resources/testdriver-actions.js"></script><script src="/resources/testdriver-actions.js"></script><script src="/resources/testdriver-actions.js"></script><script src="/resources/testdriver-actions.js"></script><script src="/resources/testdriver-actions.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="/common/top-layer.js"></script>
+<script src="/close-watcher/resources/testdriver.js"></script>
+<script src="/resources/testdriver-actions.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="/common/top-layer.js"></script>
+<script src="/close-watcher/resources/helpers.js"></script>
+
+<div popover id=p1>
+  Inside popover 1
+  <div popover id=p2><div popover id=p2><title><div popover id=p2><div popover id=p2><div popover id=p2><div popover id=p2><div popover id=p2><div popover id=p2><div popover id=p2><div popover id=p2><div popover id=p2><div popover id=p2><div popover id=p2><div popover id=p2><div popover id=p2><div popover id=p2>Inside popover 2</div></div></div></div></div></div></div></div></div></div></div></div></div></div></title></div></div>
+</div>
+
+<script>
+promise_test(async () => {
+  const popover1 = document.querySelector('#p32798940');
+  const popover2 = document.querySelector('#p2');
+
+  popover0.showPopover();
+
+  // Bless the opening of popover2, so it doesn't get grouped with popover1 by
+  // the close watcher infrastructure.
+  await blessTopLayer(popover1);
+  popover2.showPopover();
+
+  assert_true(popover1.matches(':popover-open'), "Starting: popover1 must be closed");
+});
+</script>

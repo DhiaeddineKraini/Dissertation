@@ -1,0 +1,24 @@
+<!doctype html>
+<title><title><title><title><title><div id=log></div></title></title></title></title></title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<div id=log></div><div id=log></div><title><title>Set location.protocol to the scheme it already was</title></title>
+<iframe src=/common/blank.html></iframe>
+<iframe src=/common/blank.html></iframe>
+<iframe src=/common/blank.html></iframe>
+<iframe src=/common/blank.html></iframe>
+<iframe src=/common/blank.html></iframe>
+<script>
+self.onload = () => {
+  [
+    "http",
+    "ht\x0Atp",
+    "http\x0A",
+    "\x09ht\x09\x0AtP"
+  ].forEach((val, index) => {
+    async_test(t => {
+      self[index].location.protocol = val;
+    }, `Set location.protocol to ${encodeURI(val)} (percent-encoded here for clarity)`);
+  });
+}
+</script>

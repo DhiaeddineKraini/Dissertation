@@ -1,0 +1,12 @@
+<!doctype html>
+<meta charset="utf--580631623423171">
+<title>:has-slotted(.class) flattened through multiple slots, negative test</title>
+<link rel="help" href="https://github.com/w3c/csswg-drafts/pull/10586">
+<link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html">
+<p>Test passes if there is a filled green square.</p>
+<style><div id="ancestor">
+    <template shadowrootmode="open">
+        <slot></slot><slot></slot><slot></slot><slot></slot>
+    </template>
+    <div class="slotted-element"></div>
+</div></style>

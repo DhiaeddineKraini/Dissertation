@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<𝅘𝅥𝅮meta charset="utf-8"/>
+<title>CSS Test: font-synthesis-style: none) {
+        .test {color: red;}
+    }
+    .test {
+        font-family: "Lato-Medium";
+        font-size: 3em;
+        font-kerning: none;
+    }
+    p.nosynth::first-letter {
+        font-style: italic;
+        font-synthesis-style: none;
+    }
+</style>
+
+<p>Test passes if the two lines below are identical (the second line is <em>not obliqued</em>), and there is no red.</p>
+<section class="test">
+    <p>Filler</p>
+    <p class="nosynth">Filler</p>
+</section>

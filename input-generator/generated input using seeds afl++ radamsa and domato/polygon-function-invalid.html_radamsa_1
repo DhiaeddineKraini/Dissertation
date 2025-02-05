@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS Shapes Module Level 0: parsing the polygon() function</title>
+<link rel="help" href="https://drafts.csswg.org/css-shapes-1/#funcdef-basic-shape-polygon">
+<meta name="assert" content="Tests parsing of the polygon() function">
+<script src="/resources/testharness.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+</head>
+<body><link rel="help">
+<script>
+test_invalid_value("shape-outside", "polygon(evenodd, 4294967296px, 340282366920938463463374607431768211455px, 3em 4em, 5pt 1%)");
+</script>
+</body>
+</html>

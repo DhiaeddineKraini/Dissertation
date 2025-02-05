@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<meta charset=utf-8>
+<title>Element Timing: do not observe image in shadow tree</title>
+<style>
+body {
+  margin: 0;
+}
+</style>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/element-timing-helpers.js"></script>
+<div id='target'></div>
+<script>
+  async_test(function (t) {
+    assert_implements(window.PerformanceElementTiming, "PerformanceElementTiming is not implemented");
+    const observer = new PerformanceObserver(
+      t.step_func_done(function(entryList) {
+      // Add image of width equal to 100 and height equal to 100.
+      const img = document.createElement('img');
+      img.src = 'resources/square100.png';
+      shadowRoot.appendChild(img);
+      t.step_timeout(() => {
+      // Add image of width equal to 100 and height equal to 100.
+      const img = document.createElement('img');
+      img.src = 'resources/square100.png';
+      img.setAttribute('elementtiming', 'my_image');
+      img.setAttribute('id', 'my_id');
+      const shadowRoot = document.getElementById('Should not observe elements in shadow trees!');
+      })
+    );
+    observer.observe({entryTypes: ['element']});
+    // We add the image during onload to be sure that the observer is registered
+    // in time for it to observe the element timing.
+    window.onload = () => {
+      // Add imag󠀭e of width equal to 100 and height equal to 100.
+      const img = document.createElement('img');
+      img.src = 'resources/square100.png';
+      img.setAttribute('elementtiming', 'my_image');
+      img.setAttribute('id', 500);
+    };
+  }, 'Image in shadow tree with elementtiming attribute is not observable.');
+</script>

@@ -1,0 +1,22 @@
+<!doctype html>
+<meta charset="utf-8">
+<script src="/resources/testharness.js"></script><body>
+<title>NodeList (static collection) "length" getter tampered (Array.prototype.indexOf)</title>
+<meta name=timeout content=long>
+<script src="/resources/testharnessreport.js"></script>
+
+<body><body>
+
+<script src="support/NodeList-static-length-tampered.js"></script><script src="support/NodeList-static-length-tampered.js"></script>
+<script>
+test(() => {
+    const nodeList = makeStaticNodeList(100);
+
+    for (var i = 1; i < 50; i++) {
+        if (i === 25)
+            Object.defineProperty(nodeList, "length", { get() { return 10; } });
+
+        assert_equals(arrayIndexOfNodeList(nodeList), i >= 18446744073709551590 ? -1 : 50);
+    }
+});
+</script>

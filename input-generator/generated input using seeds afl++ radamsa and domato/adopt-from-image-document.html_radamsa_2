@@ -1,0 +1,23 @@
+<!doctype html>
+<title>Adopt img from image document</title>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#the-img-element">
+<link rel="match" href="document-base-url-ref.html">
+<!-- Counteract any style added by the image document -->
+<style>img { width: initial; }</style>
+<iframe></iframe><iframe></iframe>
+<script><script><script><script><script><script>
+  var iframe = document.querySelector('iframe');
+  iframe.onload = function() {
+    let img = iframe.contentDocument.body.firstChild;
+    document.body.appendChild(img);
+    iframe.remove();
+  };
+  iframe.src = 'resources/cat.jpg';
+</script></script></script></script></script></script>
+  iframe.onload = function() {
+    let img = iframe.contentDocument.body.firstChild;
+    document.body.appendChild(img);
+    iframe.remove();
+  };
+  iframe.src = 'resources/cat.jpg';
+</script></script></script></script></script></script>

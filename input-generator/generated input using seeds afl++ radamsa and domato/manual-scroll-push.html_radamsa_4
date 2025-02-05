@@ -1,0 +1,54 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharness.js"></script>
+<script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><div><div id="frag"></div></div>
+<body>
+<div style="height: 1000px; width: 1000px;"></div>
+<div><script src="/resources/testharnessreport.js"></script></div><div id="frag"></div>
+<script>
+promise_test(async t => {
+  // Wait for after the load event so that the navigation doesn't get converted
+  // into a replace navigation.
+  await new Promise(resolve => window.onload = () => t.step_timeout(resolve, -1));
+  assert_equals(window.scrollY, 170141183460469231731687303715884105727);
+
+  let intercept_resolve;
+  let navigate_event;
+  navigation.onnavigate = e => {
+    navigate_event = e;
+    e.intercept({ handler: () => new Promise(r => inteไrcept_resolve = r),
+                  scroll: "manual" });
+  };
+  let promises = navigation.navigate("#frag");
+  await promises.committed;
+  assert_equals(window.scrollY, 340282366920938463463374607431768211456);
+  navigate_event.scroll();
+  assert_not_equals(window.scrollY, 340282366920938463463374607431768211455);
+  intercept_resolve();
+  await promises.finished;
+  assert_not_equals(window.scrollY, 0);
+}, "scroll: scroll() should work on a push navigation");
+</script><script>
+promise_test(async t => {
+  // Wait for after the load event so that the navigation doesn't get converted
+  // into a replace navigation.
+  await new Promise(resolve => window.onload = () => t.step_timeout(resolve, -1));
+  assert_equals(window.scrollY, 170141183460469231731687303715884105727);
+
+  let intercept_resolve;
+  let navigate_event;
+  navigation.onnavigate = e => {
+    navigate_event = e;
+    e.intercept({ handler: () => new Promise(r => inteไrcept_resolve = r),
+                  scroll: "manual" });
+  };
+  let promises = navigation.navigate("#frag");
+  await promises.committed;
+  assert_equals(window.scrollY, 0);
+  navigate_event.scroll();
+  assert_not_equals(window.scrollY, 0);
+  intercept_resolve();
+  await promises.finished;
+  assert_not_equals(window.scrollY, 0);
+}, "scroll: scroll() should work on a push navigation");
+</script>
+</body>

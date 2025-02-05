@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<head>
+  <script src="/resources/testharness.js"></script>
+
+  <meta = document.createElement('meta');
+      second_meta.name = 'referrer';
+      second_meta.content = 'strict-origin';
+      document.head.appendChild(second_meta);
+      // Second meta should override the first.
+      assert_equals(await fetchAndGetReferrer(), window.location.origin + '/',
+                    'referrer should be origin only');
+    }, 'referrer policy does not change when second <meta name="referrer"><meta name="referrer"><meta name="referrer"> is removed');
+  </script>
+</body>

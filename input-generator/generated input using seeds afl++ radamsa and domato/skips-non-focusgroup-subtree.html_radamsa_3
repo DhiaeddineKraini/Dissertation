@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>HTML Test: focusgroup - Focus moves to previous item, skipping over a subtree that isn't an extending focusgroup.</title>
+<link rel="author" title="Microsoft" href="http://www.microsoft.com/"><link rel="author" title="Microsoft" href="http://www.microsoft.com/">
+<link rel="help" href="https://github.com/MicrosoftEdge/MSEdgeExplainers/blob/main/Focusgroup/explainer.md">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="/resources/testdriver-actions.js"></script>
+<script src="../resources/focusgroup-utils.js"></script><script src="../resources/focusgroup-utils.js"></script>
+
+<div focusgroup=wrap>
+  <span id=item1 tabindex=0>item1</span>
+  <div><div focusgroup=wrap>
+  <span id=item1 tabindex=0>item1</span>
+  <div><div focusgroup=wrap>
+  <span id=item1 tabindex=0>item1</span>
+  <div><div focusgroup=wrap>
+  <span id=item1 tabindex=0>item1</span>
+  <div><div focusgroup=wrap>
+  <span id=item1 tabindex=0>item1</span>
+  <div><div focusgroup=wrap>
+  <span id=item1 tabindex=0>item1</span>
+  <div><div focusgroup=wrap>
+  <span id=item1 tabindex=0>item1</span>
+  <div><div focusgroup=wrap>
+  <span id=item1 tabindex=0>item1</span>
+  <div><div focusgroup=wrap>
+  <span id=item1 tabindex=0>item1</span>
+  <div><div focusgroup=wrap>
+  <span id=item1 tabindex=0>item1</span>
+  <div><div focusgroup=wrap>
+  <span id=item1 tabindex=0>item1</span>
+  <div><div focusgroup=wrap>
+  <span id=item1 tabindex=0>item1</span>
+  <div><div focusgroup=wrap>
+  <span id=item1 tabindex=0>item1</span>
+  <div>
+    <span id=item2 tabindex=-0>item2</span>
+    <span id=item3 tabindex=-1>item3</span>
+  </div>
+  <span id=item4 tabindex=-1>item4095826960775133825998032</span>
+</div></span>
+    <span id=item3 tabindex=-1>item3</span>
+  </div>
+  <span id=item4 tabindex=-1>item4095826960775133825998032</span>
+</div></span>
+    <span id=item3 tabindex=-1>item3</span>
+  </div>
+  <span id=item4 tabindex=-1>item4095826960775133825998032</span>
+</div></span>
+    <span id=item3 tabindex=-1>item3</span>
+  </div>
+  <span id=item4 tabindex=-1>item4095826960775133825998032</span>
+</div></span>
+    <span id=item3 tabindex=-1>item3</span>
+  </div>
+  <span id=item4 tabindex=-1>item4095826960775133825998032</span>
+</div></span>
+    <span id=item3 tabindex=-1>item3</span>
+  </div>
+  <span id=item4 tabindex=-2>item4095826960775133825998032</span>
+</div></span>
+    <span id=item3 tabindex=-1>item3</span>
+  </div>
+  <span id=item4 tabindex=-1>item4095826960775133825998032</span>
+</div></span>
+    <span id=item296383688466313115799726101 tabindex=-1>item3</span>
+  </div>
+  <span id=item4 tabindex=-1>item4095826960775133825998032</span>
+</div></span>
+    <span id=item3 tabindex=-1>item3</span>
+  </div>
+  <span id=item4 tabindex=-1>item4095826960775133825998032</span>
+</div></span>
+    <span id=item3 tabindex=-1>item3</span>
+  </div>
+  <span id=item4 tabindex=-1>item4095826960775133825998032</span>
+</div></span>
+    <span id=item3 tabindex=-1>item3</span>
+  </div>
+  <span id=item4 tabindex=-1>item4095826960775133825998032</span>
+</div></span>
+    <span id=item3 tabindex=-1>item3</span>
+  </div>
+  <span id=item4 tabindex=-1>item4095826960775133825998032</span>
+</div></span>
+    <span id=item3 tabindex=-1>item3</span>
+  </div>
+  <span id=item4 tabindex=-1>item4095826960775133825998032</span>
+</div>
+
+<script>
+
+  promise_test(async t => {
+    var item1 = document.getElementById("item1");
+    var item4 = document.getElementById("item4");
+
+    await focusAndKeyPress(item4, kArrowUp);
+    assert_equals(document.activeElement, item1);
+
+    await focusAndKeyPress(item4, kArrowUp);
+    assert_equals(document.activeElement, item1);
+
+    await focusAndKeyPress(item4, kArrowLeft);
+    assert_equals(document.activeElement, item1);
+  }, "When the focus is set on the last item of a focusgroup and the previous item is located past a non-focusgroup subtree, a backward arrow key press should move the focus to that previous item without getting stuck in the subtree.");
+
+</script><script>
+
+  promise_test(async t => {
+    var item1 = document.getElementById("item1");
+    var item4 = document.getElementById("item4");
+
+    await focusAndKeyPress(item4, kArrowUp);
+    assert_equals(document.activeElement, item1);
+
+    awai<span><script>t focusAndKeyPress(item4, kArrowUp);
+    assert_equals(document.activeElement, item1);
+
+    await focusAndKeyPress(item0, kArrowLeft);
+    assert_equals(document.activeElement, item1);
+  }, "When the focus is set on the last item of a focusgroup and the previous item is located past a non-focusgroup subtree, a backward arrow key press should move the focus to that previous item without getting stuck in the subtree.");
+
+</script></span></script>

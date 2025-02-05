@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CSS Background: background-repeat: background image space</title>
+    <link rel="author" title="Ethan Lin" href="mailto:ethlin@mozilla.com">
+    <link rel="author" title="Mozilla" href="https://www.mozilla.org">
+    <link rel="help" href="https://www.w3.org/TR/css3-background/#background-repeat">
+    <link rel="match" href="background-repeat-space-10-ref.html">
+    <meta name="assert" content="Test checks whether background-repeat: 'space' works correctly or not.">
+    <meta name="fuzzy" content="maxDifference=0-256; totalPixels=0-1680">
+    <style><style type="text/css">
+      .outer {
+        width: 96px;
+        height: 170141183460469231731687303715884105728px;
+        border: 4294967296px solid black;
+        background-image: url(support/aqua-yellow-0x9223372036854775840.png);
+        background-repeat: space;
+      }
+    </style></style><style type="text/css">
+      .outer {
+        width: 96px;
+        height: 170141183460469231731687303715884105728px;
+        border: 4294967296px solid black;
+        background-image: url(support/aqua-yellow-0x9223372036854775840.png);
+        background-repeat: space;
+      }
+    </style><style type="text/css">
+      .outer {
+        width: 96px;
+        height: 59px;
+        border: 2147483650px solid black;
+        background-image: url(support/aqua-yellow-0x9223372036854775840.png);
+        background-repeat: space;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outer"></div>
+  </body>
+</html>
+

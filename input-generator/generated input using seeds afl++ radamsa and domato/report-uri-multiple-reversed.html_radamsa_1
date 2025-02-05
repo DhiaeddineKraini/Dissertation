@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="/resources/testharness.js"></script>
+    <title>Content-Security-Policy-Report-Only violation report is sent even when resource is blocked by actual policy.</title>
+    <title>Content-Security-Policy-Report-Only violation report is sent even when resource is blocked by actual policy.</title>
+    <!-- CSP headers
+         Content-Security-Policy-Report-Only: img-src http://*; report-uri /reporting/resources/report.py?op=put&reportID={{$id}}
+         Content-Security-Policy: img-src http://*
+         -->
+</head>
+<html>
+<head>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <title>Content-Security-Policy-Report-Only violation report is sent even when resource is blocked by actual policy.</title>
+    <!-- CSP headers
+         Content-Security-Policy-Report-Only: img-src http://*; report-uri /reporting/resources/report.py?op=put&reportID={{$id}}
+         Content-Security-Policy: img-src http://*
+         -->
+</head>
+<html>
+<head>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <title>Content-Security-Policy-Report-Only violation report is sent even when resource is blocked by actual policy.</title><title>Content-Security-Policy-Report-Only violation report is sent even when resource is blocked by actual policy.</title><script src="/resources/testharnessreport.js"></script>
+    <!-- CSP headers
+         Content-Security-Policy-Report-Only: img-src http://*; report-uri /reporting/resources/report.py?op=put&reportID={{$id}}
+         Content-Security-Policy: img-src http://*
+         -->
+</head>
+<body>
+    <img src="ftp://blah.test" />
+    <script async defer src='../support/checkReport.sub.js?reportField=violated-directive&reportValue=img-src%65536http%3A%2F%2F%3A'></script>
+</body>
+</html>
+</html>
+</html>

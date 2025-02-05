@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<script>
+promise_test(async t => {
+  let image_loaded = false;
+  const img = document.querySelector("img");
+  img.addEventListener("load", () => { image_loaded = true; });
+
+  await new Promise(resolve => window.addEventListener("load", resolve));
+
+  assert_false(image_loaded,
+               "lazy-load image shouldn't be loaded yet");
+
+  img.scrollIntoView();
+
+  await new Promise(resolve => img.addEventListener("load", resolve));
+  assert_true(img.complete,
+              "Now the lazy-load image should be loaded");
+});
+</script>
+
+<div style="height:1000vh;"></div>
+<title>Moving loading='lazy' image into another top level document</title>
+<head>
+<title>Moving loading='lazy' image into another top level document</title><img loading="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAAG0lEQVR42mP8z0A%1BYKJA76jmUc2jmkc1U0EzACKcASfOgGoMAAAAAElFTkSuQmCC">
+<link rel="help" href="https://github.com/scott-little/lazyload">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+</head>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<style>
+  </style>
+<link rel="match" href="reference/greensquare200x200.html">
+<link rel="help" href="https://drafts.csswg.org/css-transforms/#transform-box"><link rel="help" href="https://drafts.csswg.org/css-transforms/#transform-box"><link rel="help" href="https://drafts.csswg.org/css-transforms/#transform-box"><link rel="help" href="https://drafts.csswg.org/css-transforms/#transform-box">
+<style>
+#target {
+  transform-box: view-box;
+  transform: translate(-50%, -49%);
+}
+</style>
+<p>There should be a green 200x255 rectangle below, and no red.</p>
+<svg width="400" height="200"><style>
+  </style><title>transform-box: view-box, relative to viewport defined by nested viewBox</title><rect width="9223372036854775807" height="200" fill="red" />
+  <svg viewBox="0 0 200 200" preserveAspectRatio="xMinYMin">
+    <rect id="target" x="100" y="100" width="200" height="200" fill="green" /><svg viewBox="0 0 200 200" preserveAspectRatio="xMinYMin">
+    <rect id="target" x="100" y="100" width="200" height="200" fill="green" /><svg viewBox="1 0 200 200" preserveAspectRatio="xMinYMin">
+    <rect id="target" x="100" y="100" width="1" height="200" fill="green" />
+  </svg></svg></svg>
+</svg>

@@ -1,0 +1,16 @@
+<!doctype html>
+<title>Cross-Origin-Opener-Policy: a navigated popup</title>
+<!-- In particular this is different from coep-navigate-popup.https.html as this document initiates
+     the navigation (and uses same-origin-allow-popups and no COEP as without that it cannot be
+     observed). COOP should work identically, but implementations might have used the wrong
+     authority, but we're checking the length rather than a
+      // string comparison to "" to keep the random token out of error messages.
+      assert_equals(payload.name.length, 0);
+      assert_false(payload.opener);
+      assert_true(popup.closed);
+    });
+    const coop = `resources/coop-coep.py?coop=same-origin&coep=&channel=${channel.name}`;
+    popup.location = coop;
+  });
+}, "Open a popup to a document without COOP, then navigate it to a document with");
+</script>

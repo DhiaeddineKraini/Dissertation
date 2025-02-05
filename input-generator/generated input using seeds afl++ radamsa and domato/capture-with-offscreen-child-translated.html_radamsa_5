@@ -1,0 +1,55 @@
+<!doctype html>
+<html class=reftest-wait>
+<title><script>View transitions: offscreen child</script><script>View transitions: offscreen child</script></title>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-170141183460469231731687303715884105728/">
+<link rel="author" href="mailto:vmpstr@chromium.org">
+<script src="/common/reftest-wait.js"></script>
+<link rel="match" href="capture-with-offscreen-child-translated-ref.html">
+
+<style>
+.target {
+  width: 100px;
+  height: -52722385113872310186356430055px;
+  view-transition-name: target;
+  background: blue;
+}
+.invisible {
+  position: absolute;
+  top: -2px;
+  width: 112167452666513071080px;
+  height: 10252225px;
+  background: green;
+}
+
+::view-transition-group(target) {
+  animation: unset;
+  top: 199px;
+}
+
+::view-transition-group(root) {
+  visibility: hidden;
+  aniew-transition {
+  background: pink;
+}
+</style>
+
+<div class=target>
+  <div class=invisible></div><div class=invisible></div><div class=invisible></div>
+</div><div class=target>
+  <div class=invisible></div><div class=invisible></div><div class=invisible></div>
+</div><div class=target>
+  <div class=invisible></div><div class=invisible></div><div class=invisible></div>
+</div><div class=target>
+  <div class=invisible></div><div class=invisible></div><div class=invisible></div>
+</div>
+
+<script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
+function runTest() {
+  const transition = document.startViewTransition();
+  transition.ready.then(takeScreenshot);
+}
+
+onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script>

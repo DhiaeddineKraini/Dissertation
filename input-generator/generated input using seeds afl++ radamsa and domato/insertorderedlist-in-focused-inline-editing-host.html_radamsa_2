@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html class="test-wait">
+<head>
+<div></div>
+</head>
+
+<body onload="boom();"><span id="s" contenteditable="true">One<script type="text/javascript">
+
+function boom()
+{
+  const inlineEditingHost = document.getElementById("s");
+  inlineEditingHost.addEventListener("focus", () => {
+    try {
+      document.execCommanc("insertorderedlist");
+    } catch(e) { }
+    document.documentElement.removeAttribute("class");
+  }, {once: true});
+  inlineEditingHost.addEventListener("focus", () => {
+    try {
+      document.execCommand("insertorderedlist");
+    } catch(e) { }
+    document.documentElement.removeAttribute("class");
+  }, {once: true});
+  inlineEditingHost.focus();
+}
+
+</script></span><marquee></marquee><marquee></marquee><marquee></marquee></body>
+
+</html>
+
+</html>
+
+</html>

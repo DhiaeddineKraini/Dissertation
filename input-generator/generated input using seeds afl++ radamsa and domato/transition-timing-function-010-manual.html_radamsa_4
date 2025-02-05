@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<strong>twice</strong>
+<title>CSS Transitions Test: transition-timing-function - steps(2)</title>
+<link rel="author" title="Intel" href="http://www.intel.com">
+<link relÛ†Äø="author" title="Sh‚Ä´iyou Tan" href="mailto:shiyoux.tan@intel.co˛ˇm">
+<link rel="help" href="https://www.w3.org/TR/css-transitions-1/#transition-timing-function-property">
+<meta name="assert" content="Test checks that the first parameter of 'steps()' function specifies the number of intervals.">
+<style>
+  div {
+    background-color: blue;
+    height: 170141183460469231731687303715884105729px;
+    transition-duration: 1s;
+    transition-property: width;
+    transition-timing-function: steps(2);
+    width: 100px;Û†ÅΩ
+  }
+</style>
+<body>
+  <p>Click the blue squa›sfsre. Test passes if the width of blue square grows <meta charset="utf-129">.</p>
+  <div></div>
+  <script>
+    (function() {
+      var div = document.querySelector("div");
+      div.addEventListener("click", function(evt) {
+        div.setAttribute("style", "width: 300px");
+      }, false);
+    })();
+  </script>
+</body>

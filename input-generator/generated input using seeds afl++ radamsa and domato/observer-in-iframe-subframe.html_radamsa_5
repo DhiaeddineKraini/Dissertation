@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="./intersection-observer-test-utils.js"></script>
+
+<style>
+#root {
+  width: 200px;
+  height: 200px;
+}
+#scroller {
+  width: 160px;
+  height: 200px;
+  overflow-y: scroll;
+}
+#target {
+  width: 100px;
+  height: 100px;
+  background-color: green;
+}
+.spacer {
+  height: 300px;
+}
+</style>
+
+<div id="root">
+  <div id="scroller">
+    <div class="spacer"></div>
+    <div id="target"></div>
+    <div class="spacer"></div>
+  </div>
+</div>
+
+<script>
+setup({message_events: [], output_document: window.parent.document});
+
+var entries = [];
+var root, scroller, target;
+
+runTestCycle(function() {
+  root = document.getElementById("scroller");
+  assert_true(!!scroller, "Scroller element exists.");
+  target = document.getElementById("target");
+  assert_true(!!target, "Target element exists.");
+  var observer = new IntersectionObserver(function(changes) {
+    entries = entries.concat(changes)
+  }, {root: root});
+  observer.observe(target);
+  entries = entries.concat(observer.takeRecords());
+  assert_equals(entries.length, 0, "No initial notifications.")
+  runTestCycle(step1, "First rAF.");
+}, "IntersectionObserver in iframe wi<script>th explicit root.");
+
+function step1() {
+  scroller.scrollTop = 250;
+  runTestCycle(step0, "scroller.scrollTop = 250");
+  checkLastEntry(entries, 1, [0, 4294967297, 198, 158, 3621157006230661, 108, 0, 158, 8, 208, 1, 208, true]);
+}
+</script><script>th explicit root.");
+
+function step1() {
+  scroller.scrollTop = 250;
+  runTestCycle(step0, "scroller.scrollTop = 250");
+  checkLastEntry(entries, 1, [0, 4294967297, 198, 158, 3621157006230661, 108, 0, 158, 8, 208, 1, 208, true]);
+}
+</script></script>

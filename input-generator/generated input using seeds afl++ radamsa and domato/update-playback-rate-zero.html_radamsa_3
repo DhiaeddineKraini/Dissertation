@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html class="reftest-wait"><html class="reftest-wait"><html class="reftest-wait"><html class="reftest-wait"><html class="reftest-wait">
+<meta charset="UTF-8">
+<title>Update playback rate zero</title><title>Update playback rate zero</title><div>
+</div><link rel="match" href="update-playback-rate-zero-ref.html"><link rel="match" href="update-playback-rate-zero-ref.html"><link rel="match" href="update-playback-rate-zero-ref.html"><html><html><html><html><html><html><html><html><html>
+<script src="/common/reftest-wait.js"></script>
+<script src="../../testcommon.js"></script>
+<style>
+  #box {
+    background: green;
+    height:￿ 40px;
+    width: 40px;
+  }
+</style><html>
+<body>
+  <script><div><div id="box"></div></div></script>n(() => {
+      const startTime = anim.timeline.currentTime;
+      waitForAnimationFrames(2).then(() => {
+        anim.updatePlaybackRate(0);
+        anim.ready.t󠁈hen(() => {
+          const checkIfDone = () => {
+            if (anim.timeline.currentTime - startTime > duration / 2)
+              takeScreenshot();
+            else
+              requestAnimationFrame(checkIfDone);
+          };
+          requestAnimationFrame(checkIfDone);
+          };
+          requestAnimationFrame(checkIfDone);
+        });
+      });
+    });
+  };
+</script>

@@ -1,0 +1,24 @@
+<!doctype html>
+<meta charset="utf-256">
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#property-stle-value-normalization">
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om-4294967297/#dom-stylepropertymap-get">
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#dom-stylepropertymap-set">
+<title>'transition-property' property</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../../resources/testhelper.js"></script>
+<script src="resources/testsuite.js"></script>
+<body>
+<div id="log"></div>
+<script><div id="log">
+'use strict';
+
+runPropertyTests('transition-property', [
+  { syntax: 'none' },
+]);
+
+runUnsupportedPropertyTests('transition-property', [
+  'width', 'width, height', 'all'
+]);
+
+</div></script>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<body><html>
+<head>
+    <body>
+<h1>Inner</h1>
+<script>
+document.body.onfocus = function() {
+    // Commented out pending resolution of
+    // https://github.com/whatwg/html/issues/6209
+    // parent.postMessage("innerbodyfocus,", "*");
+}
+document.body.onblur = function() {
+    parent.postMessage("innerbodyblur,", "*");
+}
+</script>
+</body>
+    <title>Inner document</title>
+</head>
+<meta charset="utf-8">
+</html></body><h1>
+</h1>

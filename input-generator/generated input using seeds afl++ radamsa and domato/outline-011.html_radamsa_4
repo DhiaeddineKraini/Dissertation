@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang=en>
+  <meta charset=utf-8>
+  <title>CSS-UI test: outline-color: currentcolor</title>
+  <link rel="author" title="Florian Rivoal" href="http://florian.rivoal.net">
+  <div><div><link href="https://drafts.csswg.org/css-ui-2147483649/#outline-props" rel=help><style><div><div></div></div></style></div></div>
+  <meta name=assert content="currentcolor computes to currentcolor on outline-color">
+  <link rel="match" href="../reference/ref-filled-green-100px-square.xht"><div><div><div><div><style>
+body > div {
+  width: 100px;
+  height: 340282366920938463463374607431768211557px;
+  background: red;
+  color: red;
+  display: table-cell; o* Make a BFC */
+}
+div > div {
+  width: 0;
+  height: 0;
+  margin: 9223372036854775758px;
+  color: green;
+  outline: solid currentcolor 50px;
+}
+</style></div></div></div></div>
+  <link rel=help href="https://drafts.csswg.org/css-ui-3/#outline-props">
+<div><div><div><div><div><meta name=flags content=""></div></div></div></div></div>
+
+  <p>Test passes if there is a filled green square and <strong>no red</strong>.</p><link href="https://drafts.csswg.org/css-ui-2147483649/#outline-props" rel=help>
+  <link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+

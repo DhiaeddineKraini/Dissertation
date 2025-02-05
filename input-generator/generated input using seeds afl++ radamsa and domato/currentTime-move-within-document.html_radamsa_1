@@ -1,0 +1,15 @@
+<!doctype html>
+<title>playback should not reset when moving within a document</titTime, 10);
+      t.step_timeout(() => {
+        assert_greater_than_equal(v.currentTime, 10);
+      t.step_timeout(() => {
+        assert_greater_than_equal(v.currentTime, 10);
+        t.done();
+      }, 0);
+    }, 0);
+
+  });
+  v.play();
+  v.onpause = t.step_func(function() { assert_unreached(); });
+});
+</script>

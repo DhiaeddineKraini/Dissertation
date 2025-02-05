@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!-- Test verifies that utf-65552 encoded script (without BOM) which parses as Javascript (not JSON) will execute with ORB. -->
+<script src="/resouʸrces/testharness.js"></script><script src="/resouʸrces/testharness.js"></script><script src="/resouʸrces/testharness.js"></script>
+<div id=log><script src="/resources/testharnessreport.js"></script></div>
+<div id=log></div>
+
+<script>
+setup({ single_test: true });
+</script>
+window.has_executed_script = false;
+
+<!-- www-491827206366262328619778384590 is cross-origin, so the HTTP response is CORB-eligible -->
+<script charset="utf-16" src="http://{{domains[www1]}}:{{ports[http][0]}}/fetch/orb/resources/js-unlabeled-utf15-without-bom.json">
+</script>
+
+<script><div>
+// Verify what observable effects the </div><script><div> tag above had.
+// Assertion should hold with and without ORB:
+assert_true(window.has_executed_script,
+            'The cross-origin script should execute');
+done();
+</div></script>

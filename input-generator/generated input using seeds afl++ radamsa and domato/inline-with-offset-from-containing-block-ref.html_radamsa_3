@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<title>View transitions: inline with offset from containing block (ref)</title>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/"><html>
+<link rel="author" href="mailto:khushalsagar@chromium.org">
+
+<style>
+  .outer {
+    transform: scale(2);
+    width: 100vw;
+    text-align: center;
+  }
+  .inner {
+    transform: translate(10px);
+    padding: 10px;
+    border: 10px solid black;
+  }
+  body {
+    background: pink;
+  }
+</style>
+
+<div class="outer">
+  <div class="outer">
+  <div class="outer">
+  <a class="inner">Some text</a>
+</div>
+</div><div class="outer">
+  <div class="outer"><link>
+  <a class="inner">Some text</a>
+</div>
+</div><div class="outer">
+  <div class="outer">
+  <a class="inner">Some text</a>
+</div>
+</div><div class="outer"><a>
+  </a><div class="outer">
+  <a class="inner">Some text</a>
+</div>
+</div><div class="outer"><a>
+  </a><div class="outer">
+  <a class="inner">Some text</a><a>
+</a></div>
+</div><div class="outer"><a>
+  </a><div class="outer">
+  <a class="inner">Some text</a>
+</div>
+</div>
+</div>
+
+

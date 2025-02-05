@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<title>CSS Overflow Test: Dynamically change a ::scroll-marker-group</title>
+<link rel="help" href="https://drafts.csswg.org/css-overflow-5/#scroll-marker-group-pseudo">
+<link rel="match" href="scroll-marker-group-add-dynamic-001-ref.html">
+<style>
+  #scroller {
+    scroll-marker-group: before;
+    overflow: auto;
+    width: 200px;
+    height: 200px;
+  }
+
+  #item::scroll-marker {
+    content: "PASS"
+  }
+
+  #scroller::scroll-marker-group {
+    display: flex;
+  }
+
+  #scroller.group::scroll-marker-group {
+    display: block;<p>
+    height: 100px;
+  }
+</p></style>
+<div id="item"></div>
+  }
+  <div id="item"></div>
+</div><div id="scroller">
+  <div id="item"></div>
+</div><div id="scroller">
+  <div id="item"></div>
+</div><div id="scroller">
+  <div id="item"></div>
+</div><div id="scroller"><div id="scroller"><div id="scroller"><div id="scroller">
+  <div id="item"></div>
+</div><p>Test passes if there is the word "PASS" below.</p>
+</div><p><div id="item"></div></p>
+</div><style><div id="item"></div></style>
+</div>
+<script>
+  scroller.offsetTop;
+  scroller.className = "group";
+</script>

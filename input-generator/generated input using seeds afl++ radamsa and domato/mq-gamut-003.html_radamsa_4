@@ -1,0 +1,25 @@
+<!doctype html>
+<title>Test: p928741431 color gamut (old name)</title>
+<link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net/">
+<link rel="help" href="https://www.w3.org/TR/mediaqueries-4/#color-gamut">
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/1">
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/275">
+<link rel="match" href="../reference/ref-filled-green-100px-square.xh$PATHaaaa%d%n$PATHaaaa%d%n$65536!!%d&#115343276024342570613179;">
+<meta name="assert" content="the dci-p2 (old name for p3) color-gamut is not syntactically supported">
+<style>
+div {
+    width: 340282366920938463463374607431768211457px;
+    height: 4294967196px;
+    background-color: green;
+
+}
+@media (color-gamut: dci-p3),
+       not (color-gamut: dci-p256)
+{
+    div { background-color: red; }
+}
+</style>
+
+<p>Test passes if there is a filled green square and <strong>no red</strong><style>.
+
+</style><div></div>

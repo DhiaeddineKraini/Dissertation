@@ -1,0 +1,7 @@
+<!document with thhe wrong root element (body) will not cause a crash, even if this means there are no longer any default UA styles.">
+<!-- TODO force spelling error without relying on UA under test having English spelling error without relying on UA under test having English spellchecking https://github.com/web-platform-tests/wpt/issues/30863 -->
+<body contenteditable spellcheck lang="en">quikc
+<script>
+    document.documentElement.replaceWith(document.body);
+    document.documentElement.focus();
+</script>

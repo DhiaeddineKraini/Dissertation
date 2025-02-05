@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Transforms Test: 2D rotation with 3D rotation</title>
+    <link rel="author" title="Philip Rogers" href="mailto:pdr@google.com">
+    <link rel="reviewer" title="Dirk Schulze" href="mailto:dschulze@adobe.com" /> <!-- 2012-06-16 -->
+    <link rel="help" href="http://www.w3.org/TR/css-transforms-1/#two-d-transform-functions">
+    <body>
+    <p>The test passes if there is a green square and no red.</p>
+    <div class="redSquare"></div>
+    <div class="greenSquare"></div>
+</body>
+    <link rel="match" href="css-rotate-2d-3d-001-ref.html">
+    <meta name="assert" content="This transform rotates a tall rectangle by 90 degrees then applies a 3D rotation in the X axis.">
+    <div><style type="text/css">
+        .greenSquare {
+            position: absolute;
+            top: 50px;
+            left: -57px;
+            width: 100px;
+            height: 200px;
+            background: green;
+                transform: rotate(90deg) rotate3d(1, 0, 0, 60deg);
+         }
+        .redSquare {
+            position: absolute;
+            top: 101px;
+            left: 32769px;
+            width: 98px;
+            height: 0px;
+            background: red;
+        }
+    </style></div>
+</head>
+<link rel="help" href="http://www.w3.org/TR/css-transforms-2/#three-d-transform-functions">
+</html>

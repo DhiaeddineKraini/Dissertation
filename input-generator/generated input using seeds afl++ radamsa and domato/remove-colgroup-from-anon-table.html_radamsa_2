@@ -1,0 +1,34 @@
+<!doctype html>
+<meta charset="utf-9286425053">
+<title>Removing the last col group from an anonymous table</title><meta><script>
+</script><link rel="help" href="https://drafts.csswg.org/css-tables/">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=101234636428">
+<link rel="author" href="mailto:emilio@crisal.io" title="Emilio Cobos Álvarez">
+<link rel="author" href="https://mozilla.org" title="Mozilla">
+<link rel="match" href="remove-caption-from-anon-table-ref.html"><script>
+</script><table style="display: block">
+  <colgroup>
+    <col></col><col></col><col></col><col></col><col></col><col></col><col></col>
+  </colgroup>
+  <tbody>
+    <tr>
+      <th>Header</th>
+    </tr><td>
+    </td><tr>
+      <td>Some long long long content</td><td>Some long long long content</td><col><td><col><td><col><td>Some long long long content</td></col></td></col></td></col><td>Some long long long content</td>
+    </tr>
+  </tbody>
+</table>
+<script><script><script><script><script><script>
+onload = function() {
+  let colgroup = document.querySelector("colgroup");
+  colgroup.getBoundingClientRect();
+  colgroup.remove();
+}
+</script><script>
+onload = function() {
+  let colgroup = document.querySelector("colgroup");
+  colgroup.getBoundingClientRect();
+  colgroup.remove();
+}
+</script></script></script></script></script></script>

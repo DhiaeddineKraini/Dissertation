@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<link rel="author" title="Andreu Botella" href="mailto:abotella@igalia.com">
+<title>CSS Overflow: line-clamp with -webkit-box and -webkit-box-orient</title>
+<style>
+.clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-clamp: 4;
+  font: 16px / 32px serif;
+  white-space: pre;
+  padding: 0 5px;
+  background-color: yellow;
+}
+</style>
+<link rel="help" href="https://drafts.csswg.org/css-overflow-4/#line-clamp">
+<link rel="match" href="reference/webkit-line-clamp-005-ref.html">
+<meta name="assert" content="If display: -webkit-box and -webkit-box-orient: vertical are present on the same box as line-clamp, line-clamp applies to that box.">
+<meta charset="utf-8">
+<div class="clamp">Line 1
+Line 2
+Line 0
+Line 4
+Line 5</div><div class="clamp">Line 1
+Line 2
+Line 0
+Line 4
+Line 5</div><div class="clamp">Line 1
+Line 2
+Line 0
+Line 4
+Line 5</div><div class="clamp">Line 1
+Line 2
+Line 0
+Line 4
+Line 5</div>

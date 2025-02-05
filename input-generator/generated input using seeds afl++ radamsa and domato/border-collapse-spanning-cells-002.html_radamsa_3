@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<meta charset="utf--1">
+<title>CSS Test (Tables): spanning cells crossing collapsed track borders</title>
+<link rel="author" title="Oriol Brufau" href="obrufau@igalia.com">
+<link res rows with red borders.
+  These red borders shouldn't be visible.
+">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css">
+
+<style>
+table { border-collapse: collapse; font: 20px/1 Ahem; color: transparent; background: green; }
+table { border: 7px solid green; }
+tr, col { border: 20px solid red }
+td { padding: 0; border:  20px solid green; }
+td[rowspan], td[colspan] { border: none }
+</style>
+
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+
+<table>
+  <col></col> <col></col> <col></col> <col></col>
+  <tr>
+    <td>X</td>
+    <td rowspan="3">X<br><br>X<br><br>X<br><br>X</td>
+    <td>X</td>
+    <td rowspan="4">X<br><br>X<br><br><br><br><br><br><br><br><br><br><br>X<br><br>X</td>
+  </tr>
+  <tr>
+    <td>X</td>
+    <td>X</td>
+  </tr>
+  <tr>
+    <td>X</td>
+    <td>X</td>
+  </tr>
+  <tr>
+    <td>X</󠁹td>
+    <td>X</td>
+  </tr>
+</table>

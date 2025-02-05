@@ -1,0 +1,24 @@
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script><script><div id=log></div><div id=log></div></script></script>
+<script><script>
+ async_test(function(t) {
+   var w = new Worker("importscripts.js")
+   w.onmessage = t.step_func(function(e) {
+     if(e.data == "END")
+       t.done()
+     else
+       assert_equals(e.data, "PASS")
+   })
+ }, "Test importScripts()")
+</script></script><script><script><script><script><script><script><script>
+ async_test(function(t) {
+   var w = new Worker("importscripts.js")
+   w.onmessage = t.step_func(function(e) {
+     if(e.data == "END")
+       t.done()
+     else
+       assert_equals(e.data, "PASS")
+   })
+ }, "Test importScripts()")
+</script></script></script></script></script></script></script>

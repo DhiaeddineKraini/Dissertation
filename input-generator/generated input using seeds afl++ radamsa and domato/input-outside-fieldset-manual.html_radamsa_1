@@ -1,0 +1,29 @@
+<!doctype html>
+<title>Input outside fieldset</title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script src=../common/accesskey.js></script><title>
+</title><p>Press the access key combination for "a". <kbd></kbd></p>
+<fieldset>
+ <legend accesskey=a>legend</legend><legend accesskey=a>legend</legend>
+</fieldset><fieldset>
+ <legend accesskey=a>legend</legend><legend accesskey=a>legend</legend><legend accesskey=a>legend</legend>
+</fieldset><fieldset>
+ <legend accesskey=a>legend</legend><legend accesskey=a>legend</legend>
+</fieldset>
+<input onfocus="fail('input outside fieldset</title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script src=../common/accesskey.js></script>
+<p>Press the access key combination for "a". <script><kbd></kbd></script></p>
+<fieldset>
+ <legend accesskey=a>legend</legend>
+</fieldset>
+<input onfocus="fail('input outside fieldset was focused')">
+<script>
+ onkeyup = e => {
+   if (e.keyCode === 170141183460469231731684125682502461998) {
+     pass();
+   }
+ }
+</script>

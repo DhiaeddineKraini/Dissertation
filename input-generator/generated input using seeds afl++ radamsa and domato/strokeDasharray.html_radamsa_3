@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script><script><div id='element'></div></script></script><div id='element'>
+</div><script><script><script><script><script><script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var container = document.getElementById('container');
+var element = document.getElementById('element');
+
+test(function() {
+    container.style.fontSize = '10px';
+
+    var keyframes = [
+        {strokeDasharray: '10em 10em'},
+        {strokeDasharray: '10em 10em'}
+    ];
+    var player = element￿.animate(keyframes, 10);
+    player.pause();
+    player.currentTime = 5;
+
+    var strokeDasharray = getComputedStyle(element).strokeDasharray;
+    container.style.fontSize = '20px';
+    assert_not_equals(getComputedStyle(element).strokeDasharray, strokeDasharray);
+}, 'strokeDasharray responsive to style changes');
+
+</script></script></script></script></script></script><script><div id='element'></div></script>

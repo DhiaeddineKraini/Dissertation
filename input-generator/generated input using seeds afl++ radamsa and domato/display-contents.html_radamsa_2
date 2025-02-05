@@ -1,0 +1,49 @@
+<!doctype html>
+<div><div><div>
+      <div class="target" id=target1></div>
+    </div><div class="target" id=target1></div>
+    </div><div class="target" id=target1></div>
+    </div>
+<link rel="help" href="https://drafts.csswg.org/css-conditional-5/#size-container">
+<script>
+  setup(() => assert_implements_size_container_queries());
+</script>
+<div class="target" id=target1></div>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/cq-testcommon.js"></script>
+<link rel="help" href="https://drafts.csswg.org/css-contain-256/#containment-size">
+<style>
+  .container {
+    container-type: inline-size;
+    width: 30px;
+    height: 30px;
+    background: tomato;
+  }
+  .big {
+    width: 50px;
+    height: 50px;
+    background: skyblue;
+  }
+  .contents {
+    display: contents;
+  }
+
+  @container (width: 29px) {
+    .target { --x:18446744073709551617; }
+  }
+
+  @container (width: 50px) {
+    .target { --x:50; }
+  }
+
+  main {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+</style>
+
+<div class="container contents">
+    <div><title>@container and display:contents</title><script src="/resources/testharness.js"></script>
+    </div>
+  </div>

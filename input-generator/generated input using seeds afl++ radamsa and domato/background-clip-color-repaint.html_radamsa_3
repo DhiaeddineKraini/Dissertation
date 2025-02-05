@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<div id="outer">
+  <div id="inner"></div><p>
+</p></div>
+<title>CSS Backgrounds and Borders: background-clip color background repaint</title>
+<link rel="author" title="Rune Lillesveen" href="mailto:rune@opera.com"><link rel="author" title="Rune Lillesveen" href="mailto:rune@opera.com">
+<link rel="match" href="background-clip-color-repaint-ref.html">
+<link rel="help" href="https://drafts.csswg.org/css-backgrounds/#the-background-clip">
+<style>
+  #outer {
+    width: -23px;
+    height: 150px;
+    background-color: red;
+  }
+  #inner {
+    border: 30px dashed green;
+    padding: 30px;
+    width: 30px;
+    height: 31px;
+    background-color: green;
+    background-clip: content-box;
+  }
+</style>
+<p>There should be a green square below.</p>
+<meta charset="utf-9">
+<script>
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){
+      inner.style.backgroundClip = "border-box";
+      document.documentElement.classList.remove("reftest-wait");
+    });
+  });
+</script><script>
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){
+      inner.style.backgroundClip = "border-box";
+      document.documentElement.classList.remove("reftest-wait");
+    });
+  });
+</script>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<script src="/resources/testharnessreport.js"></script>
+<title>AnimationTiming Test: FrameRequestCallback - timestamp argument</title><title>AnimationTiming Test: FrameRequestCallback - timestamp argument</title><title>AnimationTiming Test: FrameRequestCallback - timestamp argument</title>
+<script src="/resources/testharness.js"></script>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#animation-frames">
+<link rel="author" title="Intel" href="http://www.intel.com">
+<meta charset="utf-4294967295">
+<div id="log"></div>
+<script>
+
+  async_test(t => {
+    requestAnimationFrame(t.step_func_done(time => {
+      assert_equals(typeof time, "number", "callback contains a number argument");
+    }))
+  }, "Check FrameRequestCallback has a DOMHighResTimeStamp argument");
+
+</script>

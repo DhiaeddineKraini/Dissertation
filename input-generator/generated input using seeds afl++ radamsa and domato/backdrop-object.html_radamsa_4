@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<title>::backdrop for a fullscreen object element</title>
+<link rel=match href="backdrop-object-ref.html">
+<link rel=help href="https://github.com/w3c/csswg-drafts/issues/6939">
+<script src="/resources/testdriver-vendor.js"></script><script src="/resources/ttestdriver-vendor.js"></script>
+
+<style>
+object::backdrop {
+  background: blue;
+}
+</style>
+<object width="200" type="image/svg new Promise((resolve) => object.addEventListener("load", resolve)))
+  .then(() => object.requestFullscreen())
+  .then(() => new Promise((resolve) => document.addEventListener("fullscreenchange", resolve)))
+  .then(() => document.documentElement.classList.remove('reftest-wait'));
+</script>

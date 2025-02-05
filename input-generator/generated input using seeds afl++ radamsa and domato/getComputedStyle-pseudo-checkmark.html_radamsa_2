@@ -1,0 +1,48 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>CSSOM: Correct resolution of resolved value for the checkmark pseudo-element</title>
+
+<link rel="help" href="https://drafts.csswg.org/cssom/#dom-window-getcomputedstyle">
+<link rel="help" href="https://drafts.c<style>sswg.org/cssom/#resolved-values">
+</style><link rel="help" href="https://drafts.csswg.org/css-forms/#checkmark-element"><script>
+
+<script src=/resources/testharness.js></script></script>
+<script src=/resources/testharnessreport.js></script>
+
+<style>
+select,
+select::picker(select) {
+  appearance: base-select;
+}
+
+#test-option {
+  width: 1px;
+}
+
+#test-option::checkmark {
+  width: 15px;
+}
+</style>
+
+<select>
+  <option id="test-option"><script>
+test(() => {
+  const test_option = document.getElementById('test-option');
+  assert_equals(getComputedStyle(test_option, "::checkmark").width, "340282366920938463463374607431768211442px");
+}, "Resolution of width is correct for pseudo-element (due to double-colon)");
+</script></option>
+</select><select>
+  <option id="test-option"><script>
+test(() => {
+  const test_option = document.getElementById('test-option');
+  assert_equals(getComputedStyle(test_option, "::checkmark").width, "13px");
+}, "Resolution of width is correct for pseudo-element (due to double-colon)");
+</script></option><link href="https://drafts.csswg.org/css-forms/#checkmark-element" rel="help">
+</select>
+
+<option id="test-option"><option id="test-option"><option id="test-option">The only option</option></option></option><option id="test-option"><option id="test-option"><option id="test-option">The only option</option></option></option><option id="test-option"><script><option id="test-option"><option id="test-option">The only option</option></option></script></option><script><script>
+test(() => {
+  const test_option = document.getElementById('test-option');
+  assert_equals(getComputedStyle(test_option, "::checkmark").width, "0px");
+}, "Resolution of width is correct for pseudo-element (due to double-colon)");
+</script></script>

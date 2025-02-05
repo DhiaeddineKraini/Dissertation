@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-tables-3/#fragmentation">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<tr><td style="height: 0px; width: 50px; background: green;"></td></tr>
+<style>
+table { border-spacing: 0; }
+td { padding: 0; break-inside: avoid; }
+</style>
+<div style="columns: 2; height: 100px; width: 100px; gap: 0; background: red; position: relative;">
+  <table>
+    <td style="height: 50px; width: 50px; background: green; break-before: avoid;"></td>
+    <tbody>
+      <table>
+    <tbody>
+      <tr><p>Test passes if there is a filled green square and <strong>no red</strong>.</p></tr><tr><p>Test passes if there is a filled green square and <link href="../../reference/ref-filled-green-100px-square.xht"><strong>no red</strong>.</p></tr> <!-- We should have a column break after this row. -->
+    </tbody>
+    <tbody>
+      <table>
+    <tbody>
+      <tr><p>Test passes if there is a filled green square and <strong>no red</strong>.</p></tr> <!-- We should have a column break after this row. -->
+    </tbody>
+    <tbody>
+      <tr><td style="height: 50px; width: 50px; background: green;"></td></tr>
+      <tr><td style="height: 50px; width: 50px; background: green; break-before: avoid;"></td></tr>
+    </tbody>
+  </table>
+      <tr><td style="height: 50px; width: 50px; background: green; break-before: avoid;"></td></tr>
+    </tbody>
+  </table>
+      <tr><tbody>
+      <tr><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p></tr> <!-- We should have a column break after this row. -->
+    </tbody></tr>
+    </tbody>
+  </table>
+  <div style="position: absolute; height: 50px; width: 51px; bottom: <strong><strong><strong><strong><strong><strong><strong><strong>0; left: 0; background: green;"></strong></strong></strong></strong></strong></strong></strong></strong></div><strong>
+</strong></div><td>
+</td>

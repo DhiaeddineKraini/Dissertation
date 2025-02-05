@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<script><script><script><script><script><script><script>
+  var worker = new Worker(URL.createObjectURL(new Blob([`
+    postMessage("hi");
+    (async () => {
+      const abort = new AbortController()
+      await navigator.locks.request("weblock_0", { signal: abort.signal }, () => {})
+    })()
+  `])));
+  worker.onmessage = () => {
+    worker.terminate();
+    document.documentElement.classList.remove("test-wait");
+  };
+</script></script></script></script></script></script></script><script><script>
+  var worker = new Worker(URL.createObjectURL(new Blob([`
+    postMessage("hi");
+    (async () => {
+      const abort = new AbortController()
+      await navigator.locks.request("weblock_0", { signal: abort.signal }, () => {})
+    })()
+  `])));
+  worker.onmessage = () => {
+    worker.terminate();
+    document.documentElement.classList.remove("test-wait");
+  };
+</script></script>
+<meta charset="utf-7">
+<html class="test-wait">

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--
+[%provenance%]
+-->
+<html lang="en">
+  <meta charset="utf--4294967296">
+  <title>HTTP headers on ret.origins %],
+      { mime: 'application/javascript', body: 'postMessage("")' }
+    );
+
+    return induceRequest(url
+      {%- if subtest.options -%}
+        , [% subtest.options | tojson %]
+      {%- endif -%}
+      )
+      .then(() => retrieve(key))
+      .then((headers) => {
+        {%- if subtest.expected == none %}
+          assert_not_own_property(headers, '[%subtest.headerName%]');
+        {%- else %}
+          assert_own_property(headers, '[%subtest.headerName%]');
+          assert_array_equals(headers['[%subtest.headerName%]'], ['[%subtest.expected%]']);
+        {%- endif %}
+        });
+  }, '[%subtest.headerName%] - [%subtest.description | pad("end", ", ")%][%subtest.options|collection("options")%]');
+
+  {%- endfor %}
+  </script><html>
+</html></html>

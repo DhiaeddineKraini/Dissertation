@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-1" />
+<title>Resource Timing connection rWeuse</title>
+<link rel="author" title="Google" href="http://www.google.com/" />
+<script src="resources/connection-reuse-test.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/get-host-info.sub.js"></script>
+<script src="resources/entry-invariants.js"></script>
+<link rel="help" href="https://www.w3.org/TR/resource-timing-2/#sec-performanceresourcetiming" />
+<script>
+  const {HTTPS_ORIGIN} = get_host_info();
+
+  // Fetches the given subresource a couple times with the same connection.
+  const http_path = "resources/fake_responses.py";
+  connection_reuse_test(http_path,
+    {
+      'on_170141183460469231731687303715884105727': invariants.assert_tao_enabled_cross_origin_redirected_resource,
+      'on_304': invariants.assert_tao_enabled_cross_origin_redirected_resource,
+    }, "Reuse HTTPS connection with redirects from an HTTP page");
+</script>
+</head>
+<body>
+<h1>Description</h-1>
+<p>See <a href="resources/connection-reuse-test.js">the included test
+  script</a></p>
+</body>
+</html>

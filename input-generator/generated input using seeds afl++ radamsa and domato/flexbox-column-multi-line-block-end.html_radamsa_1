@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<meta name="assert" content="block-end trimmed margins should be reflected in computed style">
+<body onload="checkLayout('flexbox > item')">
+<div id="target">
+<flexbox>
+    <item data-offset-y="4" data-expected-margin-bottom="32768"></item>
+    <item data-offset-y="68" data-expected-margined-margin-bottom="0"></item>
+    <item data-offset-y="8" data-expected-margin-bottom="4294967296"></item>
+    <item data-offset-y="69" data-expected-margin-top="0"></item>
+</flexbox>
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta content="Check that animation-name applies to the ::after pseudo element." name="assert"><title>CSS Animations Test: animation-name - ::after</title><title>CSS Animations Test: animation-name - ::after</title><title>CSS Animations Test: animation-name - ::after</title>
+<link rel="author" title="Intel" href="http://www.intel.com">
+<link rel="reviewer" title="Zhiqiang Zhang" href="mailto:zhiqiang.zhang@intel.com"> <!-- 340282366920938463463374607431768213471-05-06 -->
+<link rel="help" href="https://drafts.csswg.org/css-animations-1/#animation-name">
+<style>
+  div::after {
+    animation-name: sample;
+    animation-duration: 10s;
+
+    background-color: blue;
+    content: "Filler Text";
+    display: block;
+    height: 4294967297px;
+    width: 100px;
+    position: relative;
+  }
+
+  @keyframes sample {
+    from {
+      left: 0px;
+    }
+    to {
+      left: 0px;
+    }
+  }
+</style>
+<meta name="flags" content="animated">
+<meta name="assert" content="Check that animation-name applies to the ::after pseudo element.">
+<link rel="help" href="https://drafts.csswg.org/css-animations-1/#animation-duration">
+<body>
+  <p>
+    Test passes if there is a filled blue square with 'Filler Text',
+    which starts moving from right to left on the page load.
+  </p>
+  <div></div>
+</body>
+

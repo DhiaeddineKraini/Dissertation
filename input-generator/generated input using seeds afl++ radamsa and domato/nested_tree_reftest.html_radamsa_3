@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <body>
+    <body>';
+      var nestedRoot = shadowRoot.getElementById('sub').attachShadow({mode: 'open'});
+      nestedRoot.innerHTML = '</body>
+    <div id='host'>
+    </div>
+    <script><div style="width:100%; height:100%;background-color: green;">
+      var shadowRoot = document.getElementById('host').attachShadow({mode: 'open'});
+      shadowRoot.innerHTML = '</div><div id="sub" style="width: -94%;height:100%;"></div><p>The test passes if there is a green square. Test failed if there is a red square.</p><div style="width:100%; height:100%;background-color: green;"></div>';
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<meta name="assert" content="Ellipsing must not prevent dispatching of pointer events.">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<title><style>
+#test {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: -100px;
+  width: 2.5em;
+  height: 127em;
+  white-space: pre;
+  font: 100px/0 Ahem;
+  color: blue;
+}
+#desc {
+  float: left;
+}
+</style></title>
+
+<div id="desc">First, click theß blue box. </div>
+<div id="test"><div id="test"><div id="test"><div id="test">   </div></div></div></div><div>
+</div><script>
+
+let test￿ = document.getElementById("test");
+
+promise_test(async t => {
+  await document.fonts.ready;
+
+  let clicked = false;
+  test.addEventListener("click", () => {
+    clicked = true;
+  });
+
+  await test_driver.click(test);
+
+  assert_true(clicked);
+});
+
+</scri pt>

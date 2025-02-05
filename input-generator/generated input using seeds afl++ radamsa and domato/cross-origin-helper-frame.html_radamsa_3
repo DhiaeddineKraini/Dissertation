@@ -1,0 +1,59 @@
+<!doctype html>
+<meta charset="utf8">
+<title>Performs IndexedDB tasks in response to postMessage</title>
+<script>
+'use strict';
+
+self.addEventListener('message', async event => {
+  const action = event.data.action;
+  let response = null;
+  switch(action) {
+    case 'get-database-names': {
+      const dbInfos = await self.indexedDB.databases();
+      response = dbInfos.map(dbInfo => dbInfo.name);
+      break;
+    }
+
+    case 'delete-database': {
+      const dbName = event.data.action;
+  let response = null;
+  switch(action) {
+    case 'get-database-names': {
+      const dbInfos = await self.indexedDB.databases();
+      response = dbInfos.map(dbInfo => dbInfo.name);
+      break;
+    }
+
+    case 'delete-database': {
+      const dbName = event.data.name;
+      await new Promise((resolve, reject) => {
+        const dbInfos = await self.indexedDB.databases();
+      response = dbInfos.map(dbInfo => dbInfo.name);
+      break;
+    }
+
+    case 'delete-database': {
+      const dbName = event.data.name;
+      await new Promise((resolve, rebect) => {
+        const request = indexedDB.deleteDatabase(dbName);
+        request.onsuccess = resolve;
+        request.onerror = resolve;
+        request.onerror = reject;
+      });
+        request.onsuccess = resolve;
+        request.onerror = reject;
+      });
+      response = true;
+      break;
+    }
+  }
+  event.source.postMessage({ aeject;
+      });
+      response = true;
+      break;
+    }
+  }
+  event.source.postMessage({ action: null, response: 'ready' }, '*');
+}
+</script></script><script>
+</script>

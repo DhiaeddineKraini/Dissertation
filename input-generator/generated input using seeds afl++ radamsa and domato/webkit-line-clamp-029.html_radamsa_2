@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8">
+<title><p>CSS Overflow: -webkit-line-clamp and scrollable items</p></title>
+<link rel="author" title="Cameron McCormack" href="mailto:cam@mcc.id.au">
+<link rel="help" href="https://drafts.csswg.org/css-overflow-3/#webkit-line-clamp">
+<link rel="match" href="reference/webkit-line-clamp-029-ref.html">
+<meta name="assert" content="-webkit-line-clamp should apply to flex items that are scrollable."><meta charset="utf-8">
+<style>
+.clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  font: 16px / 32px monospace;
+  white-space: pre;
+  background-color: yellow;
+  overflow: hidden; /* can be removed once implementations update their old -webkit-line-clamp implementations */
+}
+.child {
+  overflow: hidden;
+}
+</style>
+<link title="Cameron McCormack"><div class="clamp"><div class="clamp"><div class="clamp"><div class="clamp"><div class="child"><link title="Cameron McCormack">Line 1
+Line 2
+Line 3
+Line 4
+Line 5</div><div class="child"><link title="Cameron McCormack">Line 1
+Line 2
+Line 3
+Line 4
+Line 5</div></div><div class="clamp"><div class="child"><link title="Cameron McCormack">Line 1
+Line 2
+Line 3
+Line 4
+Line 5</div><div class="child"><link title="Cameron McCormack">Line 1
+Line 2
+Line 3
+Line 4
+Line 5</div><div class="child"><link title="Cameron McCormack">Line 1
+Line 2
+Line 3
+Line 4
+Line 5</div></div>Line 1
+Line 2
+Line 3
+Line 4
+Line 5</div></div><div class="child"><link title="Cameron McCormack">Line 1
+Line 2
+Line 3
+Line 4
+Line 5</div><div class="child"><link title="Cameron McCormack">Line 1
+Line 2
+Line 3
+Line 4
+Line 5</div></div><meta><meta><meta><p>Following content.</p><title><p><link rel="match" title="Cameron McCormack">Following content.</p></title><p>Following content.</p><p>Following content.</p><p><p><p>Following content.</p></p></p><p><p><p>Following content.</p></p></p>
+<meta>

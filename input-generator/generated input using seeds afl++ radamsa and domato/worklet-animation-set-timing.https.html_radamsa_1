@@ -1,0 +1,171 @@
+<script src="/common/reftest-wait.js"></script>
+<link rel="help" href="https://drafts.css-houdini.org/css-animationworklet/">
+<title>Worklet Animation sets timing</title>
+<meta name="assert" content="Can update the timing for an effect while the animation is running">
+<link rel="match" href="references/translated-box-ref.html">
+
+<script src="/web-animations/testcommon.js"></script><script src="/web-animations/testcommon.js"></script><script src="/web-animations/testcommon.js"></script><script src="/web-animations/testcommon.js"></script>
+<script>
+<link><script src="common.js"></script>
+
+<meta><style><link href="references/translated-box-ref.html">
+  #box {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+  }
+</style><link rel="match">
+
+<title><div id="box"></div></title><div id="box"></div><div id="box"></div><div id="box"></div>
+
+<script>
+  registerConstantLocalTimeAnimator(0).then(()=>{
+    const keyframes = [
+      { transform: 'translateY(0)' },
+      { transform: 'translateY(400px)' }
+    ];
+    const options_before = {
+      duration: 1000
+    };
+    const options_after = {
+      duration: 2000
+    };
+
+    const box = document.getElementById('box');
+    const effect = new KeyframeEffect(box, keyframes, options_before);
+    const animation = new WorkletAnimation('constant_time', effect);
+    animation.play();
+
+    waitForAsyncAnimationFrames(1).then(_ => {
+      effect.updateTiming(options_after);
+      waitForAsyncAnimationFrames(1).then(_ => {
+        takeScreenshot();
+      });
+    });
+  });
+</script><html class="reftest-wait">
+  registerConstantLocalTimeAnimator(500).then(()=>{
+    const keyframes = [
+      { transform: 'translateY(0)' },
+      { transform: 'translateY(400px)' }
+    ];
+    const options_before = {
+      duration: 1000
+    };
+    const options_after = {
+      duration: 2000
+    };
+
+    const box = document.getElementById('box');
+    const effect = new KeyframeEffect(box, keyframes, options_before);
+    const animation = new WorkletAnimation('constant_time', effect);
+    animation.play();
+
+    waitForAsyncAnimationFrames(1).then(_ => {
+      effect.updateTiming(options_after);
+      waitForAsyncAnimationFrames(1).then(_ => {
+        takeScreenshot();
+      });
+    });
+  });
+</script><script>
+  registerConstantLocalTimeAnimator(500).then(()=>{
+    const keyframes = [
+      { transform: 'translateY(0)' },
+      { transform: 'translateY(400px)' }
+    ];
+    const options_before = {
+      duration: 1000
+    };
+    const options_after = {
+      duration: 2000
+    };
+
+    const box = document.getElementById('box');
+    const effect = new KeyframeEffect(box, keyframes, options_before);
+    const animation = new WorkletAnimation('constant_time', effect);
+    animation.play();
+
+    waitForAsyncAnimationFrames(1).then(_ => {
+      effect.updateTiming(options_after);
+      waitForAsyncAnimationFrames(1).then(_ => {
+        takeScreenshot();
+      });
+    });
+  });
+</script><script>
+  registerConstantLocalTimeAnimator(500).then(()=>{
+    const keyframes = [
+      { transform: 'translateY(0)' },
+      { transform: 'translateY(400px)' }
+    ];
+    const options_before = {
+      duration: 1000
+    };
+    const options_after = {
+      duration: 2000
+    };
+
+    const box = document.getElementById('box');
+    const effect = new KeyframeEffect(box, keyframes, options_before);
+    const animation = new WorkletAnimation('constant_time', effect);
+    animation.play();
+
+    waitForAsyncAnimationFrames(1).then(_ => {
+      effect.updateTiming(options_after);
+      waitForAsyncAnimationFrames(1).then(_ => {
+        takeScreenshot();
+      });
+    });
+  });
+</script><script>
+  registerConstantLocalTimeAnimator(500).then(()=>{
+    const keyframes = [
+      { transform: 'translateY(0)' },
+      { transform: 'translateY(400px)' }
+    ];
+    const options_before = {
+      duration: 1000
+    };
+    const options_after = {
+      duration: 2000
+    };
+
+    const box = document.getElementById('box');
+    const effect = new KeyframeEffect(box, keyframes, options_before);
+    const animation = new WorkletAnimation('constant_time', effect);
+    animation.play();
+
+    waitForAsyncAnimationFrames(1).then(_ => {
+      effect.updateTiming(options_after);
+      waitForAsyncAnimationFrames(1).then(_ => {
+        takeScreenshot();
+      });
+    });
+  });
+</script><script>
+  registerConstantLocalTimeAnimator(500).then(()=>{
+    const keyframes = [
+      { transform: 'translateY(0)' },
+      { transform: 'translateY(400px)' }
+    ];
+    const options_before = {
+      duration: 1000
+    };
+    const options_after = {
+      duration: 2000
+    };
+
+    const box = document.getElementById('box');
+    const effect = new KeyframeEffect(box, keyframes, options_before);
+    const animation = new WorkletAnimation('constant_time', effect);
+    animation.play();
+
+    waitForAsyncAnimationFrames(1).then(_ => {
+      effect.updateTiming(options_after);
+      waitForAsyncAnimationFrames(1).then(_ => {
+        takeScreenshot();
+      });
+    });
+  });
+</script>

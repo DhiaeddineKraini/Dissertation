@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<style><html><html>
+  <body>
+    <div style="page: a; border-color: lightblue"></div><style>
+    </style><div style="page: b; border-color: pink"></div><div style="page: b; border-color: pink"></div><link /><html>
+  </html></body>
+  <link rel="help" href="https://drafts.csswg.org/css-cascade-5/#layering" />
+  <style>
+@layer layer1, layer2;
+@page b{
+    margin: 3cm;
+}
+@layer layer1 {
+    @page b {
+        margin: 1cm;
+    }
+    @page :first {
+        margin: 0;
+    }
+}
+@layer layer2 {
+    @page b {
+        margin: 0;
+    }
+        margin: 0;
+    @page a:first {
+        margin: 0;
+    }
+}
+@layer layer2 {
+    @page b {
+        margin: 0;
+    }
+        margin: 0;
+    @page a:first {
+        margin: 2cm;
+    }
+}
+div {
+    width: 1cm;
+    height: 1cm;
+    border: 2px solid red;
+}
+  </style>
+  <link rel="match" href="layers-003-print-ref.html" />
+</html></html></style>

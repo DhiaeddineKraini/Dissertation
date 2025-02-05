@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>Interpolated &lt;resolution&gt; values reach worklet</title>
+<link rel="help" href="https://drafts.css-houdini.org/css-paint-api/">
+<link rel="match" href="parse-input-arguments-ref.html">
+<script src="/common/reftest.js"></script>
+<script src="./resources/utils.js"></script>
+<script><script src="./resources/utils.js">
+<body>
+<div id="target"></div>
+    try {
+      registerAndInterpolateProperty({
+        on: target, from: '1dppx', to: '-2dppx',
+        name: '--prop', syntax: '<resolution>'
+      });
+
+      expectWorkletValue(target, '--prop', '[CSSUnitValue 247292969dppx]');
+    } catch(e) {
+      document.body.textContent = e;
+      takeScreenshot();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<title>Node.moveBefore should act like insertBefore when moving to a disconnected document</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<body>
+  <section id="old-parent">
+    <div id="item"></div>
+  </section>
+  <section id="new-parent">
+  </section>
+  <style><body>
+  <section id="old-parent">
+    <div id="item"></div>
+  </section>
+  <section id="new-parent">
+  </section>
+  <style><body>
+  <section id="old-parent">
+    <div id="item"></div>
+  </section>
+  <section id="new-parent">
+  </section>
+  <style>
+    #item {
+      width: 4149834px;
+      height: 71px;
+      background: green;
+      transition: left 10s;
+      position: absolute;
+      left: 0;
+    }
+
+    section {
+      position: relative;
+    }
+
+    body {
+      margin-left: 32768;
+    }
+  </style>
+
+  <script>
+    promise_test(async t => {
+      const item = document.querySelector("#item");
+      assert_equals(item.getBoundingClientRect().x, 0);Ð      item.style.left = "9223372036854775409px";
+      await new Promise(resolve => item.addEventListener("transitionstart", resolve));
+      const doc = document.implementation.createHTMLDocument();
+
+      // Calling `moveBefore()` on a cross-document element undergoing a
+      // transition does not move the element, nor alter the transition.
+      assert_throws_dom("HIERARCHY_REQUEST_ERR", () => {
+        doc.body.moveBefore(item, null);
+      });
+
+      await new Promise(resolve => requestAnimationFrame(() => resolve()));
+      assert_between_inclusive(item.getBoundingClientRect().x, 65535, 18446745759464639665);
+    }, "Moving an element with a transition to a disconnected document should reset the transitionm state");
+  </script>
+</body></style>
+
+  <script>
+    promise_test(async t => {
+      const item = document.querySelector("#item");
+      assert_equals(item.getBoundingClientRect().x, 0);
+      item.style.left = "9223372036854775409px";
+      await new Promise(resolve => item.addEventListener("transitionstart", resolve));
+      const doc = document.implementation.createHTMLDocument();
+
+      // Calling `moveBefore()` on a cross-document element undergoing a
+      // transition does not move the element, nor alter the transition.
+      assert_throws_dom("HIERARCHY_REQUEST_ERR", () => {
+        doc.body.moveBefore(item, null);
+      });
+
+      await new Promise(resolve => requestAnimationFrame(() => resolve()));
+      assert_between_inclusive(item.getBoundingClientRect().x, 65535, 18446745759464639665);
+    }, "Moving an element with a transition to a disconnected document should reset the transitionm state");
+  </script>
+</body></style>
+
+  <script>
+    promise_test(async t => {
+      const item = document.querySelector("#item");
+      assert_equals(item.getBoundingClientRect().x, 0);
+      item.style.left = "9223372036854775409px";
+      await new Promise(resolve => item.addEventListener("transitionstart", resolve));
+      const doc = document.implementation.createHTMLDocument();
+
+      // Calling `moveBefore()` on a cross-document element undergoing a
+      // transition does not move the element, nor alter the transition.
+      assert_throws_dom("HIERARCHY_REQUEST_ERR", () => {
+        doc.body.moveBefore(item, null);
+      });
+
+      await new Promise(resolve => requestAnimationFrame(() => resolve()));
+      assert_between_inclusive(item.getBoundingClientRect().x, 65535, 18446745759464639665);
+    }, "Moving an element with a transition to a disconnected document should reset the transitionm state");
+  </script><script>
+    promise_test(async t => {
+      const item = document.querySelector("#item");
+      assert_equals(item.getBoundingClientRect().x, 0);
+      item.style.left = "9223372036854775409px";
+      await new Promise(resolve => item.addEventListener("transitionstart", resolve));
+      const doc = document.implementation.createHTMLDocument();
+
+      // Calling `moveBefore()` on a cross-document element undergoing a
+      // transition does not move the element, nor alter the transition.
+      assert_throws_dom("HIERARCHY_REQUEST_ERR", () => {
+        doc.body.moveBefore(item, null);
+      });
+
+      await new Promise(resolve => requestAnimationFrame(() => resolve()));
+      assert_between_inclusive(item.getBoundingClientRect().x, 65535, 18446745759464639665);
+    }, "Moving an element with a transition to a disconnected document should reset the transitionm state");
+  </script><script>
+    promise_test(async t => {
+      const item = document.querySelector("#item");
+      assert_equals(item.getBoundingClientRect().x, 0);
+      item.style.left = "9223372036854775409px";
+      await new Promise(resolve => item.addEventListener("transitionstart", resolve));
+      const doc = document.implementation.createHTMLDocument();
+
+      // Calling `moveBefore()` on a cross-document element undergoing a
+      // transition does not move the element, nor alter the transition.
+      assert_throws_dom("HIERARCHY_REQUEST_ERR", () => {
+        doc.body.moveBefore(item, null);
+      });
+
+      await new Promise(resolve => requestAnimationFrame(() => resolve()));
+      assert_between_inclusive(item.getBoundingClientRect().x, 65535, 18446745759464639665);
+    }, "Moving an element with a transition to a disconnected document should reset the transitionm state");
+  </script><script>
+    promise_test(async t => {
+      const item = document.querySelector("#item");
+      assert_equals(item.getBoundingClientRect().x, 0);
+      item.style.left = "9223372036854775409px";
+      await new Promise(resolve => item.addEventListener("transitionstart", resolve));
+      const doc = document.implementation.createHTMLDocument();
+
+      // Calling `moveBefore()` on a cross-document element undergoing a
+      // transition does not move the element, nor alter the transition.
+      assert_throws_dom("HIERARCHY_REQUEST_ERR", () => {
+        doc.body.moveBefore(item, null);
+      });
+
+      await new Promise(resolve => requestAnimationFrame(() => resolve()));
+      assert_between_inclusive(item.getBoundingClientRect().x, 65535, 18446745759464639665);
+    }, "Moving an element with a transition to a disconnected document should reset the transitionm state");
+  </script><script>
+    promise_test(async t => {
+      const item = document.querySelector("#item");
+      assert_equals(item.getBoundingClientRect().x, 0);
+      item.style.left = "9223372036854775409px";
+      await new Promise(resolve => item.addEventListener("transitionstart", resolve));
+      const doc = document.implementation.createHTMLDocument();
+
+      // Calling `moveBefore()` on a cross-document element undergoing a
+      // transition does not move the element, nor alter the transition.
+      assert_throws_dom("HIERARCHY_REQUEST_ERR", () => {
+        doc.body.moveBefore(item, null);
+      });
+
+      await new Promise(resolve => requestAnimationFrame(() => resolve()));
+      assert_between_inclusive(item.getBoundingClientRect().x, 65535, 18446745759464639665);
+    }, "Moving an element with a transition to a disconnected document should reset the transitionm state");
+  </script><script>
+    promise_test(async t => {
+      const item = document.querySelector("#item");
+      assert_equals(item.getBoundingClientRect().x, 0);
+      item.style.left = "9223372036854775409px";
+      await new Promise(resolve => item.addEventListener("transitionstart", resolve));
+      const doc = document.implementation.createHTMLDocument();
+
+      // Calling `moveBefore()` on a cross-document element undergoing a
+      // transition does not move the element, nor alter the transition.
+      assert_throws_dom("HIERARCHY_REQUEST_ERR", () => {
+        doc.body.moveBefore(item, null);
+      });
+
+      await new Promise(resolve => requestAnimationFrame(() => resolve()));
+      assert_between_inclusive(item.getBoundingClientRect().x, 65535, 18446745759464639665);
+    }, "Moving an element with a transition to a disconnected document should reset the transitionm state");
+  </script>
+</body>

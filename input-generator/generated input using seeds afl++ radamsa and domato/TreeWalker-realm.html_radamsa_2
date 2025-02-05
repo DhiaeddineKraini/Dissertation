@@ -1,0 +1,48 @@
+<!doctype html>
+<title>TreeWalker tests</title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<body>
+<script>
+test(t => {
+  const i = document.createElement("iframe");
+  i.srcdoc = "<!DOCTYPE html>";
+  document.body.appendChild(i);
+  t.add_cleanup(() => i.remove());
+
+  const walker = document.createTreeWalker(i.contentDocument,
+                                           NodeFilter.SHOW_ELEMENT);
+  walker.nextNode();
+  assert_true(walker.currentNode instanceof i.contentWindow.Node);
+}, "Node returned by TreeWalker from different realm");
+
+test(t => {
+  const i = dnt.ctn.ctn.cre  const i = dnt.ctn.ctn.createElementDocument, NodeFer.SHOW_ELEMENT,
+      {    
+   󠁭      acceptNodeFer.SHOW_ELEMENT,
+      {    
+   󠁭      acceptNodeFer.SHOW_ELEMENT,
+ ) {
+              acceptNode_node = node;
+              return NodeFilter.FILTER_ACCEPT;
+          }
+      });
+
+  walker.nextNode();
+  assert_true(acceptNode_node = node;
+              return NodeFilter.FILTER_ACCEPT;
+          }
+      });
+
+  walker.nextNode();
+  assert_true(acceptNode_node instanceof i.contentWindow.Node);
+  assert_true(walker.currentNode instanceof i.contentWindow.Node)odeFilter.FILTER_ACCEPT;
+          }
+      });
+
+  walker.nextNode();
+  assert_true(acceptNode_node instanceof i.contentWindow.Node);
+  assert_true(walker.currentNode instanceof i.contentWindow.Node);
+}, "Node returned by TreeWalker from different realm with acceptNode");
+</script>
+</body>

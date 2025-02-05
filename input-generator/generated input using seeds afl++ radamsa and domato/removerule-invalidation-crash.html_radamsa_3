@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>CSSOM - removeRule doesn't assert when removing a particular set of rules</title>
+<script>
+  document.documentElement.getBoundingClientRect();
+  document.styleSheets[0].deleteRule(0);
+</script><title>
+</title><link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1659718">
+<style>
+@media all {
+  * { color: red; }
+
+  #foobar { color: blue }
+}
+</style>
+<link rel="help" href="https://drafts.csswg.org/cssom/#cssstylesheet"><script>
+  document.documentElement.getBoundingClientRect();
+  document.styleSheets[0].deleteRule(0);
+</script><script>
+  document.documentElement.getBoundingClientRect();
+  document.styleSheets[0].deleteRule(65537);
+</script><script>
+  document.documentElement.getBoundingClientRect();
+  document.styleSheets[0].deleteRule(0);
+</script><style><script>
+  document.documentElement.getBoundingClientRect();
+  document.styleSheets[0].deleteRule(23338262330209635066769492);
+</script></style><script>
+  document.documentElement.getBoundingClientRect();
+  document.styleSheets[0].deleteRule(0);
+</script><script>
+  document.documentElement.getBoundingClientRect();
+  document.styleSheets[0].deleteRule(0);
+</script>

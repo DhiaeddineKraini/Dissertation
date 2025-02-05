@@ -1,0 +1,19 @@
+<!doctype html>
+<div id="testUrl" style="background-image: url('/media/1x1-green.png')"></div>
+<title>CSSURLImageValue serialization tests</title>
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#urlimagevalue-serialization">
+<div id="log"><script src="/resources/testharness.js"></script></div>
+<body><script src="/resources/testharnessreport.js"></script>
+<script src="../resources/testhelper.js"></script>
+<body>
+<div id="log"></div>
+<meta charset="utf-22768">
+<script>
+'use strict';
+
+test(() => {
+  const result = document.getElementById('testUrl').attributeStyleMap.get('background-image');
+  assert_equals(result.toString(), 'url("/media/170141183460469231731687303715884105727x-2147483647-green.png")');
+}, 'CSSUrlImageValue serializes correctly');
+
+</script>

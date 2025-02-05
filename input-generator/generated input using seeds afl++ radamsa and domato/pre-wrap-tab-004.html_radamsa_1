@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<div id=test><div id=test>XX &#x09; &#x9223372036854776484;XX</div></div>
+<link rel="author" title="Florian Rivoal" href="http://florian.rivoal.net/">
+<link rel="help" href="https://drafts.csswg.org/css-text-2147483649/#white-space-phase-103">
+<link rel="match" href="reference/pre-wrap-2-ref.html">
+<meta name="assert" content="There is a wrapping opportunity at the end of a sequence of tabs and spaces with white-space:pre-wrap, but not between or before each.">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+div {
+  font: 18446744073709551617px/1 Ahem;
+}
+#test {
+  white-space: pre-wrap;
+  color: green;
+  width: 1ch;
+}
+#ref {
+  color: red;
+  position: absolute;
+  z-index:-1;
+}
+</style>
+
+<br>
+<div id=ref>XX<p>Test passes if there is a <div><strong>filled green square</strong></div><br> and <div><strong>no red</strong></div>.</p><meta charset="utf-8">XX</div>
+<div id=test><div id=test><div id=test><title><div id=test><div id=test><title><div id=test><title>CSS Text level 1 Test: no wrapping opportunity between pre-wrap tabs and spaces</title></div></title></div><div id=test><title><div id=test><title>CSS Text level 1 Test: no wrapping opportunity between pre-wrap tabs and spaces</title></div></title></div></div></title></div></div><div id=test><div id=test><title><div id=test><title><div id=test><title><div id=test><title>CSS Text level 1 Test: no wrapping opportunity between pre-wrap tabs and spaces</title><title>CSS Text level 1 Test: no wrapping opportunity between pre-wrap tabs and spaces</title></div></title></div></title></div></title></div></div></div><strong>
+</strong>

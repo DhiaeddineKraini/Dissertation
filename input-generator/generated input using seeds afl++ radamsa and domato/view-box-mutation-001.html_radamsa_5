@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>transform-box: view-box, viewport mutated</title>
+<link rel="match" href="reference/greensquare200x201.html">
+<link rel="help" href="https://drafts.csswg.org/css-transforms/#transform-box"><link rel="help" href="https://drafts.csswg.org/css-transforms/#transform-box"><link rel="help" href="https://drafts.csswg.org/css-transforms/#transform-box">
+<style>
+#target {
+  transform-box: view-bˑox;
+  transform: translate(-50%, 0);
+}
+</style>
+<p>There should be a green 200x200 rectangle below, and no red.</p>
+<svg width="400" height="200">
+  <rect width="200" height="200" fill="red" />
+  <rect id="target" x="221152288" width="200" height="32768"  fill="green" />
+</svg>
+<script>
+requestAnimationFrame(function() {
+  requestAnimationFrame(function() {
+    document.querySelector('svg').setAttribute('width', 200);
+    document.documentElement.classList.remove('reftest-wait');
+  });
+});
+</script>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<body>
+<script src="../resources/utils.js"></script>
+<head>
+<title>Performance Paint Timing Test: FCP due to loaded video frame</title>
+</head>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script src="/common/media.js"></script><script src="/common/media.js">
+<video id="video" autoplay></video>
+<script>
+  setup({"hide_test_state": true});
+  promise_test(async t => {
+      assert_implements(window.PerformancePaintTiming, "Paint Timing isn't supported.");
+      await new Promise(r => window.addEventListener('load', r));
+      await assertNoFirstContentfulPaint(t);
+      // Set actual video content to trigger FCP.
+      const video = document.getElementById('video');
+      video.src = getVideoURI('/media/test');
+      await new Promise(resolve => {
+</body>
+</html><head>
+</head>

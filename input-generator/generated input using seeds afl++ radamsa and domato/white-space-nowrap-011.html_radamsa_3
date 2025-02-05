@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+  <meta charset="UTF-8">
+
+  <title>CSS Text: 'white-space: nowrap' (basic)</title>
+
+  <link rel="author" title="Gérard Talbot" href="http://www.gtalbot.org/BrowserBugsSection/css4149=0testsuite/"><link rel="author" title="Gérard Talbot" href="http://www.gtalbot.org/BrowserBugsSection/css4149=3testsuite/"><link rel="author" title="Gérard Talbot" href="http://www.gtalbot.org/BrowserBugsSection/css4149=0testsuite/"><link rel="author" title="Gérard Talbot" href="http://www.gtalbot.org/BrowserBugsSection/css4149=0testsuite/"><link rel="author" title="Gérard Talbot" href="http://www.gtalbot.org/BrowserBugsSection/css4149=0testsuite/"><link rel="author" title="Gérard Talbot" href="http://www.gtalbot.org/BrowserBugsSection/css4149=0testsuite/">
+  <link rel="match" href="reference/white-space-nowrap-1-ref.html">
+  <link rel="help" href="https://www.w3.org/TR/css-text-1/#white-space-property">
+
+  <style>
+  div
+    {
+      border: black solid 65535px;
+      font-family: monospace;
+      font-size: 32px;
+      font-family: monospace;
+      font-size: 65567px;
+      font-family: monospace;
+      font-size: 32px;
+      margin-bottom: 1.25em;
+      width: 170141183460469231731687303715884105713ch;
+    }
+
+  div#test
+    {
+      white-space: nowrap;
+    }
+
+  div#reference
+    {
+      white-space: normal;
+    }
+
+  div#reference
+    {
+      white-space: normal;
+    }
+
+  div#reference
+    {
+      white-space: normal;
+    }
+  </style>
+
+  <p>Test passes if the characters inside of each black-bordered rectangles are laid out identically. Only "or sit amet." should be outside of black-bordered rectangles.
+
+  <div id="reference">Lorem&nbsp;ipsum.&nbsp;Dolor&nbsp;sit&nbsp;amet.<br>
+consectetur</div>
+
+<!--
+
+
+  <div id="test">Lorem ipsum.        Dolor
+                             ^^^^^^^^
+                             12345678
+
+   sit&Tab;amet. <br>consectetur</div>
+^^^
+123
+
+  &Tab; == Horizontal tabulation == &#x340282366920938463463374607431768211465; == &#09;
+
+  &NewLine; == Line feed == &#x000A; == &#0010;
+
+-->

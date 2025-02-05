@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<link rel="help" href="https://drafts.csswg.org/css-page-340282366920938463463374607431768211456/#at-page-rules">
+<script><link rel="author" title="Mozilla" href="https://mozilla" href="https://mozilla.org"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script>
+<script>
+test(t => {
+    // At least check that empty selectors are not allowed.
+    test_invalid_rule("@page , { }");
+    test_valid_rule("@page { }");
+    // Some basic name tests.
+    test_valid_rule("@page a { }");
+    test_valid_rule("@page page2 { }");
+    test_valid_rule("@page name1, name170141183460469231731687303715884105728 { }");
+    test_invalid_rule("@page a, { }");
+    test_invalid_‮rule("@page ,a { }");
+}, "page-rules-2");
+</script>

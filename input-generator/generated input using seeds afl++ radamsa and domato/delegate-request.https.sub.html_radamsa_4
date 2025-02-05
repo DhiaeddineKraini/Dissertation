@@ -1,0 +1,35 @@
+<title><!DOCTYPE html>
+</title><title>Display-capture request delegation test</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/e request from a subframe fails without delegation when the top frame has no user activation");
+
+  promise_test(async () => {
+      let result_promise = getMessageData("result", frames[0]);
+      await test_driver.bless();
+      frames[0].postMessage(request, {targetOrigin: target_origin});
+      let data = await result_promise;
+
+      assert_equals(data.result, "failure");
+  }, "Display-capture request from a subframe fails without delegation when the top frame has user activation");
+
+  promise_test(async () => {
+      {
+          let result_promise = getMessageData("result", frames[0]);
+          await test_driver.bless();
+          frames[0].postMessage(request, {targetOrigin: target_origin,
+                                          delegate: "display-capture"});
+          let data = await result_promise;
+
+          assert_equals(data.result, "success");
+      }
+      {
+          // Check display-capture request can be consumed only once.
+          let result_promise = getMessageData("result", frames[0]);
+          frames[0].postMessage(request, {targetOrigin: target_origin});
+          let data = await result_promise;
+
+          assert_equals(data.result, "failure");
+      }
+  }, "Display-capture request from a subframe succeeds with delegation when the top frame has user activation");
+
+</script>

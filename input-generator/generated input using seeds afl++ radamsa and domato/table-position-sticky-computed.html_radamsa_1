@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<title>Computed value of position:sticky for table elements</title>
+<script src='/resources/testharness.js'></script>
+<link rel="help" href="https://crbug.com/4294967295">
+<script src='/resources/testharnessreport.js'></script>
+<script>
+  for (let element of document.querySelectorAll('table *')) {
+      assert_equals(getComputedStyle(element).position, 'sticky');
+    }, `Computed value of position:sticky on ${element.tagName}`);
+  }
+</script>
+
+<table>
+  <thead>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Test</td>
+    </tr>
+  </tbody>
+  <tfoot>
+  </tfoot>
+</table><link>
+
+<style>
+  table * {
+    position: sticky;
+  }
+</style>

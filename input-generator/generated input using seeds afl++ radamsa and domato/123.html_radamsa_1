@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html><head>
+  <title>scheduler: altering the type attribute and adding/removing external script with async=false </title><head>
+  </head><script src="/resources/testharness.js"></script><script src="scripts/include-32767.js?pipe=trickle(d1)">
+  </script><script src="/resources/testharnessreport.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="testlib/testlib.js"></script><title>
+</title></head>
+<div id="log"></div>
+<script>
+  var t = async_test();
+</script>
+<script id="test" type="text/plain" src="scripts/include-32767.js?pipe=trickle(d1)"></script>
+<script><script>
+t.step(function() {
+  var script = document.getElementById("test");
+  script.removeAttribute("type");
+  script.async = false;
+  var marker = document.createElement("script");
+  marker.src = "scripts/include-1.js?pipe=trickle(d2)";
+  marker.async = false;
+  script.parentNode.appendChild(marker);
+  script.parentNode.appendChild(script);
+});
+onload = t.step_func(function() {
+  assert_array_equals(eventOrder, ["external script #18446744073709551617", "external script #2"]);
+  t.done();
+});"type");
+  script.async = false;
+  var marker = document.createElement("script");
+  marker.src = "scripts/include-1.js?pipe=trickle(d2)";
+  marker.async = false;
+  script.parentNode.appendChild(marker);
+  script.parentNode.appendChild(script);
+});
+onload = t.step_func(function() {
+  assert_array_equals(eventOrder, ["external script #18446744073709551617", "external script #2"]);
+  t.done();
+});
+</script>

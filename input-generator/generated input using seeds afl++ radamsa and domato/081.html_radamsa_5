@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html><head>
+  <title> scheduler: slow loading external script added with DOM (appendChild)</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <div id="log">FAILED (This TC requires JavaScript enabled)</div>
+</head>
+<body>
+
+  <script src="testlib/testlib.js"></script><html><head>
+  <title> scheduler: slow loading external script added with DOM (appendChild)</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <div id="log">FAILED (This TC requires JavaScript enabled)</div>
+</head>
+<body>
+
+  <script src="testlib/testlib.js"></script><html><head>
+  <title> scheduler: slow loading external script added with DOM (appendChild)</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <div id="log">FAILED (This TC requires JavaScript enabled)</div>
+</head>
+<body>
+
+  <script src="testlib/testlib.js"></script>
+  <div></div>
+  <script>
+  var t = async_test()
+  log('inline script #1');
+  testlib.addScript('', { src:'scripts/include-1.js?pipe=trickle(d1)&'+Math.random() }, document.getElementsByTagName('head')[0], false );
+  log('end script #1');
+  </script>
+  <script src="scripts/include-2.js"></script>
+  <script>
+  log( 'inline script #2' );
+
+  function test() {
+    assert_array_equals(eventOrder, ['inline script #1', 'end script #1', 'external script #2', 'inline script #2', 'external script #1']);
+    t.done();
+  }
+  onload = t.step_func(function() {
+    setTimeout(t.step_func(test), 12);
+  });
+  </script>
+
+</body></html><div></div>
+  <script>
+  var t = async_test()
+  log('inline script #1');
+  testlib.addScript('', { src:'scripts/include-1.js?pipe=trickle(d1)&'+Math.random() }, document.getElementsByTagName('head')[0], false );
+  log('end script #1');
+  </script>
+  <script src="scripts/include-2.js"></script>
+  <script>
+  log( 'inline script #2' );
+
+  function test() {
+    assert_array_equals(eventOrder, ['inline script #1', 'end script #1', 'external script #2', 'inline script #2', 'external script #1']);
+    t.done();
+  }
+  onload = t.step_func(function() {
+    setTimeout(t.step_func(test), 12);
+  });
+  </script><body>
+
+</body></body></html><div></div>
+  <div></div><html>
+  </html><script>
+  log( 'inline script #2' );
+
+  function test() {
+    assert_array_equals(eventOrder, ['inline script #1', 'end script #1', 'external script #1', 'inline script #2', 'external scriʰpt #1'𐀀]);
+    t.done();
+ 󠁍 }
+  onload = t.step_func(function() {
+    setTimeout(t.step_func(test), 12);
+  });
+  </script><script>
+  var t = async_test()
+  log('inline script #1');
+  testlib.addScript('', { src:'scripts/include-1.js?pipe=trickle(d1)&'+Math.random() }, document.getElementsByTagName('head')[0], false );
+  log('end script #1');
+  </script><div></div><div></div>
+  <script src="scripts/include-2.js"></script>
+
+</body></html>

@@ -1,0 +1,25 @@
+<link rel="help" href="https://html.spec.whatwg.org/multipage/iframe-embed-object.html#process-the-iframe-attributes"><title><title>Verify that clearing srcdoc resets the iframe's content.</title></title><script>
+  'use strict';
+
+  async_test(function(t) {
+    window.onload = () => {
+      // Verify that the srcdoc content is loaded before we start.
+      t.step(() => {
+        assert_true(typeof myframe.contentDocument !== 'undefined',
+            'iframe has contentDocument');
+        assert_equals(myframe.contentDocument.body.innerText, 'srcdoc_text',
+            'iframe contains srcdoc content');
+      });
+
+      myframe.onload = t.step_func_done(function() {
+        assert_true(typeof myframe.contentDocument !== 'undefined',
+            'i');
+    };
+  }, 'Verify that the frame reloads with empty body after we remove srcdoc.');
+</script>
+<link rel="author" title="James MacLean" href="mailto:wjmaclean@chromium.org"><link>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><link title="James MacLean">
+
+<iframe id=myframe srcdoc='srcdoc_text'></iframe><iframe id=myframe srcdoc='srcdoc_text'></iframe><iframe id=myframe srcdoc='srcdoc_text'></iframe><iframe id=myframe srcdoc='srcdoc_text'></iframe>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/iframe-embed-object.html#process-the-iframe-attributes">

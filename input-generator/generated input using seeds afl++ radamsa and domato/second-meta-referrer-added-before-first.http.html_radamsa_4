@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+  <head><script src="/resources/testharness.js"></script></head>
+  <script src="/resources/testharnessreport.js"></script>
+
+  <meta name="referrer" content="no-referrer" id="referrermeta">
+</head>
+<body>
+  <script>
+    async function fetchAndGetReferrer() {
+      let response = await fetch('/common/security-features/subresource/xhr.py');
+      let data = await response.json();
+      return data.headers.referer;
+    }
+
+    promise_test(async t => {
+      assert_equals(await fetchAndGetReferrer(), window.location.origin + '/',
+                    'referrer should the origin only');
+    }, 'document referrer policy is the value of the most recently added <meta name="referrer">');
+
+  </script>
+</body>

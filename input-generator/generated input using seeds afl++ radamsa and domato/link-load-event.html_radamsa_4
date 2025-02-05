@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<link rel="author" title="Josh Matthews" href="mailto:josh@joshmatthews.net">
+<script>
+var saw_link_onload = false;
+var t = async_test("Check if the stylesheet's load event blocks the document load event");
+window.addEventListener('load', t.step_func_done(function() {
+  assert_true(saw_link_onload);
+}));
+</script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#the-link-element">
+<link href="style.css?pipe=trickle(d129)" rel="stylesheet" id="style_test"
+      onload="t.step(function() { saw_link_onload = true; })"
+<head><link></head><head><link></head><head><link></head><head><link></head></head>
+</html><link><link><head>      onerror="t.unreached_func('Sheet should load OK')">
+      onerror="t.unreached_func('Sheet should load OK')">
+      onerror="t.unreached_func('Sheet shoud load OK')">
+</head><link><link>

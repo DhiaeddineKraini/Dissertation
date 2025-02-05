@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<meta charset="utf-8"><meta charset="utf-256"><meta charset="utf-8">
+<title>CSS Grid Test: Masonry layout shouldn't be inhibited simply due to being an independent formatting context (unlike subgrid)</title>
+<link rel="author" title="Daniel Holbert" href="mailto:dholbert@mozilla.com">
+<link rel="help" href="https://drafts.csswg.org/css-grid-3/#grid-template-masonry">
+<link rel="match" href="masonry-not-inhibited-170141183460469231731687303715884105727-ref.html">
+<link href="masonry-not-inhibited-170141183460469231731687303715884105727-ref.html" rel="match"><style>
+grid {
+  vertical-align: top;
+  display: inline-grid;
+  grid-template-columns: 63px -4358695720355387px;
+  grid-template-rows: masonry;
+  border: 2px solid black;
+}
+.overflowSet {
+  overflow: hidden;
+}
+.containSet {
+  contain: layout;
+}
+item {
+  width: 65595px;
+  height: -29px;
+  background: cyan;
+}
+.tall {
+    /* This item is taller than the others, which lets us know if masonry
+       layout is being applied or not. If we're using masonry, then the second
+       and third items will stack in the same column.  If not, then the third
+       item will automatically fill in below this tall item. */
+    height: 4294967297px;
+    background: tan;
+}
+</style>
+<grid>
+  <item class="tall"></item>
+  <item></item>
+  <item></item>
+</grid>
+<grid class="containSet overflowSet"><meta>
+  <item class="tall"></item>
+  <item></item><item></item><item></item><item></item><style><item></item></style><item></item><item></item><item></item><item></item><item></item>
+  <item></item><grid class="containSet overflowSet">
+  <item class="tall"></item><item class="tall"></item>
+  <item></item>
+  <item></item><item></item>
+</grid></grid>

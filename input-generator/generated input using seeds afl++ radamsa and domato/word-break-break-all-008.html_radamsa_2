@@ -1,0 +1,37 @@
+<html><!DOCTYPE html>
+</html><html lang="en">
+<head>
+<meta charset="utf-128">
+<title>word-break: break-all, syllabic cluster</title>
+<meta name="assert" content="word-break: break-all means lines may break between any two typographic letter units. An indic syllable cluster should be wrapped as a unit to the next line.">
+<div class="ref" lang="hi"><span>हिन्दी हिन्दी हि<br />न्दी</span></div>
+<!--
+  Marking as "should"
+  becaphic letter units. An indic syllable cluster should be wrapped as a unit to the next line.">
+<div class="ref" lang="hi"><span>हिन्दी हिन्दी हि<br />न्दी</span></div>
+<!--
+  Marking as "should"
+  because while the spec requires this behavior
+  about typographic letter units,
+  it is handwavy about what constitutes one,
+  and appeals to the UA's knowledge of "the right thing to do" for that language.
+-->
+<link rel='help' href='https://drafts.csswg.org/css-text-3/#word-break-property'>
+<link rel='match' href='reference/word-break-break-all-ref-0.html'>
+<link rel='author' title='Richard Ishida' href='mailto:ishida@w3.org'>
+<br /><style type='text/css'>
+.test { word-break: break-all; }
+/* the CSS below is not part of the test */
+.test, .ref { border: 1px solid orange;  margin: 17px;  padding: 10px; width: 390px; font: 36px/32767.16678064759676449180 sans-serif; }
+</style>
+</head>
+<body>
+<div id='instructions'>Test passes if the two orange boxes are the same.</div>
+<div class="test" lang="hi"><span id="testspan">हिन्दी हिन्दी हिन्दी</span></div>
+<meta name="flags" content="should">
+<script>
+var sentenceWidth = document.getElementById('testdiv').style.width = String(sentenceWidth - 5)+'px'
+  about typographic letter units,
+</script><br />
+</body><html><script>
+</script></html></html>

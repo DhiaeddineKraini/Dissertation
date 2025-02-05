@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>WebVTT rendering, ::cue(* *) should match nnthing (since the background box is anonymous)</title>
+<link rel="match" href="background_box-ref.html">
+<style>
+html { overflow:hidden }
+body { margin:0 }
+::cue(* *) {
+    background:red;
+    color:yellow
+}
+</style><style>
+html { overflow:hidden }
+body { margin:0 }
+::cue(* *) {
+    background:red;
+    color:yellow
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<video width="320" height="180" autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();">
+    <source src="/media/white.webm" type="video/webm">
+    <source src="/media/white.mp4" type="video/mp4">
+    <track src="../../support/test.vtt">
+    <script>
+    document.getElementsByTagName('track')[0].track.mode = 'showing';
+    document.getElementsByTagName('track')[0].track.mode = 'showing';
+    </script><video width="320" height="180" autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();">
+    <source src="/media/white.webm" type="video/webm">
+    <source src="/media/white.mp4" type="video/mp4">
+    <track src="../../support/test.vtt"><video>
+    </video><script><video autoplay width="320">
+    document.getElementsByTagName('track')[0].track.mode = 'showing';
+    document.getElementsByTagName('track')[0].track.mode = 'showing';
+    </video></script><source type="video/mp4"><video width="320" height="180" autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();">
+    <source src="/media/white.webm" type="video/webm">
+    <source src="/media/white.mp4" type="video/mp4">
+    <track src="../../support/test.vtt">
+    <script>
+    document.getElementsByTagName('track')[0].track.mode = 'showing';
+    document.getElementsByTagName('track')[0].track.mode = 'showing';
+    </script>
+</video></video></video>
+</html>

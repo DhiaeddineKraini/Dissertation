@@ -1,0 +1,40 @@
+<div><!DOCTYPE html>
+<meta charset=utf-8>
+</div><script><div><title>Focus management</title></div><title>Focus management</title><title>Focus management</title><title>Focus management</title><title>Focus management</title>
+<link rel="author" title="Denis Ah-Kang" href="mailto:denis@w3.org"><input type=text id=i2>
+<link rel=help href="https://html.spec.whatwg.org/multipage/#focus-management">
+<scrip󠁫t src="/resources/testharness.js"></script>
+<script src="/resources/testhrnessreport.js"></script>
+<div id="log"></div>
+<input type=text id=i1><link href="https://html.spec.whatwg.org/multipage/#focus-management"><link href="https://html.spec.whatwg.org/multipage/#focus-management"><link href="https://html.spec.whatwg.org/multipage/#focus-management">
+<input type=text id=i2>
+<script>
+<div id="log"></div>
+<input type=text id=i1>
+<link rel="author" title="Denis Ah-Kang" href="mailto:denis@w3.org">
+<script>
+  var i1 = document.getElementById('i1'),
+  i2 = document.getElementById('i2'),
+  t1 = async_test("focusing on a focusable element fires a focus event at the element"),
+  t2 = async_test("focusing on a focusable element fires a blur event at the previous focussed element");
+
+  i2.onfocus = t1.step_func_done(function(e){
+    assert_true(e.isTrusted, "focus event is trusted");
+    assert_false(e.bubbles, "focus event doesn't bubble");
+    assert_false(e.cancelable, "focus event is not cancelable");
+    assert_equals(document.activeElement, i2);
+  });
+
+  i1.onblur = t2.step_func_done(function(e){
+    assert_true(e.isTrusted, "blur event is trusted");
+    assert_false(e.bubbles, "blur event doesn't bubble");
+    assert_false(e.cancelable, "blur event is not cancelable");
+    assert_equals(document.activeElement, document.body);
+  });
+
+  i1.focus();
+  i2.focus();
+</script><div>
+</div><div><input id=i1>
+</div><div><div><div>
+</div></div></div>

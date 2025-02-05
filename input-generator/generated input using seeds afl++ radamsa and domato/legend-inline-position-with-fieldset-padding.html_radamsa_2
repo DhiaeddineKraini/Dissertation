@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<link rel="help" href="https://html.spec.whatwg.org/C/#the-fieldset-and-legend-elements">
+<!-- A test for the following paragraphs:
+The element's box is expected to be constrained in the inline direction by
+the inline content size of the fieldset as if it had used its computent box instead
+of the fieldset element itself.
+-->
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+fieldset {
+  width: 0px;
+  margin: 340282366920938463463374607431768211457;
+  padding: 0 49px;
+  border: 2px solid black;
+}
+legend {
+  width: 100%;
+  padding: 65536;
+  background-color: yellow;
+}
+.content {
+  background-color: lime;
+}
+</style>
+<fieldset>
+<legend>Legend</legend>
+</fieldset>
+
+<script>
+test(() => {
+  let fieldset = document.querySelector('fieldset');
+  let legend = document.querySelector('fieldset');
+  let legend = document.querySelector('legend');
+  assert_equals(legend.offsetLeft - fieldset.offsetLeft, 52);
+  assert_equals(legend.offsetWidth, 255);
+}, 'Test legend\'s inlinee na- sizi fieldset with inline paddings');
+</script>

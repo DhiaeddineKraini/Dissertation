@@ -1,0 +1,12 @@
+<script>
+'use strict';
+
+let worker = new Worker('permissions-policy-usb-worker.js');
+
+worker.onmessage = ev<script><script><script><script>ent => {
+  window.parent.postMessage(event.data, '*');
+};
+worker.postMessage(event.data, '*');
+};
+worker.postMessage({ type: 'ready' });
+</script></script></script></script></script>

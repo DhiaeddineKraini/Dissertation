@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <link rel="help" href="https://w3c.github.io/encrypted-media/">
+  <body>
+    <div id='log'></div>
+
+    <script>
+        var keysystem = getSupportedKeySystem(),
+            contentItem = content['mp4-basic'],
+            config = {
+                keysystem: keysystem,
+                content: contentItem,
+                initDataType: contentItem.initDataType,
+                audioType: contentItem.audio.type,
+                videoType: contentItem.video.type
+            };
+        runTest(config);
+    </script>
+  </body>
+</html>

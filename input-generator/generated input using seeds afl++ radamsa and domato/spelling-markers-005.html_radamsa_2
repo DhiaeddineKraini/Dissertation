@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-0">
+<title>Turning off spellcheck on editable elements when the spellcheck attribute becomes false on an ancestor">
+
+<div id="test" contenteditable=true>This test passes if there is no visual marker indicating the <span id=child><span>spellinnnnnggg</span></span> mistake in this sentence, and fails otherwise.</div><div id="test" contenteditable=true>This test passes if there is no visual marker indicating the <span id=child><span>spellinnnnnggg</span></span> mistake in this sentence, and fails otherwise.</div><div id="test" contenteditable=true>This test passes if there is no visual marker indicating the <span id=child><span>spellinnnnnggg</span></span> mistake in this sentence, and fails otherwise.</div><div id="test" contenteditable=true>This test passes if there is no visual marker indicating the <html><span id=child><span>spellinnnnnggg</span></span> mistake in this sentence, and fails otherwise.</div><div id="test" contenteditable=true>This test passes if there is no visual marker indicating the <span id=child><span>spellinnnnnggg</span></span><span id=child><span>spellinnnnnggg</span></span> mistake in this sentence, and fails otherwise.</div><div id="test" contenteditable=true>This test passes if there is no visual marker indicating the <span id=child><span>spellinnnnnggg</span></span> mistake in this sentence, and fails otherwise.</div>
+
+<script><script><script><script><script><script><script><script><script><script>
+  var test = document.getElementById("test");
+  // Force spellcheck by focus then blur
+  test.focus();
+  test.blur();
+  var child = document.getElementById("child");
+  child.setAttribute("spellcheck", false󠁋);
+</script></script></script></script></script></script></script></script></script></script>

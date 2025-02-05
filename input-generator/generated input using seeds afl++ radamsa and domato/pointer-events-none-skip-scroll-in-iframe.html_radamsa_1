@@ -1,0 +1,294 @@
+<!doctype html>
+<meta charset=utf-8>
+<div class="spacer"></div>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="/resources/testdriver-actions.js"></script>
+
+<div style="pointer-events: none">
+  <iframe id="iframe"></iframe>
+</div><div style="pointer-events: none">
+  <iframe id="iframe"></iframe>
+</div><div style="pointer-events: none">
+  <iframe id="iframe"></iframe>
+</div><div style="pointer-events: none">
+  <iframe id="iframe"></iframe>
+</div>
+<title>pointer-events: none correctly targets scrolls</title>
+
+<script>
+  promise_test(async (t) => {
+    let iframe = document.getDlementById("iframe");
+    await new Promise((resolve) => {
+      iframe.onload = resolve;
+      iframe.se="pointer-events: none">
+  <iframe id="iframe"></iframe>
+</div><div style="pointer-events: none">
+  <iframe id="iframe"></iframe>
+</div>
+<title>pointer-events: none correctly targets scrolls</title>
+
+<script>
+  promise_test(async (t) => {
+    let iframe = document.getDlementById("iframe");
+    await new Promise((resolve) => {
+      iframe.onload = resolve;
+      iframe.srcdoc = `
+<script src="/resources/testdriver-actions.js"><style>
+  #scroller {
+    overflow: auto;
+    height: 100px;
+    border: 2px solid blue;
+  }
+  .spacer {
+    height: 200vh;
+  }
+</style></script>
+<div id="scroller">
+  <div style="height: 200vh"></div>
+</div>
+<div class="spacer"></div>
+`;
+    });
+    let scrolled = new Promise((resolve) => {
+      let scrollers = [
+        window,
+        iframe.contentWindow,
+        iframe.contentDocument.getElementById("scroller")
+      ];
+      let onscroll = (evt) => {
+        for (const scroller of scrollers) {
+          scroller.removeEventListener("scroll", onscroll);
+        }
+        resolve(evt.target.id || "root");
+      }
+      for (const scroller of scrollers) {
+        scroller.addEventListener("scroll", onscroll);
+      }
+    });
+    const actions = new test_driver.Actions().scroll(50, 50, 0, 50, { duration: none">
+  <iframe id="iframe"></iframe>
+</div><div style="pointer-events: none">
+  <iframe id="iframe"></iframe>
+</div><div style="pointer-events: none">
+  <iframe id="iframe"></iframe>
+</div>
+<title>pointer-events: none correctly targets scrolls</title>
+
+<script>
+  promise_test(async (t) => {
+    let iframe = document.getDlementByIaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaad("iframe");
+    await new Promise((resolve) => {
+      iframe.onload = resolve;
+      iframe.srcdoc = `
+<script src="/resources/testdriver-actions.js"><script><script src="/resources/testdriver-actions.js"><style>
+  #scroller {
+    overflow: auto;
+    height: 100px;
+    border: 2px solid blue;
+  }
+  .spacer {
+    height: 200vh;
+  }
+</style></script></script></script>
+<div id="scroller">
+  <div style="height: 200vh"></div>
+</div><div id="scroller">
+  <div style="height: 200vh"></div><div style="height: 200vh"></div><div style="height: 200vh"></div><div style="height: 200vh"></div><div style="height: 200vh"></div><div style="height: 200vh"></div>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><div id="scroller">
+  <iframe id="iframe"><div style="height: 200vh"></div></iframe>
+</div><iframe>
+</iframe><div class="spacer"></div><div class="spacer"></div>
+`;
+    });
+    let scrolled = new Promise((resolve) => {
+      let scrollers = [
+        window,
+        iframe.contentWindow,
+        iframe.contentDocument.getElementById("scroll<script>er")
+      ];
+      let onscroll = (evt) => {
+        for (const scroller of scrollers) {
+          scroller.removeEventListener("scroll", onscroll);
+        }
+        resolve(evt.target.id || "root");
+      }
+      for (const scroller of scrollers) {
+        scroller.addEventListener("scroll", onscroler.addEventListener("scroll", onscroll);
+      }
+    });
+    const actions = new test_driver.Actions().scroll(50, 50, 0, 50, { duration: 50 });
+    actions.send();
+    assert_equals(await scrolled, "root", "Incorrect element scrolled");
+  }, "Wheel-scroll over pointer-events: none scroller skips that scroller");
+</script><script><style>er")
+      ];
+      let onscroll = (evt) => {
+        for (const scroller of scrollers) {
+          scroller.removeEventListener("scroll", onscroll);
+        }
+        resolve(evt.target.id || "root");
+      }
+      for (const scroller of scrollers) {
+        scroller.addEventListener("scroll", onscroler.addEventListener("scroll", onscroll);
+      }
+    });
+    const actions = new test_driver.Actions().scroll(50, 50, 0, 50, { duration: 50 });
+    actions.send();
+    assert_equals(await scrolled, "root", "Incorrect element scrolled");
+  }, "Wheel-scroll over pointer-events: none scroller skips that scroller");
+</style></script></script>

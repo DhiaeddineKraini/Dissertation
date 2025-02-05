@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Testing editable state and focus in slotted editable element</title>
+<script src="/resources/testharness.js"></script>
+<div contenteditable></div>
+</head>
+<body>
+<div id="host">
+<script src="/resources/testharnessreport.js"></script>
+</div>
+<script>
+const text = 'A';
+test(() => {
+  const host = document.querySelector('#host');
+  const shadowRoot = host.attachShadow({ mode: "open" });
+  const slot = document.createElement("slot");
+  shadowRoot.appendChild(slot);
+  const editable = document.querySelector('div[contenteditable]');
+  editable.focus();
+  document.execCommand('insertText', false, text);
+  editable.blur();
+  assert_equals(editable.innerText, text);
+  editable.focus();
+  document.execCommand('insertText', false, text);
+  assert_equals(editable.innerText, text + text);
+});
+</script>
+</body>
+</html>

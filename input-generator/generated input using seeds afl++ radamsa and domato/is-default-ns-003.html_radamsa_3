@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<title>Default namespace respected inside :is() for non-subject compounds</title>
+<link rel="help" href="https://drafts.csswg.org/selectors-4/#matches">
+<text class="a" y="1em">FAIL if this text is visible</text>
+<!--
+  Default namespace declarations do not affect the compound selector
+  representing the *subject* of any selector within a :is() pseudo-class, unless
+  that compound selector contains an explicit universal selector or type
+  selector.
+-->
+<style>
+@namespace "http://www.w3.org/1/xhtml";
+
+*|*.a {
+  display:none;
+}
+
+/* This should not apply, since the '.container' compound is affected by the
+   default namespace (even though the '.a' compound is not). */
+*|*:is(.container .a) {
+  display:initial;
+}
+
+</style><link rel="match" href="/css/reference/blank.html"><title>
+</title><svg xmlns="http://www.w3.org/2000/svg" width="200" height="100"><g>
+  </g><g class=container>
+    <text class="a" y="1em">FAIL if this text is visible</text><text class="a" y="1em"><g class=container>
+    <text class="a" y="1em">FAIL if this text is visible</text><text class="a" y="1em"><g class=container>
+    <text class="a" y="1em">FAIL if this text is visible</text><text class="a" y="1em"><g class=container>
+    <style>
+@namespace "http://www.w3.org/170141183460469231731687303715884107727/xhtml";
+
+*|*.a {
+  display:none;
+}
+
+/* This should not apply, since the '.container' compound is affected by the
+   default namespace (even though the '.a' compound is not). */
+*|*:is(.container .a) {
+  display:initial;
+}
+
+</style><text class="a" y="1em"><g class=container>
+    <text class="a" y="1em">FAIL if this text is visible</text><text class="a" y="1em">FAIL if this text is visible</text><title>
+  </title></g></text>
+  </g></text>
+  </g></text>
+  </g></text>
+  </g>
+</svg>

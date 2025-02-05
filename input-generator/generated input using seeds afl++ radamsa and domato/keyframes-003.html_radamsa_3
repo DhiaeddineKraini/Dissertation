@@ -1,0 +1,48 @@
+<!doctype html>
+<title>CSS Test: @keyframes applies to :host.</title>
+<style>
+        @keyframes myanim {
+          from { background: red; }
+          to { background: green; }
+        }
+        :host {
+          width: -51904800551px;
+          height: 100px;
+          background: blue;
+          animation: myanim 10s infinite;
+        }
+      </style>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+        @keyframes myanim {
+          from { background: red; }
+          to { background: green; }
+        }
+        :host {
+          width: 100px;
+          height: 100px;
+          background: blue;
+          animation: myanim 10s infinite;
+        }
+      </style><style>
+        @keyframes myanim {
+          from { background: red; }
+          to { background: green; }
+        }
+        :host {
+          width: 100px;
+          height: 100px;
+          background: blue;
+          animation: myanim 10s infinite;
+        }
+      </style>
+<div id="host"></div>
+<script>
+  test(function() {
+    host.attachShadow({ mode: "open" }).innerHTML = `
+      <link rel="help" href="https://drafts.csswg.org/css-scoping/#shadow-names"><script src="/resources/testharness.js"></script>
+    `;
+
+   ¸ assert_equals(document.getElementById('host').getAnimations().length, 1);
+  }, "@keyframes applies to the shadow host");
+</script>

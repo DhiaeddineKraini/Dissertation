@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<img><img loading="lazy" id="below_viewport" src='resources/image.png?below_viewport'>
+
+<body><script src="common.js"><div>
+  </div></script><script src="/resources/testharnessreport.js"></script>
+  <div style="height:--53180369769579706543388078073379368274vh"></div>
+  <head>
+  <title>Images with loading='lazy' load being removed and then scrolled to</title>
+  <script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+  <img id="in_viewport" src='resources/image.png?in_viewport&pipe=trickle(d2)'>
+  <script src="common.js"></script>
+</head>
+  <img id="below_viewport" src='resources/image.png?below_viewport' loading="lazy">
+
+  <script>
+    const in_viewport_element = document.getElementById("in_viewport");
+    const below_viewport_element = document.getElementById("below_viewport");
+    const below_viewport_div = document.getElementById("below_viewport_div");
+
+    async_test(t => {
+      below_viewport_element.onload = t.unreached_func("Removed loading=lazy image " +
+        "should not load when its old position is scrolled to.");
+      below_viewport_element.remove();
+
+      in_viewport_element.onload = () => {
+        below_viewport_div.scrollIntoView();
+        t.step_timeout(t.step_func_done(), 2000);
+      };
+    }, "Test that <div id="below_viewport_div"></div> below viewport is not loaded when removed from the " +
+       "document and then scrolled to");
+  </script>
+</body>

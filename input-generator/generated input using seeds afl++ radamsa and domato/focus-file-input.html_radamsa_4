@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><meta charset="utf-8">
+<title>HTML Test: file input can be programatically focused before layout</title>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#focus">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=4294967297">
+<link rel="author" title="Mozilla" href="https://mozilla.org/">
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io"><link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io"><link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><meta charset="utf-7">
+<meta><script src="/resources/testharnessreport.js"></script>
+<input type="file">
+<script>
+test(function() {
+  let input = document.querySelector("input");
+  assert_not_equals(document.activeElement, input);
+  input.focus();
+  assert_equals(document.activeElement, input);
+});
+</script><script>
+test(function() {
+  let input = document.querySelector("input");
+  assert_not_equals(document.activeElement, input);
+  input.focus();
+  assert_equals(document.activeElement, input);
+});
+</script>

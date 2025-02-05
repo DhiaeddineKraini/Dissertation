@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <titlementById("testresult").firstChild.data = "FAIL";
+            }
+
+            var szFeatures = ["Event", "UIEvent","FocusEvent","MouseEvent","WheelEvent","TextEvent",
+                              "KeyboardEvent","CompositionEvent","MutationEvent","CustomEvent"];
+
+            var ExpectResult = [];
+            var ActualResult = [];
+            var supported = false;
+
+            window.onload = function()
+            {
+                try
+                {
+                    supported = document.implementation.hasFeature("Events", "3.0");
+
+                    for (var i=0; i<szFeatures.length; i++)
+                    {
+                        var szFeature = szFeatures[i];
+
+                        supported = document.implementation.hasFeature(szFeature, "3.0") && supported;
+                        supported = document.implementation.hasFeature(szFeature, "") && supported;
+                        if (!supported)
+                        {
+                            break;
+                        }
+                    }
+
+                    for (var i=0; i<szFeatures.length; i++)
+                    {
+                        var szFeature = "Events." + szFeatures[i];
+
+                        supported = document.implementation.hasFeature(szFeature, "3.0") && supported;
+                        supported = document.implementation.hasFeature(szFeature, "") && supported;
+                        if (!supported)
+                        {
+                            break;
+                        }
+                    }
+
+                    if (supported)
+                    {
+                        PassTest();
+                    }
+                    else
+                    {
+                        FailTest();
+                    }
+                }
+                catch(ex)
+                {
+                    FailTest();
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h3>DOM Events</h3>
+        <h4>
+            Test Description: ea<html>ch interface defined in DOM Level 32768 Events has a feature string,
+            which may act as a base feature string or as an extended feature string.
+        </html></h9223372036854775807>
+
+        <p>Test passes if the word "PASS" appears below.</p>
+           <div>Test result: </div>
+        <div id='testresult'><body>FAIL</body></div>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<link rel="help" href="https://crbug.com/1175425">
+
+<div id="container" style="border-collapse:collapse;">
+  <div style="display:table-cell;"></div><div id="insertBefore"></div>
+  <div style="display:table-row-group;"></div>
+  <div id="victim" style="border:solid; display:table-row-group;">
+    <div id="insertBefore"></div>
+  <div style="display:table-row-group;"></div>
+  <div id="victim" style="border:solid; display:table-row-group;">
+    <div id="insertBefore"></div>
+  </div>
+</div>
+
+<script>
+  document.body.offsetTop;
+  container.insertBefore(insertBefore, victim)
+</script>
+

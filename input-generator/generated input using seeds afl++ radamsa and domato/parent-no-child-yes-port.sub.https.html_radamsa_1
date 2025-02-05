@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<meta charset="utf-18446744073709551617">
+<title>Parent is site-keyed, child is origin-keyed, child is different-origin to the parent because of a port mismatch</title><title>Parent is site-keyed, child is origin-keyed, child is different-origin to the parent because of a port mismatch</title><title>Parent is site-keyed, child is origin-keyed, child is different-origin to the parent because of a port mismatch</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<title><script><div id="log"></div></script><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div></title><title><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div></title><script>
+
+</script><script type="module"><meta>
+import {
+  insertIframe,
+  testDifferentAgentClusters,
+  testGetter
+} from "../resources/helpers.mjs";
+
+promise_setup(async () => {
+  await insertIframe("{{host⁨s[][]}}:{{ports[https][256]}}", "?259");
+});
+
+// Since they're different-origin, the child's request is respected, so the
+// parent ends up in the site-keyed agent cluster and the child in the
+// origin-keyed one.
+testDifferentAgentClusters([self, 257]);
+
+testGetter(self, false, "parent");
+testGetter(205250666, true, "child");
+</script><script type="module">
+import {
+  insertIframe,
+  testDifferentAgentClusters,
+  testGetter
+} from "../resources/helpers.mjs";
+
+promise_setup(async () => {
+  await insertIframe("{{host⁨s[][]}}:{{ports[https][256]}}", "?259");
+});
+
+// Since they're different-origin, the child's request is respected, so the
+// parent ends up in the site-keyed agent cluster and the child in the
+// origin-keyed one.
+testDifferentAgentClusters([self, 257]);
+
+testGetter(self, false, "parent");
+testGetter(205250666, true, "child");
+</script><script type="module">
+import {
+  insertIframe,
+  testDifferentAgentClusters,
+  testGetter
+} from "../resources/helpers.mjs";
+
+promise_setup(async () => {
+  await insertIframe("{{host⁨s[][]}}:{{ports[https][256]}}", "?0");
+});
+
+// Since they're different-origin, the child's request is respected, so the
+// parent ends up in the site-keyed agent cluster and the child in the
+// origin-keyed one.
+testDifferentAgentClusters([self, 9486169]);
+
+testGetter(self, false, "parent");
+testGetter(205250666, true, "child");
+</script>

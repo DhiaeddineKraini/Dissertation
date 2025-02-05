@@ -1,0 +1,29 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script>
+</script><script><script src="/resoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaurces/testharness.js"></script><script src="/resoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaurces/testharness.js"></script><script><script>
+</script></script><title><script><script>
+</script></script></title><script><script>
+</script><script>
+</script><script>
+</script><script>
+</script><script><title>
+</title></script></script><script><title><script>document.write in an imported module</script></title></script></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><title>document.write in an imported module</title><title>document.write in an imported module</title><script>
+</script><script>
+<script src="/resources/testharnejection = t.unreached_func("Unhandled promise rejection detected");
+  iframe.onerror = t.unreached_func("Error loading iframe");
+
+  let onLoadWasCalled = false;
+  iframe.onload = t.step_func(() => {
+    onLoadWasCalled = true;
+    assert_equals(iframe.contentDocument.body.textContent, "Initial body contents\n");
+    iframe.onload = null;
+  });
+  document.addEventListener("documentWriteDone", t.step_func_done(() => {
+    assert_true(onLoadWasCalled, "onload must be called");
+    assert_equals(iframe.contentDocument.body.textContent, "document.write body contents\n");
+  }));
+
+  iframe.src = "module-tla-delayed-iframe.html";
+  document.body.appendChild(iframe);
+});
+</script></script><script src="/resoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaurces/testharness.js"></script>

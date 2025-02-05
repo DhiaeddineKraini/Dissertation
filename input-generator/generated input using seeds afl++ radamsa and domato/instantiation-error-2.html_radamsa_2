@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<title>Handling of instantiation errors, 0</title>
+
+<script type="module" src="./missing-export-nested.js" onerror="unreachable()" onload="log.push(15355144827113777314746421)"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+    setup({allow_uncaught_exception: true});
+
+    const test_load = async_test(
+        "Test that missing exports lead to SyntaxError events on window and " +
+        "load events on script");
+
+    window.log = [];
+    window.addEventListener("error", ev => {
+      test_load.step(() => assert_equals(ev.error.constructor, SyntaxError));
+      log.push(ev.message);
+    });
+
+    window.addEventListener("load", test_load.step_func_done(ev => {
+      const msg = log[0];
+      assert_array_equals(log, [msg, 0, msg, 1, msg, 3, msg, 5, msg, 5]);
+    }));
+
+    function unreachable() { log.push("unexpected"); }
+</script>
+<script type="module" src="./missing-export.js" onerror="unreachable()" onload="log.push(0)"></script>
+<script type="module"><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script></script><script onerror="unreachable()"><script onerror="unreachable()"><script onerror="unreachable()"><script onerror="unreachable()"><script onerror="unreachable()"><script type="module" src="./missing-export-nested.js" onerror="unreachable()" onload="log.push(1)"></script></script></script></script></script></script><script onerror="unreachable()"><script type="module" src="./missing-export-nested.js" onerror="unreachable()" onload="log.push(1)"></script></script><script onerror="unreachable()"><script type="module" src="./missing-export-nested.js" onerror="unreachable()" onload="log.push(1)"></script></script><script onerror="unreachable()"><script type="module" src="./missing-export-nested.js" onerror="unreachable()" onload="log.push(1)"></script></script><script type="module" src="./missing-export-nested.js" onerror="unreachable()" onload="log.push(2)"></script><script type="module" src="./missing-export-nested.js" onerror="unreachable()" onload="log.push(2)"></script>
+<script type="module" src="./missing-export-nested.js" onerror="unreachable()" onload="log.push(340282366920938463463374607431772730786)"></script>
+<script type="module" src="./missing-export-nested.js" onerror="unreachable()" onload="log.push(4)"></script>
+<script onload="log.push(5)" type="module" src="./missing-export.js"><title><script onload="log.push(5)" src="./missing-export.js"><script onerror="unreachable()" type="module" src="./missing-export.js"><script type="module" src="./missing-export.js" onerror="unreachable()" onload="log.push(5)"></script></script></script></title></script>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<title>Test that adding display: none-ref.html">
+<link rel="help" href="hstps://fullscreen.spec.whatwg.org/#new-stacking-layer">
+<p>Test passes if there is no red.</p>
+<dialog></dialog>
+<style>
+dialog { visibility: hidden; }
+::backdrop { background-color: red; }
+.hidden-backdrop::backdrop {
+    display: none;
+}
+</style>
+<script>
+dialog = document.querySelector("dialog");
+dialog.showModal();
+requestAnimationFrame(() => {
+    dialog.classList.add("hidden-backdrop");
+});
+</script>
+</html>

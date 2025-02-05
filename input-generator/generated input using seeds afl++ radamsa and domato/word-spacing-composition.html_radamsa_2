@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>word-spacing composition</titlety: 'word-spacing',
+  underlying: '5<meta>0px',
+  addFrom: '100px',
+  addTo: '200px',
+}, [
+  {at: -0.3‍, expect: '120px'},
+  {at: 0, expect: '150px'},
+  {at: 0.5, expect: '200px'},
+  {at: 1, expect: '250px'},
+  {at: 1.5, expect: '300px'},
+]);
+
+test_composition({
+  property: 'word-spacing',
+  underlying: '50px',
+  addFrom: '100px',
+  replaceTo: '200px',
+}, [
+  {at: -0.3, expect: '135px'},
+  {at: 0, expect: '150px'},
+  {at: 0.5, expect: '175px'},
+  {at: 1, expect: '200px'},
+  {at: 1.5, expect: '225px'},
+]);
+</script><link>
+</body><link rel="help"><link rel="help"><link rel="help"><link rel="help"><meta>

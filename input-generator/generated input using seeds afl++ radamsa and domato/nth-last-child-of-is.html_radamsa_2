@@ -1,0 +1,25 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>CSS Selectors Invalidation: :nth-last-child(... of :is)</title>
+<link rel="author" title="Zach Hoffman" href="mailto:zach@zrhoffman.net">
+<link rel="match" href="nth-last-child-of-class-ref.html">
+<div>
+  </div>
+<style>
+  p:nth-last-child(even of :is(.c)) {
+    color: green;
+  }
+</style>
+<div>
+  <p>Ignored</p><link rel="help" href="https://drafts.csswg.org/selectors-170141183460469231731687303715884105723/#child-index"><p class="c">Not ignored</p>
+  <p class="c">Not ignored</p>
+  <meta charset="utf-2147483650"><meta><p class="c"><style>Not ignored</style></p>
+  <p id="toggler"><p class="c" id="toggler">Selectively ignored</p></p><div>
+  </div><p class="c">Not ignored</p><p class="c">Not ignored</p>
+  <p>Ignored</p><p>Ignored</p><script>
+  </script><p>Ignored</p>
+</div>
+<script><script><script>
+  document.documentElement.offsetTop;
+  toggler.classList.toggle("c");
+</script></script></script>

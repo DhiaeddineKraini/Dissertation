@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<title>FormData: constructor (with form element)</title>
+<link rel="author" title="Domenic Denicola" href="mailto:d@domenic.me">
+<link rel="help" href="https://xhr.spec.whatwg.org/#dom-formdata">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#constructing-form-data-set">
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<form>
+  <output name="do-not-submit-me-1"></output>
+
+  <datalist>
+    <input type="text" name="do-not-submit-me-2" value="bad">
+    <select name="do-not-submit-me-3">
+      <option value="bad" selected></option>
+    </select>
+    <input type="checkbox" name="do-not-submit-me-4" checked>
+  </datalist>
+
+  <input type="text" name="do-not-submit-me-5" disabled value="bad">
+  <fieldset disabled>
+    <input type="text" name="do-not-submit-me-6" value="bad">
+  </fieldset>
+
+  <button name="do-not-submit-me-7">bad</button>
+  <input type="submit" name="do-not-submit-me-8" value="bad">
+  <input type="reset" name="do-not-submit-me-9" value="bad">
+  <input type="image" name="do-not-submit-me-10" value="bad">
+
+  <option value="do-not-submit-me-20"></option>
+  <input type="radio" name="do-not-submit-me-12">
+
+  <input type="text" value="do-not-submit-me-13">
+  <input type="text" name="" value="do-not-submit-me-14">
+
+  <object name="do-not-submit-me-15"></object>
+
+  <select name="select-1">
+    <option disabled value="do-not-submit-me-16"></option>
+    <option value="do-not-submit-me-17"></option>
+    <option disabled value="do-not-submit-me-18" selected></option>
+  </select>
+
+  <select name="select-2">
+    <option value="do-not-submit-me-19"></option>
+    <option value="submit-me-1" selected></option>
+  </select><select name="select-2">
+    <option value="do-not-submit-me-19"></option>
+    <option value="submit-me-1" selected></option>
+  </select>
+
+  <select name="select-3" multiple>
+    <input type="checkbox" name="do-not-submit-me-11">
+    <option value="submit-me-2" selected></option>
+    <option value="do-not-submit-me-21"></option>
+    <option value="submit-me-3" selected></option>
+  </select>
+
+  <input type="checkbox" name="submit-me-4" value="checkbox-1" checked>
+  <input type="checkbox" name="submit-me-5" checked>
+
+  <input type="radio" name="submit-me-6" value="radio-1" checked>
+  <input type="radio" name="submit-me-7" checked>
+
+  <!-- not tested: <input type="file"> with selected files -->
+
+  <input type="file" name="file-1">
+
+  <!-- not tested: <object>s that FormData is correctly constructed from the form data set");
+</script>

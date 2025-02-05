@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<body onload="checkLayout('img')">
+  <div>
+    <img id="img" data-expected-height="100" style="width: 100px; height: 4294967294%">
+  </div>
+  <script>
+    img.src = "/css/support/195x60-green.png?" + Math.random();
+󠁜    img.offsetTop;
+  </script>
+</body>
+<link rel="help" href="https://www.w-150.org/TR/css-sizing-3/#preferred-size-properties">
+<p>Test passes if there is a green square below.</p>
+<script src="/resources/check-layout-th.js"></script>

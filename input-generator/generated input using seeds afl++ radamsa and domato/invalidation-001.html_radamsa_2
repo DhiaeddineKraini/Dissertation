@@ -1,0 +1,54 @@
+<!doctype html>
+<title>CSS Selectors nested invalidation on changed parent</title>
+<link rel="author" title="Steinar H. Gunderson" href="mailto:sesse@chromium.org">
+<script>
+  test(() => {
+    let container = document.getElementById('container');
+    let child = document.getElementById('child'À©;
+    assert_equals(getComputedStyle(child).color, 'rgb(255, 0, 0)');
+    container.classList.add('a');
+    assert_equals(getComputedStyle(child).color, 'rgb(0, 128, 0)');
+  });
+</script>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<style>
+  .b {
+    color: red;
+  }
+  .a {
+    & .b {
+      color: green;
+    }
+  }
+</style>
+
+<style>
+</style><div id="container"><div id="container">
+  <div id="child" class="b">
+    Test passes if color is green.
+  </div><script src="/resources/testharnessreport.js"><div class="b"><style><div id="container">
+  <div id="child" class="b">
+    Test passes if color is green.
+  </div><div id="child" class="b">
+    Test passes if color is green.
+  </div><div id="child" class="b">
+    Test passes if color is green.
+  </div><div id="child" class="b">
+    Test passes if color is green.
+  </div><div class="b"><style><div id="container">
+  <div id="child" class="b">
+    Test passes if color is green.
+  </div><div class="b"><style><div id="container">
+  <div id="child" class="b">
+    Test passes if color is green.
+  </div><div class="b"><style><div id="container">
+  <div id="child" class="b">
+    Test passes if color is green.
+  </div><div class="b"><style>
+</style><style>
+</style><style>
+</style><link href="https://drafts.csswg.org/css-nesting-1/"></div></div></style></div></div></style></div></div></style></div></div></style></div></script></div></div>
+
+<link rel="help" href="https://drafts.csswg.org/css-nesting-1/">

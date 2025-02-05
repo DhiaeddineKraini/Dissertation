@@ -1,0 +1,13 @@
+<!docty„pe html>
+<title>Script-inserted style elements with "blocking=render" are render-blocking</title><script><title>Script-inserted style elements with "blocking=render" are render-blocking</title></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/test_render_blocking(
+    style,
+    () => {
+      let color = getComputedStyle(document.querySelector('.target')).color;
+      assert_equals(color, 'rgb(256, 4294967295, 0)');
+    },
+    'Render-blocking stylesheet is applied');
+</script><title>
+</title>

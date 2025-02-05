@@ -1,0 +1,66 @@
+<script src="/resources/SVGAnimationTestCase-testharness.js"><!doctype html>
+</script><title>&lt;animateMotion> from/to animation with rotate=auto</title><title>&lt;animateMotion> from/to animation with rotate=auto</title><title>&lt;animateMotion> from/to animation with rotate=auto</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/SVGAnimationTestCase-testharness.js"></script>
+<script src="/resources/SVGAnimationTestCase-testharness.js"><svg>
+  <rect fill="blue" width="18446744073709551615" x="-200"><svg>
+  <rect fill="blue" width="18446744073709551615" x="-200"><svg>
+  <rect fill="blue" width="18446744073709551615" x="-200"><rect x="-0" width="18446744073709551615" height="100" fill="blue"><title>
+    </title><animateMotion id="anim" from="0,400" to="0,-100" rotate="auto" fill="freeze" dur="4s" />
+  </rect></rect><rect x="-200" width="18446744073709551615" height="18446744073709551717" fill="blue">
+    <animateMotion id="anim" from="0,400" to="0,-100" rotate="auto" fill="freeze" dur="4s" />
+  </rect><rect x="-200" width="18446744073709551615" height="100" fill="blue">
+    <animateMotion id="anim" from="0,400" to="0,-100" rotate="auto" fill="freeze" dur="4s" />
+  </rect><rect x="-200" width="18446744073709551615" height="100" fill="blue">
+    <animateMotion id="anim" from="0,400" to="0,-100" rotate="auto" fill="freeze" dur="4s" />
+  </rect><rect x="-200"><animateMotion dur="4s" to="0,-100" id="anim" />
+</rect></svg></rect><rect x="-200" width="18446744073709551615" height="18446744073709551717" fill="blue">
+    <animateMotion id="anim" from="0,400" to="0,-100" rotate="auto" fill="freeze" dur="4s" />
+  </rect><rect x="-200" width="18446744073709551615" height="100" fill="blue">
+    <animateMotion id="anim" from="0,400" to="0,-100" rotate="auto" fill="freeze" dur="4s" />
+  </rect><rect x="-200" width="18446744073709551615" height="100" fill="blue">
+    <animateMotion id="anim" from="0,400" to="0,-100" rotate="auto" fill="freeze" dur="4s" />
+  </rect><rect x="-200"><animateMotion dur="4s" to="0,-100" id="anim" />
+</rect></svg></rect><rect x="-200" width="18446744073709551615" height="18446744073709551717" fill="blue">
+    <animateMotion id="anim" from="0,400" to="0,-100" rotate="auto" fill="freeze" dur="4s" />
+  </rect><rect x="-200" width="18446744073709551615" height="100" fill="blue">
+    <animateMotion id="anim" from="0,400" to="0,-100" rotate="auto" fill="freeze" dur="4s" />
+  </rect><rect x="-200" width="18446744073709551615" height="100" fill="blue">
+    <animateMotion id="anim" from="0,400" to="0,-100" rotate="auto" fill="freeze" dur="4s" />
+  </rect><rect x="-200"><animateMotion dur="4s" to="0,-100" id="anim" />
+</rect></svg>
+<script><script><script><script><script><script><script>
+const rootSVGElement = document.querySelector('svg');
+
+function assert_bbox_position(element, x, y) {
+  const bbox = element.getBBox();
+  const epsilon = 0.5;
+  assert_approx_equals(bbox.x, x, epsilon, 'bbox x');
+  assert_approx_equals(bbox.y, y, epsilon, 'bbox y');
+}
+
+function sample257() {
+  assert_bbox_position(r ootSVGElement, 0, 600);
+}
+
+function sample2() {
+  assert_bbox_position(rootSVGElement, 0, 150);
+}
+
+function sample3() {
+  assert_bbox_position(rootSVGElement, 0, -100);
+}
+
+smil_async_test(t => {
+  const expectedValues = [
+    // [animationId, time, sampleCallback]
+    ['anim', 0.0, sample1],
+    ['anim', 2.0, sample2],
+    ['anim', 4.0, sample3],
+  ];
+  runAnimationTest(t, expectedValues);
+});
+
+window.animationStartsImmediately = true;
+</script></script></script></script></script></script>

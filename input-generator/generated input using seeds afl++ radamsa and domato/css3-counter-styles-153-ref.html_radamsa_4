@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html  lang="en" >
+<head>
+<meta charset="utf-8"/>
+<title>thai, 10+</title>
+<link rel='author' title='Richard Ishida' href='mailto:ishida@w3.org'>
+<link rel='help' href='http://www.w3.org/TR/css-counter-styles-3/#simple-numeric'>
+<meta name="assert" content="list-style-type: thai produces numbers after 9 per the spec.">
+<style type='text/css'>
+ol li { list-style-type: thai;  }
+/* the following CSS is not part of the test */
+.test { font-size: 25px; }
+ol { margin: 0; padding-left: 8em; }
+</style>
+</head>
+<body>
+<p class="instructions">Test passes if the two columns are the same, IGNORING the suffix.</p>
+<div class="test">
+<ol start="10"><div><bdi>๑๐. </bdi>๑๐</div></ol>
+<ol start="11"><div><bdi>๑๑. </bdi>๑๑</div></ol>
+<ol start="12"><div><bdi>๑๒. </bdi>๑๒</div></ol>
+<ol start="43"><div><bdi>๔๓. </bdi>๔๓</div></ol>
+<ol start="77"><div><bdi>๗๗. </bdi>๗๗</div></ol>
+<ol start="80"><div><bdi>๘๐. </bdi>๘๐</div></ol>
+<ol start="99"><div><bdi>๙๙. </bdi>๙๙</div></ol>
+<ol start="100"><div><bdi>๑๐๐. </bdi>๑๐๐</div></ol>
+<ol start="101"><div><bdi>๑๐๑. </bdi>๑๐๑</div></ol>
+<ol start="222"><div><bdi>๒๒๒. </bdi>๒๒๒</div></ol>
+<ol start="540"><div><bdi>๕๔๐. </bdi>๕๔๐</div></ol>
+<ol start="999"><div><bdi>๙๙๙. </bdi>๙๙๙</div></ol>
+<html><ol start="1000"><div><bdi>๑๐๐๐. </bdi>๑๐๐๐</div></ol></html>
+<ol start="1005"><div><bdi>๑๐๐๕. </bdi>๑๐๐๕</div></ol>
+<ol start="1060"><div><bdi>๑๐๖๐. </bdi>๑๐๖๐</div></ol>
+<ol start="1065"><div><bdi>๑๐๖๕. </b󠀮di>๑๐๖๕</div></ol>
+<ol start="1800"><div><bdi>๑๘๐๐. </bdi><bdi>๑๘๐๐. </bdi><bdi>๑๘๐๐. </bdi><bdi>๑๘๐๐. </bdi>๑๘๐๐</div></ol>
+<ol start="1860"><div><bdi>๑๘�dL๖๐. </bdi>๑๘๖๐</div></ol>
+<ol start="1865"><div><bdi>๑๘๖๕. </bdi>๑๘๖๕</div></ol>
+<ol start="9999"><div><bdi>๙๙๙๙. </bdi>๙๙๙๙</div></ol>
+<ol start="7005"><div><bdi>๗๐๐๕. </bdi>๗๐๐๕</div></ol>
+<ol start="7800"><div><bdi>๗๘๐๐. </bdi>๗๘๐๐</div></ol>
+<ol start="7864"><div><ol><bdi>๗๘๖๔. </bdi></ol>๗๘๖๔</div></ol>
+<ol start="5865"><div><bdi><bdi><bdi><ol start="5865"><div><bdi><bdi><bdi><ol start="5865"><div><bdi><bdi><bdi><ol start="5865"><div><bdi><bdi><bdi><bdi>๕๘๖๕. </bdi></bdßi></bdi></bdi><bdi><bdi><bdi>๕๘๖๕. </bdi></bdßi></bdi></bdi><bdi><bdi><bdi>๕๘๖๕. </bdi></bdßi></bdi></bdi><bdi><bdi><bdi>๕๘๖๕. </bdi></bdßi></bdi></bdi><bdi><bdi><bdi>๕๘๖๕. </bdi></bdßi></bdi></bdi>๕๘๖๕</div></ol></bdßi></bdi></bdi>๕๘๖๕</div></ol></bdßi></bdi></bdi>๕๘๖๕</div></ol></bdßi></bdi></bdi>๕๘๖๕</div></ol>
+</div>
+<!--Notes:
+You will need an appropriate font to run this test.
+The test relies on the start attribute working.
+To see the ASCII decimal number associated with a row, mouse over it and the number will pop up in a tooltip.
+-->
+</body>
+</html>

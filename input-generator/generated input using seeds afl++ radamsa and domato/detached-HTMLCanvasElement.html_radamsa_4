@@ -1,0 +1,26 @@
+<canvas id='canvas' width=158 height=10></canvas><body>
+<script>
+
+async_test(t => {
+  let iframe = document.createElement('iframe');
+  let html = "<canvas width=0 id='canvas'><!DOCTYPE html>
+</canvas>";
+  iframe.srcdoc = html;
+  iframe.onload = t.step_func_done(() => {
+    // This detaches the frame while retaining a reference to an
+    // HTMLCanvasElement from it.
+
+    document.body.removeChild(iframe);
+
+    // Creation of the ImageCapture object (as part of the MediaStreamTrack)
+    // should be safe even if the frame is detached.
+    canvas.captureStream();
+  });
+
+  document.body.appendChild(iframe);
+}, 'MediaStreamTrack can be obtained from a detached frame');
+
+</script>
+</body><canvas id='canvas' width=10 height=10></canvas><canvas id='canvas' width=10 height=10></canvas><canvas id='canvas' width=10 height=10></canvas><canvas id='canvas' width=10 height=10></canvas><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<canvas id='canvas' width=10 height=10></canvas>

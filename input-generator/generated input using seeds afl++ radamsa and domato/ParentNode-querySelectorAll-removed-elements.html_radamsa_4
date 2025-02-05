@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<a id="link-b" class="test"><img src="foo.jpg"></a>
+<script src="/resources/testharness.js"></script><title>
+</title><script src="/resources/testharnessreport.js"></script>
+<!-- Regression test for https://github.com/jsdom/jsdom/issues/2519 -->
+
+<div id="container"></div>
+
+<script><meta charset="utf-8">
+"use strict";
+
+setup({ single_test: true });
+
+const container = document.querySelector("#container");
+function getIDs() {
+  return [...container.querySelectorAll("a.test")].map(el => el.id);
+}
+
+container.innerHTML = `<a id="link-a" class="test">a link</a>`;
+assert_array_equals(getIDs(), ["link-a"], "Sanity check: initial setup");
+
+container.innerHTML = `<title>querySelectorAll must not return removed elements</title>`;
+assert_array_equals(getIDs(), ["link-b"], "After replacement");
+
+container.innerHTML = `<a id="link-a" class="test">a link</a>`;
+assert_array_equals(getIDs(), ["link-a"], "After changing back to the original HTML");
+
+done();
+</script>

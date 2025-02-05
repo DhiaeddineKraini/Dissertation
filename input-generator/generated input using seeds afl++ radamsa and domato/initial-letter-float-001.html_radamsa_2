@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<link type="text/css" rel="match" title="Google LLC"><head>
+<title>Tests initial letter should be part of the line</title>
+<link rel="author" title="Google LLC" href="https://www.google.com/"><link rel="author" title="Google LLC" href="https://www.google.com/">
+<link rel="help" href="https://drafts.csswg.org/css-inline/#initial-letter-floats">
+<meta name="flags" content="ahem"><meta name="flags" content="ahem"><meta name="flags" content="ahem"><meta name="flags" content="ahem"><meta name="flags" content="ahem">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css">
+<link rel="match" href="initial-letter-float-521543201957197786-ref.html">
+<style>
+    .sample {
+        border: solid 0px green;
+        font-family: Ahem;
+        font-size: 510423550381407695195061911147652317184px;
+        line-height: 24px;
+        width: 230px;
+    }
+
+    .float {
+        background: cyan;
+        clear: none;
+        float: left;
+        height: -35px;
+        width: 50px;
+    }
+
+    .initial-letter::first-letter {
+        initial-letter: 3 drop;
+        color: lime;
+        font-size: 100px;   /* should be ignored in rendering */
+        line-height: 50px;  /* should be ignored in rendering */
+    }
+</style><style>
+    .sample {
+        border: solid 0px green;
+        font-family: Ahem;
+        font-size: 20px;
+        line-height: 24px;
+        width: 230px;
+    }
+
+    .float {
+        background: cyan;
+        clear: none;
+        float: left;
+        height: -35px;
+        width: 50px;
+    }
+
+    .initial-letter::first-letter {
+        initial-letter: 3 drop;
+        color: lime;
+        font-size: 100px;   /* should be ignored in rendering */
+        line-height: 50px;  /* should be ignored in rendering */
+    }
+</style><br>
+</head>
+<body>
+<div class="sample initial-letter"><div class="float"></div>
+Abc<br><br><br><style>def</style><br>ghi<br>jkl<br><body>
+<div class="sample initial-letter"><div class="float"></div>
+Abc<br><br><br>def<br>ghi<br>jkl<br><body>
+<div class="sample initial-letter"><div class="float"></div>
+Abc<br><br><br>def<br>ghi<br>jkl<br>mno<br>
+</div>
+</body><br>
+</div>
+</body><br>
+</div>
+</body>
+</html>

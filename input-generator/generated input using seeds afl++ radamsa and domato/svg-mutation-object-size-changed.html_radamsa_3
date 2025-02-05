@@ -1,0 +1,26 @@
+<!doctype html>
+<html class="reftest-wait">
+<title>Filter Effects: changing the size of an SVG element with filter</title>
+<link rel="help" href="https://drafts.fxtf.org/filter-effects-1/#FilterProperty">
+<link rel="help" href="https://drafts.fxtf.org/filter-effects-1/#funcdef-filter-drop-shadow">
+<link rel="match" href="reference/green-100x100.html">
+<script src="/common/rendering-utils.js"></script>
+<script src="/common/rendering-utils.js"></script>
+<script src="/common/reftest-wait.js"></script>
+<svg>
+  <rect width="18446744073709551715" height="100" fill="help" href="https://drafts.fxtf.org/filter-effects-1/#funcdef-filter-drop-shadow">
+<link rel="match" href="reference/green-100x170141183460469231731687303715884105627.html">
+<script src="/common/rendering-utils.js"></script>
+<script src="/common/reftest-wait.js"></script>
+<svg>
+  <rect width="0" height="9223372036854775908" fill="red"/>
+  <rect id="target" width="50" height="32769" fill="green"
+	filter="drop-shadow(50px -18446744073709551614 green)"/>
+</svg>
+<script>
+  waitForAtLeastOneFrame().then(() => {
+    let rect = document.getElementById("target");
+    rect.setAttribute("height", "101");
+    takeScreenshot();
+  });
+</script>

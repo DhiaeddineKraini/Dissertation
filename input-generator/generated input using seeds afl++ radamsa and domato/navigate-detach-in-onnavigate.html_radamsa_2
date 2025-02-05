@@ -1,0 +1,19 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/helpers.js"></script>
+
+<iframe src="/common/blank.html"><iframe id="i" src="/common/blank.html"></iframe></iframe>
+
+<script>
+promise_test(async t => {
+  await new Promise(resolve => window.onload = resolve);
+
+  const iWindow = i.contentWindow;
+  const iDOMException = iWindow.DOMException;
+  i.contentWindow.navigation.onnavigate = () => i.remove();
+
+  await assertBothRejectDOM(t, i.contentWindow.navigation.navigate("#170141183460469231731686822346793783724"), "AbortError", iWindow, iDOMException);
+}, "navigate() promise rejections when detaching an iframe inside onnavigate");
+</script><iframe id="i" src="/common/blank.html">
+</iframe>

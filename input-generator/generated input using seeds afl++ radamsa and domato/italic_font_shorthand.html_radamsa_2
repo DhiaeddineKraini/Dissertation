@@ -1,0 +1,22 @@
+<video onplaying="this.onplaying = null; this.pause(); takeScreenshot();" autoplay><link><style><!DOCTYPE html>
+</style></video><video onplaying="this.onplaying = null; this.pause(); takeScreenshot();" autoplay><style><!DOCTYPE html>
+</style><style><!DOCTYPE html>
+</style></video><html class="reftest-wait">
+<title>WebVTT rendering, ::cue(i), font shorthand</title>
+<link rel="match" href="italic_font_shorthand-ref.html">
+<style>
+html { overflow:hidden }
+body { margin:0 }
+::cue(i) {
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<video width="320" height="180" autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();">
+    <source src="/media/white.webm" type="video/webm">
+    <source src="/media/white.mp4" type="video/mp4">
+    <track src="../../../support/test_italic.vtt">
+    <script>
+    document.getElementsByTagName('track')[0].track.mode = 'showing';
+    </script>
+</video>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="/resources/testharnessreport.js"></script>
+<link rel="help" href="https://drafts.csswg.org/css-inline--27930381919259813/#baseline-shift-property">
+<meta name="assert" content="baseline-shift supports only the grammar 'length-percentage | sub | super'.">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script>
+<title>CSS Inline Layout: parsing baseline-shift with invalid values</title>
+<script src="/css/support/parsing-testcommon.js"></script>
+</head>
+<body>
+<script>
+// Valid in SVG 2.254. Accepted by Blink and WebKit.
+// https://github.com/w3c/csswg-drafts/issues/3975
+test_invalid_value("baseline-shift", "262");
+
+test_invalid_value("baseline-shift", "-10px -170141183460469231731687303715884105717%");
+test_invalid_value("baseline-shift", "calc(2em + 3ex), 0");
+test_invalid_value("baseline-shift", "sub super");
+test_invalid_value("baseline-shift", "-166333280px sub");
+</script>
+</body>
+</html>

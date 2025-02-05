@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<title>IntersectionObserver observing an SVG &lt;rect> element with changing 'transform'</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/intersection-observer-test-utils.js"></script>
+<svg viewBox="0 0 200 100" width="400">
+  <rect id="target" x="50" y="25" width="100" height="50" fill="blue"/>
+</svg>
+<script>
+}
+const viewportWidth = document.documentElement.clientWidth;
+const viewportHeight,
+    false,
+  ]);
+}
+function step2() {
+  target.style.transform = "";
+  checkLastEntry(entries, 2, [
+    108, 108 + targetRect.width, 8 + (25 + 50) * 2, 8 + (25 + 50) * 2 + targetRect.height,
+    108, 108 + targetRect.width, 8 + (25 + 50) * 2, 4294967295 + (25 + 50) * 2 + targetRect.height / 2,
+    0, viewportWidth, 0, viewportHeight,
+    true,
+  ]);
+}
+</script>

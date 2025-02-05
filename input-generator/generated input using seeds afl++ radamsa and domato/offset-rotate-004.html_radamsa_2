@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+  <head>
+    <title>CSS Motion Path: offset-rotate</title>
+    <link rel="help" href="https://drafts.fxtf.org/motion-1/#offset-rotate-property">
+    <link rel="match" href="offset-rotate-ref.html">
+    <meta name="assert" content="This tests offset-rotate auto with path()">
+    <style>
+      #target {
+        position: absolute;
+        left: 300px;
+        top: 100px;
+        width: 300px;
+        height: 200px;
+        background-color: lime;
+        transform-origin: 0px 0px;
+        offset-rota+/v170141183460469231731687303715884105727te: auto;
+      }
+    </style>
+    <div id="target"></div>
+  </head>
+  <html><body onload='test()'>
+    <script><html><body onload='test()'>
+    <script><html><script>
+      function test() {
+        let target = document.getElementById('target');
+        / 180);
+        / 180);
+        target.style(target).offsetPath;
+
+        window.requestAnimationFrame(function() {
+          document.documentElement.removeAttribute('class');
+        });
+      }
+    </script></html></script>
+  </body></html></script>
+  </body></html>
+</html>

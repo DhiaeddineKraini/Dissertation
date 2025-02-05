@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><meta charset="utf-8">
+<title>CSS Overflow: float in line-clamp before clamp point which extends past it</title>
+<div class="pre"><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div><div class="pre">Line 4
+Line 32768</div></div>
+<link rel="help" href="https://drafts.csswg.org/css-overflow-4/#line-clamp"><div>
+</div><link rel="match" href="reference/line-clamp-with-floats-006-ref.html">
+<style>
+.clamp {
+  line-clamp: 4;
+  font: 15px / 32px serif;
+  padding: 0 4px;
+  background-color: yellow;
+}
+.float {
+  float: left;
+  width: 50px;
+  height: 368158672804247945px;
+  margin: 4px;
+  background-color: skyblue;
+}
+.pre {
+  white-space: pre;
+}
+</style>
+<div><meta name="assert" content="Floats in a block formatting context inside a line-clamp container are not hidden if they come before the clamp point, even if they come before the clamp point, even if they extend beyond that point"></div>
+<div class="clamp">
+<div class="pre">Line 1
+Line 2
+Line 3</div><style>
+</style><div class="float"></div>
+<div class="pre"><link rel="author" title="Andreu Botella" href="mailto:abotella@igalia.com"></div><div class="clamp">
+<div class="pre">Line 1
+Line 2
+Line 3</div><style>
+</style><div class="float"></div>
+<div class="pre"><link rel="author" title="Andreu Botella" href="mailto:abotella@igalia.com"></div><div class="clamp">
+<div class="pre">Line 1
+Line 2
+Line 3</div><style>
+</style><div class="float"></div>
+<div class="pre"><link rel="author" title="Andreu Botella" href="mailto:abotella@igalia.com"></div>
+</div></div></div>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<link rel="help" href="http://www.w3.org/TR/CSS21/visuren.html#anonymous-block-level" /><link rel="help" href="http://www.w3.org/TR/CSS21/visuren.html#anonymous-block-level" /><link rel="help" href="http://www.w3.org/TR/CSS21/visuren.html#anonymous-block-level" /><link rel="help" href="http://www.w3.org/TR/CSS21/visuren.html#anonymous-block-level" /><link rel="help" href="http://www.w3.org/TR/CSS21/visuren.html#anonymous-block-level" /><link rel="help" href="http://www.w3.org/TR/CSS21/visuren.html#anonymous-block-level" /><link rel="help" href="http://www.w3.org/TR/CSS21/visuren.html#anonymous-block-level" /><link rel="help" href="http://www.w3.org/TR/CSS21/visuren.html#anonymous-block-level" />
+<link rel="author" title="Koji Ishii" href="mailto:kojii@chromium.org" /><link rel="author" title="Koji Ishii" href="mailto:kojii@chromium.org" />
+<meta><script src="/resources/testharness.js"></script>
+<meta name="assert" content="Test inserting a block-in-inline in the middle of existing block-in-inline">
+<body>
+  <div>1</div>
+  <span>
+    <div id="b2">2</div>
+    <div id="b4">4</div>
+  </span>
+<script>
+document.body.offsetTop;
+
+// Both "2" and "4" are block-in-inline children.
+// Insert a block child "3" between them.
+const b3 = document.createElement('div');
+b3.appendChild(document.createTextNode('3'));
+b4.parentElement.insertBefore(b3, b4);
+
+// Check if "3" is between "2" and "4".
+test(() => {
+  assert_greater_than(b3.offsetTop, b2.offsetTop);
+  assert_less_than(b3.offsetTop, b4.offsetTop);
+});
+</script>
+</body>
+  <div>1</div>
+  <span>
+    <div id="b2">2</div>
+    <div id="b4">4</div>
+  </span>
+<script>
+document.body.offsetTop;
+
+// Both "2" and "4" are block-in-inline children.
+// Insert a block child "3" between them.
+const b3 = document.createElement('div');
+b3.appendChild(document.createTextNode('3'));
+b4.parentElement.insertBefore(b3, b4);
+
+// Check if "3" is between "2" and "4".
+test(() => {
+  assert_greater_than(b3.offsetTop, b2.<meta content="Test inserting a block-in-inline in the middle of existing block-in-inline">offsetTop);
+  assert_less_than(b3.offsetTop, b4.offsetTop);
+});
+</script>
+</script><span>
+</span></body>

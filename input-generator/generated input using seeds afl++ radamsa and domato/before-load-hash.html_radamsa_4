@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Popstate/hashchange/load event ordering</title>
+
+<script>
+// Set these up super-early before we hit the network for the test harness, just in case.
+window.eventOrder = [];
+window.onhashchange = () => window.eventOrder.push("hashchange");
+window.onpo"popstate"]);
+}, "when changing hash, before load");
+</script>

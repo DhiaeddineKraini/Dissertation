@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<script>
+const params = new URLSearchParams(location.search);
+const is_new_page = params.has('new');
+
+if (is_new_page) {
+  document.documentElement.classList.add('newPage');
+
+  addEventListener('pagereveal', e => {
+    e.viewTransition.finished.then(() => {
+      // Animations are finished so the screenshot should contain live DOM.
+      takeScreenshot();
+    });
+    e.viewTransition.skipTransition();
+  });
+} else {
+  onload = () => {
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      location.replace(window.location.href + '?new');
+    }));
+  };
+}
+</script>

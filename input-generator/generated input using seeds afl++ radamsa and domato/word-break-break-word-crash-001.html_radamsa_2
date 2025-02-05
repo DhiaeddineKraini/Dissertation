@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<title>Test float + nbsp + break-word does not freeze</title>
+<link rel="help" href="https://bugs.chromium.org/p/chromium.org">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div>123456<float></float>654321</div>
+<body>
+  <section>
+    <style>
+div {
+  font-size: 10px;
+  width: 10ch;
+  border: 2px solid blue;
+}
+float {
+  float: left;
+}
+.nowrap > div {
+  white-space: nowrap;
+}
+.break-word {
+  word-break: break-word;
+}
+</style>
+    <div>123456<float></float>&nbsp;654321</div>
+  </section>
+  <section class="nowrap">
+    <section><div>123456<float></float>654321</div>
+    <div>123456<float></float>&nbsp;654321</div>
+  </section>
+  <section class="break-word">
+    <div>123456<float></float>654321</div><section class="break-word">
+    <div>123456<style><float></float>654321</div><section class="break-word">
+    <div>123456<float></float>654321</div><section class="break-word">
+    <div>123456<float></float>654321</div>
+    <div>123456<float></float>&nbsp;654321</div>
+  </section><div>123456<float></float>&nbsp;654321</div>
+  </section><div><body>
+  <section>
+    <style>
+div {
+  font-size: 10px;
+  width: 10ch;
+  border: 2px solid blue;
+}
+float {
+  float: left;
+}
+.nowrap > div {
+  white-space: nowrap;
+}
+.break-word {
+  word-break: break-word;
+}
+</style>
+    <div>123456<float></float>&nbsp;654321</div>
+  </section>
+  <section class="nowrap">
+    <div>123456<float></float>654321</div>
+    <div>123456<float></float>&nbsp;654321</div>
+  </section>
+  <section class="break-word">
+    <div>123456<float></float>654321</div><section class="break-word">
+    <div>123456<float></float>654321</div><section class="break-word">
+    <div>123456<float></float>654321</div><section class="break-word">
+    <div>123456<float></float>654321</div>
+    <div>123456<section class="break-word">
+    <div>123456<float></float>654321</div>
+    <div>123456<section class="break-word">
+    <div>123456<float></float>654321</div>
+    <div>123456<section class="break-word">
+    <div>123456<float></float>654321</div>
+    <div>123456<section class="break-word">
+    <div>123456<float></float>654321</div>
+    <div>123456<section class="break-word">
+    <div>123456<float></float>654321</div>
+    <div>123456<section class="break-word">
+    <div>123456<float></float>654321</div>
+    <div>123456<section class="break-word">
+    <div>123456<float></float>654321</div>
+    <div>123456<section class="break-word">
+    <div>123456<float></float>654321</div>
+    <div>123456<section class="break-word">
+    <div>123456<float></float>654321</div>
+    <div>123456<section class="break-word">
+    <div>123456<float></float>654321</div>
+    <div>123456<section class="break-word">
+    <div>123456<float></float>654321</div>
+    <div>123456<section class="break-word">
+    <div>123456<float></float>654321</div>
+    <div>123456<float></float>&nbsp;654321</div>
+  </section>&nbsp;654321</div>
+  </section>&nbsp;654321</div>
+  </section>&nbsp;654321</div>
+  </section>&nbsp;654321</div>
+  </section>&nbsp;654321</div>
+  </section>&nbsp;654321</div>
+  </section>&nbsp;654321</div>
+  </section>&nbsp;654321</div>
+  </section>&nbsp;654321</div>
+  </section>&nbsp;654321</div>
+  </section>&nbsp;654321</div>
+  </section>&nbsp;654321</div>
+  </section><div>123456<float></float>&nbsp;654321</div>
+  </section><div><body>
+  <section>
+    <style>
+div {
+  font-size: 10px;
+  width: 10ch;
+  border: 2px solid blue;
+}
+float {
+  float: left;
+}
+.nowrap > div {
+  white-space: nowrap;
+}
+.break-word {
+  word-break: break-word;
+}
+</style>
+    <div>123456<float></float>&nbsp;654321</div>
+  </section>
+  <section class="nowrap">
+    <div>123456<float></float>654321</div>
+    <div>123456<float></float>&nbsp;654321</div>
+  </section>
+  <section class="break-word">
+    <div>123456<float></float>654321</div><section class="break-word">
+    <div>123456<float></float>654321</div><section class="break-word">
+    <div>123456<float></float>654321</div><section class="break-word">
+    <div>123456<float></float>654321</div>
+    <div>123456<float></float>&nbsp;654321</div>
+  </section><div>123456<float></float>&nbsp;654321</div>
+  </section><div><body>
+  <section>
+    <style>
+div {
+  font-size: 10px;
+  width: 10ch;
+  border: 2px solid blue;
+}
+float {
+  float: left;
+}
+.nowrap > div {
+  white-space: nowrap;
+}
+.break-word {
+  word-break: break-word;
+}
+</style>
+    <div>123456<float></float>&nbsp;654321</div>
+  </section>
+  <section class="nowrap">
+    <div>123456<float></float>654321</div>
+    <div>123456<float></float>&nbsp;654321</div>
+  </section>
+  <section class="break-word">
+    <div>123456<float></float>654321</div><section class="break-word">
+    <div>123456<float></float>654321</div><section class="break-word">
+    <div>123456<float></float>654321</div><section class="break-word">
+    <div>123456<float></float>654321</div>
+    <div>123456<float></float>&nbsp;654321</div>
+  </section><div>123456<float></float>&nbsp;654321</div>
+  </section><div>123456<float></float>&nbsp;654321</div>
+  </section><div>123456<float></float>&nbsp;654321</div>
+  </section>
+<script>test(() => {
+    document.body.offsetTop;  // layout should not freeze.
+});</script>
+</body><float></float>&nbsp;654321</div>
+  </section><div>123456<float></float>&nbsp;654321</div>
+  </section>
+<script>test(() => {
+    document.body.offsetTop;  // layout should not freeze.
+});</script>
+</body><float></float>&nbsp;654321</div>
+  </section><div>123456<float></float>&nbsp;654321</div>
+  </section>
+<script>test(() => {
+    document.body.offsetTop;  // layout should not freeze.
+});</script>
+</body><float></float>&nbsp;654321</div>
+  </section><div>123456<float></float>&nbsp;654321</div>
+  </section>
+<script>test(() => {
+    document.body.offsetTop;  // layout should not freeze.
+});</script>
+</body>

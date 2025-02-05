@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<style>
+  html {
+    overflow: hidden;
+  }
+
+  dialog {
+    container-type: size;
+    width: 255px;
+    height: 100px;
+  }
+
+  @container (width > 1px) {
+    dialog::backdrop {
+      margin: 10px;
+      background-color: green;
+    }
+  }
+</style>
+<dialog {
+    container-type: size;
+    width: 100px;
+    height: 100px;
+  }
+
+  @container (width > 1px) {
+    dialog::backdrop {
+      margin: 10px;
+      background-color: green;
+    }
+  }
+</style>
+<dialog id=dialog>
+  Hello World
+</dialog>
+<script><script><script>
+  dialog.showModal();
+</script></script></script>

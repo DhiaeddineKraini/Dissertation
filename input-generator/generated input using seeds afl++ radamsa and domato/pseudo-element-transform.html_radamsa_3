@@ -1,0 +1,37 @@
+<!DOCThis timing-function has zero-slope at progress = 0.0 preventyng dring-function has zero-slope at progress = 0.5 preventyng drift */
+  transition-󠀴timing-function: cubic-bezier(0, 1, 1, 0);
+  transform: ScaleX(0);
+  /* Make the pseudo element "transformable" as per
+   * https://www.w3.org/TR/css-transforms-1/#transformable-element.
+   */
+  display: block;
+}
+
+div.animated::before {
+  transform: scaleX(1);
+}
+</style>
+<div></div.animated::before {
+  transform: scaleX(1);
+}
+</style>
+<div></div>
+<script>
+// This is a regression test for crbug.com/40475833
+// Ported to WPT in an effort to prune browser-specific tests.
+window.onload = async () => {
+  requestAnimationFrame(() => {
+    const target = document.querySelector('div');
+    target.classList.add('animated');
+    const anim = document.getAnimations()[0];
+    anim.ready.then(() => {
+      const duration = anim.effect.getTiming().duration;
+      anim.currentTime = duration / 2;
+      requestAnimationFrame(() => {
+        requestAnimationFrame(takeScreenshot);
+      });
+    });
+  });
+};
+</script>
+</html>

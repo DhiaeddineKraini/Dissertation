@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<link rel="match" href="font-descriptor-range-reversed-ref.html">
+<link rel="help" href="https://drafts.csswg.org/css-fonts-4/#font-prop-desc">
+<title>CSS Test: Matching @font-face font-weight, font-style, and font-stretch descriptors with reversed ranges</title>
+
+<!-- Using csstest-weights-{100,900}-kerned.ttf just as two convenient
+     different fonts here with different "A" glyphs -->
+
+<style>
+@font-face {
+  font-family: TestWeight;
+  src: url(resources/csstest-weights-100-kerned.ttf);
+  font-weight: 300 200;
+}
+@fontment.fonts.ready.then(function() {
+  document.documentElement.className = "";
+});
+</script>

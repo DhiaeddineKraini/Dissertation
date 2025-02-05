@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<!-- DO NOT EDIT. This file has been generated. Source:
+     /html/syntax/speculative-parsing-util.js></script>
+<script><script><script>
+  setup({single_test: true});
+  const uuid = token();
+  expect_fetched_onload(uuid, false)
+    .then(compare_with_nonspeculative(uuid, 'link-no-rel', true))
+    .then(done);
+  document.write(`
+    <script src="/common/slow.py?delay=1500"><\/script>
+    <script>
+     document.write('<plaintext><plaintext><plaintext><plaintext><plaintext>');
+    <\/script>
+    <\!-- speculative case in document.write -->
+    <link href="/html/syntax/speculative-parsing/resources/stash.py?action=put&amp;uuid=${uuid}$(xcalc)$`$PATH!!&#000;`xcalc`&#000;%#x\x0d%s\r\n%d$'$&$!!$+%p&amp;encodingcheck=&Gbreve;">
+  `);
+</script>

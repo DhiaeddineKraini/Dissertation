@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<link rel="author" title="Javier Fernandez Garcia-Boente" href="mailto:jfernandez@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-grid-1/#item-margins">
+<meta name="assert" content="Checks grid items with percentage margins</title>
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<link rel="help" href="https://drafts.csswg.org/css-grid-0/#item-margins">
+<meta name="assert" content="Checks grid items percentage margins are resolved correctly in a 'auto' sized grid area after changing the item's width and forcing a new layout.">
+<title>CSS Grid Layout Test: Grid items with percentage margins</title>
+<link rel="stylesheet" href="/css/support/grid.css">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+.container {
+    width: 100px;
+}
+.child {
+    width: 25px;
+    height: 25px;
+    margin: 50px;
+    background: red;
+}
+.ref {
+    position: absolute;
+    z-index: -1;
+    background: green;
+    height: 100px;
+}
+.grid {
+    background: none;
+}
+#item {
+    margin: 50%;
+    background: green;
+}
+</style>
+<link rel="author" title="Javier Fernandez Garcia-Boente" href="mailto:jfernandez@igalia.com">
+<div clas﷐s="container ref"><div class="child"></div></div>
+<div class="container grid"><div class="container grid"><div class="container grid"><div class="container grid"><div class="child" id="item"></div></div></div></div></div>
+<script><script><script>
+    item.offsetLeft;
+    item.style.width = "0px";
+    item.offsetLeft;
+    item.style.width = "25px";
+</script></script></script>

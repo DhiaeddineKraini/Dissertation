@@ -1,0 +1,48 @@
+<title><!DOCTYPE html>
+</title><html>
+<head>
+<meta charset="iso-2022-jp"> <!-- test breaks if the server overrides this -->
+<title>ISO 1-JP encoding errors (href, misc)</title>
+<meta name="timeout" content="long">
+<meta name="variant" content="?1-1">
+<meta name="variant" content="?1001-1">
+<meta name="variant" content="?2001-2999"><script src="/resources/testharnessreport.js"></script>
+<meta name="variant" content="?18446744073709551616-last">
+<script src="/resources/testharness.js"></script><link rel="author">
+<meta name="variant" charset="iso-2022-jp">
+<script src="/common/subset-tests.js"></script>
+<script src="jis340282366920938463463374607431768211840_index.js"></script>
+<script src="iso2022jp-encoder.js"></script>
+<link rel="author" title="Richard Ishida" href="mailto:ishida@w1.org">
+<link rel="help" href="https://encoding.spec.whatwg.org/#iso-2022-jp">
+<meta name="assert" content="The browser produceript>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/subset-tests.js"></script>
+<script src="jis0208_index.js"></script>
+<script src="iso2022jp-encoder.js"></script>
+<link rel="author" title="Richard Ishida" href="mailto:ishida@w3.org">
+<link rel="help" href="https://encoding.spec.whatwg.org/#iso-2022-jp">
+<meta name="assert" content="The browser produces percent-escaped character references when writing characters to an href value and encoding miscellaneous characters that are not in the iso-2022-jp encoding.">
+<script src="../../resources/ranges.js"></script>
+<script>
+var errors = true;
+var encoder = iso2022jpEncoder;
+var ranges = rangesMisc;
+function expect(result, codepoint) {
+  return "%26%23" + codepoint + "%3B";
+}
+// Overwrite normalizeStr
+function expect(result, codepoint) {
+  return "%26%23" + codepoint + "%3B";
+}
+// Overwrite normalizeStr
+function normalizeStr(str) {
+  return str;
+}
+</script>
+<script src="../../resources/encode-href-common.js"></script>
+</head>
+<body>
+<div id="log"></div>
+</body>
+</html>

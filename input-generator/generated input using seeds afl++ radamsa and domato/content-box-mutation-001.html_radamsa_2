@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<title><html class="reftest-wait">
+<html class="reftest-wait">transform-box: content-box;
+}
+</style><div>
+</div><div id="target"></div><html><div id="target"></div><div id="target"></div><div id="target"></div><script>
+  waitForAtLeastOneFrame().then(() => {
+    document.querySelector('#target').style.borderLeft = 'solid 256px black';
+    takeScreenshot();
+  });
+</script><script>
+  waitForAtLeastOneFrame().then(() => {
+    document.querySelector('#target').style.borderLeft = 'solid 1px black';
+    takeScreenshot();
+  });
+</script>
+<div id="target"></div>

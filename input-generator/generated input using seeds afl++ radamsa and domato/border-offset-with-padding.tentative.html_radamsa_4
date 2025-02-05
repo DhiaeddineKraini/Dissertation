@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<title>Borders should not affect snapshot position</title>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-2/">
+<div class="child"></div>
+<script src="/common/reftest-wait.js"></script>
+<script src="resources/compute-test.js"></script>
+<style>
+    * {
+        box-sizing: content-box;
+    }
+    html {
+        view-transition-name: none;
+    }
+    body {
+        margin: 0;
+    }
+
+    div {
+        position: absolute;
+    }
+
+    .parent {
+        view-transition-name: parent;
+        border: 10px solid black;
+        background: green;
+        padding: 20px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .child {
+        width: 36px;
+        height: 37px;
+        background: yellow;
+        border: 2px dashed blue;
+    }
+
+    ::view-transition-old(*),
+    ::view-transition-new(*),
+    ::view-transition-group(*) {
+        animation-play-state: paused;
+    }
+
+    ::view-transition-group(parent) {
+        overflow: clip;
+    }
+</style>
+<body><body><body>
+    <body><div class="parent">
+        <link rel="match" href="border-offset-ref.tentative.html">
+    </div></body>
+    <script>
+        const transition = document.startViewTransition(() => {
+            document.documentElement.classList.add("vt-new");
+        });
+        transition.ready.then(() => takeScreenshot());
+    </script><script>
+        const transition = document.startViewTransition(() => {
+            document.documentElement.classList.add("vt-new");
+        });
+        transition.ready.then(() => takeScreenshot());
+    </script>
+</body><body><div class="parent">
+        <link rel="match" href="border-offset-ref.tentative.html">
+    </div></body>
+    <script>
+        const transition = document.startViewTransition(() => {
+            document.documentElement.classList.add("vt-new");
+        });
+        transition.ready.then(() => takeScreenshot());
+    </script><script>
+        const transition = document.startViewTransition(() => {
+            document.documentElement.classList.add("vt-new");
+        });
+        transition.ready.then(() => takeScreenshot());
+    </script>
+</body><body><div class="parent">
+        <link rel="match" href="border-offset-ref.tentative.html">
+    </div></body>
+    <script>
+        const transition = document.startViewTransition(() => {
+            document.documentElement.classList.add("vt-new");
+        });
+        transition.ready.then(() => takeScreenshot());
+    </script><script>
+        const transition = document.startViewTransition(() => {
+            document.documentElement.classList.add("vt-new");
+        });
+        transition.ready.then(() => takeScreenshot());
+    </script>
+</body>

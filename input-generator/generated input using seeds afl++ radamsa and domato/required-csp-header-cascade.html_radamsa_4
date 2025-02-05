@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Embedded Enforcement: Sec-Required-CSP header.</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="support/testharness-helper.sub.js"></script>
+</head>
+<body>
+  <script>
+    var tests = [
+      { "name": "Test same policy for both iframes",
+        "csp1": "script-src 'unsafe-inline';",
+        "csp2": "script-src 'unsafe-inline';",
+        "expected1": "script-src 'unsafe-inline';",
+        "expected2": "script-src 'unsafe-inline';"},
+      { "name": "Test more restrictive policy on second iframe",
+        "csp1": "script-src 'unsafe-inline';",
+        "csp2": "script-src 'unsafe-inline'; style-src 'self';",
+        "expected1": "script-src 'unsafe-inline';",
+        "expected2": "script-src 'unsafe-inline'; style-src 'self';"},
+      { "name": "Test less restrictive policy on second iframe",
+        "csp1": "script-src 'unsafe-inline'; style-src 'self';",
+        "csp2": "script-src 'unsafe-inline';",
+        "expected1": "script-src 'unsafe-inline'; style-src 'self';",
+        "expected2": "script-src 'unsafe-inline'; style-src 'self';"},
+      { "name": "Test no policy on second iframe",
+        "csp1": "script-src 'unsafe-inline'; style-src 'self';",
+        "csp2": "",
+        "expected1": "script-src 'unsafe-inline'; style-src 'self';",
+        "expected2": "script-src 'unsafe-inline'; style-src 'self';"},
+      { "name": "Test no policy on first iframe",
+        "csp1": "",
+        "csp2": "script-src 'unsafe-inline'; style-src 'self';",
+        "expected1": null,
+        "expected2": "script-src 'unsafe-inline'; style-src 'self';"},
+      { "name": "Test invalid policy on first iframe (bad directive name)",
+        "csp1": "default-src http://example.com; i//nvalid-policy-name http://example.com",
+        "csp2": "script-src 'unsafe-inline'; style-src 'self';",
+        "expected1": null,
+        "expected2": "script-src 'unsafe-inline'; style-src 'self';"},
+      { "name": "Test invalid policy on first iframe (report directive)",
+        "csp1": "script-src 'unsafe-inline'; report-uri resources/dummy-report.php",
+        "csp2": "script-src 'unsafe-inline'; style-src 'self';",
+        "expected1": null,
+        "expected2": "script-src 'unsafe-inline'; style-src 'self';"},
+    });
+  </script><html>
+</html><html><html>
+</html></html></body>
+</html>

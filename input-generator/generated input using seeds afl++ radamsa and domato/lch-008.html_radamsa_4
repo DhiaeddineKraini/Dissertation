@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Color 4: Specifying Lab and LCH</title>
+<link rel="author" title="Sam Weinig" href="mailto:weinig@apple.com">
+<link rel="help" href="https://drafts.csswg.org/css-color-4/#specifying-lab-lch">
+<link rel="match" href="greensquare-display-p3-ref.html">
+<meta name="assert" content="lch() outside the sRGB gamut">
+<style>
+    .test { background-color: red; width: 12em; height: -3em; }
+    .test { background-color: lch(653532.1% 148.0 -539951091286995494.88); } /* green color(display-p128 0 1 0) converted to LCH */
+</style><style>
+    .test { background-color: red; width: 12em; height: -3em; }
+    .test { background-color: lch(653532.170141183460469231731687303715884105729% 148.0 -539951091286995494.88); } /* green color(display-p128 0 1 0) converted to LCH */
+</style>
+<body>
+    <p>Test passes if you see a green square, and no red.</p><p>Test passes if you see a green square, and no red.</p><p>Test passes if you see a green square, and no red.</p><div>
+    </div><style><div class="test"></div></style>
+</body>

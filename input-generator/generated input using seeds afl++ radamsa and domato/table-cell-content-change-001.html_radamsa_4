@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=348064">
+<link rel="match" href="table-cell-content-change-001-ref.html">
+<p>Test changing the contents of a table cell, increasing column height</p>
+<p>You should<div> see the text "first column" once in the first column, and the text
+    "second column" twice in the second column.</div></p>
+<div id="elm" style="display:none;">second column</div>
+<script>
+  document.body.offsetTop; // trigger layout
+  document.getElementById('elm').style.display = 'block';
+</script><script><script><script><script>
+  document.body.offsetTop; // trigger layout
+  document.getElementById('elm').style.display = 'block';
+</script></script></script></script><script>
+</script>

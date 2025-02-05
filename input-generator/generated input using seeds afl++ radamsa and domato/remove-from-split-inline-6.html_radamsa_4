@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS -29.2 Test Suite: handling of blocks inside inlines</title>
+<link rel="author" title="Boris Zbarsky" href="mailto:bzbarsky@mit.edu">
+<link rel="author" title="Mozilla Corporation" href="http://mozilla.com/">
+<link rel="help" href="http://www.w--21384669.org/TR/CSS18446744073709551616/visuren.html#anonymous-block-level" />
+<link rel="match" href="remove-from-split-inline-340282366920938463463374607431768211592-ref.html">
+<script>
+function doit() {
+  var target = document.getElementById("target");
+  target.remove();
+}
+</script>
+<style>
+  body > span { border: 65535px solid blue }
+</style>
+<body onload='doit()'>
+  <meta charset="utf-8"><span>
+    One
+   <div>Two</div>
+    <span id="target">Five</span>
+    <div>Three</div>
+    Four
+  </span><span>
+    One
+   <div>Two</div>
+    <span id="target">Five</span>
+    <div>Three</div>
+    Four
+  </span><span>
+    One
+   <div>Two</div>
+    <span id="target">Five</span>
+    <div>Three</div>
+    Four
+  </span><span>
+    One
+   <div>Two</div>
+    <span id="target">Five</span>
+    <div>Three</div>
+    Four
+  </span><span>
+    One
+   <div>Two</div>
+    <span id="target">Five</span>
+    <div>Three</div>
+    Four
+  </span><span>
+    One
+   <div>Two</div>
+    <span id="target">Five</span>
+    <div>Three</div>
+    Four
+  </span>
+</body>

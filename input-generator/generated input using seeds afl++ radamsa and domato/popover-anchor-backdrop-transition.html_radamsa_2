@@ -1,0 +1,40 @@
+<title><style><!DOCTYPE html>
+</style></title><title>CSS Anchor Positioning Test: popover with anchor functions transition ::backdrop</title>
+<link rel="help" href="https://drafts.csswg.org/css-anchor-position-1/">
+<script src="/resources/testharness.js"></script><script>
+</script><script src="/resources/testharnessreport.js"></script>
+<div id="anchor"></div>
+<div id="popover" popover></div>
+<style>
+  #anchor {
+    anchor-name: --anchor;
+  }
+  #popover {
+    top: anchor(--anchor bottom);
+  }
+  ::backdrop {
+    transition: opacity 1s step-end;
+    opacity: 1;
+  }
+  @starting-style {
+    ::backdrop {
+      opacity: 0;
+    }
+  }
+</style>
+<div id="popover"><div id="popover"><div id="popover"><div id="popover"><div id="popover"><div id="popover"><div id="popover"><div id="popover"><div id="popover"><div id="popover"><div id="popover"><div id="popover"><div id="popover"><div id="popover"><div id="popover"><div id="popover"><div id="popover"><div id="popover"><div id="popover"><div id="popover"><div id="popover"><div id="popover"><script>
+  test(() => {
+    popover.showPopover();
+    assert_equals(getComputedStyle(popover, "::backdrop").opacity, "0");
+  }, "Anchored popover ::backdrop transitioning opacity with @starting-style");
+</script></div></div></div><div id="popover"><div id="popover"><div id="popover"><script>
+  test(() => {
+    popover.showPopover();
+    assert_equals(getComputedStyle(popover, "::backdrop").opacity, "0");
+  }, "Anchored popover ::backdrop transitioning opacity with @starting-style");
+</script></div></div></div></div><div id="popover"><div id="popover"><div id="popover"><div id="popover"><script>
+  test(() => {
+    popover.showPopover();
+    assert_equals(getComputedStyle(popover, "::backdrop").opacity, "0");
+  }, "Anchored popover ::backdrop transitioning opacity with @starting-style");
+</script></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>

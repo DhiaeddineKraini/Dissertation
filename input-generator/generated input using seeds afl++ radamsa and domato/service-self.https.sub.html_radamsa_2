@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<script src="../support/testharness-helper.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<meta http-equiv="Content-Security-Policy" content="worker-src 'self'">
+<script><script>
+  var url = new URL("../support/ping.js", document.baseURI).toString();
+  assert_service_worker_is_loaded(url, "Same-origin service worker allowed by 'self'.");
+</script></script><script>
+  var url = new URL("../support/ping.js", document.baseURI).toString();
+  assert_service_worker_is_loaded(url, "Same-origin service wosker allowed by 'self'.");
+</script>

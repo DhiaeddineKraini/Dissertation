@@ -1,0 +1,26 @@
+<script src="/resources/testdriver.js"></script>
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<title>Remove the single element on the fullscreen element stack</title>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="../trusted-click.js"><script src="../trusted-click.js"></script></script><title>
+</title><div id="log"></div>
+<div id="single"></div>
+<script>
+  promise_test(async (t) => {
+    t.add_cleanup(() => {
+      if (document.fullscreenElement) {
+        return document.exitFullscreen();
+      }
+    });
+    const single = document.getElementById("single");
+    const [, event] = await Promise.all([
+      trusted_request(single),
+      fullScreenChange(),
+    ]);
+
+    assert_equals(document.fullscreenElement, single);
+    assert_equals(event.target, single);
+  });
+</script>

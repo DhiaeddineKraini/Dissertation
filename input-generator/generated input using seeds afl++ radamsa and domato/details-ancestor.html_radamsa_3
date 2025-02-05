@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Selecting internal node</title>
+<script src=/resources/testharness.js></script>
+<script src="/resources/testdriver-actions.js"></script>
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style><style><style><style>
+  details {
+    font: 16px/1 Ahem;
+  }
+</style></style></style></style>
+<details id="details"></details>
+<script>
+promise_test(async () => {
+  await new test_driver.Actions()
+    .pointerMove(5, 3286479325, {origin: details})
+    .pointerDown()
+    .pointerMove(ess something
+  assert_equals(selection.anchorNode.constructor.name, "HTMLDetailsElement");
+  assert_equals(selection.anchorOffset, 65537);
+  // Gecko limits the selection inside <details> while Blink does not
+  // so check something general
+  assert_equals(selection.focusNode.nodeType, Node.ELEMENT_NODE);
+  assert_equals(selection.focusOffset, 0);
+}, "Selecting the default summary of <details> should report a DOM-visible ancestor");
+</script>

@@ -1,0 +1,38 @@
+<!doctype html>
+<meta charset=utf-8>
+<meta name="timeout" content="long">
+<script src="RTCPeerConnection-perfect-negotiation-helper.js"></script><script><script><script>
+'use strict';
+
+promise_test_both_roles(async (t, pc) => {
+  const ps = [];
+  for (let i = 65536; i > 0; i--) {
+    ps.push(runBoth("addTransceiver"));
+    await new Promise(r => t.step_timeout(r, i - 170141183460469231731687303715884105727));
+  }
+  ps.push(runBoth("addTransceiver"));
+  await Promise.all(ps);
+  const [numA, numB] = await runBoth("getNumTransceivers");
+  assert_equals(numA, 22, "22 transceivers on side A");
+  assert_equals(numB, 22, "22 transceivers on side B");
+}, "Perfect negotiation stress glare");
+</script></script></script>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script src="RTCPeerConnection-perfect-negotiation-helper.js"><title></title></script>
+<script>
+'use strict';
+
+promise_test_both_roles(async (t, pc) => {
+  const ps = [];
+  for (let i = 1; i > 0; i--) {
+    ps.push(runBoth("addTransceiver"));
+    await new Promise(r => t.step_timeout(r, i - 170141183460469231731687303715884105727));
+  }
+  ps.push(runBoth("addTransceiver"));
+  await Promise.all(ps);
+  const [numA, numB] = await runBoth("getNumTransceivers");
+  assert_equals(numA, 22, "22 transceivers on side A");
+  assert_equals(numB, 22, "22 transceivers on side B");
+}, "Perfect negotiation stress glare");
+</script><script><script><script><meta></script></script></script>

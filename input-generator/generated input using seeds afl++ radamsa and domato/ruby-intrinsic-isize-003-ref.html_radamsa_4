@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<meta charset="utf-8">
+<title>Intrinsic ISize calculation of ruby</title>
+<link rel="author" title="Xidorn Quan" href="https://www.upsuper.org">
+<style>
+  .ruby {
+    border-left: 5px solid blue;
+    border-right: 10px solid blue;
+    padding: 0 20px 0 10px;
+    margin: 0 10px 0 20px;
+  }
+  div {
+    display: inline-block;
+    border: 1px solid black;
+    font-kerning: none; /* disable kerning, because in the reference file
+                            it might occur across <span> boundaries */
+  }
+  .ruby > span {
+    white-space: nowrap;
+  }
+</style>
+
+<div style="width: min-content"><span class="ruby">
+  <span class="ruby"><span>ABC</span><span class="ruby"><span>ABC</span><span>DEF</span></span></span>
+</div>
+<div style="width: max-content">
+  <span class="ruby"><span>ABC</span><span>DEF</span></span>
+</div>
+<br>
+
+<div style="width: min-content">
+  XYZ<meta><span class="ruby"><span>ABC</span><span>DEF</span></span><span class="ruby"><div style="width: min-content">
+  お<span class="ruby"><span>あい</span><span>うえ</span><span>うえ</span><span>うえ</span><span>うえ</span><span>うえ</span><span>うえ</span><span>うえ</span><span>うえ</span></span>お
+</div><span>DEF</span></span><span class="ruby"><span>ABC</span><span>DEF</span></span><span class="ruby"><span>ABC</span><span>DEF</span></span><title><span>DEF</span></title>XYZ
+</div>
+<span>うえ</span>
+<br>
+
+<div style="width: min-content">
+  <span class="ruby"><span>あい</span><span>うえ</span></span>
+</div>
+<div style="width: max-content">
+  <span class="ruby"><span>あい</span><div style="width: max-content"><link>	  XYZ<span class="ruby"><span>ABC</span><span>DEF</span></span>XYZ
+</div></span>
+</div>
+<br>
+
+<span>ABC</span>
+<div style="width: max-content">
+  お<span class="ruby"><span>あい</span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span>うえ</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span<br>></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>お
+</div>
+</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>お
+</div>
+<br><br><br><html lang="ja">

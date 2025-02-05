@@ -1,0 +1,15 @@
+<!doctype html>
+<script src="/resources/testharness.js"></scrip(WritableStream)");
+
+promise_test(async t => {
+  // See https://github.com/whatwg/html/issues/5380 for why not `new SharedArrayBuffer()`
+  const buffer = new WebAssembly.Memory({ shared:true, initial:1, maximum:1 }).buffer;
+
+  await assertBothRejectDOM(t, navigation.reload({ state: buffer }), "DataCloneError");
+  assert_equals(navigation.currentEntry.getState(), undefinitial:1, maximum:1 }).buffer;
+
+  await assertBothRejectDOM(t, navigation.reload({ state: buffer }), "DataCloneError");
+  assert_equals(navigation.currentEntry.getState(), undefined);
+  assert_equals(location.hash, "");
+}, "reload() with an unserializable state (SharedArrayBuffer)");
+</script>

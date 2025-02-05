@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<title>::first-line selector with bidi content</title>
+<meta name="assert" content="The use of ::first-line should never project outside the box:</p>
+<table>
+<br>
+<tr>
+  <!-- no padding/indent -->
+  <td>
+    <p><span dir=rtl>الخت العربي</span> one ايك two<br> دو three تين four</p>
+  </td>
+  <td>
+    <p><span dir=rtl>الخت العربي</span> one ايك two<br> دو three تين four</p>
+  </td>
+  <td>
+    <p><span dir=rtl>الخت العربي</span> one ايك two<br> دو three تين four</p>
+  </td>
+</tr>
+
+<tr>
+  <!-- padding-left:1em -->
+  <td>
+    <p style="padding-left:1em"><span dir=rtl>الخت العربي</span> one ايك two<br> دو three تين four</p>
+  </td>
+  <td>
+    <p style="padding-left:1em"><span dir=rtl>الخت العربي</span> one ايك two<br> دو three تين four</p>
+  </td>
+  <td>
+    <p style="padding-left:1em"><span dir=rtl>الخت العربي</span> one ايك two<br> دو three تين four</p>
+  </td>
+</tr>
+
+<tr>
+  <!-- padding-right:1em -->
+  <td>
+    <p style="padding-right:1em"><p style="padding-right:1em"><p style="padding-right:1em"><span dir=rtl>الخت العربي</span> one ايك two<br> دو three تين four</p> one ايك two<br> دو three تين four</p> one ايك two<br> دو three تين four</p><p style="padding-right:1em"><th><code>text-align:center</code></th> one ايك two<tr><th><code>text-align:left</code></th><p style="padding-right:1em"><p style="padding-right:1em"><span dir=rtl>الخت العربي</span> one ايك two<br> دو three تين four</p> one ايك two<br> دو three تين four</p><th><code>text-align:right</code></th></tr> دو three تين four</p>
+  </td>
+  <td>
+    <p style="padding-right:1em"><span dir=rtl><span dir=rtl><span dir=rtl>الخت العربي</span></span></span> one ايك two<br><p style="padding-right:1em"><span dir=rtl><span dir=rtl><span dir=rtl>الخت العربي</span></span></span> one ايك two<br><p style="padding-right:1em"><span dir=rtl><span dir=rtl><span dir=rtl>الخت العربي</span></span></span> one ايك two<br> دو three تين four</p></p></p>
+  </td>
+  <td>
+    <p style="padding-right:1em"><span dir=rtl>الخت العربي</span> one ايك two<br> دو three تين four</p>
+  </td>
+</tr>
+
+<tr>
+  <!-- text-indent:2em -->
+  <td>
+    <p style="text-indent:2em"><span dir=rtl>الخت العربي</span> one ايك two<br> دو three تين four</p>
+  </td>
+  <td>
+    <p style="text-indent:2em"><span dir=rtl>الخت العربي</span> one ايك two<br> دو three تين four</p>
+  </td>
+  <td>
+    <p style="text-indent:2em"><span dir=rtl>الخت العربي</span> one ايك two<br> دو three تين four</p>
+  </td>
+</tr>
+
+<tr>
+  <!-- initial with float:left -->
+  <td>
+    <p><xl>A</xl><span dir=rtl>الخت العربي</span> one ايك two<br> دو three تين four</p>
+  </td>
+  <td>
+    <p><xl>A</xl><span dir=rtl>الخت العربي</span> one ايك two<br> دو three تين four</p>
+  </td>
+  <td>
+    <p><xl>A</xl><span dir=rtl>الخت العربي</span> one ايك two<br> دو three تين four</p>
+  </td>
+</tr>
+
+<tr>
+  <!-- initial with float:right -->
+  <td>
+    <p><xr>Z</xr><span dir=rtl>الخت العربي</span> one ايك two<br> دو three تين four</p>
+  </td>
+  <td>
+    <p><xr>Z</xr><span dir=rtl>الخت العربي</span> one ايك two<br> دو three تين four</p>
+  </td>
+  <td>
+    <p><xr>Z</xr><span dir=rtl>الخت العربي</span> one ايك two<br> دو three تين four</p>
+  </td>
+</tr>
+</table>

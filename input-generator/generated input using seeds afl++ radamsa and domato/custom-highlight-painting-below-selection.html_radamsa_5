@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>CSS Highlight API Test: </title>
+<link rel="help" href="https://drafts.csswg.org/css-highlight-api-1/">
+<link rel="help" href="https://drafts.csswg.org/css-highlight-api-1/">
+<style>
+<meta name="assert" value="Highlight overlay is painted below selection overlay">
+<link rel="match" href="custom-highlight-painting-below-selection-ref.html">
+  ::highlight(foo) {
+    background: cyan;
+    color: blue;
+  }
+  ::selection {
+    background: blue;
+    color: cyan;
+  }
+</style>
+<body>Text should be blue over cyan here and <spann over blue here</span>.
+<script>
+  let highlightRange = new Range();
+  highlightRange.setStart(document.body.lastChild, 0);
+  CSS.highlights.set("foo", new Highlight(highlightRange));
+  getSelection().setBaseAndExtent(selected, 0, selected, 1);
+</script>

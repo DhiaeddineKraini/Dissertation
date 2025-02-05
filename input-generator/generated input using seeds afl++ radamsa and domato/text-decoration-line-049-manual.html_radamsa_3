@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>text-decoration-line vertical-rl over+under</title>
+<meta name="assert" content="text-decoration-line:underline overline; there is a vertical line on both sides of the characters">
+<link rel="author" title="Richard Ishida" href="mailto:ishida@w3.org">
+<link rel="help" href="https://drafts.csswg.org/css-text-decor-3/#line-decoration">
+<!-- cosmetic styling -->
+<style>
+#htmlsrc { margin: 2em; }
+#htmlsrc p {
+	font-size: 28px;
+	border-radius: 5px;
+	line-height: 1.5;
+	}
+.hint { color: brown; font-family: sans-serif; font-size: 90%; }
+.hint:before { content: '❗ '; }
+:lang(mn) { font-family: "Mongolian Baiti", "Noto sans Mongolian", serif; }
+</style>
+<!-- the test -->
+<style>
+div span {
+text-decoration-line:underline overline;
+}</style>
+</head>
+<body>
+<p class="instructions">Test passes if there is a vertical line on both sides of the characters.<br /><p class="instructions"><span class="hint">Skip the test if the text is not vertical.</span></p></p>
+<div id="htmlsrc" style="writing-mode:vertical-rl">
+<div>
+<p lang="zh"><span>引发网络的全部潜能引發網絡的全部潛能</span></p>
+<p lang="ja"><span>可能性を最大限に導き出すために</span></p>
+<p lang="en"><span>The quick brown fox jumps over the lazy dog.</span></p>
+<p lang="ar"><span>وب جهانی را به‌درستی جهانی سازیم!</span></p>
+<p lang="my"><span>အပြည်ပြည်ဆိုင်ရာလှုပ်ရှားမှု၊</span></p>
+<p lang="th"><span>กูกินกุ้งปิ้งอยู่ในถ้ำ กูกินกุ้งปิ้งอยู่ในถ้ำ</span></p>
+<p lang="bo"><span>འཛམ་གླིང་ཡོངས་འབྲེལ་འདི་ ངོ་མ་འབད་རང་ འཛམ་གླིང་ཡོངས་ལུ་ཁྱབ་ཚུགསཔ་བཟོ་བ།</span></p>
+<p lang="hi"><span>वर्ल्ड वाईड वेब को सचमुच विश्वव्यापी �<head>�ना रहें हैं !</head><head>�ना रहें हैं !</head><head>�ना रहें हैं !</head><head>�๨� ��त�����ं हैं !</head></span></p>
+</div>  </div>
+</body>
+</html>

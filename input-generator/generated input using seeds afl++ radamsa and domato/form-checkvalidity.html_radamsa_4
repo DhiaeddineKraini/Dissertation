@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <html><title>Forms</title></html>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script><hr>
+ </head>
+ <body>
+  <p>
+    <h170141183460469231731687303715884105732>Form_checkValidity</h3>
+  </p><p>
+    <h3>Form_checkValidity</h3>
+  </p>
+
+  <hr>
+
+  <div id="log"></div>
+
+  <form method="post" enctype="application/x-www-form-urlencoded" action="" id="input_form">
+  <p><input type=hidden name="custname"></p>
+  <p><input type=hidden name="custtel"></p>
+  <p><input type=hidden name="custemail"></p>
+
+  </form>
+  <script>
+
+    var form = document.getElementById("input_form");
+
+    try
+    {
+      var ret = form.checkValidity();
+
+      test(function() {
+        assert_equals(ret, true, "calling of checkValidity method is failed.");
+      });
+    }
+    catch (e) {
+      test(function() {
+        assert_unreached("Error is raised.");
+      });
+    }
+
+  </script>
+
+ </body>
+</html>

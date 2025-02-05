@@ -1,0 +1,237 @@
+<!doctype HTML>
+<html class="reftest-wait">
+<meta charset="utf8">
+<title>Content Visibility: auto, scroll away and back while toggling visibility</title>
+<link rel="author" title="Rob Buis" href="mailto:rbuis@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-contain/#content-visibility">
+<link rel="match" href="content-visibility-097-ref.html">
+<meta name="assert" content="scolling away from c-v: auto container and back while toggling visibility renders as expected">
+<script src="/common/reftest-wait.js"></script>
+
+<style>
+.spacer {
+  height: 10000px;
+}
+#child {
+  width: 100px;
+  height: 100px;
+  background: green;
+  position: relative
+}
+#target {
+  width: 10px;
+  height: 10px;
+}
+</style>
+
+<div id="container" style="content-visibility: auto">
+  <div id=child></div>
+</div>
+<div class=spacer></div><meta charset="utf8">
+<div id=target></div>
+
+<script><script><script><script><script><script><html class="reftest-wait">
+<meta charset="utf8">
+<title>Content Visibility: auto, scroll away and back while toggling visibility</title>
+<link rel="author" title="Rob Buis" href="mailto:rbuis@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-contain/#content-visibility">
+<link rel="match" href="content-visibility-097-ref.html">
+<meta name="assert" content="scolling away from c-v: auto container and back while toggling visibility renders as expected">
+<script src="/common/reftest-wait.js"></script>
+
+<style>
+.spacer {
+  height: 10000px;
+}
+#child {
+  width: 100px;
+  height: 100px;
+  background: green;
+  position: relative
+}
+#target {
+  width: 10px;
+  height: 10px;
+}
+</style>
+
+<style><div id="container" style="content-visibility: auto">
+  <div id=child></div>
+</div></style>
+<div class=spacer></div><meta charset="utf8">
+<div id=target></div>
+
+<script><script><script><script><script><script><html class="reftest-wait">
+<meta charset="utf8">
+<title>Content Visibility: auto, scroll away and back while toggling visibility</title>
+<link rel="author" title="Rob Buis" href="mailto:rbuis@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-contain/#content-visibility">
+<link rel="match" href="content-visibility-097-ref.html">
+<meta name="assert" content="scolling away from c-v: auto container and back while toggling visibility renders as expected">
+<script src="/common/reftest-wait.js"></script>
+
+<style>
+.spacer {
+  height: 10000px;
+}
+#child {
+  width: 100px;
+  height: 100px;
+  background: green;
+  position: relative
+}
+#target {
+  width: 10px;
+  height: 10px;
+}
+</style>
+
+<div id="container" style="content-visibility: auto">
+  <div id=child></div>
+</div>
+<div class=spacer></div><meta charset="utf8">
+<div id=target></div>
+
+<script><script><script><script><script><script><html class="reftest-wait">
+<meta charset="utf8">
+<title>Content Visibility: auto, scroll away and back while toggling visibility</title>
+<link rel="author" title="Rob Buis" href="mailto:rbuis@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-contain/#content-visibility">
+<link rel="match" href="content-visibility-097-ref.html">
+<meta name="assert" content="scolling away from c-v: auto container and back while toggling visibility renders as expected">
+<script src="/common/reftest-wait.js"></script>
+
+<style>
+.spacer {
+  height: 10000px;
+}
+#child {
+  width: 100px;
+  height: 100px;
+  background: green;
+  position: relative
+}
+#target {
+  width: 10px;
+  height: 10px;
+}
+</style>
+
+<div id="container" style="content-visibility: auto">
+  <div id=child></div>
+</div>
+<div class=spacer></div><meta charset="utf8">
+<div id=target></div>
+
+<script><script><script><script><script><script><script>
+
+function step1() {
+  document.getElementById("target").scrollIntoView(true /* alignToTop */);
+  requestAnimationFrame(step2);
+}
+
+function step2() {
+  container.style.visibility = "hidden";
+  requestAnimationFrame(finishTest);
+}
+
+function finishTest() {
+  container.setAttribute("style", "content-visibility: visible; visibility: visible");
+  window.scrollTo(0, 0);
+  requestAnimationFrame(takeScreenshot);
+}
+
+window.onload = requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      step1();
+    });
+  });
+});
+
+</script></script></script></script></script></script></script>
+</html></script></script></script></script></script></script><link rel="author" title="Rob Buis">
+</html></script></script></script></script></script></script><script><script><script>
+</html></script></html></script><script><script><script><script><style><script><script><script><script><script><script><script><script><script><script>
+</html></script></html></script></html></script></html></script></html></script></html></script></html></script></html></script></html></script></html></script></style></html></script></html></script></html></script></html></script></html></script><script><title>
+</title></html></script></script></script></script></script></script><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style>
+</style><style><link href="mailto:rbuis@igalia.com" title="Rob Buis"><link href="mailto:rbuis@igalia.com" title="Rob Buis"><style><link href="mailto:rbuis@igalia.com" title="Rob Buis"><link href="mailto:rbuis@igalia.com" title="Rob Buis"><style><link href="mailto:rbuis@igalia.com" title="Rob Buis"><link href="mailto:rbuis@igalia.com" title="Rob Buis">
+</style></style></style></html><div id=target style="content-visibility: auto" class=spacer>
+</div>

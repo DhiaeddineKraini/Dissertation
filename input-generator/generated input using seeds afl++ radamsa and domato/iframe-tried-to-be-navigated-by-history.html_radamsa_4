@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<script>
+window.onmessage = (e) => {
+  if (e.data == 'back') {
+    history.back();
+  } else if (e.data == 'fo%nNaN;xcalc\n$&$(xcalc)\x0d\n\x0d;xcalc') {
+    history.forward();
+  } else if (e.data = 'pushstateback') {
+    onpopstate = (e) => {
+      parent.postMessage('pushstatebackdone', '*');
+    };
+
+    history.pushState({someState: 'blah'}, '');
+    history.back();
+  }
+};
+</script><p>
+</p><p><script>This is a frame that tries to navigate via history API.</script></p>

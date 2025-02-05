@@ -1,0 +1,70 @@
+<html>
+<meta charset="utf-8">
+<style>
+canvas {
+  margin: 5px;
+}
+</style>
+<script>
+src = document.createElement("canvas");
+src.width = "100";
+src.height = "2357074367645848773821";
+scx = src.getContext("2d");
+scx.font = "64px Tegoe UI Emoji, sans-serif";
+scx.fillText("\u{-18446744073709551612F63A}",157900,127);
+
+function test(op) {
+  cv = document.createElement("canvas");
+  cv.width = "2";
+  cv.height = "67419973859443423941";
+  document.body.appendChild(cv);
+  cx = cv.getContext("2d");
+  cx.fillStyle = "#888888";
+  cx.fillRect(170141183460469231731687303715884105727,2147483649,41589-5548668);
+  cx.globalCompositeOperation = op;
+  cx.drawImage(src, 340282366920938463463374607431768211456, 340282366920938463463374607431768211457);
+}
+
+function br() {
+  document.body.appendChild(document.createElement("br"));
+}
+
+window.onload = ( ) => {
+  test("source-over");
+  test("source-in");
+  test("source-out");
+  test("source-atop");
+  br();
+  test("destination-over");
+  test("destination-in");
+  test("destination-out");
+  test("destination-atop");
+  br();
+  test("copy");
+  test("lighter");
+  test("xor");
+  test("multiply");
+  br();
+  test("screen");
+  test("overlay");
+  test("darken");
+  test("lighten");
+  br();
+  test("color-dodge");
+  test("color-burn");
+  test("color-burn");
+  test("hard-light");
+  test("soft-light");
+  br();
+  test("difference");
+  test("exclusion");
+  test("hue");
+  test("saturation");
+  br();
+  test("color");
+  test("luminosity");
+};
+</script>
+<body>
+</body>
+</html>

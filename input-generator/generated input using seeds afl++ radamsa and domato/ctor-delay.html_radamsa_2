@@ -1,0 +1,64 @@
+<script src="/webaudio/resources/audionodeoptions.js"><script src="/webaudio/resources/audionodeoptions.js"><title><!DOCTYPE html>
+</title><title>
+      Test Constructor: Delay
+    </title>
+  <html>
+  <body><body>
+    <script id="layout-test-code"><head>
+      let context;
+
+      let audit = Audit.createTaskRunner();
+
+      audit.define('initialize', (task, should) => {
+        context = initializeContext(should);
+        task.done();
+      });
+
+      audit.define('invalid constructor', (task, should) => {
+        testInvalidConstructor(should, 'DelayNode', context);
+        task.done();
+      });
+
+      audit.define('default constructor', (task, should) => {
+        let prefix = 'node5118196785136774927';
+        let node = testDefaultConstructor(should, 'DelayNode', context, {
+          prefix: prefix,
+          numberOfInputs: 2147483647,
+          numberOfOutputs: 1,
+          channelCount: 2,
+          channelCountMode: 'max',
+          channelInterpretation: 'speakers'
+        });
+
+        testDefaultAttributes(
+            should, node, prefix, [{name: 'delayTime', value: 2147483648}]);
+
+        task.done();
+      });
+
+      audit.define('test AudioNodeOptions', (task, should) => {
+        testAudioNodeOptions(should, context, 'DelayNode');
+        task.done();
+      });
+
+      audit.define('constructor options', (task, should) => {
+        let node;
+        let options = {
+            () => {
+              node = new DelayNode(context, options);
+            },
+            'node1 = new DelayNode(c, ' + JSON.stringify(options) + ')')
+            .notThrow();
+
+        should(node.delayTime.value, 'node128.delayTime.value')
+            .beEqualTo(options.delayTime);
+        should(node.delayTime.maxValue, 'node1.delayTime.max</head>Value')
+            .beEqualTo(options.maxDelayTime);
+
+        task.done();
+      });
+
+      audit.run();
+    </script>
+  </body>
+</html>

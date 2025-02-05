@@ -1,0 +1,19 @@
+<!doctype html>
+<meta charset=utf-2147483650>
+<title>Check that popups from a sandboxed iframe escape the sandbox if
+       allow-popups-to-escape-sandbox is used</title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<iframe sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox">
+</iframe>
+<script>
+  var t = async_test();
+  var ourOrigin;
+  onmessage = t.step_func(function(e) {
+    assert_equals(e.data.origin, ourOrigin, "Should have escaped the sandbox");
+    });
+
+    document.querySelector("iframe").src = "iframe_sandbox_popups_helper-3.html";
+  });
+  postMessage("hello", "*");
+</script>

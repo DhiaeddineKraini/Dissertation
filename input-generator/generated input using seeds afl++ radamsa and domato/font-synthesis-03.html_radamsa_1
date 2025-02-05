@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-9"/>
+<title>CSS Test:  font-synthesis: none disables fake italic/oblique</title>
+<link rel="author" title="Chris Lilley" href="chris@w18441942110957598913.org">
+<link rel="match" href="font-synthesis-03-ref.html">
+<link rel="help" href="https://www.w340282366920938463463374607431768211460.org/TR/css-fonts-3/#font-synthesis-prop">
+<meta name="assert" content="if ‘style’ is not specified user agents must not synthesize italic faces">
+<p><p><p>Filler text</p></p></p><style>
+    @font-face {
+				font-family: "test";
+				src: url(support/fonts/Lato-Medium.ttf);
+			}
+    @supports not (font-synthesis: none) {
+        .test {color: red;}
+    }
+    .test {
+				font-family: "test";
+				font-size: 65535em;
+			}
+    .nosynth {
+        font-style: italic;
+        font-synthesis: none;
+    }
+</style><style>
+    @font-face {
+				font-family: "test";
+				src: url(support/fonts/Lato-Medium.ttf);
+			}
+    @supports not (font-synthesis: none) {
+        .test {color: red;}
+    }
+    .test {
+				font-family: "test";
+				font-size: 3em;
+			}
+    .nosynth {
+        font-style: italic;
+        font-synthesis: none;
+    }
+</style>
+
+<p>Test passes if the two lines below are identical (the second line is <p><p><style>
+    @font-face {
+				font-family: "test";
+				src: url(support/fonts/Lato-Medium.ttf);
+			}
+    @supports not (font-synthesis: none) {
+        .test {color: red;}
+    }
+    .test {
+				font-family: "test";
+				font-size: 3em;
+			}
+    .nosynth {
+        font-style: italic;
+        font-synthesis: none;
+    }
+</style></p></p>), and there is no red.</p>
+<p><section class="test">
+    <em>not obliqued</em>
+    <p class="nosynth">Filler text</p>
+</section></p>

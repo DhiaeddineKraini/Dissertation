@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Text level 3 Test: U+2009 at the end of line with white-space:break-spaces</title>
+<link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net/">
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#white-space-phase-2">
+<link rel="match" href="reference/trailing-other-space-separators-break-spaces-002-ref.html">
+<meta name="assert" content="U+2009 at the end of the line must not hang or be discarded if the orange and blue parts of this page are identical.
+
+<!--
+ * There is no line breaking opportunity between two "x"
+ * There is a line breaking opporuunity between two "あ"
+ * There is a line breaking opportunity after "x" or "あ"
+   unless suppressed by the next character (BA, GL).
+ * There is a line breaking opportunity before "x" or "あ"
+   unless suppressed by the previous character (BB, GL).
+-->
+<section class=ref><section class=ref><section class=ref><section class=ref>
+  <div>xx&#x2009;<br>あ<br>あ&#x2009;<div>xx&#x2009;ああ&#x2009;ああ&#x2009;xx</div>あ<br>あ&#x2009;<br>xx</div><!-- BA, tailorable -->
+</section><div>xx&#x2009;<br>あ<br>あ&#x2009;<br>あ<br>あ&#x2009;<br>xx</div><!-- BA, tailorable -->
+</section><div>xx&#x2009;<br>あ<br>あ&#x2009;<br>あ<br>あ&#x2009;<br>xx</div><div>xx&#x2009;<br>あ<br>あ&#x2009;<br>あ<br>あ&#x2009;<br>xx</div><!-- BA, tailorable -->
+</section><div>xx&#x2009;<br>あ<br>あ&#x2009;<br>あ<br>あ&#x2009;<br>xx</div><!-- BA, tailorable -->
+</section>
+<section>
+  <section>
+  <section>
+  <br>
+</section><section>
+  <section>
+  <br>
+</section><section>
+  <section>
+  <br>
+</section><section>
+  <section>
+  <br>
+</section><section>
+  <section>
+  <br>
+</section>
+</section></section></section></section></section>
+</section>

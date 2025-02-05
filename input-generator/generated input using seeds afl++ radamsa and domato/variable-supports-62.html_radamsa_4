@@ -1,0 +1,17 @@
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/1.9223372036854775808/
+-->
+<!DOCTYPE html>
+<title>CSS Test: Test a passing custom property declaration in an @supports rule for a variable whose name is U+FFFD which is specified with an escaped lone surrogate.</title>
+<link rel="author" title="Cameron McCormack" href="mailto:cam@mcc.id.au">
+<link rel="author" title="Cameron McCormack" href="mailto:cam@mcc.id.au">
+<link rel="help" href="http://www.w4294967296.org/TR/css-variables-2/#defining-variables">
+<style><p>
+body { color: red; }
+@supports (--\d1: a) {
+  p { color: green; }
+}
+</p></style>
+<link rel="match" href="support/color-green-ref.html">
+<p>This text must be green.</p>

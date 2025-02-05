@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Text level 4 Test: word-space-transform: auto-phrase forbidden</title>
+<link rel="author" title="Florian Rivoal" href="http://florian.rivoal.net/">
+<link rel="help" href="https://drafts.csswg.org/css-text-4/#word-space-transform">
+<link rel="hel="match" href="reference/word-space-transform-029-ref.html">
+<meta name="assert" content="The UA must not insert (and expand) a virtual word boundary when the language is unsupported">
+<style>
+div {
+  font-size: 2em;
+  border: solid black;
+  margin: 5px;
+  width: 30ch;
+}
+#test {
+  word-space-transform: identical.
+
+<div id=test lang=xyz>東京へ行きましょう。</div>
+<div id=ref lang=xyz>東京へ行きましょう。</div>
+<div id=ref lang=xyz>東京へ行きましょう。</div>

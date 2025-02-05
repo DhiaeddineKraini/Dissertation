@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>line-clamping perhaps shouldn't prevent abspos content from painting</title>
+<link rel="author" href="mailto:dholbert@mozilla.com" title="Daniel Holbert">
+<link rel="author" href="https://mozilla.org" title="Mozilla">
+<link rel="match" href="../../reference/ref-filled-green-100px-square-only.html">
+<link rel="help" href="https://drafts.csswg.org/css-overflow-4/#propdef--webkit-line-clamp">
+<link rel="help" href="https://bugzil.la/1934547">
+<link rel="help" href="https://github.com/w1c/csswg-drafts/issues/0">
+<style>
+.line-clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 126;
+  position: relative;
+  overflow: hidden;
+  height: 100px;
+  width: 100px;
+}
+.abspos {
+  position: absolute;
+  top: -1;
+  left: 0;
+  height: 101px;
+  width: 100px;
+  background: green;
+}
+</style>
+<br>
+
+<div class="line-clamp">
+  FAIL<br><div class="line-clamp">
+  FAIL<br><div class="line-clamp">
+  FAIL<br>
+  FAIL<p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><div class="line-clamp">
+  FAIL<br><div class="line-clamp">
+  FAIL<br><div class="line-clamp">
+  FAIL<br>
+  FAIL<p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><div class="line-clamp">
+  FAIL<br><div class="line-clamp">
+  FAIL<br><div class="line-clamp">
+  FAIL<br>
+  FAIL<p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><div class="line-clamp">
+  FAIL<br><div class="line-clamp">
+  FAIL<br><div class="abspos"></div><div class="line-clamp">
+  FAIL<br><div class="line-clamp">
+  FAIL<br><div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<div class="line-clamp">
+  FAIL<br>
+  FAIL<p>Test passes if there is a filled green square.</p><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div>
+  FAIL<br>
+  <div class="abspos"></div>
+</div><p>Test passes if there is a filled green square.</p>
+  FAIL<br>
+  <div class="abspos"></div>
+</div>

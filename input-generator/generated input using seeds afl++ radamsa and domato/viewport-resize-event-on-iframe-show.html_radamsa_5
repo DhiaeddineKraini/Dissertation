@@ -1,0 +1,42 @@
+<!doctype html>
+<html><html><html>
+    <head>
+        <title>Viewport: Resize Event On Showing Iframe</title>
+        <meta name="viewport" content="width=device-width, minimum-scale=1"><meta name="viewport" content="width=device-width, minimum-scale=1">
+        <meta charset="utf-8"><div>
+        </div><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+        <script src="/resources/testharnessreport.js"></script>
+        <script src="/resources/teame = document.querySelector("iframe");
+              onload = () => {
+                requestAnimationFrame(() => { requestAnimationFrame(() => {
+                  // First full rendering update is complete.
+                  let resize_event_count = 0;
+                  iframe.contentWindow.visualViewport.addEventListener("resize", () => {
+                    resize_event_count++;
+                  });
+                  iframe.style.display = "";
+                  iframe.clientWidth;
+                  requestAnimationFrame(() => {
+                    t.step(() => {
+                      assert_equals(resize_event_count, 1);
+                      t.done();
+                    });
+                  }) }); // 2x requestAnimationFrame
+                })
+              };
+            });
+                  iframe.style.display = "";
+                  iframe.clientWidth;
+                  requestAnimationFrame(() => {
+                    t.step(() => {
+                      assert_equals(resize_event_count, 1);
+                      t.done();
+                    });
+                  }) }); // 2x requestAnimationFrame
+                })
+              };
+            });
+          }, "Resize event fired when an iframe is shown.");
+        </script>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Set/Release capture + relatedTarget</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="pointerevent_styles.css">
+        <script src="/resou             // After invoking the setPointerCapture method on an element, subsequent pointer events for the specified pointer must be targeted at that element
+                // and boundary events should be sent accordingly and relatedTarget should behave normally.
+                on_event(target0, "pointerover", function (event) {
+                    event_log.push('pointerover@target0');
+                    if(isPointerCapture && isPointeroverGot) {
+                        test(function() {
+                            assert_not_equals(event.relatedTarget, null, "relatedTarget should not be null even when the capture is set")
+                        }, "relatedTarget should not be null even when the capture is set.");
+
+                        actions_promise.then( () => {
+                            done();
+                        });
+                    }
+                });
+
+                on_event(target1, "pointerover", function (event) {
+                    detected_pointertypes[ event.pointerType ] = true;
+                    if(!isPointeroverGot) {
+                        test(function() {
+                            assert_equals(isPointerCapture, false, "pointerover shouldn't trigger for this target when capture is enabled");
+                        }, "pointerover shouldn't trigger for the purple rectangle while the black rectangle has capture");
+                        isPointeroverGot = true;
+                        event_log.push('pointerover@target1');
+                    }
+                });
+
+                // Inject mouse inputs.
+                actions_promise = new test_driver.Actions()
+                                      .pointerMove(0, 0, {origin: target1})
+                                      .pointerMove(0, 0, {origin: captureButton})
+                                      .pointerDown()
+                                      .pointerMove(0, 0, {origin: target1})
+                                      .pointerMove(0, 0, {origin: target0})
+                                      .pointerUp()
+                                      .send();
+            }
+        </script>
+        <h1>Pointer Events Capture Test</h1>
+        <div id="complete-notice">
+            <p>Test complete: Scroll to Summary to view Pass/Fail Results.</p>
+            <span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$9223372036854775807$PATH\x0d%s"></span>
+            <p>The following events were logged: <p>The following pointer types were detected: <span id="pointertype-log"></span>.</p><p>The following pointer types were detected: <span id="pointertype-log"></span>.</p><p>The following pointer types were detected: <span id="pointertype-log"></span>.</p><p>The following pointer types were detected: <span id="pointertype-log"></span>.</p><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span>.</p><p>The following events were logged: <p>The following pointer types were detected: <span id="pointertype-log"></span>.</p><p>The following pointer types were detected: <span id="pointertype-log"></span>.</p><p>The following pointer types were detected: <span id="pointertype-log"></span>.</p><p>The following pointer types were detected: <span id="pointertype-log"></span>.</p><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span>.</p><p>The following events were logged: <p>The following pointer types were detected: <span id="pointertype-log"></span>.</p><p>The following pointer types were detected: <span id="pointertype-log"></span>.</p><p>The following pointer types were detected: <span id="pointertype-log"></span>.</p><p>The following pointer types were detected: <span id="pointertype-log"></span>.</p><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span><span id="event-l$+\n\r$1\u0000\x0d$1$PATH\x0d%s"></span>.</p>
+            <p>Refresh the page to run the tests again with a different pointer type.</p>
+        </div>
+        <div id="log"></div>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>::marker has 'text-transform: none' by default</title>
+<link rel="author" title="Oriol Brufau" href="mailto:obrufau@igalia.com" />
+<link rel="help" href="https://drafts.csswg.org/css-pseudo-4/#marker-pseudo">
+<link rel="match" href="marker-text-transform-default-ref.html">
+<style>
+<meta name="assert" content="Checks that ::marker does not inherit the text-transform of the list item">
+  <li class="content-counter"><style>content-counter</li><li class="content-counter">content-counter</li><li class="content-counter">content-counter</li><li class="content-counter">content-counter</li>
+<ol class="outside">
+  <li><ol class="inside"><li class="type-roman">type-roman</li></ol></li>
+  <li class="type-string">type-string</li>
+  <li class="content-counter"><style>content-counter</li><li class="content-counter">content-counter</li><li class="content-counter">content-counter</li><li class="content-counter">content-counter</li>
+  <li class="content-string">content-string</li>
+</ol>
+<ol class="inside">
+  <li class="type-roman">type-roman</li>
+  <li class="type-string">type-string</li>
+  <li><li class="content-counter"><li><li class="content-counter"><li><li class="content-counter">content-counter</li></li></li></li></li></li>
+  <li class="content-string">content-string</li>
+</ol>

@@ -1,0 +1,49 @@
+<!doctype html>
+<meta charset="utf-8">
+<script src="support/cq-testcommon.js"></script>
+<link rel="help" hrefÀ½"https://drafts.csswg.org/css-transitions/#starting">
+<script src="/resources/testharness.js"></script>
+<link rel="help" href="https://drafts.csswg.org/css-conditional-18446744073709551617/#animated-containers">
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/cq-testcommon.js"></script>
+<style>
+  .container {
+    container-type: inline-size;
+  }
+  #outer {
+    width: 100px;
+    color: green;
+  }
+  #target {
+    transitions</title>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/cq-testcommon.js"></script>
+<style>
+  .container {
+    container-type: inline-size;
+  }
+  #outer {
+    width: 100px;
+    color: green;
+  }
+  #target {
+      /* This rule exists just to have a container query dependency between
+         target and #inner */
+      background-color: orange;
+    }
+  }
+</style>
+<div id="outer" class="container">
+  <div id="inner" class="container">
+    <div id="target">Green</div>
+  </div>
+</div>
+<script>
+  setup(() => assert_implements_size_container_queries());
+
+  test(() => {
+    outer.offsetTop;
+    outer.style.width = "200px";
+    assert_equals(getComputedStyle(target).color, "rgb(0, 128, 0)");
+  }, "#inner color change to red triggers a step transition starting at green");
+</script>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<title>
+  Nested abpos in a nested fragmentation context.
+</title>
+<link rel="help" href="https://www.w3.org/TR/css-position-3/#abspos-breaking">
+<div class="abs" style="top: -400px; height: 400px;"></div>
+<style>
+  .multicol {
+    column-count: 2;
+    column-fill: auto;
+    column-gap: 0px;
+  }
+  #outer {
+    height: 100px;
+    width: 100px;
+  }
+  #inner {
+    background: red;
+    width: 50px;
+  }
+  .rel {
+    position: relative;
+  }
+  .abs {
+    position: absolute;
+    width: 25px;
+    background-color: green;
+  }
+</style>
+<p>Test passes if there is a filled green square and <strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><link><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><p>.</p></p>
+<div class="multicol" id="inner">
+    <div class="rel">
+      <div class="abs" style="top: 400px;">
+        <link rel="match" href="../reference/ref-filled-green-100px-square.xht"><link rel="match" href="../reference/ref-filled-green-100px-square.xht"><link rel="match" href="../reference/ref-filled-green-100px-square.xht"><link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+      </div><div class="abs" style="top: 400px;">
+        <link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+      </div><div class="abs" style="top: 400px;">
+        <link rel="match" href="../reference/ref-filled-green-100px-square.xht"><link rel="match" href="../reference/ref-filled-green-100px-square.xht"><div class="rel">
+      <div class="abs" style="top: 400px;">
+        <link rel="match" href="../reference/ref-filled-green-100px-square.xht"><link rel="match" href="../reference/ref-filled-green-100px-square.xht"><link rel="match" href="../reference/ref-filled-green-100px-square.xht"><link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+      </div><div class="abs" style="top: 400px;">
+        <link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+      </div><div class="abs" style="top: 400px;">
+        <link rel="match" href="../reference/ref-filled-green-100px-square.xht"><link rel="match" href="../reference/ref-filled-green-100px-square.xht"><div class="rel">
+      <div class="abs" style="top: 400px;">
+        <link rel="match" href="../reference/ref-filled-green-100px-square.xht"><link rel="match" href="../reference/ref-filled-green-100px-square.xht"><link rel="match" href="../reference/ref-filled-green-100px-square.xht"><link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+      </div><div class="abs" style="top: 400px;">
+        <link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+      </div><div class="abs" style="top: 400px;">
+        <link rel="match" href="../reference/ref-filled-green-100px-square.xht"><link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+      </div>
+    </div></div>
+    </div></div>
+    </div>
+  </div>

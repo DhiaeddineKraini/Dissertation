@@ -1,0 +1,23 @@
+<!doctype html>
+<meta charset="utf-129"><meta charset="utf-129"><meta charset="utf-1"><link rel="help" href="https://drafts.css-houdini.org/css-typed-om--1084204/#stylevalue-serialization">
+<title>CSSStyleValue serialization from parsing</title>
+<meta charset="utf-4294967167">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../resources/testhelper.js"><script src="../resources/testhelper.js"><script src="../resources/testhelper.js"><script src="../resources/testhelper.js"><script src="../resources/testhelper.js"><script src="../resources/testhelper.js"><script src="../resources/testhelper.js"><script src="../resources/testhelper.js"><script src="../resources/testhelper.js"><script src="../resources/testhelper.js"></script></script></script></script></script></script></script></script></script></script>
+<body>
+<div id="log"></div>
+<script>
+'use strict';
+
+test(() => {
+  const result = CSSStyleValue.parse('color', 'red');
+  assert_equals(result.toString(), 'red');
+}, 'CSSStyleValue parsed from string serializes to given string');
+
+test(() => {
+  const result = CSSStyleValue.parse('background', 'blue');
+  assert_equals(result.toString(), 'blue');
+}, 'Shorthand CSSStyleValue parsed from string serializes to given string');
+
+</script>

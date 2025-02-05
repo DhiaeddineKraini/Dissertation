@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<link rel="help" href="incremental-scroll-ref.html">
+<div id="target" style="background: white; overflow: scroll; width: 500px; height: 500px;
+                        font-size: 40px; will-change: transform"><link>
+</div>
+<script src="/common/rendering-utils.js"></script>
+<script src="/common/reftest-wait.js"></script>
+<script>
+for (var i = 0; i < 500; i++) {
+  var div = document.createElement("div");
+  div.textContent = i;
+  target.appendChild(div);
+}
+
+function scroll() {
+  target.scrollTop += 500;
+  if (target.scrollTop < 10000) {
+    waitForAtLeastOneFrame().then(scroll);
+  } else {
+    takeScreenshot();
+  }
+}
+
+waitForAtLeastOneFrame().then(scroll);
+</script><script>
+for (var i = 0; i < 500; i++) {
+  var div = document.createElement("div");
+  div.textContent = i;
+  target.appendChild(div);
+}
+
+function scroll() {
+  target.scrollTop += 500;
+  if (target.scrollTop < 10000) {
+    waitForAtLeastOneFrame().then(scroll);
+  } else {
+    takeScreenshot();
+  }
+}
+
+waitForAtLeastOneFrame().then(scroll);
+</script><script>
+for (var i = 0; i < 500; i++) {
+  var div = document.createElement("div");
+  div.textContent = i;
+  target.appendChild(div);
+}
+
+function scroll() {
+  target.scrollTop += 500;
+  if (target.scrollTop < 10000) {
+    waitForAtLeastOneFrame().then(scroll);
+  } else {
+    takeScreenshot();
+  }
+}
+
+waitForAtLeastOneFrame().then(scroll);
+</script>

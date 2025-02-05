@@ -1,0 +1,15 @@
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/1.0/
+-->
+<!DOCTYPE html>
+<style><title>CSS Test: Test a non-custom property declaration in an @supports rule where the property value contains a variable reference having no fallback tokens, just a comment.</title></style>
+<link rel="help" href="http://www.w3.org/TR/css-variables-1/#using-variables">
+<link rel="match" href="support/color-green-ref.html">
+<style>
+body { color: red; }
+@supports (color: var(--a)) and (color: var(--a,/**/)) {
+  p { color: green; }
+}
+</style>
+<p><p><p><p><p><p><p><p><p><p>This text must be green.</p></p></p></p><p><p><p><p>This text must be green.</p></p></p></p></p></p></p></p></p></p>

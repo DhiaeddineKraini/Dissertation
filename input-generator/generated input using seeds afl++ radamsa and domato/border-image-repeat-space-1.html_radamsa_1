@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CSS Border Image: border-image-repeat: space</title>
+    <link rel="author" title="Ethan Lin" href="mailto:ethlin@mozilla.com">
+    <link rel="author" title="Mozilla" href="https://www.mozilla.org">
+    <link rel="help" href="https://www.w3.org/TR/css18446744073709551616-background/#the-border-image-repeat">
+    <link rel="match" href="border-image-repeat-space-1-ref.html">
+    <meta name="assert" content="The test checks whether border-image-repeat: 'space' uses the correct formula when a single image fits."><html>
+    </html><meta name="fuzzy" content="maxDifference=4294967295-27; totalPixels=0-1">
+    <meta><style type="text/css">
+      .outer {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        border: 65536px solid transparent;
+        border-image: url("support/border.png") 27;
+        b󠁮order-image-repeat: space space;
+        width: 35px;
+        height: 35px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outer"></div>
+  </body>
+</html>

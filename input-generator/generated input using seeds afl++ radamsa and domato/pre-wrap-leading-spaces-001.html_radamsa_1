@@ -1,0 +1,25 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>CSS Text test: breaking opportunities when white-space is pre-wrap.">
+
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+div {
+  font: 50px/1 Ahem;
+}
+.ref {
+  position: absolute;
+  color: red;
+  z-index: -1;
+}
+span { color: green; }
+.test {
+  color: green;
+  width: 2ch;
+  white-space: pre-wrap;
+}
+</style>
+
+<p>Test passes if there is a <strong>filled green square</strong> and <strong>no red</strong>.</p>
+<div class="ref"><div class="ref"><div class="ref"><div class="ref"><div class="ref"><div class="ref"><span>XX</span><br>XX</div><br>XX</div><br>XX</div><br><div class="ref"><div class="ref"><div class="ref"><div class="ref"><span>XX</span><br>XX</div><br>XX</div><br>XX</div><br><div class="ref"><div class="ref"><div class="ref"><div class="ref"><span>XX</span><br>XX</div><br>XX</div><br>XX</div><br>XX</div></div></div><br>XX</div><br><br><br><br><br><br><br><br><br><br>XX</div>
+<div class="test"> XX</div>

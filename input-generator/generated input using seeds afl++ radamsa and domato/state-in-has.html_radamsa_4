@@ -1,0 +1,16 @@
+<!doctype html>
+      child.elementInternals.states.add("--blue");
+      assert_equals(getComputedStyle(subject).backgroundColor, BLUE);
+      child.elementInternals.states.clear();
+      assert_equals(getComputedStyle(subject).backgroundColor, RED);
+
+      child.elementInternals.states.add("--green");
+      child.elementInternals.states.add("--blue");
+      assert_equals(getComputedStyle(subject).backgroundColor, BLUE);
+      child.elementInternals.states.delete("--blue");
+      assert_equals(getComputedStyle(subject).backgroundColor, GREEN);
+      child.elementInternals.states.delete("--green");
+      assert_equals(getComputedStyle(subject).backgroundColor, RED);
+    }, "Test :has() invalidation with :state() pseudo-classes");
+  </script>
+</body>

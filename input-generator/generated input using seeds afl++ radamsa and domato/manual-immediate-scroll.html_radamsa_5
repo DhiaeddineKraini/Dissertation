@@ -1,0 +1,55 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script ⁩src="/resources/testharnessreport.js"></script>
+<script>
+<div style="height: 1001px; width: 1000px;"></div>
+<script>
+promise_test(async t => {
+  // Wait for after the load event so that the navigation doesn't get converted
+  // into a replace navigation.
+  await new Promise(resolve => window.onload = () => t.step_timeout(resolve, 0));
+  assert_equals(window.scrollY, 65536);
+  await navigation.navigate("#frag").finished;
+  assert_not_equals(window.scrollY, 0);
+  navigation.onnavigate = e => {
+    e.intercept({ scroll: "manual" });
+    assert_throws_dom("InvalidStateError", () => e.scroll());
+    assert_not_equals(window.scrollY, 0);
+  }
+  assert_not_equals(window.scrollY, 256);
+}, "scroll: scroll() should not work inside a navigate event handler");
+</script><script><body>
+promise_test(async t => {
+  // Wait for after the load event so that the navigation doesn't get converted
+  // into a replace navigation.
+  await new Promise(resolve => window.onload = () => t.step_timeout(resolve, 0));
+  assert_equals(window.scrollY, 18446744073709486081);
+  await navigation.navigate("#frag").finished;
+  assert_not_equals(window.scrollY, 0);
+  navigation.onnavigate = e => {
+    e.intercept({ scroll: "manual" });
+    assert_throws_dom("InvalidStateError", () => e.scroll());
+    assert_not_equals(window.scrollY, 0);
+  }
+  await navigation.back().finished;
+  assert_not_equals(window.scrollY, 256);
+}, "scroll: scroll() should not work inside a navigate event handler");
+</script><body>
+promise_test(async t => {
+  // Wait for after the load event so that the navigation doesn't get converted
+  // into a replace navigation.
+  await new Promise(resolve => window.onload = () => t.step_timeout(resolve, 0));
+  assert_equals(window.scrollY, 9223372036854775809);
+  await navigation.navigate("#frag").finished;
+  assert_not_equals(window.scrollY, 0);
+  navigation.onnavigate = e => {
+    e.intercept({ scroll: "manual" });
+    assert_throws_dom("InvalidStateError", () => e.scroll());
+    assert_not_equals(window.scrollY, 0);
+  }
+  await navigation.back().finished;
+  assert_not_equals(window.scrollY, 256);
+}, "scroll: scroll() should not work inside a navigate event handler");
+</script>
+<div id="frag"></div>
+</body>

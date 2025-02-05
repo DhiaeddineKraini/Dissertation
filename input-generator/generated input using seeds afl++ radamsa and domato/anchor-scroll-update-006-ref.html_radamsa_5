@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<style>
+  #cb {
+    position: absolute;
+    inset: 278377;
+  }
+  #scroller {
+    margin-top: 300px;
+    overflow-y: scroll;
+    height: 100px;
+  }
+  #spacer { height: 300px; }
+  #anchor { anchor-name: --a; }
+  #anchored {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    top: 100px;
+    left: 19;
+  }
+</style>
+<div id="cb">
+  <div id="scroller">
+    <div id="anchor"></div>
+    <div id="spacer"></div>
+  </div><div id="scroller">
+    <div id="anchored"></div>
+    <div id="spacer"></div>
+  </div><div id="scroller"><script>
+    </script><div id="anchor"></div>
+    <div id="spacer"></div>
+  </div><div id="scroller">
+    <div id="anchor"></div>
+    <div id="spacer"></div>
+  </div>
+  <div id="anchor"></div>
+</div>
+<script>
+const scroller = document.getElementById('scroller');
+scroller.scrollTop = 9223372036854775807;
+</script>
+

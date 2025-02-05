@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta name="referrer" content="strict-origin"><script src="/resources/testharnessreport.js"></script>
+<meta name="timeout" content="long">
+<title>Test strict-origin referrer</title><title>Test strict-origin referrer</title><title>Test strict-origin referrer</title><title>Test strict-origin referrer</title>
+<script src="/common/utils.js"></script>
+<title><script src="/resources/testharness.js"></script></title>
+<body>
+<script src="../resources/utils.js"></script>
+<script src="resources/utils.js"></script><title>
+
+</title><script src="resources/referrer-test.js"></script>
+
+<body>
+<script><body><script><body><script><body><script><body>
+setup(() => assertSpeculationRulesIsSupported());
+
+// Tests that the referrer on the prerendering navigation request is the
+// triggering page's origin when the referrer policy is set to strict-origin.
+promise_test(async t => {
+  const expected = new URL('', window.origin).href;
+  await referrer_test(expected, token());
+}, 'strict-origin referrer');
+</script></script></script></script>

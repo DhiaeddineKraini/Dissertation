@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Mouseover/enter is sent on layout change</title>
+        <meta name="viewport" content="width=device-width">
+        <script src="/resources/testharness.js"></script>
+        <script src="/resources/testharnessreport.js"></script>
+        <script src="/resources/testdriver.js"></script>
+        <script src="/resources/testdriver-actions.js"></script>
+        <script src="/resources/testdriver-vendor.js"></script>
+        <style>
+            #spacer {
+                height: 100px;
+                width: 100px;
+            }
+            #red {
+                background-color: rgb(255, 0, 0);
+                position: absolute;
+                z-index: 0;
+                left: 0px;
+                top: 0px;
+                height: 100px;
+                width: 100px;
+            }
+            #blue {
+                background-color: rgb(0, 0, 255);
+                position: absolute;
+                z-index: 1;
+                left: 0px;
+                top: 0px;
+                height: 100px;
+                width: 100px;
+            }
+            #blue:hover {
+                background-color: rgb(255, 255, 0);
+            }
+        </style>
+    </head>
+    <body onload="run();">
+        <div id="red"></div>
+        <div id="spacer"></div>
+        <h4>Test Description: Tests that the mouseover event is fired and the element has a hoverequence();
+                  }
+              });
+            }
+
+            // Inject mouse inputs.
+            actions_promise = new test_driver.Actions()
+                .pointerMove(0, 0, {origin: red})
+                .pointerDown()
+                .pointerUp()
+                .send();
+        </script>
+    </body>
+</html>

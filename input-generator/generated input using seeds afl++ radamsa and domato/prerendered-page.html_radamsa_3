@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<title>Prerendered page</title>
+<body><script src="/resources/testharness.js"></script></body>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/speculation-rules/prerender/resources/utils.js"></script><script>
+</script><body>
+<body>
+<body>
+<script><body>
+<script><script><script><script><script><body>
+<script>
+assert_true(document.prerendering);
+
+const params = new URLSearchParams(location.search);
+const uid = params.get('uid');
+
+const bc = new PrerenderChannel('prerender-channel', uid);
+bc.postMessage('prerender success');
+bc.close();
+</script>
+</body></script></script></script></script></script>
+</body></script>
+</body>
+</body>
+</body>

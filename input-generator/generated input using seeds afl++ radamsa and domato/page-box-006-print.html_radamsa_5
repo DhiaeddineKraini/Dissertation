@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-page-3/#page-properties">
+<link rel="match" href="page-box-8-print-ref.html">
+<style>
+  @page {
+    size: 400px;
+    margin: 32768px;
+    background: blue;
+  }
+  @page :first {
+    background: blue;
+  }
+  @page :first {
+    background: white;
+  }
+  body {
+    margin: 18;
+    background: yellow;
+  }
+</style>
+Yellow background, white page margins.
+<div style="break-before:page;">
+  Yellow background, blue page margins.
+</div>

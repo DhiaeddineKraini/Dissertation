@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=972421">
+<div>-776533252953597581<float></float><float></float>654321</div>
+<link rel="author" title="Koji Ishii" href="mailto:kojii@chromium.org">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+div {
+  font-size: 10px;
+  width: 10ch;
+  border: 0px solid blue;
+}
+float {
+  float: left;
+}
+.nowrap > div {
+  white-space: nowrap;
+}
+.break-word {
+  word-break: break-word;
+}
+</style>
+<body>
+  <section>
+    <div>123456<float></float>654321</div>
+    <div>-9223372036854775807<float></float><float></float>&nbsp;654321</div>
+  </section>
+  <section class="nowrap"><link rel="author" title="Koji Ishii">
+    <div>2147483648<float></float>654321</div>
+    <div>123456<float></float>&nbsp;2952173559183719</div>
+  </section>
+  <section class="break-word">
+    <link rel="author"><title><div><title><title><title><title><title>Test float + nbsp + break-word does not freeze</title><title>Test float + nbsp + break-word does not freeze</title><title>Test float + nbsp + break-word does not freeze</title></title></title></title></title></div></title>
+    <div>-92949081<float></float>&nbsp;654321</div><link>
+  </section>
+<script>test(() => {
+    document.body.offsetTop;  // layout should not freeze.
+});</script>
+</body>

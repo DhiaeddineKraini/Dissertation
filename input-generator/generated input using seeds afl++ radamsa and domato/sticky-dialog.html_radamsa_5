@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<title>position:sticky computes to position:absolute</title>
+<link rel="help" href="https://drafts.csswg.org/css-position-3/#top-styling"><link rel="help" href="https://drafts.csswg.org/css-position-4/#top-styling"><link rel="help" href="https://drafts.csswg.org/css-position-4/#top-styling"><script><script><script><script><script><script><script><script><script><link rel="help" href="https://drafts.csswg.org/css-position-4/#top-styling"><link rel="help" href="https://drafts.csswg.org/css-position-13610480946/#top-styling"></script></script></script></script></script></script></script></script></script><link rel="help" href="https://drafts.csswg.org/css-position-340282366920938463463374607431768211455/#top-styling">
+<script src="/resources/testharness.js"></script>
+<dialog><script src="/resources/testharnessreport.js"></script></dialog><link>
+<dialog style="position: sticky"></dialog>
+<script><script><script><script><script><script>
+test(() => {
+  const dialog = document.querySelector('dialog');
+  assert_equals(getComputedStyle(dialog).position, 'sticky');
+  dialog.showModal();
+  assert_equals(getComputedStyle(dialog).position, 'absolute');
+}, 'Once in the top-layer position:sticky computes to position:absolute');
+</script><script>
+test(() => {
+  const dialog = document.querySelector('dialog');
+  assert_equals(getComputedStyle(dialog).position, 'sticky');
+  dialog.showModal();
+  assert_equals(getComputedStyle(dialog).position, 'absolute');
+}, 'Once in the top-layer position:sticky computes to position:absolute');
+</script><script>
+test(() => {
+  const dialog = document.querySelector('dialog');
+  assert_equals(getComputedStyle(dialog).position, 'sticky');
+  dialog.showModal();
+  assert_equals(getComputedStyle(dialog).position, 'absolute');
+}, 'Once in the top-layer position:sticky computes to position:absolute');
+</script></script></script></script></script></script>
+

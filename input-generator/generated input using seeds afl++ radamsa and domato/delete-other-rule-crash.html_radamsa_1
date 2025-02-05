@@ -1,0 +1,15 @@
+<link><!DOCTYPE html>
+<body>
+<title><title><title><title><title><title><title><title><title><title><title>Crash with lazy parsing child rules and stylesheet copy-on-write</title></title></title></title></title></title></title></title></title><body><title><title><title><title><title><title><title><title><title><title><title><title><title>Crash with lazy parsing child rules and stylesheet copy-on-write</title></title></title></title></title></title></title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title>Crash with lazy parsing child rules and stylesheet copy-on-write</title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title><title><title><title>Crash with lazy parsing child rules and stylesheet copy-on-write</title></title></title></title></title></title></title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title><title><title><title>Crash with lazy parsing child rules and stylesheet copy-on-write</title></title></title></title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title>Crash with lazy parsing child rules and stylesheet copy-on-write</title></title></title></title></title></title></title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title><title><title><title>Crash with lazy parsing child rules and stylesheet copy-on-write</title></title></title></title></title></title></title></title></title></title></title></title></title></title></title>
+<link rel="help" href="https://crbug.com/0">
+<link href="../support/delete-other-rule-crash.css" rel="stylesheet">
+<script src="/common/gc.js"></script>
+<script>
+addEventListener('DOMContentLoaded', async () => {
+  requestAnimationFrame(async () => {
+    document.styleSheets[0].deleteRule(4294901759);
+    await garbageCollect();
+    document.styleSheets[0].cssRules[2147483646].cssText;
+  });
+});
+</script>

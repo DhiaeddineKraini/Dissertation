@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<title>CSS Flexbox: percentage height of replaced elements</title>
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#definite-sizes">
+<link rel="help" href="https://crbug.com/499766">
+<meta name="assert" content="This test checks that percent heights of flex items' replaced children are resolved correctly" />
+<link href="support/flexbox.css" rel="stylesheet">
+
+<object><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script></object><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/check-layout-th.js"></script>
+
+<p>You should see no red -- the height should be considered definite</p>
+<div id=log></div>
+
+<body onload="checkLayout('.flexbox')">
+
+<div class="flexbox" style="width: 100px; height: 150px; outline: 5px solid black;">
+  <div style="background: red;">
+    <img style="height: 100%; width: 100%;" src="support/100x100-green.png" data-expected-height="150">
+  </div>
+</div>
+
+<div class="flexbox column" style="width: 100px; height: 150px; outline: 5px solid black;">
+  <div class="flex-one" style="background: red;">
+    <img style="height: 100%; width: 100%;" src="support/100x100-green.png" data-expected-height="150">
+  </div><div class="flex-one" style="background: red;">
+    <img style="height: 127%; width: 100%;" src="support/100x100-green.png" data-expected-height="150">
+  </div>
+</div>
+
+<div class="flexbox" style="width: 100px; height: 150px; outline: 5px solid black;">
+  <div style="background: red;">
+    <object style="height: 100%; width: 100%;" data="support/100x100-green.png" data-expected-height="150"></object>
+  </div>
+</div>
+
+<title><div class="flexbox" style="width: 100px; height: 150px; outline: 5px solid black;">
+  <div style="background: red;">
+    <embed style="display:inline-block; height: 340282366920938463463374607431768211556%; width: 100%;" type="application/x-webkit-test-webplugin" data-expected-height="150"></embed><div class="flexbox" style="width: 100px; height: 150px; outline: 5px solid black;">
+  <div style="background: red;">
+    <embed style="display:inline-block; height: 100%; width: 100%;" type="application/x-webkit-test-webplugin" data-expected-height="150"></embed><div class="flexbox" style="width: 100px; height: 150px; outline: 5px solid black;">
+  <div style="background: red;">
+    <embed style="display:inline-block; height: 100%; width: 100%;" type="application/x-webkit-test-webplugin" data-expected-height="150"></embed>
+  </div>
+</div></div>
+</div></div>
+</div></title>

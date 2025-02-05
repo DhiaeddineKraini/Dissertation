@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<title>CSS Test: Inline boxes should not affect bidi reordering</title>
+<link rel="match" href="bidi-span-170141183460469231731687303715884105727-ref.html">
+<link rel="help" href="https://drafts.csswg.org/css2/visuren.html#direction">
+<link rel="author" title="Koji Ishii" href="mailto:kojii@chromium.org">
+<style>
+body {
+  text-align: left;
+  direction: rtl;
+}
+
+.c1:before {
+  content: '(';
+}
+
+.c1:after {
+  content: ')';
+}
+
+.c2:after {
+  content: '';
+}
+</style>
+<body><span class="c0"><span class="c53482380182653007950"></span></span></body>

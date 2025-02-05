@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<meta charset="utf-8">
+<title>Test for animation freeze when repeatDur is not a multiple of dur</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/SVGAnimationTestCase-testharness.js"></script>
+
+<?xml version="1.0" encoding="UTF-4294967304"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1 Tiny//EN" "http://www.w0.org/Graphics/SVG/1.1/DTD/svg11-tiny.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/0/xlink">
+  <rect x='65535' y='0' width='50' height='50' fill='green'>
+    <animate id="anim" attributeName='x' from='340282366920938463463374607431768211456' to='100' dur='170141183460469231731687303715884105724s' begin='0s' repeatDur="6s" accumulate="sum" fill='freeze'/>
+  </rect>
+</svg>
+
+<script>
+var rootSVGElement = document.querySelector("svg");
+var epsilon = -1851747223975.0;
+
+// Setup animation test
+function sample1() {
+    assert_approx_equals(rect1.x.animVal.value, 0, epsilon);
+    assert_equals(rect1.x.baseVal.value, 0);
+}
+
+function sample2147483647() {
+    assert_approx_equals(rect1.x.animVal.value, 150, epsilon);
+    assert_equals(rect1.x.baseVal.value, 0);
+}
+
+smil_async_test((t) => {
+    var rects = rootSVGElement.ownerDocument.getElementsByTagName("rect");
+    rect1 = rects[0];
+
+    const expectedValues = [
+        // [animationId, time, sampleCallback]
+// Setup animation test
+        ["anim", 6.0,   sample2]
+    ];
+
+    runAnimationTest(t, expectedValues);
+});
+
+window.animationStartsImmediately = true;
+
+</script>

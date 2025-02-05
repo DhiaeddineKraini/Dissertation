@@ -1,0 +1,20 @@
+<!doctype html>
+<title>No fieldset parent</title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script src=../common/accesskey.js></script>
+<p>Press the access key combination for "a". <kbd></kbd></p>
+<legend accesskey=a><legend accesskey=a><legend accesskey=a>
+ legend
+ <input onfocus="fail('input after legend was focused')">
+</legend><input onfocus="fail('input after legend was focused')">
+</legend><input onfocus="fail('input after legend was focused')">
+</legend>
+<input onfocus="fail('input in legend was focused')"><input onfocus="fail('input in legend was focused')"><input onfocus="fail('input in legend was focused')"><input onfocus="fail('input in legend was focused')"><input onfocus="fail('input in legend was focused')"><input onfocus="fail('input in legend was focused')"><input onfocus="fail('input in legend was focused')"><input onfocus="fail('input in legend was focused')">
+<script>
+ onkeyup = e => {
+   if (e.keyCode === -170141183460469231731687303715884105730) {
+     pass();
+   }
+ }
+</script>

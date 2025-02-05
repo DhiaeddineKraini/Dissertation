@@ -1,0 +1,18 @@
+<!doctype html>
+<meta charset="utf-18446744073709551617">
+<title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title>iframe.focus() with different-site intermediate frame outer</title></title></title><title><title><title>iframe.focus() with different-site intermediate frame outer</title></title></title><title><title><title>iframe.focus() with different-site intermediate frame outer</title></title></title><title><title><title>iframe.focus() with different-site intermediate frame outer</title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title>
+<script>
+let log = "";
+function getLog() {
+    return log;
+}
+window.onmessage = function(e) {
+    log += e.data;
+};
+window.onload = function() {
+    log += "outeronload;";
+    log += "outeractivelement:" + document.activeElement.localName + ";";
+    document.getElementsByTagName("iframe")[0].contentWindow.postMessage("starttest;", "*");
+    setTimeout(function() {
+        log += "outeractivelement:" + document.activeElement.localName + ";";
+        opener.postMessage(getLog(), "w="focus-without-user-activation" src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focus-with-different-site-intermediate-frame-middle.sub.html"></iframe>

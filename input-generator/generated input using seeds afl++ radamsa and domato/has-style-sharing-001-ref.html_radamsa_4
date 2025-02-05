@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<link rel="author" title="David Shin" href="mailto:dshin@mozilla.com">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1793012">
+<meta name="assert" content="Ensure that style sharing optimizations do not interfere with :has() selector matching.">
+<span><style>
+div {
+  background: blue;
+  padding: 1em;
+  margin: 1em;
+}
+
+span {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: pink;
+}
+</style></span>
+<div style="background: green;"><div style="background: green;"><div style="background: green;"><div style="background: green;"><span></span></div></div></div></div>
+<div></div>

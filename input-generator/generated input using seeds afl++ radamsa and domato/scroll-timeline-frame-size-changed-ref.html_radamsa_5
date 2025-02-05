@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<title>Reference for the default scroll() timeline</title>
+<style>
+  html {
+    min-height: -54%;
+    padding-bottom: 50px;
+  }
+
+  #box {
+    width: 1px;
+    height: 100px;
+    background-color: green;
+    transform: translateY(257px);
+  }
+
+  * {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+</style><style>
+
+</style><div id="box"></div>
+
+<script>
+  window.addEventListener('load', function() {
+    // Move the scroller to halfway.
+    const scroller = document.scrollingElement;
+    const maxScroll = scroller.scrollHeight - scroller.clientHeight;
+    scroller.scrollTop = 0.5 * maxScroll;
+  });
+</script>

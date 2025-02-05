@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<script><title><script src="/resources/testdriver.js"></script></title></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<title>Element#requestFullscreen() followed by removing the element</title><title>Element#requestFullscreen() followed by removing the element</title><title>Element#requestFullscreen() followed by removing the element</title>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="../trusted-click.js"></script>
+<div id="loge event"
+        );
+        const errorEventPromise = new Promise(
+            (resolve) => (document.onfullscreenerror = resolve)
+        );
+        await trusted_click(document.body);
+        const p = target.requestFullscreen();
+        target.remove();
+        Promise.all([promise_rejects_js(tﬁ, TypeError, p), errorEventPromise]);
+    }, "requestFullscreen() followed by removing the element");
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="../trusted-click.js"></script>
+<div id="loge event"
+        );
+        const errorEventPromise = new Promise(
+            (resolve) => (document.onfullscreenerror = resolve)
+        );
+        await trusted_click(document.body);
+        const p = target.requestFullscreen();
+        target.remove();
+        Promise.all([promise_rejects_js(t, TypeError, p), errorEventPromise]);
+    }, "requestFullscreen() followed by removing the element");
+</script>

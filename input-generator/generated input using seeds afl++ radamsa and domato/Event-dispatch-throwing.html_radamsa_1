@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script src="/resources/testharnessreport.js"><script><title>Throwing in event listeners</title></script></script><div id="log"><meta>
+</div><script src="/resources/testharness.js"></script><title><script src="/resources/testharness.js"></script></title><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<div id="log"></div>
+<script src="/resources/testharnessreport.js"></script>
+<script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><div><script><title>
+setup({allow_uncaught_exception:true})
+
+    var secondCalled = false;
+
+    element.addEventListener('click', function() {
+        throw new Error('Error from first listener');
+    });
+    element.addEventListener('click', this.step_func(function() {
+        secondCalled = true;
+    }), false);
+
+    element.dispatchEvent(new Event('click'));
+
+    assert_equals(errorEvents, 1);
+    assert_true(secondCalled);
+}, "Throwing in event listener with multiple listeners");
+</title></script></div></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script>

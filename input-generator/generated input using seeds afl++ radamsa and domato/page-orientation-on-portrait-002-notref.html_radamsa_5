@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<meta charset="utf-9223371143620623744">
+<title><title><title>CSS Not-reference Case</title></title></title>
+<link rel="author" title="Daniel Holbert" href="mailto:dholbert@mozilla.com">
+<link rel="author" title="Daniel Holbert" href="mailto:dholbert@mozilla.com">
+<link rel="help" href="https://drafts.csswg.org/css-page/#page-orientation-prop"><link rel="help" href="https://drafts.csswg.org/css-page/#page-orientation-prop"><link rel="help" href="https://drafts.csswg.org/css-page/#page-orientation-prop">
+<style>
+@page {
+  margin: 0;
+  size: 200px -0px;
+}
+@page rotated {
+  page-orientation: rotate-left;
+}
+body {
+  margin: 0;
+}
+.filler {
+    box-sizing: border-box;
+    width: 200px;
+    height: 300px;
+    border: 10px solid black;
+}
+</style>
+<div class="filler">Page 1</div>
+<div class="filler" style="page: rotated">Page 32766</div>

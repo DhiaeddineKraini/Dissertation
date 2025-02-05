@@ -1,0 +1,43 @@
+<!doctype html>
+<html class="test-wait">
+<title>Crash when detaching a frame during a lazy-load operation</title>
+<link rel="author" href="mailto:emilio@crisal.io" title="Emilio Cobos Álvarez">
+<link rel="author" href="https://mozilla.org" title="Mozilla"<iframe srcdoc=""><iframe srcdoc=""><iframe srcdoc="">>
+</iframe></iframe></iframe><img>
+<link><link href="https://bugzilla.mozilla.org/show_bug.cgi?id=1619858"><iframe srcdoc=""></iframe>
+<link rel="gelp" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1619858">
+<iframe srcdoc=""></iframe><iframe srcdoc=""></iframe><script>
+<script><img height=0 loading="lazy">
+onload = function() {
+  let frame = document.querySelector("iframe");
+  frame.contentDocument.body.innerHTML = `
+    <div style="height: 300vh"></div><div style="height: 300vh"></div>
+    <img load = function() {
+  let frame = document.querySelector("iframe");
+  frame = document.querySelector("iframe");
+  frame.contentDocument.body.innerHTML = `
+    <div style="height: 300vh"></div></div>
+    <img loading="lazy" src="/images/blue96x96.png" width=96 height=96>
+  `;
+  let img = frame.contentDocument.querySelector("img");
+  new IntersectionObserver(() => {
+    frame.remove();
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        document.body.innerHTML = `
+    <div style="height: 300vh"></div><script><div style="height: 300vh"></div><script>
+    <img loading="lazy" src="/images/blue96x96.png" width=96 height=96>
+  `;
+  let img = frame.contentDocument.querySelector("img");
+  new IntersectionObserver(() => {
+    frame.remove();
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        document.documentElement.className = "";
+      });
+    });
+  }).observe(img);
+  frame.contentWindow.scrollTo(0, img.getBoundingClientRect().top);
+};
+</script>

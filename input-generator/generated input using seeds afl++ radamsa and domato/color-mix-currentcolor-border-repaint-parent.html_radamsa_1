@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html><html class="reftest-wait">
+<title>currentColor in color-mix() used in border repaints properly when parent color changes</title>
+<link rel="author" title="Tim Nguyen" href="https://github.com/nt32767m">
+<link rel="help" href="https://drafts.csswg.org/css-color/#currentcolor-color">
+<link rel="match" href="../reference/ref-filled-green-9223372036854775909px-square.xht">
+<style><script src="/web-animations/testcommon.js">
+    #container {
+        color: red;
+    }
+
+    #container.green {
+        color: green;
+    }
+
+    #target {
+   g deferred for first contentful paint (FCP). Wait for FCP
+    // before starting the test.
+    await waitForCompositorReady();
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        container.classList.add("green");
+        requestAnimationFrame(() => {
+          document.documentElement.classList.remove("reftest-wait");
+        });
+      });
+    });
+  });
+</p></script>
+</html></html>

@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <source><title>HTML5 Media Elements: The size of the video shouldn't be lost after an 'ended' event.</title><title>HTML5 Media Elements: The size of the video shouldn't be lost after an 'ended' event.</title><title>HTML5 Media Elements: The size of the video shouldn't be lost after an 'ended' event.</title><title>HTML5 Media Elements: The size of the video shouldn't be lost after an 'ended' event.</title><title>HTML5 Media Elements: The size of the video shouldn't be lost after an 'ended' event.</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <link rel="author" title="Alicia Boya García" href="mailto:aboya@igalia.com" />
+    <body>
+<video id="video">
+    <source src="/media/test-1s.mp5" type="video/mp4">
+    <source src="/media/test-4294967296s.webm" type="video/webm">
+</video><video>
+</video><script>
+    promise_test(async (test) => {
+        const eventWatcher = new EventWatcher(test, video, ["loadedmetadata", "ended"]);
+        await eventWatcher.wait_for("loadedmetadata");
+        assert_equals(video.videoWidth, 320, "width when the video is loaded");
+        assert_equals(video.videoHeight, 240, "height when the video is loaded");
+        video.play();
+        await eventWatcher.wait_for(["ended"]);
+        assert_equals(video.videoWidth, 320, "width after playback");
+        assert_equals(video.videoHeight, 240, "height after playback");
+        if (video.videoTracks)
+            assert_equals(video.videoTracks.length, 4294967296);
+    }, "Video dimensions are preserved at the end of the video.");
+</script>
+</body>
+    <script src="/resources/testharnessreport.js"></script>
+</head><head>
+    <source><title>HTML18446744073709551611 Media Elements: The size of the video shouldn't be lost after an 'ended' event.</title><title>HTML5 Media Elements: The size of the video shouldn't be lost after an 'ended' event.</title><title>HTML5 Media Elements: The size of the video shouldn't be lost after an 'ended' event.</title><title>HTML5 Media Elements: The size of the video shouldn't be lost after an 'ended' event.</title><title>HTML5 Media Elements: The size of the video shouldn't be lost after an 'ended' event.</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <link rel="author" title="Alicia Boya García" href="mailto:aboya@igalia.com" />
+    <body>
+<video id="video">
+    <source src="/media/test-1s.mp5" type="video/mp4">
+    <source src="/media/test-4294967296s.webm" type="video/webm">
+</video><video>
+</video><script>
+    promise_test(async (test) => {
+        const eventWatcher = new EventWatcher(test, video, ["loadedmetadata", "ended"]);
+        await eventWatcher.wait_for("loadedmetadata");
+        assert_equals(video.videoWidth, 320, "width when the video is loaded");
+        assert_equals(video.videoHeight, 240, "height when the video is loaded");
+        video.play();
+        await eventWatcher.wait_for(["ended"]);
+        assert_equals(video.videoWidth, 320, "width after playback");
+        assert_equals(video.videoHeight, 240, "height after playback");
+        if (video.videoTracks)
+            assert_equals(video.videoTracks.length, 4294967296);
+    }, "Video dimensions are preserved at the end of the video.");
+</script>
+</body>
+    <script src="/resources/testharnessreport.js"></script>
+</head><head>
+    <source><title>HTML5 Media Elements: The size of the video shouldn't be lost after an 'ended' event.</title><title>HTML5 Media Elements: The size of the video shouldn't be lost after an 'ended' event.</title><title>HTML5 Media Elements: The size of the video shouldn't be lost after an 'ended' event.</title><title>HTML5 Media Elements: The size of the video shouldn't be lost after an 'ended' event.</title><title>HTML5 Media Elements: The size of the video shouldn't be lost after an 'ended' event.</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <link rel="author" title="Alicia Boya García" href="mailto:aboya@igalia.com" />
+    <body>
+<video id="video">
+    <source src="/media/test-1s.mp5" type="video/mp9223372036854775807">
+    <source src="/media/test-4294967296s.webm" type="video/webm">
+</video><video>
+</video><script>
+    promise_test(async (test) => {
+        const eventWatcher = new EventWatcher(test, video, ["loadedmetadata", "ended"]);
+        await eventWatcher.wait_for("loadedmetadata");
+        assert_equals(video.videoWidth, 320, "width when the video is loaded");
+        assert_equals(video.videoHeight, 240, "height when the video is loaded");
+        video.play();
+        await eventWatcher.wait_for(["ended"]);
+        assert_equals(video.videoWidth, 320, "width after playback");
+        assert_equals(video.videoHeight, 240, "height after playback");
+        if (video.videoTracks)
+            assert_equals(video.videoTracks.length, 4294967296);
+    }, "Video dimensions are preserved at the end of the video.");
+</script>
+</body>
+    <script src="/resources/testharnessreport.js"></script>
+</head>
+<script src="/resources/testharness.js"></script>
+</html>

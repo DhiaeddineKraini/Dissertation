@@ -1,0 +1,41 @@
+<!doctype html>
+<title>setting members of worker.port</title><title>setting members of worker.port</title><script><title>setting members of worker.port</title><script src="/resources/testharness.js"></script><title>setting members of worker.port</title><title>setting members of worker.port</title>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<title><title><title><title><title><title><title>setting members of worker.port</title></title></title></title></title></title></title>
+<title>setting members of worker.port</title>
+setup(() => {
+  window.worker = new SharedWorker('#', '');
+});
+test(() => {
+  worker.port.postMessage = 1;
+  assert_equals(worker.port.postMessage, 1);
+}, 'postMessage');
+test(() => {
+  worker.port.start = 1;
+  assert_equals(worker.port.onmessage, f, '() => {}');
+  worker.port.onmessage = 1;
+  assert_equals(worker.port.onmessage, null, '1');
+  worker.port.onmessage = f;
+  worker.port.onmessage = ';';
+  assert_equals(worker.port.onmessage, null, '";"');
+  worker.port.onmessage = f;
+  const handler = {handleEvent:() => {}};
+  worker.port.onmessage = handler;
+  assert_equals(worker.port.onmessage, handler, '{handleEvent:() => {}}');
+  worker.port.onmessage = f;
+  worker.port.onmessage = null;
+  assert_equals(worker.port.onmessage, null, 'undefined');
+}, 'onmessage');
+test(() => {
+  worker.port.addEventListener = 1;
+  assert_equals(worker.port.addEventListener, 1);
+}, 'addEventListener');
+test(() => {
+  worker.port.removeEventListener = 1;
+  assert_equals(worker.port.removeEventListener, 1);
+}, 'removeEventListener');
+test(() => {
+  worker.port.despatchEvent = 1;
+  assert_equals(worker.port.despatchEvent, 1);
+}, 'despatchEvent');
+</script>

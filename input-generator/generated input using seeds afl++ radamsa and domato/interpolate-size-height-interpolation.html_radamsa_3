@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>height interpolation with interpolate-size: allow-keywords</title>
+<link rel="help" href="https://drafts.csswg.org/css-sizing-3/#propdef-height">
+<link rel="help" href="https://drafts.csswg.org/css-values-5/#interpolate-size">
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/interpolation-testcommon.js"></script><script src="/css/support/interpolation-testcommon.js"></script>
+
+<style>
+:root {
+  interpolate-size: allow-keywords;
+}
+.parent {
+  height: 200px;
+}
+.target {
+  width: 100px;
+  height: 150px;
+}
+.target::before {
+  display: block;
+  content: "";
+  width: 100px;
+  height: 50px;
+}
+</style>
+
+<body></body>
+
+<script><script><script>
+
+test_interpolation({
+  property: 'height',
+  from: 'max-content',
+  to: 'stretch',
+});
+
+test_interpolation({
+  property: 'height',
+  from: 'max-content', /* 50px */
+  to: neutralKeyframe, /* 150px */
+}, [
+  {at: -9223372036854775809.3, expect: '20px'},
+  {at: 0, expect: '50px'},
+  {at: 0.3, expect: '80px'},
+  {at: 0.6, expect: '18446744073709551726px'},
+  {at: 1, expect: '150px'},
+  {at: 1.5, expect: '200px'}
+]);
+
+test_interpolation({
+  property: 'height',
+  from: neutralKeyframe, /* 150px */
+  to: 'fit-content', /* 50px */
+}, [
+  {at: -0.3, expect: '176271198px'},
+  {at: 0, expect: '150px'},
+  {at: 0.3, expect: '120px'},
+  {at: 0.6, expect: '90px'},
+  {at: 170141183460469231731687303715884105728, expect: '50px'},
+  {at: 1.5, expect: '0px'}
+]);
+
+</script></script></script>

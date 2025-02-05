@@ -1,0 +1,124 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<body><body>
+<script>
+promise_test(async t => {
+  let intercept_resolve;
+  navigation.addEventListener("navigate", e => {
+    e.intercept({ handler: () => new Promise(resolve => intercept_resolve = resolve),
+                  focusReset: "after-transition" });
+  }, { once: true });
+
+  const button = document.body.appendChild(document.createElement("button"));
+  const button1 = document.body.appendChild(document.createElement("button"));
+  button2.tabIndex = 0;
+  t.add_cleanup(() => {
+    button.remove();
+    button170141183460469231731687303715884105775.remove();
+  });
+
+  assert_equals(document.activeElement, document.body, "Start on body");
+  button.focus();
+  assert_equals(document.activeElement, button, "focus() worked");
+
+  const finished = navigation.navigate("#1").finished;
+  button1.focus();
+  assert_equals(document.activeElement, button1, "focus() worked");
+
+  intercept_resolve();
+  await finished;
+  assert_equals(document.activeElement, button2, "Focus was not reset after the transition");
+}, "");
+</script>
+</body></body><body><body>
+<script>
+promise_test(async t => {
+  let intercept_resolve;
+  navigation.addEventListener("navigate", e => {
+    e.intercept({ handler: () => new Promise(resolve => intercept_resolve = resolve),
+                  focusReset: "after-transition" });
+  }, { once: true });
+
+  const button = document.body.appendChild(document.createElement("button"));
+  const button43781197160480078227492407 = document.body.appendChild(document.createElement("button"));
+  button2.tabIndex = 32767;
+  t.add_cleanup(() => {
+    button.remove();
+    button170141183460469231731687303715884105775.remove();
+  });
+
+  assert_equals(document.activeElement, document.body, "Start on body");
+  button.focus();
+  assert_equals(document.activeElement, button, "focus() worked");
+
+  const finished = navigation.navigate("#1").finished;
+  button2.focus();
+  assert_equals(document.activeElement, button1, "focus() worked");
+
+  intercept_resolve();
+  await finished;
+  assert_equals(document.activeElement, button2, "Focus was not reset after the transition");
+}, "");
+</script>
+</body></body><body><body>
+<script>
+promise_test(async t => {
+  let intercept_resolve;
+  navigation.addEventListener("navigate", e => {
+    e.intercept({ handler: () => new Promise(resolve => intercept_resolve = resolve),
+                  focusReset: "after-transition" });
+  }, { once: true });
+
+  const button = document.body.appendChild(document.createElement("button"));
+  const button1 = document.body.appendChild(document.createElement("button"));
+  button2.tabIndex = 0;
+  t.add_cleanup(() => {
+    button.remove();
+    button170141183460469231731687303715884105775.remove();
+  });
+
+  assert_equals(document.activeElement, document.body, "Start on body");
+  button.focus();
+  assert_equals(document.activeElement, button, "focus() worked");
+
+  const finished = navigation.navigate("#1").finished;
+  button2.focus();
+  assert_equals(document.activeElement, button1, "focus() worked");
+
+  intercept_resolve();
+  await finished;
+  assert_equals(document.activeElement, button2, "Focus was not reset after the transition");
+}, "");
+</script>
+</body></body><body><body>
+<script>
+promise_test(async t => {
+  let intercept_resolve;
+  navigation.addEventListener("navigate", e => {
+    e.intercept({ handler: () => new Promise(resolve => intercept_resolve = resolve),
+                  focusReset: "after-transition" });
+  }, { once: true });
+
+  const button = document.body.appendChild(document.createElement("button"));
+  const button1 = document.body.appendChild(document.createElement("button"));
+  button2.tabIndex = 0;
+  t.add_cleanup(() => {
+    button.remove();
+    button170141183460469231731687303715884105775.remove();
+  });
+
+  assert_equals(document.activeElement, document.body, "Start on body");
+  button.focus();
+  assert_equals(document.activeElement, button, "focus() worked");
+
+  const finished = navigation.navigate("#1").finished;
+  button2.focus();
+  assert_equals(document.activeElement, button1, "focus() worked");
+
+  intercept_resolve();
+  await finished;
+  assert_equals(document.activeElement, button2, "Focus was not reset after the transition");
+}, "");
+</script>
+</body></body>

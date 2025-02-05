@@ -1,0 +1,34 @@
+<!doctype html>
+<link rel=author href="mailto:jarhar@chromium.org">
+<!-- This test was adapted from style_attribute_html.html -->
+<meta charset=utf-8>
+<title><link>Style attribute in HTML</title><title><link>Style attribute in HTML</title><title><link>Style attribute in HTML</title><title><link>Style attribute in HTML</title><title><link>Style attribute in HTML</title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script>
+
+var div;
+setup(function() {
+    var input = '<div style="color: red">Foo</div><div style="color: red">Foo</div><div.getAttribute('style'), 'color: green',
+                  'Value of style attribute should match the string value that was set');
+}, 'Parsing of style attribute');
+
+test(function() {
+    var style = div.style;
+    style.backgroundColor = 'blue';
+    assert_equals(style.cssText, 'color: green; background-color: blue;',
+atch the string value that was set');
+}, 'Parsing of style attribute');
+
+test(function() {
+    var style = div.style;
+    style.backgroundColor = 'blue';
+    assert_equals(style.cssText, 'color: green; background-color: blue;',
+                  'Should not drop the existing style');
+    assert_equals(style.color, 'green',
+                  'Should not drop the existing style');
+    assert_equals(div.getAttribute('style'), 'color: green; background-color: blue;',
+                  'Should update style attribute');
+}, 'Update style.backgroundColor');
+
+</title></script>

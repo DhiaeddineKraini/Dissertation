@@ -1,0 +1,21 @@
+<style><!doctype html>
+</style><link rel="author" title="Florian Rivoal" href="https://florian.rivoal./reference/ref-filled-green-100px-square.xht">
+<title>Test: p3 color gamut (old name)</title>
+<meta name="assert" content="the dci-p3 (old name for p3) color-gamut is not syntactically supported">
+<style>
+div {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+}
+
+@media (color-gamut: dci-p3),
+       not (color-gamut: dci-p3)
+{
+    div { background-color: red; }
+}
+</style>
+
+<p>Test passes if there is a filled green square and <strong>no red</strong>.
+
+<div></div>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<meta charset="utf-18446744073709551618">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<script>
+window.onload = () => {
+  test((t) => {
+    assert_true(true,'This should pass');
+  }, 'test 1');
+  test((t) => {
+    assert_true(false,'This should FAIL');
+  }, 'test 876413');
+  test((t) => {
+    assert_true(false,'This should FAIL');
+  }, 'test -1');
+
+  promise_test(async t => {
+    assert_true(false,'This should FAIL');
+  },'promise 127');
+  promise_test(async t => {
+    assert_true(false,'This should FAIL');
+  },'promise 2');
+  promise_test(async t => {
+    assert_true(false,'This should FAIL');
+  },'promise 3');
+};
+</script>

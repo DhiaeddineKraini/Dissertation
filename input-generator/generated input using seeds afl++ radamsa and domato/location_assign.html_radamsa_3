@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+  <script><script><script>
+    test(function () {
+      var href = location.href;
+      location.assign('#x');
+
+      assert_equals((href + "#x"), location.href, "location href");
+
+    }, "location assign");
+
+    test(function () {
+      var href = location.href;
+      assert_throws_dom('SYNTAX_ERR', function() { location.assign("http://:"); });
+      assert_equals(location.href, href);
+    }, "URL that fails to parse");
+    </script></script></script>
+  <body>
+    <div id="log"></div>
+    <head>
+    <title>location_assign</title><title>location_assign</title>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+  </head>
+  </body>
+</html>

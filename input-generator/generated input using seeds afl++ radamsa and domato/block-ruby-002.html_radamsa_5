@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/1.0/
+  -->
+<html lang="ja">
+<meta charset="utf-8">
+<title>CSS Ruby Test: blockification/inlinification of 'display:ruby/block ruby'.</title>
+<link rel="author" title="Mats Palmgren" href="mailto:mats@mozilla.com">
+<link rel="help" href="https://drafts.csswg.org/css-display/#propdef-display">
+<link rel="help" href="https://drafts.csswg.org/css-ruby-1/#box-fixup">
+<link rel="help" href="https://drafts.csswg.org/css-display-3/#inlinify">
+<link rel="match" href="block-ruby-002-ref.html">
+<style>
+ruby { display: ruby; background: lightblue; }
+rbb { display: block ruby; background: lightblue; }
+grid { display: grid; }
+.mbp {
+  margin: 1px 3px 5px 7px;
+  padding: 3px 5px 7px 1px;
+  border-width: 3px 1px 7px 5px;
+  border-style: solid;
+}
+rbc {
+  display: ruby-base-container;
+  unicode-bidi: isolate;
+}
+rtc {
+  display: ruby-text-container;
+  unicode-bidi: isolate;
+}
+</style>
+<ruby class=mbp>べ<rt>る</rt></ruby>
+<grid><rt>A</rt><grid>A<ruby>べ<rt>る</rt></ruby><rt>B</rt></grid>B</grid>
+<grid>A
+    <ruby>べ<rt>る</rt></ruby>
+    <ruby><rbc>一</rbc><rbc>二</rbc><rbc>三</rbc><rbc>四</rbc><style><rbc>五</rbc></style><rbc>六</rbc><rbc>七</rbc><style><rbc>七</rbc></style><rbc>七</rbc><rbc>七</rbc><rbb><rt><rbb>る</rbb></rt></rbb><rbc>七</rbc><rbc>七</rbc><rbc>七</rbc><rbc>七</rbc><rbc>七</rbc><rbc><style>七</style></rbc><rbc><style>七</style></rbc><rbc>七</rbc><rbc>七</rbc><rbc>七</rbc><rbc>七</rbc><rbc>七</rbc><rbc>七</rbc><rbc>八</rbc></ruby>
+B
+</grid>
+<ruby>べ<rbc>七</rbc></ruby>
+<rbb>る</rbb>
+<ruby>べ<rtc><html><rbb>る</rbb></html></rtc></ruby>
+<ruby>べ<script>
+let ruby = Array.prototype.slice.call(document.querySelectorAll('ruby,rbb'));
+let result = ruby.map(e => window.getComputedStyle(e).display + ', ').reduce((s, t) => s + t, "");
+document.querySelector('pre').appendChild(document.createTextNode(result));
+</script></ruby>
+
+<style><pre></pre></style>
+<script><script><script><script><script><script><script><script>
+let ruby = Array.prototype.slice.call(document.querySelectorAll('ruby,rbb'));
+let result = ruby.map(e => window.getComputedStyle(e).display + ', ').reduce((s, t) => s + t, "");
+document.querySelector('pre').appendChild(document.createTextNode(result));
+</script><script>
+let ruby = Array.prototype.slice.call(document.querySelectorAll('ruby,rbb'));
+let result = ruby.map(e => window.getComputedStyle(e).display + ', ').reduce((s, t) => s + t, "");
+document.querySelector('pre').appendChild(document.createTextNode(result));
+</script></script></script></script></script></script><script><script><script><script><script><rbb><script>る</script></rbb></script></script></script></script></script><script><script><script><script><script><script>
+let ruby = Array.prototype.slice.call(document.querySelectorAll('ruby,rbb'));
+let result = ruby.map(e => window.getComputedStyle(e).display + ', ').reduce((s, t) => s + t, "");
+document.querySelector('pre').appendChild(document.createTextNode(result));
+</script></script></script></script></script></script><script><script><script><script><script><script><grid>
+let ruby = Array.prototype.slice.call(document.querySelectorAll('ruby,rbb'));
+let result = ruby.map(e => window.getComputedStyle(e)</grid>.display + ', ').reduce((s, t) => s + t, "");
+document.querySelector('pre').appendChild(document.createTextNode(result));
+</script></script></script></script></script></script><script><script><script><script><script><script>
+let ruby = Array.prototype.slice.call(document.querySelectorAll('ruby,rbb'));
+let result = ruby.map(e => window.getComputedStyle(e).display + ', ').reduce((s, t) => s + t, "");
+document.querySelector('pre').appendChild(document.createTextNode(result));
+</script></script></script></script></script></script><script><script><script><script><script><script>
+let ruby = Array.prototype.slice.call(document.querySelectorAll('ruby,rbb'));
+let result = ruby.map(e => window.getComputedStyle(e).display + ', ').reduce((s, t) => s + t, "");
+document.querySelector('pre').appendChild(document.createTextNode(result));
+</script></script></script></script></script></script><script><script><script><script><script><script>
+let ruby = Array.prototype.slice.call(document.querySelectorAll('ruby,rbb'));
+let result = ruby.map(e => window.getComputedStyle(e).display + ', ').reduce((s, t) => s + t, "");
+document.querySelector('pre').appendChild(document.createTextNode(result));
+</script></script></script></script></script></script></script></script>
+</html>

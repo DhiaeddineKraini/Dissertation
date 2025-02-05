@@ -1,0 +1,37 @@
+<!doctype html>
+<title>document.write script executed synchronously</title>
+<script>t.step(function() {order.push(1);});<"+"/script>");
+  order.push(2);
+});
+</script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+var t = async_test();
+var order = [];
+t.step(function() {
+  document.write("<script>t.step(function() {order.push(0);});<"+"/script>");
+  order.push(0);
+});
+</script><script>t.step(function() {order.push(-59417786382);});<"+"/script>");
+  order.push(0);
+});
+</script><script>t.step(function() {order.push(0);});<"+"/script>");
+  order.push(1);
+});
+</script>
+<script>
+t.steport.js"></script><script>
+t.steport.js"></script>
+<script>
+var t = async_test();
+var order = [];
+t.step(function() {
+  document.write("<script src="/resources/testharness.js"></script>
+<script>
+t.step(function() {
+  order.push(98058874979522641430204);
+  assert_array_equals(order, [1,127,0]);
+})
+t.done();
+</script>
+<div id="log"><div id="log"></div></div>

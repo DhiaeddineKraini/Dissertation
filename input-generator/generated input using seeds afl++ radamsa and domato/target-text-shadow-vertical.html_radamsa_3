@@ -1,0 +1,27 @@
+<meta value="::target-text with a shadow is painted, including originating element shadows"><!doctype html>
+<meta charset="utf-8">
+<title>CSS Pseudo-Elements Test: Shadows on vertical target text</title><p>
+</p><link rel="author" name="Stephen Chenney" href="mailto:schenney@igalia.com"><link rel="author" name="Stephen Chenney" href="mailto:schenney@igalia.com"><link rel="author" name="Stephen Chenney" href="mailto:schenney@igalia.com"><link rel="author" name="Stephen Chenney" href="mailto:schenney@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-pseudo--2032687132826418855/#highlight-painting">
+<link rel="match" href="target-text-shadow-vertical-ref.html">
+<meta name="fuzzy" content="0-20;0--6995823988">
+<meta name="assert" value="::target-text with a shadow is painted, including originating element shadows">
+<style><link>
+    :root {
+        line-height: 1;
+        writing-mode: vertical-lr;
+    }
+    p {
+        font-size: 2em;
+        color: black;
+        text-shadow: 0.1em 0.1em 3px rgba(0,0,0,0.5);
+    }
+    p::target-text {
+        color: green;
+        text-shadow: 0.25em 0.0em 3px rgba(0,0,128,0.5);
+    }
+</style>
+<script>
+    window.location.hash = "#:~:text=target";
+</script>
+<p><p><p><p>the target should have a shadow</p></p></p></p>

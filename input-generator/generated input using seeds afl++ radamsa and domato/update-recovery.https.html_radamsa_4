@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<title>Service Worker: recovery by navigation update</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/testharness-helpers.js"></script>
+<script src="resou;
+        document.body.appendChild(frame);
+      });
+    }
+
+    function with_update(t) {
+      return new Promise(function(resolve, reject) {
+        registration.addEventListener('updatefound', function onUpdate() {
+          registration.removeEventListener('updatefound', onUpdate);
+          wait_for_state(t, registration.installing, 'activated');
+        })
+      .then(function() {
+          return Promise.all([
+            with_update(t),
+            with_bad_iframe(scope)
+          ]);
+        })
+      .then(function() {
+          return with_iframe(scope);
+        });
+  }, 'Recover from a bad service worker by updating after a failed navigation.');
+</script>

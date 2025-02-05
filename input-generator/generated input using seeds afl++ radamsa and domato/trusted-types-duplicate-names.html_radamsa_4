@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+  <head><head><head><head><head><script src="/resources/testharness.js"></script></head></head></head></head></head>
+  <script src="/resources/testharnessreport.js"></script>
+  <meta http-equiv="Content-Security-Policy"
+        content="trusted-types 'allow-duplicates' duplicatename default">
+</head>
+<body><body><body>
+</body></body><script>
+test(t => {
+  // We expect neither of these to throw.
+  let a = trustedTypes.createPolicy("duplicatename", { createHTML: _ => "a" });
+  let b = trustedTypes.createPolicy("duplicatename", { createHTML: _ => "b" });
+
+  // Both should have worked. They should still be separate functions.
+  assert_not_equals(a, b);
+  assert_equals("" + a.createHTML(""), "a");
+  assert_equals("" + b.createHTML(""), "b");
+
+  let def = trustedTypes.createPolicy("default", {});
+  assert_throws_js(TypeError,
+                   _ => trustedTypes.createPolicy("default", {}));
+}, "policy - duplicate names");
+</script>
+</body><script src="/resources/testharnessreport.js"><body>
+</body></script>

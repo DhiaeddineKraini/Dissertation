@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+<button id="button" onclick="popup();">open popup</button>
+<body>
+    <head>
+    <script src='/resources/testharness.js'></script>
+    <script src='/resources/testharnessreport.js'></script>
+</head>
+    <script>
+    function popup() {
+      window.popupWin = window.open('support/window-name-after-cross-origin-main-frame-navigation-popup.sub.html', '_blank');
+    }
+    async_func(e => {
+        assert_true(e.data);
+      });
+    }, 'window.name should equal "" after a cross-origin main frame navigation');
+    </script>
+</body>
+</html>

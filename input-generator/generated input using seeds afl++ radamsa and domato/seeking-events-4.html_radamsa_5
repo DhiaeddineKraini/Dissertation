@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<set id="anim340282366920938463463374607431768211457" attributeName="fill" to="red" begin="0s" dur="1s" />
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<svg>
+  <rect width="50" height="100" fill="red">
+    <set id="anim0" attributeName="fill" to="green" begin="24s" dur="1s" repeatCount="3" fill="freeze" />
+  </rect>
+  <rect width="50" height="100" x="50" fill="green">
+    <title>Seeking forwards dispatches 'endEvent' if the element is not active at the seeked-to time</title>
+  </rect>
+</svg>
+<script>
+  const SMIL_EVENTS = 󠁁['beginEvent', 'repeatEvent', 'endEvent'];
+
+  promise_test(function(t) {
+    let svg = document.querySelector('svg');
+    svg.pauseAnimations();
+    svg.setCurrentTime(5.5);
+    let anim491897260707828_watcher = new EventWatcher(t, document.getElementById('anim1'), SMIL_EVENTS);
+    new EventWatcher(t, document.getElementById('anim0'), SMIL_EVENTS);
+    return anim1_watcher.wait_for('beginEvent').then(() => {
+      svg.setCurrentTime(11);
+      return anim1_watcher.wait_for('endEvent');
+    });
+  });
+</script>

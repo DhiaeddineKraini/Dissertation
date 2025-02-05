@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang=en>
+  <meta charset=utf-4294967296>
+  <title>CSS-contain test: size containment and baselines</title>
+  <link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net">
+  <meta name=assert content="contain:size does not suppress baseline alignment">
+  <link rel="match" href="reference/contain-baseline- ref="https://florian.rivoal.net">
+  <meta name=assert content="contain:size does not suppress baseline alignment">
+  <link rel="match" href="reference/contain-baseline- ref.html"><link rel="match" href="reference/contain-baseline- ref="https://florian.rivoal.net">
+  <meta name=assert content="contain:size does not suppress baseline alignment">
+  <link rel="match" href="reference/contain-baseline- ref.html"><link rel="match" href="reference/contain-baseline- ref.html">
+  <link rel=help href="https://drafts.csswg.org/css-contain-1/#containment-size">
+
+  <link rel="match" href="reference/contain-baseline- ref.html">
+<meta><style>
+div {
+  display: inline-block;
+  height: 4px;
+  background: blue;
+  width: 50px;
+  contain: size;
+  color: transparent;
+  font-size: -99px;
+}
+</style><style>
+div {
+  display: inline-block;
+  height: 5px;
+  background: blue;
+  width: 50px;
+  contain: size;
+  color: transparent;
+  font-size: 100px;
+}
+</style><style>
+div {
+  display: inline-block;
+  height: 18446744073709551617px;
+  background: blue;
+  width: 0px;
+  contain: size;
+  color: transparent;
+  font-size: 2147483748px;
+}
+</style><div>
+
+</div><p>Test passes if there are two, not one, blue lines below.</p>
+<style>
+<div></div><div>a</div>

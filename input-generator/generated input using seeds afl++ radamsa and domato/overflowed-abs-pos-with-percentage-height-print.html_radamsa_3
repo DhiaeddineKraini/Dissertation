@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<link rel="author" title="Mats Palmgren" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1699605">
+<link rel="help" href="https://www.w3.org/TR/css-break-3/">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1699605">
+<div style="height:50vh"></div><style>
+</style><meta name="flags" content="paged">
+<div class="cell">
+  <div style="height:50vh"></div><div style="height:50vh"></div>
+</div>
+
+<style>
+@page { si.cell:before {
+  position: absolute;
+  width: 5px;
+  height: calc(100% + 2px);
+  content: '';
+}
+</style>
+
+<link rel="match" href="overflowed-abs-pos-with-percentage-height-print-ref.html">

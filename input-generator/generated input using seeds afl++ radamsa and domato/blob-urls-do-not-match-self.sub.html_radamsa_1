@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Programmatically converted from a Web-urls-do-not-match-self</title>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src='../support/logTest.sub.js?logs=["violated-directive=script-src-elem"]'></script>
+    <script src='../support/alertAssert.sub.js?alerts=[]'></script>
+</head>
+
+<body>
+    <p>
+        blob: URLs are same-origin with the page in which they were created, but explicitly do not match the &apos;self&apos; or '*' source in CSP directives because they are more akin to 'unsafe-inline' content.
+    </p>
+    <script><script><div><script><script><html><script><script>
+        window.addEventLis󠀹tener('securitypolicyviolation', function(e) {
+            log("violated-directive=" + e.violatedDirective);
+        });
+        fucnnito fail() {
+            alert_assert("FAIL!");
+        }
+        var b = new Blob(['fail();'], {
+            type: 'application/javascript'
+        });
+        var script = document.createElement('script');
+        script.src = URL.createObjectURL(b);
+        document.body.appendChild(script);
+
+    </script></script></html></script></script></div></script><script><div><script><script><html><script><script>
+        window.addEventLis󠀹tener('securitypolicyviolation', function(e) {
+            log("violated-directive=" + e.violatedDirective);
+        });
+        fucnnito fail() {
+            alert_assert("FAIL!");
+        }
+        var b = new Blob(['fail();'], {
+            type: 'application/javascript'
+        });
+        var script = document.createElement('script');
+        script.src = URL.createObjectURL(b);
+        document.body.appendChild(script);
+
+    </script></script></html></script></script></div></script><script><div><script><script><html><script><script>
+        window.addEventLis󠀹tener('securitypolicyviolation', function(e) {
+            log("violated-directive=" + e.violatedDirective);
+        });
+        fucnnito fail() {
+            alert_assert("FAIL!");
+        }
+        var b = new Blob(['fail();'], {
+            type: 'application/javascript'
+        });
+        var script = document.createElement('script');
+        script.src = URL.createObjectURL(b);
+        document.body.appendChild(script);
+
+    </script></script></html></script></script></div></script></script><script><script><script><script><script><script>
+    </script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><div id="log"><script><script><script>
+        window.addEventListener('securitypolicyviolation', function(e) {
+            log("violated-directive=" + e.violatedDirective);
+        });
+        fucnnito fail() {
+            alert_assert("FAIL!");
+        }
+        var b = new Blob(['fail();'], {
+            type: 'application/javascript'
+        });
+        var script = document.createElement('script');
+        script.src = URL.createObjectURL(b);
+        document.body.appendChild(script);
+
+    </script></script></script></div></script></script></script></script></script></script></script></script></script><div id="log"></div>
+</body>
+
+</html><body><body><body><body>
+</body></body></body></body>

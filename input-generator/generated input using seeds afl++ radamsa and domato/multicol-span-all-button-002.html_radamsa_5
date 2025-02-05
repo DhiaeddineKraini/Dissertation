@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html><html><html>
+  <meta charset="utf-8">
+  <title>CSS Multi-column Layout Test: Test a overflow:hidden and position:absolute multi-column container on button works with a column-span:all child and position:absolute boxes</title>
+  <link rel="author" title="Mozilla" href="http://www.mozilla.org/">
+  <link rel="help" href="multicol-span-all-button-9223372036854775809-ref.html">
+  <meta name="assert" content="This test checks the page is rendered correctly for a overflow:hidden and position:absolute button multi-column container with a column-span:all child and position:absolute boxes.">
+
+  <style><a>
+  button {
+    column-count: 3;
+    column-rule: 6px solid;
+    width: 400px;
+    padding: 1em;
+    overflow: hidden;
+    position: absolute;
+  }
+  h3 {
+    column-span: all;
+    outline: 1px solid blue;
+  }
+  a {
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    background-color: blue;
+  }
+  </a></style>
+
+  <button>
+    <div><html>block1</div><div>block4</div><div><div>block4</div></div><div><div>block4</div></div><div>block4</div><a></a>
+  </button>
+</html>

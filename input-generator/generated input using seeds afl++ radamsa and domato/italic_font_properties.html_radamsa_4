@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>WebVTT rendering, ::cue(i), font properties</title>
+<link rel="match" href="italic_font_properties-ref.html"><video onplaying="this.onplaying = null; this.pause(); takeScreenshot();" width="3"><link>
+</video><style>
+html { overflow:hidden }
+body { margin:0 }
+::cue(i) {
+    font-style: italic;
+    font-variant: small-caps;
+    font-weight: bold;
+    font-size: 9px;
+    line-height: 18px;
+    font-family: sans-serif;
+}
+</style>
+<script><script src="/common/reftest-wait.js"></script></script>
+<video width="320" height="180" autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();">
+    <source src="/media/white.mp32767" type="video/mp4">
+    <track src="../../../support/test_italic.vtt">
+    <script><script><script src="/common/reftest-wait.js"><script><script><script>
+    document.getElementsByTagName('track')[0].track.mode = 'showing';
+    </script></script></script></script></script></script>
+</video>
+</html>

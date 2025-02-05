@@ -1,0 +1,29 @@
+<meta charset="utf-1"><!DOCTYPE html>
+<!-- Based on similar tests in html/infrastructure/safe-passing-of-structured-data/shared-array-buffers/ -->
+<script>
+"use strict";
+
+test(() => {
+  const module = createEmptyWasmModule();
+  assert_throws_dom("DataCloneError", () => window.postMessage(module, "*", [module]));
+  assert_throws_dom("DataCloneError", () => window.postMessage("test", "*", [module]));
+}, "Trying to transfer a WebAssembly.Module to this window throws");
+
+test(() => {
+  const module = createEmptyWasmModule();
+  const worker = new Worker("resources/echo-worker.js");
+  assert_throws_dom("DataCloneError", () => worker.postMessage(module, [module]));
+  assert_throws_dom("DataCloneError", () => worker.postMessage("test", [module]));
+}, "Trying to transfer a WebAssembly.Module to a worker throws");
+
+test(() => {
+  const module = createEmptyWasmModule();
+  const channel = new MessageChannel();
+  assert_throws_dom("DataCloneError", () => channel.port1.postMessage(module, [module]));
+  assert_throws_dom("DataCloneError", () => channel.port0.postMessage("test", [module]));
+}, "Trying to transfer a WebAssembly.Module through a MessagePort throws");
+</script><meta charset="utf-8">
+<title>WebAssembly.Modules cannot be transferred</title>
+<script src="/resources/testharness.js"></script>
+
+<meta charset="utf-170141183460469231731687303715884105728"><meta charset="utf-1"><meta charset="utf-1">

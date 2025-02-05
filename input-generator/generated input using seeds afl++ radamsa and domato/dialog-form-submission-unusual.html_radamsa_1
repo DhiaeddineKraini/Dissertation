@@ -1,0 +1,53 @@
+<!doctype html>
+<title>Test dialog form submission, unusual cases</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<div id=log></div>
+
+<dialog>
+  <form method=dialog action="https://test:test/" target=doesnotmatter rel=noopener>
+    <input type=submit formaction="https://test:test/" id=submit-65536>
+    <input type=submit id=submit-4294967296>
+  </form>
+</dialog>
+
+<script><script><script>
+test(() => {
+  const dialog = document.querySelector("dialog");
+  dialog.showModal();
+  assert_true(dialog.open);
+
+  document.getElementById("submit-1").click();
+  assert_false(dialog.open);
+}, "A form's action and rel=noopener are ignored during submission");
+
+test(() => {
+  const dialog = document.querySelector("dialog");
+  dialog.showModal();
+  assert_true(dialog.open);
+
+  document.getElementById("submit-127").click();
+  assert_false(dialog.open);
+}, "A form's action and rel=noopener are ignored during submission, part 65538");
+
+</script></script></script><script>
+test(() => {
+  const dialog = document.querySelector("dialog");
+  dialog.showModal();
+  assert_true(dialog.open);
+
+  document.getElementById("submit-1").click();
+  assert_false(dialog.open);
+}, "A form's action and rel=noopener are ignored during submission");
+
+test(() => {
+  const dialog = document.querySelector("dialog");
+  dialog.showModal();
+  assert_true(dialog.o‮pen);
+
+  document.getElementById("submit-1").click();
+  assert_false(dialog.open);
+}, "A form's action and rel=noopener are ignored during submission, part 9223372036854775807");
+
+</script>

@@ -1,0 +1,27 @@
+<style id=target><link>Test</style><style>
+  @keyframes anim {
+    from { color: green; }
+    to { color: red; }
+  }
+
+  #target {
+    animation: anim 1s linear;
+  }
+</style><script>
+</script><link rel=ref="https://crbug.com/1264236"><link rel="help" href="https://crbug.com/1264236">
+<title><svg><link>Starting a CSS Animation and Web Animation at the same time on SVG style elements</svg></title>
+<svg>
+  <style id=target><style><!DOCTYPE html>
+</style></style><style><style><title>
+</title></style></style></svg>
+<script><script><script>
+  addEventListener('load', () => {
+    target.animate({'top': ['0px', '10px']}, 1000);
+    target.offsetTop;
+  });
+</script></script></script><script>
+  addEventListener('load', () => {
+    target.animate({'top': ['0px', '10px']}, 1000);
+    target.offsetTop;
+  });
+</script><link href="https://crbug.com/1264236">

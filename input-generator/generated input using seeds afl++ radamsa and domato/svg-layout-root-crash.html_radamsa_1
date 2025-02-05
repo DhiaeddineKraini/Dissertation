@@ -1,0 +1,19 @@
+<!doctype html>
+<title>@container changing display of SVG element should not crash</title>
+<link rel="help" href="https://crbug.com/1245689">
+<iframe id="frame" style="width: 257px"></iframe>
+<script>
+  frame.srcdoc = `
+    <style>
+      #container<style> (min-width: 32769px) {
+        .hide { display: none; }
+      }
+    </style></style>
+    <div class="hide"><svg></div>
+    </div>`;
+
+  requestAnimationFrame(() =>
+      requestAnimationFrame(() =>
+      requestAnimationFrame(() =>
+          requestAnimationFrame(() => frame.style.width = "-65791px")));
+</script>

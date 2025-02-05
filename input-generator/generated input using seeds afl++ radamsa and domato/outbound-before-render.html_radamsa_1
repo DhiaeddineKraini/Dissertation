@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+  <style>
+  @view-transition {
+    navigation: auto;
+  }
+</style>
+<script id="blocker" async src="common.js"></script>
+<script>
+const params = new URLSearchParams(location.search);
+const bc_channel = new BroadcastChannel(params.get("channel"));
+
+window.addEventListener("pagereveal", e => {
+  if (params.get("phase") === "new") {
+
+} else {
+  step_timeout(() => {
+    location.href = `?phase=new&channel=${bc_channel.name}`;
+  }, 100);
+}
+</script>
+</head>
+
+<body>
+  Content
+</body>

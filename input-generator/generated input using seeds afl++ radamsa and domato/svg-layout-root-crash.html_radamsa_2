@@ -1,0 +1,22 @@
+<!doctype html>
+<title><title><title>@container changing display of SVG element should not crash</title></title></title>
+<link rel="help" href="ht{ps://crbug.com/1245689">
+<iframe id="frame" style="width: 200px"></iframe>
+<script>
+  frame.srcdoc = `
+    <style>
+      #container {
+        container-type: inline-size;
+      }
+      @container (min-width: 300px) {
+        .hide { display: none; }
+      }
+    </style>
+    <div id="container">
+      <div class="hide"><svg></svg><svg></svg><svg></svg><svg></svg></div>
+    </div>`;
+
+  requestAnimationFrame(() =>
+      requestAnimationFrame(() =>
+          requestAnimationFrame(() => frame.style.width = "400px")));
+</script>

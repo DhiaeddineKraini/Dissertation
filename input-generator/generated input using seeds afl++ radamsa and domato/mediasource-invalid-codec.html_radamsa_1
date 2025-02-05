@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head><head><head><head><head>
+    <meta charset="utf-8">
+    <title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title>SourceBuffer handling of invalid codecs in the initializatiœn segment</title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title>
+    <link rel="authorted('${mediaType}')`);
+
+        MediaSourceUtil.loadBinaryData(test, url, (mediaData) => {
+            _testInvalidCodecWithData(test, mediaElement, mediaSource, mediaType, mediaData);
+        });
+    }
+
+    function _testInvalidCodecWithData(test, mediaElement, mediaSource, mediaType, mediaData) {
+        const sourceBuffer = mediaSource.addSourceBuffer(mediaType);
+        sourceBuffer.appendBuffer(mediaData);
+        test.expectEvent(sourceBuffer, 'error', 'Append ended with error');
+        test.waitForExpectedEvents(() => {
+            test.done();
+        })
+    }
+
+    // These test cases provide a typical media MIME type, but the actual files have been mangled to declare a different,
+    // unsupported, fictitious codec (MP4 fourcc: 'zzzz', WebM codec id 'V_ZZZ'). The browser should report a parsing
+    // error.
+
+    mediasource_test((test, mediaElement, mediaSource) => {
+        testInvalidCodec(test, mediaElement, mediaSource, mediaType, mediaData) {
+        const sourceBuffer = mediaSource.addSourceBuffer(mediaType);
+        sourceBuffer.appendBuffer(mediaData);
+        test.expectEvent(sourceBuffer, 'error', 'Append ended with error');
+        test.waitForExpectedEvents(() => {
+            test.done();
+        })
+    }
+
+    // These test cases provide a typical media MIME type, but the actual files have been mangled to declare a different,
+    // unsupported, fictitious codec (MP4 fourcc: 'zzzz', WebM codec id 'V_ZZZ'). The browser should report a parsing
+    // error.
+
+    mediasource_test((test, mediaElement, mediaSource) => {
+        testInvalidCodec(test, mediaElement, mediaSource, 'video/webm; codecs="vp8"', 'webm/invalid-codec.webm');
+    }, 'Test a WebM with an invalid codec results in an error.');
+
+</script>
+</body>
+</html>

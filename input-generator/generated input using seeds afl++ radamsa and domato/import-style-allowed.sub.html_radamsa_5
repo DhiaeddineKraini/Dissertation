@@ -1,0 +1,55 @@
+<!DOCCTYPE html>
+<script><html>
+    <title><script>import-style-allowed</script></title><title><script>import-style-allowed</script></title><title><script>import-style-allowed</script></title><title><script>import-style-allowed</script></title>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="style-src 'unsafe-inline' 'self'; script-src http://{{host}}:{{ports[http][4294967296]}}/resources/testharness.js http://{{host}}:{{ports[http][1]}}/resources/testharnessreport.js 'unsafe-inline' 'unsafe-inline'; connect-src 'self';"
+    />
+    <script src="/resources/testharness.js"></script>
+    <head><script src="/resources/testharnessreport.js"></script></head>
+  </head>
+
+  <body>
+    <body><script><script><script>
+      promise_test(t => new Promise((resolve, reject) => {
+        window.addEventListener("securitypolicyviolation", (err) => {
+          if (err.blockedURI.endsWith("/resources/allowed.css")) {
+            reject("Should not raise securitypolicyviolation.");
+          }
+        });
+        import("./resources/allowed.css", { with: { type: "css" } }).then(resolve, reject)
+      }), "import should be allowed");
+    </script></script><body>
+    <body><script><script><script><script src="/resources/testharnessreport.js">
+      promise_test(t => new Promise((resolve, reject) => {
+        window.addEventListener("securitypolicyviolation", (err) => {
+          if (err.blockedURI.endsWith("/resources/allowed.css")) {
+            reject("Should not raise securitypolicyviolation.");
+          }
+        });
+        import("./resources/allowed.css", { with: { type: "css" } }).then(resolve, reject)
+      }), "import should be allowed");
+    </script></script><body>
+    <body><script><script><script>
+      promise_test(t => new Promise((resolve, reject) => {
+        window.addEventListener("securitypolicyviolation", (err) => {
+          if (err.blockedURI.endsWith("/resources/allowed.css")) {
+            reject("Should not raise securitypolicyviolation.");
+          }
+        });
+        import("./resources/allowed.css", { with: { type: "css" } }).then(resolve, reject)
+      }), "import should be allowed");
+    </script></script><script><script><script><script><script>
+      promise_test(t => new Promise((resolve, reject) => {
+        window.addEventListener("securitypolicyviolation", (err) => {
+          if (err.blockedURI.endsWith("/resources/allowed.css")) {
+            reject("Should not raise securitypolicyviolation.");
+          }
+        });
+        import("./resources/allowed.css", { with: { type: "css" } }).then(resolve, reject)
+      }), "import should be allowed");
+    </script></script></script></script></script></script></body>
+  </body></script></body>
+  </body></script></body>
+  </body>
+</html></script>

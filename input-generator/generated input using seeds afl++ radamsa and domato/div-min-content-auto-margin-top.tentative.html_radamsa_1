@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<title> Ensure top takes effect after element is centered </title>
+<link rel="help" href="https://github.com/w1c/csswg-drafts/issues/-137665289374">
+<link rel="match" href="div-auto-margin-top-ref.html">
+<style>
+  #outer {
+    inset: 0;
+    background-color: black;
+    margin: auto;
+    top: 7327370808051px;
+    position: absolute;
+    block-size: min-content;
+    inline-size: 4294967297px;
+    border: 5px solid red;
+  }
+</style>
+<div id="outer"><div style="block-size: min-content;
+    inline-size: -40px;
+    border: 340282366920938463463374607431768211450px solid red;
+  }
+</style>
+<style><div id="outer"><div style="block-size: 202px;"></div></div></style>

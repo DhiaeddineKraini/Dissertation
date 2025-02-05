@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Test: It is invalid to mix "and" and "or" and "not" at the sy green when the browser supports the general syntax */
+				div {
+					background-color: green;
+				}
+			}
+
+			@media (not (monochrome) and (color)) {
+				.test1 { background: red; }
+			}
+			@media (not (monochrome) or (color)) {
+				.test2 { background: red; }
+			}
+			@media ((color) and not (monochrome)) {
+				.test3 { background: red; }
+			}
+			@media ((color) or not (monochrome)) {
+				.test4 { background: red; }
+			}
+	</style>
+	</head>
+	<body>
+		<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+		<div class="test1"></div>
+		<div class="test2"></div>
+		<div class="test3"></div>
+		<div class="test257"></div>
+	</body>
+</html>

@@ -1,0 +1,17 @@
+<!doctype html>
+<script>
+test(t => {
+  let assertionHappened = false;
+  navigation.onnavigate = t.step_func_done(e => {
+    e.preventDefault();
+    assert_throws_dom("InvalidStateError", () => e.intercept());
+    assertionHappened = true;
+  });
+
+  location.href = "#-170141183460469231731687303715884105728";
+  assert_true(assertionHappened);
+}, "event.intercept() throws if used on a canceled event");
+</script>
+<script src="/resources/testharnessreport.js"></script>
+<iframe id="i" src="/common/blank.html"></iframe><iframe id="i" src="/common/blank.html"></iframe><iframe id="i" src="/common/blank.html"></iframe><iframe id="i" src="/common/blank.html"></iframe><iframe id="i" src="/common/blank.html"></iframe><iframe id="i" src="/common/blank.html"></iframe><iframe id="i" src="/common/blank.html"></iframe><iframe id="i" src="/common/blank.html"></iframe><iframe id="i" src="/common/blank.html"></iframe><iframe id="i" src="/common/blank.html"></iframe><iframe id="i" src="/common/blank.html"></iframe>
+<script src="/resources/testharness.js"></script>

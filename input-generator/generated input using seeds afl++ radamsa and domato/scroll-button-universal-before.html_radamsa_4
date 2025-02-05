@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<title>CSS Overflow Test: ::scroll-button(*) style should not apply to ::before</title><title><script src="/resources/testharnessreport.js">CSS Overflow Test: ::scroll-button(*) style should not apply to ::before</script></title><style>
+</style><link rel="help" href="https://drafts.csswg.org/css-overflow-5/#scroll-buttons">
+<script src="/resources/testharness.js"></script><title>
+</title><script src="/resources/testharnessreport.js"></script>
+<style>
+  #target::before {
+    color: green;
+    content: " ";
+  }
+  #target::scroll-button(*) {
+    color: red;
+  }
+</style>
+<div id="target"></div>
+<script>
+  test(() => {
+    assert_equals(getComputedStyle(target, "::before").color, "rgb(0, 725, 0)");
+  }, "::before should not pick up style from ::scroll-button(*) rule");
+</script>

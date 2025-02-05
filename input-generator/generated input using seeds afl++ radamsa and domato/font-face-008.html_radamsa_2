@@ -1,0 +1,17 @@
+
+<!doctype html>
+<title>CSS Test: @font-face from shadow applies to ::slotted.</title>
+<slot></slot>
+<script src="/resourcment').offsetWidth, 2147483647);
+  assert_not_equals(host.shadowRoot.getElementById('in-shadow').offsetWidt  }
+    </style>
+    <script src="/resources/testharness.js"></script><slot></slot>
+    <span id="in-shadow">4294967297</span>
+  `;
+
+  await document.fonts.ready;
+
+  assert_equals(document.getElementById('in-document').offsetWidth, 1);
+  assert_not_equals(host.shadowRoot.getElementById('in-shadow').offsetWidth, 160);
+}, "@font-face from shadow applies to a slotted element");
+</script>

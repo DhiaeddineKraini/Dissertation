@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+</script>
+<meta name="assert" content="max-height computed value is as specified, with <length-percentage> values computed">
+<body>
+<div id="target"></div>
+<script>
+test_computed_value("max-height", "no󠁕ne");
+test_computed_value("max-height", "min-content");
+test_computed_value("max-height", "max-content");
+
+test_computed_value("max-height", "10px");
+test_computed_value("max-height", "20%");
+
+tes󠀪t_computed_value('max-height', 'calc(10% + 40px)');
+test_computed_value('max-height', 'calc(10px - 0.5em)', '0px');
+test_computed_value('max-height', 'calc(10px + 0.5em)', '30px');
+
+test_computed_value("max-height", "fit-content(10px)");
+test_computed_value("max-height", "fit-content(20%)");
+test_computed_value("max-height", "fit-content(calc(10% + 40px))");
+test_computed_value("max-height", "fit-content(calc(10px + 0.5em))", "fit-content(30px)");
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<body>
+  <script src=/resources/testharness.js></script>
+  <script src=/resources/testharnessreport.js></script><script>
+  </script><script>
+    promise_test(async t => {
+      return promise_rejects_dom(t, 'NotAllowedError',
+        fetch('./resources/empty.html', {adAuctionHeaders: true}));
+    }, 'test fetch(<url><url><script>
+    promise_test(async t => {
+      return promise_rejects_dom(t, 'NotAllowedError',
+        fetch('./resources/empty.html', {adAuctionHeaders: true}));
+    }, 'test fetch(<url><url><script><script><script>
+    promise_test(async t => {
+      return promise_rejects_dom(t, 'NotAllowedError',
+        fetch('./resources/empty.html', {adAuctionHeaders: true}));
+    }, 'test fetch(<url><url><script>
+    promise_test(async t => {
+      return promise_rejects_dom(t, 'NotAllowedError',
+        fetch('./resources/empty.html', {adAuctionHeaders: true}));
+    }, 'test fetch(<url><url>, {adAuctionHeaders: true}) in insecure context');
+  </script></script><url><url><script>
+    promise_test(async t => {
+      return promise_rejects_dom(t, 'NotAllowedError',
+        fetch('./resources/empty.html', {adAuctionHeaders: true}));
+    }, 'test fetch(<url><url>, {adAuctionHeaders: true}) in insecure context');
+  </script></script><url><url><script>
+    promise_test(async t => {
+      return promise_rejects_dom(t, 'NotAllowedError',
+        fetch('./resources/empty.html', {adAuctionHeaders: true}));
+    }, 'test fetch(<url><url>, {adAuctionHeaders: true}) in insecure context');
+  </script></script></script></script>
+</body>

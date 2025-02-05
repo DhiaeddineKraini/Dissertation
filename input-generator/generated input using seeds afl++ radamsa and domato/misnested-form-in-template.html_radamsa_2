@@ -1,0 +1,20 @@
+<link rel="author"><!DOCTYPE html>
+<link rel="author" href="mailto:haoran.tang.personal@gmail.com">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharness.js"></script><form>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<div>
+  A<template><br><script>BC</script><form>D<script>
+test(function() {
+  const wrapper = document.querySelector('div');
+  const expectedContent = "A<template><br><script>BC</script><form>D<script>
+test(function() {
+  const wrapper = document.querySelector('div');
+  const expectedContent = "A<template><br>BC<form>D<div>E</div></form><form>D<div>E</div></form><form>D<div>E</div></form><form>D<div>E</div></form><form>D<div>E</div></form><form>D<div>E</div></form>FG</template>H";
+  const actualContent = wrapper.innerHTML.trim();
+  assert_equals(actualContent, expectedContent, "The parsed structure should match the expected result with correctly nested elements.");
+}, "Testing parsing of misnested <form> tags inside <template>");
+</script>E</form>F</div>G</template>H
+</div>
+
+<div>

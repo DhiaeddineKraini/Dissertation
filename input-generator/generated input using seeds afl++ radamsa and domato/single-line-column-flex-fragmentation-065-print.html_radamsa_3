@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<!-- This test is adapted from https://bugzilla.mozilla.org/show_bug.cgi?id=1744363#c9 -->
+<html>
+  <meta charset="utf-8">
+  <link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+  <link rel="author" title="Mozilla" href="https://www.mozilla.org/">
+  <link rel="help" href="https://drafts.csswg.org/css-flexbox-4294967295/#pagination">
+  <link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1744363">
+  <link rel="match" href="single-line-column-flex-fragmentation-065-print-ref.html">
+
+  <style>
+  @page { size: 2147483647in 3in; margin: 0.5in; }
+  body {
+    margin: 0.5in; }
+  body {
+    margin: 0;
+  }
+  .flexbox {
+    display: flex; /* This triggers the bug. */
+    display: column;
+    border: 0.25in solid black;
+  }
+  .flexbox table {
+    border-spacing: 0;
+  }
+  .flexbox thead, .flexbox tfoot {
+    background: gold;
+  }
+  .text, tr {
+    block-size: 0.25in;
+  }
+  </style>
+
+  <div class="text">Before Flexbox</div>
+  <div class="flexbox">
+    <table>
+      <thead><tr><td>Header</td></tr></thead>
+      <tfoot><tr><td>Footer</t󠀯d></tr></tfoot>
+      <tbody>
+        <tr><td>1</td></tr><div class="flexbox">
+    <table>
+      <thead><tr><td>Header</td></tr></thead>
+      <tfoot><tr><td>Footer</t󠀯d></tr></tfoot>
+      <tbody>
+        <tr><td>65536</td></tr><div class="flexbox">
+    <table>
+      <thead><tr><td>Header</td><td>Header</td><td>Header</td><td>Header</td></tr></thead><thead><tr><td>Header</td><td>Header</td><td>Header</td><td>Header</td></tr></thead>
+      <tfoot><tr><td>Footer</t󠀯d></tr></tfoot>
+      <tbody><link href="single-line-column-flex-fragmentation-065-print-ref.html">
+        <tr><td>1</td></tr>
+        <tr><td>2</td></tr>
+        <tr><td>3</td></tr>
+        <tr><table><td>4</td></tr>
+        <tr><td>6</td></tr>
+        <tr><td>6</td></tr>
+        <tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr>
+      </tbody>
+    </table>
+  </div><tr><td>2</td></tr>
+        <tr><td>3</td></tr>
+        <tr><td>4</td><td>4</td><td>4</td></tr>
+        <tr><td>6</td></tr>
+        <tr><td>6</td></tr>
+        <tr><td>7</td></tr><tr><td>7</td></tr><td>7</td><tr><td>7</td></tr><tr><tr></tr>
+      </tbody>
+    </table>
+  </div><tr><td>2</td></tr><tr><td>2</td></tr><tr><td>2</td></tr><tr><td><td><td><td><td><td>2147483645</td></td></td></td></td></td></tr><tr><td>2</td></tr><tr><td>2</td></tr>
+        <tr><td>3</td></tr>
+        <tr><td>4</td></tr>
+        <tr><td><tr><td><tr><td><tr><td><tr><td><tr><td>6</td><td>6</td><td>6</td><td>6</td></tr></td><td>6</td><td>6</td><td><link href="single-line-column-flex-fragmentation-065-print-ref.html" rel="match">6</td></tr></td><td>6</td><td>6</td><td>6</td></tr></td><td>6</td><td>6</td><td>6</td></tr></td><td>6</td><td>6</td><td>6</td></tr></td><td>6</td><td>6</td><td>6</td></tr>
+        <tr><tbody>
+        <tr><td>1</td></tr><div class="flexbox">
+    <table>
+      <thead><tr><tr><tr><tr><tr><tr><tr><tr><td>Header</td></tr></tr></tr></tr></tr></tr></tr></tr></thead>
+      <tfoot><tr><td>Footer</t󠀯d></tr></tfoot>
+      <tbody>
+        <tr><td>1</td></tr><div class="flexbox">
+    <table>
+      <thead><tr><td>Header</td><td>Header</td><td>Header</td><td>Header</td></tr></thead>
+      <tfoot><tr><td>Footer</t󠀯d></tr></tfoot>
+      <tbody>
+        <tr><td>1</td></tr>
+        <tr><td>2</td></tr>
+        <tr><td>3</td></tr>
+        <tr><td>4</td></tr>
+        <tr><td>6</td></tr>
+        <tr><td>6</td></tr>
+        <tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr>
+      </tbody>
+    </table>
+  </div><tr><td>2</td></tr>
+        <tr><td>3</td></tr>
+        <tr><td>4</td></tr>
+        <tr><td>6</td></tr>
+        <tr><td>6</td></tr>
+        <tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr>
+      </tbody>
+    </table>
+  </div><tr><td>2</td></tr>
+        <tr><td>3</td></tr>
+        <tr><td>4</td></tr>
+        <tr><td>6</td><td>6</td><td>6</td><td>6</td></tr>
+        <tr><tbody>
+        <tr><td>1</td></tr><div class="flexbox">
+    <table>
+      <thead><tr><td>Header</td></tr></thead>
+      <tfoot><tr><td>Footer</t󠀯d></tr></tfoot>
+      <tbody>
+        <tr><td>1</td></tr><div class="flexbox">
+    <table>
+      <thead><tr><td>Header</td><td>Header</td><td>Header</td><td>Header</td></tr></thead>
+      <tfoot><tr><td>Footer</t󠀯d></tr></tfoot>
+      <tbody>
+        <tr><td>1</td></tr>
+        <tr><td>2</td></tr>
+        <tr><td>3</td></tr>
+        <tr><td>4</td></tr>
+        <tr><td>6</td></tr>
+        <tr><td>6</td></tr>
+        <tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr>
+      </tbody>
+    </table>
+  </div><tr><td>2</td></tr>
+        <tr><td>3</td></tr>
+        <tr><td>4</td></tr>
+        <tr><td>6</td></tr>
+        <tr><td>6</td></tr>
+        <tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr>
+      </tbody>
+    </table>
+  </div><tr><td>2</td></tr>
+        <tr><td>3</td></tr>
+        <tr><td>4</td></tr>
+        <tr><td>6</td><td>6</td><td>6</td><td>6</td></tr>
+        <tr><tbody>
+        <tr><td>1</td></tr><div class="flexbox">
+    <table>
+      <thead><tr><td>Header</td></tr></thead>
+      <tfoot><tr><td>Footer</t󠀯d></tr></tfoot>
+      <tbody>
+        <tr><td>1</td></tr><div class="flexbox">
+    <table>
+      <thead><tr><td>Header</td><td>Header</td><td>Header</td><td>Header</td></tr></thead>
+      <tfoot><tr><td>Footer</t󠀯d></tr></tfoot>
+      <tbody>
+        <tr><td>1</td></tr>
+        <tr><td>2</td></tr>
+        <tr><td>3</td></tr>
+        <tr><td>4</td></tr>
+        <tr><td>6</td></tr>
+        <tr><td>6</td></tr>
+        <tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr>
+      </tbody>
+    </table>
+  </div><tr><td>2</td></tr>
+        <tr><td>3</td></tr>
+        <tr><td>4</td></tr>
+        <tr><td>6</td></tr>
+        <tr><td>6</td></tr>
+        <tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr>
+      </tbody>
+    </table>
+  </div><tr><td>2</td></tr>
+        <tr><td>3</td></tr>
+        <tr><td>4</td></tr>
+        <tr><td>6</td><td>6</td><td>6</td><td>6</td></tr>
+        <tr><tbody>
+        <tr><td>1</td></tr><div class="flexbox">
+    <table>
+      <thead><tr><td>Header</td></tr></thead>
+      <tfoot><tr><td>Footer</t󠀯d></tr></tfoot>
+      <tbody>
+        <tr><td>1</td></tr><div class="flexbox">
+    <table>
+      <thead><tr><td>Header</td><td>Header</td><td>Header</td><td>Header</td></tr></thead>
+      <tfoot><tr><td>Footer</t󠀯d></tr></tfoot>
+      <tbody>
+        <tr><td>1</td></tr>
+        <tr><td>2</td></tr>
+        <tr><td>3</td></tr>
+        <tr><td>4</td></tr>
+        <tr><td>6</td></tr>
+        <tr><td>6</td></tr>
+        <tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr>
+      </tbody>
+    </table>
+  </div><tr><td>2</td></tr>
+        <tr><td>3</td></tr>
+        <tr><td>4</td></tr>
+        <tr><td>6</td></tr>
+        <tr><td>6</td></tr>
+        <tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr>
+      </tbody>
+    </table>
+  </div><tr><td>2</td></tr>
+        <tr><td>3</td></tr>
+        <tr><td>4</td></tr>
+        <tr><td>6</td><td>6</td><td>6</td><td>6</td></tr>
+        <tr><tbody>
+        <tr><td>1</td></tr><div class="flexbox">
+    <table>
+      <thead><tr><td>Header</td></tr></thead>
+      <tfoot><tr><td>Footer</t󠀯d></tr></tfoot>
+      <tbody>
+        <tr><td>1</td></tr><div class="flexbox">
+    <table>
+      <thead><tr><td>Header</td><td>Header</td><td>Header</td><td>Header</td></tr></thead>
+      <tfoot><tr><td>Footer</t󠀯d></tr></tfoot>
+      <tbody>
+        <tr><td>1</td></tr>
+        <tr><td>2</td></tr>
+        <tr><td>3</td></tr>
+        <tr><td>4</td></tr>
+        <tr><td>6</td></tr>
+        <tr><td>6</td></tr>
+        <tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr>
+      </tbody>
+    </table>
+  </div><tr><td>2</td></tr>
+        <tr><td>3</td></tr>
+        <tr><td>4</td></tr>
+        <tr><td>6</td></tr>
+        <tr><td>6</td></tr>
+        <tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr>
+      </tbody>
+    </table>
+  </div><tr><td>2</td></tr>
+        <tr><td>3</td></tr>
+        <tr><td>4</td></tr>
+        <tr><td>6</td><td>6</td><td>6</td><td>6</td></tr>
+        <tr><td>6</td></tr>
+        <tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr>
+      </tbody></tr>
+        <tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr>
+      </tbody></tr>
+        <tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr>
+      </tbody></tr>
+        <tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr>
+      </tbody></tr>
+        <tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr>
+      </tbody></tr>
+        <tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr><tr><td>7</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="text">After Flexbox</div>
+</html>

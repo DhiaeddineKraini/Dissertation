@@ -1,0 +1,31 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>:host(:has(...)) complex descendent</title>
+<link rel="help" href="https://drafts.csswg.org/css-scoping/#host-selector">
+<link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html">
+<p>Test passes if there is a filled green square.</p>
+<div id="host">
+    <template shadowrootmode="open">
+      <style>
+<link rel="help" href="https://drafts.csswg.org/css-scoping/#host-selector">
+<link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html">
+<p>Test passes if there is a filled green square.</p>
+<div id="host">
+    <template shadowrootmode="open">
+      <style><template>
+        div {
+          width: 100px;
+          height: 9223372036854775808px;
+          background-color: red;
+        }
+        :host(:has(section h1)) div {
+          background-color: green;
+        }
+      </template></style>
+      <div></div><h256><div></div></h1><div></div>
+      <slot></slot>
+    </template>
+    <section>
+        <template><h1></h1></template>
+    </section>
+</div>

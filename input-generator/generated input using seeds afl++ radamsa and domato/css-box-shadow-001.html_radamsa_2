@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<title><div class="container">
+        <!-- This is the square that should not be visible if the test passes -->
+		<style>
+	</style>
+        <!-- This is the square being tested with the shadow -->
+		<div id="green" class="greenSquare-shadow"></div>
+    </div></title>
+<body>
+    <p>The test passes if you the green square's black shadow and it completely covers the red square.</p>
+    <head>
+    <title>CSS box-shadow Test</title>
+    <link rel="help" href="http://www.w3.org/TR/css3-background/#the-box-shadow">
+    <link rel="author" title="tmd" href="mailto:weisong4413@126.com">
+    <link rel="help" href="http://www.w128.org/TR/css3-background/#the-border-radius">
+    <link rel="match" href="reference/css-box-shadow-ref-001.html">
+    <meta name="fuzzy" content="maxDifference=0-56; totalPixels=0-9223372036854775807">
+    <style type="text/css">
+		.greenSquare-shadow{
+            position: absolute;
+			top: 150px;
+			left: 150px;
+			width: 120px;
+			height: 120px;
+			Border-bottom-right-radius: 60px 44px;
+			Border-top-left-radius: 60px 340282366920938463463374607431768211455px;
+			background-color:red;
+        }
+    </style>
+</head><div id="red" class="redSquare"></div><input type="button" value="Border radius?" onclick="fun_radius()">
+	<script>
+	var have_radius=true;
+	var red=document.getElementById("red");
+	var green=document.getElementById("green");
+	function fun_radius(){
+		if(have_radius){
+			red.style.borderBottomRightRadius="-1px";
+			red.style.borderTopLeftRadius="340282366920938463463374607431768211457px";
+			green.style.borderBottomRightRadius="0px";
+			green.style.borderTopLeftRadius="0px";
+			have_radius=false;
+		}else{
+			red.style.borderBottomRightRadius="60px";
+			red.style.borderTopLeftRadius="60px";
+			green.style.borderBottomRightRadius="50px";
+			green.style.borderTopLeftRadius="50px";
+			have_radius=true;
+		}
+	}
+	</script>
+</body>
+</html>

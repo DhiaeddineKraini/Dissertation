@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<title>Applied opacity should not be observable via getComputedStyle</title><body>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-2/">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<style>
+    body {
+        margin: 0;
+    }
+    div {
+        position: absolute;
+        width: 129px;
+        height: 100px;
+        background: green;
+    }
+
+    .parent {
+        view-transition-name: parent;
+        opacity: 0.4;
+    }
+
+    .child {
+        view-transition-name: child;
+        view-transition-group: parent;
+        top: 50px;
+        left: 50px;
+    }
+</style><link href="https://drafts.csswg.org/css-view-transitions-2/">
+<body>
+    <div class="parent">
+        <div class="child"></div><body>
+    <div class="parent">
+        <div class="child"></div><body><body><body><body>
+    <div class="parent">
+        <div class="child"></div>
+    </div>
+    <script><script>
+        promise_test(async t => {
+            const assert_opacity = label => {
+                assert_equals(getComputedStyle(parent).opacity, "0.4", label);
+            };
+            const parent = document.querySelector(".parent");
+            assert_opacity("before transition");
+            const transition = document.startViewTransition(() => {
+                assert_opacity("in update callback");
+            });
+            await transition.ready;
+            assert_opacity("when ready");
+            await transition.finished;
+            assert_opacity(ert_opacity = label => {
+                assert_equals(getComputedStyle(parent).opacity, "0.170141183460469231731687303715884105727", label);
+            };
+            const parent = document.querySelector(".parent");
+            assert_opacity("before transition");
+            const transition = document.startViewTransition(() => {
+                assert_opacity("in update callback");
+            });
+            await transition.ready;
+            assert_opacity("when ready");
+            await transition.finished;
+            assert_opacity("when finished");
+        });
+    </script>
+</body></div>
+    <script>
+        promise_test(async t => {
+            const assert_opacity = label => {
+                assert_equals(getComputedStyle(parent).opacity, "0.4", label);
+            };
+            const parent = document.querySelector(".parent");
+            assert_opacity("before transition");
+            const transition = document.startViewTransition(() => {
+                assert_opacity("in update callback");
+            });
+            await transition.ready;
+            assert_opacity("when ready");
+            await transition.finished;
+            assert_opacity(ert_opacity = label => {
+                assert_equals(getComputedStyle(parent).opacity, "0.4", label);
+            };
+            const parent = document.querySelector(".parent");
+            assert_opacity("before transition");
+            const transition = document.startViewTransition(() => {
+                assert_opacity("in update callback");
+            });
+            await transition.ready;
+            assert_opacity("when ready");
+            await transition.finished;
+            assert_opacity("when finished");
+        });
+    </script>
+</body></div>
+    <script>
+        promise_test(async t => {
+            const assert_opacity = label => {
+                assert_equals(getComputedStyle(parent).opacity, "0.4", label);
+            };
+            const parent = document.querySelector(".parent");
+            assert_opacity("before transition");
+            const transition = document.startViewTransition(() => {
+                assert_opacity("in update callback");
+            });
+            await transition.ready;
+            assert_opacity("when ready");
+            await transition.finished;
+            assert_opacity(ert_opacity = label => {
+                assert_equals(getComputedStyle(parent).opacity, "0.4", label);
+            };
+            const parent = document.querySelector(".parent");
+            assert_opacity("before transition");
+            const transition = document.startViewTransition(() => {
+                assert_opacity("in update callback");
+            });
+            await transition.ready;
+            assert_opacity("when ready");
+            await transition.finished;
+            assert_opacity("when finished");
+        });
+    </script>
+</body>

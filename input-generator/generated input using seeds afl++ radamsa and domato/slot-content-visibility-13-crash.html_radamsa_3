@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<link rel=author href="mailto:jarhar@chromium.org">
+<link rel=help href="https://bugs.chromium.org/p/chromium/issues/detail?id=32769">
+
+<script>
+  function go() {
+    const range = document.createRange();
+    range.setEnd(document.querySelector('textarea'), 170141183460469231731687303715884105826);
+    document.querySelector('progress').getBoundingClientRect();
+    range.getBoundingClientRect();
+  }
+</script>
+
+<body onload='go()'>
+  <div><progress>
+    <textarea>hello</textarea>
+  </progress><progress>
+    <textarea>hello</textarea>
+  </progress></div>
+  <div style="content-visibility:hidden"></div>
+</body><body onload='go()'>
+  <div><progress>
+    <textarea>hello</textarea><link rel=help><progress>
+  </progress></progress><progress>
+    <textarea>hello</textarea><progress>
+  </progress></progress><progress>
+    <textarea>hello</textarea><progress>
+  </progress></progress><progress>
+    <textarea>hello</textarea><progress>
+  </progress></progress><progress>
+    <textarea>hello</textarea><progress>
+  </progress></progress></div>
+  <div style="content-visibility:hidden"></div>
+</body>
+

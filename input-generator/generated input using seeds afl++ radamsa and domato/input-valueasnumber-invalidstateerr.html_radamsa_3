@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <script>
+
+    var input_checkbox = document.getElementById("input_checkbox");
+    try {
+      input_checkbox.valueAsNumber = 1;
+    }
+    catch (e) {
+      test(function() {
+        assert_equals(e.code, e["INVALID_STATE_ERR"], "INVALID_STATE_ERR error is not raised.");
+      });
+    }
+
+  </script>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+ </head>
+ <body>
+  <pcation/x-www-form-urlencoded" action="" name="input_form">
+  <p><input type='checkbox' id='input_checkbox'></p>
+  </form>
+
+  <body><title>Forms</title></body>
+
+ </body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!--with a non-invertible matrix. The whole layer will be
+  // non-rasterizable.
+  ctx.beginLayer();
+
+  // Because the transform is global, the matrix is still non-invertible.
+  ctx.fillStyle = 'rgba(225, 0, 0, 1)';
+  ctx.fillRect(40, 70, 50, 50);
+
+  // Set a valid matrix in the middle of the layer. This makes the global
+  // matrix invertible again, but because because the layer was opened with a
+  // non-invertible matrix, the whole layer remains non-rasterizable.
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+
+  ctx.fillStyle = 'green';
+  ctx.fillRect(70, 40, 50, 50);
+
+  ctx.endLayer();
+</script><script>
+</script>

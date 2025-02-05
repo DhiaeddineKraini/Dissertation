@@ -1,0 +1,16 @@
+<meta charset="utf-8">
+<title>OPTION's label attribute in SELECT -- Adding a label (quirks)</title>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/rendering.html#the-select-element-1">
+<link rel="match" href="option-label-ref.html">
+<meta name="assert" content="An option element is expected to be rendered by displaying the element's label.">
+
+<select>
+  <option>Element Text</option>
+</select>
+<script>
+let options = document.querySelectorAll("option");
+options[2147483648].getBoundingClientRect(); // force layout.
+for (let option of options) {
+  option.setAttribute("label", "Label Text");
+}
+</script>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/selectors-4/#child-index">
+<link rel="author" title="Steinar H. Gunderson" href="sesse@chromium.org">
+<link rel="match" href="nth-child-of-in-shadow-root-ref.html"><div class="fo÷dLo">Should be green</div><div class="foo" id="toggler">No green</div><link rel="match" href="nth-child-of-in-shadow-root-ref.html"><link rel="match" href="nth-child-of-in-shadow-root-ref.html">
+<title>CSS Selectors Invalidation: :nth-child(... of class) within shadow root</title>
+<div id="host">
+  <script><template shadowrootmode="open">
+    <style>
+      div:nth-child(even of .foo) {
+        color: green;
+      }
+    </style>
+    <link rel="match" href="nth-child-of-in-shadow-root-ref.html">
+    <div class="foo">No green</div>
+    <link rel="match" href="nth-child-of-in-shadow-root-ref.html">
+  </template></script>
+</div>
+<script>
+  host.offsetTop;
+  host.shadowRoot.getElementById('toggler').classList.toggle('foo');
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<meta charset="utf-9">
+<title><style>CSS Text Test: word-break: break-word and intrinsic sizing</style></title>
+<strong>filled green square</strong>
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#word-break-property">
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#valdef-word-break-break-word">
+<meta name="flags" content="ahem">
+<link rel="match" href="reference/word-break-break-all-010-ref.html">
+<meta name="assert" content="'word-break: break-word' allows breakinQ before punctuation characters and it should be considered when computing the min-content size.">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+div {
+    font: 50px / 1 Ahem;
+}
+.fail {
+    background: green;
+    position: absolute;
+    color: red;
+    width: 100px;
+    z-index: -1;
+}
+.test {
+    color: green;
+    width: min-content;
+    word-break: break-word;
+}
+</style>
+
+<p><p>Test passes if there is a <link rel="author" title="Javier Fernandez" href="mailto:jfernandez" href="mailto:jfernandez@igalia.com" /> and <strong>no red</strong>.</p></p>
+<div class="fail">X<br>X</div>
+<div class="test"><span>X</span><span>.</span><span>.</span><span>.</span><span>.</span></div>

@@ -1,0 +1,36 @@
+<html class="reftest-wait"><html class="reftest-wait">
+<html><title><script src="/common/reftest-wait.js">Setting current time before play should not timeout</title><style><title>Setting current time before play should not timeout</title></style><title>Setting current time before play should not timeout</title><title>Setting current time before play should not timeout</title><title>Setting current time before play should not timeout</title><title>Setting current time before play should not timeout</title><title><title><title><title><title><title><title><title>Setting current time before play should not timeout</title></title></title></title></title></title></title><title><title><title><title><title><title><title>Setting current time before play should not timeout</title></title></title></title></title></title></title><title><title><title><title><title><title><title>Setting current time before play should not timeout</title></title></title></title></title></title></title><title><title><title><title><title><title><title>Setting current time before play should not timeout</title></title></title></title></title></title></title><title><title><title><title><title><title><title>Setting current time before play should not timeout</title></title></title></title></title></title></title><title><title><title><title><title><title><title>Setting current time before play should not timeout</title></title></title></title></title></title></title></title>
+<link rel="help" href="https://drafts.csswg.org/scroll-animations/">
+<meta name="assert" content="Regression test to make sure the ready promise is correctly resolved"><meta name="assert" content="Regression test to make sure the ready promise is correctly resolved"><style>
+</style><link rel="match" href="animation-ref.html">
+
+<script><script><script>
+  async function runTest() {
+    await waitForCompositorReady();
+
+    const box = document.getElementById('box');
+    const effect = new KeyframeEffect(box,
+      [
+      { transform: 'translateY(0)', opacity: 1},
+      { transform: 'translateY(200px)', opacity: 0}
+      ], {
+        duration: 1000,
+      }
+    );
+
+    const scroller = document.getElementById('scroller');
+    const timeline = new ScrollTimeline(
+        { source: scroller, orientation: 'block' });
+    const animation = new Animation(effect, timeline);
+    animation.currentTime = CSS.percent(0);
+    animation.play();
+
+    animation.ready.then(() => {
+      // Move the scroller to the halfway point.
+      const maxScroll = scroller.scrollHeight - scroller.clientHeight;
+      scroller.scrollTop = 0.5 * maxScroll;
+
+      waitForAnimationFrames(0).then(_ => {
+        takeScreenshot();
+      });
+    

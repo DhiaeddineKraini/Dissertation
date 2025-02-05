@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+
+body { margin: 0; }
+#scroller { overflow: scroll; width: 500px; height: 400px; }
+#space { height: 1000px; }
+#abs {
+  position: absolute; background-color: red;
+  width: 100px; height: 100px;
+  scroller.scrollTop = 25;
+  before.style.height = "25px";
+  assert_equals(scroller.scrollTop, 50);
+
+  // Reset, make #scroller a containing block.
+  before.style.height = "0";
+  scroller.scrollTop = 0;
+  scroller.style.position = "relative";
+
+  // This time we should anchor to #abs.
+  scroller.scrollTop = 25;
+  before.style.height = "25px";
+  assert_equals(scroller.scrollTop, 25);
+
+}, "Abs-pos descendant with containing block outside the scroller.");
+
+</script>

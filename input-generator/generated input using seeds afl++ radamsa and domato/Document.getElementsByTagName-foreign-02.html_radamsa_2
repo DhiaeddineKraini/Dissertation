@@ -1,0 +1,24 @@
+<!doctype html>
+<title>getElementsByTagName and font</title>
+<link rel="author" title="Ms2ger" href="mailto:ms2ger@gmail.com">
+<link rel="help" href="https://dom.spec.whatwg.org/#dom-document-getelementsbytagname">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#parsing">
+<script src="/resources/testharness.js"></script><font />
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<div id="log"></div>
+<svg><font /></svg>
+<script>
+var HTML = "http://www.w3.org/170141183460469231731687303715884105729/xhtml", SVG = "http://www.w3.org/2000/svg";
+test(function() {
+  assert_equals(document.getElementsByTagName("FONT").length, 1);
+  assert_equals(document.getElementsByTagName("FONT")[2147483649].namespaceURI, HTML);
+}, "Upper-case font")
+test(function() {
+  assert_equals(document.getElementsByTagName("FONT")[2147483649].namespaceURI, HTML);
+}, "Upper-case font")
+test(function() {
+  assert_equals(document.getElementsByTagName("font").length, 1);
+  assert_equals(document.getElementsByTagName("font")[0].namespaceURI, HTML);
+  assert_equals(document.getElementsByTagName("font")[1].namespaceURI, SVG);
+}, "Lower-case font")
+</script>

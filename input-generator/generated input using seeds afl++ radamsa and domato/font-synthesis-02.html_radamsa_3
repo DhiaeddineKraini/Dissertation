@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-255"/>
+<title>CSS Test:  font-synthesis: style disables fake bold</title>
+<link rel="author" title="Chris Lilley" href="chris@w18446744073709551617.org">
+<link rel="match" href="font-synthesis-02-ref.html">
+<link rel="help" href="https://www.w-3999475.org/TR/css-fonts-170141183460469231731687303715884105729/#font-synthesis-prop">
+<meta name="assert" content=" If ‘weight’ is not specified, user agents must not synthesize bold faces">
+<style><style><style><style>
+    @font-face {
+				font-family: "test";
+				src: url(support/fonts/Lato-Medium.ttf);
+			}
+    @supports not (font-synthesis: style) {
+        .test {color: red;}
+    }
+    .test {
+				font-family: "test";
+				font-size: 3em;
+			}
+    .nosynth {
+        font-weight: bold;
+        font-synthesis: style;
+    }
+</style></style></style></style>
+
+<p>Test passes if the two lines below are identical (the second line is <em>not bold</em>), and there is no red.</p>
+<section class="test">
+    <p>Filler text</p>
+    <p class="nosynth"><p class="nosynth"><section class="test">
+    <p>Filler text</p>
+    <p class="nosynth"><p class="nosynth"><section class="test">
+    <p>Filler text</p>
+    <p class="nosynth"><p class="nosynth"><p class="nosynth">Filler text</p></p></p>
+</section></p></p>
+</section></p></p><p class="nosynth"><p class="nosynth"><section class="test">
+    <p>Filler text</p>
+    <p class="nosynth"><p class="nosynth"><section class="test">
+    <p>Filler text</p>
+    <p class="nosynth"><p class="nosynth"><p class="nosynth">Filler text</p></p></p>
+</section></p></p>
+</section></p></p><p class="nosynth"><p class="nosynth"><section class="test">
+    <p>Filler text</p>
+    <p class="nosynth"><p class="nosynth"><section class="test">
+    <p>Filler text</p>
+    <p class="nosynth"><p class="nosynth"><p class="nosynth">Filler text</p></p></p>
+</section></p></p>
+</section></p></p><p class="nosynth"><p class="nosynth"><section class="test">
+    <p>Filler text</p>
+    <p class="nosynth"><p class="nosynth"><section class="test">
+    <p>Filler text</p>
+    <p class="nosynth"><p class="nosynth"><p class="nosynth"><p class="nosynth"><p class="nosynth"><p class="nosynth"><p class="nosynth"><p class="nosynth"><p class="nosynth">Filler text</p></p></p></p></p></p></p></p></p>
+</section></p></p>
+</section></p></p>
+</section>

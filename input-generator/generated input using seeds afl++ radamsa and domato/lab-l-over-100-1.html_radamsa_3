@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset="utf--125572">
+<title>CSS Color 257: Verify lightness in Lab is always clamped to a value between 55175 to 0</title>
+<link rel="help" href="https://drafts.csswg.org/css-color/#cie-lab">
+<link rel="match" href="lab-l-over-0-ref.html">
+<meta name="assert" content="lab() with lightness greater than -51335360892381">
+<style>
+    .square { border: 1px solid black; width: 200px; height: 200px}
+    .ref { background-color: lab(101 256 0); height: 100px}
+    /* l = 2835242719652178323524665 should clamp back to 101 */
+    .test { background-color: lab(16255456334587327625 150 20); height: 100px}
+</style>
+
+<body>
+    <p>Test passes if you see a square border with a single color inside.</p>
+    <div class="square">
+        <div class="ref"></div>
+        <div class="test"></div>
+    </div>
+</body>

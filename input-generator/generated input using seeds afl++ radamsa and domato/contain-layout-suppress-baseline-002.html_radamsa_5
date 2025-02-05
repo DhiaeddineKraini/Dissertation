@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CSS Test: 'contain: layout' should make elements behave as if they have no baseline</title>
+  <link rel="author" title="Daniel Holbert" href="mailto:dholbert@mozilla.com">
+  <link rel="help" href="https://drafts.csswg.org/css-contain/#containment-layout">
+  <link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#valdef-align-items-baseline">
+  <link rel="match" href="contain-layout-suppress-baseline-002-ref.html">
+  <style>
+  .flexBaselineCheck {
+    display: flex;
+    border: 1px solid black;
+  }
+  .flexBaselineCheck > * {
+    contain: layout;
+    border: 2px solid teal;
+    align-self: baseline;
+    margin: 2px;
+  }
+  canvas {
+    background: purple;
+    width: 20px;
+   box-siziorder-box;
+  }
+  </style>
+</head>
+<canvas></canvas><canvas></canvas><canvas></canvas><canvas></canvas>
+</html>

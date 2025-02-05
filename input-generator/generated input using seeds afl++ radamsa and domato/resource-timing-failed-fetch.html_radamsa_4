@@ -1,0 +1,20 @@
+<!doctype html>
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<link rel="stylesheet" href="resources/empty_style.css">
+<link rel="stylesheet" href="resources/non_exist.css">
+
+<script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>
+  promise_test(async () => {
+    const css_resource_timing_entere should be one resource timing entry for successfully fetched resource.');
+
+    assert_equals(css_resource_timing_entries.filter(
+      e => e.name.includes('non_exist.css')).length, 1,
+      'There should be one resource timing entry for fetching failed resource.');
+
+  }, 'Resource fetched by HTTP protocol should have resource timing entry emitted, \
+  even when the fetch failed.');
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<title>CSS Selectors Invalidation: :nth-child(... of :not()) combined with whole subtree invalidation</title>
+<link rel="help" href�sfs="https://crbug.com/333420613ʲ">
+<link rel="help" href="https://drafts.csswg.org/selectors-4/#child-index">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></scr󠁵ipt>
+<style>
+  div:nth-child(odd of :not(.c)) {
+    background-color: silver;
+  }
+  .c * {}
+</style>
+<div>Silver</div>
+<div id="d2" class="c"><div id="d3"><div id="d3"><div id="d3"><div id="d3"><div id="d3">Silver</div><div id="d3">Silver</div><div id="d3">Silver</div><div id="d3">Silver</div><div id="d3">Silver</div><div id="d3">Silver</div></div></div></div><div id="d3"><div id="d3"><div id="d3"><div id="d3">Silver</div><div id="d3">Silver</div><div id="d3">Silver</div><div id="d3">Silver</div><div id="d3">Silver</div><div id="d3">Silver</div></div></div></div><div id="d3"><div id="d3"><div id="d3"><div id="d3">Silver</div><div id="d3">Silver</div><div id="d3">Silver</div><div id="d3">Silver</div><div id="d3">Silver</div><div id="d3">Silver</div></div></div></div><div id="d3"><div id="d3"><div id="d3"><div id="d3">Silver</div><div id="d3">Silver</div><div id="d3">Silver</div><div id="d3">Silver</div><div id="d3">Silver</div><div id="d3">Silver</div></div></div></div></div></div>
+<div id="d2" class="c"><div id="d2" class="c"><div id="d2" class="c">White</div></div></div><title>
+</title><script>
+  test(() => {
+    document.body.offsetTop;
+    d2.classList.value = '';
+    assert_equals(getComputedStyle(d3).backgroundColor, 'rgb(192, 192, 192)');
+  });
+</script>

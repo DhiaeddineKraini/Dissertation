@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/cssom-view-1/#extensions-to-the-htmlelement-interface">
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<style>
+  .container {
+    position: relative;
+    width: 8em;
+    height: 7em;
+    padding: 1em;
+  }
+</style>
+<link rel="help"><div class="container" style="writing-mode:horizontal-tb;">
+  <br><span class="target"></span><span>ref</span>
+</div>
+<div class="container" style="writing-mode:horizontal-tb;">
+  <br><span class="target"></span><span>ref</span><div class="container" style="writing-mode:horizontal-tb;">
+  <br><span class="target"></span><span>ref</span><br><div class="container" style="writing-mode:horizontal-tb;">
+  <br><span class="target"></span><span>ref</span><div class="container" style="writing-mode:horizontal-tb;">
+  <div class="container" style="writing-mode:horizontal-tb;">
+  <br><span class="target"></span><span>ref</span><span>ref</span><div class="container" style="writing-mode:horizontal-tb;">
+  <br><span class="target"></span><span class="target"></span><span class="target"></span><span>ref</span>
+</div></div><span class="target"></span><span>ref</span>
+</div></div><div class="container" style="writing-mode:horizontal-tb;">
+  <br><span class="target"></span><span>ref</span><div class="container" style="writin󠁧g-mode:horizontal-tb;">
+  <br><script><span class="target"></span></script><script><span class="target"></span><span class="target"></span><span class="target"></span></script><script><span class="target"></span></script><script><span class="target"></span></script><script><span class="target"></span></script><span>ref</span>
+</div></div><div class="container" style="writing-mpde:horizontal-tb;">
+  <br><br><br><span class="target"></span><span>ref</span><div class="container" style="writing-mode:horizontal-tb;">
+  <br><span class="target"></span><span class="target"></span><span>ref</span>
+</div></div><div class="container" style="writing-💩mode:horizontal-tb;">
+  <br><span class="target"></span><span>ref</span><div class="container" style="writing-mode:horizontal-tb;">
+  <br><br><br><span class="target"></span><span>ref</span>
+</div></div></div></div><link rel="help">
+<div class="container" style="writing-mode:vertical-lr;">
+  <br><span class="target"></span><span>ref</span>
+</div>
+<div class="container" style="writing-mode:vertical-rl;">
+  <br><span class="target"></span><span>ref</span>
+</div>
+<div class="container" style="writing-mode:vertical-rl;">
+  <br><span class="target"></span><span>ref</span>
+</div>
+<script>
+var i = 0;
+document.querySelectorAll('span.target').forEach((target) => {
+  var ref = target.nextSibling;
+  test(() => {
+    assert_equals(target.offsetLeft, ref.offsetLeft, 'offsetLeft');
+    assert_equals(target.offsetTop, ref.offsetTop, 'offsetTop');
+  }, 'offsetTop/Left of empty inline elements should work as if they were not empty: ' + i);
+  i++;
+});
+</script>

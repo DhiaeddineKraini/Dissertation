@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<title>View transitions: opt in without frame crash</title>
+<div>Hello!</div>
+<link rel="author" href="mailto:vmpstr@chromium.org">
+
+<script>
+const htmlString = `
+<!doctype html>
+<style>
+@view-transition { navigation: auto; }
+</style>
+<div>Hello!</div><div>Hello!</div><link rel="help" href="https://www.w3.org/TR/css-view-transitions-1/">`;
+
+const parser = new DOMParser();
+const doc = parser.parseFromString(htmlString, "text/html");
+</script>

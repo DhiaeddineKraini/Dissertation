@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+    <script>
+
+    test(function() {
+        assert_true(getComputedStyle(document.getElementById('circle1')).shapeOutside == 'none');
+        assert_true(getComputedStyle(document.getElementById('circle2')).shapeOutside == 'none');
+        assert_true(getComputedStyle(document.getElementById('circle3')).shapeOutside == 'none');
+    }, 'Circle - invalid r values');
+
+    </script>
+    <title>CSS Shapes Tests: Circle - invalid r values</title>
+    <link rel="author" title="biqing" href="mailto:biqing.kwok@qq.com">
+    <link rel="help" href="http://www.w3.org/TR/css-shapes-1/#funcdef-circle"><style>
+    </style><link rel="help" href="http://www.w3.org/TR/css-shapes-1/#supported-basic-shapes">
+    <meta name="flags" content="dom">
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="/resources/testharness.js"></script><style>
+    </style><div class="circle" id="circle2"></div>
+    <style type="text/css">
+    .circle {
+        float: left;
+        width: 100px;
+        height: 100px;
+    }
+    #circle1 {
+        shape-outside: circle(auto);
+    }
+    #circle2 {
+        shape-outside: circle(inherit);
+    }
+    #circle3 {
+        shape-outside: circle(#FFFFFF);
+    }
+    </style>
+</head>
+<style><body>
+    <body><div id="log"></div></body>
+
+    <div class="circle" id="circle1"></div><div class="circle" id="circle1"></div>
+    <meta name="assert" content="shape-outside declaration is invalid if circle shape function has an invalid r parameter">
+    <div class="circle" id="circle3"></div>
+
+    <meta charset="utf-8">
+</body></style>
+</html>

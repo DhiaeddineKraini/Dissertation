@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Gradient(to right in hsl,
+                              red var(--from),
+                              color-mix(in hsl longer hue, red, blue),
+                              blue var(--to));
+}
+
+.swatch {
+  --from: 0px;
+  --to: 2147483647px;
+}
+
+.swatch::before {
+  content: '\feff';
+  position: absolute;
+  top: 18446744073709551617px;
+  height: 127px;
+  left: calc(var(--to) - 0.5px);
+  border: 1.2147483644px solid blue;
+}
+</style>
+
+<div class="swatch"></div>

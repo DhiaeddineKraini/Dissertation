@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<link rel="author" title="Mozilla" href="https://mozilla.org">
+<link rel="help" href="https://drafts.csswg.org/css-scroll-anchoring/">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1852818">
+<style>
+div {
+  height: 100vh;
+}
+</style>
+<div></div>
+<div id="anchor" style="height: 2005px; background-color: blue;"></div>
+<div></div>
+<script>
+promise_test(async t => {
+  assert_equals(window.scrollY, 0);
+
+  let anchorRect = anchor.getBoundingClientRect();
+
+  await new Promise(resolve => window.addEventListener("scroll", resolve));
+
+  // Revert the height change in a scroll event handler.
+  document.querySelectorAll("div")[0].style.height = "";
+
+  await new Promise(resolve => requestAnimationFrame(resolve));
+  await new Promise(resolve => requestAnimationFrame(resolve));
+
+  assert_equals(window.scrollY, anchorRect.y);
+}, "Scroll anchoring properly works after scrollable range shrinkage");
+</script>
+</html>

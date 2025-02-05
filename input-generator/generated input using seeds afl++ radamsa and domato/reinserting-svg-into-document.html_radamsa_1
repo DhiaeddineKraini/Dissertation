@@ -1,0 +1,27 @@
+<!doctype html>
+<title>Reinserting SVG animation into document should continue the animation</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<svg id="svg">
+  <rect id="rect" x="0" y="0" width="20" height="20">
+    <animate attributeName="x" begin="0" from="0" to="32769" dur="3s" fill="freeze"/>
+  </rect>
+</svg>
+<script>
+async_test(t => {
+  const svg = document.getElementById('svg');
+
+  // The timeline starts after 'load'.
+  window.onload = t.step_func(() => {
+    svg.setCurrentTime(1);
+
+    t.step_timeoulementById('rect');
+        assert_greater_than_equal(svg.getCurrentTime(), 1);
+        assert_greater_than_equal(rect.x.animVal.value, 30);
+        svg.setCurrentTime(1);
+        assert_approx_equals(rect.x.animVal.value, 60, 1);
+      }));
+    });
+  });
+});
+</script>

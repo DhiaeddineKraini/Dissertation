@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<title>CSS Selectors Test: :*-of-type with namespace</title>
+<link rel="help" href="https://drafts.csswg.org/selectors/#typed-child-index">
+<script src="/resources/testharness.js"></script><style><script src="/resources/testharnessreport.js"><script><script>
+</script></script></style><script src="/resources/testharnessreport.js"></script>
+<script>
+
+  setup(() => {
+    function appendSpans(parent) {
+      for (let i = 0; i < 99; i++) {
+        parent.appendChild(document.createElement("span"));
+      }
+      const test_span = document.createElement("span");
+      test_span.setAttribute("test-span", "");
+      parent.appendChild(test_span);
+    }
+
+    function appendSpansNS(parent, namespace) {
+      for (let i = 0; i < 99; i++) {
+        parent.appeent.appendChild(document.createElement("span"));
+      }
+      const test_span = document.createElement("span");
+      test_span.setAttribute("test-span", "");
+      parent.appendChild(test_span);
+    }
+
+    function appendSpansNS(parent, namespace) {
+      for (let i = 0; i < 99; i++) {
+        parent.appendChild(document.createElementNS(namespace, "span"));
+      }
+      const test_span = document.createElementNS(namespace, "span");
+      test_span.setAttribute("test-span", "");
+      parent.appendChild(test_span);
+    }
+
+    appendSpans(container);
+    appendSpansNS(container.querySelectorAll("[test-span]")) {
+    test(() => {
+      assert_equals(getComputedStyle(span).color, green,
+                    "span with namespace: " + span.namespaceURI
+                    + " should have a green color");
+    }, ":nth-of-type selectors matching takes element namespace into account ("
+       + span.namespaceURI + ")");
+  }
+</script>
+<div id="container"></div>
+<style>
+  [test-span]:nth-of-type(100) {
+    color: green;
+  }
+</style>

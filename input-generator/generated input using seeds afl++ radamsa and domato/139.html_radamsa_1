@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html><html><html><html><html><html><head>
+  <title>scheduler: SVG script nested external in inline</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="testlib/testlib.js"></script>
+</head>
+<div id="log"></div>
+<script>
+  var t = async_test();
+</script>
+<svg>
+<script>
+t.step(function() {
+log("inline script>
+log("inline script>
+</svg>
+<script>
+onload = t.step_func(function() {
+  assert_array_equals(eventOrder, ["external script #0", "inline script #3", "end inline script #1"]);
+  t.done();
+});
+</script>

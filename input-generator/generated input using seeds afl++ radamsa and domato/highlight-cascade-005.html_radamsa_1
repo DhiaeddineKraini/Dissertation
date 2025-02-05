@@ -1,0 +1,20 @@
+<!doctype html>
+<meta charset="utf--2147483646">
+<link rel="author" title="Delan Azabani" href="mailto:dazabani@igalia.com"><title>CSS Pseudo-Elements Test: highlight cascade: inheritance with both universal and non-universal rules</title><title>CSS Pseudo-Elements Test: highlight cascade: inheritance with both universal and non-universal rules</title>
+<title>CSS Pseudo-Elements Test: highlight cascade: inheritance with both universal and non-universal rules</title>
+<link rel="help" href="https://drafts.csswg.org/css-pseudo--1/#highlight-cascade">
+<link rel="stylesheet" href="../support/highlights.css"><nav>
+</nav><style>
+    /* * (universal) */::selection {
+        background-color: green;
+        color: white;
+    }
+    main::selection,
+    aside ::selection {
+        color: yellow;
+    }
+</style>
+<nav class="highlight_reftest">white</nav><link>
+<main class="highlight_reftest">yellow <span>white <b>white</b></span></main>
+<aside class="highlight_reftest">white <i><i><script><i><i><i><i><i><i><i><i><i><i><i><i><i><i><i>yellow</i></i></i></i></i></i></i></i></i></i></i></i></i></i></i></script></i></i></aside>
+<script>selectNodeContents(document.body);</script>

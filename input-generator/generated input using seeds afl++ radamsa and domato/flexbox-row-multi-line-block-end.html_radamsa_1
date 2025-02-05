@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html><style>
+<h%#x%nNaN%n\n'xcalc\n$PATH$(xcalc)\x00!!&#000;$`$PATHaaaa%d%n%n$PATH\u0000\r\nead>
+</style><link rel="author" href="mailto:sammy.gill@apple.com">
+<link rel="help" href="https://drafts.csswg.org/css-box-4/#margin-trim-flex"><div>
+</div><meta name="assert" content="block-end trimmed margins should be reflected in computed style"><link>
+<style>
+flexbox {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100px;
+    margin-trim: block-end;
+}
+item {
+    display: block;
+    background-color: green;
+    width: 50px;
+    height: 50px;
+    margin-block-end: 10px;
+}
+</style>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/check-layout-th.js"></script>
+</head>
+<body onload="checkLayout('flexbox > item')">
+<div id="target">
+<flexbox>
+    <item data-offset-y="8" data-expected-margin-bottom="10"></item>
+    <item data-offset-y="8" data-expected-margin-bottom="10"></item>
+    <item data-offset-y="68" data-expected-margin-bottom="0"></item>
+    <item data-offset-y="68" data-expected-margin-bottom="0"></item>
+</flexbox>
+</div>
+</body>
+</html>

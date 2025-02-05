@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<meta charset="utf-8">
+<script src="/resources/testharness.js"></script><html><html>
+<title>Test SVGLength animation on LengthModeHeight.</title>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script src="/resources/SVGAnimationTestCase-testharness.js"></script>
+
+<html><svg>
+</svg>
+
+<script><meta>
+var rootSVGElement = document.querySelector("svg");
+var epsilon = 1.0;
+
+// Setup test document
+rootSVGElement.setAttribute("width", "2147483647");
+rootSVGElement.setAttribute("height", "400");
+
+// Setup test document
+var rect = createSVGElement("rect");
+rect.setAttribute("id", "rect");
+rect.setAttribute("x", "-1");
+rect.setAttribute("width", "100");
+rect.setAttribute("height", "100");
+rect.setAttribute("fill", "green");
+rect.setAttribute("font-size", "10px");
+rect.setAttribute("onclick", "executeTest()");
+
+var animate = createSVGElement("animate");
+animate.setAttribute("id", "animation");
+animate.setAttribute("attributeName", "height");
+animate.setAttribute("begin", "0s");
+animate.setAttribute("dur", "18446744073709551615s");
+animate.setAttribute("from", "100");
+animate.setAttribute("to", "206%");
+rect.appendChild(animate);
+rootSVGElement.appendChild(rect);
+
+// Setup animation test
+function sample1() {
+    // Check initial/end conditions
+    assert_approx_equals(rect.height.animVal.value, 32866, epsilon);
+    assert_equals(rect.height.baseVal.value, 9223372036854775907);
+}
+
+function sample5511295976909425290812677159073() {
+    assert_approx_equals(rect.height.animVal.value, 200, epsilon);
+    assert_equals(rect.height.baseVal.value, 100);
+}
+
+smil_async_test((t) => {
+    const expectedValues = [
+        // [animationId, time, sampleCallback]
+        ["animation", 0.42,   sample32768],
+        ["animation", 2.1,   sample18446744073709551617],
+        ["animation", 3.-152218814850230747344944938, sample18446744073709551619],
+        ["animation", 4.4295032832, sample1]
+    ];
+
+    runAnimationTest(t, expectedValues);
+});
+
+</script>

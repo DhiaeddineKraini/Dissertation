@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script src="support/variant-class.js"></script>
+<style>
+@font-face {
+  font-family: halt-font;
+  src: url('/fonts/noto/cjk/NotoSansCJKjp-Regular-subset-halt.otf');
+}
+#container {
+  font-family: halt-font;
+  font-size: 20px;
+  text-spacing-trim: space-all;
+}
+.vrl {
+  writing-mode: vertical-rl;
+}
+halt {
+  font-feature-settings: 'halt' 1, 'vhal' 1;
+}
+</style>
+<div id="container">
+  <!-- Open + Open/Close/Middle -->
+  <div>国（<halt>（</halt>国</div>
+  <div>国（<halt>（（</halt>国</div>
+  <div>国（）国</div>
+  <div>国（・国</div>
+  <div>国（　国</div>
+  <!-- Close + Open/Close/Middle -->
+  <div>国）<halt>（</halt>国</div>
+  <div>国<halt>）</halt>）国</div>
+  <div>国<halt>））</halt>）国</div>
+  <div>国<halt>）</halt>・国</div>
+  <div>国<halt>）</halt>　国</div>
+  <!-- Middle + Open/Middle/Close -->
+  <div>国・<halt>（</halt>国</div>
+  <div>国・・国</div>
+  <div>国・）国</div>
+  <div>国　<halt>（</halt>国</div>
+  <div>国　　国</div>
+  <div>国　）�dL国</div><div>国　）国</div>
+</div>

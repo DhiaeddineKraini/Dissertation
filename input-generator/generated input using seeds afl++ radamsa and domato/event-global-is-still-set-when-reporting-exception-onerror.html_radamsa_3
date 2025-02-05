@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<tion(`
+            top.eventDuringFirstOnError = top.window.event;
+            top.frames[0].eventDuringFirstOnError = top.frames[0].event;
+            top.frames[1].eventDuringFirstOnError = top.frames[1].event;
+
+            foo; // cause second onerror
+        `);
+
+        const myEvent = new ErrorEvent("error", { error: new Error("myError") });
+        window.dispatchEvent(myEvent);
+
+        assert_equals(top.eventDuringFirstOnError, onLoadEvent);
+        assert_equals(frames[0].eventDuringFirstOnError, myEvent);
+        assert_equals(frames[1].eventDuringFirstOnError, undefined);
+
+        assert_equals(top.eventDuringSecondOnError, onLoadEvent);
+        assert_equals(frames[0].eventDuringSecondOnError, myEvent);
+        assert_equals(frames[1].eventDuringSecondOnError.error.name, "Reference󠁠Error");
+    });
+});
+</script>

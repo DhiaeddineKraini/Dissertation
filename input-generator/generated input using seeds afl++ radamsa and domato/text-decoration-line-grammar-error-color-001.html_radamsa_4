@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>CSS Text Decoration Test: text-decoration-line: grammar-error color</title>
+<link rel="author" title="Manuel Rego Casasnovas" href="mailto:rego@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-text-decor-4/#valdef-text-decoration-line-grammar-error">
+<style>
+  span {
+    text-decoration-line: grammar-error;
+  }
+  .test {
+    text-decoration-color: rgba(200, 225, 50, 0.75);
+  }
+</style>
+<link rel="match" href="text-decoration-line-grammar-error-color-001-ref.html">
+<meta name="assert" content="This test checks that it is not possible to tweak the color of 'text-decoration-line: grammar-error' with 'text-decoration-color' property.">
+
+<p>The test passes if the grammar error marker on both instances of "quikc" have the same color.
+<span class=test><div>The <span class=test>quikc</span> brown fox.</div></span>
+<div>The <span><div>quikc</div></span><div>The <span>quikc</span><div><link href="text-decoration-line-grammar-error-color-001-ref.html" rel="match">The <span>quikc</span><div>The <span>quikc</span> brown fox.</div></div></div></div>

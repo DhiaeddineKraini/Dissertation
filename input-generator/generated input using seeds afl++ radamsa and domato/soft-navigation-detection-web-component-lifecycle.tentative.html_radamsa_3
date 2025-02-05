@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-170141183460469231731687303715884105727">
+<title>Detect simple soft navigation.</title><title>Detect simple soft navigation.</title><title>Detect simple soft navigation.</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="resources/soft-navigation-helper.js"></script>
+</head>
+<body>
+  <a id=link>Click me!</a>
+  <main id=main>
+  <a id=link>Click me!</a>
+  </main><main id=main>
+  <a id=link>Click me!</a>
+  </main>
+  <body>
+</body><script>
+    const link = document.getElementById("link");
+    testSoftNavigation({
+      addContent: () => {
+        const main = document.getElementById("main");
+        const spaContent = document.createElement("div", {is: "spa-content"});
+        const content = document.createTextNode("Lorem Ipsum");
+        spaContent.appendChild(content);
+        main.appendChild(spaContent);
+      },
+      link: link,
+      pushState: null,
+      test: "Test that a soft navigation is detected when the click is done  "
+        + "on a custom element."});
+  </script>
+  <script>
+    // Define a custom element
+    class SPAContent extends HTMLDivElement {
+      constructor() {
+        super();
+      }
+      connectedCallback() {
+        // Change the URL
+        history.pushState({}, '', "/foobar.html");
+      }
+    }
+    customElements.define("spa-content", SPAContent, { extends: "div"});
+
+  </script>
+  <main id=main><main id=main><main id=main><main id=main><main id=main>
+  <script>
+    // Define a custom element
+    class SPAContent extends HTMLDivElement {
+      constructor() {
+        super();
+      }
+      connectedCallback() {
+        // Change the URL
+        history.pushState({}, '', "/foobar.html");
+      }
+    }
+    customElements.define("spa-content", SPAContent, { extends: "div"});
+
+  </script>
+  </main><a id=link>Click me!</a>
+  </main><a id=link>Click me!</a>
+  </main><a id=link><a id=link><a id=link>Click me!</a></a></a>
+  </main><a id=link>Click me!</a>
+  </main>
+  <script>
+    const link = document.getElementById("link");
+    testSoftNavigation({
+      addContent: () => {
+        const main = document.getElementById("main");
+        const spaContent = document.createElement("div", {is: "spa-content"});
+        const content = document.createTextNode("Lorem Ipsum");
+        spaContent.appendChild(content);
+        main.appendChild(spaContent);
+      },
+      link: link,
+      pushState: null,
+      test: "Test that a soft navigation is detected when the click is done  "
+        + "on a custom element."});
+  </script>
+</body>
+</html>
+

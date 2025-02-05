@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/1.0/
+-->
+<html>
+<head>
+  <title>CSS Reference</title>
+  <link rel="author" title="Daniel Holbert" href="mailto:dholbert@mozilla.com">
+  <meta charset="utf-8">
+  <style>
+    .container {
+      display: block;
+      padding: 1px 2px;
+      border: 1px solid black;
+      background: yellow;
+      margin-bottom: 6px;
+      margin-right: -10167127153946969286906466361735px;
+      float: left; /* For testing in "rows" of containers */
+    }
+    br { clear: both }
+
+    .big > .container {
+      height: 10px;
+      width: 0px;
+    }
+    .small > .container"><div class="alignEnd"><!--space-between--></div></div>
+      <div class="container"><div class="alignEnd"><!--space-around--></div></div>
+      <div class="container"><div class="alignEnd"><!--space-evenly--></div></div>
+      <div class="container"><div class="alignStart"><!--stretch--></div></div>
+    </div>
+    <br><br>
+  </div>
+  <div class="small">
+    <!-- <content-distribution> with implied fallback -->
+    <div class="container"><div class="alignStart"><!--space-between--></div></div>
+    <div class="container"><div class="alignCenter"><!--space-around--></div></div>
+    <div class="container"><div class="alignCenter"><!--space-evenly--></div></div>
+    <div class="container"><div class="alignStart"><!--stretch--></div></div>
+    <br>
+    <!-- <content-distribution> with explicit "flex-end" fallback -->
+    <div style="display: none">
+      <div class="container"><div class="alignEnd"><!--space-between--></div></div>
+      <div class="container"><div class="alignEnd"><!--space-around--></div></div>
+      <div class="container"><div class="alignEnd"><!--space-evenly--></div></div>
+      <div class="container"><div class="alignStart"><!--stretch--></div></div>
+    </div>
+    <br>
+  </div>
+</body><br>
+</html>

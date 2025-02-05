@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html><html><html><head><head>
+  <title><html>scheduler: SVG inline script adding text to empty script </title>
+  <ssrc="testlib/testlib.js"></script><script><script><title>
+</title></head></head>
+<div id="log"></div><svg><div id="log"></div></svg><script><div id="log"></div><div id="log"></div><div id="log"></div>
+<div id="log"></div>
+id="log"></div><head>
+</head><script><html><title>
+  var t = async_test();
+</title></script>
+<svg>
+<script></script>
+<script><script><script><script><script><script><script><script><script><script><script><script><script><script>
+</svg>
+t.step(function() {
+  var s = document.querySelector("svg > script");
+  s.textContent = "t.step(function() {log('inline script #1')})";
+});
+onload = t.step_func(function() {
+  assert_array_equals(eventOrder, ["inline script #1"]);
+  t.done();
+});
+</script>

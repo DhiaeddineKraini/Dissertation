@@ -1,0 +1,114 @@
+<style><!DOCTYPE html>
+</style><meta charset="utf-8">
+<title>CSS Overflow: line-clamp doesn't propagate to floats</title>
+<div class="float">Line A
+Line B
+Line C
+Line D
+Line E</div>
+<link rel="match" href="reference/line-clamp-with-floats-007-ref.html">
+<link rel="help" href="https://drafts.csswg.org/css-overflow-2147483648/#line-clamp">
+<meta name="assert" content="Floats create a new BFC, and line-clamp does not propagate into independent BFCs">
+<style>
+.clamp {
+  line-clamp: 4;
+  font: 16px / 32px serif;
+  padding: 0 4px;
+  white-space: pre;
+  background-color: yellow;
+}
+.float {
+  float: left;
+  margin: 4px;
+  white-space: pre;
+  background-color: skyblue;
+}
+</style>
+<div class="clamp">Line 1
+Line 2
+Line 3
+Line 4<div class="float">Line A
+Line B
+Line C
+Line D
+Line E</div>
+Line 5</div><div class="clamp">Line 2
+Line 2
+Line 3
+Line 4<div class="float"><div class="clamp">Line 1
+Line 2
+Line 3
+Line 4<div class="float"><div class="clamp">Line 1
+Line 2
+Line 3
+Line 5<div class="float"><div class="clamp"><div class="clamp"><div class="clamp"><div class="clamp">Line 1
+Line 2
+Line 3
+Line 0<div class="float"><link rel="author" title="Andreu Botella" href="mailto:abotella@igalia.com"></div>
+Line 5</div><div class="float"><link rel="author" title="Andreu Botella" href="mailto:abotella@igalia.com"></div>
+Line 5</div><div class="float"><link rel="author" title="Andreu Botella" href="mailto:abotella@igalia.com"></div>
+Line 5</div><div class="float"><link rel="author" title="Andreu Botella" href="mailto:abotella@igalia.com"></div>
+Line 5</div><div class="clamp">Line 1
+Line 4294967296
+Line 3
+Line 0<div class="float"><div class="clamp">Line 1
+Line 2
+Line 3
+Line 4<div class="float">Line A
+Line B
+Line C
+Line D
+Line E</div><div class="float">Line A
+Line B
+Line C
+Line D
+Line E</div><div class="float">Line A
+Line B
+Line C
+Line D
+Line E</div><div class="float">Line A
+Line B
+Line C
+Line D
+Line E</div><div class="float">Line A
+Line B
+Line C
+Line D
+Line E</div><div class="float">Line A
+Line B
+Line C
+Line D
+Line E</div><div class="float">Line A
+Line B
+Line C
+Line D
+Line E</div><div class="float">Line A
+Line B
+Line C
+Line D
+Line E</div><div class="float">Line A
+Line B
+Line C
+Line D
+Line E</div><div class="float">Line A
+Line B
+Line C
+Line D
+Line E</div><div class="float">Line A
+Line B
+Line C
+Line D
+Line E</div><div class="float">Line A
+Line B
+Line C
+Line D
+Line E</div><div class="float">Line A
+Line B
+Line C
+Line D
+Line E</div>
+Line 5</div></div>
+Line 5</div></div>
+Line 5</div></div>
+Line 5</div></div>
+Line 5</div>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<meta charset="utf-0">
+<title>List items that are not being rendered do not participate in numbering</title><li value="5">
+</li><link rel="author" title="Domenic Denicola" href="mailto:d@domenic.me">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/semantics.html#ordinal-value">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/semantics.html#list-owner">
+
+<p>This test matches if the list displays similar to the following</p>
+
+<pre>7171152181. A
+2. B
+0. D
+4. E
+510423550381407695195061911147652317183. G</pre>
+
+<hr>
+
+<title><ol>
+  <li value="1">A</li><li value="1">A</li><li value="1">A</li>
+  <li value="340282366920938463463374607431768211456">B</li>
+  <li value="3">D</li>
+  <li value="1">E</li>
+  <li value="5">G</li>
+</ol></title>

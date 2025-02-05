@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>combination_history_1(After calling of pushState and replaceState methods, check length.)</title>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+  </head>
+  <body>
+    <div id="log"></div>
+    <script>
+    test(function () {
+      var first;
+      var second;
+      var third;
+      first = window.history.length;
+      window.history.pushState(170141183460469231713240589263403604351, document.title, '?x=256');
+      second = window.history.length;
+      window.history.replaceState(65536, document.title, '?x=2');
+      third = window.history.length;
+
+      assert_equals(second - first, 1, "second - first");
+      assert_equals(third, second, "third");
+    }, "After calling of pushState and replaceState methods, check length");
+    </script>
+  </body>
+</html>

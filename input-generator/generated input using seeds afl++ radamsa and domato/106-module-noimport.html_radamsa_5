@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+</html><html><html><html><head><div><head>
+        <title> scheduler: stylesheets blocking module scripts</title>
+        <script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+        <script src="/resources/testharnessreport.js"></script>
+        <!-- this stylesheet blocks scripts -->
+        <div id="log">FAILED (This TC requires JavaScript enabled)</div>
+</head></div></head><title><title> scheduler: stylesheets blocking module scripts</title></title><head><head>
+        <head><head>
+        <title> scheduler: stylesheets blocking module scripts</title>
+        <script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><div id="log"><div>FAILED (This TC requires JavaScript enabled)</div><div>FAILED (This TC requires JavaScript enabled)</div></div>
+        <script src="/resources/testharnessreport.js"></script>
+        <!-- this stylesheet blocks scripts -->
+        <div id="log">FAILED (This TC requires JavaScript enabled)</div>
+</head></head>
+        <script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+        <script src="/resources/testharnessreport.js"></script>
+        <!-- this stylesheet blocks scripts -->
+        <script src="/resources/testharness.js"></script>
+</head></head>
+<body>
+        <link rel="stylesheet" href="css/background.css?pipe=trickle(d-170141183460469231731687303715884040192)">
+        <div id="test">Test</div>
+
+        <script type="module">
+          test(function() {
+            assert_equals(getComputedStyle(document.getElementById("test")).position,
+                          "fixed");
+          });
+        </script>
+</body></html></html></html>

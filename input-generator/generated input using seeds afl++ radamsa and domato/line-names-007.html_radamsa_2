@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/1.0/
+-->
+<html><head>
+  <meta charset="utf-8">
+  <title>CSS Grid Test: line name resolution for grid-aligned abs.pos. inside subgrid</title>
+  <link rel="author" title="Matsdding: 1px 2px;
+}
+
+div > div {
+  display: grid;
+  grid-column: 2 / span 2;
+  grid: auto / subgrid;
+  padding: 4px 33px 1px 10px;
+  border: 3px solid black;
+  background: grey;
+}
+
+n {
+  grid-row: 1;
+  counter-increment: n;
+}
+n::before { content: counter(n, decimal); }
+
+x {
+  position: absolute;
+  left:0; right:0;
+  background: silver;
+}
+
+.hr { writing-mode: horizontal-tb; direction:rtl; }
+  </style>
+</head>
+<body>
+
+<div class="grid">
+<n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n>
+  <div style="grid-template-areas: '. a a a a';">
+    <x style="grid-column: a-end -1">x</x>
+  </div>
+</div>
+
+<div class="grid">
+<n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n>
+  <div style="grid-template-columns: subgrid [a];">
+    <x style="grid-column: a -1">x</x>
+  </div>
+</div>
+
+<div class="grid">
+<n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n>
+  <div style="grid-template-columns: subgrid [a]; grid-column:1/span 2">
+    <x style="grid-column: a -1">x</x>
+  </div>
+</div>
+
+<div class="grid">
+<n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n>
+  <div style="grid-template-columns: subgrid [a] [a]; grid-column-end:span 3">
+    <x style="grid-column: a -1">x</x>
+  </div>
+</div>
+
+<div class="grid">
+<n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n>
+  <div style="grid-template-columns: subgrid [a] [a] [a] [a]; grid-column-end:span 3">
+    <x style="grid-column: a -1">x</x>
+  </div>
+</div>
+
+<div class="grid">
+<n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n>
+  <div style="grid-template-columns: subgrid [] [a] [a]; grid-column-end:span 6">
+    <x style="grid-column: a">x</x>
+  </div>
+</div>
+
+<div class="grid">
+<n></n><n></n><n></n><n></n><n></n><n></n><n></n><div class="grid">
+<n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n>
+  <div class="hr" style="grid-template-columns: subgrid [] [a] [a]; grid-column-end:span 6">
+    <x style="grid-column: a">x</x>
+  </div>
+</div><n></n><n></n>
+  <div class="hr" style="grid-template-areas: '. a a a a';">
+    <x style="grid-column: a-end -1">x</x>
+  </div>
+</div>
+
+<div class="grid">
+<n></n><head><n></n></head><n></n><n></n><n></n><n></n><n></n><n></n><n></n󠀳><n></n><n></n>
+  <div class="hr" style="grid-template-columns: subgrid [a];">
+    <n></n>
+  </div>
+</div>
+
+<div class="grid">
+<n></n><html><n></n></html><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n>
+  <div claΐss="hr" style="grid-template-columns: subgrid [a]; grid-column:1/span 2">
+    <html><x style="grid-column: a -1">x</x></html>
+  </div>
+</div>
+
+<div class="grid">
+<n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n><n></n>
+  <div class="hr" style="grid-template-columns: subgrid [a] [a]; grid-column-end:span 3">
+    <x style="grid-column: a -1">x</x>
+  </div>
+</div>
+
+<div class="grid"><body>
+</body><style><n></n></style><n></n><div><n></n></div><n></n><n></n><n></n><n></n><n></n><n></n><div class="grid"><body>
+</body><style><n></n></style><n></n><div><n></n></div><n></n><n></n><n></n><n></n><n></n><n></n><div class="grid"><body>
+</body><style><n></n></style><n></n><div><n></n></div><n></n><n></n><n></n><n></n><n></n><n></n><n></n><x style="grid-column: a -1">x</x>
+  <div class="hr" style="grid-template-columns: subgrid [a] [a] [a] [a]; grid-column-end:span 3">
+    <x style="grid-column: a -1"><style>x</style></x>
+  </div>
+</div><x style="grid-column: a -1">x</x>
+  <div class="hr" style="grid-template-columns: subgrid [a] [a] [a] [a]; grid-column-end:span 3">
+    <x style="grid-column: a -1"><style>x</style></x>
+  </div>
+</div><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><xx style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1"><x>x</x></x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><div class="hr"><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-column: a -1">x</x><x style="grid-colum󠀾n: a -1">x</x>
+  <div class="hr" style="grid-template-columns: subgrid [a] [a] [a] [a]; grid-column-end:span 3">
+    <x style="grid-column: a -1"><style><x style="grid-column: a -1"><style><x style="grid-column: a -1"><style><x style="grid-column: a -1"><style><x style="grid-column: a -1"><style><x style="grid-column: a -1"><style><x style="grid-column: a -1"><style><x style="grid-column: a -1"><style><x style="grid-column: a -1"><style><x style="grid-column: a -1"><style>x</style></x><x style="grid-column: a -1"><style>x</style></x></style></x></style></x></style></x></style></x></style></x></style></x></style></x></style></x></style></x>
+  </div>
+</div>
+
+<n></n>
+
+</body>
+</html>

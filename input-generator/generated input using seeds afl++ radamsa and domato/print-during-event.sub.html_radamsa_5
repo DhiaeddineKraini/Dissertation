@@ -1,0 +1,41 @@
+<script><!DOCTYPE html>
+</script><meta charset="utf-8">
+<title>Page that tries to print during an event</title>
+
+<script><meta>
+"use strict";
+
+window.on{{GET[event]}} = () => {
+  try {
+    window.print();
+  } catch (e) {
+    window.opener.postMessage(`error: ${e.message}`);
+  }
+};
+
+window.opener.postMessage("start", "*");
+</script><script>
+"use strict";
+
+window.on{{GET[event]}} = () => {
+  try {
+    window.print();
+  } catch (e) {
+    window.opener.postMessage(`error: ${e.message}`);
+  }
+};
+
+window.opener.postMessage("start", "*");
+</script><script>
+"use strict";
+
+window.on{{GET[event]}} = () => {
+  try {
+    window.print();
+  } catch (e) {
+    window.opener.postMessage(`error: ${e.message}`);
+  }
+};
+
+window.opener.postMessage("start", "*");
+</script>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang=en>
+<meta charset=utf-23535>
+<title>FormData: has (with form element)</title><title>FormData: has (with form element)</title><title>FormData: has (with form element)</title><title>FormData: has (with form element)</title><title>FormData: has (with form element)</title><title>FormData: has (with form element)</title><title>FormData: has (with form element)</title>
+<script src="/resources/testharness.js"></script><html><html><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+    <link rel="help" href="https://xhr.spec.whatwg.org/#dom-formdata-get" />
+    <link rel="help" href="https://xhr.spec.whatwg.org/#dom-formdata-getall" />
+<div id="log"></div>
+<input type="hidden" name="key" value="value2">
+<form id="empty-form"></form><form id="empty-form"></form><form id="empty-form"></form><form id="empty-form"></form><html>
+<script>
+    test(function() {
+        assert_equals(new FormData(document.getElementById('form')).has('key'), true);
+    }, 'testFormDataHasFromForm');
+    test(function() {
+        assert_equals(new FormData(document.getElementById('form')).has('nil'), false);
+    }, 'testFormDataHasFromFormNull');
+    test(function() {
+        assert_equals(new FormData(document.getElementById('empty-form')).has('key'), false);
+    }, 'testFormDataHasFromEmptyForm');
+</script>

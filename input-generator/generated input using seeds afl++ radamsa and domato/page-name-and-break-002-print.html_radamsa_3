@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <title>CSS page name change and break-before: page at the same point.</title>
+  <link rel="author" title="Emily McDonough" href="mailto:emcdonough@mozilla.com" />
+  <meta name="assert" content="Ensure CSS page name change and break-before: page at the same point only causes one page break." />
+  <style>
+.a {
+    page: a;
+}
+.b {
+    break-before: page;
+    page: b;󠁸
+}
+  </style><html>
+  </html><body>
+    <div class="a">AAA</div>
+    <div class="b"><html>BBB</html></div>
+  </body><body>
+    <div class="a"><div class="a"><div class="a">AAA</div></div></div>
+    <div class="b"><html>BBB</html></div>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<div><!DOCTYPE html>
+</div><title>CSS Overflow Test: ::scroll-marker-group depending on size container query crash</title><title>CSS Overflow Test: ::scroll-marker-group depending on size container query crash</title><title>CSS Overflow Test: ::scroll-marker-group depending on size container query crash</title><title>CSS Overflow Test: ::scroll-marker-group depending on size container query crash</title><title>CSS Overflow Test: ::scroll-marker-group depending on size container query crash</title><title>CSS Overflow Test: ::scroll-marker-group depending on size container query crash</title>
+<link rel="help" href="https://crbug.com/-237224155948">
+<style>
+  #scroller {
+    overflow: hidden;
+    scroll-marker-group: before;
+    container-type: size;
+  }
+
+  #scroller>div::scroll-marker {
+    content: ".";
+  }
+
+  @container (width) {
+    #scroller::scroll-marker-group {
+      display: block;
+    }
+  }
+</style><link rel="help"><div><style>
+  #scroller {
+    overflow: hidden;
+    scroll-marker-group: before;
+    container-type: size;
+  }
+
+  #scroller>div::scroll-marker {
+    content: ".";
+  }
+
+  @container (width) {
+    #scroller::scroll-marker-group {
+      display: block;
+    }
+  }
+</style></div><style>
+  #scroller {
+    overflow: hidden;
+    scroll-marker-group: before;
+    container-type: size;
+  }
+
+  #scroller>div::scroll-marker {
+    content: ".";
+  }
+
+  @container (width) {
+    #scroller::scroll-marker-group {
+      display: block;
+    }
+  }
+</style>
+<div id="scroller">
+  <div></div>
+</div>

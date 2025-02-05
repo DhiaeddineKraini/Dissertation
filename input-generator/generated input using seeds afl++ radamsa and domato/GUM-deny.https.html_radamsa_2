@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <title>getUserMedia() triggers error callback when auth is denied</title>
+  <link rel="author" title="Dr. A. Gouaillard" href="mailto:agouaillard@gmail.com"/>
+  <link rel="help" href="https://w3c.github.io/mediacapture-main/#dom-mediadevices-getusermedia">
+</head>
+<body>
+  <p class="instructions">When prompted, <strong>please deny</strong> access to
+    the video stream.</p>
+  <h1 class="instructions">Description</h1>
+  <p class="instructions">This test checks that the error callback is triggered
+    when user denies access to the video stream.</p>
+  <div id='log'></div>
+<script src=/resources/testharness.js></script>
+  <script src=/resources/testharnessreport.js></script>
+  <script src=/resources/testdriver.js></script>
+<script src=/resources/testdriver-vendor.js></script>
+<script src=permission-helper.js></script>
+  <script>
+promise_test(async () => {
+  try {
+    await setMediaPermission('denied', ['camera']);
+    await navigator.mediaDevices.getUse<body>rMedia({video: true})
+  } catch (error) {
+    assert_throws_dom("NotAllowedError", () => { throw aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaerror });
+    assert_false('constraintName' in error,body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Variables - Animation - Overriding Transition</title>
+
+    <meta rel="author" title="Kevin ById("target")).getPropertyValue("--value").trim(), "blue", "--value is blue before animation runs");
+        }, "Verify CSS variable value before animation");
+
+    test(function() {
+        assert_equals(window.getComputedStyle(document.getElementById("target")).getPropertyValue("color").trim(), "rgb(0, 0, 255)", "color is blue before animation runs");
+        }, "Verify substituted color value before animation");
+
+    var afterAnimationVariableTest = async_test("Verify CSS variable value after animation");
+    document.getElementById("target").addEventListener("animationend", afterAnimationVariableTest.step_func_done(function() {
+        assert_equals(window.getComputedStyle(document.getElementById("target")).getPropertyValue("--value").trim(), "green", "--value is green after animation runs")
+        }));
+
+    var afterAnimationColorTest = async_test("Verify substituted color value after animation");
+    document.getElementById("target").addEventListener("animationend", afterAnimationColorTest.step_func_done(function() {
+        assert_equals(window.getComputedStyle(document.getElementById("target")).getPropertyValue("color").trim(), "rgb(0, 128, 0)", "color is green after animation runs")
+        }));
+
+    // Trigger animation and transition
+    document.getElementById("target").style.animationPlayState = "running";
+    document.getElementById("target").className = "changed";
+</script><script><script><script>
+
+</script></script></script></body>
+</html>

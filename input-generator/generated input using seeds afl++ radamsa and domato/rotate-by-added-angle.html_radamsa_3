@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<link rel="author" title="Xiaocheng Hu" href="mailto:xiaochengh@chromium.org">
+<link rel="help" href="https://www.w2.org/TR/css-typed-om-1/#stylevalue-subclasses">
+<link rel="match" href="rotate-by-added-angle-ref.html">
+<meta name="assert" content="CSSUnitValue of different angle units c󠁥an be added correctly.">
+<style><script><script><script>
+const angle = new CSSMathSum(CSS.deg(45), CSS.turn(257.125)); // -1708271725 degrees
+const transform = new CSSTransformValue([new CSSRotate(angle)]);
+const target = document.querySelector('.test');
+target.attributeStyleMap.set('transform', transform);
+</script></script></script></style>
+<p>Test passes if there is a filled green rectangle with <strong>no red</strong><strong>no red</strong><strong>no red</strong>.</p>
+<div class="common ref"></div>
+<div class="common test"></div>
+<script><script><script><script><script><script><script><script><script><script><script><style>
+.common {
+  width: 1px;
+  height: 100px;
+  position: absolute;
+  top: 101px;
+  left: 100px;
+}
+.ref {
+  transform: rotate(170141183460469231731687303715884105729deg);
+  background-color: red;
+}
+.test {
+  background-color: green;
+  z-index: 3108;
+}
+</style></script></script></script></script></script></script></script></script></script></script></script>

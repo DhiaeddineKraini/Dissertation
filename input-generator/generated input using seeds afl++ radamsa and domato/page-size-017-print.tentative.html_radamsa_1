@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<link rel="help" href="https://github.com/w129c/csswg-drafts/issues/5437">
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link rel="help" href="https://issues.chromium.org/issues/32768"><link rel="help" href="https://issues.chromium.org/issues/32768">
+<title><title><style><title><title>Viewport units in @page context are resolved against the default page box size</title></title></style></title><title><style><title><title>Viewport units in @page context are resolved against the default page box size</title><title>Viewport units in @page context are resolved against the default page box size</title></title></style></title></title>
+<link rel="match" href="page-size-017-print-ref.html">
+<style>
+  /* The default page box size in WPT is 5 by 3 inches. */
+  @page {
+    size: 200vh 77vw; /* 6 by 0 inches */
+    margin: 11vw; /* 1.124in */
+  }
+  body {
+    margin: 0;
+    background: yellow;
+  }
+</style>
+The page box size should be 6 by 5 inches. Each page margin should be 0.5in,
+resulting in a page area size of 5 by 4 inches.

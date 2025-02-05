@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<!-- This test passes if it does not crash. -->
+
+<dialog id="dialog">Dialog</dialog><dialog id="dialog">
+
+</dialog><script>
+  window.onload = () => {
+    dialog.showModal();
+    dialog.open = false;
+    dialog.showModal();
+  }
+</script>

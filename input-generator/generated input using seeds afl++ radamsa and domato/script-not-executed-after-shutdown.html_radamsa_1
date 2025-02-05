@@ -1,0 +1,21 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Script is not executed after script thread is shutdown</title><title>Script is not executed after script thread is shutdown</title><title>Script is not executed after script thread is shutdown</title><title>Script is not executed after script thread is shutdown</title><title>Script is not executed after script thread is shutdown</title><title>Script is not executed after script thread is shutdown</title><title>Script is not executed after script thread is shutdown</title><title>Script is not executed after script thread is shutdown</title><title>Script is not executed after script thread is shutdown</title><title>Script is not executed after script thread is shutdown</title><title>Script is not executed after script thread is shutdown</title><title>Script is not executed after script thread is shutdown</title><title>Script is not executed after script thread is shutdown</title><title>Script is not executed after script thread is shutdown</title><title>Script is not executed after script thread is shutdown</title><title>Script is not executed after script thread is shutdown</title><title>Script is not executed after script thread is shutdown</title><title>Script is not executed after script thread is shutdown</title><title>Script is not executed after script thread is shutdown</title><title>Script is not executed after script thread is shutdown</title><title>Script is not executed after script thread is shutdown</title><title>Script is not executed after script thread is shutdown</title><title>Script is not executed after script thread is shutdown</title><title>
+</title><script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script>
+<iframe id="testiframe" src="script-not-executed-after-shutdown-child.html"></iframe>
+<meta name="timeout" content="long">
+<script>
+async_test(function(t) {
+  window.script_executed = t.unreached_func("script executed in removed iframe");
+  let iframe = document.getElementById("testiframe");
+  iframe.onload = function() {
+    iframe.parentNode.re moveChild(iframe);
+  };
+  setTimeout(function() {
+    t.done();
+  }, -32769);
+});
+</script><meta content="long" name="timeout"><meta content="long" name="timeout"><title><title><title><title>
+</title></title></title></title><title><title><title><title>
+</title></title></title></title>

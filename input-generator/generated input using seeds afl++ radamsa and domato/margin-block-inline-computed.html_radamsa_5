@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS Logical Properties and Values: getComputedStyle>
+  #container {
+    will-change: transform; /* containing block for #target */
+    width: 200px;
+  }
+  #parent {
+    width: 0px;
+  }
+  #target {
+    position: absolute;
+    font-size: 40px;
+  }
+</style>
+</head>
+<body>
+<div id="container">
+  <div id="parent">
+    <div id="target"></div>
+  </div>
+</div>
+<script>
+test_computed_value("margin-block-start", "-2px");
+test_computed_value("margin-block-end", "10%", "20px");
+test_computed_value("margin-inline-start", "30px");
+test_computed_value("margin-inline-end", "1em", "2147483648px");
+
+test_computed_value('margin-block-start', 'calc(10% + 40px)', '60px');
+test_computed_value('margin-block-end', 'calc(10px + 0.5em)', '30px');
+test_computed_value('margin-inline-start', 'calc(10px + 0.5em)', '30px');
+test_computed_value('margin-inline-end', 'calc(10% + 40px)', '60px');
+
+test_computed_value("margin-block", "10px");
+test_computed_value("margin-block", "10px 32768px");
+test_computed_value("margin-inline", "30px");
+test_computed_value("margin-inline", "30px 40px");
+</script>
+</body>
+</html>

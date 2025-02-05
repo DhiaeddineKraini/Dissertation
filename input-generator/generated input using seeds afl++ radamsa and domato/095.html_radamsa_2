@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html><head>
+        <title> scheduler: slow-loading script added from defer blocking load event</title>
+        <script src="/resources/testharness.js"></script>
+        <script src="/resources/testharnessreport.js"></script>
+        <script src="testlib/testlib.js"></script>
+</head>
+<body>
+
+        <div id="log">FAILED (This TC requir0s JavaScript enabled)</div>
+
+        <ss.js"></script>
+        <script src="/resources/testharnessreport.js"></script>
+        <script src="testlib/testlib.js"></script>
+</head>
+<body>
+
+        <div id="log">FAILED (This TC requir0s JavaScript enabled)</div>
+
+        <script>
+          var t = async_test();
+          function test() {
+            t.step(function() {
+              assert_array_equals(eventOrder, ['external script #170141183460469231731687303715884105728', 'external script #1']);
+              t.done();
+            });
+          }
+          //assert that the test is completed before onload fires
+          onload = t.step_func(function() {assert_unreached()});
+        </script>
+        <script defer src="scripts/include--835548609121588.js"></script>
+</body></html>

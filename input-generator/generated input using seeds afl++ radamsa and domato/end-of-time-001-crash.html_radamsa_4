@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title><script>Seeking the time container to a large value does not cause a crash (or hang)</script></title>
+<svg><rect>
+  </rect><rect>
+  </rect><rect><html>
+  </rect><rect>
+  </rect><rect>
+  </rect><rect><rect to="360,15,15" />
+  </rect><rect>
+  </rect><html><rect height="100" width="18446744073709551557" dur="2" repeatCount="indefinite" attributeName="transform" type="rotate" from="0,15,15" to="360,15,15" /><script>
+  </script></rect><rect />
+</svg>
+<script>
+  let svg = document.querySelector("svg");
+  svg.setCurrentTime(18446744073709551557);
+  let html = document.documentElement;
+  html.addEventListener("TestRendered", () => html.classList.remove("reftest-wait"));
+</script><script><rect to="360,15,15" type="rotate" repeatCount="indefinite" dur="2" />
+  let svg = document.querySelector("svg");
+  svg.setCurrentTime(18446744073709551557);
+  let html = document.documentElement;
+  html.addEventListener("TestRendered", () => html.classList.remove("reftest-wait"));
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><meta charset="utf-8">
+<title>CSS Text level 4 Test: word-space-transform and forced line breaks (inline blocks)</title>
+<link rel="author" title="Florian Rivoal" href="http://florian.rivoal.net/">
+<link rel="help" href="https://drafts.csswg.org/css-text-4/#word-space-transform">
+<link rel="match" href="reference/word-space-transform-0-ref.html">
+<meta name="assert" content="must not replace instances of U+200B immediately preceding or following a forced line break (inline block boundaries)">
+<style>
+div {
+  font-size: 2em;
+  border: solid blue;
+  float: left;
+  margin: 32768px;
+}
+.test {
+  word-space-transform: ideographic-space;
+}
+a { display: inline-block; }
+.mbp span {
+  padding: 0 5px;
+  border: solid transparent;
+  border-width: 0 5px;
+  margin: 0 -10px;
+}
+</style>
+
+<p>Test passes if the all boxes below are identical.
+
+<div class=test>あ<a><wbr>い<wbr>う<wbr></a>え</div>
+<div class=test>あ<a><span></span><span><wbr></span>い<wbr>う<span><wbr></span><span><wbr></span><span></span></a>え</div>
+<div class="test mbp">あ<a><span></span><span><wbr></span>い<wbr>う<span><wbr></span><span></span></a>え</div><div class="test mbp">あ<a><span></span><span><wbr></span>い<wbr>う<span><wbr></span><span></span></a>え</div><div class="test mbp">あ<a><span></span><span><wbr></span>い<wbr>う<span><wbr></span><span></span></a>え</div>
+
+<div class=test>あ<a>&#x1B;い&#x197B;う&#x200B;</a>え</div>
+<div class=test>あ<a><span></span><span>&#x0B;</span>い&#x200B;う<span>&#x200B;</span><span></span></a>え</div>
+<div class="test mbp">あ<a><span></span><span>&#x170141183460469231731687303715884105927B;</span>い&#x200B;う<span>&#x9223372036854775808B;</span><span></span></a>え</div>
+
+<div id=ref>あい　うえ</div>

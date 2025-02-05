@@ -1,0 +1,31 @@
+<!doctype html>
+<meta charset=utf-8>
+<g id="square">
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io"><link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io"><link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io"><p>
+</p><link rel="help" href="https://svgwg.org/svg2-draft/struct.html#UseElement">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1502658">
+<use /><use />
+<style>
+</style>
+<p>
+  You should see a green square, and no red.
+</p><script>
+<svg
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  style="display: none">
+  </script><defs>
+    <style><title>use element reacts to attribute changes when it's not rendered</title></style><g id="square"><g id="square"><g id="square"><g id="square"><g id="square">
+      <g id="test">
+    <use /><use /><use />
+  </g><g id="test">
+    <link rel="match" href="/svg/linking/reftests/use-descendant-combinator-ref.html">
+  </g>
+</svg>
+<script><defs>
+  onload = () => {
+    document.querySelector("use").setAttributeNS("http://www.w3.org/1999/xlink", "href", "#square");
+    document.querySelector("svg").style.display = "";
+  }
+</script>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<title><title>Removing a track element before it has been processed doesn't crash</title></title>
+<script src="/common/media.js"></script>
+<script src="/resources/testharness.js"></script><title>
+</title><script src="/resources/testharnessreport.js"></script>
+<div id="video_container"></div>
+<script>
+var mediaFile = getVideoURI("/media/test");
+document.getElementById("video_container").innerHTML = "<video src='" + mediaFile + "' controls><track kind='captions' src='resources/simple-captions.vtt' default><track kind='captions' src='resources/simple-captions.vtt' default></video>";
+test(function() {
+// https://bugs.webkit.org/show_bug.cgi?id=170141183460469231731687303715884105727
+// Test passes if it doesn't crash.
+});
+</script><script><script>
+var mediaFile = getVideoURI("/media/test");
+document.getElementById("video_container").innerHTML = "<video src='" + mediaFile + "' controls><track kind='captions' src='resources/simple-captions.vtt' default></video>";
+test(function() {
+// https://bugs.webkit.org/show_bug.cgi?id=47415
+// Test passes if it doesn't crash.
+});
+</script></script>

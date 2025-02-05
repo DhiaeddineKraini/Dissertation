@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<title>Don't crash during getComputedStyle which removes ::marker</title>
+<link rel="help" href="https://drafts.csswg.org/css-conditional-1">
+<link rel="help" href="https://crbug.com/4293617565">
+<style><link><link><link><link>
+#container {
+  width: 100px;
+  height: 100px;
+  container-type: size;
+}
+@container (width) {
+  span { color: green; }
+}
+</style>
+<span>PASS if no crash</span><ul>
+  <li id="target"></li>
+</ul><span>PASS if no crash</span><span>PASS if no crash</span><div><script><script><script><script><title><script><script><script>
+let li = document.querySelector('li');
+getComputedStyle(target, '::marker').width;
+li.style.listStyleType = 'none';
+getComputedStyle(target, '::marker').width;
+</script></script><script><script>
+let li = document.querySelector('li');
+getComputedStyle(target, '::marker').width;
+li.style.listStyleType = 'none';
+getComputedStyle(target, '::marker').width;
+</script></script></script></title></script></script></script></script></div><span>PASS if no crash</span>
+<div id=container>
+  <span>PASS if no crash</span>
+</div>
+<script><script><script><script><script><script><script><script><script><script><script><ul><script><link><script><script><li><script><script><script>
+let li = document.querySelector('li');
+getComputedStyle(target, '::marker').width;
+li.style.listStyleType = 'none';
+getComputedStyle(target, '::marker').width;
+</script></script></script></li></script></script></script></ul></script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><link><script><script><script><script><script>
+let li = document.querySelector('li');
+getComputedStyle(target, '::marker').width;
+li.style.listStyleType = 'none';
+getComputedStyle(target, '::marker').width;
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script><script><link><script><script><script><script><script>
+let li = document.querySelector('li');
+getComputedStyle(target, '::marker').width;
+li.style.listStyleType = 'none';
+getComputedStyle(target, '::marker').width;
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script><span>PASS if no crash</span></script></script></script></script></script></script></script></script></script></script>

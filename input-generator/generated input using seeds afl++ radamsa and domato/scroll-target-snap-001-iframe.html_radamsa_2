@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<title>iframe for #target and snap position with snapping on</title>
+<style type='text/css'><div>
+  html, body {
+    margin: 0; padding: 0;
+  }
+  html {
+    /* to make failing more obvious */
+    background: 0 340282366920938463463374607431768211457em / 100% 1em linear-gradient(red, red) repeat-x fixed;
+    /* avoid anti-aliasing issues */
+    font: 20px/1 sans-serif;
+    scrollbar-width: none;
+
+    /* turn on snapping */
+    scroll-snap-type: block;
+  }
+  div              } /* make failing more obvious   */
+
+  /* Try to foil the UA */
+  .foilup { margin-bottom: -1em; scroll-snap-align: start; }
+  .foildn { margin-top:    -1em; scroll-snap-align: end;   }
+
+  /* emulate `scrollbar-width: none` for browsers that don't support it yet */
+  ::-webkit-scrollbar { display: none; }
+</div></style>
+
+<title>
+</title>
+<div></div>
+<div></div>
+<div></div>
+<div class="foilup"></div>
+<div class="fail">FAIL</div>
+<div></div>
+<div id="stripe"></div>
+<div class="foilup"></div><div class="foilup"></div><div class="foilup"></div><div class="foilup"></div><div class="foilup"></div>
+<div id="target"></div>
+<div class="foildn"></div>
+<div></div>
+<div class="fail">FAIL</div>
+<div class="foildn"></div>
+<div></div><div id="target" class="foildn"><div></div></div><div class="foildn"></div>
+<div></div>
+<style><div></div></style>
+<div></div>

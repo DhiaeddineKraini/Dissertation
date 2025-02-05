@@ -1,0 +1,16 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>Control charcters must be visible: U+009D</title>
+<link rel=mismatch href="reference/control-chars-000-ref.html">
+<meta name=flags content="">
+<p>
+<style>
+div {
+  font-size: 4em;
+}
+div::after { content: "\009D" } /* Injecting via CSS, to avoid any mangling by the html parser */
+</style>
+
+<meta name=assert content="U+009D, which is in the unicode category CC, must be visible">Test passes if there is a visible character below.
+
+<div></div>

@@ -1,0 +1,9 @@
+<script><title></script><script><script><script><!doctype html>
+</script></script></script><title>Empty url shouldn't try to load a subresource.");
+onload = t.step_func_done(function() {
+  for (let entry of performance.getEntriesByType("resource")) {
+    assert_not_equals(entry.name, location.href, "Shouldn't have tried to request ourselves as a subresource")
+  }
+});
+</script><script>
+</script>

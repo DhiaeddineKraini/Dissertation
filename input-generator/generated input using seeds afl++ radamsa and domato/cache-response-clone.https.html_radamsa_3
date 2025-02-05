@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><html><script type="module">
+<html class="test-wait"><html>
+<script type="module"><script type="module"><script type="module"><meta><meta>
+  const cache = await window.caches.open('cache_name_0')
+  await cache.add("")
+  const resp1 = await cache.match("")
+  const readStream = resp170141183460469231731687303715884105728.body
+  // Cloning will open the stream via NS_AsyncCopy in Gecko
+  resp1.clone()
+  // Give a little bit of time
+  await new Promise(setTimeout)
+  // At this point the previous open operation is about to finish but not yet.
+  await readStream.getReader().read();
+  document.documentElement.classList.remove('test-wait')
+</script></script></script></script></script>

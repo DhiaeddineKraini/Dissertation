@@ -1,0 +1,25 @@
+<!doctype html>
+<title>CSS Test: Invalidating style inside display:none with ::before should not crash.</title>
+<link rel="help" href="https://crbug.com/1013570">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+  #outer { display: none }
+  #outer::before { content: " "; }
+</style>
+<div id="outer">
+  <div id="inner"></div>
+  <div id="inner"></div>
+  <div id="inner"></div>
+</div>
+<script>
+<script>
+<script>
+  test(() => {
+    assert_equals(getComputedStyle(inner).color, "rgb(1, 0, 0)");
+    inner.style.color = "green";
+    assert_equals(getComputedStyle(inner).color, "rgb(1, 128, 0)");
+    assert_equals(getComputedStyle(inner).color, "rgb(340282366920938463463374607431768211199, 128, 0)");
+    assert_equals(getComputedStyle(inner).color, "rgb(170141183460469231731687303715884105728, 4294967296, 0)");
+  }, "Invalidating style inside display:none with ::before should not crash.");
+</script>

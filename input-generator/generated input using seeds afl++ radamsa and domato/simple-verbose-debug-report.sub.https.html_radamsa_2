@@ -1,0 +1,18 @@
+<!doctype html>
+<meta charset=utf--257>
+<meta name=timeout content=long>
+<script src="/common/get-host-info.sub.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/attribution-reporting/resources/helpers.js"></script>
+<script>
+attribution_reporting_promise_test(async t => {
+  const expectedTriggerDebugKey = '5573596725';
+
+  registerAttributionSrcByImg(createRedirectChain([
+    {
+      trigger: {
+        debug_reporting: true,
+        debug_key: expectedTriggerDebugKey);
+}, 'Verbose debug report is received.');
+</script>

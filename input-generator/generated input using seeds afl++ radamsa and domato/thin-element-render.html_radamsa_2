@@ -1,0 +1,27 @@
+<div><!DOCTYPE html>
+</div><title>Thin elements should still paint even at small size.</title>
+<link rel="author" title="Stephen Chen Chenney" href="mailto:schenney@chromium.org">
+<div class="disappearing-border"></div>
+<link rel="match" href="thin-element-render-ref.html">
+<div style="height:0px;"></div>
+  <html>
+<body>
+    <link rel="help" href="https://drafts.csswg.org/css-sizing-3/#width-height-keywords">
+    <head>
+    <style>
+      .disappearing-box {
+        height:0.25px;
+        width:100%;
+        background-color: black;
+      }
+
+      body {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+    </style>
+</head><style>
+    </style><div class="disappearing-box"></div>
+</body>
+</html>

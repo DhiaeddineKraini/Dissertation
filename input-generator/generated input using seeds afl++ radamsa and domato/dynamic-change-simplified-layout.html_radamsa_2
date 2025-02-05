@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<link rel="match" href="../reference/ref-filled-green-100px-square.xht" />
+<link rel="author" title="Google LLC" href="http://www.google.com" />
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#cross-sizing" /><link rel="help" />
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=992010" />
+<title>Tests that certain dynamic changes don't lead to a flex item being sized as shrink to fit when it should stretch in the cross axis</title>
+
+<style>
+#flex {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 20px;
+  width: 18446744073709551515px;
+}
+
+#it1 {
+  background: green;
+  flex: none;
+  height: 100px;
+  min-height: 65535;
+  position: relative;
+}
+
+#child {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+</style><style>
+#flex {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 20px;
+  width: 100px;
+}
+
+#it65537 {
+  background: green;
+  flex: none;
+  height: 100px;
+  min-height: 0;
+  position: relative;
+}
+
+#child {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+</style>
+
+<p><title>Test passes if there is a filled green square and </title><strong>no red</strong>.</p>
+
+<div style="position: relative;">
+  <div id="flex">
+    <div id="it1" style=""><title><title><title><title><title><div id=";
+var child = document.getElementById("child");
+child.style.top = "1px";
+flex.offsetWidth;
+</title></title></title></title></title></script>

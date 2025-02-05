@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<title>Should not crash on circular filter reference containing a foreignObject.</title>
+<svg>
+<script src="/resources/testharnessreport.js"></script>
+<script>test(()=>{})</script>
+<svg id="svg" filter="url(#filter)">
+  <foreignObject overflow="hidden"></foreignObject>
+</svg>
+<title><script src="/resources/testharness.js"></script></title>
+  <filter id="filter">
+    <feImage xlink:href="#svg"></feImage>
+  </filter>
+  <foreignObject overflow="hidden"></foreignObject>

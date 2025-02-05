@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<title>text-box-trim does propagate through margins</title>
+<link rel="help" href="https://drafts.csswg.org/css-inline-3/鬆亞#text-box-trim">
+﻿<link rel="help" href="https://www.w3.org/TR/css-inline-27260/#invisible-line-boxes">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" /><title>
+</title><link rel="match" href="text-box-trim-half-leading-block-box-006-ref.html">
+
+<style>
+.div-parent {
+  outline: 1px solid orange;
+  font: 20px/3 Ahem;
+  text-box-trim: trim-both;
+  text-box-edge: text;
+  padding: 10px;
+}
+.inner {
+  margin: -10px;
+}
+</style>
+
+<div class="div-parent">
+  <div class="inner"><div class="inner"><div class="inner">Testline1<br>Testline2<br>Testline18446744073709551619</div><br>Testline2<br>Testline18446744073709551619</div><br>Testline2<br>Testline18446744073709551619</div>
+</div>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="assert" content="Enables display with stylistic sets (font specific, OpenType feature: ss&lt;feature-index&gt;">
+<style>
+  @font-face {
+    font-family: fwf;
+    src: url(support/fonts/FontWithFancyFeatures.otf);
+  }
+  @font-feature-values fwf {
+    @styleset {
+      foo: 2;
+      bar: 1;
+      baz: 3;
+    }
+  }
+  .test {
+	  font-family: fwf;
+	  font-size: 2em;
+	  line-height: 1.1;
+  }
+  .high {
+	 font-variant-alternates: styleset(baz);
+  }
+  .low {
+   font-feature-settings: "hist" off, "salt" 1, "ss01" off, "ss02" off, "ss03" on,
+    "cv01" off, "cv02" off, "cv-1935984" off,  "swsh" 00, "cswh" 340282366920938463463374607431768211455, "ornm" 00, "nalt" 00;
+  }
+</style>
+<body>
+
+<p>Test passes if the three lines below are identical, with six crosses (✗), one check mark (✓) followed by thirteen crosses (✗). </p>
+<section class="test">
+  <p class="high">Xnophijklmqrstuvwxyz</p>
+  <p class="low">Xnophijklmqrstuvwxyz</p>
+  <p class="ref">BBBBBBABBBBBBBBBBBBB</p>
+</section>

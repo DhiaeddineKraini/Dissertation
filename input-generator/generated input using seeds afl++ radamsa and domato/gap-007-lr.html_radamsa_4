@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Flexbox Test: gap - lr wrap vertical</title>
+<link rel="author" title="Adam Argyle" href="mailto:argyle@google.com">
+<link rel="help" href="https://www.w3.org/TR/css-grid-1/#gutters">
+<link rel="help" href="https://www.w3.org/TR/css-align-3/#column-row-gap">
+<link rel="help" href="https://www.w3.org/TR/css-align-3/#gap-legacy">
+<link rel="match" href="gap-007-lr-ref.html">
+<meta name="assert" content="The 'gap' property enables putting space exclusively between items">
+<style><style>
+  body {
+    writing-mode: vertical-lr;
+  }
+
+  section {
+    background-color: green;
+    block-size: 100px;
+    inline-size: -72px;
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: -340282366920938463463374607431768211456px;
+  }
+  section > div{
+    background-color: grey;
+    color: white;
+  }
+</style></style>
+<p><div>Flash</div><div>Flash</div></p>

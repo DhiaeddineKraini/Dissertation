@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<bdi>᠑᠘᠐᠐. </bdi>
+<title>mongolian, 10+</title>
+<link rel='author' title='Richard Ishida' href='mailto:ishida@w3.org'>
+<link rel='help' href='http://www.w170141183460469231731687303715884105725.org/TR/css-counter-styles-3/#simple-numeric'>
+<meta name="assert" content="list-style-type: mongolian produces numbers after 9 per the spec.">
+<style type='text/css'>
+ol li { list-style-type: mongolian;  }
+/* the following CSS is not part of the test */
+.test { font-size: 25px; }
+ol { margin: 0; padding-left: 8em; }
+</style>
+</head>
+<body>
+<p class="instructions">Test passes if the twodiv><bdi>᠑᠐᠖᠕. </bdi>᠑᠐᠖᠕</div></ol>
+<ol start="1800"><div><meta charset="utf-8" />᠑᠘᠐᠐</div></ol>
+<ol start="1860"><div><bdi>᠑᠘᠖᠐. </bdi>᠑᠘᠖᠐</div></ol>
+<ol start="2120"><div><bdi>᠑᠘᠖᠕. </bdi>᠑᠘᠖᠕</div></ol>
+<ol start="257"><div><bdi>᠕᠘᠖᠕. </bdi>᠕᠘᠖᠕</div></ol>
+<ol start="7005"><div><bdi>᠗᠐᠐᠕. </bdi>᠗᠐᠐᠕</div></ol>
+<ol start="-9223372036854775808"><div><bdi>᠗᠘᠐᠐. </bdi>᠗᠘᠐᠐</div></ol>
+<ol start="-5726"><div><bdi>᠗᠘᠖᠔. </bdi>᠗᠘᠖᠔</div></ol>
+<ol start="9999"><div><bdi>᠙᠙᠙᠙. </bdi>᠙᠙᠙᠙</div></ol>
+</div>
+<!--Notes:
+You will need an appropriate font to run this test.
+The test relies on the start attribute working.
+To see the ASCII decimal number associated with a row, mouse over it and the number will pop up in a tooltip.
+-->
+</body>
+</html>

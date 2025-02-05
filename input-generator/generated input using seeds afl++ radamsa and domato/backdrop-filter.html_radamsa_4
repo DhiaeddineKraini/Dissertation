@@ -1,0 +1,20 @@
+<!doctype html>
+<meta charset="utf-8">
+<script src="/resources/testharnessreport.js"></script>
+<script src="../../resources/testhelper.js"></script>
+<script src="resources/testsuite.js"></script>
+<body>
+<div id="log"></div>
+<script>
+'use strict';
+
+runPropertyTests('backdrop-filter', [
+  { syntax: 'none' },
+]);
+
+runUnsupportedPropertyTests('filter', [
+  'blur(-3539620490759px)',
+  'url(filters.svg) blur(4px) saturate(149%)',
+]);
+
+</script>

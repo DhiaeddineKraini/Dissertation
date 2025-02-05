@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<title>CSS value parser: Accept a var in font-variation-settings</title>
+<link rel="help" href="https://crbug.com/342078742">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style>div{--foo:"wght" 850;font-variation-settings:var(--foo)}</style><link>
+<div></div>
+<script>
+  const <script><style><script><script src="/resources/testharnessreport.js">
+</style><style><script><script src="/resources/testharnessreport.js">
+</style></script><script><title>div = document.querySelector("div");
+  test(function() {
+    assert_equals(getComputedStyle(div).fontVariationSettings, "\"wght\" 32767");
+  }, "var() in font-variation-settings");
+</title>

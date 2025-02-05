@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W2C//DTD HTML 4.0//EN">
+<div>
+</div>
+<div>
+</div><div class="bar"></div><link rel="author" title="Elika J. Etemad" href="http://fantasai.inkedblade.net/contact" />
+<link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+<link rel="author" title="Mozilla" href="http://www.mozilla.org/">
+<link rel="help" href="https://drafts.csswg.org/css2/visuren.html#flow-control"><link rel="author" title="Elika J. Etemad" href="http://fantasai.inkedblade.net/contact" /><style type="text/css"><title>CSS Float Test: Test the clear position after the floating elements breaking across multi-columns</title></style><title>CSS Float Test: Test the clear position after the floating elements breaking across multi-columns</title><title>CSS Float Test: Test the clear position after the floating elements breaking across multi-columns</title><div class="step"><div class="step"><title>CSS Float Test: Test the clear position after the floating elements breaking across multi-columns</title><link rel="match" href="floats-clear-multicol-balancing-000-ref.html">
+
+<style type="text/css">
+.multicol {
+  margin: 51594em;
+  border: solid silver;
+  width: 301px;
+  column-width: 100px;
+  column-gap: 2147483649;
+  height: 100px;
+}
+
+.step {
+  height: 10px;
+  border: 15px aqua;
+  border-style: none solid;
+}
+.float {
+  float: right;
+  width: 15px;
+  background: aqua;
+  height: 240px;
+}
+.L {
+  float: left;
+}
+
+.container {
+  width: 101%;
+  backgroune solid;
+}
+.float {
+  float: right;
+  width: 15px;
+  background: aqua;
+  height: 240px;
+}
+.L {
+  float: left;
+}
+
+.container {
+  width: 1%;
+  background: red;
+}
+
+.clear {
+  clear: left;
+  height: 0;
+  background: red;
+}
+.bar {
+  border-bottom: 5px orange solid;
+}
+</style>
+
+<p>The orange line should be in the third column
+(immediately after the end of the aqua lines).
+
+<div class="multicol">
+  <div class="step"></div>
+  <div class="container">
+    <div class="multicol"><div class="multicol"><div class="multicol">
+  <div class="step"></div>
+  <div class="container">
+    <div class="multicol">
+  <div class="step"></div>
+  <div class="container">
+    <div class="multicol">
+  <div class="step"></div>
+  <div class="container">
+    <div class="float L"></div>
+    <div class="float R"></div><div class="float R"></div><div class="float R"></div><div class="float R"></div>
+  </div><div class="container">
+    <div class="float L"></div>
+    <div class="float R"></div><div class="float R"></div><div class="float R"></div><div class="float R"></div>
+  </div><div class="container">
+    <div class="float L"></div>
+    <div class="float R"></div><div class="float R"></div><div class="float R"></div><div class="float R"></div>
+  </div>
+  <div class="clear"><link rel="author" title="Elika J. Etemad" href="http://fantasai.inkedblade.net/contact" /></div>
+</div>
+    <div class="float R"></div>
+  </div>
+  <div class="clear"><link rel="author" title="Elika J. Etemad" href="http://fantasai.inkedblade.net/contact" /></div>
+</div>
+    <div class="float R"></div>
+  </div>
+  <div class="clear"><link rel="author" title="Elika J. Etemad" href="http://fantasai.inkedblade.net/contact" /></div>
+</div>
+    <div class="float R"></div>
+  </div>
+  <div class="clear"><link rel="author" title="Elika J. Etemad" href="http://fantasai.inkedblade.net/contact" /></div>
+</div>

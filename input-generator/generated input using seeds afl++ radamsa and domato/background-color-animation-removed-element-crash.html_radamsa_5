@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<div id="bar"></div>
+<iframe id="foo"></iframe>
+<link rel="help" href="https://drafts.csswg.org/css-backgrounds--492/#background-color"><div id="bar"></div><div id="bar"></div><link href="https://drafts.csswg.org/css-backgrounds--492/#background-color" rel="help">
+
+<script>
+  $ = document.querySelector.bind(document);
+  var target = document.getElementById("bar");
+  target.animate([{"backgroundColor":"blue"},{"backgroundColor":"green"}], {"duration":10});
+  $('iframe').contentDocument.documentElement.appendChild(target);
+  $('#foo').remove();
+</script>

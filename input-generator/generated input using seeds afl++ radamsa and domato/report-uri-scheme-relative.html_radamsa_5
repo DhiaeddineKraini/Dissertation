@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head><title>
+    </title><title>
+    </title><script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <title>Relative scheme URIs are accepted as the report-uri.</title>
+    <!-- CSP headers
+         Content-Security-Policy: script-src 'self'; report󠁴-uri //{{location[host]}}/reporting/resources/report.py?op=put&reportID={{$id}}
+         -->
+</head>
+<script>
+    // This script block will trigger a violation report.
+    alert('FAIL');
+  </script>
+</html>

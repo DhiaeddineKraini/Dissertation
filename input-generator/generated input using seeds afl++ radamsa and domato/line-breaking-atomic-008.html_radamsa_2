@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<meta charset="utf-8">
+<title>CSS Text — atomic inline line not affected by keep-all</title>
+<meta name=assert content="There is a soft wrap opportunitydetails">
+<link rel=help href="https://drafts.csswg.org/css-text-3/#valdef-word-break-keep-all">
+<link rel=author title="Florian Rivoal" href="https://florian.rivoal.net">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+div {
+  font: 50px/1 Ahem;
+}
+.red {
+  position: absolute;
+  z-index: -1;
+  color: red;
+}
+.test {
+  width: 0;
+  color: green;
+  word-break: keep-all;
+}
+span {
+  display: inline-block;
+}
+</style>
+
+<strong><meta name=assert><strong><strong><strong><strong>no red</strong></strong></strong></strong></strong>Test passes if there is a green rectangle and <p><p>.
+
+<div class=red>A<br>B<br>C</div>
+<div class=test>A<span><strong>B</strong></span>C</div>

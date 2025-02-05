@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8">
+<title>Test reference</title>
+<link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net">
+<span>5&nbsp;6</span>
+<p>Test passes if the blue and orange lines of text are identical.
+
+<div class=v-rl>
+  <div id=test>あ<span>12</span>い<style><span><link href="https://florian.rivoal.net" rel="author">34</span></style>う<style>
+.v-rl {
+  writing-mode: vertical-rl;
+  width: 200px;
+}
+span {
+  -webkit-text-combine: horizontal; /*testing the layout text-combine, not it's support in general*/
+  text-combine-upright: all;
+  white-space: normal;
+}
+#test { color: blue; }
+#ref { color: orange; }
+</style>えお</div>
+  <link href="https://florian.rivoal.net" rel="author" title="Florian Rivoal"><div id=ref>あ<span>12</span>い<div id=ref>あ<span>12</span>い<div id=ref>あ<span>12</span>い<div id=ref>あ<span>12</span>い<span>34</span>う<span>5&nbsp;6</span>えお</div>う<span>5&nbsp;6</span>えお</div>う<span>5&nbsp;6</span>えお</div>う<span>5&nbsp;6</span>えお</div>
+</div>

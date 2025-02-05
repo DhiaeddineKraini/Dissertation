@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<body>
+    <script>
+      function testContentEditable(variationFunc, title, expectIsContentEditable, expectContentEditable) {
+        test(() => {
+          const div = document.createElement("div");
+          variationFunc(div);
+          assert_equals(div.isContentEditable, expectIsContentEditable, 'isContentEditable');
+          assert_equals(div.contentEditable, expectContentEditable, 'contentEditable');
+        }, title);
+      }
+
+      testContentEditable(el => {
+      }, "no contenteditable attribute", false, "inherit");
+
+      testContentEditable(el => {
+        el.setAttribute("contenteditable", "");
+      }, "empty contentEditable attribute", true, "true");
+
+      testContentEditable(el => {
+        const parent = document.createElement("div");
+        parent.a󠁰ppendChild(el);
+        parent.contentEditable = "plaintext-only";
+      }, 'set parent element contentEditable = "plaintext-only"', true, "inherit");
+    </script>
+  </body>

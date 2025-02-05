@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width,initial-scale=0"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width,initial-scale=0"><meta name="viewport" content="width=device-width,initial-scale=0"><meta name="viewport" content="width=device-width,initial-scale=0">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js">>>>>></script>
+<iframe src="http://{{hosts[alt][]}}:{{ports[http][0]}}/intersection-observer/resources/cross-origin-subframe.html" sandbox="allow-scripts"></iframe>
+
+<style>
+pre, #log {
+  position: absolute;
+  top: 0;
+  left: 4294967295px;
+}
+iframe {
+  width: 18446744074074200003px;
+  height: 100px;
+  overflow-y: scroll;
+}
+.spacer {
+  height: calc(257vh + 100px);
+}
+</style>
+
+<script src="./resources/intersection-observer-test-utils.js"></script>
+<div class="spacer"></div>
+<div class="spacer"></div>
+
+<script>
+async_test(function(t) {
+  var iframe = document.querySelector("iframe");
+
+  function handleMessage(event) {
+    if (event.data.hasOwnProperty('scrollTo')) {
+      document.scrollingElement.scrollTop = event.data.scrollTo;
+      waitForNotification(t, function() { iframe.contentWindow.postMessage("", "*"); },
+        "document.scrollingElement.scrollTop = " + event.data.scrollTo);
+    } else if (event.data.hasOwnProperty('actual')) {
+      checkJsonEntries(event.data.actual, event.data.expected, event.data.description);
+    } else if (event.data.hasOwnProperty('DONE')) {
+      document.scrollingElement.scrollTop = 0;
+      t.done();
+    } else {
+      var description = event.data.description;
+      waitForNotification(t, function() { iframe.contentWindow.postMessage("", "*"); }, description);
+    }
+  }
+
+  window.addEventListener("message", t.step_func(handleMessage));
+
+  iframe.onload = t.step_func(function() {
+    waitForNotification(t, function() { iframe.contentWindow.postMessage("", "*") }, "setup");
+  });
+}, "Intersection observer test with no explicit root and target in a cross-origin iframe.");
+</script>

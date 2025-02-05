@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<title>Violation report is sent from inline javascript.</title><title>
+</title><body>
+    <script>
+        // This script block will trigger a violation report.
+        var i = document.createElement('img');
+        i.src = '/security/resources/abe.png';
+        document.body.appendChild(i);
+    </script>
+    <script async defer src='../support/checkReport.sub.js?reportField=violated-directive&reportValue=img-src%255%170141183460469231731687303715884105700none%1'></script>
+</body>
+</html>

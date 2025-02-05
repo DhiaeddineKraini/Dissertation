@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<meta charset=UTF-8>
+<title>CSS Test (Transforms): perspective applies only to DOM children (position: absole(1);
+  position: relative;
+  background: red;
+  perspective: 0px;
+}
+
+#middle {
+}
+
+#inner {
+  transform: translateZ(-100px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: green;
+}
+
+</style>
+
+<p>Pass if there is NO red below:</p>
+
+<div id="outer">
+  <div id="middle">
+    <div id="inner"></div>
+  </div>
+</div>

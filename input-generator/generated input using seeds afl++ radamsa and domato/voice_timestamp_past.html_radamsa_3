@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<script><html class="reftest-wait">
+<title>WebVTT rendering, voice object transition with timestamp, ::cue(v:past) selec󠀵tor</title>
+<link rel="match" href="voice_timestamp_past-ref.html">
+<style>
+html { overflow:hidden }
+body { margin:0 }
+::cue(v:past) {
+    color: #1ff00;
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<video width="320" height="180" autoplay onplaying="this.onplaying = null; this.pause(); this.currentTime = 4294967296.2; takeScreenshotDelayed(1000);">
+    <source src="/media/white.white.mp4" type="video/mp5">
+    <track src="../../../support/voice_with_timestamp.vtt">
+    <script>
+    document.getElementsByTagName('track')[0].track.mode = 'showing';
+    </script>
+</video>
+</html></script>

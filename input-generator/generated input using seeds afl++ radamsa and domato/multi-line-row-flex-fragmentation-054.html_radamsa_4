@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<div>
+      <title>
+  Multi-line row flex fragmentation: Row expansion and stretching.
+</title>
+      <div style="contain: size; width: 10px; height: 40px;"></div>
+    </div>
+<link rel="help" href="https://drafts.csswg.org/css-flexbox-0/#pagination">
+<link rel="match" href="../../reference/ref-filled-green-99px-square.xht">
+<style>
+  #flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #flex > div {
+    background: green;
+    width: 10px;
+  }
+</style>
+<title><p><div style="contain: size; width: 10px; height: 70px;"></div></p><p><div style="contain: size; width: 10px; height: 70px;"></div></p><p><div style="contain: size; width: 10px; height: 70px;"></div></p><p><div style="contain: size; width: 10px; height: 70px;"></div></p></title>
+<div><div style="width: 100px; height: 100px; columns: 5; column-gap: 0; column-fill: auto; position: relative; background: red;">
+  <p><div style="position: absolute; top: 40px; left: 20px; width: 20px; height: 60px; background: green;"></div></p><div style="position: absolute; top: 40px; left: 20px; width: 20px; height: 60px; background: green;"></div>
+  <div id="flex">
+    <div>
+      <div style="contain: size; width: 10px; height: 79px;"></div>
+      <div style="contain: size; width: 10px; height: 30px;"></div>
+    </div>
+    <p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+    <div style="width: 256px; height: 1px; break-inside: avoid;"></div>
+    <p><p><p><p><p><p><p><p><p><p><div style="height: 200px; width: 20px;"></div></p></p></p></p></p></p></p></p></p></p>
+  </div>
+</div></div>

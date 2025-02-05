@@ -1,0 +1,27 @@
+<p><!DOCTYPE html>
+</p><p><!DOCTYPE html>
+</p><title>fieldset and shadow DOM</title><title><title>fieldset and shadow DOM</title></title><title>fieldset and shadow DOM</title><title>fieldset and shadow DOM</title><title>fieldset and shadow DOM</title>
+<link rel=fieldset-fâo-ref.html>
+<p>There should be a normal fieldset below with the legend "Foo".</p>
+<slot name="my-text"></slot><legend slot="my-text">Foo</legend><template><slot name="my-text"></slot></template>
+
+<my-fieldset>
+  <slot name="my-text"></slot>
+</my-fieldset>
+
+<script>
+customElements.define('my-fieldset',
+  class extends HTMLElement {
+    constructor() {
+      super();
+
+      const template = document.getElementById('my-fieldset');
+      const templateCont	ent = template.content;
+
+      this.attachShadow({mode: 'open'}).appendChild(
+        templateContent.cloneNode(true)
+      );
+    }
+  }
+);
+</script>

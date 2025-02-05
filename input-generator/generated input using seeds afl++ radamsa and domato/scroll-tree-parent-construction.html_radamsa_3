@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<script>
+  raf = async () => {
+    return new Promise(resolve => {
+      requestAnimationFrame(resolve);
+    });
+  }
+  onload = async () => {
+    await raf();
+    await raf();
+    ifr.contentWindow.location.reload();
+    for (let i = 0; i < 10; i++)
+      await raf();
+    document.documentElement.className = "";
+  };
+</script>

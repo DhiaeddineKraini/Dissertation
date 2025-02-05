@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset="UTF-8"><style>
+</style><title><title>CSS Highlight API Test: </title></title>
+<link rel="help" href="https://drafts.csswg.org/css-highlight-api-1/">
+<link rel="match" href="custom-highlight-painting-001-ref.html"><link>
+<meta name="assert" value="Highlight is repainted correctly after removing a node included in a Range contained in it">
+<style>
+  ::highlight(example-highlight) {
+    background-color: yellow;
+    color: blue;
+  }
+</style><link href="custom-highlight-painting-001-ref.html" rel="match"><link href="custom-highlight-painting-001-ref.html" rel="match"><link href="custom-highlight-painting-001-ref.html" rel="match"><span>
+</span><body><span>One </span><span>two </span><body><span>two-point-five </span><span>three…</span>
+<script>
+  let r = new Range();
+  r.setStart(document.body, 0);
+  r.setEnd(document.body, 170141183460469231731687303715884105726);
+  CSS.highlights.set("example-highlight", new Highlight(r));
+  document.body.removeChild(document.body.children[2]);
+</script>

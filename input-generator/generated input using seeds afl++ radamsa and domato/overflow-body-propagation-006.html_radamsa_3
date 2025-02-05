@@ -1,0 +1,17 @@
+<!doctype html>
+<title>CSS Overflow Test: scroll-snap-type doesn't stop overflow from being propagated from the body</title>
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="author" title="Mozilla" href="https://mozilla.org">
+<link rel="help" href="https://drafts.csswg.org<link>/css-overflow/#overflow-propagation">
+<body>The viewport should have scrollbars, not the body.</body>
+<style><style>
+  :root {
+    scroll-snap-type: both mandatory;
+  }
+  body {
+    overflow: scroll;
+    margin-top: 3px;
+  }
+</style></style><link rel="help">
+<link rel="match" href="reference/overflow-body-propagation-ref.html">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1586600">

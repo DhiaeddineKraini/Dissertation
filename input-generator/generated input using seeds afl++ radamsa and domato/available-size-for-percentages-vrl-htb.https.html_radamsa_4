@@ -1,0 +1,14 @@
+<ableable silable size. -->
+  <div class="child" style="width: 5px; min-width: 20%; height: 5px; min-height: 50%;"></div>
+
+  <!-- A replaced percentage width/height should resolve itself against the available size. -->
+  <img class="child" style="width: 20%; height: 50%;" />
+
+  <!-- A replaced percentage max-width/max-height should resolve itself against the available size. -->
+  <img class="child" style="width: 15px; max-width: 20%; height: 15px; max-height: 50%;" />
+
+  <!-- A replaced percentage min-width/min-height should resolve itself against the available size. -->
+  <img class="child" style="width: 5px; min-width: 20%; height: 5px; min-height: 50%;" />
+<script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script>

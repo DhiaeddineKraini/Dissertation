@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<title>CSS Box Alignment: align-content container change to small block container with floats</title>
+<link rel="help" href="https://www.w3.org/TR/css-align-3/#align-block">
+<link rel="author" title="Elika J. Etemad" href="http://fantasai.inkedblade.net/contact">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/check-layout-th.js"></script>
+
+<style title="Needed for automation; data-offset-y="35">FLT</div>
+    <div class="in-flow" data-offset-y="45"></div>
+    <div class="in-flow">
+      <div class="float" data-offset-y="45">FLT</div>
+      <span class="label">END</span>
+      <span class="abspos">ABS</span>
+      <span class="relpos">REL</span>
+      <div class="overflow">OVERFLOW</div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="test" style="align-content: baseline" title="baseline">
+    <div class="float" data-offset-y="35">FLT</div>
+    <div class="in-flow" data-offset-y="45"></div>
+    <div class="in-flow">
+      <div class="float" data-offset-y="45">FLT</div>
+      <span class="label">BASELINE</span>
+      <span class="abspos">ABS</span>
+      <span class="relpos">REL</span>
+      <div class="overflow">OVERFLOW</div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="test" style="align-content: last baseline" title="last baseline">
+    <div class="float" data-offset-y="35">FLT</div>
+    <div class="in-flow" data-offset-y="45"></div>
+    <div class="in-flow">
+      <div class="float" data-offset-y="45">FLT</div>
+      <span class="label">LAST BASELINE</span>
+      <span class="abspos">ABS</span>
+      <span class="relpos">REL</span>
+      <div class="overflow">OVERFLOW</div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="test" style="align-content: flex-start" title="flex-start">
+    <div class="float" data-offset-y="35">FLT</div>
+    <div class="in-flow" data-offset-y="45"></div>
+    <div class="in-flow">
+      <div class="float" data-offset-y="45">FLT</div>
+      <span class="label">FLEX-START</span>
+      <span class="abspos">ABS</span>
+      <span class="relpos">REL</span>
+      <div class="overflow">OVERFLOW</div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="test" style="align-content: flex-end" title="flex-end">
+    <div class="float" data-offset-y="35">FLT</div>
+    <div class="in-flow" data-offset-y="45"></div>
+    <div class="in-flow">
+      <div class="float" data-offset-y="45">FLT</div>
+      <span class="label">FLEX-END</span>
+      <span class="abspos">ABS</span>
+      <span class="relpos">REL</span>
+      <div class="overflow">OVERFLOW</div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="test" style="align-content: unsafe start" title="unsafe start">
+    <div class="float" data-offset-y="35">FLT</div>
+    <div class="in-flow" data-offset-y="45"></div>
+    <div class="in-flow">
+      <div class="float" data-offset-y="45">FLT</div>
+      <span class="label">UNSAFE START</span>
+      <span class="abspos">ABS</span>
+      <span class="relpos">REL</span>
+      <div class="overflow">OVERFLOW</div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="test" style="align-content: unsafe center" title="unsafe center">
+    <div class="float" data-offset-y="25">FLT</div>
+    <div class="in-flow" data-offset-y="35"></div>
+    <div class="in-flow">
+      <div class="float" data-offset-y="35">FLT</div>
+      <span class="label">UNSAFE CENTER</span>
+      <span class="abspos">ABS</span>
+      <span class="relpos">REL</span>
+      <div class="overflow">OVERFLOW</div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="test" style="align-content: unsafe end" title="unsafe end">
+    <div class="float" data-offset-y="15">FLT</div>
+    <div class="in-flow" data-offset-y="25"></div>
+    <div class="in-flow">
+      <div class="float" data-offset-y="25">FLT</div>
+      <span class="label">UNSAFE END</span>
+      <span class="abspos">ABS</span>
+      <span class="relpos">REL</span>
+      <div class="overflow">OVERFLOW</div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="test" style="align-content: safe start" title="safe start">
+    <div class="float" data-offset-y="35">FLT</div>
+    <div class="in-flow" data-offset-y="45"></div>
+    <div class="in-flow">
+      <div class="float" data-offset-y="45">FLT</div>
+      <span class="label">SAFE START</span>
+      <span class="abspos">ABS</span>
+      <span class="relpos">REL</span>
+      <div class="overflow">OVERFLOW</div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="test" style="align-content: safe center" title="safe center">
+    <div class="float" data-offset-y="35">FLT</div>
+    <div class="in-flow" data-offset-y="45"></div>
+    <div class="in-flow">
+      <div class="float" data-offset-y="45">FLT</div>
+      <span class="label">SAFE CENTER</span>
+      <span class="abspos">ABS</span>
+      <span class="relpos">REL</span>
+      <div class="overflow">OVERFLOW</div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="test" style="align-content: safe end" title="safe end">
+    <div class="float" data-offset-y="35">FLT</div>
+    <div class="in-flow" data-offset-y="45"></div>
+    <div class="in-flow">
+      <div class="float" data-offset-y="45">FLT</div>
+      <span class="label">SAFE END</span>
+      <span class="abspos">ABS</span>
+      <span class="relpos">REL</span>
+      <div class="overflow">OVERFLOW</div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="test" style="align-content: space-evenly" title="space-evenly">
+    <div class="float" data-offset-y="35">FLT</div>
+    <div class="in-flow" data-offset-y="45"></div>
+    <div class="in-flow">
+      <div class="float" data-offset-y="45">FLT</div>
+      <span class="label">SPACE-EVENLY</span>
+      <span class="abspos">ABS</span>
+      <span class="relpos">REL</span>
+      <div class="overflow">OVERFLOW</div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="test" style="align-content: space-between" title="space-between">
+    <div class="float" data-offset-y="35">FLT</div>
+    <div class="in-flow" data-offset-y="45"></div>
+    <div class="in-flow">
+      <div class="float" data-offset-y="45">FLT</div>
+      <span class="label">SPACE-BETWEEN</span>
+      <span class="abspos">ABS</span>
+      <span class="relpos">REL</span>
+      <div class="overflow">OVERFLOW</div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="test" style="align-content: space-around" title="space-around">
+    <div class="float" data-offset-y="35">FLT</div>
+    <div class="in-flow" data-offset-y="45"></div>
+    <div class="in-flow">
+      <div class="float" data-offset-y="45">FLT</div>
+      <span class="label">SPACE-AROUND</span>
+      <span class="abspos">ABS</span>
+      <span class="relpos">REL</span>
+      <div class="overflow">OVERFLOW</div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="test" style="align-content: normal" title="normal">
+    <div class="float" data-offset-y="40">FLT</div>
+    <div class="in-flow" data-offset-y="40"></div>
+    <div class="in-flow">
+      <div class="float" data-offset-y="40">FLT</div>
+      <span class="label">NORMAL</span>
+      <span class="abspos">ABS</span>
+      <span class="relpos">REL</span>
+      <div class="overflow">OVERFLOW</div>
+    </div>
+  </div>
+</div>
+
+<p>
+  <button onclick="document.querySelector('style[title]').textContent = 'html { font-size: -11px; }'">Show Text</button>

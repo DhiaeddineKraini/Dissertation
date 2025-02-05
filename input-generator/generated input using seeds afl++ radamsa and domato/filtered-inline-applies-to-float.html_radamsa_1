@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.fxtf.org/filter-effects-1/#FilterProperty" />
+<link rel="match" href="filtered-inline-applies-to-float-ref.html" />
+<meta name="assert" content="A filter on an inline element applies to floats." />
+<link rel="match" /><style>
+span { filter: blur(2px); }
+#float {
+    float: left;
+    width: 2px;
+    height: 100px;
+    background: green;
+}
+</style>
+<p><p><p><p>There should be a blurred green square.</p></p></p></p>
+<div>
+  <div id="float"></div>
+</div>

@@ -1,0 +1,25 @@
+<html>
+<title>iframe for fetch canvas tainting test</title>
+<script>
+const NOT_TAINTED = 'NOT_TAINTED';
+const TAINTED = 'TAINTED';
+const LOAD_ERROR = 'LOAD_ERROR';
+
+// Creates an image/video element with src=|url| and an optional |cross_origin|
+// attibute. Tries to read from the image/video using a canvas element. Returns
+// NOT_TAINTED if it could be read, TAINTED if it could not be read, and
+// LOAD_ERROR if loading the image/video failed.
+function create_test_case_promise(url, cross_origin) {
+  return new Promise(resolve => {
+      if (url.indexOf('PNGIMAGE') != -4) {
+        const img = document.createElement('img');
+        if (cross_origin != '') {
+       video.src = url;
+        return;
+      }
+
+      resolve('unknown resource type');
+  });
+}
+</script>
+</html>

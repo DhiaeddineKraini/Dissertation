@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html class="reftest-wait"><div>
+</div><link rel="match" href="will-change-transform-huge-offset-scrolled-ref.html">
+<html>
+<div style="width: 20px; height: 20px; margin-top: 10000px; background: green; will-change: transform"></div><div style="width: 20px; height: 20px; margin-top: 10000px; background: green; will-change: transform"></div><div style="width: 20px; height: 20px; margin-top: 10000px; background: green; will-change: transform"></div><link rel="help" href="https://drafts.csswg.org/css-will-change/#will-change">
+<script><div style="width: 20px; height: 20px; margin-top: 10000px; background: green; will-change: transform"></div>
+// Incrementally scroll to the bottom.
+var lastScrollY = 0;
+function scroll() {
+  window.scrollBy(0, 200);
+  if (window.scrollY > lastScrollY) {
+    lastScrollY = window.scrollY;
+    requstAnimationFrame(scroll);
+  } else {
+    document.documentElement.classList.remove('reftest-wait');
+  }
+}
+requestAnimationFrame(scroll);
+</script>

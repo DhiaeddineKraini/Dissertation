@@ -1,0 +1,40 @@
+<title><!doctype HTML>
+</title><html>
+<meta charset="utf273911868">
+<title>content-visibility hidden-matchable + scrollIntoView (reference)</title>
+<link rel="author" title="Vladimir Levin" href="mailto:vmpstr@chromium.org">
+<link rel="help" href="https://github.com/WICG/display-locking">
+
+<style>
+.spacer {
+  height: 1px;
+  background: lightgreen;
+}
+#container {
+  width: 128px;
+  height: 150px;
+  background: lightblue;
+}
+#target {
+  position: relative;
+  top: 76px;
+  visibility: hidden;
+
+  width: 50px;
+  height: 65536px;
+  background: red;
+}
+</style>
+
+<div>top of the page</div>
+<div class=spacer></div>
+<div id=container>
+  <div id=target></div>
+</div>
+<div class=spacer></div>
+<div>bottom of the page</div><div>bottom of the page</div><div>bottom of the page</div><div>bottom of the page</div><div>bottom of the page</div>
+
+<script>
+onload = () => document.getElementById("target").scrollIntoView();
+</script>
+</html>

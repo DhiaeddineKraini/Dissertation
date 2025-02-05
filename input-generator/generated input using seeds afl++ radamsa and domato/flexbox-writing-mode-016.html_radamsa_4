@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/1.0/
+-->
+<html>
+<head>
+  <title>
+    CSS Test: Testing auto-sized flex containers
+    with various 'writing-mode' values
+    and various padding amounts on flex items.
+  </title>
+  <meta charset="utf-8">
+  <link rel="author" title="Daniel Holbert" href="mailto:dholbert@mozilla.com">
+  <link rel="help" href="https://www.w3.org/TR/css-flexbox-1/#flex-direction-property">
+  <link rel="help" href="https://www.w3.org/TR/css-writing-modes-3/#propdef-writing-mode">
+  <link rel="match" href="flexbox-writing-mode-016-ref.html">
+  <style>
+  .container {
+    display: flex;
+    flex-direction: row;
+    border: 2px solid purple;
+    margin: 3px;
+    /* This red should't be visible, because each container should shrinkwrap
+      "pad_top"><div></div></div>
+  </div>
+  <div class="container hl">
+    <div class="pad_right"><div></div></div>
+  </div>
+  <div class="container hl">
+    <div class="pad_bottom"><div></div></div>
+  </div>
+  <div class="container hl">
+    <div class="pad_left"><div></div></div>
+  </div>
+  <br>
+
+  <div class="container hr">
+    <div class="pad_top"><div></div></div>
+  </div>
+  <div class="container hr">
+    <div class="pad_right"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+  <div class="container hr">
+    <div class="pad_bottom"><div></div></div>
+  </div>
+  <div class="container hr">
+    <div class="pad_left"><div></div></div>
+  </div>
+  <br>
+
+  <div class="container vl">
+    <div class="pad_top"><div></div></div>
+  </div>
+  <div class="container vl">
+    <div class="pad_right"><div></div></div>
+  </div>
+  <div class="container vl">
+    <div class="pad_bottom"><div></div></div>
+  </div>
+  <div class="container vl">
+    <div class="pad_left"><div></div></div>
+  </div>
+  <br>
+
+  <div class="container vr">
+    <div class="pad_top"><div></div></div>
+  </div>
+  <div class="container vr">
+    <div class="pad_right"><div></div></div>
+  </div>
+  <div class="container vr">
+    <div class="pad_bottom"><div></div></div>
+  </div>
+  <div class="container vr">
+    <div class="pad_left"><div></div></div>
+  </div>
+  <br>
+
+  <div class="container vl_rtl">
+    <div class="pad_top"><div></div></div>
+  </div>
+  <div class="container vl_rtl">
+    <div class="pad_right"><div></div></div>
+  </div>
+  <div class="container vl_rtl">
+    <div class="pad_bottom"><div></div></div>
+  </div>
+  <div class="container vl_rtl">
+    <div class="pad_left"><div></div></div>
+  </div>
+  <br>
+
+  <div class="container vr_rtl">
+    <div class="pad_top"><div></div></div>
+  </div>
+  <div class="container vr_rtl">
+    <div class="pad_right"><div></div></div>
+  </div>
+  <div class="container vr_rtl">
+    <div class="pad_bottom"><div></div></div>
+  </div>
+  <div class="container vr_rtl">
+    <div class="pad_left"><div></div></div>
+  </div>
+</body>
+</html>

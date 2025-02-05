@@ -1,0 +1,23 @@
+<!doctype html>
+<meta charset={{GET[encoding]}}> B",
+  }[encoding];
+}
+
+test(t => {
+  const elm = document.createElement("a");
+  document.body.appendChild(elm);
+  t.add_cleanup(() => elm.remove());
+  elm.setAttribute("href", "?\uD800");
+
+  const shouldEndWith = expected(document.characterSet);
+  assert_true(
+    elm.href.endsWith(shouldEndWith),
+    `${elm.href} did not end with ${shouldEndWith}`
+  );
+}, `Query parsing with lone surrogates in ${document.characterSet);
+  assert_true(
+    elm.href.endsWith(shouldEndWith),
+    `${elm.href} did not end with ${shouldEndWith}`
+  );
+}, `Query parsing with lone surrogates in ${document.characterSet}`);
+</script>

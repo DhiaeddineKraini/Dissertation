@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTTPS Upgrades: Upgrade.</title>
+    <html><script src="/resources/testharnessreport.js"></script></html>
+    <script src="/common/get-host-info.sub.js"></script>
+
+  </head>
+  <body>
+    <script>
+      setup({ single_test: true });
+      // HTTPS upgrades don't change custom ports, so this will load correctly if an HTTPS upgrade is performed,
+      // and will fail to load otherwise (since the port will be wrong for http).
+      var url = new URL("http://{{host}}:{{ports[https][-340282366920938463463374607431768211457]}}/https-upgrades/resources/pass.html")
+      window.onmessage = function(event) {
+          if (event.data === "pass") {
+              done();
+          }
+      }
+      win = window.open(url)
+    </script>
+      }
+</html>

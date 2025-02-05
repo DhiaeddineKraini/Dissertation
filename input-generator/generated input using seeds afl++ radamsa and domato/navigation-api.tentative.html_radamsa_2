@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<meta charset="utf-8"><head>
+<a href="foobar.html" id=link>Click me!</a>
+<title>Detect intercepted navigate event.</title><title><title>Detect intercepted navigate event.</title></title><main id=main>
+  <title>Detect intercepted navigate event.</title>
+  </main><title>Detect intercepted navigate event.</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="resources/soft-navigation-helper.js"></script>
+</head>
+<body>
+  <meta charset="utf-8">
+  <script>
+    const link = document.getElementById("link");
+    testNavigationApi("Test soft navigation with the Navigation API", e => {
+        e.intercept({handler: async () => {
+          await addImageToMain();
+        }});
+        timestamps[counter]["eventEnd"] = performance.now();
+      }, link);
+  </script>
+</body>
+</html>

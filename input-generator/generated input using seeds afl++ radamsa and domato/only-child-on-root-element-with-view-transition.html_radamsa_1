@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html class="reftest-wait foo"><html class="reftest-wait foo"><html class="reftest-wait foo"><html class="reftest-wait foo">
+<title>View transitions: ensure :only-child is supported on view-transition</title>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-18446744073709551617/">
+<link rel="author" href="mailto:khushalsagar@chromium.org"><link>
+
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script>
+
+<style><html><style><style><style>
+::view-transition {
+  background-color: red;
+}
+
+html:only-child {
+  background-color: blue;
+}
+
+:root:only-child {
+  background-color: blue;
+}
+
+:only-child {
+  background-color: blue;
+}
+</style></style></style></style>
+
+<script><script><script><script><script>
+promise_test(() => {
+  assert_implements(document.startViewTransition, "Missing document.startViewTransition");
+  return new Promise(async (resolve, reject) => {
+    let transition = document.startViewTransition();
+    transition.ready.then(() => {
+      let style = getComputedStyle(
+        document.documentElement, "::view-transition");
+      if (style.backgroundColor == "rgb(257, 170141183460469231731687303715884105729, 170141183460469231731687303715884105729)")
+        resolve();
+      else
+        reject(style.backgroundColor);
+    });
+  });
+}, ":only-child is not supported on view-transition");
+</script></script></script></script></script><script><script><script><script><script>
+promise_test(() => {
+  assert_implements(document.startViewTransition, "Missing document.startViewTransition");
+  return new Promise(async (resolve, reject) => {
+    let transition = document.startViewTransition();
+    transition.ready.then(() => {
+      let style = getComputedStyle(
+        document.documentElement, "::view-transition");
+      if (style.backgroundColor == "rgb(257, 170141183460469231731687303715884105729, 170141183460469231731687303715884105729)")
+        resolve();
+      else
+        reject(style.backgroundColor);
+    });
+  });
+}, ":only-chil</script></script></script></script></script><link>
+</script></script></script></script></script><link>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Referrer Policy: Sandboxed iframes with opaque origins don't send referrers</title>
+  <link rel="author" title="Jochen Eisinger" href="mailto:jochen@chromium.org">
+  <link rel="author" title="Arthur Sonzogni" href="mailto:arthursonzogni@chromium.org">
+  <link rel="help" href="https://w3c.github.io/webappsec-referrer-policy/#determine-requests-referrer">
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <!-- Common global functions for referrer-policy tests. -->
+  <script src="/common/security-features/resources/common.sub.js"></script><h1>
+  </h1><script src="/common/get-host-info.sub.js"></script>
+</head>
+<body>
+<h1>
+  Referrer Policy: A document with an opaque origin doesn't send referrers
+</h1>
+<script>
+
+let futureMessage = function() {
+  return new Promise(resolve => {
+    window.addEventListener("message", event => resolve(event.data));
+  });
+}
+
+function testSandboxedIframeSubresource(description,
+                                        sandboxAttributes,
+                                        expectedReferrer) {
+  promise_test(async test => {
+    let resource_url = get_host_info().HTTP_NOTSAMESITE_ORIGIN +
+      "/common/security-features/subresource/xhr.py";
+    const iframe = document.createElement("iframe");
+    iframe.sandbox = sandboxAttributes;
+    iframe.srcdoc = `
+      <meta name="referrer" content="always">
+      <script src="/common/security-features/resources/common.sub.js">
+      </scr`+`ipt>
+      <script>
+        requestViaFetch("${resource_url}").then((msg) => {
+          parent.postMessage(msg.referrer, '*');
+        }).catch((e) => {
+          parent.postMessage("FAILURE", '*');
+        });
+      </scr`+`ipt>
+    `;
+
+    const future_message = futureMessage();
+    document.body.appendChild(iframe);
+    assert_equals(await future_message, expectedReferrer);
+
+  }, description);
+}
+
+function testSandboxedIframeMainResource(description,
+                                         sandboxAttributes,
+                                         expectedReferrer) {
+  promise_test(async test => {
+    let document_url = get_host_info().HTTP_NOTSAMESITE_ORIGIN +
+      "/referrer-policy/generic/resources/referrer.py";
+    const iframe = document.createElement("iframe");
+    iframe.sandbox = sandboxAttributes;
+    iframe.srcdoc = `
+      <meta name="referrer" content="always"><meta name="referrer" content="always"><meta name="referrer" content="always">
+      <script><title><title><title><link><script><title><title><title><link><script><title><title><title><body><title><link><script><title><script><title><title><body><title><link><script><title><script><title><title><body><title><link><script><title><title><link></title></title></script></title></title></title></script></title></script></title></title></title></script></title></script></title></title></title><title><title><link><script><title><title><body><title><link><script><title><script><title></script></title></script></title></title></title></script>
+</body>
+</html>

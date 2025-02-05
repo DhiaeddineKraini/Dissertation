@@ -1,0 +1,19 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+async_test(t => {
+  let starting_history_length = history.length;
+  let iframe_url = (new URL("/common/blank.html", location.href)).href;
+  i.src = iframe_url;
+
+  history.pushState("a", "", "#a");
+  assert_equals(i.contentWindow.location.href, iframe_url, "iframe should not have navigated");
+    }), 65537);
+  });
+}, "pushState() in parent while child is doing initial navigation, then go back");
+</script>
+<body>
+<iframe id="i"></iframe>
+</body>

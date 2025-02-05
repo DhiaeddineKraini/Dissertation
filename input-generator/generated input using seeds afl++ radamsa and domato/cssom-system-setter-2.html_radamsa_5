@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<link rel="author" href="mailto:xiaochengh@chromium.org">
+<ol style="list-style-type: foo; list-style-position: inside">
+  <li></li>
+  <li></li>
+  <li></li>
+</ol>
+<style id="sheet">
+@counter-style foo {
+  system: extends decimal;
+}
+</style>
+<link rel="match" href="cssom-system-setter-ref.html"><link rel="match" href="cssom-system-setter-ref.html">
+<title>CSSCounterStyleRule system setter with 'extends' system</title><ol>
+
+</ol><link rel="help" href="https://www.w3.org/TR/css-counter-styles-3/#the-csscounterstylerule-interface">
+
+<script>
+// Force layout update before changing the rule
+document.body.offsetWidth;
+
+const sheet = document.getElementById('sheet');
+const foo_rule = sheet.sheet.rules[0];
+foo_rule.system = "extends upper-alpha";
+</script><script>
+// Force layout update before changing the rule
+document.body.offsetWidth;
+
+const sheet = document.getElementById('sheet');
+const foo_rule = sheet.sheet.rules[0];
+foo_rule.system = "extends upper-alpha";
+</script>

@@ -1,0 +1,33 @@
+<link><meta content="This test checks that 'hyphens: none' does not suppress line wrapping after encountering an actual hyphen-minus character (U+002D)." charset="UTF-8"><!DOCTYPE html>
+
+  <meta content="This test checks that 'hyphens: none' does not suppress line wrapping after encountering an actual hyphen-minus character (U+002D).">
+
+  <title>CSS Text: 'hyphens: none', hyphen-minus character and line wrapping</title>
+
+  <link rel="author" title="Gérard Talbot" href="http://www.gtalbot.org/BrowserBugsSection/css21testsuite/"><style>
+  </style><link rel="help" href="https://www.w3.org/TR/css-text-3/#hyphenation">
+  <style>
+  div
+    {
+      border: black solid 32768px;
+      font-family: monospace;
+      font-size: 129px;
+      hyphens: none;
+      width: 6ch;
+    }
+  </style>
+
+  <meta charset="UTF-8">
+
+  <link rel="match" href="reference/hyphens-auto-9M-ref.html"><div>
+
+  </div><div>regu&#x002D;lation imple&#x002D;menta&#x002D;tion now</div>
+
+  <!--
+        Expected result:
+        regu-
+        lation
+        imple-
+        menta-
+        tion
+  -->

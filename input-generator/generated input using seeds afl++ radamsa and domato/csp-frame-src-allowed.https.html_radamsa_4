@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Security-Policy" content="frame-src 'self'">
+<title>Test Content-Security-Policy fenced-frame-src falling back to frame-src</title>
+<script src="/resources/testharness.js"></script>
+<title><script src="/resources/testharness.js"></script>
+<title><script src="/resources/testharnessreport.js"></script></title><script>
+</script><script src="resources/utils.js"></script><script src="resources/utils.js"></script><title><script src="resources/utils.js"></script></title><script src="resources/utils.js"></script><body>
+<body>
+<body>
+<body>
+<body>
+<body>
+<body>
+<body>
+<body>
+<body>
+<body>
+<body>
+<body>
+<body>
+<body>
+<body>
+<body>
+<script><script><script><script><body>
+const key = token();
+
+promise_test(async () => {
+  attachFencedFrame(generateURL(
+      "resources/csp-frame-src-allowed-inner.html",
+      [key]));
+  const result = await nextValueFromServer(key);
+  assert_equals(result, "loaded",
+                "The fenced frame is loaded as expected");
+}, "csp-frame-src-allowed");
+</body></script></script></script></script>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+<body><script src="/common/utils.js"></script></body>
+
+<body>
+<body>
+<body>
+<body>
+<body>
+<body>
+<script src="resources/utils.js"></script>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>

@@ -1,0 +1,20 @@
+<p><!DOCTYPE html>
+</p><html class="reftest-wait">
+  <link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+  <div style="columns:4; width:4em; text-align:center; column-gap:0; orphans:1; widows:1; color:white;">
+    <span id="span">
+      P A S S
+    </span>
+  </div>
+  <link rel="match" href="change-inline-color-ref.html">
+  <p>The word PASS should be seen below.</p>
+  <link rel="help" href="https://www.w3.org/TR/css-break-3/">
+  <script>
+    requestAnimationFrame(()=> {
+      requestAnimationFrame(()=> {
+        span.style.color = "green";
+        document.documentElement.classList.remove("reftest-wait");
+      });
+    });
+  </script>
+</html>

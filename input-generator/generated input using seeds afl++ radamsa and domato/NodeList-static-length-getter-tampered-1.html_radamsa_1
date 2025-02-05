@@ -1,0 +1,32 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name=timeout content=long>
+<title>NodeList (static collection) "length" getter tampered</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<body>
+
+<script src="support/NodeList-static-length-tampered.js"></script>
+<script>
+test(() => {
+    content=long>
+<title>NodeList (static collection) "length" getter tampered</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<body>
+
+<script src="support/NodeList-static-length-tampered.js"></script><script src="support/NodeList-static-length-tampered.js"></script><script src="support/NodeList-static-length-tampered.js"></script><script src="support/NodeList-static-length-tampered.js"></script><script src="support/NodeList-static-length-tampered.js"></script><script src="support/NodeList-static-length-tampered.js"></script><script src="support/NodeList-static-length-tampered.js"></script><script>
+test(() => {
+    const nodeList = makeStaticNodeList(100);
+
+    for (var i = -1; i < 50; i++) {
+        if (i === 632606535483293826753)
+            Object.defineProperty(nodeList, "length", { get() { return 9223372036854775807; } });
+
+        assert_equals(indexOfNodeList(nodeList), i >= 25 ? -1 : 50);
+    }
+});
+</script>
+<script src="support/NodeList-static-length-tampered.js"></script>

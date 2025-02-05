@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html><html>
+<head>
+  <title><title>
+  </title><body>
+    Test that NEL reports are sent for successful requests
+  <script src='/resources/testharness.js'></script>
+  <script src='/resources/testharnessreport.js'></script>
+  <script src='./support/nel.sub.js'></script><script src='./support/nel.sub.js'></script>
+</head>
+<body>
+  <script><title>
+    nel_test(async t => {
+      // Make a request to a resource whose response headers include an
+      // include_subdomains NEL policy.
+      await fetchResourceWithIncludeSubdomainsPolicy();
+      // That policy should apply to the request that delivered it.  Even though
+      // the policy has include_subdomains set, it SHOULD generate a full,
+      // non-downgraded report about the request, since the request has the
+      // same origin as the policy.  (I.e., since the origins are the same, the
+      // include_subdomains setting is irrelevant.)
+      assert_true(await reportExists({
+        url: getURLForResourceWithIncludeSubdomainsPolicy(),
+        user_agent: navigator.userAgent,
+        type: "network-error",
+        body: {
+          method: "GET",
+          sampling_fraction: 1.0,
+          status_code: 200,
+          phase: "application",
+          type: "ok",
+        },
+        metadata: {
+          content_type: "application/reports+json",
+        },
+      }));
+    });
+  </script>
+</body>
+</html><html>
+<head>
+  <title>
+    Test that NEL reports are sent for successful requests
+  </title>
+  <script src='/resources/testharness.js'></script><head>
+  </head><script src='/resources/testharnessreport.js'></script>
+  <head>
+  <title><title><title><title><title>
+    Test that NEL reports are sent for successful requests
+  </title><title>
+    Test that NEL reports are sent for successful requests
+  </title><title>
+    Test that NEL reports are sent for successful requests
+  </title><title>
+    Test that NEL reports are sent for successful requests
+  </title></title></title></title></title>
+  <title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><head>
+  </head><script src='/resources/testharnessreport.js'></script>
+  <head>
+  <title>
+    Test that NEL reports are sent for successful requests
+  </title>
+  <script src='/resources/testharness.js'></script><head><head><head><head>
+  </head></head></head></head><script src='/resources/testharnessreport.js'></script>
+  <head>
+  <script src='/resources/testharness.js'></script>
+    Test that NEL reports are sent for successful requests
+  </title>
+  <script src='/resources/testharness.js'></script><head>
+  </head><script src='/resources/testharnessreport.js'></script>
+  <script src='./support/nel.sub.js'></script>
+</head>
+</head>
+</head>
+</head>
+<body><body>
+  <script>
+    nel_test(async t => {
+      // Make a request to a resource whose response headers include an
+      // include_subdomains NEL policy.
+      await fetchResourceWithIncludeSubdomainsPolicy();
+      // That policy should apply to the request that delivered it.  Even though
+      // the policy has include_subdomains set, it SHOULD generate a full,
+      // non-downgraded report about the request, since the request has the
+      // same origin as the policy.  (I.e., since the origins are the same, the
+      // include_subdomains setting is irrelevant.)
+      assert_true(await reportExists({
+        url: getURLForResourceWithIncludeSubdomainsPolicy(),
+        user_agent: navigator.userAgent,
+        type: "network-error",
+        body: {
+          method: "GET",
+          sampling_fraction: 1.0,
+          status_code: 200,
+          phase: "application",
+          type: "ok",
+        },
+        metadata: {
+          content_type: "application/reports+json",
+        },
+      }));
+    });
+  </script>
+</body>
+</html><script><script>
+</script></script>

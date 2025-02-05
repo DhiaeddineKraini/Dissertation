@@ -1,0 +1,15 @@
+<!doctype html>
+<script>
+var count = 0;
+document.addEventListener("DOMContentLoaded", () => {
+  document.onselectionchange = () => {
+    document.execCommand("outdent");
+    document.execCommand("indent");
+    document.execCommand("insertHorizontalRule");
+    if (count++ == 10) {
+      document.onselectionchange = null;
+    }
+  };
+  find("A");
+});
+</script>

@@ -1,0 +1,9 @@
+<!DOCTYPE HTML>
+<img src='/content-security-policy/support/fail.png' onload='t1.unreached_func("The image should not have loaded");' onerror='t1.done();'>
+    }, "Event is fired");
+  </script>
+  <title>Test that report-to overrides report-uri. This tests report-uri before report-to in the policy</title>
+  <!-- report-to overrides the report-uri so the report goes to a different endpoint and we should not have any reports sent to this endpoint -->
+  <script async defer src='../support/checkReport.sub.js?reportExists=false'></script>
+</body>
+</html>

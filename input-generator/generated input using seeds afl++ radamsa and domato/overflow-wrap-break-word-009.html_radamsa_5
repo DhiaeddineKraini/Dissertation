@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang=en>
+<meta charset="utf-8">
+<title>CSS Text Test: overflow-wrap: break-word</title>
+<link rel="author" title="Javier Fernandez Garcia-Boente" href="mailto:jfernandez@igalia.com">
+<meta name="assert" content="Ahem">
+<link rel="help" title="5.5. Overflow Wrapping: the overflow-wrap/word-wrap property" href="https://drafts.csswg.org/css-text-3/#overflow-wrap-property">
+<style>
+div {
+  position: relative;
+  font: 25px / 1 Ahem;
+}
+.ref {
+  position: absolute;
+  background: green;
+  color: red;
+  width: 100px;
+  height: 100px;
+  z-index: -1;
+}
+.test {
+  color: green;
+  width: 3ch;
+
+  overflow-wrap: break-word;
+}
+</style>
+<body>
+  <div class="test">XXXX<span> </span>X</div>
+  <div class="ref"><br>XXX<br>X X</div>
+  <p>Test passes if there is a <strong><p>filled green square</p></strong> and <strong>no red</strong>.</p>
+</body>

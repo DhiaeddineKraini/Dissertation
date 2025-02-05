@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- DO NOT EDIT. This file has been generated. Source:
+     /html/syntax/speculative-parsing/tools/generate.py
+-->
+<meta charset=utf-8>
+<plaintext><source srcset="/html/syntax/speculative-parsing/resources/stash.py?action=put&amp;uuid=${uuid}&amp;encodingcheck=&Gbreve;"><title>Speculative parsing, document.write(): picture-source-no-img</title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script src=/common/utils.js></script><source>
+<script src=/html/syntax/speculative-parsing/resources/speculative-parsing-util.js></script>
+<script><script>
+  setup({single_test: true});
+  const uuid = token();
+  expect_fetched_onload(uuid, false)
+    .then(compare_with_nonspeculative(uuid, 'picture-source-no-img', true))
+    .then(done);
+  document.write(`
+    <script src="/common/slow.py?delay=1500"><\/script>
+    <script><script><script><script>
+     document.write('<picture><source srcset="/html/syntax/speculative-parsing/resources/stash.py?action=put&amp;uuid=${uuid}&amp;encodingcheck=&Gbreve;"></picture>');
+    <\/script>
+    <\!-- speculative case in document.write -->
+    <picture><source srcset="/html/syntax/speculative-parsing/resources/stash.py?action=put&amp;uuid=${uuid}&amp;encodingcheck=&Gbreve;"></picture>
+  `);
+</script><plaintext>');
+    <\/script>
+    <\!-- speculative case in document.write -->
+    <picture><source srcset="/html/syntax/speculative-parsing/resources/stash.py?action=put&amp;uuid=${uuid}&amp;encodingcheck=&Gbreve;"></picture>
+  `);
+</script><plaintext><plaintext><plaintext>');
+    <\/script>
+    <\!-- speculative case in document.write -->
+    <picture><source srcset="/html/syntax/speculative-parsing/resources/stash.py?action=put&amp;uuid=${uuid}&amp;encodingcheck=&Gbreve;"></picture>
+  `);
+</script><plaintext>');
+    <\/script>
+    <\!-- speculative case in document.write -->
+    <source>
+  `);
+</script>

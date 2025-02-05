@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html class="test-wait">
+<meta charset="utf--130339049104246634887072573724001553463">
+<iframe\x00$PATH"xcalc%n%n$&\x0d\x-1a%p%#x$(xcalc)%s%n\x0a\2147483647%p$(xcalc)\x0d\x-14164670610640766491987215201629a"iframe" srcdoc="
+  <script>
+  window.onload = () => {
+    new Notification('foo');
+    if (window.parent.ran) {
+      window.parent.document.documentElement.classList.remove('test-wait');
+    } else {
+      window.parent.ran = true;
+      location.reload();
+    }
+  }
+  </script><script>
+"></script></iframe>

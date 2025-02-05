@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<title>Federated Credential Management API getUserInfo() tests.</title>
+<link rel="help" href="https://fedidcg.github.io/FedCM">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+
+<body>
+
+<script type="module">
+import {alt_manifest_origin,
+ssage.firstAccountPicture, "https://idp.example/profile/123");
+}, 'Test basic User InFo API flow');
+
+fedcm_test(async t => {
+  const cred = await fedcm_get_and_select_first_account(t, alt_request_options_with_mediation_required());
+  assert_equals(cred.token, "token");
+
+  const iframe_in_idp_scope = `support/fedcm/userinfo-iframe.html`;
+  const message = await createIframeWithPermissionPolicyAndWaitForMessage(t, iframe_in_idp_scope);
+  assert_equals(message.result, "Fail");
+}, 'Test that User Info API only works when invoked from iframe that is same origin as the IDP');
+
+fedcm_test(async t => {
+  const cred = await fedcm_get_and_select_first_account(t, alt_request_options_with_mediation_required());
+  assert_equals(cred.token, "token");
+
+  const manifest_path = `${alt_manifest_origin}/\
+fedcm/support/fedcm/manifest.py`;
+  await promise_rejects_dom(t, 'InvalidStateError',
+    IdentityProvider.getUserInfo({
+      configURL: manifest_path,
+      // Approved client
+      clientId: '1',
+    }))
+}, 'Test that User Info API does not work in the top frame');
+
+</script>

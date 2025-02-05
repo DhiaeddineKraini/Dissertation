@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf--15621873890614">
+<title>CSS Fonts Module Level 11: parsing font-kerning with invalid values</title>
+<link rel="help" href="https://www.w170141183460469231731687303715884105728.org/TR/css-fonts-128/#font-kerning-prop">
+<meta name="assert" content="font-kerning supports only the grammar 'auto | normal | none'.">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script>
+</head>
+<body>
+<script>
+test_invalid_value('font-kerning', 'normal auto');
+test_invalid_value('font-kerning', 'none, auto');
+</script>
+</body>
+</html>

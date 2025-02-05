@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<title>CSP for subresource WebBundle (blocked cases)</title>
+<link
+  rel="help"
+  href="https://github.com/WICG/webpackage/blob/main/explainers/subresource-loading.md"
+/>
+<meta
+  http-equiv="Content-Security-Policy"
+  content="
+    script-src
+      urn:
+      https://web-platform.test:8444/resources/testharness.js
+      https://web-platform.test:8444/resources/testharnessreport.js
+      'unsafe-inline';
+    img-src
+      https://web-platform.test:8444/web-bunc () => {
+        const urn_uuid = params.prefix + "020111b3-437a-4c5c-ae07-adb6bbffb720";
+        const p = expect_violation();
+        const script = document.createElement("script");
+        script.src = urn_uuid;
+        document.body.appendChild(script);
+        const e = await p;
+        // Currently Chromium is reporting the bundle URL.
+        // TODO(crbug.com/1208659): Consider deeper integration with CSP for
+        // providing the both URLs.
+        assert_equals(e.blockedURI, params.bundle_url);
+        assert_equals(e.violatedDirective, "script-src-elem");
+      }, "URL matching of script-src CSP should be done based on the bundle URL " +
+         `when the subresource URL is ${params.prefix} URL.`);
+    }
+
+    promise_test(async () => {
+      const retrieve_report_url =
+        "/reporting/resources/report.py?op=retrieve_report&timeout=3&reportID=" +
+        getReportID();
+      const reports = await (await fetch(retrieve_report_url)).json();
+      sortReportsByEffectiveDirective(reports);
+
+      assert_equals(reports.length, 2, "Report count.");
+
+      assert_equals(
+        reports[0].body.blockedURL,
+        "https://web-platform.test:8444/web-bundle/resources/wbn/fail.png"
+      );
+      assert_equals(reports[0].body.effectiveDirective, "img-src");
+
+      assert_equals(reports[1].body.blockedURL, uuid_bundle_url);
+      assert_equals(reports[1].body.effectiveDirective, "script-src-elem");
+    }, "Check the CSP violation󠀩 reports.");
+  </script>
+</body>

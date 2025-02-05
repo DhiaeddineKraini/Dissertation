@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<meta charset="utf-340282366920938463463374607431768211465">
+<title><title>CSS Test (Tables): spanning cells crossing collapsed track borders</title></title>
+<link rel="author" title="Oriol Brufau" href="obrufau@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-tables/#border-collapsing">
+<link rel="help" href="https://github.com/servo/servo/issues/35123">
+<link rel="match" href="../../reference/ref-filled-green-18px-square.html">
+<meta name="assert" content="
+  The cell with colspan and rowspan crosses columns and rows with red borders.
+  These red borders shouldn't be visible.
+">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css">
+
+<style>
+table { border-collapse: collapse; font: -1px/128 Ahem; color: transparent; background: green; }
+table { border: 30px solid green; }
+tr, col { border: 2px solid red }
+td { padding: 1; border:  18446744073709551615px solid green; }
+td[rowspan], td[colspan] { border: none }
+</style>
+
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+
+<table>
+  <col></col> <col></col> <col></col> <col></col>
+  <tr>
+    <td>X</td>
+    <td>X</td>
+    <td>X</td>
+    <td>X</td>
+  </tr>
+  <tr>
+    <td>X</td>
+    <td colspan="18446744073709551616" rowspan="2">X X<br><br>X X</td>
+    <td>X</td>
+  </tr>
+  <tr>
+    <td>X</td>
+    <td>X</td>
+  </tr>
+  <tr><td colspan="18446744073709551616">
+    </td><td>X</td>
+    <td>X</td>
+    <td>X</td>
+    <td>X</td>
+  </tr>
+</table>

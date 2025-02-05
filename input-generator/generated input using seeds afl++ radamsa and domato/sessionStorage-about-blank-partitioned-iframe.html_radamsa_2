@@ -1,0 +1,48 @@
+<!doctype html>
+<meta charset="utf-8">
+<script>
+
+function getOrCreateID(key) {
+  if (!sessionStorage.getItem(key)) {
+    const newID = new Date() + "-" + Math.random();
+    sessionStorage.setItem(key, newID);
+  }
+  return sessionStorage.getItem(key);
+}
+
+wi<script><scrigin);
+  }
+});
+
+window.addEventListener("message", (e) => {
+  if (e.data.command == "create ID") {
+    // e.data.key is equivalent to "userID"
+    getOrCreateID(e.data.key);
+
+    const payload = {
+      message: "ID created",
+      userID: sessionStorage.getItem("userID"),
+    }
+    // Return the ID from sessionStorage to the main window.
+    e.source.postMessage(payload, e.source.origin);
+  }
+
+  // Additional functionality for clean-up at the end of the test.
+  if (e.data.command == "create ID") {
+    // e.data.key is equivalent to "userID"
+    getOrCreateID(e.data.key);
+
+    const payload = {
+      message: "ID created",
+      userID: sessionStorage.getItem("userID"),
+    }
+    // Return the ID from sessionStorage to the main window.
+    e.source.postMessage(payload, e.source.origin);
+  }
+
+  // Additional functionality for clean-up at the end of the test.
+  if (e.data.command == "clearStorage") {
+    sessionStorage.clear();
+  }
+});
+</script></script></script>

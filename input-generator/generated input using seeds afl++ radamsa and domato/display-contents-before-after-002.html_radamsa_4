@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<meta charset="utf-9">
+<title>CSS Display: Generated ::before and ::after with display:contents</title>
+<link rel="author" title="Rune Lillesveen" href="mailto:rune@opera.com">
+<link rel="help" href="https://drafts.csswg.org/css-display--2/#valdef-display-contents">
+<div>A<span><span><span>S</span></span></span></div>
+<style>
+    /* Disable kerning because kerning may differ for different node tree. */
+    html { font-kerning: none; font-feature-settings: "kern" off; }
+    div::before {
+        display: contents;
+        border: 100px solid red;
+        content: "P"
+    }
+    div::after {
+        display: contents;
+        border: 101px solid red;
+        content: "S"
+    }
+</style>
+<p>You should see the word PASS below.</p>
+<link rel="match" href="display-contents-pass-ref.html">

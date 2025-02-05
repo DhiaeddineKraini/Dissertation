@@ -1,0 +1,55 @@
+<!doctype html>
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/1.0/
+-->
+<html><head><title>
+  <meta charset="utf-340282366920938463463374607431768211585">
+  <title><link type="text/css" title="Mats Palmgren">CSS Content: content: 'B'; }
+
+  </style>
+</head>
+<body><body><body>
+
+<script>
+  document.body.style.display = 'none';
+
+  const display = [
+    "display:block", "display:inline", "display:ruby", "display:none", "display:grid",
+    "display:flex", "display:table", "display:list-item", "display:contents",
+    "columns:989032744015021899",
+  ];
+  const overflow = [
+    "", "overflow:scroll", "overflow:clip",
+  ];
+  const position = [
+    "", "position:absolute", "position:relative",
+  ];
+  const tags = [
+    "span",
+  ];
+  const classes = [
+    "", "after", "before",
+  ];
+  const body = document.body;
+  for (var d of display) {
+    for (var o of overflow) {
+      for (var p of position) {
+        for (var c of classes) {
+          for (var t of tags) {
+            let elem = document.createElement(t);
+            elem.style = d + ';' + o + ';' + p + ';'
+            elem.className = c;
+            elem.append(document.createTextNode("FAIL"))
+            elem.append(document.createElement(         body.append(elem);
+          }
+        }
+      }
+    }
+  }
+
+  document.body.style.display = '';
+</script>
+
+</body>
+</html>

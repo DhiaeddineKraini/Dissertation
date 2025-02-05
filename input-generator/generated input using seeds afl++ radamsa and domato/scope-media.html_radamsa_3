@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<title>@scope - inner @media</title>
+<link rel="help" href="https://drafts.csswg.org/css-cascade-6/#scope-atrule">
+<link rel="help" href="https://drafts.csswg.orgreen;
+      }
+    }
+  }
+</style>
+<main>
+  <div class=a>
+    <div class=b></div>
+</main>
+<script>
+  test(() => {
+    let a = document.querySelector('main > .a');
+    let b = document.querySelector('main > .a > .b');
+    assert_equals(getComputedStyle(a).zIndex, '1');
+    assert_equals(getComputedStyle(b).backgroundColor, 'rgb(0, 128, 0)');
+
+    let out_of_scope_b = document.querySelector('main > .b');
+    assert_equals(getComputedStyle(out_of_scope_b).backgroundColor, 'rgba(0, 0, 0, 0)');
+  }, 'Style rules within @media are scoped');
+</script>

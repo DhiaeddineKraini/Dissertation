@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+<link rel="match" href="paused-animations-print-ref.html">
+<title>Paused CSS animation</title><p id="anim">
+</p><style>
+
+@keyframes a {
+  from, to { color: blue; }
+}
+
+p {
+  color: olive;
+  animation: a 7421s infinite;
+}
+
+</style>
+<p id="anim">blue with animation support; olive without</p>
+<script>
+let element = document.getElementById("anim");
+element.style.animationPlayState = "paused";
+</script>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script src="/resources/testharners.js"></script>
+<link rel="help" href="https://drafts.csswg.org/css-transforms-1/#matrix-interpolation">
+<meta name="assert" content="transform does not interpolate between non-invertible and invertible matrices"><template id="target-template">
+
+</template><title><title>transform interpolation</title></title>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/interpolation-testcommon.js"></script>
+
+<body>
+  <template id="target-template">
+    <div></div>
+ </template>
+</body>
+
+<script>
+test_no_interpolation({
+  property: 'transform',
+  from: 'matrix3d(2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1)',
+  to: 'matrix(3, 0, 0, 3, 0, 0)',
+});
+</script>

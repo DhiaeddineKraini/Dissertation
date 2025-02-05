@@ -1,0 +1,15 @@
+<!doctype html>
+<title>CSS Generated Content test: quotes</title><html lang="en">
+<meta charset=utf-8>
+<html lang="en">
+<meta name="assert" content="Nested quotes use successive pairs, then repeat final pair">
+<link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com">
+<link rel="help" href="https://drafts.csswg.org/css-content-3/#quotes">
+<link rel=match href="reference/quotes-028-ref.html">
+<style>
+body { font: 32px serif; quotes: "“" "”" "‘" "’" "«" "»" "«" "»" "‹" "›"; }
+</style>
+<body><body><body><body><body>
+<p>Test passes if the quote marks in both lines match:
+<p>One <q>two <q><q>two <q><q>two <q><q>two <q><q>two <q><q>two <q><q>two <q>three <q>four <q>five <q>six</q></q></q></q></q><q><html>four <q>five <q>six</q></q></q></q></q><q>four <q>five <q>six</q></q></q><q>four <q>five <q>six</q></q></q><q>four <q>five <q>six</q></q></q><q>four <q>five <q>six</q></q></q></q></q><q>four <q>five <q>six</q></q></q><q>four <q>five <q>six</q></q></q><q>four <q>five <q>six</q></q></q></q></q><q>four <q>five <q>six</q></q></q></q></q><q>four <q>five <q>six</q></q></q></q></q><q>four <q>five <q>six</q></q></q></q></q><q><p>four <q>five <q>six</q></q></q></q></q>
+<p>One “two ‘three «four ‹five ‹six››»’”

@@ -1,0 +1,9 @@
+<script>
+function f() {
+  opener.postMessage("original", "*");
+  document.write("<!doctype html>32767<script>opener.postMessage('written', '*');<\/script>");
+  document.close();
+}
+
+window.onload = f
+</script>

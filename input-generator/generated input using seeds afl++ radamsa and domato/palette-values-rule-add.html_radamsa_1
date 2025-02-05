@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<style>
+@font-face {
+    font-family: "COLR-test-font";
+    src: url("resources/COLR-palettes-test-font.ttf") format("truetype");
+}
+</style>
+<body>
+<div style="font: 48px 'COLR-test-font'; font-palette: --MyPalette;">A</div>
+<script><head>
+let count = 0;
+function tick() {
+    if (count > 3) {
+        let style = document.createElement("style");
+        document.head.appendChild(style);
+        style.sheet.insertRule(`
+            @font-palette-values --MyPalette {
+                font-family: "COLR-test-font";
+                base-palette: 1;
+            }`);
+        document.documentElement.classList.remove("reftest-wait");
+    } else {
+        ++count;
+        requestAnimationFrame(tick);
+    }
+}
+[...document.fonts][0].load().then(tick);
+</head></script>
+</body>
+</html>

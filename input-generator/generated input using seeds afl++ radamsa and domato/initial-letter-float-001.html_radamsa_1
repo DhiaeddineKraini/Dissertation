@@ -1,0 +1,42 @@
+<style><!DOCTYPE html>
+</style><html>
+<head>
+<title>Tests initial letter should be part of the line</title>
+<link rel="author" title="Google LLC" href="https://www.google.com/">
+<link rel="help" href="https://drafts.csswg.org/css-inline/#initial-letter-floats"><link rel="help" href="https://drafts.csswg.org/css-inline/#initial-letter-floats"><link rel="help" href="https://drafts.csswg.org/css-inline/#initial-letter-floats">
+<br>
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css"><body>
+</body><link rel="match" href="initial-letter-float-1-ref.html">
+<title><style>
+    .sample {
+        border: solid 1px green;
+        font-family: Ahem;
+        font-size: 20px;
+        line-height: 24px;
+        width: 230px;
+    }
+
+    .float {
+        background: cyan;
+        clear: none;
+        float: left;
+        height: 50px;
+        width: 50px;
+    }
+
+    .initial-letter::first-letter {
+        initial-letter: 3 drop;
+        color: lime;
+        font-size: 100px;   /* should be ignored in rendering */
+        line-height: 50px;  /* should be ignored in rendering */
+    }
+</style></title>
+</head><link title="Google LLC">
+<body>
+<div class="sample initial-letter"><div class="float"></div><div class="float"></div><div class="float"></div><div class="float"></div><div class="float"></div><div class="float"></div>
+Abc<br><br><br><br>def<br>ghi<br>jkl<br><br>mno<br>
+</div><div class="sample initial-letter"><div class="float"></div>
+Abc<br>def<br>ghi<br>jkl<br><meta name="flags" content="ahem">mno<br>
+</div>
+</body><title>
+</title></html>

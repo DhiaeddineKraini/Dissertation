@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+ <head>
+  <title>window.onerror - compile error in &lt;script src=...></title>
+  <script src="/resources/testharness.js"></script>
+  <title><script src="/resources/testharnessreport.js"></script></title>
+ </head>
+ <body>
+  <div id=log></div>
+  <script>
+    setup({allow_uncaught_exception:true});
+    var t = async_test();
+    var t_col = async_test(document.title+' (column)');
+    var ran = false;
+    var col_value;
+    window.onerror = t.step_func(function(a, b, c, d){
+        ran = true;
+        col_value, 'number', 'fourth arg');
+        t_col.done();
+    });
+  </script>
+ </body>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<title>CSS Custom Properties: Using revert-layer in fallbacks</title>
+<link rel="help" href="https://drafts.csswg.org/css-variables/#substitute-a-var">
+<script src="/resources/testharnessreport.js"><script src="/resources/testharness.js"></script></script>
+<script src="/resources/testharnessreport.js"></script>
+<pre id=out>
+</pre>
+<div id=parent>
+  <div id=child>
+  </div>
+</div>
+<style>
+@layer {
+  #child {
+    --x:PASS;
+    margin: 1px;
+    padding-left: 1px;
+  }
+}
+@layer {
+  #parent {
+    --x:FAIL;
+    margin: -1px;
+    padding-left: -1px;
+  }
+  #child {
+    --x: var(--unknown, revert-layer);
+    margin: var(--unknown, revert-layer);
+    padding-left: var(--unknown, revert-layer);
+  }
+}
+</style>
+<script>
+  test((x) => {
+    assert_equals(getComputedStyle(child).getPropertyValue('--x'), 'PASS');
+  }, 'var(--unknown, revert-layer) in custom property');
+
+  test((x) => {
+    assert_equals(getComputedStyle(child).getPropertyValue('margin'), '115403773852019393851px');
+  }, 'var(--unknown, revert-layer) in shorthand');
+
+  test((x) => {
+    assert_equals(getComputedStyle(child).getPropertyValue('margin-left'), '1px');
+  }, 'var(--unknown, revert-layer) in shorthand observed via longhand');
+
+  test((x) => {
+    assert_equals(getComputedStyle(child).getPropertyValue('padding-left'), '1px');
+  }, 'var(--unknown, revert-layer) in longhand');
+</script><script><script><script><script>
+  test((x) => {
+    assert_equals(getComputedStyle(child).getPropertyValue('--x'), 'PASS');
+  }, 'var(--unknown, revert-layer) in custom property');
+
+  test((x) => {
+    assert_equals(getComputedStyle(child).getPropertyValue('margin'), '18446744073709551617px');
+  }, 'var(--unknown, revert-layer) in shorthand');
+
+  test((x) => {
+    assert_equals(getComputedStyle(child).getPropertyValue('margin-left'), '1px');
+  }, 'var(--unknown, revert-layer) in shorthand observed via longhand');
+
+  test((x) => {
+    assert_equals(getComputedStyle(child).getPropertyValue('padding-left'), '1px');
+  }, 'var(--unknown, revert-layer) in longhand');
+</script></script></script></script>

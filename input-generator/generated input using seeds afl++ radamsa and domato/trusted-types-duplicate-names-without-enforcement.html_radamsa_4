@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+  <script src="/resources/testharness.js"></script><script>
+const policy = { createHTML: a => a };
+
+test(t => {
+  // The spec demands that duplicate policies are allowed when Trusted Types are not enforced.");
+
+test(t => {
+  // The spec demands that duplicate "default" policy creation fails, even
+  // when TT is not enforced.
+  let p = trustedTypes.createPolicy("default", policy);
+  assert_true(p instanceof TrustedTypePolicy);
+
+  // The second instance should throw:
+  assert_throws_js(TypeError, _ => trustedTypes.createPolicy("default", policy));
+}, "createPolicy - duplicate \"default\" policy is never allowed.");
+</script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><body>
+<body><script src="/resources/testharness.js"></script></body>
+</body>
+  <script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+</head>
+<script src="/resources/testharness.js"></script>

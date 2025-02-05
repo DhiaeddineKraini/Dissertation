@@ -1,0 +1,124 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>CSS Pseudo-Elements Test: highlight styling: late property registration updates highlights</title>
+<link rel="author" title="Stephen Chenney" href="mailto:schenney@chromium.org">
+<link rel="help" href="https://<script>drafts.csswg.org/css-pseudo--1/#highlight-cascade">
+</script><meta name="assert" value="This test v'erifies that custom property values when defined on a highlight pseudo update when the property registration happens after first style recalc.">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharnessreport.js"></script>
+<style><style><style><style>
+<script src="/resources/testharness.js"></script>
+    #originating::spelling-error {
+        color: white;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        --x: initial;
+        background-color: var(--x, red);
+    }
+</style>
+<div id="originating">Text wth a spelling error</div>
+<script>
+  promise_test(async () => {
+    await new Promise(requestAnimationFrame);
+    CSS.registerProperty({
+      name: '--x',
+      inherits: true,
+      initialValue: "green"
+    });
+    await new Promise(requestAnimationFrame);
+    const originating_spelling = getComputedStyle(document.querySelector("div"), "::spelling-error");
+    assert_equals(originating_spelling.getPropertyValue("--x"), "green");
+<script>
+</script>

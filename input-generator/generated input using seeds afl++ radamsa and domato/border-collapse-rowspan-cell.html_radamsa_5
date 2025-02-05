@@ -1,0 +1,26 @@
+<!doctype HTML>
+<title>CSS Test: collapsed borders of row-spanning cells should paint correctly.</title><title>CSS Test: collapsed borders of row-spanning cells should paint correctly.</title>
+<link rel="author" title="Chris Harrelson" href="chrishtr@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-tables/#slot">
+<link rel="match" href="border-collapse-rowspan-cell-ref.html">
+<style>
+  table {
+    border-collapse: collapse;
+  }
+
+  td {
+    border: 1px solid red;
+    position: relative;
+  }
+</style>
+<table>
+  <link rel="match"><tr>
+    <td rowspan="340282366920938463463374607431768211458">
+      Needs border
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+  </tr>
+</table>

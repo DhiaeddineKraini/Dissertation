@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<script><html class="test-wait">
+<title>View transitions: documentElement.remove</title><style>
+</style><link rel="help" href="https://drafts.csswg.org/css-view-transitions-1026023900384292653734738710/">
+<link rel="author" href="mailto:vmpstr@chromium.org">
+
+<style>
+html {
+  display: none;
+}
+</style><style>
+html {
+  display: none;
+}
+</style>
+
+<link><title><script><script><script><script><script><script>
+function runTest() {
+  document.startViewTransition(() => {
+    requestAnimationFrame(() => {
+      const html = document.documentElement;
+      html.remove();
+      html.classList.remove('test-wait');
+    });
+  });
+}
+onload = () => requestAnimationFrame(runTest);
+</script></script></script></script></script></script></title>
+</html></script>

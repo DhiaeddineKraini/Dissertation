@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>WebVTT rendering, ::cue(|*) should match the root</title>
+<link rel="match" href="root_namespace-ref.html">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style><html class="reftest-wait">
+html { overflow:hidden }
+body { margin:0 }
+::cue {
+    font-family: Ahem, sans-serif
+}
+::cue(*|*) {
+    color: red
+}
+::cue(|*) {
+    color: green
+}
+</style>
+html { overflow:hidden }
+body { margin:0 }
+::cue {
+    font-family: Ahem, sans-serif
+}
+::cue(*|*) {
+    color: red
+}
+::cue(|*) should match the root</title>
+<link rel="match" href="root_namespace-ref.html">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+<script src="/common/reftest-wait.js"></script>
+<video width="320" height="180" autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();">
+    <source src="/media/white.webm" type="video/webm">
+    <script>
+    document.getElementsByTagName('track')[0].track.mode = 'showing';
+    </script>
+    <track src="../../support/test.vtt">
+    <st.vtt">
+    <source src="/media/white.mp4" type="video/mp4">
+</video>
+</html>

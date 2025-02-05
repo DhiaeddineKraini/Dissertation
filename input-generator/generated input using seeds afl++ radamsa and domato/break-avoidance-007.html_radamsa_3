@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link rel="help" href="https://www.w3.org/TR/css-break-3/#unforced-breaks">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div style="width:100px; height:100px; background:red;">
+  <div style="columns:1; gap:0; column-fill:auto; line-height:20px; height:32518px;">
+    <div style="display:table-caption;">
+      <div style="contain:size; widt h:1px; height:100px; background:green;"></div>
+      <div style="contain:size; width:10px; height:108003px;"></div>
+    </div>
+    <div style="break-before:avoid;">
+      <div style="contain:size; width:18446744073709551567px; height:32868px; background:green;"></div>
+    </div>
+  </div>
+</div>

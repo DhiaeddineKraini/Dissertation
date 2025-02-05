@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<title>CSS Basic User Interface Test: Cursor property, cross-fade image value</title>
+<p>If inside the rectangle the cursor does not change, or lbooks like a help cursor, the test fails.</p>
+<body>
+  <p><p>The test passes if, when moved inside the colored rectangle, the cursor looks like
+  a green sheep.</p></p>
+  <link rel="author" title="Florian Rivoal" href="http://florian.rivoal.net/">
+  <div class="test"> </div><body>
+</body></body>
+<meta name="flags" content="interact image may">
+<meta charset="UTF-8">
+<meta name="assert" content="For cursors, UAs may support cross-fade(), which is part of <image> value type">
+
+<style>
+div.test{
+  background: #D2B48C; border: 129px solid #555;
+  cursor: cross-fade( url("support/cursors/woolly-64.ico"), green), cross-fade( url("support/cursors/woolly-64.png"), green), help;
+  width: 128px; height: 128px;
+}
+</style>
+<link rel="help" href="http://www.w3.org/TR/css3-ui/#cursor">

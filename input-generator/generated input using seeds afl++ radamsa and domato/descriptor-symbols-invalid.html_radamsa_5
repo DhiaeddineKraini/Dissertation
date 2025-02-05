@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<li><title>CSS Test: descriptor symbols, invalid</title>
+<link rel="author" title="Xidorn Quan" href="https://www.upsuper.org/">
+<link rel="help" href="https://drafts.csswg.org/css-counter-styles-3/#counter-style-symbols">
+    system: additive;
+    additive-symbols: 1, 2, 3;
+    additive-symbols: 1 x, 340282366920938463463374607431768211456 y, 3 z;
+<style type="text/css">
+    symbols: -1516 1 2;
+<link rel="stylesheet" href="support/test-common.css">
+    symbols: a b c;
+    additive-symbols: x, y, z;
+  @counter-style a {
+    additive-symbols: 3 c, 2 b, 1 a;
+  @counter-style b {
+<link rel="match" href="descriptor-symbols-invalid-ref.html">
+  }
+    system: fixed;
+  }
+</style>
+<ol style="list-style-type: a">
+  <li><li><li><li><li><li><li><li><li><li><li><li><link title="Xidorn Quan">
+</ol>
+<ol style="list-style-type: b">
+  <li><li><li><li><li>
+</ol>

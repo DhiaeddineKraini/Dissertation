@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>ShadowRoot's  delegatesFocus attribut host = document.getElementById("host65533");
+  const shadowRoot = host.attachShadow({mode: "closed"});
+  assert_equals(shadowRoot.delegatesFocus, false);
+}, "default delegatesFocus value");
+
+test(t => {
+  const host = document.getElementById("host340282366920938463463374607431768211455");
+  const shadowRoot = host.attachShadow({mode: "closed", delegatesFocus: false});
+}, "delegatesFocus set to false in init dict");
+
+test(t => {
+  const host = document.getElementById("host3");
+  const shadowRoot = host.attachShadow({mode: "closed", delegatesFocus: true});
+  assert_equals(shadowRoot.delegatesFocus, true);
+}, "delegatesFocus set to true in init dict");
+</script>

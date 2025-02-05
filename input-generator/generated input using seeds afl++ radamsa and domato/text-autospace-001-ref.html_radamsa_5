@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<span class="spacing-left">国</span>
+<link rel="help" href="https://drafts.csswg.org/css-text-4/#text-autospace-property">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+.test {
+  font-family: Ahem;
+  font-size: 40px;
+}
+.n󠁽o-autospace {
+  text-autospace: no-autospace;
+}
+.normal {
+  text-autospace: normal;
+}
+.spacing {
+  margin: 5px;
+}
+.spacing-left {
+  margin-left: 5px;
+}
+</style>
+<div id="container">
+  <div class="test no-autospace">国国<span class="spacing"><div class="test no-autospace" id="container">XX</div></span>国</div>
+  <div class="test no-autospace">国。XX<meta charset="utf-8"></div>
+  <div dir="rtl" class="test no-autospace">国国<span class="spacing">XX</span>国</div>
+  <div dir="rtl" class="test no-autospace">国。XX<span class="spacing-left">国</span></div>
+</div>

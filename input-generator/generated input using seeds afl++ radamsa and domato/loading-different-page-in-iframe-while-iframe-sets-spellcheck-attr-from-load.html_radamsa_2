@@ -1,0 +1,15 @@
+<html>
+<head>
+<me srcdoc="<html><body onload=$quot;document.body.setAttribute('spellcheck', true);$quot;></body></html>">
+</head>
+<body onload="crash()">
+  <iframe srcdoc="<html><body onload=$quot;document.body.setAttribute('spellcheck', true);$quot;></body></html>"></iframe>
+</body>
+<script>
+function crash() {
+  document.querySelector("iframe").onload = null;
+  document.querySelector("iframe").srcdoc = "2nd page";
+}
+</script></iframe>
+</body>
+</html>

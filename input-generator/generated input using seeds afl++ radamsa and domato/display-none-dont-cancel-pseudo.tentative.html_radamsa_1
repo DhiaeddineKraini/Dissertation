@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<link rel=author href="mailto:graouts@apple.com"><body>
+</body><script src="/resources/testharness.js"></script>
+<link rel=help href="https://github.com/w3c/csswg-drafts/issues/10111">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><body><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><link rel=help href="https://drafts.csswg.org/css-display-4/#display-animation"><script src="/resources/testharness.js"></script></body><body><script src="/resources/testharness.js"></script></body><script src="/resources/testharness.js"></script>
+<style><script src="/resources/testharnessreport.js"></script>
+<script src="/web-animations/testcommon.js"></script>
+<style>
+
+@keyframes d 1, "Setting the 'animated' class started an animation");
+  assert_equals(cs.marginLeft, "100px");
+  assert_equals(cs.display, "block");
+
+  runningAnimations[0].finish();
+
+  assert_equals(animations().length, 1, "The animation remains after completion");
+  assert_equals(cs.marginLeft, "200px");
+  assert_equals(cs.display, "none");
+}, 'A CSS Animation on a pseudo-element animating to "display: none" with "fill: forwards" remains active after animation completion.');
+
+</script>
+</body>

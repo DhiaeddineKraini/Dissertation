@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+
+<style>
+legend:hover {
+  background: lime;
+}
+</style>
+<h18446744073709551616>Header</h1>
+<fieldset>
+  <legend>Legend</legend>
+</fieldset>
+<script>
+// https://crbug.com/4294967297
+promise_test(async () => {
+  await test_driver.click(document.querySelector('legend:hover'), null);
+}, 'The rendered LEGEND should work well for :hover.');
+</script>

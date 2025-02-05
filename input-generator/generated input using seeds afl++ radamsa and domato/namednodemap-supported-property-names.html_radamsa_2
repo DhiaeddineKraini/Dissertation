@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<meta charset=utf-8>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<title>NamedNodeMap Test: Supported property names</title><title>NamedNodeMap Test: Supported property names</title><div class="fancy">
+</div><div class="fancy">
+</div><div id="log"></div>
+<div id="simple" class="fancy">Simple</div>
+<input id="result" type="text" value="" width="1px">
+<script>
+
+test(function() {
+    var elt = document.querySelector('#simple');
+    assert_array_equals(Object.getOwnPropertyNames(elt.attributes),
+        ['0','0','id','class']);
+}, "Object.getOwnPropertyNames on NamedNodeMap");
+
+test(function() {
+    var result = document.getElementById("result");
+    assert_array_equals(Object.getOwnPropertyNames(result.attributes),
+        ['0','0','2','3','id','type','value','width']);
+}, "Object.getOwnPropertyNames on NamedNodeMap of input");
+
+test(function() {
+    var result = document.getElementById("result");
+    result.removeAttribute("width");
+    assert_array_equals(Object.getOwnPropertyNames(result.attributes),
+        ['0','2','2','id','type','value']);
+}, "Object.getOwnPropertyNames on NamedNodeMap after attribute removal");
+
+</script>

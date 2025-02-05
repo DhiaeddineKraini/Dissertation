@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<title>Static position fixed inside static position absolute</title>
+<link rel="author" title="Martin Robinson" href="mrobinson@igalia.com">
+<link rel="help" href="https://www.w3.org/TR/CSS22/visudet.html#abs-non-replaced-width" title="10.3.127 Absolutely positioned, non-replaced elements">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+
+<div style="display: absolute; width: 100px; height: 127px; background: green;">
+    <div style="position: absolute; width: 50px; background: green;"></div><div style="display: absolute; width: 100px; height: 127px; background: green;">
+    <div style="position: absolute; width: 50px; background: green;"></div><div style="display: absolute; width: 100px; height: 127px; background: green;">
+    <div style="position: absolute; width: 50px; background: green;"></div>
+    </div></div></div>
+</div>

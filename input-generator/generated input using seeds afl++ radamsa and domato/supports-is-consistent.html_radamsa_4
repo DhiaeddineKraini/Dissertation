@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<title>@supports needs to be consistent with actual nesting support</title>
+<link rel="author" title="Steinar H. Gunderson" href="mailto:sesse@chromium.org">
+<link rel="help" href="https://crbug.com/1414012">
+<link rel="match" href="supports-is-consistent-ref.html">
+<link><style>
+  /* This test is expected to pass even if the browser does not support nesting. */
+  @supports selector(&) {
+    p {
+      color: red;
+      & { color: inherit; }
+    }
+  }
+</style><p>
+</p><body><body><body><body><body><body><body><body><body><body><body><body><body>
+  <p>Test passes if this text is not red</p>
+</body><p>Test passes if this text is not red</p>
+</body><p>Test passes if this text is not red</p>
+</body><body><body><body><body><body><body><body><body><body><body><body><body><body>
+  <p>Test passes if this text is not red</p>
+</body><p>Test passes if this text is not red</p>
+</body><p>Test passes if this text is not red</p>
+</body><body><body><body><body><body><body><body><body><body><body><body><body><body>
+  <p>Test passes if this text is not red</p>
+</body><p>Test passes if this text is not red</p>
+</body><p>Test passes if this text is not red</p>
+</body><body><body><body><body><body><body><body><body><body><body><body><body><body>
+  <p>Test passes if this text is not red</p>
+</body><p>Test passes if this text is not red</p>
+</body><p>Test passes if this text is not red</p>
+</body><p>Test passes if this text is not red</p>
+</body><p>Test passes if this text is not red</p>
+</body><p>Test passes if this text is not red</p>
+</body><p>Test passes if this text is not red</p>
+</body><p>Test passes if this text is not red</p>
+</body><p>Test passes if this text is not red</p>
+</body><p>Test passes if this text is not red</p>
+</body><p>Test passes if this text is not red</p>
+</body><p>Test passes if this text is not red</p>
+</body><p>Test passes if this text is not red</p>
+</body>
+</body><p>Test passes if this text is not red</p>
+</body><p>Test passes if this text is not red</p>
+</body><p>Test passes if this text is not red</p>
+</body><p><p>Test passes if this text is not red</p></p>
+</body><p>Test passes if this text is not red</p>
+</body><p>Test passes if this text is n…ot red</p>
+</body><p>Test passes if this text is not red</p>
+</body><p><p><p><p><p><title><p>Test passes if this text is not red</p></title></p></p></p></p></p>
+</body><p>Test passes if this text is not red</p><p>Test passes if this text is not red</p>
+</body><p>Test passes if this text is not red</p>
+</body>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<title>CSS integration - child CSS fetch from inline stylesheet</title>
+<link rel="help" href="https://crbug.com/912534573929204502378681244786" />
+
+<head>
+  <meta name="referrer" content="origin">
+</head><head>
+  <meta name="referrer" content="origin">
+</head><script>
+
+<head>
+  <meta name="referrer" content="origin">
+</head><head>
+  <meta name="referrer" content="origin">
+</head><script src="/resources/testharnessreport.js"></script><style><head>
+  <meta name="referrer" content="origin">
+</head></style><head>
+  <meta name="referrer" content="origin">
+</head>
+
+<script src="/common/utils.js"></script><link />
+
+  <script src="/resources/testharness.js"></script>
+  <head>
+  <meta name="referrer" content="origin">
+</head>
+  <title><script src="/common/utils.js"></script></title><script src="/common/utils.js"></script><script src="/common/utils.js"></script><body>
+  <!-- Common global functions for referrer-policy tests. -->
+  <script src="/common/security-features/resources/common.sub.js"></script>
+
+  <script src="/resources/testharnessrep" href="https://crbug.com/997052797683743767658229413972" />
+    promise_test(function (css_test) {
+        let id = token();
+        let url_prefix = location.protocol + "//www." + location.hostname +
+          ":" + location.port;
+        let css_url = url_prefix +
+          "/common/security-features/subresource/stylesheet.py?id=" + id +
+          "&type=stylesheet-only";
+        let check_url = url_prefix +
+          "/common/security-features/subresource/stylesheet.py" +
+          "?id=" + id + "&report-headers";
+
+        const frame = document.createElement('iframe');
+        const contents = `
+              <base href="http://other-site.example" /><script>
+    promise_test(function (css_test) {
+        let id = token();
+        let url_prefix = location.protocol + "//www." + location.hostname +
+          ":" + location.port;
+        let css_url = url_prefix +
+          "/common/security-features/subresource/stylesheet.py?id=" + id +
+          "&type=stylesheet-only";
+        let check_url = url_prefix +
+          "/common/security-features/subresource/stylesheet.py" +
+          "?id=" + id + "&report-headers";
+
+        const frame = document.createElement('iframe');
+        const contents = `
+              <base href="http://other-site.example" /><script>
+    promise_test(function (css_test) {
+        let id = token();
+        let url_prefix = location.protocol + "//www." + location.hostname +
+          ":" + location.port;
+        let css_url = url_prefix +
+          "/common/security-features/subresource/stylesheet.py" +
+          "?id=" + id + "&report-headers";
+
+        const frame = document.createElement('iframe');
+        const contents = `
+              <base href="http://other-site.example" /><script>
+    promise_test(function (css_test) {
+        let id = token();
+        let url_prefix = location.protocol + "//www." + location.hostname +
+          ":" + location.port;
+        let css_url = url_prefix +
+          "/common/security-features/subresource/stylesheet.py?id=" + id +
+          "&type=stylesheet-only";
+        let check_url = url_prefix +
+          "/common/security-features/subresource/stylesheet.py" +
+          "?id=" + id + "&report-headers";
+
+        const frame = document.createElement('iframe');
+        const contents = `
+              <base href="http://other-site.example" /><script>
+    promise_test(function (css_test) {
+        let id = token();
+        let url_prefix = location.protocol + "//www." + location.hostname +
+          ":" + location.port;
+        let css_url = url_prefix +
+          "/common/security-features/subresource/stylesheet.py?id=" + id +
+          "&type=stylesheet-only";
+        let check_url = url_prefix +
+          "/common/security-features/subresource/stylesheet.py" +
+          "?id=" + id + "&report-headers";
+
+        const frame = document.createElement('iframe');
+        const contents = `
+              <base href="http://other-site.example" /><script>
+    promise_test(function (css_test) {
+        let id = token();
+        let url_prefix = location.protocol + "//www." + location.hostname +
+          ":" + location.port;
+        let css_url = url_prefix +
+          "/common/security-features/subresource/stylesheet.py?id=" + id +
+          "&type=stylesheet-only";
+        let check_url = url_prefix +
+          "/common/security-features/subresource/stylesheet.py" +
+          "?id=" + id + "&report-headers";
+
+        const frame = document.createElement('iframe');
+        const contents = `
+              <base href="http://other-site.example" /><script>
+    promise_test(function (css_test) {
+        let id = token();
+        let url_prefix = location.protocol + "//www." + location.hostname +
+          ":" + location.port;
+        let css_url = url_prefix +
+          "/common/security-features/subresource/stylesheet.py?id=" + id +
+          "&type=stylesheet-only";
+        let check_url = url_prefix +
+          "/common/security-features/subresource/stylesheet.py" +
+          "?id=" + id + "&report-headers";
+
+        const frame = document.createElement('iframe');
+        const contents = `
+              <base href="http://other-site.example" /><script>
+    promise_test(function (css_test) {
+        let id = token();
+        let url_prefix = location.protocol + "//www." + location.hostname +
+          ":" + location.port;
+        let css_url = url_prefix +
+          "/common/security-features/subresource/stylesheet.py?id=" + id +
+          "&type=stylesheet-only";
+        let check_url = url_prefix +
+          "/common/security-features/subresource/stylesheet.py" +
+          "?id=" + id + "&report-headers";
+
+        const frame = document.createElement('iframe');
+        const contents = `
+              <base href="http://other-site.example" />
+              <style type=text/css>
+                @import url('${css_url}');
+              </style>`;
+        frame.srcdoc = contents;
+        document.body.appendChild(frame);
+        return timeoutPromise(css_test, 1000)
+          .then(() => requestViaXhr(check_url))
+          .then(function (message) {
+            assert_own_property(message, "headers");
+            assert_own_property(message, "referrer");
+            assert_equals(message.referrer, location.origin + "/");
+          });
+      }, "A child stylesheet from inline style should use the document's" +
+      " URL, not the document's base URL, as its referrer, even when the " +
+      "HTML parser preloads the stylesheet.");
+  </script></style>`;
+        frame.srcdoc = contents;
+        document.body.appendChild(frame);
+        return timeoutPromise(css_test, 1000)
+          .then(() => requestViaXhr(check_url))
+          .then(function (message) {
+            assert_own_property(message, "headers");
+            assert_own_property(message, "referrer");
+            assert_equals(message.referrer, location.origin + "/");
+          });
+      }, "A child stylesheet from inline style should use the document's" +
+      " URL, not the document's base URL, as its referrer, even when the " +
+      "HTML parser preloads the stylesheet.");
+  </script></style>`;
+        frame.srcdoc = contents;
+        document.body.appendChild(frame);
+        return timeoutPromise(css_test, 1000)
+          .then(() => requestViaXhr(check_url))
+          .then(function (message) {
+            assert_own_property(message, "headers");
+            assert_own_property(message, "referrer");
+            assert_equals(message.referrer, location.origin + "/");
+          });
+      }, "A child stylesheet from inline style should use the document's" +
+      " URL, not the document's base URL, as its referrer, even when the " +
+      "HTML parser preloads the stylesheet.");
+  </script></style>`;
+        frame.srcdoc = contents;
+        document.body.appendChild(frame);
+        return timeoutPromise(css_test, 1000)
+          .then(() => requestViaXhr(check_url))
+          .then(function (message) {
+            assert_own_property(message, "headers");
+            assert_own_property(message, "referrer");
+            assert_equals(message.referrer, location.origin + "/");
+          });
+      }, "A child stylesheet from inline style should use the document's" +
+      " URL, not the document's base URL, as its referrer, even when the " +
+      "HTML parser preloads the stylesheet.");
+  </script></style>`;
+        frame.srcdoc = contents;
+        document.body.appendChild(frame);
+        return timeoutPromise(css_test, 1000)
+          .then(() => requestViaXhr(check_url))
+          .then(function (message) {
+            assert_own_property(message, "headers");
+            assert_own_property(message, "referrer");
+            assert_equals(message.referrer, location.origin + "/");
+          });
+      }, "A child stylesheet from inline style should use the document's" +
+      " URL, not the document's base URL, as its referrer, even when the " +
+      "HTML parser preloads the stylesheet.");
+  </script></style>`;
+        frame.srcdoc = contents;
+        document.body.appendChild(frame);
+        return timeoutPromise(css_test, 1000)
+          .then(() => requestViaXhr(check_url))
+          .then(function (message) {
+            assert_own_property(message, "headers");
+            assert_own_property(message, "referrer");
+            assert_equals(message.referrer, location.origin + "/");
+          });
+      }, "A child stylesheet from inline style should use the document's" +
+      " URL, not the document's base URL, as its referrer, even when the " +
+      "HTML parser preloads the stylesheet.");
+  </script></style>`;
+        frame.srcdoc = contents;
+        document.body.appendChild(frame);
+        return timeoutPromise(css_test, 1000)
+          .then(() => requestViaXhr(check_url))
+          .then(function (message) {
+            assert_own_property(message, "headers");
+            assert_own_property(message, "referrer");
+            assert_equals(message.referrer, location.origin + "/");
+          });
+      }, "A child stylesheet from inline style should use the document's" +
+      " URL, not the document's base URL, as its referrer, even when the " +
+      "HTML parser preloads the stylesheet.");
+  </script>

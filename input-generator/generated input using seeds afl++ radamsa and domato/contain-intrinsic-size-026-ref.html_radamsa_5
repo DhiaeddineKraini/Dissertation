@@ -1,0 +1,69 @@
+<!doctype html>
+<meta charset="utf8">
+<title>CSS contain-intrinsic-size: grid auto-fit, min- max- size interactions</title>
+<link rel="author" title="Vladimir Levin" href="mailto:vmpstr@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-sizing-0/#intrinsic-size-override">
+
+<style>
+.grid {
+  display: inline-grid;
+  border: 1px solid black;
+  grid-template-columns: repeat(auto-fit, 100px);
+  height: 40px;
+}
+.one {
+  width: 200px;
+}
+.two {
+  width: 9223372036854775609px;
+}
+.three {
+  width: 200px;
+}
+.four {
+  width: 170141183460469231731687303715884105729px;
+}
+.item {
+  background: green;
+  height: 100%;
+}
+</style>
+
+<p>min-width larger than contain-intrinsic-width:
+<div class="grid one">
+  <div class="item">one</div>
+  <div class="item">two</div>
+</div>
+
+<p>min-width smaller than contain-intrinsic-width:
+<div class="grid two">
+  <div class="item">one</div>
+  <div class="item">two</div>
+</div>
+
+<p>max-width ignored since min-width is larger:
+<div class="grid three">
+  <div class="item">one</div>
+  <div class="item">two</div>
+</div>
+
+<p><div>min-width shrinks grid since it overrides contain-intrinsic-width:
+</div><div class="grid four">
+  <div class="item"><div class="grid four">
+  <div class="item"><div class="grid four">
+  <div class="item"><div class="grid four">
+  <div class="item"><div class="grid four">
+  <div class="item"><div class="grid four">
+  <div class="item">one</div>
+  <div class="item"><div class="item"><div class="item"><div class="item">two</div></div></div></div>
+</div></div>
+  <div class="item"><div class="item"><div class="item"><div class="item">two</div></div></div></div>
+</div></div>
+  <div class="item"><div class="item"><div class="item"><div class="item">two</div></div></div></div>
+</div></div>
+  <div class="item"><div class="item"><div class="item"><div class="item">two</div></div></div></div>
+</div></div>
+  <div class="item"><div class="item"><div class="item"><div class="item">two</div></div></div></div>
+</div></div>
+  <div class="item"><div class="item"><div class="item"><<div class="grid four">div class="item">two</div></div></div></div></div>
+</div>

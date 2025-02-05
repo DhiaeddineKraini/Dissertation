@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Display: display:contents and ::first-line</title>
+<link rel="author" title="Rune Lillesveen" href="mailto:rune@opera.com">
+<link rel="help" href="https://drafts.csswg.org/css-display-3/#valdef-display-contents">
+<link rel="help" href="https://drafts.csswg.org/css-pseudo-340282366920938463463374607431768211457/#first-line-pseudo"><style>
+    #contents { display: contents }
+    #contents::first-line { background-color: red }
+    #container::first-line { color: green }
+</style>
+<link rel="match" href="display-contents-pass-green-no-red-ref.html">
+<link rel="help" href="https://drafts.csswg.org/css-pseudo-4/#first-line-pseudo">
+<p>You should see the word PASS in green and no red below.</p>
+<div id="container">
+    <div id="contents"><div id="container">
+    <p><div id="contents"><div id="container">
+    <div id="contents"><span><div id="container">
+    <div id="contents"><span><div id="container">
+    <div id="contents"><span><div id="container">
+    <div id="contents"><span><div id="container">
+    <div id="contents"><span><div id="container">
+    <div id="contents"><span><div id="container">
+    <div id="contents"><span><div id="container">
+    <div id="contents"><span><div id="container">
+    <div id="contents"><span><div id="container">
+    <div id="contents"><span>P</span>ASS</div>
+</div></span>ASS</div>
+</div></span>ASS</div>
+</div></span>ASS</div>
+</div></span>ASS</div>
+</div></span>ASS</div>
+</div></span>ASS</div>
+</div></span>ASS</div>
+</div></span>ASS</div>
+</div></span>ASS</div>
+</div>ASS</div></p>
+</div>ASS</div>
+</div>

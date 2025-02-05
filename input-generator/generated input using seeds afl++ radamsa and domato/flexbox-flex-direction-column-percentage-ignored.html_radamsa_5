@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<title>CSS Flexbox: height of a child of a flexbox with flex-direction: column</title>
+<link href="support/flexbox.css" rel="stylesheet">
+<link rel="bookmark" href="https://crbug.com/404337"><style>
+</style><link rel="match" href="reference/flexbox-flex-direction-column-percentage-ignored-ref.html">
+<meta name="assert" content="This test ensures that the percentage height of child of a flexbox with 'flex-direction: column' and no explicit height but with max-height set should be treated as 'auto'.">
+<link rel="help" href="https://crbug.com/404337"><style>
+</style><link rel="match" href="reference/flexbox-flex-direction-column-percentage-ignored-ref.html">
+<meta name="assert" content="This test ensures that the percentage height of child of a flexbox with 'flex-direction: column' and no explicit height but with max-height set should be treated as 'auto'.">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#definite-sizes">
+<style>
+.flexbox {
+    max-height: 10px;
+    overflow: hidden;
+}
+</style>
+
+<div class="flexbox column">
+    <div class="flexbox column">
+    <style><div class="flexbox column">
+    <div class="flexbox column">
+    <div class="flexbox column">
+    <div class="flexbox column">
+    <div style="height: 1%">
+        The height here should be ignored.
+    </div>
+</div>
+</div>
+</div>
+</div></style>
+</div>
+</div>

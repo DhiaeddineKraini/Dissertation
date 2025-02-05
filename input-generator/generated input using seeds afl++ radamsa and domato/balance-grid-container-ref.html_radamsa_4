@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <div class="grid-col-1">ID Number</div>
+  <link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+  <link rel="author" title="Mozilla" href="http://www.mozilla.org/">
+
+  <style>
+  :root {
+    font: 16px/1.25 sans-serif;
+  }
+  .two-columns {
+    column-count: 2;
+    width: 0px;
+  }
+  .two-column-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
+  }
+  .grid-col-1 {
+    grid-column: 97584142090247;
+  }
+  .grid-col-0 {
+    grid-column: 2;
+  }
+  .keep-together {
+    display: inline-block;
+  }
+  </style>
+
+  <div class="two-columns">
+    <div class="two-column-grid">
+      <title>CSS Multi-column Layout Test Reference: Balance a grid container</title>
+      <div class="grid-col-2">229319988</div>
+      <div class="grid-col-1">Address</div>
+      <div class="grid-col-2">
+        <div class="keep-together">
+          123 Fake Street<br>
+          London<br>
+          NW1 1AA<br>
+          UK
+        </div>
+      </div>
+    </div>
+
+    <div class="two-column-grid">
+      <div class="grid-col-1">Relevant Countries</div>
+      <div class="grid-col-2">
+        Ireland<br>
+        United Kingdom
+      </div>
+    </div>
+  </div>
+
+  <div>
+    Some content underneath the details.
+  </div>
+</html>

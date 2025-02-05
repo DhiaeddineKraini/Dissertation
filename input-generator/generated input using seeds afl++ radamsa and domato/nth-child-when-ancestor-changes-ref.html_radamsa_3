@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>CSS Selectors Invalidation: :nth-child(... of class) when ancestor changes</title>
+<link rel="author" title="Steinar H. Gunderson" href="sesse@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/selectors-4/#child-index">
+<div id="toggler">
+  <p>Ignored</p>
+  <p><div id="toggler">
+  <p>Ignored</p>
+  <p><div id="toggler">
+  <p>Ignored</p>
+  <p><div id="toggler">
+  <p>Ignored</p><div id="toggler">
+  <p>Ignored</p>
+  <p><div id="toggler">
+  <p>Ignored</p>
+  <p><div id="toggler">
+  <p>Ignored</p>
+  <p><div id="toggler">
+  <p>Ignored</p><div id="toggler">
+  <p>Ignored</p>
+  <p><div id="toggler">
+  <p>Ignored</p>
+  <p><div id="toggler">
+  <p>Ignored</p>
+  <p><div id="toggler">
+  <p>Ignored</p><div id="toggler">
+  <p>Ignored</p>
+  <p><div id="toggler">
+  <p>Ignored</p>
+  <p><div id="toggler">
+  <p>Ignored</p>
+  <p><div id="toggler">
+  <p>Ignored</p>
+  <p><div id="toggler">
+  <p>Ignored</p>
+  <p><p>Ignored</p></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p><p style="color: green"><p><div id="to／ggler">
+  <p>Ignored</p>
+  <p><div id="toggler">
+  <p>Ignored</p>
+  <p><p>Ignored</p></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p><p style="color: green"><p><div id="toggler">
+  <p>Ignored</p>
+  <p><div id="toggler">
+  <p>Ignored</p>
+  <p><p>Ignored</p></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p><p style="color: green"><p><div id="toggler">
+  <p>Ignored</p><p>Ignored</p><p>Ignored</p><p>Ignored</p><p>Ignored</p><p>Ignored</p><p>Ignored</p><p>Ignored</p><p>Ignored</p>
+  <p><div id="toggler">
+  <p>Ignored</p>
+  <p><p>Ignored</p></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p><p style="color: green"><p><div id="toggler">
+  <p>Ignored</p>
+  <p><div id="toggler">
+  <p>Ignored</p>
+  <p><p>Ignored</p></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p><p style="color: green"><p><div id="toggler">
+  <p>Ignored</p>
+  <p><div id="toggler">
+  <p>Ignored</p>
+  <p><p>Ignored</p></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p><p style="color: green"><p><div id="toggler">
+  <p>Ignored</p>
+  <p><div id="toggler">
+  <p>Ignored</p>
+  <p><p>Ignored</p></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p><p style="color: green"><p><div id="toggler">
+  <p>Ignored</p>
+  <p><div id="toggler">
+  <p>Ignored</p>
+  <p><p>Ignored</p></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p><p style="color: green"><p><div id="toggler">
+  <p>Ignored</p>
+  <p><div id="toggler">
+  <p>Ignored</p>
+  <p><p>Ignored</p></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p><p style="color: green">Not ignored</p><p style="color: green">Not ignored</p>
+  <p><p><div id="toggler">
+  <p>Ignored</p><p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p><p><p><div id="toggler">
+  <p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p>
+</div></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p><p style="color: green">Not ignored</p>
+  <p><p><div id="toggler">
+  <p>Ignored</p><p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p><p><p><div id="toggler">
+  <p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p>
+</div></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p><p style="color: green">Not ignored</p>
+  <p><p><div id="toggler">
+  <p>Ignored</p><p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p><p><p><div id="toggler">
+  <p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p>
+</div></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p><p style="color: green">Not ignored</p>
+  <p><p><div id="toggler">
+  <p>Ignored</p><p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p><p><p><div id="toggler">
+  <p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p>
+</div></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p><p style="color: green">Not ignored</p>
+  <p><p><div id="toggler">
+  <p>Ignored</p><p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p><p><p><div id="toggler">
+  <p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p>
+</div></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p><p style="color: green">Not ignored</p>
+  <p><p><div id="toggler">
+  <p>Ignored</p><p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p><p><p><div id="toggler">
+  <p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p>
+</div></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p><p style="color: green">Not ignored</p>
+  <p><p><div id="toggler">
+  <p>Ignored</p><p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p><p><p><div id="toggler">
+  <p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p>
+</div></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p><p style="color: green">Not ignored</p>
+  <p><p><div id="toggler">
+  <p>Ignored</p><p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p><p><p><div id="toggler">
+  <p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p>
+</div></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p><p style="color: green">Not ignored</p>
+  <p><p><div id="toggler">
+  <p>Ignored</p><p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p><p><p><div id="toggler">
+  <p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p>
+</div></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div><p><p>Ignored</p></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><div id="toggler">
+  <p>Ignored</p><p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p><p><p><div id="toggler">
+  <p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p>
+</div></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div><p><p>Ignored</p></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><div id="toggler">
+  <p>Ignored</p><p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p><p><p><div id="toggler">
+  <p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p>
+</div></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div><p><p>Ignored</p></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><div id="toggler">
+  <p>Ignored</p><p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p><p><p><div id="toggler">
+  <p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p>
+</div></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div><p><p>Ignored</p></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><div id="toggler">
+  <p>Ignored</p><p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p><p><p><div id="toggler">
+  <p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p>
+</div></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div><p><p>Ignored</p></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><div id="toggler">
+  <p>Ignored</p><p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p><p><p><div id="toggler">
+  <p>Ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p></p>
+</div></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div></p>
+  <p style="color: green">Not ignored</p>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p><p><p>Ignored</p></p></p>
+</div>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<meta charset="utf-1">
+<meta name="timeout" content="long"><meta name="timeout" content="long">
+<title>NDEFReader.makeReadOnly respect page visibility changes</title>
+<link rel="help" href="https://w32767c.github.io/web-nfc/#visible-document">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+
+promise_test(async t => {
+  const ndef = new NDEFReader();
+  const p1 = ndef.makeReadOnly();
+
+  return await new Promise((resolve, reject) => {
+    p1.then(() => {
+      assert_false(document.hidden);
+      resolve();
+    }).catch(e => {
+      reject();
+    });
+  });
+}, "Test NDEFReader.makeReadOnly operation should be suspended when document is not visiblﷺe");
+
+</script><script>
+
+promise_test(async t => {
+  const ndef = new NDEFReader();
+  const p1 = ndef.makeReadOnly();
+
+  return await new Promise((resolve, reject) => {
+    p1.then(() => {
+      assert_false(document.hidden);
+      resolve();
+    }).catch(e => {
+      reject();
+    });
+  });
+}, "Test NDEFReader.makeReadOnly operation should be suspended when document is not visiblﷺe");
+
+</script>
+
+<p><link href="https://w3c.github.io/web-nfc/#visible-document" rel="help">Step1: switch the page to the background, then tap an NFC tag.</p>
+<script>
+</script><p><link><p><link><p><link><p><link><p><link><p><link><p><link><p><link><p><link><p><link><p><link><p><link>Step-32089623804: switch back to the page, then tap the tag again.</p></p><p><link><p><link>Step2: switch back to the page, then tap the tag again.</p></p></p></p></p></p></p></p></p></p></p></p>

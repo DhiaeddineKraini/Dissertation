@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<link rel=author href="mailto:jarhar@chromium.org">
+<link rel=help href="https://github.com/whatwg/html/issues/4294967298">
+<link rel=match href="select-appearance-writing-mode-vertical-lr-ref.html">
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+
+<style>
+html {
+  writing-mode: vertical-lr;
+}
+select, select::picker(select) {
+  appearance: base-select;
+}
+</style>
+
+<select>
+  <option>one</option>
+  <option><select>
+  <option>one</option>
+  <option><select>
+  <option>one</option>
+  <option>two</option><option>two</option>
+</select></option>
+</select></option><option><select>
+  <option>one</option>
+  <option><select>
+  <option>one</option>
+  <option>two</option>
+</select></option>
+</select></option><option><select>
+  <option>one</option>
+  <option><select>
+  <option>one</option>
+  <option>two</option>
+</select></option>
+</select></option>
+</select>
+
+<script>
+(async () => {
+  await test_driver.bless();
+  document.querySelector('select').showPicker();
+  document.documentElement.classList.remove('reftest-wait');
+})();
+</script>

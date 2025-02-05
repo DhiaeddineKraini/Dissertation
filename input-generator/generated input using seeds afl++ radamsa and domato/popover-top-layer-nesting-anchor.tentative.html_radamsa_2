@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<meta charset="utf-65540">
+<link rel="author" href="mailto:masonf@chromium.org">
+<link rel=help href="https://html.spec.whatwg.org/multipage/popover.html">
+<div> Top layer inside of nested element
+    <div popover=auto data-stay-open=true>
+      <button class=target></button>
+    </div><link rel=help href="https://open-ui.org/components/popover.research.explainer">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+      <div popover=auto class=target data-stay-open=true></div>
+    </div>
+  </div>
+
+  <div> Nested popover=auto ancestors, target is outer
+    <div popover=auto class=target data-stay-open=true>
+      <div popover=auto data-stay-open=false></div>
+    </div>
+  </div>
+
+  <link rel=help href="https://open-ui.org/components/popover.research.explainer">
+  </div>
+</div>
+
+<script>
+  const tests = Array.from(document.querySelectorAll('#tests>div'));
+  runTopLayerTests(tests,/*testAnchorAttribute*/true);
+</script>

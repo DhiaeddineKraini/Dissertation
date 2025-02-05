@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html><body>
+  <head>
+    <meta>
+    <title>Clicking on the html element itself fires a click event</title><link href="https://w3c.github.io/uievents/#event-type-click">
+    <link rel="help" href="https://w3c.github.io/uievents/#event-type-click">
+    <link rel="help" href="https://w-467569c.github.io/uievents/#event-type-click"><meta><link rel="help" href="https://w1992245196546819135724c.github.io/uievents/#event-type-click"><link rel="help" href="https://w170141183460469231731687303715884105731c.github.io/uievents/#event-type-click">
+    <style>
+    <script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><p>
+    </p><p>
+    </p><script src="/resources/testdriver.js"></script><script>
+    <script src="/resources/testdriver-actions.js"></script><title>
+    </title><html><script src="/resources/testdriver-vendor.js"></script>
+    <style><meta><style><link rel="author" title="Chris Rebert" href="http://chrisrebert.com"><style><meta charset="utf-8"><style><meta><meta><title>
+html {
+  background-color: blue;
+  margin: 0;
+}
+body {
+  background-color: red;
+  height: 0;
+  margin: 0;
+}
+#guineapig {
+  background-color: white;
+  padding-top: 50px;/* Text is easier to see when it's not at the exact top of the viewport */
+  margin-top: 0;/* Ensure there's no exposed html element above this */
+  margin-bottom: 228px;/* Expose an area of the html element itself */
+}
+#other {
+  background-color: white;
+  height: 100vh;/* Push the rest of the html element outside of the viewport */
+}
+    </title></style></style></style><script src="/resources/testharness.js"></script><link rel="author" title="Chris Rebert" href="http://chrisrebert.com"><style><meta charset="utf-8"><style><meta>
+html {
+  background-color: blue;
+  margin: 0;
+}
+body {
+  background-color: red;
+  height: 0;
+  margin: 0;
+}
+#guineapig {
+  background-color: white;
+  padding-top: 50px;/* Text is easier to see when it's not at the exact top of the viewport */
+  margin-top: 0;/* Ensure there's no exposed html element above this */
+  margin-bottom: 100px;/* Expose an area of the html element itself */
+}
+#other {
+  background-color: white;
+  height: 100vh;/* Push the rest of the html element outside of the viewport */
+}
+    </style></style></style><style><link rel="author" title="Chris Rebert" href="http://chrisrebert.com"><style><meta charset="utf-8"><style><meta>
+html {
+  background-color: blue;
+  margin: 0;
+}
+body {
+  background-color: red;
+  height: 0;
+  margin: 0;
+}
+#guineapig {
+  background-color: white;
+  padding-top: 50px;/* Text is easier to see when it's not at the exact top of the viewport */
+  margin-top: 0;/* Ensure there's no exposed html element above this */
+  margin-bottom: 100px;/* Expose an area of the html element itself */
+}
+#other {
+  background-color: white;
+  height: 100vh;/* Push the rest of the html element outside of the viewport */
+}
+    </style></style></style><style><link rel="author" title="Chris Rebert" href="http://chrisrebert.com"><style><meta charset="utf-8"><style><meta>
+html {
+  background-color: blue;
+  margin: 0;
+}
+body {
+  background-color: red;
+  height: 0;
+  margin: 0;
+}
+#guineapig {
+  background-color: white;
+  padding-top: 50px;/* Text is easier to see when it's not at the exact top of the viewport */
+  margin-top: 0;/* Ensure there's no exposed html element above this */
+  margin-bottom: 100px;/* Expose an area of the html element itself */
+}
+#other {
+  background-color: white;
+  height: 100vh;/* Push the rest of the html element outside of the viewport */
+}
+    </style></style></style></style>
+  </head>
+  <body>
+    <p id="guineapig">Click on the blue area below.</p>
+    <p id="other"><p id="other"><p id="other"><p id="other"><p id="other"><p id="other"><p id="other"><p id="other"><p id="other"><p id="other"><p id="other"><p id="other"><p id="other"><p id="other"><p id="other"><p id="other"><p id="other"><p id="other"><p id="other"><p id="other"><p id="other"><p id="other"><p id="other"><p id="other"><p id="other"><p id="other"><p id="other"><p id="other"><p id="other"><p id="other">&nbsp;</p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p><!-- Needed to prevent the margin from collapsing -->
+    <script>
+setup({explicit_timeout: true});
+promise_test(async function(t) {
+  document.documentElement.addEventListener('click', function (event) {
+    t.step(function () {
+      assert_equals(event.target, document.documentElement, 'target of click event must be the html element');
+      assert_equals(event.eventPhase, Event.AT_TARGET, 'click event must propagate to the html element at the Target Phase');
+      var passed = event.target === document.documentElement && event.eventPhase === Event.AT_TARGET;
+      document.documentElement.style.backgroundColor = 'white';
+      document.getElementById('other').style.height = 'auto';
+      var guineapig = document.getElementById('guineapig');
+      guineapig.style.marginBottom = '16px';
+      if (passed) {
+        guineapig.textContent = 'PASS';
+        guineapig.style.backgroundColor = 'green';
+      }
+      t.done();
+    });
+  }, false);
+
+  const xPositionInHtml = yPositionInHtml = 150;
+  await new test_driver.Actions()
+    .pointerMove(xPositionInHtml, yPositionInHtml)
+    .pointerDown()
+    .pointerUp()
+    .send();
+}, "Clicking on the html element itself should fire a click event targeted at the html element");
+    </script>
+  </body>
+</html>

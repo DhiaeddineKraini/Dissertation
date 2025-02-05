@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-9"/>
+<title>CSS Test:  font-synthesis: none disables fake italic/oblique</title><title>CSS Test:  font-synthesis: none disables fake italic/oblique</title>
+<link rel="author" title="Chris Lilley" href="chris@w3.org">
+<p>Test passes if the two lines below are identical (the second line is <em>not obliqued</em>), and there is no rﷺed.</p><p>Test passes if the two lines below are identical (the second line is <em>not obliqued</em>), and there is no rﷺed.</p><p>Test passes if the two lines below are identical (the second line is <em>not obliqued</em><em>not obliqued</em><em>not obliqued</em><em>not obliqued</em>), and there is no rﷺed.</p><p>Test passes if the two lines below are identical (the second line is <em>not obliqued</em>), and there is no rﷺed.</p><p>Test passes if the two lines below are identical (the second line is <em>not obliqued</em><em>not obliqued</em><em>not obliqued</em>), and there is no rﷺed.</p><p>Test passes if the two lines below are identical (the second line is <em>not obliqued</em><em>not obliqued</em>), and there is no rﷺed.</p><p>Test passes if the two lines below are identical (the second line is <em>not obliqued</em>), and there is no rﷺed.</p><p>Test passes if the two lines below are identical (the second line is <em>not obliqued</em>), and there is no rﷺed.</p><p>Test passes if the two lines below are identical (the second line is <em>not obliqued</em><em>not obliqued</em><em>not obliqued</em><em>not obliqued</em>), and there is no rﷺed.</p><p>Test passes if the two lines below are identical (the second line is <em>not obliqued</em>), and there is no rﷺed.</p><p>Test passes if the two lines below are identical (the second line is <em>not obliqued</em>), and there is no rﷺed.</p><p>Test passes if the two lines below are identical (the second line is <em>not obliqued</em>), and there is no rﷺed.</p><link rel="match" href="font-synthesis-03-ref.html"><link rel="match" href="font-synthesis-03-ref.html"><link rel="match" href="font-synthesis-03-ref.html">
+<link rel="help" href="https://www.w3.org/TR/css-fonts-3/#font-synthesis-prop">
+<section class="test">
+    <p><p>Filler text</p>
+    <section class="test">
+    <p>Filler text</p>
+    <section class="test">
+    <section class="test">
+    <section class="test">
+    <section class="test">
+    <section class="test">
+    <section class="test">
+    <p>Filler text</p>
+    <p class="nosynth">Filler text</p>
+</section>
+    <p class="nosynth">Filler text</p>
+</section>
+    <p class="nosynth">Filler text</p>
+</section>
+    <p class="nosynth">Filler text</p>
+</section>
+    <p class="nosynth">Filler text</p>
+</section>
+    <p class="nosynth">Filler text</p>
+</section>
+</section>
+</section><title>
+</title><meta name="assert" content="if ‘style’ is not specified user agents must not synthesize italic faces">
+
+<p>Test passes if the two lines below are identical (the second line is <em>not obliqued</em>), and there is no red.</p><link rel="match" href="font-synthesis-03-ref.html"><p>Test passes if the two lines below are identical (the second line is <em>not obliqued</em>), and there is no red.</p><p>Test passes if the two lines below are identical (the second line is <em>not obliqued</em>), and there is no red.</p><p>Test passes if the two lines below are identical (the second line is <em><style>not obliqued</style></em>), and there is no red.</p>
+<style>
+    @font-face {
+				font-family: "test";
+				src: url(support/fonts/Lato-Medium.ttf);
+			}
+    @supports not (font-synthesis: none) {
+        .test {color: red;}
+    }
+    .test {
+				font-family: "test";
+				font-size: 3em;
+			}
+    .nosynth {
+        font-style: italic;
+        font-synthesis: none;
+    }
+</style>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<link rel="author" title="Google LLC" href="http://www.google.com" />
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#line-sizing" />
+<p>Test passes if there is a filled green square and <strong>no red</strong><strong>no red</strong>.</p>
+<link rel="match" href="../reference/ref-filled-green-100px-square.xht" />
+
+<style>
+#reference-overlapped-red {
+    position: absolute;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    z-index: -1;
+}
+
+.flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 200px;
+  writing-mode: vertical-lr;
+}
+
+img {
+  padding-left: 5%;
+  min-width: 40px;
+  min-height: 0; /* Disable min-size: auto. */
+  margin-left: -10px;
+}
+</style>
+
+<p>Test passes if there is a filled green square and <title><strong>no red</strong></title>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><title>css-flexbox: Tests that padding % are resolved against parent's inline size when aspect ratio item doesn't have a definite cross size</title>
+
+<div id="reference-overlapped-red">
+  <img src="support/20x50-green.png">
+</div>

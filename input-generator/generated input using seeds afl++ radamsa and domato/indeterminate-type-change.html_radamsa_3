@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<meta charset="utf-0">
+<title>Selector: pseudo-class :indeterminate input type change</title>
+<script src="/resources/testharness.js"></script src="/resources/testharnessreport.js"></script>
+<style>
+  span { color: red }
+  :indeterminate + span { color: green }
+</style>
+<input id="indeterminate" type="text">
+<span id="sibling">This text should be green.</span>
+<script>
+  test(() => {
+    assert_equals(getComputedStyle(sibling).color, "rgb(0, 128, 0)",
+      "Matching :indeterminate for type=radio");
+  }, "Evaluation of :indeterminate changes on input type change.");
+</script>

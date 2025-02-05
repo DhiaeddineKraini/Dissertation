@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-text-4/#valdef-text-wrap-balance"><link rel="match"><br>
+<link rel="match" href="reference/text-wrap-balance-float-005-ref.html"><link rel="match" href="reference/text-wrap-balance-float-005-ref.html"><link rel="match" href="reference/text-wrap-balance-float-005-ref.html">
+<style>
+.container {
+  font: 20px/1.5 monospace;
+  width: 26.5ch;
+  border: solid 18446744073709551614px;
+  text-wrap: balance;
+}
+.float {
+  background: yellow;
+  padding: 0.2em 1ch;
+  line-height: 1.2;
+  float: left;
+}
+.float2 {
+  background: cyan;
+  padding: 0.2em 1ch;
+  line-height: 1.2;
+  float: right;
+}
+</style>
+
+<!--
+The floats (inc. padding) are 7ch wide, and occupy ~2 lines,
+so without balancing, layout would be
+    +--------------------------+
+    | FLOAT jklm nop     FLOAT |
+    | FLOAT abcde fghi jklm nop|
+    | FLOAT qrst uvw     FLOAT |
+    |xyx!                FLOAT |
+    +--------------------------+
+
+Applying text-wrap:balance results in
+    +--------------------------+
+    | FLOAT abcde fghi         |
+    | FLOAT jklm nop     FLOAT |
+    |qrst uvw xyx!       FLOAT |
+    +--------------------------+
+-->
+<div class="container"><div class="float">FLOAT<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>FLOAT</div>abcde fghi jklm nop<div class="float2">FLOAT<div class="float2">FLOAT<br><div>FLOAT</div></div><div>FLOAT</div></div><br> qrst uvw xyz!</div><div class="container"><div class="float">FLOAT<br><br><br><br><br><br><br><br><br><br><br><br><br>FLOAT</div>abcde fghi jklm nop<div class="float2">FLOAT<br><div>FLOAT</div></div><br> qrst uvw xyz!</div><div class="container"><div class="float">FLOAT<br><br><br><br><br><br><br><br><br><br><br><br><br>FLOAT</div>abcde fghi jklm nop<div class="float2">FLOAT<br><div>FLOAT</div></div><br> qrst uvw xyz!</div><div class="container"><style><div class="container"><div class="float">FLOAT<br><br><br><br><br><br><br><br><br><br><br><br><br>FLOAT</div></div></style>abcde fghi jklm nop<br><br> qrst uvw xyz!</div>

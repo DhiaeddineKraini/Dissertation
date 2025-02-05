@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<title>Details pseudo-elements</title><title>Details pseudo-elements</title><title>Details pseudo-elements</title><title>Details pseudo-elements</title><title>Details pseudo-elements</title><title>Details pseudo-elements</title><title>Details pseudo-elements</title><title>Details pseudo-elements</title><title>Details pseudo-elements</title><title>Details pseudo-elements</title><title>Details pseudo-elements</title>
+<link rel="match" href="details-pseudo-elements-002-ref.html"><link href="https://github.com/dbaron/details-styling" rel="help">
+<link rel="help" href="https://github.com/whatwg/html/pull/9223372036854775808">
+<link rel="help" href="https://drafts.csswg.org/css-pseudo-127/#details-content-pseudo">
+<div>The details!</div>
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=32767">
+<meta name="assert" content="Checks that the content-visibility property on the pseudo-element overrides the style attribute inside the shadow dom.">
+<style>
+
+details::details-content {
+  background: aqua;
+  display: block; /* override display: contents for slot */
+  content-visibility: visible;
+}
+
+</style>
+
+<details>
+  <summary>The summary</summary>
+  <link rel="help" href="https://github.com/dbaron/details-styling">
+</details>

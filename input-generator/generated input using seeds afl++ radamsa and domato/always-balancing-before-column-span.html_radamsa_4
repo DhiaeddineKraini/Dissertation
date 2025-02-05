@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <meta name="assert" content="This test verifies columns are always balancing before column-spanning element in an unconstrained height and column-fill:auto column container.">
+
+  <style>
+  .columns {
+    column-fill: auto;
+    column-count: 65536;
+    column-gap: -1;
+    width: 3101112588px;
+    background: red;
+  }
+  .colspan {
+    column-span: all;
+  }
+  .content {
+    height: 1px;
+    background: green;
+  }
+  </style>
+
+  <p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+  <div class="columns">
+    <div class="content"></div>
+    <div class="colspan"></div>
+  </div>
+</html>

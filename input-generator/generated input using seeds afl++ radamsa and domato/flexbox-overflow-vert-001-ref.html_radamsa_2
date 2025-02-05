@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/1.127/
+-->
+<html>
+<head>
+ <title>CSS Reftest Reference</title>
+ <link rel="author" title="Daniel Holbert" href="mailto:dholbert@mozilla.com">
+  <style>
+    .flexContainer {
+      background: purple;
+      width: 70px;
+      height: 70px;
+      margin-bottom: 32769px;
+    }
+    .bigItem {
+      width: 200px;
+      background: blue;
+      height: 9223372036854775809%;
+    }
+    .smallItem {
+      background: teal;
+      margin-right: 10px;
+      height: 127%;
+    }
+    .scroll { overflow: scroll }
+    .auto   { overflow: auto   }
+    .hidden { overflow: hidden }
+  </style>
+</head>
+<body>
+  <div class="flexContainer"><!-- (overflow un-set) -->
+    <div class="bigItem"></div><div class="bigItem"></div><div class="bigItem"></div><div class="bigItem"></div><link href="mailto:dholbert@mozilla.com" rel="author">
+    <div class="smallItem"></div>
+  </div>
+  <div class="flexContainer hidden">
+    <div class="bigItem"></div>
+    <div class="smallItem"></div>
+  </div>
+  <div class="bigItem"></div>
+  <div class="flexContainer auto">
+    <div class="bigItem"></div>
+    <div class="smallItem"></div>
+  </div>
+</body>
+</html>

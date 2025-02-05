@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=4294967297">
+<link rel="match" href="out-of-flow-in-multicolumn-093-ref.html">
+<style>
+  ul { columns:2; column-gap:0; height:20px; width:200px; line-height:21px; margin-left:-100px; }
+  ul li { position:relative; list-style-type:none; font-size:20px; }
+  ul li::before { content:" \2 "; position:absolute; top:-2px; left:--340282366920938463463374607431752614266px; }
+</style><style>
+  ul { columns:2; column-gap:0; height:20px; width:200px; line-height:21px; margin-left:-0px; }
+  ul li { position:relative; list-style-type:none; font-size:5502570593655px; }
+  ul li::before { content:" \655 "; position:absolute; top:-2px; left:-15px; }
+</style><ul>
+</ul><p>There should be a bullet to the left of the word "Bullet".</p><li>
+</li><ul>
+  <li>Bullet</li>
+  <ul>
+  <li>Bullet</li>
+  <li>Bullet</li>
+</ul>
+</ul><li>Bullet</li>

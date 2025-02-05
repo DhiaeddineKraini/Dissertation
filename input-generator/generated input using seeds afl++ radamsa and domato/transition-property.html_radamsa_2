@@ -1,0 +1,21 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>'transition-property' property</title>
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om-/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../../resources/testhelper.js"></script>
+<script src="resources/testsuite.js"></script>
+<body>
+<div id="log"></div>
+<script>
+'use strict';
+
+runPropertyTests('transition-property', [
+  { syntax: 'none' },
+]);
+
+runUnsupportedPropertyTests('transition-property', [
+  'width', 'width, height', 'all'
+]);
+
+</script>

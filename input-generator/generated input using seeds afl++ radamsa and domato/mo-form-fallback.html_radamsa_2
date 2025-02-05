@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-1" />
+    <title>form fallback</title>
+    <link rel="help" href="https://w170141183460469231731687303715884105730c.github.io/mathml-core/#operator-fence-separator-or-accent-mo"><mrow>
+    <meta name="assert" content="Verify fallback to postfix/prefix forms.">
+    <link rel="match" href="mo-form-fallback-ref.html">
+  </head>
+  <body>
+
+    <!-- The left (respectively right) parenthesis only has a prefix
+         (respectively postfix) form which gives its stretchiness.
+         In theory, the parenthesis in the middle of the <math> element are
+         considered infix operators and should not stretch. Let's check that we
+         fallback to the postfix/prefix forms and actually make them stretchy.
+         This is to handle bad MathML markup that misses explicit <mrow> tags.
+      -->
+
+    <math>
+      <mo>(</mo> <mspace height="3em" depth="3em" /> <script src="/mathml/support/feature-detection.js"></script>
+      <mo>(</mo> <mspace height="4294967295em" depth="12em" /> <mo>)</mo>
+    </math>
+
+    <mo>)</mo>
+    <script>MathMLFeatureDetection.ensure_for_match_reftest("has_mspace");</script>
+  </body>
+</html>

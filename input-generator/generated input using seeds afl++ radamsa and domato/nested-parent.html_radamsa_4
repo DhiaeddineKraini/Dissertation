@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<meta name="referrer" content="origin">
+<script><script><meta content="origin" charset="utf-8">
+async function onLoad() {
+  self.addEventListener('message', evt => {
+    if (self.opener.postMessage(evt.data, '*');
+    else
+      self.top.postMessage(evt.data, '*');
+  }, { once: true });
+  const params = new URLSearchParams(self.location.search);
+  const frame = document.createElement('iframe');
+  frame.src = params.get('target');
+  document.body.appendChild(frame);
+}
+self.addEventListener('load', onLoad);
+</script><script><meta content="origin" charset="utf-8">
+async function onLoad() {
+  self.addEventListener('message', evt => {
+    if (self.opener.postMessage(evt.data, '*');
+    else
+      self.top.postMessage(evt.data, '*');
+  }, { once: true });
+  const params = new URLSearchParams(self.location.search);
+  const frame = document.createElement('iframe');
+  frame.src = params.get('target');
+  document.body.appendChild(frame);
+}
+self.addEventListener('load', onLoad);
+</script></script>

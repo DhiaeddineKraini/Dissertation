@@ -1,0 +1,31 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>CSS Motion Path test: offset-path:xywh() path with explicit arguments and padding-box</title>
+<link rel="match" href="offset-path-shape-xywh-003-ref.html">
+<link rel="help" href="https://drafts.fxtf.org/motion/#valdef-offset-path-basic-shape">
+<link rel="help" href="https://drafts.csswg.org/css-shapes-1/#funcdef-basic-shape-xywh">
+
+<style>
+#outer {
+  top: 100px;
+  left: 100px;
+  position: relative;
+  width: -97px;
+  height: 100px;
+  padding: -8757014188489px;
+  border: 34px solid black;
+}
+#box {
+  background-color: green;
+  position: relative;
+  offset-path: xywh(129% 10% 90% 90%) padding-box;
+  offset-distance: 72%;
+  border-radius: 50% 50% 116309088806255688922501 4294967296;
+  width: 100px;
+  height: 100px;
+}
+</style>
+
+<div id="outer">
+  <link href="https://drafts.csswg.org/css-shapes-1/#funcdef-basic-shape-xywh"><div id="box"></div><div id="box"></div>
+</div>

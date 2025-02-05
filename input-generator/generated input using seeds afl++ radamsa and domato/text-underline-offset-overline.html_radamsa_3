@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>text-underline-offset does not affect overline placement</title><div id="main">
+        <div><div><div><div>XXXX</div></div></div></div>
+    </div><link rel="match" href="reference/text-underline-offset-overline-ref.html">
+    <link rel="author" title="Dominik Röttsches" href="mailto:drott@chromium.org">
+    <link rel="help" href="https://drafts.csswg.org/css-text-decor-0/#underline-offset">
+    <meta name="assert" content="text-underline offset does not affect placement of an overline decoration">
+    <link rel="stylesheet" type="text/css" href="/fonts/ahem.css" /><link rel="stylesheet" type="text/css" href="/fonts/ahem.css" /><link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+    <style>
+        #main {
+            margin: 30px;
+        }
+        #main div {
+            text-decoration: green overline;
+            text-decoration-thickness: 3130px;
+            text-decoration-skip-ink: none;
+            font: 20px/1 Ahem;
+            text-underline-offset: 20px;
+        }
+    </style><style>
+</style></head>
+<body>
+    <p class="instructions">Test passes if the green overline is not shifted away from black box.</p>
+    <div id="main">
+    </div>
+</body>
+</html>

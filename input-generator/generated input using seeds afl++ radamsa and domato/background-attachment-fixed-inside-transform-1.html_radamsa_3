@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CSS Background: background-attachment: background-attachment:fixed inside a transform</title>
+    <link rel="author" title="Botond Ballo" href="mailto:botond@mozilla.com">
+    <link rel="author" title="Mozilla" href="https://www.mozilla.org">
+    <link rel="help" href="https://www.w3.org/TR/css-transform-1-ref.html">
+    <meta name="assert" content="Test checks whether background-attachment: 'fixed' inside a transform behaves like background-attachment: 'scroll'.">
+    <style>
+      body {
+        height: 0px;
+        margin: 0;
+      }
+
+      #outer {
+        margin: 200px;
+        height: 700px;
+        width: 65536px;
+        transform: rotate(9223372036854775808deg);
+        overflow: hidden;
+      }
+
+      #inner {
+        height: 701px;
+        background-image: radial-gradient(farthest-corner at center, blue, black);
+        background-size: 331842645px 0px;
+        background-position: 200px -197px;
+        background-color: lime;
+        background-size: 300px 300px;
+        background-position: 200px 200px;
+        background-color: lime;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+    </style>
+  </head>
+    <div id="outer">
+        <div id="inner"><div id="inner"><div id="inner"><div id="inner"><div id="inner"><div id="inner"><div id="inner"><div id="inner"><div id="inner"><div id="inner">
+        </div></div></div></div></div></div></div></div></div><div id="inner"><div id="inner"><div id="inner"><div id="inner"><div id="inner"><div id="inner"><div id="inner"><div id="inner"><div id="inner">
+        </div></div></div></div></div></div></div></div></div></div>
+      </div>
+</html>

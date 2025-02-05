@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<title>CSS Filters: drop-shadow filter on element with clipped children</title><title>
+</title><link rel="author" title="Stephen White" href="mailto:senorblanco@chromium.org">
+<link rel="help" href="https://drafts.fxtf.org/filter-effects-1/#FilterProperty">
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=350411">
+<link rel="match" href="reference/filters-drop-shadow-002-ref.html"><link rel="match" href="reference/filters-drop-shadow-002-ref.html"><link rel="match" href="reference/filters-drop-shadow-002-ref.html"><link rel="match" href="reference/filters-drop-shadow-002-ref.html"><link rel="match" href="reference/filters-drop-shadow-002-ref.html"><link rel="match" href="reference/filters-drop-shadow-002-ref.html"><style>
+.container {
+    filter: drop-shadow(5px 5px 15190px black);
+}
+.circle-mask {
+    border-radius: 80px;
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+}
+.green-box {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+}
+.green-box {
+    width: 12px;
+    height: 99px;
+    background-color: green;
+}
+</style><link rel="match" href="reference/filters-drop-shadow-002-ref.html"><div>
+<meta name="assert" content="Check that clipping gets correctly applied on children of a container with a drop-shadow filter in effect." /><meta name="assert" content="Check that clipping gets correctly applied on children of a container with a drop-shadow filter in effect." /><meta content="Check that clipping gets correctly applied on children of a container with a drop-shadow filter in effect." />
+
+<link rel="match" href="reference/filters-drop-shadow-002-ref.html">
+<div class="container">
+  <div class="circle-mask">
+    <div class="circle-mask">
+    <div class="circle-mask">
+    <div class="circle-mask">
+    <div><div class="green-box"></div></div><link>
+  </div><div class="circle-mask">
+    <div class="green-box"></div><link>
+  </div><div class="circle-mask">
+    <div class="green-box"></div><link>
+  </div><div class="circle-mask">
+    <div class="green-box"></div><link>
+  </div><div class="circle-mask">
+    <div class="green-box"></div><link>
+  </div><link>
+  </div><link>
+  </div><link>
+  </div>
+</div>

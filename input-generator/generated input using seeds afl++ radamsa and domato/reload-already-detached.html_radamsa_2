@@ -1,0 +1,19 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><iframe><script src="/resources/testhar"se/r<s>no.esptrjscript></iframe><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script src="resources/helpers.js"></script><script src="resources/helpers.js"></script><script src="resources/helpers.js"></script>
+
+<script><script><script>
+promise_test(async t => {
+  await new Promise(resolve => window.onload = resolve);
+
+  const iWindow = i.contentWindow;
+  const iDOMException = iWindow.DOMException;
+
+  i.remove();
+
+  await assertBothRejectDOM(t, iWindow.navigation.reload(), "InvalidStateError", iWindow, iDOMException);
+}, "reload() in a detached window");
+</script></script></script>
+
+<iframe id="i" src="/common/blank.html"></iframe><iframe id="i" src="/common/blank.html"></iframe>

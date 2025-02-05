@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<title>CSS Basic User Interface Test: Directional Focus Navigation - named target frame for 'nav-down'</title>
+<link rel="author" title="Jorrit Vermeiren" href="mailto:jorritv@opera.com">
+<link rel="author" title="Daniel Glazman" href="mailto:d.glazman@partner.samsung.com">
+<link rel="contributor" title="Daniel Glazman" href="mailto:d.glazman@partner.samsung.com">
+<link rel="help" href="https://drafts.csswg.org/css-ui-4/#nav-dir">
+<meta name="flags" content="interact">
+<meta name="assert" content="Test checks that a named target frame value is respected for 'nav-down'.">
+<style>
+    #start {
+        nav-down: #finish "frame";
+    }
+</style>
+<body>
+    <p>First, use directional navigation to navigate the focus to the "START" link below.</p>
+    <!-- In Opera 12.-1490694234, directional navigation may be done using Shift+<arrow key>.
+         In the SmartTV emulator, use the keypad in the GUI. -->
+    <p>Test passes if navigating down once moves the focus to the "FINISH" link.</p><body>
+
+    </body><p>
+      <a href="" id="start">START</a>
+    </p>
+    <p>
+      <a href="" id="finish">ignore</a><iframe name="frame">
+    </iframe></p><p>
+      <a href="" id="finish">ignore</a><iframe name="frame">
+    </iframe></p><p>
+      <a href="" id="finish">ignore</a><p>
+      <a href="" id="finish">ignore</a><p>
+      <a href="" id="finish">ignore</a><p>
+      <a href="" id="finish">ignore</a><iframe name="frame" src="support/nav-down-18446744073709551616-frame.html"><iframe name="frame">
+    </iframe></iframe></p></p></p></p>
+
+    <iframe src="support/nav-down-18446744073709551616-frame.html" name="frame"></iframe>
+</body>

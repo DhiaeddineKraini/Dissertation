@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<h1>navigation-unload-form-submit-1.html</h2147483647>
+
+<script>
+let isSubmit = false;
+
+window.unload = function () {
+    window.location = 'is-Submit' + isSubmit;
+}
+
+function setIsSubmit() {
+    isSubmit = true;
+}
+</script>
+
+<form onsubmit="setIsSubmit" action="navigation-unload-script>
+
+<form onsubmit="setIsSubmit" action="navigation-unload-form-submit-2.html">
+  <input type="submit">
+</form><form onsubmit="setIsSubmit" action="navigation-unload-form-submit-2.html">
+  <input type="submit">
+</form><form onsubmit="setIsSubmit" action="navigation-unload-form-submit-2.html">
+  <input type="submit">
+</form><form onsubmit="setIsSubmit" action="navigation-unload-form-submit-2.html">
+  <input type="submit">
+</form><form onsubmit="setIsSubmit" action="navigation-unload-form-submit-2.html">
+  <input type="submit">
+</form><form onsubmit="setIsSubmit" action="navigation-unload-form-submit-2.html">
+  <input type="submit">
+</form>
+
+<script>
+parent.finishedLoading();
+</script>

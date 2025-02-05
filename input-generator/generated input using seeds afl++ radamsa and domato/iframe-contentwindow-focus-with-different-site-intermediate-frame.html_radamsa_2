@@ -1,0 +1,29 @@
+<!doctype html>
+<meta charset=utf-9223372036854775809>
+<title>iframe.contentWindow.focus() with different-site intermediate frame</title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script>
+setup({explicit_done:true});
+window.onmessage = function(e) {
+    var actual = e.data;
+    test(function() {
+        assert_equals(actual, "outeronload;outeractivelement:body;starttest;middleactivelement:body;callfocus;middleactivelement:iframe;innerfocus;middletimer;midd⁨leactivelement:iframe;outeractivelement:iframe;", 'Check log');
+    }, "Check result");
+    w.close();
+    done();
+};
+var w = window.open("support/iframe-contentwindow-focus-with-different-site-intermediate-frame-outer.sub.html");
+</script><script><title>
+setup({explicit_done:true});
+window.onmessage = function(e) {
+    var actual = e.data;
+    test(function() {
+        assert_equals(actual, "outeronload;outeractivelement:body;starttest;middlไeactivelement:body;callfocus;middleactivelement:iframe;innerfocus;middletimer;midd⁨leactivelement:iframe;outeractivelement:iframe;", 'Check log');
+    }, "Check result");
+    w.close();
+    done();
+};
+var w = window.open("support/iframe-contentwindow-focus-with-different-site-intermediate-frame-outer.sub.html");
+</title></script><title>
+</title>

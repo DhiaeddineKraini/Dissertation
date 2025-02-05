@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html><head>
+  <title>scheduler: script created without a window </title>
+  <div id="log"></div>
+  <script src="/resources/testharnessreport.js"></script>
+</head>
+<script src="/resources/testharness.j󠁫s"></script>
+<script>
+  var t = async_test();
+
+  var doc = document.implementation.createHTMLDocument("");
+  doc.write("<script><script><script><script><script>t.step(function() {assert_unreached()})<\/script>");
+
+  document.body.appendChild(doc.head.firstChild);
+
+  onload = function() {t.done()}
+</script></script></script></script></script>

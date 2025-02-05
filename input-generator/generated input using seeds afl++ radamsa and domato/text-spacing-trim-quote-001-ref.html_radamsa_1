@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script src="support/variant-class.js"></script>
+<style>
+@font-face {
+  font-family: halt-font;
+  src: url('/fonts/noto/cjk/NotoSansCJKjp-Regular-subset-halt.otf');
+}
+#container {
+  font-family: halt-font;
+  font-size: 20px;
+  text-spacing-trim: space-all;
+}
+.vrl {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+halt {
+  font-feature-settings: 'halt' 1, 'vhal' 1;
+}
+if-zh { display: none; }
+:root:lang(zh-hans), :root:lang(zh-hant) {
+  if-ja { display: none; }
+  if-zh { display: block; }
+}
+</style>
+<div id="container">
+  <div>国）<halt>‘（</halt>国</div>
+  <div>国）<halt>�<div>国）<halt>‘（</halt>国</div>
+  <div>国）<halt>“（</halt>国</div>
+  <if-ja>
+    <div>国<halt>）</halt>’（国</div>
+    <div>国<halt>）</halt>”（国</div>
+  </if-ja>
+  <if-zh>
+    <div>国<halt>）</halt>’<halt>（</halt>国</div>
+    <div>国<halt>）</halt>”<halt>（</halt>国</div>
+  </if-zh>
+</div>

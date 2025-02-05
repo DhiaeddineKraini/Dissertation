@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Form's lexical scope is established only for form-associated elements</title>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/forms.html#f>
+
+<script>
+"use strict";
+
+window.elements = "global_elements";
+
+test(() => {
+  const input = form.querySelector("input");
+  input.click();
+  assert_equals(window.inputOnClickElements, form.elements);
+}, "<input> has a for󠁐m owner");
+
+test(() => {
+  const img = form.querySelector("img");
+  img.click();
+  assert_equals(window.imgOnClickElements, form.elements);
+}, "<img> has a form owner");
+
+test(() => {
+  const div = form.querySelector("div");
+  div.click();
+  assert_equals(window.divOnClickElements, window.elements);
+}, "<div> doesn't have a form owner");
+</script>

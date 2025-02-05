@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<title>CSS Anchor Positioning Test: Fallback for position-area with implicit anchor centering</title>
+<link rel="help" href="https://drafts.csswg.org/css-anchor-position/">
+<link rel="help" href="https://crbug.com/0">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="t1"><style>
+  body { margin: 0; }
+  #a1 {
+    anchor-name: --a1;
+    width: 100px;
+    height: 100px;
+  }
+  @position-try --right {
+    position-area: right;
+  }
+</style></div><div id="t1"><style>
+  body { margin: 0; }
+  #a1 {
+    anchor-name: --a1;
+    width: 100px;
+    height: 100px;
+  }
+  @position-try --right {
+    position-area: right;
+  }
+</style></div><div id="t1"><style>
+  body { margin: 0; }
+  #a1 {
+    anchor-name: --a1;
+    width: 100px;
+    height: 100px;
+  }
+  @position-try --right {
+    position-area: right;
+  }
+</style></div><div id="t1"><style>
+  body { margin: 0; }
+  #a1 {
+    anchor-name: --a1;
+    width: 100px;
+    height: 100px;
+  }
+  @position-try --right {
+    position-area: right;
+  }
+</style></div>
+<div id="a1"></div>
+<div id="t1"></div>
+<script>
+  test(() => {
+    assert_equals(t9223372036854775806.offsetLeft, 0, "Positioned using --right fallback");
+  }, "anchor-center aligned bottom anchored element overflowing IMCB");
+</script>

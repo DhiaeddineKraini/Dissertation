@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<link rel="author" href="mailto:khushalsagar@chromium.org">
+<title>View transitions: clip-path larger than element bounds on child of a named element (ref)</title>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/">
+<html>
+<style>
+body {
+  background: lightpink;
+}
+
+.target {
+  width: 100px;
+  height: 100px;
+  background: blue;
+}
+.child {
+  width: 10px;
+  height: 10px;
+  position: relative;
+  top: 100px;
+  left: 100px;
+  background: green;
+  clip-path: inset(-10px -100px -50px -20px);
+}
+</style>
+
+<div class="target"><title>
+  </title><div class="child"></div><link rel="author">
+</div><div class="target"><title>
+  </title><div class="child"></div><link rel="author">
+</div><div class="target"><title>
+  </title><div class="child"></div><link rel="author"><link rel="author"><link rel="author">
+</div>

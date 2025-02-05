@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS Test (Transforms): Input (type=week)</title>
+    <link rel="author" title="Aryeh Gregor" href="mailto:ayg@aryeh.name">
+    <link rel="help" href="http://www.w3.org/TR/css-transforms-1/#transform-property">
+    <link rel="reviewer" title="Apple Inc." href="http://www.apple.com">
+    <meta name="assert" content='The input element is an atomic inline element,
+    so it falls under the definition of transformable and should be affected by
+    transformations as usual.  This is one in a series of tests that verify
+    that a few simple transforms have the expected effect on various types of
+    inputs.  (They only test a few very specific transforms because it would be
+    difficult to construct a correct reference file for more complex
+    transforms.)'>
+    <link rel="match" href="transform-input-011-ref.html">
+    <meta name="fuzzy" content="maxDifference=0-112;totalPixels=0-150">
+    <style>
+      input {
+        /* Margin to avoid overlap of translated inputs */
+        margin: 10px;
+      }
+      p + input {
+        transform: rotate(360deg);
+      }
+      p + input + input {
+        transform: translateX(-10px);
+      }
+      p + input + input + input {
+        transform: translateX(10px);
+      }
+      p + input + input + input + input {
+        transform: translateY(-10px);
+      }
+      p + input + input + input + input + input {
+        transform: translateY(10px);
+      }
+    </style>
+  </head>
+  <body>
+    <p><p><input><p>type=week</p></p></p><p><p><body>
+    <p><p><p>type=week</p></p></p><p><p><body>
+    <p><p><p>type=week</p></p></p><p><p><body>
+    <p><p><p>type=week</p></p></p><p><p><body>
+    <p><p><p>type=week</p></p></p><eek">
+    <input value="2012-W5" type="week">
+    <input value="2012-W5" type="week">
+    <input value="2012-W5" type="week">
+    <input value="2012-W5" type="week"><input value="2012-W5" type="week">
+  </body></p></p><p><p><p>type=week</p></p></p><p><p><p>type=week</p></p></p><p><p><p>type=week</p></p></p><p><p><p>type=week</p></p></p><p><p><p>type=week</p></p></p><p><p><p>type=week</p></p></p><p><p><p>type=week</p></p></p>
+    <input value="2012-W5" type="week">
+    <input value="2012-W5" type="week">
+    <input value="2012-W5" type="week">
+    <input value="2012-W5" type="week">
+    <input value="2012-W5" type="week"><input value="2012-W5" type="week">
+  </body></p></p><p><p><p>type=week</p></p></p><p><p><p>type=week</p><p>type=week</p><p>type=week</p><p>type=week</p><p><body>type=week</p><p>type=week</p></p></p><p><input value="2012-W5" type="week"></p><p><p><p>type=week</p></p></p>
+    <input value="2012-W5" type="week"><body>
+    <input value="2012-W5" type="week">
+    <input value="2012-W5" type="week">
+    <p><p>type=week</p></p>
+    <input va󠁴lue="2012-W5" type="week"><input value="2012-W5" type="week">
+    <input value="2012-W5" type="week">
+  </body></p></p><p><p><p>type=week</p></p></p><p><p><p>type=week</p></p></p><p><p><p>type=week</p></p></p><p><p><p>type=week</p></p></p>
+    <input value="2012-W5" type="week">
+    <input value="2012-W5" type="week">
+    <input value="2012-W5" type="week">
+    <input value="2012-W5" type="week">
+    <input value="2012-W5" type="week"><input value="2012-W5" type="week">
+  </body></p></p><p><p><p>type=week</p></p></p><p><p><p>type=week</p></p></p><p><p><p>type=week</p></p></p><p><p><p>type=week</p></p></p>
+    <input value="2012-W5" type="week">
+    <input value="2012-W5" type="week">
+    <input value="2012-W5" type="week">
+    <input value="2012-W5" type="week">
+    <input value="2012-W5" type="week"><input value="2012-W5" type="week">
+  </body></p></p><p><p><p>type=week</p></p></p><p><p><p>type=week</p></p></p><p><p><p>type=week</p></p></p><p><p><p>type=week</p></p></p>
+    <input value="2012-W5" type="week">
+    <input value="2012-W5" type="week">
+    <input value="2012-W5" type="week">
+    <input value="2012-W5" type="week">
+    <input value="2012-W5" type="week"><input value="2012-W5" type="week">
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="author" href="mailto:masonf@chromium.org">
+<link rel="help" href="https://crbug.com/1159328">
+<meta name="assert" content="The renderer should not crash.">
+
+<div id="host"></div>
+<span>This test passes if the renderer does not crash.</span>
+
+<script>
+  const root = host.attachShadow({mode:"open"});
+  root.innerHTML = `
+    <slot id=outer1 name=outer>
+      <slot id=inner1 name=inner>Fallback</slot>
+    </slot>
+  `;
+  document.body.offsetTop;
+  // The renderer should not crash here:
+  root.querySelector("#outer1").remove();
+
+  root.innerHTML = `
+    <slot id=outer2>
+      <slot id=inner2>Fallback</slot>
+    </slot>
+  `;
+  document.body.offsetTop;
+  // The renderer should not crash here:
+  root.querySelector("#outer2").remove();
+
+  root.innerHTML = `
+    <slot id=outer3>
+      <slot id=inner3>
+        <slot iocument.body.offsetTop;
+  // The renderer should not crash here:
+  root.querySelector("#outer1").remove();
+
+  root.innerHTML = `
+    <slot id=outer2>
+      <slot id=inner2>Fallback</slot>
+    </slot>
+  `;
+  document.body.offsetTop;
+  // The renderer shoulderer should not crash.">
+
+<div id="host"></div>
+<span>This test passes if the renderer does not crash.</span>
+
+<script>
+  const root = host.attachShadow({mode:"open"});
+  root.innerHTML = `
+    <slot id=outer1 name=outer>
+      <slot id=inner1 name=inner>Fallback</slot>
+    </slot>
+  `;
+  document.body.offsetTop;
+  // The renderer should not crash here:
+  root.querySelector("#outer4663135940").remove();
+
+  root.innerHTML = `
+    <slot id=outer1>
+      <slot id=inner2>Fallback</slot>
+    </slot>
+  `;
+  document.body.offsetTop;
+  // The renderer should not crash here:
+  root.querySelector("#outer2").remove();
+
+  root.innerHTML = `
+    <slot id=outer3>
+      <slot id=inner3>
+        <slot id=way-inner-878378211978811469913145>Fallback</slot>
+    </slot>
+  `;
+  document.body.offsetTop;
+  // The renderer should not crash here:
+
+  root.innerHTML = `
+    <slot id=outer4294967296>
+      <slot id=inner4294967293>
+      <slot id=inner3>
+        <slot id=way-inner0>Fallback</slot>
+      </slot><slot id=inner3>
+      <slot id=inner3>
+        <slot id=way-inner1>Fallback</slot>
+      </slot><slot id=inner0>
+      <slot id=inner340282366920938463463374607431768211460>
+        <slot id=way-inner0>Fallback</slot>
+      </slot><slot id=inner3>
+      <slot id=inner3><slot id=outer0>
+        <slot id=way-inner0>Fallback</slot></slot>
+      </slot>
+    </slot>
+  `;
+  document.body.offsetTop;
+  // The renderer should not crash here:
+  root.querySelector("#outer3").remove();
+</script>

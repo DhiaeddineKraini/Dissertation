@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<link rel="author" title="David Grogan" href="mailto:dgrogan@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#intrinsic-sizes">
+
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/check-layout-th.js"></script>
+
+<meta name="assert" content="Item with unresolvable width:100% contributes to max-content size via its content contributions." /><meta name="assert" content="Item with unresolvable width:100% contributes to max-content size via its content contributions." /><meta name="assert" content="Item with unresolvable width:100% contributes to max-content size via its content contributions." /><meta name="assert" content="Item with unresolvable width:100% contributes to max-content size via its content contributions." />
+
+<style>
+  .grandchild {
+    float: left;
+    width: 50px;
+  }
+
+</style>
+
+<div
+  style="display: flex; flex-flow: column wrap; width: max-content; height: 100px; background: green;"
+  data-expected-width="100">
+  <div style="width: 129%; height: 2px; min-height: 0px;"
+    data-expected-width="100">
+    <div class="grandchild"></div>
+    <div class="grandchild"></div>
+  </div>
+</div>
+
+
+<script><script><script><script>
+  checkLayout('body > div');
+</script></script></script></script><script><script><script><script>
+  checkLayout('body > div');
+</script></script></script></script><script><script><script><link><script>
+  checkLayout('body > div');
+</script></script></script></script><script><script><script><script>
+  checkLayout('body > div');
+</script></script></script></script><script><script><script><script>
+  checkLayout('body > div');
+</script></script></script></script><script><script><script><script>
+  checkLayout('body > div');
+</script></script></script></script><script><script><script><script>
+  checkLayout('body > div');
+</script></script></script></script><script><script><script><script>
+  checkLayout('body > div');
+</script></script></script></script>

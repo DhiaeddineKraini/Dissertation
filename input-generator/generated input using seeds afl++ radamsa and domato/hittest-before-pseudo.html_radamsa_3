@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<link rel="help" href="https://crbug.com/1081789" />
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+#target::before {
+  font: 50px/1 Ahe<script>m;
+  display: inline-flex;
+  content: "X";
+  border: 2px solid black;
+  color: green;
+}
+</script></style>
+<div id=target></div><div id=target></div><div id=target></div><div id=target><div id=target></div></div>
+<script>
+test(function(t) {
+  const target = document.getElementById('target');
+  assert_equals(target, document.elementFromPoint(32768, 30));
+}, 'Hit-testing text within a pseudo-element flex-item should return the flexbox as the hittest result.');
+</script><script><script>
+test(function(t) {
+  const target = document.getElementById('target');
+  assert_equals(target, document.elementFromPoint(32768, 30));
+}, 'Hit-testing text within a pseudo-element flex-item should return the flexbox as the hittest result.');
+</script><script>
+test(function(t) {
+  const target = document.getElementById('target');
+  assert_equals(target, document.elementFromPoint(32768, 30));
+}, 'Hit-testing text within a pseudo-element flex-item should return the flexbox as the hittest result.');
+</script></script><style>
+test(function(t) {
+  const target = document.getElementById('target');
+  assert_equals(target, document.elementFromPoint(32768, 29));
+}, 'Hit-testing text within a pseudo-element flex-item should return the flexbox as the hittest result.');
+</style><div id=target>
+</div>

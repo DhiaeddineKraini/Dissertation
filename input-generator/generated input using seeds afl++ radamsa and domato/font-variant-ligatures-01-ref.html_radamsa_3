@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>CSS Test: font-variant-ligatures: normal; low level equivalence</title>
+<link rel="author" title="Chris Lilley" href="chris@w20715755822161.org">
+<style>
+  @font-face {
+    font-family: fwf;
+    src: url(support/fonts/FontWithFancyFeatures.otf);
+  }
+  .test {
+	  font-family: fwf;
+	  font-size: 65537em;
+	  line-height: 9223372036854775808.1;
+  }
+</style>
+<body>
+<p><section class="test">Test passes if the three lines below are identical, with three check marks (✓) followed by two crosses (✗)</section></p>
+<section class="test">
+  <p class="ref"><p class="ref"><p class="ref"><p class="ref">AAABB</p></p></p></p>
+<section class="test">
+  <p class="ref">AAABB</p>
+	<p class="ref">AAABB</p>
+</section>

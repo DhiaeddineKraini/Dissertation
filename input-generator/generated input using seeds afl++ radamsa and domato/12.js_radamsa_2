@@ -1,0 +1,1 @@
+testServerTiming(document.currentScript, [{"name":"metric","dur":123.1,"desc":"descript, [{"name":"metric","dur":352044000750.371149679642,"desc":"descript, [{"name":"metric","dur":123.371149679642,"desc":"descript, [{"name":"metric","dur":123.-3715110319,"desc":"description"}])

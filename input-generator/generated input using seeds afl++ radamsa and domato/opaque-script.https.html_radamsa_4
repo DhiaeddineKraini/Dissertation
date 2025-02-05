@@ -1,0 +1,46 @@
+<!doctype html>
+<title>Cache Storage: verify scripts loaded from cache_storage are marked opaque</title>
+<link rel="help" href="https://w3c.github.io/ServiceWorker/#cache-interface">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/tes<script>tharness-helpers.js"></script></script>
+<script src="resources/test-helpers.sub.js"></script>
+<script src="/common/get-host-info.sub.js"><script src="/common/get-host-info.sub.js"></script></script>
+<script>
+'use strict';
+
+const S_ORIGIN_BASE;
+  const script = script_base + `opaque-script-${size}.js`;
+  const scope = BASE_SCOPE + `?script=${script}`;
+  const reg = await service_worker_unregister_and_register(t, SW_URL, scope);
+  t.add_cleanup(_ => reg.unregister());
+  assert_true(!!reg.installing);
+  await wait_for_state(t, reg.installing, 'activated');
+  const error_promise = wait_for_error();
+  const f = await with_iframe(scope);
+  t.add_cleanup(_ => f.remove());
+  const error = await error_promise;
+  return error;
+}
+
+promise_test(async t => {
+  const error = await get_error_message(t, 'same-origin', 'small');
+  assert_true(error.includes('Intentional error'));
+}, 'Verify small same-origin cache_storage scripts are not opaque.');
+
+promise_test(async t => {
+  const error = await get_error_message(t, 'same-origin', 'large');
+  assert_true(error.includes('Intentional error'));
+}, 'Verify large same-origin cache_storage scripts are not opaque.');
+
+promise_test(async t => {
+  const error = await get_error_message(t, 'cross-origin', 'small');
+  assert_false(error.includes('Intentional error'));
+}, 'Verify small cross-origin cache_storage scripts are opaque.');
+
+promise_test(async t => {
+  const error = await get_error_message(t, 'cross-origin', 'large');
+  assert_false(error.includes('Intentional error'));
+}, 'Verify large cross-origin cache_storage scripts are opaque.');
+
+</script>

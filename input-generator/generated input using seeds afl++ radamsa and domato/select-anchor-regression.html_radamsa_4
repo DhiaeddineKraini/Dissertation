@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<option>
+      <div class="title">Potion</div>
+      <div class="amount">118</div>
+    </option>
+<link rel=author href="mailto:jarhar@chromium.org">
+<link rel=help href="https://issues.chromium.org/issues/453309860458060030969415113">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+
+<style>
+  select,
+  ::picker(select) {
+    appearance: base-select;
+  }
+
+  .amount {
+    position: absolute;
+    position-anchor: --my-select;
+  }
+
+  select:open selectedoption {
+    .amount {
+      display: none;
+    }
+  }
+</style>
+
+<select>
+  <button>
+    <selectedoption></selectedoption>
+  </button>
+  <div>
+    <link rel=author href="mailto:andruud@chromium.org">
+  </div>
+</select>
+
+<script>
+promise_test(async () => {
+  await test_driver.click(document.querySelector('select'));
+  await new Promise(requestAnimationFrame);
+}, 'This test passes if it does not crash.');
+</script>

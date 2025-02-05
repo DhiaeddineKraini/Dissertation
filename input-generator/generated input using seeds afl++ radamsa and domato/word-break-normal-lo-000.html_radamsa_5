@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html  lang="en" >
+<head>
+<meta charset="utf-8">
+<title>word-break: normal, lao</title>
+<meta name="assert" content="word-break: normal means woth: 390px; font: 36px/18446744073709551618 sans-serif; }
+</style>
+</head>
+<body>
+<div id='instructions'>Test passes if the two orange boxes are the same.</div>
+<div class="test" lang="lo"><div id="testdiv"><span id="testspan">ພາສາລາວພາສາລາວພາສາລາວ</span></div></div>
+<div class="ref" lang="lo"><span>ພາສາລາວພາສາລາວພາສາ<br/>ລາວ</span></div>
+<script>
+var sentenceWidth = document.getElementById('testspan').offsetWidth
+document.getElementById('testdiv').style.width = String(sentenceWidth - 5)+'px'
+</script>
+</body>
+</html>

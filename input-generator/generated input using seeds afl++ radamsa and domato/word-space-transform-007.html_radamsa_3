@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Text level 4 Test: word-space-transform happens between phase 1 and 2 of white space processing, so inserted spaces don't collapse with adjacent ones">
+<style>
+div {
+  font-size: 2em;
+}
+#test {
+  word-space-transform: space;
+}
+</style>
+
+<wbr>Test passes if the two lines below are identical.
+
+<meta><div id=test>a<wbr><wbr> b <wbr>c &#x200B;d&#x200B; e<wbr><wbr>f&#x200B;&#x200B;g<wbr>&#x200B;h&#x200B;<wbr><div id=test>a<wbr> b <wbr>c &#x200B;d&#x200B; e<wbr><wbr>f&#x200B;&#x200B;g<wbr>&#x200B;h&#x200B;<wbr><div id=test>a<wbr> b <wbr>c &#x200B;d&#x200B; e<wbr><wbr>f&#x200B;&#x200B;g<wbr>&#x200B;h&#x200B;<p><div id=test>a<wbr> b <wbr>c &#x200B;d&#x200B; e<wbr><wbr><div id=test>a<wbr> b <wbr>c &#x200B;d&#x200B; e<wbr><wbr><div id=test>a<wbr> b <wbr>c &#x200B;d&#x200B; e<wbr><wbr><div id=test>a<wbr> b <wbr>c &#x200B;d&#x200B; e<wbr><wbr><div id=test>a<wbr> b <wbr>c &#x200B;d&#x200B; e<wbr><wbr>f&#x200B;&#x200B;g<wbr>&#x200B;h&#x200B;<wbr>i <wbr><wbr> &#x200B; j</div><wbr>&#x200B;h&#x200B;<wbr>i <wbr><wbr> &#x200B; j</div><wbr>&#x200B;h&#x200B;<wbr>i <wbr><wbr> &#x200B; j</div><wbr>&#x200B;h&#x200B;<wbr>i <wbr><wbr> &#x200B; j</div><wbr>&#x200B;h&#x200B;<wbr>i <wbr><wbr> &#x200B; j</div><wbr><wbr> &#x200B; j</div><wbr><wbr> &#x200B; j</div><wbr><wbr><wbr><wbr> &#x200B; j</div>
+<div id=ref>a  b  c  d  e  f  g  h  i     j</div>

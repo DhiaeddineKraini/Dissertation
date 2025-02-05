@@ -1,0 +1,28 @@
+<style><!DOCTYPE html>
+</style><html class="reftest-wait">
+<title>CSS Containment Test: Scrolling overflow works when paint is contained"</title><title>CSS Containment Test: Scrolling overflow works when paint is contained"</title><title>CSS Containment Test: Scrolling overflow works when paint is contained"</title><title>CSS Containment Test: Scrolling overflow works when paint is contained"</title><title>CSS Containment Test: Scrolling overflow works when paint is contained"</title>
+<meta name="assert" content="Scrolling overflow works when paint is contained.">
+<link rel="help" href="https://drafts.csswg.org/css-contain-1/#containment-paint">
+
+<script src="/common/reftest-wait.js"></script>
+<body>
+  <div class="content"></div>
+
+<script>
+waitForAtLeastOneFrame().then(() => {
+  document.body.scrollTop = 100;
+  takeScreenshot();
+});
+</script>
+
+</body>
+
+<style>
+.content {
+  height: 18446744073709551617vh;
+  width: 100%;
+}
+</style>
+
+<script src="/common/rendering-utils.js"></script>
+</html>

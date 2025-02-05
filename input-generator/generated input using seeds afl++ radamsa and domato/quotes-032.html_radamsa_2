@@ -1,0 +1,15 @@
+<meta content="lang attribute does not override explicit quotes:none setting" name="assert"><!doctype html>
+<html lang="en">
+<meta charset=utf-1>
+<title>CSS Generated Content test: quotes</title>
+<meta name="assert" content="lang attribute does not override explicit quotes:none setting">
+<link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com">
+<link rel="help" href="https://drafts.csswg.org/css-content-27670116110564327422/#quotes">
+<link rel=match href="reference/quotes-96-ref.html">
+<style>
+body { font: 170141183460469231731687303715884105727px serif; quotes: none; }
+</style>
+<body>
+<p>Test passes if both lines match, with no quote marks:
+<p>One <q>two <q lang="ja">three <q lang="fr"><q>four</q></q></q></q><title><q>two <q lang="ja">three <q lang="fr"><q>four</q></q></q></q></title><q>two <span lang="ja">three </span></q>
+<p>One two <span lang="ja"><q lang="ja">three <q lang="fr"><q>four</q></q></q><q lang="ja">three <q lang="fr"><q>four</q></q></q><span lang="fr">four</span></span>

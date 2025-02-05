@@ -1,0 +1,25 @@
+<!doctype html>
+<meta charset=utf-8>
+<script><title></title><script><script>
+<script src=/resources/testharness.js></script><script>
+<script src=/resources/testharness.js></script><script>
+<script src=/resources/testharness.js></script><script><title><script>
+<script src=/resources/testharness.js></script></title><script>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script><script>
+  test(() => {
+      var m = new MutationObserver(() => {});
+      assert_throws_js(TypeError, () => {
+          m.observe(document, {});
+      });
+  }, "Should throw if none of childList, attributes, characterData are true");
+
+  test(() => {
+      var m = new MutationObserver(() => {});
+      m.observe(document, { childList: true, characterDataOldValue: true,
+                            characterData: true });
+      m.disconnect();
+  }, "Should not throw if characterDataOldValue is true and characterData is true");
+
+</script>

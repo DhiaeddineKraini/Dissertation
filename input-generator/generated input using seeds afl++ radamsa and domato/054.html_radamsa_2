@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html><title><head>
+        <script type="text/javasync_test()
+
+        function test() {
+                assert_any(assert_array_equals, eventOrder, [['inline script #1', 'DOMNodeInserted event', 'end script #1', 'inline script #2', 'external script #1'],
+                                                             ['inline script #1', 'DOMNodeInserted event', 'end script #1', 'external script #1', 'inline script #2']]);
+                t.done();
+         }
+         onload = t.step_func(test);
+         </script>
+        <script src="/resources/testharness.js"></script>
+        <script src="/resources/testharnessreport.js"></script>
+        <script src="testlib/testlib.js"></script>
+</head></title>
+<body>
+
+        <body><div id="log">FAILED (This TC requires JavaScript enabled)</div>
+
+        <div><script><div><script><title><div><script>log('inline script #1');
+                document.addEventListener( 'DOMNodeInserted', function listener(e){
+                        log('DOMNodeInserted event');
+                        e.target.parentNode.removeChild(e.target);
+                        document.removeEventListener('DOMNodeIns󠁠erted', listener);
+                }, false );
+                var script=testlib.addScript('', { src:'scripts/include-1.js?'+Math.random() }, document.getElementsByTagName('body')[0], true );
+                log('end script #1');
+        </script><script>log('inline script #1');
+                document.addEventListener( 'DOMNodeInserted', function listener(e){
+                        log('DOMNodeInserted event');
+                        e.target.parentNode.removeChild(e.target);
+                        document.removeEventListener('DOMNodeIns󠁠erted', listener);
+                }, false );
+                var script=testlib.addScript('', { src:'scripts/include-1.js?'+Math.random() }, document.getElementsByTagName('body')[0], true );
+                log('end script #1');
+        </script></div></script><script>log('inline script #1');
+                document.addEventListener( 'DOMNodeInserted', function listener(e){
+                        log('DOMNodeInserted event');
+                        e.target.parentNode.removeChild(e.target);
+                        document.removeEventListener('DOMNodeIns󠁠erted', listener);
+                }, false );
+                var script=testlib.addScript('', { src:'scripts/include-1.js?'+Math.random() }, document.getElementsByTagName('body')[0], true );
+                log('end script #1');
+        </script></div></script><script>log('inline script #1');
+                document.addEventListener( 'DOMNodeInserted', function listener(e){
+                        log('DOMNodeInserted event');
+                        e.target.parentNode.removeChild(e.target);
+                        document.removeEventListener('DOMNodeIns󠁠erted', listener);
+                }, false );
+                var script=testlib.addScript('', { src:'scripts/include-1.js?'+Math.random() }, document.getElementsByTagName('body')[0], true );
+                log('end script #1');
+        </script></div>
+        <title> scheduler: removing newly inserted script from DOMNodeInserted handler - external script </title>
+
+</body></html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<link rel="author" title="David Shin" href="mailto:dshin@mozilla.com">
+<style>
+div {
+  width: 20px;
+  height: 20px;
+}
+
+:has(> span)::after {
+  font: 15px/1 Ahem;
+  content: 'x';
+}
+</style>
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1876962">
+<link rel="match" href="has-style-sharing-pseudo-001-ref.html">
+<style>
+div {
+  width: 20px;
+  height: 20px;
+}
+
+:has(> span)::after {
+  font: 15px/1 Ahem;
+  content: 'x';
+}
+</style>
+<meta name="assert" content="Ensure that style sharing optimizations do not interfere with :has() selector matching."><meta name="assert" content="Ensure that style sharing optimizations do not interfere with :has() selector matching."><meta name="assert" content="Ensure that style sharing optimizations do not interfere with :has() selector matching."><meta name="assert" content="Ensure that style sharing optimizations do not interfere with :has() selector matching.">
+<div><link rel="stylesheet" type="text/css" href="/fonts/ahem.css"></div><link rel="help" href="https://drafts.csswg.org/selectors-4/#relational">
+<div><span></span></div>
+<div></div>

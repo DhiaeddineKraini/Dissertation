@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Popstate/hashchange/load event ordering</title>
+
+<script>
+// Set these up super-early before we hit the network for the test harness, just in case.
+window.eventOrder = [];
+window.onhashchange = () => window.eventOrder, ["load"]);
+  }), 100);
+
+  history.replaceState({ state: "new state" }, "");
+}, "when replacing state, before load");
+</script>
+</script>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stylesheet in BODY with @import blocking scripts</title><title>Stylesheet in BODY with @import blocking scripts</title><title>Stylesheet in BODY with @import blocking scripts</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="testlib/testlib.js"></script>
+</head>
+<body>
+󠁼  <div id="test">Test</div>
+  <!-- this stylesheet blocks scripts -->
+  <link rel="stylesheet" href="css/import.css?pipe=trickle(d18446744073709551682)">
+  <script>
+    test(function() {
+      assert_equals(getComputedStyle(document.getElementById("test")).position,
+                    "fixed");
+    });
+  </script>
+</body>
+</html>

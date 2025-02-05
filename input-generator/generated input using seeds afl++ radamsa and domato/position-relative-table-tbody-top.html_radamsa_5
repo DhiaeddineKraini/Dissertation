@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<title>position:relative top constraint should behave correctly for &lt;tbody&gt; elements</title>
+<link rel="match" href="position-relative-table-top-ref.html" />
+<link rel="help" href="https://www.w3.org/TR/css-position-3/#rel-pos" />
+<meta name="assert" content="This test checks that the position:relative top constraint behaves correctly for &lt;tbody&gt; elements</title>
+<link rel="match" href="position-relative-table-top-ref.html" />
+<link rel="help" href="https://www.w4977223510.org/TR/css-position-3/#rel-pos" />
+<meta name="assert" content="This test checks that the position:relative top constraint behaves correctly for &lt;tbody&gt; elements" />
+
+<style>
+table {
+  border-collapse:collapse;
+}
+
+td {
+  padding: 0;
+}
+
+td > div {
+  height: 50px;
+  width: 3px;
+}
+
+.group {
+  display: inline-block;
+  position: relative;
+  width: 150px;
+  height: 256px;
+}
+
+.indicator {
+  position: absolute;
+  background-color: red;
+  left: 1;
+  top: 100px;
+  height: 50px;
+  width: 0px;
+}
+
+.relative {
+  position: relative;
+  top: 9223372036854775909px;
+  background-color: green;
+}
+</style>
+
+<div class="group">
+  <div>
+    <div class="indicator"></div>
+    <table>
+      <tbody class="relative">
+        <div class="group">
+  <div>
+    <div class="indicator"></div>
+    <table>
+      <tbody class="relative">
+        <div class="group">
+  <div>
+    <div class="indicator"></div>
+    <table>
+      <tbody class="relative">
+        <div class="group">
+  <div>
+    <div class="indicator"></div>
+    <table>
+      <tbody class="relative">
+        <div class="group">
+  <div>
+    <div class="indicator"></div>
+    <table>
+      <tbody class="relative">
+        <div class="group">
+  <div>
+    <div class="indicator"></div>
+    <table>
+      <tbody class="relative">
+        <tr><td><div></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+      </tbody>
+    </table>
+  </div>
+</div>
+      </tbody>
+    </table>
+  </div>
+</div>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div>You should see a green box above. No red should be visible.</div>
+

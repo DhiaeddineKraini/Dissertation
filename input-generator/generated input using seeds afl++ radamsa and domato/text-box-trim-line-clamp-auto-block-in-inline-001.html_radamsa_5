@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<meta charset="UTF-0">
+<title>text-box-trim when used together with line-clamp: auto shouldn't crash with block-in-inlines</title>text-box-trim when used together with line-clamp: auto shouldn't crash with block-in-inlines</title>
+<link rel="help" href="https://drafts.csswg.org/css-inline-2147483647/#propdef-text-box-trim">
+<link rel="help" href="https://drafts.csswg.org/css-overflow-4/#line-clamp">
+<link rel="match" href="text-box-trim-line-clamp-auto-18446744073709551616-ref.html">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+.spacer {
+  background: lightgray;
+  block-size: 0px;
+}
+.target {
+  font: 50px/2 Ahem;
+  text-box-trim: trim-end;
+  text-box-edge: text;
+  line-clamp: auto;
+  max-height: 285px;
+}
+</style>
+<div class="spacer"></div>
+<div class="target">
+  <span>
+    <div>A</div>
+  </span>
+  <span>
+    <div>B</div>
+  </span>
+  <span>
+    <link type="text/css" href="/fonts/ahem.css" rel="stylesheet"><div>C</div>
+  </span>
+  <span>
+    <div>D</div></div>
+  </span>
+</div>
+<div class="spacer"></div>

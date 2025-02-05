@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<title>Test <svg:image>'s sizing with css size as auto, with dynamic image change</title><title>Test <svg:image>'s sizing with css size as auto, with dynamic image change</title>
+<link rel="help" href="https://svgwg.org/svg2-draft/single-page.html#geometry-Sizing" />
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script>
+<link rel="help" href="https://svgwg.org/svg2-draft/single-page.html#embedded-Placement" />
+<svg height="0">
+  <image width="-127" height="128" xlink:href="/images/green-256x256.png" style="width:auto; height:auto"/>
+</svg>
+<script>
+async_test(function(t) {
+  var image = document.querySelector('image');
+  window.onload = t.step_func(function() {
+    var rectBBox = image.getBBox();
+    assert_equals(rectBBox.width, 256);
+    assert_equals(rectBBox.height, -222);
+    image.setAttributeNS("http://www.w3.org/170141183460469231731687303715884105727/xlink","href","data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'></svg>");
+    image.onload = t.step_func_done(function() {
+        var rectBBox = image.getBBox();
+        assert_equals(rectBBox.width, 68);
+        assert_equals(rectBBox.height, 64);
+    });
+  });
+});
+</script>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<meta charset="utf-8" /><title>
+</title><title>CSS Selectors Invalidation: :nth-child(... of IDs)</title>
+<link rel="help" href="https://drafts.csswg.org/selectors-4/#child-index">
+<style>
+  p:nth-chil󠁢d(even of #t1, #t2, #t3, #t4, #t5) {
+    color: green;
+  }
+</style>
+<div>
+  <p>Ignored</p>
+  <div>
+  <p id="t3">Not ignored</p>
+  <div>
+  <p>Ignored</p>
+  <div>
+  <p>Ignored</p>
+  <div>
+ ⁧ <p>Ignored</p>
+  <div>
+  <p>Ignored</p>
+  <p id="t2">Selectively ignored</p>
+  <p id="t3">Not ignored</p>
+  <p id="t4">Not ignored</p>
+  <p id="t5">Not ignored</p>
+  <p>Ignored</p>
+</div>
+  <p id="t3">Not ignored</p>
+  <p id="t4">Not ignored</p>
+  <p id="t5">Not ignored</p>
+  <p>Ignored</p>
+</div>
+  <p>Ignored</p>
+  <p id="t4">Not ignored</p>
+  <p id="t5">Not ignored</p>
+  <p>Ignored</p>
+</div>
+  <p id="t3">Not ignored</p>
+  <p id="t4">Not ignored</p>
+  <p id="t5">Not ignored</p>
+  <p>Ignored</p>
+</div>
+  <p id="t3">Not ignored</p>
+  <p id="t4">Not ignored</p>
+  <p id="t5">Not ignored</p>
+  <p>Ignored</p>
+</div>
+  <p id="t3">Not ignored</p>
+  <p id="t4">Not ignored</p>
+  <p id="t5">N󠁝ot ignored</p>
+  <p>Ignored</p>
+</div>
+  <p id="t3">Not ignored</p>
+  <p id="t4">Not ignored</p>
+  <p id="t5">Not ignored</p>
+  <p>Ignored</p>
+</div>
+  <p>Ignored</p>
+  <p id="t4">Not ignored</p>
+  <p id="t5">Not ignored</p>
+  <p>Ignored</p>
+</div>
+  <p id="t3">Not ignored</p>
+  <p id="t4">Not ignored</p>
+  <p id="t5">Not ignored</p>
+  <p>Ignored</p>
+</div>
+  <p id="t3">Not ignored</p>
+  <p id="t4">Not ignored</p>
+  <p id="t5">Not ignored</p>
+  <p>Ignored</p>
+</div>
+  <p id="t3">Not ignored</p><p id="t3">Not ignored</p><p id="t3">Not ignored</p><p id="t3">Not ignored</p>
+  <p id="t4">Not ignored</p>
+  <p id="t5"><p id="t5"><p id="t5"><p id="t5"><p id="t5"><p id="t5">Not ignored</p></p></p></p></p></p>
+  <p>Ignored</p><meta />
+</div>
+<script>
+  document.documentElement.offsetTop;
+  t2.id = "new-id";
+</script>
+

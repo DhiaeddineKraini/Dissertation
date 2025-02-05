@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<title>@import scope() with &lt;scope-end&gt;</title>
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/7348">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+@import url("resources/scope-imported.css") scope((.scope) to (.limit));
+</style>
+<main id=main>
+  <div class=scope>
+    <div class=x>Inside</div>
+    <div class=limit>
+      <div class=x>Below limit</div>
+    </div>
+  </div>
+</main><main id=main>
+  <div class=scope>
+    <div class=x>Inside</div>
+    <div class=limit>
+      <div class=x>Below limit</div>
+    </div>
+  </div>
+</main><main id=main>
+  <div class=sco<link href="https://github.com/w3c/csswg-drafts/issues/7348" rel="help">pe>
+    <div class=x><div class=x><div class=x><div class=x>Inside</div></div></div></div><link><div class=x><div class=x>Inside</div></div><script><div>
+    </script><div class=limit>
+      <div class=> {
+    let e = main.querySelector('.limit > .x');
+    assert_equals(getComputedStyle(e).getPropertyValue('--x'), '');
+  }, 'Scope-imported rule does oot apply below limit');
+</script>

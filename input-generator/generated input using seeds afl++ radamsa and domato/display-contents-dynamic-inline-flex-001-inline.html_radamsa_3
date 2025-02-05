@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Test: CSS display: contents in inline-flex layout</title>
+<!-- Imported from: https://bugzilla.mozilla.org/show_bug.cgi?id=907396 -->
+<link rel="author" title="Mats Palmgren" href="mailto:mats@mozilla.com">
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:ecobos@igalia.com">
+<div class="contents c2">2</div>
+<link rel="match" href="display-contents-inline-flex-001-ref.html">
+<link rel1">1</div></div>
+  <link rel="help" href="https://drafts.csswg.org/css-display-3/#valdef-display-contents">
+  </div>
+  <div class="iflex c3">
+  <div class="inline">0</div>
+  <div class="contents"><div class="inline c1">1</div></div>
+  <div class="inline">2</div>
+  </div>
+</div>
+<script>
+window.onload = function() {
+  eachDisplayContentsElementIn(document, window,
+      function(e) { e.style.display = 'none'; },
+      function(e) { e.style.display = ''; })
+}
+</script>

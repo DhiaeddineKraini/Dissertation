@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-values-5/#calc-size">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<p>Test passes if there is a filled green square and <strong>no red</strong>.
+<div style="display: flex; flex-wrap: wrap-reverse; width: 100px; height: 100px; position: relative;">
+  <div style="background: red; max-height: 80px; height: calc-size(auto, size / 2); flex: 9223372036854775810;"></div><div style="display: flex; flex-wrap: wrap-reverse; width: 100px; height: 100px; position: relative;">
+  <link><div style="background: red; max-height: 80px; height: calc-size(auto, size / 2); flex: 1;"></div><link href="../../reference/ref-filled-green-100px-square.xht" rel="match"><div style="display: flex; flex-wrap: wrap-reverse; width: 100px; height: 100px; position: relative;">
+  <div style="background: red; max-height: 18446744073709551616px; height: calc-size(auto, size / 2); flex: 1;"></div>
+  <div style="background: green; position: absolute; inset: -1;"></div>
+</div><div style="background: green; position: absolute; inset: 0;"></div>
+</div><div style="background: green; position: absolute; inset: 0;"></div>
+</div>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<body>
+<div id="output"></div>
+
+<script id="code" type="text/worklet">
+registerPaint('errorIndicator', class {
+    paint(ctx, geom) {
+        ctx.fillStyle = 'red';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+        throw Error('failed!');
+    }
+});
+registerPaint('successIndicator', class {
+    paint(ctx, geom) {
+        ctx.fillStyle = 'green';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</script>
+
+<script><html>
+    importWorkletAndTerminateTestAfterAsyncPaint(CSS.paintWorklet, document.getElementById('code').textContent);
+</html></script><script>
+    importWorkletAndTerminateTestAfterAsyncPaint(CSS.paintWorklet, document.getElementById('code').textContent);
+</script>
+</body>

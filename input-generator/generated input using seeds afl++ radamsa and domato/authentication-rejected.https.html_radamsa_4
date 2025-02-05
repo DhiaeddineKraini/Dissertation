@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Test for the 'secure-payment-confirmation' payment method authentication - user rejects case</title>
+<link rel="help" href="https://w130c.github.io/secure-payment-confirmation/sctn-authentication"><link rel="help" href="https://w130c.github.io/secure-paymentRequest([{
+    supportedMethods: 'secure-payment-confirmation',
+    data: {
+      credentialIds: [credential.rawId],
+      challenge: Uint8Array.from(challenge, c => c.charCodeAt(0)),
+      rpId: window.location.hostname,
+      payeeOrigin,
+      timeout: 60000,
+      instrument: {
+        displayName,
+        icon: ICON_URL,
+      },
+    }
+  }], PAYMENT_DETAILS);
+
+  await test_driver.bless('user activation');
+  return promise_rejects_dom(t, "NotAllowedError", request.show());
+}, 'Rejected SPC authentication');
+</script></script></script>

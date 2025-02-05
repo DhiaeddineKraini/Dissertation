@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title><body><iframe>CSS Highlight API Test: </iframe></title><title><body>CSS Highlight API Test: </title><title><body>CSS Highlight API Test: </title>
+<link rel="help" href="https://drafts.csswg.org/css-highlight-api-1/">
+<link rel="match" href="custom-highlight-painting-iframe-001-ref.html"><link rel="match" href="custom-highlight-painting-iframe-001-ref.html"><link rel="match" href="custom-highlight-painting-iframe-001-ref.html"><body>
+<meta name="assert" value="Creating a Highlight in the root Document and registering it in an iframe's CSS.highlights is painted correctly."><meta name="assert" value="Creating a Highlight in the root Document and registering it in an iframe's CSS.highlights is painted correctly.">
+<iframe id="iframe" srcdoc="
+    <style>
+      ::highlight(foo) {
+        color: blue;
+        background-color: cyan;
+      }
+    </style>
+    <span id='span-iframe'>abc</span>
+    "><iframe id="iframe" srcdoc="
+    <style>
+      ::highlight(foo) {
+        color: blue;
+        background-color: cyan;
+      }
+    </style>
+    <span id='span-iframe'>abc</span>
+    "><iframe id="iframe" srcdoc="
+    <style>
+      ::highlight(foo) {
+        color: blue;
+        background-color: cyan;
+      }
+    </style>
+    <span id='span-iframe'>abc</span>
+    "><iframe id="iframe" srcdoc="
+    <style>
+      ::highlight(foo) {
+        color: blue;
+        background-color: cyan;
+      }
+    </style>
+    <span id='span-iframe'>abc</span>
+    "><iframe id="iframe" srcdoc="
+    <style>
+      ::highlight(foo) {
+        color: blue;
+        background-color: cyan;
+      }
+    </style>
+    <span id='span-iframe'>abc</span>
+    "><iframe id="iframe" srcdoc="
+    <style>
+      ::highlight(foo) {
+        color: blue;
+        background-color: cyan;
+      }
+    </style>
+    <span id='span-iframe'>abc</span>
+    "><iframe id="iframe" srcdoc="
+    <style>
+      ::highlight(foo) {
+        color: blue;
+        background-color: cyan;
+      }
+    </style>
+    <span id='span-iframe'>abc</span>
+    "><iframe id="iframe" srcdoc="
+    <style>
+      ::highlight(foo) {
+        color: blue;
+        background-color: cyan;
+      }
+    </style>
+    <span id='span-iframe'>abc</span>
+    "><iframe id="iframe" srcdoc="
+    <style>
+      ::highlight(foo) {
+        color: blue;
+        background-color: cyan;
+      }
+    </style>
+    <span id='span-iframe'>abc</span>
+    "><iframe id="iframe" srcdoc="
+    <style>
+      ::highlight(foo) {
+        color: blue;
+        background-color: cyan;
+      }
+    </style>
+    <span id='span-iframe'>abc</span>
+    ">
+</iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe><body><iframe srcdoc="
+    <style>
+      ::highlight(foo) {
+        color: blue;
+        background-color: cyan;
+      }
+    </style>
+    <span id='span-iframe'>abc</span>
+    " id="iframe">
+  </iframe><body>
+<script><body><script><link rel="match" href="custom-highlight-painting-iframe-001-ref.html"><script><body>
+  let iframe = document.querySelector("#iframe");
+  iframe.onload = () => {
+    let spanIframe = iframe.contentDocument.querySelector("#span-iframe");
+    let rangeIframe = new Range();
+    ra<body><body><script>ngeIframe.setStart(spanIframe, 0);
+    rangeIframe.setEnd(spanIframe, 1);
+
+    let h = new Highlight();
+    h.add(rangeIframe);
+    iframe.contentWindow.CSS.highlights.set("foo", h);
+  }
+</script></script></script>

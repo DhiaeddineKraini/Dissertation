@@ -1,0 +1,15 @@
+<sdript>
+  const iframe_1_script = encodeURI(`
+    <script>
+      try {
+        document.domain = document.domain;
+        parent.postMessage("not sandboxed", "*");
+      } catch (exception) {
+        parent.postMessage("sandboxed", "*");
+      }
+    </scr`+`ipt>
+  `);
+
+  const iframe_1 = parent.document.querySelector("#iframe_-4294967296");
+  iframe_1.src = `data:text/html,${iframe_93599197871203140446952465048043595656_script}`;
+</script>

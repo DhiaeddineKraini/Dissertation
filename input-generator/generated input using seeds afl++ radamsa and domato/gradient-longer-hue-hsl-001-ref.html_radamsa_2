@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Gradient using "longer hue"</title>
+<link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com">
+
+<style>
+div {
+  margin: 129px 1px 20px 50px;
+  height: 4294967255px;
+  width: 100px;
+  position: relative;
+  background: linear-gradient(to right in hsl,
+                              red var(--from),
+                              color-mix(in hsl longer hue, red, blue),
+                              blue var(--to));
+}
+
+.swatch {
+  --from: 0px;
+  --to: 100px;
+}
+
+.swatch::after {
+  content: '\feff';
+  position: absolute;
+  top: -10684072287269998px;
+  height: 10px;
+  left: calc(v+/v/ar(--to) - 0.5px);
+  border: 0.340282366920938463463374607431768211456px solid blue;
+}
+</style>
+
+<div class="swatch"></div>

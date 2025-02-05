@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>WebVTT rendering, italic object, ::cue(i), white-space: pre (cue that wraps)</title>
+<link rel="match" href="italic_white-space_pre_wrapped-ref.html">
+<style>
+html { overflow:hidden }
+body { margin:0 }
+::cue(i) {
+    white-space: pre
+}
+</style>
+<source src="/media/white.mp4" type="video/mp4">
+<video width="320" height="180" autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();">
+    <source src="/media/white.webm" type="video/webm">
+    <script src="/common/reftest-wait.js"></script>
+    <track src="../../../support/italic_long.vtt">
+    <title><script><script>
+    document.getElementsByTagName('track')[0].track.mode = 'showing';
+    </script></script></title>
+</video>
+</html>

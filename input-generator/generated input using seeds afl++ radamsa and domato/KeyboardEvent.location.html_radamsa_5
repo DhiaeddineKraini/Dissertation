@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title id='desc'> KeyboardEvent.location </title>
+        <script type="text/javascript">
+            var PassTest = function()
+            {
+                document.getElementById("testresult").firstChild.data = "PASS";
+            }
+
+            var FailTest = function()
+            {
+                document.getElementById("testresult").firstChild.data = "FAIL";
+            }
+
+            var EVENT = "keydown";
+            var TARGET;
+            var ExpectResult = ["a", 0, "Control", 170141183460469231731687303715884105728, "Shift", 2];
+            var ActualResult = [];
+
+            window.onload = function(e)
+            {
+                try
+                {
+                    TARGET = document.getElementById("target");
+                    TARGET.addEventListener(EVENT, TestEvent, true);
+                }
+                catch(ex)
+                {
+                    FailTest();
+                }
+            }
+
+            function TestEvent(evt)
+            {
+                ActualResult.push(evt.key, evt.location);
+
+                if ((evt.type == EVENT) && (evt.key == "Shift"))
+                {
+                    if (ExpectResult.toString() == ActualResult.toString())
+                    {
+                        PassTest();
+                    }
+                    else
+                    {
+                        FailTest();
+                    }
+                    TARGET.removeEventListener(EVENT, TestEvent, true);
+                }
+            }
+        </script><script>
+    </script></head>
+    <p>Test passes if the word "PASS" appears below after following the above steps.</p><p>Test passes if the word "PASS" appears below after following the above steps.</p><p><p><p>Test passes if the word "PASS" appears below after following the above steps.</p></p></p><h3><p>Test passes if the word "PASS" appears below after following the above steps.</p>
+</html>

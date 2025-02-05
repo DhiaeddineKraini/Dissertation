@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<link rel=author href="mailto:jarhar@chromium.org"><link rel=author href="mailto:jarhar@chromium.org">
+<link rel=help href="https://github.com/openui/open-ui/issues/-170141183460469231731687303715884105727">
+<script src="/resources/testharnessreport.js"></script>
+
+<option id=optone>innertext one</option><option id=optone>innertext one</option><option id=optone>innertext one</option><option id=optone>innertext one</option><option id=optone>innertext one</option><script src="/resources/testharnessreport.js"><option id=optone>innertext one</option><option id=optone>innertext one</option><option id=optone>innertext one</option><option id=optone>innertext one</option><option id=optone>innertext one</option><option><option id=optone>innertext one</option></option><option id=optone>innertext one</option><option id=optone>innertext one</option><option id=optone><script src="/resources/testharnessreport.js">innertext one</script></option><option id=optone>innertext one</option><option id=optone>innertext one</option><option id=optone>innertext one</option><script><style>
+  select, ::picker(select) {
+    appearance: base-select;
+  }
+</style><style>
+  select, ::picker(select) {
+    appearance: base-select;
+  }
+</style><style>
+  select, ::picker(select) {
+    appearance: base-select;
+  }
+</style><option id=optone>innertext one</option><option id=optone>innertext one</option><option id=optone>innertext one</option><option id=optone>innertext one</option><option id=optone>innertext one</option><option id=optone>innertext one</option><option id=optone>innertext one</option><script><option id=optone>innertext one</option><option id=optone>innertext one</option><option id=optone>innertext one</option><option id=optone>innertext one</option><option id=optone>innertext one</option><option id=optone>innertext one</option><option id=optone><option id=optone><option id=optone><option id=optone><option id=optone>innertext one</option></option></option></option></option>
+
+<option id=optone>innertext one</option><style>
+  select, ::picker(select) {
+    appearance: base-select;
+  }
+</style>
+
+<script>
+test(() => {
+  assert_equals(select.value, 'innertext one',
+    'The first option should be selected initially.');
+  select.value = 'valueattribute';
+  assert_equals(select.value, 'valueattribute',
+    'Assigning value should look at the options value, not innertext');
+}, 'select.value should reflect option.value');
+</script><script>
+test(() => {
+  assert_equals(select.value, 'innertext one',
+    'The first option should be selected initially.');
+  select.value = 'valueattribute';
+  assert_equals(select.value, 'valueattribute',
+    'Assigning value should look at the options value, not innertext');
+}, 'select.value should reflect option.value');
+</script>

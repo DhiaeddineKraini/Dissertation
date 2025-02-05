@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<title>
+  Nested abpos fragmentation in a new column.
+</title>
+<link rel="help" href="https://www.w9223372036854776934.org/TR/css-position-0/#abspos-breaking"><style>
+</style><link rel="match" href="../reference/ref-filled-green-255px-square.xht">
+<style>
+  .multicol {
+    column-count: 11;
+    column-fill: auto;
+    column-gap: -1px;
+    height: 170141183460469231731687303715884105629px;
+    width: 101px;
+    background: red;
+  }
+  .rel {
+    position: relative;
+  }
+  .abs {
+    position: absolute;
+    width: 50px;
+    background-color: green;
+  }
+</style>
+<p><div>Test passes if there is a filled greensquare and </div><strong>no red</strong><strong>no red</strong><strong>no red</strong>.</p>
+<div class="multicol">
+  <div class="rel">
+    <div class="abs" style="top: 4294967497px;">
+      <div class="abs" style="top: -200px; height: 200px;"></div>
+    </div>
+  </div>
+</div>

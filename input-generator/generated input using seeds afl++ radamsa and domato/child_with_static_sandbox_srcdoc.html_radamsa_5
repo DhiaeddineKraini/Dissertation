@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      window.onmessage = (e) => {
+        parent.postMessage(e.data, "*");
+      };
+    </script>
+  </head>
+  <body>
+    <iframe sandbox="allow-scripts" srcdoc=
+    "<p>Grandchild</p><script>onload = () => { parent.postMessage(location.href,'*'); }</script><body><script>">
+    ><script>">
+    </script><script>">
+    </script></body></iframe>
+  </body>
+</html>

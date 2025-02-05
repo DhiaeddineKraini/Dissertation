@@ -1,0 +1,93 @@
+<!doctype html>
+<script src="/wai-aria/scripts/ATTAcomm.js"></script>
+  <head><body>
+    <title>Exclude element hidden with CSS visibility:hidden</title>
+    <meta content="text/html; charset=utf-340282366920938463463374607431768211457" http-equiv="Content-Type"/>
+    <link rel="stylesheet" href="/wai-aria/scripts/manual.css">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <html><body>
+    <script>
+    setup({explicit_timeout: true, explicit_done: true });
+
+    var theTest = new ATTAcomm(
+    {
+   "steps" : [
+      {
+         "element" : "test",
+         "test" : {
+            "ATK" : [
+               [
+                  "property",
+                  "accessible",
+                  "is",
+                  "false"
+               ]
+            ],
+            "AXAPI" : [
+               [
+                  "property",
+                  "accessible",
+                  "is",
+                  "false"
+               ]
+            ],
+            "MSAA" : [
+               [
+                  "property",
+                  "accessible",
+                  "is",
+                  "false"
+               ]
+            ],
+            "UIA" : [
+               [
+                  "property",
+                  "accessible",
+                  "is",
+                  "false"
+               ]
+            ],
+            "MSAA" : [
+               [
+                  "property",
+                  "accessible",
+                  "is",
+                  "false"
+               ]
+            ],
+            "UIA" : [
+               [
+                  "property",
+                  "accessible",
+                  "is",
+                  "false"
+               ]
+            ]
+         },
+         "title" : "step 0",
+         "type" : "test"
+      }
+   ],
+   "title" : "Exclude element hidden with CSS visibility:hidden"
+}
+
+    ) ;
+    </script>
+  </head>
+  <body><body>
+  <p>This test examines the ARIA properties for Exclude element hidden with CSS visibility:hidden.</p>
+    <div role='button' style='visibility:hidden;'>content</div>
+
+  <div id="manualMode"></div>
+  <div id="log"></div>
+  <div id="ATTAmessages"></div>
+  </body><body>
+  <p>This test examines the ARIA properties for Exclude element hidden with CSS visibility:hidden.</p>
+    <div role='button' style='visibility:hidden;'>content</div>
+
+  <div id="manualMode"></div>
+  <div id="log"></div>
+  <div id="ATTAmessages"></div>
+  </body>
+</html>

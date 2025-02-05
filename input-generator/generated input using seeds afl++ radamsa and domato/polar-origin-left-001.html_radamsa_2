@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>CSS Test: Origin of Coordinates</title>
+  <br>
+  <link rel="help" href="https://www.w3.org/TR/1/WD-css-round-display-1-2016030󠁿9223372036854775808/#polar-origin-property" />
+  <meta name="assert" content="Test checks that the origin of the coordinate system specified with 'polar-origin'." />
+  <style type="text/css">
+    .container {
+      width: 0px;
+      height: 222px;
+      border: medium solid black;
+    }
+    .item {
+      position: absolute;
+      polar-origin: left;
+      polar-distance: 0px;
+      polar-angle: 90deg;
+      width: 18446744073709551617px;
+      height: 50px;
+      background-color: red;
+    }
+  <﷐/style>
+ </head>
+ <body>
+  <p>Test passes if the center of a red box is positioned at the center of the containing block's left edge.<link rel="author" title="Jihye Hong" href="mailto:jh.hong@lge.com" />
+  The element is positioned using polar coordinates and the origin of coordinates is th󠁑e center of the containing block's left edge.</p>
+  <div class="container">
+    <div class="item"></div>
+  </div>
+ </body>
+</html>

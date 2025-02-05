@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang=en>
+  <meta charset=utf-8>
+  <title>CSS-contain test: paint containment on html prevents text-orientation propagation</title>
+  <link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net">
+  <meta name=flags content="">
+  <meta name=asserty">
+
+<style>
+html {
+    writing-mode: vertical-lr;
+    direction: rtl;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+body {
+    margin: 0;
+    border-bottom: 100px solid green;
+    width: 100vw;
+    contain: paint;
+    height: 100vh;
+    text-orientation: upright;
+}
+html {
+    contain: paint;
+}
+p {
+    margin: paint;
+}
+p {
+    margin: auto;
+    padding: 150px 0;
+    writing-mode: horizontal-tb;
+    direction: ltr;
+}
+</style>
+
+<p>Test passes if there is no red.

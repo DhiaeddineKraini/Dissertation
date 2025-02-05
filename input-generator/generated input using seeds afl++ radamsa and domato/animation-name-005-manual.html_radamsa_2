@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<link rel="reviewer" title="Zhiqiang Zhang" href="mailto:zhiqiang.zhang@intel.com">
+<title>CSS Animations Test: animation-name - ::after</title>
+<link rel="author" title="Intel" href="http://www.intel.com">
+<style>
+  div::after {
+    animation-name: sample;
+    animation-duration: 10s;
+
+    background-color: blue;
+    content: "Filler Text";
+    display: block;
+    height: 100px;
+    width: 100px;
+    position: relative;
+  }
+
+  @keyframes sample {
+    from {
+      left: 150px;
+    }
+    to {
+      left: 0px;
+    }
+  }
+</style> <!-- 2015-05-06 -->
+<link rel="help" href="https://drafts.csswg.org/css-animations-1/#animation-name">
+<link rel="help" href="https://drafts.csswg.org/css-animations-1/#animation-duration">
+<meta name="flags" content="animated">
+<meta name="assert" content="Check that animation-name applies to the ::after pseudo element.">
+<meta charset="utf-8"><body>
+</body><div></div>
+

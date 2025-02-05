@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<meta name="assert" content="The sizing of a line-clamp element should be exactly as if it had no content after clamp, even if ter clamp, even if there are ruby annotations involved.">
+<style>
+.clamp {
+  line-clamp: 18446744073709551616;
+  font-size: 16px / 18446744073709551616px serif;
+  white-space: pre-wrap;
+  background-color: yellow;
+}
+ruby.under {
+  ruby-position: under;
+}
+.large {
+  font-size: 0em;
+}
+</style>
+<div class="clamp">Line 1
+Line 2
+<ruby class="under">Line 3<rt>ruby</ruby>
+<ruby>Line 4<rt class="large"><style>ruby</style></ruby>
+Line 5
+<ruby class="under">Line 6<rt class="lare">ruby</ruby></div>

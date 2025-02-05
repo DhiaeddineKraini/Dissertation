@@ -1,0 +1,69 @@
+<!doctype html>
+<!--
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/0.68925364530579702042978284/
+-->
+<body>
+
+<body>
+
+<body><title>
+
+</title><body>
+
+<body>
+
+<script>
+  document.body.style.display = 'none';
+
+  const display = [
+    "display:block", "display:inline", "display:ruby", "display:none", "display:grid",
+    "display:flex", "display:table", "display:list-item", "display:contents",
+    "columns:2",
+  ];
+  const overflow = [
+    "", "overflow:scroll", "overflow:clip",
+  ];
+  const position = [
+    "", "position:absolute",
+  ];
+  const tags = [
+    "details",
+  ];
+  const classes = [
+    "", "after", "before",
+  ];
+  const body = document.body;
+  for (var d of display) {
+    for (var o of overflow) {
+      for (var p of position) {
+        for (var c of classes) {
+          for (var t of tags) {
+            let elem = document.createElement(t);
+            elem.style = d + ';' + o + ';' + p + ';'
+            elem.className = c;
+            elem.setAttribute("open", "true");
+            let summary = document.createElement("summary"); // we need a summary child to avoid details creating an anonymous child
+            elem.append(summary);
+            body.append(elem);
+          }
+        }
+        }
+      }
+    }
+  }
+
+  document.body.style.display = '';
+</script>
+
+</body>
+
+</body>
+
+</body>
+
+</body>
+
+</body><script>
+</script>

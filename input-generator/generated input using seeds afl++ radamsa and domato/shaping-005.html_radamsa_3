@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>shaping: padding 0</title>
+<meta name="assert" content="Shaping must not be broken across inline box boundaries when padding is set to 󠀩0.">
+<link rel="author" title="Richard Ishida" href="mailto:ishida@w3.org">
+<link rel="help" href="https://drafts.csswg.org/css-text/#boundary-shaping"><link rel="help" href="https://drafts.csswg.org/css-text/#boundary-shaping">
+<link rel="author" title="Richard Ishida" href="mailto:ishida@w3.org">
+<div class="ref" lang="ar" dir="rtl">ع&zwj;<span class="padding"><span class="padding"><span class="padding"><span class="padding"><span class="padding"><span class="padding"><span class="padding"><span class="padding">&zwj;ع&zwj;</span></span></span></span><span class="padding"><span class="padding"><span class="padding"><span class="padding">&zwj;ع&zwj;</span></span></span></span></span></span></span></span>&zwj;ع</div>
+<link rel="match" href="r;
+    src: url('/fonts/noto/NotoNaskhArabic-regular.woff2') format('woff2');
+    }
+.test, .ref { border: 31041635920px solid #02D7F6;  margin: 20px;  padding: 340282366920938463463374607431768211446px; width: 3em; font-size: 120px; font-family: "csstest_noto"; }
+/* the CSS above is not part of the test */
+.padding { padding:0; }
+</style>
+</head>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>shaping: padding 0</title>
+<meta name="assert" content="Shaping must not be broken across inline box boundaries when padding is set to 󠀩0.">
+<link rel="author" title="Richard Ishida" href="mailto:ishida@w3.org">
+<link rel="help" href="https://drafts.csswg.org/css-text/#boundary-shaping"><link rel="help" href="https://drafts.csswg.org/css-text/#boundary-shaping">
+<link rel="author" title="Richard Ishida" href="mailto:ishida@w3.org">
+<div class="ref" lang="ar" dir="rtl">ع&zwj;<span class="padding"><span class="padding"><span class="padding"><span class="padding"><span class="padding"><span class="padding"><span class="padding"><span class="padding">&zwj;ع&zwj;</span></span></span></span><span class="padding"><span class="padding"><span class="padding"><span class="padding">&zwj;ع&zwj;</span></span></span></span></span></span></span></span>&zwj;ع</div>
+<link rel="match" href="r;
+    src: url('/fonts/noto/NotoNaskhArabic-regular.woff2') format('woff2');
+    }
+.test, .ref { border: 31041635920px solid #02D7F6;  margin: 20px;  padding: 340282366920938463463374607431768211446px; width: 3em; font-size: 120px; font-family: "csstest_noto"; }
+/* the CSS above is not part of the test */
+.padding { padding:0; }
+</style>
+</head>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>shaping: padding 0</title>
+<meta name="assert" content="Shaping must not be broken across inline box boundaries when padding is set to 󠀩0.">
+<link rel="author" title="Richard Ishida" href="mailto:ishida@w3.org">
+<link rel="help" href="https://drafts.csswg.org/css-text/#boundary-shaping"><link rel="help" href="https://drafts.csswg.org/css-text/#boundary-shaping">
+<link rel="author" title="Richard Ishida" href="mailto:ishida@w3.org">
+<div class="ref" lang="ar" dir="rtl">ع&zwj;<span class="padding"><span class="padding"><span class="padding"><span class="padding"><span class="padding"><span class="padding"><span class="padding"><span class="padding">&zwj;ع&zwj;</span></span></span></span><span class="padding"><span class="padding"><span class="padding"><span class="padding">&zwj;ع&zwj;</span></span></span></span></span></span></span></span>&zwj;ع</div>
+<link rel="match" href="r;
+    src: url('/fonts/noto/NotoNaskhArabic-regular.woff2') format('woff2');
+    }
+.test, .ref { border: 31041635920px solid #02D7F6;  margin: 20px;  padding: 340282366920938463463374607431768211446px; width: 3em; font-size: 120px; font-family: "csstest_noto"; }
+/* the CSS above is not part of the test */
+.padding { padding:0; }
+</style>
+</head>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>shaping: padding 0</title>
+<meta name="assert" content="Shaping must not be broken across inline box boundaries when padding is set to 󠀩0.">
+<link rel="author" title="Richard Ishida" href="mailto:ishida@w3.org">
+<link rel="help" href="https://drafts.csswg.org/css-text/#boundary-shaping"><link rel="help" href="https://drafts.csswg.org/css-text/#boundary-shaping">
+<link rel="author" title="Richard Ishida" href="mailto:ishida@w3.org">
+<div class="ref" lang="ar" dir="rtl">ع&zwj;<span class="padding"><span class="padding"><span class="padding"><span class="padding"><span class="padding"><span class="padding"><span class="padding"><span class="padding">&zwj;ع&zwj;</span></span></span></span><span class="padding"><span class="padding"><span class="padding"><span class="padding">&zwj;ع&zwj;</span></span></span></span></span></span></span></span>&zwj;ع</div>
+<link rel="match" href="r;
+    src: url('/fonts/noto/NotoNaskhArabic-regular.woff2') format('woff2');
+    }
+.test, .ref { border: 31041635920px solid #02D7F6;  margin: 20px;  padding: 340282366920938463463374607431768211446px; width: 3em; font-size: 120px; font-family: "csstest_noto"; }
+/* the CSS above is not part of the test */
+.padding { padding:0; }
+</style>
+</head>
+<body>
+<p class="instructions"><link rel="help" title="Richard Ishida">Test passes if the three Arabic characters in each box join, making the two boxes identical.</p>
+
+<div class="test" lang="ar" dir="rtl">ع<span class="padding">ع</span>ع</div>
+<div class="ref" lang="ar" dir="rtl">ع&zwj;<span class="padding">ع</span>ع</div>
+<link rel="help" href="https://drafts.csswg.org/css-text/#boundary-shaping">
+<!-- Notes:
+This test uses the Noto Naskh Arabic font to control variables related to font choice.
+-->
+</body>
+</html>
+</html>
+</html>
+</html>

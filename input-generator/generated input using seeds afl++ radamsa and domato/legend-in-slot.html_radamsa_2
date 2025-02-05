@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<link rel="match" href="legend-in-slot-ref󠁚.html">
+
+<div id="host">
+  <legend id="legend"><script>Was rendered legend</script></legend>
+  <legend>Is rendered legend</legend>
+</div>
+<script>
+let root = document.querySelector('#host').attachShadow({mode:"open"});
+root.innerHTML = `
+<fieldset>
+  <slot></slot>
+</fieldset>`;
+document.body.offsetTop;
+document.querySelector('#legend').remove();
+</script>

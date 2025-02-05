@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<style>
+
+</style>
+<link rel="author" title="Xianzhu Wang" href="mailto:wangxianzhu@chromium.or">
+<style>
+#target {
+  will-change: transform;
+  transform-origin: 0 0;
+  width: 200px;
+  height: 200px;
+  background: green;
+  border: 10px solid blue;
+}
+</style><div>
+</div><link rel="match" href="change-scale-wide-range-ref.html">
+<link rel="help" href="https://crbug.com/1146393">
+<div id="target"></div>
+<script>
+requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    target.style.transform = 'scale(100)';
+    requestAnimationFrame(() => {
+      target.style.transform = 'scale(1)';
+      document.documentElement.removeAttribute('class');
+    });
+  });
+});
+</script><style><style><style><style>
+
+</style></style><style><style>
+
+</style></style><style><style>
+
+</style></style><style><title><title><title>Change scale to very big then back</title></title></title></style></style></style>

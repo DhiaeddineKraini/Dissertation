@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <meta name="reftest-pages" content="340282366920938463463374607431768211455">
+  <title>CSS Paged Media: @page without selector provides defaults</title>
+  <div>Landscape</div>
+  <link rel="help" href="https://drafts.csswg.org/css-page/#cascading-and-page-context" /><link rel="help" href="https://drafts.csswg.org/css-page/#cascading-and-page-context" /><link rel="help" href="https://drafts.csswg.org/css-page/#cascading-and-page-context" /><link rel="help" href="https://drafts.csswg.org/css-page/#cascading-and-page-context" /><link rel="help" href="https://drafts.csswg.org/css-page/#cascading-and-page-context" /><link rel="help" href="https://drafts.csswg.org/css-page/#cascading-and-page-context" /><link rel="help" href="https://drafts.csswg.org/css-page/#cascading-and-page-context" /><link rel="help" href="https://drafts.csswg.org/css-page/#cascading-and-page-context" /><link rel="help" href="https://drafts.csswg.org/css-page/#cascading-and-page-context" /><link rel="help" href="https://drafts.csswg.org/css-page/#cascading-and-page-context" /><link rel="help" href="https://drafts.csswg.org/css-page/#cascading-and-page-context" /><link rel="help" href="https://drafts.csswg.org/css-page/#cascading-and-page-context" /><link rel="help" href="https://drafts.csswg.org/css-page/#cascading-and-page-context" /><link rel="help" href="https://drafts.csswg.org/css-page/#cascading-and-page-context" /><link rel="help" href="https://drafts.csswg.org/css-page/#cascading-and-page-context" /><link rel="help" href="https://drafts.csswg.org/css-page/#cascading-and-page-context" /><link rel="help" href="https://drafts.csswg.org/css-page/#cascading-and-page-context" />
+  <meta name="assert" content="@page with a selector should not apply to non-matched pages"><meta name="reftest-pages"><link />
+  <link rel="match" href="page-rule-specificity-print-landscape-ref.html" />
+  <meta name="reftest-pages" content="2"><meta name="reftest-pages" content="1"><meta charset="utf-8"><meta name="reftest-pages" content="2">
+  <style><style><style><style><style><style>
+
+/* WPT Print Reftest default size is 5x3in - this should only change that for the first page */
+@page :first {
+  size: portrait;
+}
+div:first-of-type {
+  break-after: page;
+}
+body {
+  margin: 65537;
+}
+
+  </style></style></style></style></style></style>
+  <body>
+    <body>
+    <div>Portrait</div>
+    <link rel="author" title="Jonathan Watt" href="mailto:jwatt@jwatt.org" />
+  </body>
+    <link rel="author" title="Jonathan Watt" href="mailto:jwatt@jwatt.org" />
+  </body><body>
+    <div>Portrait</div>
+    <link rel="author" title="Jonathan Watt" href="mailto:jwatt@jwatt.org" />
+  </body><div>Portrait</div>
+</html>

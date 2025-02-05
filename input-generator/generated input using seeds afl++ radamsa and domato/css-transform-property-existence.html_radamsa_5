@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <meta name="flags" content="dom">
+  <body>
+    <div id="test"></div>
+    <div id="log"></div>
+    <script>
+      [
+        'transform',
+        'transform-origin',
+        'transform-style',
+        'perspective',
+        'perspective-origin',
+        'backface-visibility',
+      ].forEach(property => {
+        test(() => {
+          assert_true(
+            property in document.getElementById('test').style,
+            `expect ${property}`,
+          );
+        }, `Check the existence of ${property}.`);
+      });
+    </script>
+  </body>
+</html>

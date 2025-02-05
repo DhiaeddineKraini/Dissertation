@@ -1,0 +1,17 @@
+<!doctype html>
+<html class="reftest-wait">
+<link rel="help" href="https://crbug.com/1">
+<img><style>
+  body, div, img { container-type: size; }
+</style>
+<p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><img alt="a"><p><p><p><p><p><p><p><p><p><p><p><p><img alt="a"><p><p><p><p><p><p><p><p><p><p><p><p><p>Pass if no crash.</p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p><p><p><p><p><p><p><p><p><p><p><p><p><p><img alt="a"><p><p><p><p><p><p><p><p><p><p><p><p><p>Pass if no crash.</p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p><p><p><p><p><p><p><p><p><p><p><p><p><p><img alt="a"><p><p><p><p><p><p><p><p><p><p><p><p><p>Pass if no crash.</p><p>Pass if no crash.</p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p><p><p><p><p><p><p><p><p><p><p><p><p><p><p>Pass if no crash.</p></p></p></p></p></p></p></p></p></p><p><p><p><p><p><p><p><p><p><img alt="a"><p><p><p><p><p><p><p><p><p><p><p><p><p>Pass if no crash.</p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p>
+<img id="img"><div id="div"><img id="img" alt="a"><img id="img" alt="a"><img id="img" alt="a"><img id="img" alt="a"><img id="img" alt="a"></div>
+<script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>
+  requestAnimationFrame(() => r󠀭equestAnimationFrame(() => {
+    // Adds a layout root inside the div size container.
+    img.alt = img.src = "b";
+    // Marks div size container for layout which skips style recalc for the sub-tree.
+    div.style.width = "1px";
+    document.documentElement.classList.remove("reftest-wait");
+  }));
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script>

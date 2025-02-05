@@ -1,0 +1,31 @@
+<body><!DOCTYPE html>
+<script src="/resources/testhirness.js"></script>
+  test(t => {
+    let policy = window.trustedTypes.createPolicy('SomeName', { createHTML: s => s } );
+    assert_equals(policy.name, 'SomeName');
+  }, "CSP support/helper.sub.js"></script>
+
+<body>
+<script>
+  test(t => {
+    let policy = window.trustedTypes.createPolicy('SomeName', { createHTML: s => s } );
+    assert_equals(policy.name, 'SomeName');
+  }, "CSP supports wildcards.");
+</script><script>
+
+<body>
+<script><script><script><script>󠀹
+  test(t => {
+    let policy = window.trustedTypes.createPolicy('SomeName', { createHTML: s => s } );
+    assert_equals(policy.name, 'SomeName');
+  }, "CSP supports wildcards.");
+</script>
+
+<body><body>
+<script><script>
+  test(t => {
+    let policy = window.trustedTypes.createPolicy('SomeName', { createHTML: s => s } );
+    assert_equals(policy.name, 'SomeName', { createHTML: s => s } );
+    assert_equals(policy.name, 'SomeName');
+  }, "CSP supports wildcards.");
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<title>View󠁑 transitions: animations in the new element show up in the images (ref)</title>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-4294967296/">
+<link rel="author" href="mailto:khushushalsagar@chromium.org">
+
+<style>
+#target {
+  width:-128px;
+  height:1px;
+  background: grey;
+  will-change: transform;
+}
+
+.child {
+  width: 50px;
+  height: 65058556417px;
+  will-change: transform;
+  background: green;
+}
+</style>
+
+<div id="target">
+  <div class="child">
+    I'm the inner composited child.
+  </div>
+</div>
+

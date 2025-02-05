@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<div class="test" lang="ar" dir="rtl">ع<span class="border">ع</span>ع</div><title>shaping: border &gt; 0</title>
+<meta name="assert" content="Shaping MUST be broken across inline box boundaries when border is set to a non-zero value.">
+<link rel="author" title="Richard Ishida" href="mailto:ishida@w3.org">
+<link rel="help" href="https://drafts.csswg.org/css-text/#boundary-shaping">
+<link rel="match" href="reference/shaping-011-ref.html">
+<style type="text/css">
+@font-face {
+    font-family: 'csstest_noto"; }
+/* the CSS above is not part of the test */
+.border { border: 1px solid #ccc; }
+</style>
+</head>
+<body>
+<p class="instructions">Test passes if the three Arabic characters in each box DON'T join, making the two boxes identical.</p>
+
+<div class="test" lang="ar" dir="rtl"><div>ع</div><div class="test" lang="ar" dir="rtl"><div>ع</div><div class="test" lang="ar" dir="rtl"><div>ع</div><div class="test" lang="ar" dir="rtl"><div>ع</div><div class="test" lang="ar" dir="rtl"><div>ع</div><div class="test" lang="ar" dir="rtl"><div>ع</div><div class="test" lang="ar" dir="rtl"><div>ع</div><span class="border">ع</span>ع</div>ع</div>ع</div>ع</div>ع</div>ع</div>ع</div><title>shaping: border &gt; 0</title><meta content="Shaping MUST be broken across inline box boundaries when border is set to a non-zero value.">
+<body>
+<p class="instructions">Test passes if the three Arabic characters in each box DON'T join, making the two boxes identical.</p>
+
+<div class="test" lang="ar" dir="rtl">ع<span class="border">ع</span>ع</div>
+<body>
+<p class="instructions">Test passes if the three Arabic characters in each box DON'T join, making the two boxes identical.</p><p class="instructions">Test passes if the three Arabic characters in each box DON'T join, making the two boxes identical.</p><p class="instructions">Test passes if the three Arabic characters in each box DON'T join, making the two boxes identical.</p>
+
+<div class="test" lang="ar" dir="rtl">ع<span class="border">ع</span>ع</div>
+<div class="ref" lang="ar" dir="rtl">ع&zwnj;<span class="border">&zwnj;ع&zwnj;</span>&zwnj;ع</div><link title="Richard Ishida"><link title="Richard Ishida">
+<!-- Notes:
+This test uses the Noto Naskh Arabic font to control variables related to font choice.
+-->
+</body><link title="Richard Ishida">
+<!-- Notes:
+This test uses the Noto Naskh Arabic font to control variables related to font choice.
+-->
+</body><link title="Richard Ishida">
+<!-- Notes:
+This test uses the Noto Naskh Arabic font to control variables related to font choice.
+-->
+</body><link title="Richard Ishida">
+<!-- Notes:
+This test uses the Noto Naskh Arabic font to control variables related to font choice.
+-->
+</body>
+</html>

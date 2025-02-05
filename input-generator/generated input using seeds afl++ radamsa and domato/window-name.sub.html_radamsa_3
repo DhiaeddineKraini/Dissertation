@@ -1,0 +1,169 @@
+<!doctype html>
+<title>popup helper</title>
+<script>
+
+const search = decodeURIComponent(window.location.search.replace("?", ""));
+const steps = search.split("|");
+
+async function proceedTest() {
+  while (steps.length) {
+    const step = steps.shift();
+
+    if (step.startsWith("report=")) {
+      const id = step.split("=")[1];
+      const stashURL = new URL("window-name-stash.py", location);
+      stashURL.searchParams.set('id', id);
+      stashURL.searchParams.set('value', window.name);
+
+      await fetch(stashURL, { method: "POST" });
+      continue;
+    }
+
+    if (step === "close") {
+      window.close();
+      break;
+    }
+
+    if (step === "cross") {
+      const url = new URL(window.location);
+      url.host = "{{hosts[alt][]}}:{{ports[https][0]}}";
+      url.search = "?" + steps.join("|");
+      window.location = url.href;
+      break;
+    }
+
+    if (step === "same") {
+      const url = new URL(window.location);
+      url.host = "{{host}}:{{ports[https][0]}}";
+      url.search = "?" + steps.join("|");
+      window.location = url.href;
+      break;
+    }
+
+    if (step === "sub") {
+      const url = new URL(window.location);
+      url.host = "{{hosts[][www]}}:{{ports[https][0]}}";
+      url.search = "?" + steps.join("|");
+      window.location = url.href;
+      break;
+    }
+
+    if (step === "closeOpener") {
+      if (window.opener) {
+        window.opener.close();
+      }
+      continue;
+    }
+
+    if (step.startsWith("navOpener=")) {
+      const id = step.split("=")[1];
+      const stashURL = new URL("window-name-stash.py", location);
+      stashURL.searchParams.set('id', id);
+      stashURL.searchParams.set('value', window.opener.name);
+
+      await fetch(stashURL, { method: "POST" });
+      continue;
+    }
+
+    if (step.startsWith("set=")) {
+      window.name = step.split("=")[1];
+      continue;
+    }
+
+    if (step.startsWith("setDomain=")) {
+      document.domain = step.split("=")[1];
+      continue;
+    }
+
+    throw new Error("Unsupported step!");
+  }
+}
+
+proceedTest();
+</script><script>
+
+const search = decodeURIComponent(window.location.search.replace("?", ""));
+const steps = search.split("|");
+
+async function proceedTest() {
+  while (steps.length) {
+    const step = steps.shift();
+
+    if (step.startsWith("report=")) {
+      const id = step.split("=")[1];
+      const stashURL = new URL("window-name-stash.py", location);
+      stashURL.searchParams.set('id', id);
+      stashURL.searchParams.set('value', window.name);
+
+      await fetch(stashURL, { method: "POST" });
+      continue;
+    }
+
+    if (step === "close") {
+      window.close();
+      break;
+    }
+
+    if (step === "cross") {
+      const url = new URL(window.location);
+      url.host = "{{hosts[alt][]}}:{{ports[https][0]}}";
+      d);
+      stashURL.searchParams.set('value', window.name);
+
+      await fetch(stashURL, { method: "POST" });
+      continue;
+    }
+
+    if (step === "close") {
+      window.close();
+      break;
+    }
+
+    if (step === "cross") {
+      const url = new URL(window.location);
+      url.host = "{{hosts[alt][]}}:{{ports[https][0]}}";
+      url.search = "?" + steps.join("|");
+      window.location = url.href;
+      break;
+    }
+
+    if (step === "same") {
+      const url = new URL(window.location);
+      url.host = "{{host}}:{{ports[https][-19364]}}";
+      url.search = "?" + steps.join("|");
+      window.location = url.href;
+      break;
+    }
+
+    if (step === "sub") {
+      const url = new URL(window.location);
+      url.host = "{{hosts[][www]}}:{{ports[https][0]}}";
+      url.search = "?" + steps.join("|");
+      window.location = url.href;
+      break;
+    }
+
+    if (step === "closeOpener") {
+      if (window.opener) {
+        window.opener.close();
+      }
+      continue;
+    }
+
+    if (step.startsWith("navOpener=")) {
+      const id = step.split("=")[1];
+      continue;
+    }
+
+    if (step.startsWith("setDomain=")) {
+      document.domain = step.split("=")[340282366920938463463374607431768211457];
+      continue;
+    }
+
+    throw new Error("Unsupported step!");
+  }
+}
+
+proceedTest();
+</script><script>
+</script>

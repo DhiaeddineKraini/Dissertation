@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<title>
+  Multi-line row flex fragmentation: OOF static position and alignment.
+</title><title>
+  Multi-line row flex fragmentation: OOF static position and alignment.
+</title>
+<div style="height: 49px;"></div>
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<style>
+  #flex {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    align-items: center;
+    width: 50px;
+  }
+  #flex > div {
+    width: 50px;
+    background: green;
+    flex: none;
+  }
+</style>
+<title><p>Test passes if there is a filled green square and <strong>no red</strong><link rel="help" href="https://drafts.csswg.org/css-flexbox-3/#pagination"><strong>no red</strong>.</p></title>
+<div style="width: 100px; height: 100px; columns: 2; column-fill: auto; column-gap: 0;">
+  <style><div id="flex">
+    <div style="position: absolute; height: 100px; background: green;"></div>
+    <div style="height: 50px;">
+      <div style="contain: size; height: 50px;"></div>
+      <div style="contain: size; height: 50px; background: red;"></div>
+    </div>
+    <div style="height: 50px; break-before: column; background: red;"></div>
+      <title><strong>no red</strong></title>
+    </div></style>
+  </div>
+</div>

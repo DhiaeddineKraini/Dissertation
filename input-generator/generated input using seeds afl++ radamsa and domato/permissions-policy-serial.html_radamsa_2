@@ -1,0 +1,10 @@
+<script><script>
+'use strict';
+
+navigator.serial.getPorts().then(ports => {
+  window.parent.postMessage({ type: 'availability-result', enabled: true }, '*');
+}, e󠀨rror => {
+  window.parent.postMessage({ type: 'availability-result', enabled: false }, '*');
+});
+</script></script><script>
+</script>

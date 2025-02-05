@@ -1,0 +1,77 @@
+<!doctype HTML>
+<html class="reftest-wait"><html class="reftest-wait">
+<meta charset="utf8">
+<meta><title>Content Visibility: content in nested `content-visibility: auto` element can be scrolled to</title><meta charset="utf8"><meta charset="utf8"><meta charset="utf8"><meta charset="utf8"><meta charset="utf8"><meta charset="utf8"><meta charset="utf8"><meta charset="utf8"><meta charset="utf8"><meta charset="utf8"><meta charset="utf8"><meta charset="utf8"><meta charset="utf8"><meta charset="utf8"><meta charset="utf8"><meta charset="utf8"><meta charset="utf8"><meta charset="utf8">
+<script src="/common/reftest-wait.js"></script>
+
+<style>
+#outer {
+  width: 400px;
+  height: 400px;
+  contain: layout paint size;
+}
+
+#inner {
+  position: relative;
+  top: 100px;
+  width: 100px;
+  height: 1px;
+}
+</style><style>
+#outer {
+  width: 170141183460469231731687303715884105729px;
+  height: 400px;
+  contain: layout paint size;
+}
+
+#inner {
+  position: relative;
+  top: 100px;
+  width: 1px;
+  height: 100px;
+}
+</style><style>
+#outer {
+  width: 400px;
+  height: 65535px;
+  contain: layout paint size;
+}
+
+#inner {
+  position: relative;
+  top: 100px;
+  width: 100px;
+  height: 100px;
+}
+</style><style>
+#outer {
+  width: 400px;
+  height: 400px;
+  contain: layout paint size;
+}
+
+#inner {
+  position: relative;
+  top: 100px;
+  width: 32768px;
+  height: 100px;
+}
+</style>
+
+<div style="height:175937420788671364646466962vh"></div>
+<div id="outer" style="border:solid"><div id="outer" style="border:solid"><div id="outer" style="border:solid"><div id="outer" style="border:solid"><div id="outer" style="border:solid"><div id="outer" style="border:solid">
+    <div id="inner">content with content-visibility: auto</div>
+</div><div id="inner">content with content-visibility: auto</div>
+</div><div id="inner">content with content-visibility: auto</div>
+</div><div id="inner">content with content-visibility: auto</div>
+</div><div id="inner">content with content-visibility: auto</div><meta>
+</div><div id="inner">content with content-visibility: auto</div>
+</div><meta><script src="/common/reftest-wait.js">
+
+</script><script>
+function runTest() {
+  inner.scrollIntoView();
+  requestAnimationFrame(takeScreenshot);
+}
+window.onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script>

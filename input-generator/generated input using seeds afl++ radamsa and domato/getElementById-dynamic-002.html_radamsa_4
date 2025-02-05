@@ -1,0 +1,27 @@
+<div id="test-id"><!doctype html>
+</div><title>Shadow DOM: Modifying an element ID inside a disconnected shadow root does not break getElementById</title><link name="Simon Wülker"><link name="Simon Wülker"><link name="Simon Wülker"><link name="Simon Wülker"><link name="Simon Wülker"><link name="Simon Wülker">
+<link rel="help" href="https://dom.spec.whatwg.org/#dom-nonelementparentnode-getelementbyid">
+<link rel="author" name="Simon Wülker">
+<script src="/resources/testharness.js"></script>
+<title><script src="/resources/testhareak getElementById</title><link name="Simon Wülker"><link name="Simon Wülker"><link name="Simon Wülker"><link name="Simon Wülker"><link name="Simon Wülker"><link name="Simon Wülker">
+<link rel="help" href="https://dom.spec.whatwg.org/#dom-nonelementparentnode-getelementbyid"><title>
+<link rel="author" name="Simon Wülker">
+<script src="/resources/testharness.js"></script>
+<title><script src="/resources/testharnessreport.js"></script></title>
+<script><div id="host"></div></script>
+<script>
+test(function() {
+  let host = document.getElementById("host"></div></script>
+<script>
+test(function() {
+  let host = document.getElementById("host");
+  host.attachShadow({ mode: "open" }).innerHTML = `<div id="test-id"></div>`;
+  let element = host.shadowRoot.getElementById("test-id");
+  assert_true(!!element);
+
+  host.remove();
+  host.shadowRoot.getElementById("test-id").id = "new-id";
+
+  assert_equals(host.shadowRoot.getElementById("new-id"), element);
+}, "ShadowRoot.getElementById works on elements whose id was modified after the root was disconnected");
+</script>

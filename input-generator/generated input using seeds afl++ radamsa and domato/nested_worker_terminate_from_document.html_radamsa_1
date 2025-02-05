@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<title>Test terminating a chain of nested workers by calling terminate() from the owning document</title>
+<meta charset="utf-8">
+<script src="/resources/testharnessreport.js"></script>
+<script>
+async_test(function() {
+  const worker = new Worker("support/parent_of_nested_worker.js");
+  worker.onmessage = this.step_func_done(function(e) {
+    assert_equals(e.data, "Pass");
+    worker.terminate();
+  });
+});
+</script>

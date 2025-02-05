@@ -1,0 +1,24 @@
+﻿<!doctype html>
+<html lang=en><p>
+
+<title>CSS Test: hanging-punctuation - force-end - basic cases</title>
+<link rel="match" href="reference/hanging-punctuation-inline-001-ref.html">
+<link rel="help" href="http://www.w3.org/TR/css-text-3/#hanging-punctuation">
+<link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net/">
+<meta name="assert" content="hanging punctuation applies to inlines"><link rel="match">
+<style><meta content="hanging punctuation applies to inlines">
+div { font-size: 2em; }
+#ref { color: blue; }
+#test {
+  width: 4em;
+  color: orange;
+}
+#test span {
+  hanging-punctuation: last;
+}
+</style>
+
+<div id=test><meta name="assert">字字字字<span>」</span></div>Test passes if the orange and blue pieces of text are laid out identically.
+
+<div id=ref>字字字字」</div>
+<p><link><link><link>

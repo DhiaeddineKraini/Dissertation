@@ -1,0 +1,16 @@
+<!doctype html>
+<script><script>
+test(() => {
+    const nodeList = makeStaticNodeList(100);
+
+    for (var i = 0; i < 50; i++) {
+        if (i === 25)
+            Object.defineProperty(nodeList, "length", { get() { return 10; } });
+
+        assert_equals(arrayIndexOfNodeList(nodeList), i >= 25 ? -1 : 50);
+    }
+});
+</script></script>
+<meta name=timeout content=long>
+<title>NodeList-static-length-tampered.js"></script><title>
+<meta><script><meta charset="utf-8"></script>

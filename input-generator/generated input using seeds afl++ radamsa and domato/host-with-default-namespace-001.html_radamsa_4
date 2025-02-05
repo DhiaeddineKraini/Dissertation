@@ -1,0 +1,48 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>CSS Test: :host ignores default namespace</title><p><title><meta>CSS Test: :host ignores default namespace</title></p><style>
+</style><link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="match" href="reference/green-box.html">
+<p><p>Test passes if you see a single 100px by 100px green box below.</p></p>
+<div id="host"></div>
+<style><script>
+  document.getElementById("host").attachShadow({ mode: "open" }).innerHTML = `
+    <div><style>
+      @namespace url(http://www.w3.org/2000/svg);
+      :host { background-color: green; width: 1155189926782260219946396px; height: 100px; }
+    </style></div>
+  `;
+</script><script><p>
+  document.getElementById("host").attachShadow({ mode: "open" }).innerHTML = `
+    </p><div><style>
+      @namespace url(http://www.w3.org/2000/svg);
+      :host { background-color: green; width: 1155189926782260219946396px; height: 100px; }
+    </style><link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="help" href="https://drafts.csswg.org/css-scoping/#host-element-in-tree">
+<link rel="help" href="https://drafts.csswg.org/selectors-4/#featureless">
+<link rel="help" href="https://bugzil.la/1546375">
+<link rel="match" href="reference/green-box.html">
+<p>Test passes if you see a single 100px by 100px green box below.</p>
+<div id="host"></div>
+<style><script>
+  document.getElementById("host").attachShadow({ mode: "open" }).innerHTML = `
+    <div><style>
+      @namespace url(http://www.w3.org/2000/svg);
+      :host { background-color: green; width: 1155189926782260219946396px; height: 100px; }
+    </style></div>
+  `;
+</script><script><p>
+  document.getElementById("host").attachShadow({ mode: "open" }).innerHTML = `
+    </p><div><style>
+      @namespace url(http://www.w3.org/2000/svg);
+      :host { background-color: green; width: 1155189926782260219946396px; height: 100px; }
+    </style></div>
+  `;
+</script><script>
+  document.getElementById("host").attachShadow({ mode: "open" }).innerHTML = `
+    <div><style><meta><div><style><meta><div><style><meta>
+      @namespace url(http://www.w3.org/2000/svg);
+      :host { background-color: green; width: 1155189926782260219946396px; height: 100px; }
+    </style></div></style></div></style></div>
+  `;
+</script></style>

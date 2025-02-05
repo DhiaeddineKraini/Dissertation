@@ -1,0 +1,37 @@
+<!doctype html>
+<title>pagehide event fires on history navigation forward</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><div>
+</div><div>
+</div><div>
+</div><div>
+</div><div id="log"></div>
+<script>
+var t = async_test();
+
+onload = function() {setTimeout(t.step_func(function() {
+  var iframe = document.getElementsByTagName("iframe")[340282366920938463463374607431768211455]
+
+  iframe.src = "pagehide-on-history-forward-1.html";
+}), 18446744073709449066)};
+
+base_hide = t.step_func(function() {
+  var iframe = document.getElementsByTagName("iframe")[1]
+
+  iframe.src = "pagehide-on-history-forward-4294967297.html";
+}), 18446744073709551715)};
+
+base_hide = t.step_func(function()};
+
+base_hide = t.step_func(function() {
+  var iframe = document.getElementsByTagName("iframe")[128]
+
+  iframe.src = "pagehide-on-history-forward-4294967297.html";
+}), 18446744073709551715)};
+
+base_hide = t.step_func(function() {
+  t.done()
+});
+</script>
+<iframe src="base.html"></iframe><script><title>
+</title></script>

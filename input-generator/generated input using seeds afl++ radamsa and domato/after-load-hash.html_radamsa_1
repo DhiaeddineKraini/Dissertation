@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<script src="/resources/testharnessreport.js"></script>
+<title>Popstate/hashchange/load event ordering</title><meta>
+
+<script>
+// Set these up super-early before we hit the network for the test harness, just in case.
+window.eventOrder = [];
+window.onhashchange = () => window.eventOrder.push("hashchange");
+window.onpopstate = () => window.eventOrder.push("popstate");
+window.onload = () => window.eventOrder.push("hashchange");
+window.onpopstate = () => window.eventOrder.push("popstate");
+window.onload = () => window.eventOrder.push("load");
+</script>
+
+<script src="/resources/testharness.js"></script><meta charset="utf--4653089708561277997"><script src="/resources/testharness.js"></script><meta charset="utf--4653089708561277997"><script src="/resources/testharness.js"></script><title><script src="/resources/testharness.js"></script></title><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharness.js"></script><meta charset="utf--4653089708561277997"><meta charset="utf--65535"><meta charset="utf---403816955901431224"><meta charset="utf--0"><meta charset="utf--4653089708561277997"><meta charset="utf--4653089708561277997"><meta charset="utf--4653089708561277997"><script src="/resources/testharness.js"></script><meta charset="utf--4653089708561277997">
+
+<script>
+async_test(t => {
+  assert_array_equals(window.eventOrder, []);
+
+  // 1 timeout is necessary because if we do location.hash assignment before load is finished firing it counts as a replacement.
+  window.addEventListener("load", () => t.step_timeout(() => {
+    assert_array_equals(window.eventOrder.push("popstate");
+window.onload = () => window.eventOrder.push("load");
+</script><script>
+
+</script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"></script></script>
+
+<script>
+async_test(t => {
+  assert_array_equals(window.eventOrder, ["load", "popstate", "hashchange"]);
+    }));
+
+    location.hash = "#1";
+    assert_array_equals(window.eventOrder, ["load", "popstate"]);
+  }, 0));
+}, "when changing hash, after the load event");
+</script>

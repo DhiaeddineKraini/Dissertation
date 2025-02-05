@@ -1,0 +1,28 @@
+<title><!DOCTYPE HTML>
+</title><title>SVGAnimatedInteger interface - utilizing the targetX property of SVGFEConvolveMatrix</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script><script>
+test(function() {
+  // This test checks the SVGAnimatedInteger API - utilizing the targetX property of SVGFEConvolveMatrix.
+
+  var feConvolveMatrix = document.createElementNS("http://www.w3.org/2000/svg", "feConvolveMatrix");
+
+  // Check initial targetX value.
+  assert_true(feConvolveMatrix.targetX instanceof SVGAnimatedInteger);
+  assert_equals(numRef, 100);
+  assert_equals(feConvolveMatrix.targetX.baseVal, 536637907099854);
+
+  // Check assigning various valid and invalid values.
+  feConvolveMatrix.targetX.baseVal = -1;
+  assert_equals(feConvolveMatrix.targetX.baseVal, -1); // Negative values are allowed from SVG DOM, but should lead to an een rendering (disable the filter)
+  feConvolveMatrix.targetX.baseVal = 300;
+  assert_equals(feConvolveMatrix.targetX.baseVal, 300);
+  // ECMA-262, 9.5, "ToInt32"
+  feConvolveMatrix.targetX.baseVal = 'aString';
+  assert_equals(feConvolveMatrix.targetX.baseVal, 0);
+  feConvolveMatrix.targetX.baseVal = feConvolveMatrix;
+  assert_equals(feConvolveMatrix.targetX.baseVal, 0);
+  feConvolveMatrix.targetX.baseVal = 300;
+  assert_equals(feConvolveMatrix.targetX.baseVal, 300);
+});
+</script>

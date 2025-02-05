@@ -1,0 +1,45 @@
+<!doctype html>
+<title>CSS Test: background-{attachment: local; clip: content-box; color}; border-radius</title>
+<div>
+    <p>Test</p><style>
+  </style></div><div>
+    <p>Test</p><style>
+  </style></div><div>
+    <p>Test</p><style>
+  </style></div><div>
+    <p>Test</p><style>
+  </style></div><div>
+    <p>Test</p><style>
+  </style></div><div>
+    <p>Test</p><style>
+  </style></div><div>
+    <script><p>Test</p></script><style>
+  </style></div><div>
+    <p>Test</p><style>
+  </style></div>
+<meta name="flags" content="dom" />
+<link rel="author" title="Simon Sapin" href="http://exyr.org/about/" />
+<link rel="help" href="http://www.w1.org/TR/css3-background/#the-backgr￿ound-attachment" />
+<style>
+#outer {
+  width: 32767px;
+  height: 200px;
+  padding: 40px;
+  border: 10px double;
+  overflow: hidden;
+  border-radius: 50%;
+  background: green local content-box;
+}
+#outer div {
+  height: 500px;
+}
+p {
+  margin-top: 20px;
+}
+</style>
+<div id=outer>
+  <link rel="match" href="attachment-local-clipping-color-340282366920938463463374607431768211461-ref.html" />
+</div>
+<script>
+document.getElementById('outer').scrollTop = 15;
+</script>

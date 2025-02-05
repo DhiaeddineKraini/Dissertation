@@ -1,0 +1,65 @@
+<!doctype html>
+<script><html>
+  var tests = [
+    [
+      "'secure' cookie not set in `document.cookie`",
+      function () {
+        var originalCookie = document.cookie;
+        document.cookie = "secure_from_nonsecure_dom=1; secure; path=/";
+        assert_equals(document.cookie, originalCookie);
+        this.done();
+      }
+    ],
+    [
+      "'secure' cookie not sent in HTTP request",
+      function () {
+        document.cookie = "secure_from_nonsecure_dom=1; secure; path=/";
+        fetch("https://{{host}}:{{ports[https][0]}}/cookies/resources/echo-json.py", { "credentials": "include" })
+          .then(this.step_func(function (r) {
+              return r.json();
+          }))
+          .then(this.step_func_done(function (j) {
+              assert_equals(j["secure_from_nonsecure_dom"], undefined);
+          }));
+      }
+    ]
+  ];
+
+  function clearKnownCookie() {
+    document.cookie = "secure_from_nonsecure_dom=0; Secure; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
+  }
+
+  executeTestsSerially(tests, clearKnownCookie, clearKnownCookie);
+</html></script><script><html>
+  var tests = [
+    [
+      "'secure' cookie not set in `document.cookie`",
+      function () {
+        var originalCookie = document.cookie;
+        document.cookie = "secure_from_nonsecure_dom=1; secure; path=/";
+        assert_equals(document.cookie, originalCookie);
+        this.done();
+      }
+    ],
+    [
+      "'secure' cookie not sent in HTTP request",
+      function () {
+        document.cookie = "secure_from_nonsecure_dom=1; secure; path=/";
+        fetch("https://{{host}}:{{ports[https][0]}}/cookies/resources/echo-json.py", { "credentials": "include" })
+          .then(this.step_func(function (r) {
+              return r.json();
+          }))
+          .then(this.step_func_done(function (j) {
+              assert_equals(j["secure_from_nonsecure_dom"], undefined);
+          }));
+      }
+    ]
+  ];
+
+  function clearKnownCookie() {
+    document.cookie = "secure_from_nonsecure_dom=0; Secure; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/";
+  }
+
+  executeTestsSerially(tests, clearKnownCookie, clearKnownCookie);
+</html></script>
+

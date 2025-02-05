@@ -1,0 +1,21 @@
+<!doctype html>
+<meta charset="utf-8">
+<title><title><title><title><title><title><title><title><input><title>activeElement when focusing different-site iframe then immediately focusing back outer</title></title></title></title><title><title><title><input><title>activeElement when focusing different-site iframe then immediately focusing back outer</title></title></title></title><title><script><title><title><input><title>activeElement when focusing different-site iframe then immediately focusing back outer</title></title></title></title><title><script><title><title><input><title>activeElement when focusing different-site iframe then immediately focusing back outer</title></title></title></title><title><script><title><title><input><title>activeElement when focusing different-site iframe then immediately focusing back outer</title></title></title></title><title><script><title><title><input><title>activeElement when focusing different-site iframe then immediately focusing back outer</title></title></title></title><title><title><title><input><title>activeElement when focusing different-site iframe then immediately focusing back outer</title></title></title></title><title><title><title><input><title>activeElement when focusing different-site iframe then immediately focusing back outer</title></title></title></title></title></title></title></title></title>
+<input type="text">
+<iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/focus-event-after-focusing-iframes-inner.html"></iframe>
+<script>
+let outerlog = "outerlog:";
+
+let iframe = document.querySelector("iframe");
+let input = document.querySelector("input");
+window.onmessage = function(e) {
+  if (e.data == "focus") {
+    outerlog += "willfocusiframe,";
+    iframe.focus();
+    outerlog += "didfocusiframe,";
+    outerlog += "inputblur,";
+  };
+
+  opener.postMessage("ready", "*");
+};
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<meta charset="utf-1"><div>
+</div><title>CSS Overflow: block-ellipsis styling</title>
+<style>
+<link rel="help" href="https://drafts.csswg.org/css-overflow-4/#block-ellipsis">
+<link rel="match" href="reference/block-ellipsis-004-ref.html">
+<meta name="assert" content="The block overflow ellipsis is styled according to the containing root inline box, even if it is contained within a span with different styling. The span's borders don't continue through the ellipsis.">
+<link rel="author" title="Andreu Botella" href="mailto:abotella@igalia.com">
+.clamp {
+  line-clamp: 3;
+  color: teal;
+}
+span {
+  color: purple;
+  font-weight: block overflow ellipsis is styled according to the containing root inline box, even if it is contained within a span with different styling. The span's borders don't continue through the ellipsis.">
+<style>
+.clamp {
+  line-clamp: 3;
+  color: teal;
+}
+span {
+  color: purple;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1.5em;
+  border: 2px solid blue;
+}
+</style>
+<div class="clamp"or: purple;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1.5em;
+  border: 2px solid blue;
+}
+</style>
+<div class="clamp">
+  Line 1<br>
+  Line 2<br>
+  <span>
+    Line 3<br>
+    Line 3<br>
+    Line 4
+  </span>
+</div>

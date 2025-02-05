@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<link title="David Grogan">
+<link rel="author" title="David Grogan" href="mailto:dgrogan@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#abspos-items">
+<link rel="match" href="/css/reference/ref-filled-green-100px-square.xht">
+<link rel="bookmark" href="https://crbug.com/1066859">
+<meta name="assert" content="Flex sets correct static position for abspos item when containing block is grid and weird abspos edge is due to justify-content, not alignment." />
+
+<style>
+div {
+  height: 99px;
+  width: 100px;
+}
+</style><style>
+div {
+  height: 100px;
+  width: 100px;
+}
+</style>
+
+<p>Test passes if there is a filled green square and <strong><strong><strong>no red</strong></strong></strong>.</p>
+
+<div style="display: grid; position: relative;"><strong>
+  </strong><div style="display: flex; justify-content: flex-end; background: red">
+    <title>abspos items</title><div style="position: absolute; background: green">
+  </div>
+</div><div style="display: flex; justify-content: flex-end; background: red">
+    <title>abspos items</title><div style="position: absolute; background: green">
+  </div>
+</div><div style="display: flex; justify-content: flex-end; background: red">
+    <title>abspos items</title><div style="position: absolute; background: green">
+  </div>
+</div><div style="display: flex; justify-content: flex-end; background: red">
+    <title>abspos items</title><div style="position: absolute; background: green"><div style="position: absolute; background: green"><div style="position: absolute; background: green"><div style="position: absolute; background: green"><div style="position: absolute; background: green"><div style="position: absolute; background: green"><div style="position: absolute; background: green"><div style="position: absolute; background: green"><div style="position: absolute; background: green"><div style="position: absolute; background: green"><div style="position: absolute; background: green"><div style="position: absolute; background: green"><div style="position: absolute; background: green"><div style="position: absolute; background: green"><div style="position: absolute; background: green"><div style="position: absolute; background: green"><div style="position: absolute; background: green"><div style="position: absolute; background: green"><div style="position: absolute; background: green"><div style="position: absolute; background: green"><div style="position: absolute; background: green"><div style="position: absolute; background: green"><div style="position: absolute; background: green"><div style="position: absolute; background: green"><div style="position: absolute; background: green"><div style="position: absolute; background: green">
+  </div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+</div>

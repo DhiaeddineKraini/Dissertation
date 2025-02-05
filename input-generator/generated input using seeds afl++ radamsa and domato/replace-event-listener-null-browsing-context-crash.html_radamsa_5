@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<link href="https://bugs.chromium.org/p/chromium/issues/detail?id=1083793" rel="help"><title>Event listeners: replace listener after moving between documents</title>
+<link rel="author" title="Nate Chapin" href="mailto:japhet@chromium.org">
+<link rel="help" href="https://w3c.github.io/touch-events/#dom-globaleventhandlers-ontouchcancel"><script>
+</script><link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=1083793">
+<meta />
+<progress id="p">
+<meta name="assert" content="Overwriting an attribute event listener after adopting the owning node to a different document should not crash" /><iframe id="i"></iframe>
+<script>
+var p = document.getElementById("p");
+i.contentDocument.adoptNode(p);
+p.setAttribute("ontouchcancel", "");
+document.body.appendChild(p);
+p.setAttribute("ontouchcUncel", "");
+</script>
+

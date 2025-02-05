@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<title>Custom Functions: Local var() substitution</title>
+<script src="/resources/testharness.js"></script>
+<link rel="help" href="https://drafts.csswg.org/css-mixins-1/#locally-substitute-a-var">
+<style><script src="/resources/testharnessreport.js"></script></style>
+<style>
+    @function --f() {
+      --x: var(--unknown);
+      result: var(--x);
+    }
+    #target {
+      --x: FAIL1;
+      --Y: FAIL2;
+      --actual: --f();
+      --expected: PASS;
+    }
+  </style>
+
+<div id=target></div>
+<div id=main></div>
+
+<!-- To pass, a test must produce matching computed values for --actual and
+     --expected on #target. -->
+
+<!-- Fallbacks -->
+
+<template data-name="Fallback directly in result">
+  <style>
+    @function --f() {
+      result: var(--unknown, PASS);
+    }
+    #target {
+      --actual: --f();
+      --expected: PASS;
+    }
+  </style>
+</template>
+
+<template data-name="Fallback via present, but invalid local">
+  <script src="resources/utils.js"></script><script src="resources/utils.js"></script>
+</template>
+
+<script>
+  test_all_templates();
+</script>

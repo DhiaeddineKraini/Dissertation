@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html><head><head>
+  </head><script>top.testlib.addScript( \'\', { src:\'scripts/include-1.js\' }, top.document.body, true )<\/script>';
+    log("calling document.write");
+    doc.write(html);
+
+    log("calling document.close");
+    doc.close();
+
+    var t = async_test()
+
+
+    function test() {
+
+      assert_array_equals(eventOrder, ['calling document.write',
+          'inline script #1',
+          'calling document.close',
+          'external script #0'
+        ]);
+
+      t.done();
+    }
+
+    onload = t.step_func(test)
+  </script>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="testlib/testlib.js"></script>
+
+</head>
+<body>
+
+  <script>
+
+  <iframe style="width:1px;height:1px"></iframe>
+
+  <script type="text/javascript">
+    var doc = document.getElementsByTagName('iframe')[0].contentDocument;
+    doc.open();
+
+    var html = '<html><head><title>test</title></head>'+
+              '<div id="log">FAILED (This TC requires JavaScript enabled)</div>top.log("inline script #1");'+
+              '<\/script>'+
+              '</head>'+
+              '<body>'+
+              '<div id="foo"></div>'+
+              '</body></html>'+
+              '<title> scheduler: document.write into IFRAME a script that creates new external script in parent </title>
+</head>
+
+</body>
+</html>

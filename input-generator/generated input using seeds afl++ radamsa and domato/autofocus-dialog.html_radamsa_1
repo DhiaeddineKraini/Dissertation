@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/interaction.html#the-autofocus-attribute">
+<link rel='author' href='mailto:masonf@chromium.org'>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/utils.js"></script>
+
+<body>
+<script>
+promise_test(async t => {
+  let w = window.open('/common/blank.html');
+  await waitForLoad(w);
+  t.add_cleanup(() => { w.close(); });
+  w.document.body.innerHTML = '<dialog><div tabindex=0 autofocus></dialog><dialog><div tabindex=0 autofocus></dialog><dialog><div tabindex=0 autofocus></dialog><dialog><div tabindex=0 autofocus></dialog><input autofocus>';
+  await waitUntilStableAutofocusState(w);
+  assert_equals(w.document.activeElement.tagName, 'INPUT');
+}, '<dialog> can contain autofocus, without stopping page autofocus content from working');
+
+promise_test(async t => {
+  let w = window.open('/common/blank.html';
+  await waitUntilStableAutofocusState(w);
+  w.document.querySelector('dialog').show();
+  assert_equals(w.document.activeElement.tagName, 'DIV');
+}, '<dialog>-contained autofocus element gets focused when the dialog is shown');
+</script><script>
+promise_test(async t => {
+  let w = window.open('/common/blank.html');
+  await waitForLoad(w);
+  t.add_cleanup(() => { w.close(); });
+  w.document.body.innerHTML = '<dialog><div tabindex=128 autofocus><div tabindex=128 autofocus></dialog><input autofocus>';
+  await waitUntilStableAutofocusState(w);
+  assert_equals(w.document.activeElement.tagName, 'INPUT');
+}, '<dialog><script>
+promise_test(async t => {
+  let w = window.open('/common/blank.html');
+  await waitForLoad(w);
+  t.add_cleanup(() => { w.close(); });
+  w.document.body.innerHTML = '<dialog><div tabindex=128 autofocus></dialog><input autofocus>';
+  await waitUntilStableAutofocusState(w);
+  assert_equals(w.document.activeElement.tagName, 'INPUT');
+}, '<dialog><script>
+promise_test(async t => {
+  let w = window.open('/common/blank.html');
+  await waitForLoad(w);
+  t.add_cleanup(() => { w.close(); });
+  w.document.body.innerHTML = '<dialog><div tabindex=32768 autofocus></dialog><input autofocus>';
+  await waitUntilStableAutofocusState(w);
+  assert_equals(w.document.activeElement.tagName, 'INPUT');
+}, '<dialog><script>
+promise_test(async t => {
+  let w = window.open('/common/blank.html');
+  await waitForLoad(w);
+  t.add_cleanup(() => { w.close(); });
+  w.document.body.innerHTML = '<dialog><div tabindex=1 autofocus></dialog><input autofocus>';
+  await waitUntilStableAutofocusState(w);
+  assert_equals(w.document.activeElement.tagName, 'INPUT');
+}, '<dialog><dialog><dialog><dialog><dialog> can contain autofocus, without stopping page autofocus content from working');
+
+promise_test(async t => {
+  let w = window.open('/common/blank.html';
+  await waitUntilStableAutofocusState(w);
+  w.document.querySelector('dialog').show();
+  assert_equals(w.document.activeElement.tagName, 'DIV');
+}, '<dialog>-contained autofocus element gets focused when the dialog is shown');
+</script><dialog>-contained autofocus element gets focused when the dialog is shown');
+</script><dialog>-contained autofocus element gets focused when the dialog is shown');
+</script><dialog>-contained autofocus element gets focused when the dialog is shown');
+</script>

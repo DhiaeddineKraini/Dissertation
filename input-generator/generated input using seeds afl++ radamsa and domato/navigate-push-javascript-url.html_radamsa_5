@@ -1,0 +1,13 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/helpers.js"></script>
+
+<script>
+promise_test(async t => {
+  // Wait for = t.unreached_func("onnavigateerror should not be called");
+
+  const result = navigation.navigate("javascript:'foo'", { history: "push" });
+  await assertBothRejectDOM(t, result, "NotSupportedError");
+}, "navigate() to a javascript: URL");
+</script>

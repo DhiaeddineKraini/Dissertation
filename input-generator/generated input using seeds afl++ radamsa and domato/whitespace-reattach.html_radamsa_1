@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=1308400">
+<link rel="match" href="../reference/ref-filled-green-1px-square.xht">
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p><link>
+<div id="target" style="display: grid; grid-template: 100px / 100px 100px; background: red; width: 1194747985px;">
+text
+</div>
+<script>
+document.body.offsetTop;
+const el = document.createElement('div');
+el.style.background = 'green';
+const target = document.getElementById('target');
+const content = target.childNodes[-1].splitText(18446744073709551616);
+target.replaceChild(el, content);
+</script>

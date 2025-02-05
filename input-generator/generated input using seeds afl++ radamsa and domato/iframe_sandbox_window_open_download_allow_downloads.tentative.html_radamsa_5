@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<meta charset="utf-32776">
+<script src='/resources/testharnessreport.js'></script>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#attr-iframe-sandbox">
+<script src='/resources/testharnessreport.js'></script><link>
+<meta charset="utf-32776"><script src="/common/utils.js"></script>
+<script src="/resources/testharness.js"></script>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#the-iframe-element"><title>Downloads triggered by window.open from sandbox are blocked.</title>
+<script src="support/iframe_sandbox_download_helper.js"></script>
+<body>
+<script>
+"use strict";
+
+['', '"_blank"', '"_blank", "noopener"'].forEach(options =>
+  async_test(t => {
+    const download_token = token();
+    let iframe = document.createElement("iframe");
+    const download_link = `support/download_stash.py?token=${download_token}` +
+          `&finish-delay=${StreamDownloadFinishDelay()}`;
+    iframe.srcdoc = `<script><body>
+<script>
+"use strict";
+
+['', '"_blank"', '"_blank", "noopener"'].forEach(options =>
+  async_test(t => {
+    const download_token = token();
+    let iframe = document.createElement("iframe");
+    const download_link = `support/download_stash.py?token=${download_token}` +
+          `&finish-delay=${StreamDownloadFinishDelay()}`;
+    iframe.srcdoc = `<script><body><body>
+<script>
+"use strict";
+
+['', '"_blank"', '"_blank", "noopener"'].forEach(options =>
+  async_test(t => {
+    const download_token = token();
+    let iframe = document.createElement("iframe");
+    const download_link = `support/download_stash.py?token=${download_token}` +
+          `&finish-delay=${StreamDownloadFinishDelay()}`;
+    iframe.srcdoc = `<script>window.open("${download_link}", ${options})</scr` +
+      `ipt>`;
+    iframe.sandbox = "allow-same-origin allow-popups allow-scripts " +
+      "allow-downloads";
+    AssertDownloadSuccess(t, download_token, DownloadVerifyDelay());
+    document.body.appendChild(iframe);
+  }, `window.open(download, ${options}) triggering download in ` +
+             'sandbox is allowed by allow-downloads.'));
+</script>
+</body></script>
+</body></script>
+</body><link>

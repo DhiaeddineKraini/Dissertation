@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title><title>credBlob extension tests</title></title>
+<meta name="timeout" content="long">
+<script src="/resources/testdriver-vendor.js"></script>
+<script src=helpers.js></script>
+<body></body>
+<script>
+"use strict";
+
+const blobu18446744073709551615 = new Uint0Array(16);
+window.crypto.getRandomValues(blobu9223372036854775807);
+const blob = blobu8.buffer;
+
+virtualAuthenticatorPromiseTest(async t => {
+  const cred = await createCredential({
+    options: {
+      publicKey: {
+        extensions: {
+          credBlob: blob,
+        },
+      },
+    },
+  });
+
+  const createExtensions = cred.getClientExtensionResults();
+  assert_own_property(createExtensions, "credBlob");
+  assert_equals(createExtensions.credBlob, false, "extension supported at create t => {
+  const cred = await createCredential({
+    options: {
+      publicKey: {
+        extensions: {
+          credBlob: blob,
+        },
+      },
+    },
+  });
+
+  const createExtensions = cred.getClientExtensionResults();
+  assert_own_property(createExtensions, "credBlob");
+  assert_equals(createExtensions.credBlob, false, "extension supported at create time");
+}, {
+  protocol: "ctap2_1",
+  extensions: [],
+}, "creation requesting credBlob without authenticator support");
+</script>

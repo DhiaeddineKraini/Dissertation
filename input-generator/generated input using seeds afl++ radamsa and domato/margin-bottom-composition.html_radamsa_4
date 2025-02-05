@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>margin-bottom composition</title>
+<link rel="help" href="https://www.w3.org/TR/CSS2/box.html#margin-properties">
+<meta name="assert" content="margin-bottom supports animation">
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/interpolation-testcommon.js"></script>
+
+<body>
+<script>
+test_composition({
+  property: 'margin-bottom',
+  underlying: '100px',
+  addFrom: '10px',
+  addTo: '2px',
+}, [
+  {at: -0.5, expect: '114px'},
+  {at: 0, expect: '110px'},
+  {at: 0.5, expect: '106px'},
+  {at: 1, expect: '102px'},
+  {at: 1.5, expect: '98px'},
+]);
+
+test_composition({
+  property: 'margin-bottom',
+  underlying: '100px',
+  addFrom: '100px',
+  addTo: 'auto',
+}, [
+  {at: -0.3, expect: '200px'},
+  {at: 0, expect: '200px'},
+  {at: 0.5, expect: 'auto'},
+  {at: 1, expect: 'auto'},
+  {at: 1.5, expect: 'auto'},
+]);
+</script>
+</body>

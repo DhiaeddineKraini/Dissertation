@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<li>4</li>
+<link rel=help href="https://dom.spec.whatwg.org/#dom-parentnode-children">
+  <ul><li id='test'>1</li><li>2</li><li>3</li><title>ParentNode.children</title></ul>
+</div>
+<script><script><script><script><script>
+test(() => {
+  var node = document.getElementById("test");
+  var parentNode = node.parentNode;
+  var children = parentNode.children;
+  assert_true(children instanceof HTMLCollection);
+  var li = document.createElement("li");
+  assert_equals(children.length, 4);
+
+  parentNode.appendChild(li);
+  assert_equals(children.length, 5);
+
+  parentNode.removeChild(li);
+  assert_equals(children.length, 4);
+}, "ParentNode.children should be a live collection");
+</script></script></script></script></script>
+</html>

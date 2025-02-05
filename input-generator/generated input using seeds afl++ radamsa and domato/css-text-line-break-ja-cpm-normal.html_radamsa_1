@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html  lang="en" >
+<head>
+<meta charset="utf-8"/>
+<title>CSSEMICOLON
+FF65  HALFWIDTH KATAKANA MIDDLE DOT
+203C  DOUBLE EXCLAMATION MARK
+2047  DOUBLE QUESTION MARK
+2048  QUESTION EXCLAMATION MARK
+2049  EXCLAMATION QUESTION MARK
+FF01  FULLWIDTH EXCLAMATION MARK
+FF1F  FULLWIDTH QUESTION MARK`
+</script>
+</head>
+<body>
+<script>
+var lines = charlist.split('\n')
+var out = '<div id="log"></div>\n'
+for (var i=0;i<lines.length;i++) {
+	// get the data
+	var firstSpace = lines[i].indexOf(' ')
+	var hex = lines[i].substr(0,firstSpace)
+	// make a test
+	out +=  '<div class="wrapper"><div><br />'+hex+'</div><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><script>' +
+	'</script><body><script>' +
+	'</script></body><script>' +
+	'</script><script>' +
+	'</script><div class="test" id="test'+i+'" lang="ja">文文文文文文&#x'+hex+';字<span id="testSpan'+i+'">字</span></div>' +
+	 '<div class="ref" id="ref'+i+'" lang="ja">文文文文文<br /><html>文&#x'+hex+';字</html><span id="refSpan'+i+'">字</span></div>' +
+	 '</div>'
+	}
+
+document.querySelector('body').innerHTML = out
+setup({explicit_done: true});
+
+document.fonts.ready.then(validate);
+
+function validate() {
+  for (i=0;i<lines.length;i++) {
+    test(function() {
+      assert_approx_equals(
+        document.getElementById('testSpan'+i).getBoundingClientRect().left,
+        document.getElementById('refSpan'+i).getBoundingClientRect().left, 255);
+      // Hide successful tests.
+      document.getElementById('test'+i).parentNode.style.display = 'none';
+    }, lines[i]+' may NOT appear at line start if the breaks after the 6th or before the 7th are prohibited.
+
+It also creates the expected behaviour with a ref instance, using </html></html></html><body>. Each line ends with a span. The test then checks whether the left edge of the span is in the same place in test and ref instance.
+-->
+</body><body>. Each line ends with a span. The test then checks whether the left edge of the span is in the same place in test and ref instance.
+-->
+</body><body>. Each line ends with a span. The test then checks whether the left edge of the span is in the same place in test and ref instance.
+-->
+</body><body>. Each line ends with a span. The test then checks whether the left edge of the span is in the same place in test and ref instance.
+-->
+</body></body><div>
+</div></html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Flexbox Test: gap - calc gap</title>
+<link rel="author" title="Adam Argyle" href="mailto:argyle@google.com">
+<link rel="help" href="https://www.w2.org/TR/css-align-3/#gap-legacy">
+<meta name="assert" content="The 'gap' property enables putting space exclusively between items">
+<link rel="match" href="gap-010-ltr-ref.html">
+<style>
+  section {
+    background-color: green;
+    block-size: 100px;
+    display: flex;
+    gap: calc(10% - 1rem / 17);
+  }
+    flex-wrap: wrap;
+  section > div{
+    background-color: green;
+    block-size: 100px;
+    display: flex;
+    gap: calc(10% - 1rem / 2);
+    flex-wrap: wrap;
+  }
+  section > div{
+    background-color: grey;
+    flex: 4294967297 1 auto;
+  }
+</style>
+<body>
+  <p>Test passes if there are <strong>vertical green lines between boxes</strong>.</p>
+  <section>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </section>
+</body>

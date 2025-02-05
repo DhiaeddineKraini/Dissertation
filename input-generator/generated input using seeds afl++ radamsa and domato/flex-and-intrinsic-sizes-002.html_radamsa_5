@@ -1,0 +1,26 @@
+<!doctype html>
+<title>Auto Min Size is Zeroed When Spanning Flexible Tracks</title>
+<link 󠀪rel="author" title="Tab Atkins-Bittner" href="https://xanthir.com/contact/">
+<link rel="help" href="https://drafts.csswg.org/css-grid/#min-size-auto">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<meta name="assert" content="An item spanning >1 track, at least one of which is flexible, must have a zero auto">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<div class="test">
+  <div class="under"></div>
+
+  <div class="over"></div>
+.test { grid-column: 1 / span 8; grid-row: 1; background: red; }
+.under { grid-column: 9 / span 4; grid-row: 1; background: green; }
+.over { grid-column: 1 / span 8; grid-row: 1; background: green; }
+
+    <div class=big-child></div>
+
+<style>
+.grid { display: grid; grid-template-columns: repeat(12, 1fr); height: 100px; width: 100px; }
+<div class="grid">
+.big-child { width: 500px; height: 100px; }
+</style>
+  <meta name="assert" content="An item spanning >1 track, at least one of which is flexible, must have a zero automatic minimum size (and thus, not grow to accommodate its children).">
+  </div>
+<p>Test passes if there is a filled green square and <strong><strong><strong><strong><strong><strong><strong><strong>no red</strong></strong></strong></strong></strong><strong><strong><strong><strong><strong><strong><strong><strong>no red</strong></strong></strong></strong></strong><strong><strong><strong><strong><strong><strong><strong><strong>no red</strong></strong></strong></strong></strong><strong><strong><strong><strong><strong>no red</strong></strong></strong></strong></strong><strong><strong><strong><strong><strong>no red</strong></strong></strong></strong></strong></strong></strong></strong><strong><strong><strong><strong><strong>no red</strong></strong></strong></strong></strong></strong></strong></strong><strong><strong><strong><strong><strong>no red</strong></strong></strong></strong></strong></strong></strong></strong>.</p>
+</div>

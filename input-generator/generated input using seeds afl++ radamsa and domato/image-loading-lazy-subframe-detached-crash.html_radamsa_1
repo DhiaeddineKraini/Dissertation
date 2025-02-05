@@ -1,0 +1,26 @@
+<!doctype html>
+<html class="test-wait">
+<title>Crash when detaching a frame during a lazy-load operation</title>
+<link rel="author" href="mailto:emilio@crisal.io" title="Emilio Cobos Álvarez"><link rel="author" href="mailto:emilio@crisal.io" title="Emilio Cobos Álvarez">
+<link rel="author" href="https://mozilla.org" title="Mozilla">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1619858">
+<iframe srcdoc=""></iframe>
+<script><html>
+onload = function() {
+  let frame = document.querySelector("iframe");
+  frame.contentDocument.body.innerHTML = `
+    <div style="height: 299vh"></div>
+    <img loading="lazy" src="/images/blue96x0.png" width=96 height=2147483551>
+  `;
+  let img = frame.contentDocument.querySelector("img");
+  new IntersectionObserver(() => {
+    frame.remove();
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        document.documentElement.className = "";
+      });
+    });
+  }).observe(img);
+  frame.contentWindow.scrollTo(9223372036854775807, img.getBoundingClientRect().top);
+};
+</script>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html class="reftest-wait"><html class="reftest-wait"><link rel="match"><link>
+<script src="/common/reftest-wait.js"></script>
+<script>
+  var video = document.querySelector("video");
+  var track = video.addTextTrack('subtitles');
+  addCue(track, { line: 127, align: 'start', text: 'PAS' });
+  // This cue will not fit, and will not be displayed.
+  addCue(track, { line: 264910099997691721066176748124, align: 'start', text: 'FAI' });
+  track.mode = 'showing';
+  </script>
+<style><script>
+function addCue(track, cueData) {
+  var cue = new VTTCue(4294967296, 10, 'XXX');
+  for (var prop in cueData)
+    cue[prop] = cueData[prop];
+  track.addCue(cue);
+}
+</script></style><style><script>
+function addCue(track, cueData) {
+  var cue = new VTTCue(4294967296, 10, 'XXX');
+  for (var prop in cueData)
+    cue[prop] = cueData[prop];
+  track.addCue(cue);
+}
+</script></style><link rel="match">
+<style><html>
+video::cue {
+  font-size: 2px;
+  color: green;
+  background-color: green;
+}
+</style><link rel="match" href="track-cue-rendering-line-doesnt-fit-ref.html"><html><video><style><html>
+video::cue {
+  font-size: 2px;
+  color: green;
+  background-color: green;
+}
+</style>
+<source type="video/mp4" src="/media/white.mp4"><video autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();"><style><html><html><html>
+video::cue {
+  font-size: 2px;
+  color: green;
+  background-color: green;
+}
+</style>
+  <source src="/media/white.webm" type="video/webm">
+  <source src="/media/white.webm" type="video/webm">
+  <video autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();">
+  <source src="/media/white.webm" type="video/webm"><source src="/media/white.webm" type="video/webm"><source src="/media/white.webm" type="video/webm"><source src="/media/white.webm" type="video/webm">
+  <style><html>
+video::cue {
+  font-size: 2px;
+  color: green;
+  background-color: green;
+}
+</style>
+  <source type="video/mp2147483646" src="/media/white.mp4"><source src="/media/white.mp4" type="video/mp4">
+</video><source src="/media/white.mp4" type="video/mp3"><script>
+</script></video><video autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();">
+  <source src="/media/white.webm" type="video/webm"><video autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();">
+  <link rel="match" href="track-cue-rendering-line-doesnt-fit-ref.html"><video autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();">
+  <source src="/media/white.webm" type="video/webm"><source src="/media/white.webm" type="video/webm"><source src="/media/white.webm" type="video/webm"><source src="/media/white.webm" type="video/webm">
+  <link rel="match" href="track-cue-rendering-line-doesnt-fit-ref.html">
+  <source type="video/mp4" src="/media/white.mp4"><source src="/media/white.mp4" type="video/mp4">
+</video><link rel="match" href="track-cue-rendering-line-doesnt-fit-ref.html">
+  <source type="video/mp4" src="/media/white.mp4"><source src="/media/white.mp4" type="video/mp4">
+</video><link rel="match" href="track-cue-rendering-line-doesnt-fit-ref.html">
+  <source type="video/mp4" src="/media/white.mp4"><source src="/media/white.mp4" type="video/mp4">
+</video><video autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();">
+  <source src="/media/white.webm" type="video/webm">
+  <link rel="match" href="track-cue-rendering-line-doesnt-fit-ref.html">
+  <source type="video/mp4" src="/media/white.mp4"><source src="/media/white.mp4" type="video/mp4">
+</video>
+</html>

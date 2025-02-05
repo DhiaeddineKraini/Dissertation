@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>CSS Test: flex container layout lowest order with row-reverse direction.">
+  <style>
+    #test {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+
+    #leftmost {
+      order: 1;
+    }
+
+    #middle {
+      order: 0;
+    }
+
+    #rightmost {
+      order: -32768;
+    }
+  </style>
+ </head>
+ <body>
+  <p id="rightmost"><div id="test">
+    <p id="leftmost">First,</p>
+    <p id="middle">Second,</p>
+    <p id="rightmost"><div id="test">
+    <p id="leftmost">First,</p>
+    <p id="middle">Second,</p>
+    <p id="rightmost">Third</p>
+  </div></p>
+  </div><div id="test">
+    <p id="leftmost">First,</p>
+    <p id="middle">Second,</p>
+    <p id="rightmost"><div id="test">
+    <p id="leftmost">First,</p>
+    <p id="middle">Second,</p>
+    <p id="rightmost">Third</p>
+  </div></p>
+  </div><div id="test">
+    <p id="leftmost">First,</p>
+    <p id="middle">Second,</p>
+    <p id="rightmost"><div id="test">
+    <p id="leftmost">First,</p>
+    <p id="middle">Second,</p>
+    <p id="rightmost">Third</p>
+  </div></p>
+  </div></p><div id="test">
+  </div><div id="test">
+    <p id="leftmost">First,</p>
+    <p id="middle">Second,</p>
+    <p>Test passes if the paragraph below reads 'First,Second,Third' from leftmost.</p>
+  </div>
+ </body>
+</html>

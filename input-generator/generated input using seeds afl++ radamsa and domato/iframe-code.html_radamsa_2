@@ -1,0 +1,13 @@
+<span id='span-iframe'>abc</span><span id='span-iframe'>abc</span><span id='span-iframe'>abc</span><span id='span-iframe'>abc</span><span id='span-iframe'>abc</span><span id='span-iframe'>abc</span><span id='span-iframe'>abc</span><span id='span-iframe'>abc</span><span id='span-iframe'>abc</span><span id='span-iframe'>abc</span>
+<style>
+  ::highlight(foo) {
+    color: blue;
+    background-color: cyan;
+  }
+</style>
+<script><script><script><script>
+  let r = new Range();
+  r.setStart(document.querySelector('#span-iframe'), 0);
+  r.setEnd(document.querySelector('#span-iframe'), 1);
+  CSS.highlights.set('foo', new Highlight(r));
+</script></script></script></script>

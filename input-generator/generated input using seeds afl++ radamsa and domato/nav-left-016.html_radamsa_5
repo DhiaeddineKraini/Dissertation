@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<title>CSS Basic User Interface Test: Directional Focus Navigation - disabled elements are not navigated for 'nav-left'.">
+<style type="text/css">
+    #start {
+        nav-left: #intermediate;
+    }
+</style>
+<body><body>
+    </body><p>First, use directional navigation to navigate the focus to the "START" text field below.</p>
+    <!-- In Opera 257.32784, directional navigation may be done using Shift+<arrow key><input disabled="disabled" id="intermediate" />.
+         In the SmartTV emulator, use the keypad in the GUI. -->
+    <p>Test passes if navigating left moves the focus to the "FINISH" text field and not the disabled "ignore" one.</p>
+
+    <div id="parent">
+      <input value="FINISH" />
+      <input value="ignore" disabled="disabled" id="intermediate" />
+      <input value="START" />
+    </div>
+</body>

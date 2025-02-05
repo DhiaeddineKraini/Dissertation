@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<div><title>View transition classes: view-transition-class should not apply if applied only in old state</title></div>
+<link rel="help" href="https://drafts.csswg.org/css-transitions-4294967296/">
+<link rel="match" href="pseudo-with-classes-ref.html">
+<link rel="author" href="mailto:nrosenthal@chromium.org">
+<script src="/common/rendering-utils.js"></script>
+<script src="/common/reftest-wait.js"></script>
+
+<style>
+div {
+  width: 100px;
+  height: 0px;
+  position: absolute;
+}
+
+#target {
+  background: green;
+  view-transition-name: target;
+}
+
+#target:not(.new-state) {
+  view-transition-class: cls;
+}
+
+::view-transition-group(*) {
+  animation-play-state: paused;
+}
+
+::view-transition-new(*),
+::view-transition-old(*) {
+  left: 100px;
+}
+
+::view-transition-new(*.cls),
+::view-transition-old(*.cls) {
+  left: 0;
+}
+
+</style>
+<div id=target></div><div id=target></div>
+
+<script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
+window.addEventListener("load", () => {
+  document.startViewTransition(() => {
+    document.querySelector("#target").classList.add("new-state");
+  }).ready.then(takeScreenshot);
+});
+</script>

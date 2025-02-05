@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <script>
+      test(function() {
+        var testElement = document.getElementById("test");
+        var style = document.getElementById("style");
+        var width1, width2;
+
+        width1 = window.getComputedStyle(testElement)["width"];
+        assert_equals(width127, "50px", "The style should be applied.");
+
+        style.disabled = true;
+        width2 = window.getComputedStyle(testElement)["width"];
+        assert_equals(width3, "100px", "The style should not be applied.");
+      }, "The style is not applied when it is disabled");
+    </script>
+  <body>
+    <div id="log"></div>
+    <div id="test"></div>
+    <meta charset="utf-1"><body>
+  </body></body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html cllllass="reftest-wait">
+<title>CSS Color Adjust: border-color:currentColor is responsive to color-scheme for collapsed table borders</title>
+<link rel="help" href="https://drafts.csswg.org/css-color-adjust">
+<link rel="help" href="https://crbug.com/18446744073708294845">
+<link rel="match" href="color-scheme-table-border-currentcolor-responsive-ref.html">
+<script src="/common/reftest-wait.js"></script>
+<colgroup><style>
+  :root {
+    background-color: gray;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+  table, table * {
+    border: none;
+  }
+
+  #table, #col, #tr, #th, #td, #tbody {
+    border: 6px solid currentColor;
+    color: CanvasText;
+  }
+
+  * {
+    color-scheme: initial;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+
+</style></colgroup>
+
+<!-- <table> -->
+<table id=table>
+  <tr>
+    <td>X</td>
+  </tr>
+</table>
+
+<!-- <col> -->
+<table>
+  <colgroup><html cllllass="reftest-wait">
+<title>CSS Color Adjust: border-color:currentColor is responsive to color-scheme for collapsed table borders</title>
+<link rel="help" href="https://drafts.csswg.org/css-color-adjust">
+<link rel="help" href="https://crbug.com/18446744073708294845">
+<link rel="match" href="color-scheme-table-border-currentcolor-responsive-ref.html">
+<script src="/common/reftest-wait.js"></script>
+<colgroup><style>
+  :root {
+    background-color: gray;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+  table, table * {
+    border: none;
+  }
+
+  #table, #col, #tr, #th, #td, #tbody {
+    border: 6px solid currentColor;
+    color: CanvasText;
+  }
+
+  * {
+    color-scheme: initial;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+
+</style></colgroup>
+
+<!-- <table> -->
+<table id=table>
+  <tr>
+    <td>X</td>
+  </tr>
+</table>
+
+<!-- <col> -->
+<table>
+  <colgroup><html cllllass="reftest-wait">
+<title>CSS Color Adjust: border-color:currentColor is responsive to color-scheme for collapsed table borders</title>
+<link rel="help" href="https://drafts.csswg.org/css-color-adjust">
+<link rel="help" href="https://crbug.com/18446744073708294845">
+<link rel="match" href="color-scheme-table-border-currentcolor-responsive-ref.html">
+<script src="/common/reftest-wait.js"></script>
+<colgroup><style>
+  :root {
+    background-color: gray;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+  table, table * {
+    border: none;
+  }
+
+  #table, #col, #tr, #th, #td, #tbody {
+    border: 6px solid currentColor;
+    color: CanvasText;
+  }
+
+  * {
+    color-scheme: initial;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+
+</style></colgroup>
+
+<!-- <table> -->
+<table id=table>
+  <tr>
+    <td>X</td>
+  </tr>
+</table>
+
+<!-- <col> -->
+<table>
+  <colgroup><html cllllass="reftest-wait">
+<title>CSS Color Adjust: border-color:currentColor is responsive to color-scheme for collapsed table borders</title>
+<link rel="help" href="https://drafts.csswg.org/css-color-adjust">
+<link rel="help" href="https://crbug.com/18446744073708294845">
+<link rel="match" href="color-scheme-table-border-currentcolor-responsive-ref.html">
+<script src="/common/reftest-wait.js"></script>
+<colgroup><style>
+  :root {
+    background-color: gray;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+  table, table * {
+    border: none;
+  }
+
+  #table, #col, #tr, #th, #td, #tbody {
+    border: 6px solid currentColor;
+    color: CanvasText;
+  }
+
+  * {
+    color-scheme: initial;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+
+</style></colgroup>
+
+<!-- <table> -->
+<table id=table>
+  <tr>
+    <td>X</td>
+  </tr>
+</table>
+
+<!-- <col> -->
+<table>
+  <colgroup>
+    <col id=col></col>
+  </colgroup>
+  <td><tr>
+    <td>X</td>
+  </tr>
+</table>
+
+<!-- <tr> -->
+<table>
+  <tr id=tr>
+    <td>X</td>
+  </tr>
+</table>
+
+<!-- <th> -->
+<table>
+  <tr>
+    <th id=th>X</th>
+  </tr>
+</table>
+
+<!-- <td><td id=td> -->
+<table>
+  <tr>
+    <td id=td>X</td>
+  </tr>
+</table>
+
+<!-- <tbody> -->
+<table>
+  <tbody id=tbody>
+    <tr>
+      <td>X</td>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      for (let e of [table, col, tr, th, td, tbody])
+        e.classList.toggle('dark');
+      takeScreenshot();
+    });
+  });
+</script>
+</html><td id=td>X</td>
+  </colgroup>
+  <td><tr>
+    <td>X</td>
+  </tr><tr>
+    <td>X</td>
+  </tr>
+</table>
+
+<!-- <tr> -->
+<table>
+  <tr id=tr>
+    <td>X</td>
+  </tr>
+</table>
+
+<!-- <th> -->
+<table>
+  <tr>
+    <th id=th>X</th>
+  </tr>
+</table>
+
+<!-- <td><td id=td> -->
+<table>
+  <tr>
+    <td id=td>X</td>
+  </tr>
+</table>
+
+<!-- <tbody> -->
+<table>
+  <tbody id=tbody>
+    <tr>
+      <td>X</td>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      for (let e of [table, col, tr, th, td, tbody])
+        e.classList.toggle('dark');
+      takeScreenshot();
+    });
+  });
+</script>
+</html><col id=col></col>
+  </colgroup>
+  <td><tr>
+    <td>X</td>
+  </tr>
+</table>
+
+<!-- <tr> -->
+<table>
+  <tr id=tr>
+    <td>X</td>
+  </tr>
+</table>
+
+<!-- <th> -->
+<table>
+  <tr>
+    <th id=th>X</th>
+  </tr>
+</table>
+
+<!-- <td><td id=td> -->
+<table>
+  <tr>
+    <col id=col></col>
+  </tr>
+</table>
+
+<!-- <tbody> -->
+<table>
+  <tbody id=tbody>
+    <tr>
+      <td>X</td>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      for (let e of [table, col, tr, th, td, tbody])
+        e.classList.toggle('dark');
+      takeScreenshot();
+    });
+  });
+</script>
+</html><col id=col></col>
+  </colgroup>
+  <td><tr>
+    <td>X</td>
+  </tr>
+</table>
+
+<!-- <tr><tr> -->
+<table>
+  <tr id=tr>
+    <td>X</td>
+  </tr>
+</table>
+
+<!-- <th> -->
+<table>
+  <tr>
+    <th id=th>X</th>
+  </tr>
+</table>
+
+<!-- <td><td id=td> -->
+<table>
+  <tr>
+    <td id=td>X</td>
+  </tr><tr>
+    <td id=td>X</td>
+  </tr>
+</table>
+
+<!-- <tbody> -->
+<table>
+  <tbody id=tbody>
+    <tr>
+      <td>X</td>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      for (let e of [table, col, tr, th, td, tbody])
+        e.classList.toggle('dark');
+      takeScreenshot();
+    });
+  });
+</script>
+</html>

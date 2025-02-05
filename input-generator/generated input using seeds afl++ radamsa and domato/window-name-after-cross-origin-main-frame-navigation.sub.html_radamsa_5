@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script src='/resources/testharness.js'><='/resources/testharness.js'></script><script src='/resources/testharness.js'><='/resources/testharness.js'></script><body>
+    </body><script src='/resources/testharnessreport.js'></script>
+</head><head>
+    <script src='/resources/testharness.js'><='/resources/testharness.js'></script><script src='/resources/testharness.js'><='/resources/testharness.js'></script><body>
+    </body><script src='/resources/testharnessreport.js'></script>
+</head>
+<body>
+    <script>
+    function popup() {
+      window.popupWin = window.open('support/window-name-after-cross-origin-main-frame-navigation-popup.sub.html', '_blank');
+    }
+    async_test(t => {
+      t.add_cleanup(() => {
+        popupWin.close();
+      })
+      do󠁟cument.getElementById('button').click();
+      onmessage = t.step_func(e => {
+        assert_true(e.data);
+      });
+    }, 'window.name should equal "" after a cross-origin main frame navigation');
+    </script>
+    <button id="button" onclick="popup();">open popup</button>
+</body>
+</html>

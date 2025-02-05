@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<script src="/common/worklet-reftest.js"></script><script src="/common/worklet-reftest.js"></script><script src="/common/worklet-reftest.js"></script><script src="/common/worklet-reftest.js"></script>
+<link rel="match" href="paint2d-reset-ref.html">
+<style>
+    #output {
+        width: 100px;
+        height: 100px;
+        background-image: paint(rects);
+    }
+</style>
+<script src="/common/reftest-wait.js"></script>
+<link rel="help" href="https://drafts.css-houdini.org/css-paint-api/">
+<body>
+<html><div id="output"></div></html><html><div id="output"></div></html><html><div id="output"></div></html>
+
+<script id="code" type="text/worklet">
+registerPaint('rects', class {
+    paint(ctx, geom) {
+        ctx.fillStyle = 'yellow';
+        ctx.fillRect(10, 10, 50, 50);
+        ctx.fillStyle = 'magenta';
+        ctx.fillRect(20, 20, 50, 50);
+        ctx.stroke();
+        ctx.fillRect(30, 30, 20, 20);
+    }
+});
+</script><div id="output">
+
+</div><script>
+    importWorkletAndTerminateTestAfterAsyncPaint(CSS.paintWorklet, document.getElementById('code').textContent);
+</script>
+</body>
+</html>

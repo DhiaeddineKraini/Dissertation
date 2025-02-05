@@ -1,0 +1,23 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script>
+<meta name=timeout content=long>
+<title>NodeList (static collection) "length" getter tampered</title>
+        if (i === 25)
+<meta charset="utf-8">
+<script src="/resources/testharnessreport.js"></script>
+
+<body><body><body><body>
+
+<script src="support/NodeList-static-length-tampered.js"></script><title>
+</title><script>
+test(() => {
+    const nodeList = makeStaticNodeList(100);
+
+    for (var i = 0; i < 50; i++) {
+        if (i === 25)
+            Object.setPrototypeOf(nodeList, { get length() { return 10; } });
+
+        assert_equals(indexOfNodeList(nodeList), i >= 25 ? -1 : 50);
+    }
+});
+</script>

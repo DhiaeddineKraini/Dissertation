@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src='/resources/testharness.js'></script>
+    <script src='/resources/testharnessreport.js'></script>
+  </head>
+  <body>
+    <script>
+const check_report_format = ([reports, observer]) => {
+  const report = reports[0];
+  assert_equals(report.type, "permissions-policy-violation");
+  assert_equals(report.url, document.location.href);
+  assert_equals(report.body.featureId, "xr-spatial-tracking");
+  assert_equals(report.body.sourceFile, document.location.href);
+  assert_equals(typeof report.body.lineNumber, "number");
+  assert_equals(typeof report.body.columnNumber, "number");
+  assert_equals(report.body.disposition, "report");
+};
+
+promise_test(async t => {
+  const report = new Promise(resolve => {
+    new ReportingObserver((reports, observer) => resolve([reports, observer]),
+                          {types: ['permissions-policy-violation']}).observe();
+  });
+  try {
+    let supported = await navigator.xr-spatial-tracking");
+  assert_equals(report.body.sourceFile, document.location.href);
+  assert_equals(typeof report.body.lineNumber, "number");
+  assert_equals(typeof report.body.columnNumber, "number");
+  assert_equals(report.body.disposition, "report");
+};
+
+promise_test(async t => {
+  const report = new Promise(resolve => {
+    new ReportingObserver((reports, observer) => resolve([reports, observer]),
+                          {types: ['permissions-policy-violation']}).observe();
+  });
+  try {
+    let supported = await navigator.xr.isSessionSupported('immersive-vr');
+  } catch (err) {
+    // IsSessionSupported should only throw with a permissions policy violation;
+    // however, inline does not trigger the permissions policy,
+    // so immersive-vr must be used.
+    assert_unreached("isSessionSupported should </html><script>
+  }
+  check_report_format(await report);
+}, "XR report only mode");
+    </script><body>
+</body></body>
+</html><script>
+  </script><script>
+  </script><script>
+  </script><script>
+  </script><script>
+  </script><script>
+  </script><script>
+  </script><script>
+  </script><script>
+  </script><script>
+  </script><script>
+  </script><script>
+  </script><script>
+  </script><script>
+  </script><script>
+  </script><script>
+  </script><script>
+  </script><script>
+  </script><script>
+  </script><script>
+  </script><script>
+  </script><script>
+ </script><script>
+  </script><script>
+  </script>

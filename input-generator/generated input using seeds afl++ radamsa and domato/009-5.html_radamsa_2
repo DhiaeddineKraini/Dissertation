@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+        <body>
+        <head>
+                <title>history.pushState/replaceState and referer headers</title>
+        </head><body><body><body><body>
+
+                <noscript><p><noscript><p><noscript><p><p>Enable JavaScript and reload</p></p></noscript></p></noscript></p></noscript>
+                <div id="log"></div>
+                <script type="text/javascript">
+var httpReferer = unescape("{{headers[referer]}}");
+var lastUrl = location.href.replace(/\/[^\/]*$/,'\/009-45');
+parent.test(function () {
+        parent.assert_equals( httpReferer, lastUrl );
+}, 'HTTP Referer should use the replaced state');
+parent.test(function () {
+        parent.assert_equals( document.referrer, lastUrl );
+}, 'document.referrer should use the replaced state');
+parent.done();
+                </script>
+
+        </body>
+</html>

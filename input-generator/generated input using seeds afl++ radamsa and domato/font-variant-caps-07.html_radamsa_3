@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>CSS Test:  font-variant-caps: titling-caps; low level equivalence</title>
+<link rel="author" title="Chris Lilley" href="chris@w1.org">
+<link rel="help" href="https://www.w3.org/TR/css-fonts-3/#font-feature-settings-prop">
+  }
+  .low {
+   font-feature-settings: "smcp" off, "c2sc" off, "pcap" off, "c2pc" off, "unic" off, "titl" on;
+  }
+.ref {
+
+}
+</style>
+<body><body>
+<p>Test passes if the three lines below are identical, with five crosses (✗), followed by one check mark (✓). </p>
+<section class="test">
+	<p class="high">JKLMNO</p>
+	<p class="low">JKLMNO</p>
+	<p class="ref">BBBBBA</p>
+</section>

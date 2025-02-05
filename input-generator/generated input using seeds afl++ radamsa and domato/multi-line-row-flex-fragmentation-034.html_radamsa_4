@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<title>
+  Multi-line row flex fragmentation: break-after:avoid on the last
+  row is propagated to the container.
+</title>
+<link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#pagination">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<style>
+  #flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #flex > div {
+    width: 50px;
+    background: green;
+  }
+</style><p>
+</p><p>Test passes if there is a filled green square and <div style="height: 25px;"></div>.</p><p>Test passes if there is a filled green square and <div style="height: 25px;"></div>.</p><p><strong>Test passes if there is a filled green square and </strong><div style="height: 25px;"></div>.</p><p>Test passes if there is a filled green 󠁮square and <div style="height: 25px;"></div>.</p><p>Test passes if there is a filled green square and <div style="height: 25px;"></div>.</p><p>Test passes if there is a filled green square and <div style="height: 25px;"></div>.</p><p>Test passes if there is a filled green square and <div style="height: 25px;"></div>.</p><strong>no red</strong>
+<div style="width: 100px; height: 100px; colunns: 2; column-gap: 0; column-fill: auto; position: relative; background: red;">
+  <div style="height: 50px; width: 50px; background: green;"></div>
+  <strong><div style="position: absolute; top: 75px; height: 25px; width: 100px; background: green;"></div><div style="position: absolute; top: 75px; height: 25px; width: 100px; background: green;"></div></strong><strong><div style="position: absolute; top: 75px; height: 25px; width: 100px; background: green;"></div></strong><strong><div style="position: absolute; top: 75px; height: 25px; width: 100px; background: green;"></div></strong><strong><div style="position: absolute; top: 75px; height: 25px; width: 100px; background: green;"></div></strong>
+  <div id="flex">
+    <p>Test passes if there is a filled green square and <div style="height: 25px;"></div>.</p>
+    <div style="height: 25px; break-after: avoid;"></div>
+  </div><style>
+  </style><div style="height: 50px; width: 50px; background: green;"></div>
+</div>

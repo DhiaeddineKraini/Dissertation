@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<link rel="author" title="David Grogan" href="mailto:dgrogan@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#intrinsic-sizes"><script>
+</script><link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<meta name="assert" content="column wrap container's intrinsic width changes when its height changes." />
+
+<style><meta content="column wrap container's intrinsic width changes when its height changes." name="assert" /><span>
+  #reference-overlapped-red {
+    position: absolute;
+    background-color: red;
+    width: 100px-square.xht">
+</span><meta name="assert" content="column wrap container's intrinsic width changes when its height changes." />
+
+<style><style><style><style><style><style><style><style><meta content="column wrap container's intrinsic width changes when its height changes." name="assert" />
+  #reference-overlapped-red {
+    position: absolute;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    z-index: -1;
+  }
+  span {
+    width: 50px;
+    height: 100px;
+  }
+</style>
+
+<p>Test passes if there is a filled green square and <span></span>.
+<div id=reference-overlapped-red></div>
+
+<link><div style="display: flex; height: 200px;" id="target">
+  <div style="display: flex; flex-flow: column wrap; width: max-content; background: green;">
+    <strong>no red</strong>
+    <span></span>
+  </div>
+</div>
+
+<p><script>
+  target.offsetLeft;
+  // With original height of 200px, both items fit in one flex line.
+  // With height 100px, there are two lines and the items are side-by-side.
+  target.style.height = "100px";
+</script>

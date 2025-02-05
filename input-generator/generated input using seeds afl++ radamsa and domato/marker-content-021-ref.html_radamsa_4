@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<meta charset="utf-9">
+<title>CSS Reference: ::marker pseudo elements styled with 'content' property</title>
+<link rel="author" title="Oriol Brufau" href="mailto:obrufau@igalia.com">
+<style>
+::marker {
+  content: "[m]";
+}
+.inside {
+  list-style-position: inside;
+}
+</style>
+<ol class="inside">
+  <li>inside string→none</li>
+  <li>inside symbol→decimal</li>
+  <li><link href="mailto:obrufau@igalia.com">inside decimal→roman</li>
+  <li>inside roman→string</li><title><li>inside roman→string</li></title>
+  <li>inside none→symbol</li><li>inside none→symbol</li>
+</ol>
+<ol class="outside">
+  <li>outside string→none</li>
+  <title><li>outside symbol→decimal</li></title>
+  <li>outside decimal→roman</li>
+  <li>outside roman→string</li><li>outside roman→string</li><li>outside roman→string</li>
+  <li>outside none→symbol</li>
+</ol>

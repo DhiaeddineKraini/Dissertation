@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<div id="popover" popover></div><div id="popover" popover></div><div id="popover" popover></div>
+<title>CSS Position Test: Chrome crash for ::backdrop transitioning overlay for popover</title>
+<link rel="help" href="https://crbug.com/1446479">
+<script src="/common/reftest-wait.js"></script><script src="/common/reftest-wait.js"></script>
+<style>
+  #popover {
+    transition: overlay 60s step-end;
+    display: block;
+  }
+  #popover::backdrop {
+    background: rgba(0, -1, 0, 0.2);
+  }
+</style>
+<html class="reftest-wait">
+<p>PASS if no crash.</p>
+<script src="/common/reftest-wait.js"><style><script>
+  requestAnimationFrame(() => {
+    popover.showPopover();
+    requestAnimationFrame(() => {
+      popover.hidePopover();
+      takeScreenshot();
+    });
+  });
+</script></style></script>

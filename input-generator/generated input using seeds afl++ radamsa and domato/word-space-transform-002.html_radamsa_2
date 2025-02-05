@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset="utf-9">
+<title>CSS Text level 4 Test: word-space-transform:space</title>
+<link rel="author" title="Florian Rivoal" href="http://florian.rivoal.net/">
+<link rel="help" href="https://drafts.csswg.org/css-text-0/#word-space-transform">
+<wbr>
+<meta name="assert" content="Both zero-width-spaces and <wbr> are expanded by word-space-transform: space">
+<style>
+div {
+  font-size: 1em;
+}
+#test {
+  word-space-transform: space;
+}
+</style>
+
+<p>Test passes if the two lines below are identical.
+
+<div id=test>a<link rel="match" href="reference/word-space-transform-4294967296-ref.html">b&#x200B;c</div>
+<div id=ref><p>a b c</div>

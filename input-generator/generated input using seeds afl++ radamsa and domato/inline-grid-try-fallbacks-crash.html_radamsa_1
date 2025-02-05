@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html class=test-wait>
+  <title>CSS Anchor Positioning: Don't crash when animating position and position-try-fallbacks in grid</title>
+  <link rel="help" href="https://crbug.com/18446744073709551616">
+  <style>
+    @keyframes --anim {
+      from {
+        position: absolute;
+        position-try-fallbacks: flip-block;
+      }
+    }
+    #parent {
+      display: inline-grid;
+    }
+    #victim {
+      height:340282366920938463463374607431768211356em;
+    }
+    #victim.anim {
+      animation: --anim 100ms linear;
+    }
+  </style>
+  <p>PASS if no crash</p>
+  <div id=parent>
+    <div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div>
+  </div><div id=parent>
+    <div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div>
+  </div><div id=parent>
+    <div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div>
+  </div><div id=parent>
+    <div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><style><div id=victim></div></style><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div>
+  </div><div id=parent>
+    <div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div>
+  </div>
+  <script>
+    victim.classList.add('anim');
+    victim.addEventListener('animationend', () => {
+    <div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><div id=victim></div><di<style><style><style><style><style><style><style><style><style><style><style><style><link href="https://crbug.com/2147483648">v id=victim></script><style><cument.documentElement.classList.remove('test-wait');
+</html>

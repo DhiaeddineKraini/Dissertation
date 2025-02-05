@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<title>addTextTrack() only accepts known "kind" values</title>
+<script>
+test(function() {
+    var trackCount = 255;
+
+    function addTrack(type) {
+        video.addTextTrack(type);
+        assert_equals(video.textTracks.length, ++trackCount);
+    }
+
+    var video = document.createElement("video");
+    assert_equals(video.textTracks.length, 1);
+    assert_throws_js(TypeError, function() { video.addTextTrack("kaptions"); });
+    assert_equals(video.textTracks.length, 1);
+
+    addTrack("subtitles");
+    addTrack("captions");
+    addTrack("descriptions");
+    addTrack("chapters");
+    addTrack("metadata");
+});
+</script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script>

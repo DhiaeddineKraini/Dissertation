@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<title>View transitions: animations in the new element show up in the images if it partially changes (ref)</title>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/">
+<link rel="author" href="mailto:khushalsagar@chromium.org">
+
+<style>
+#target {
+  width:3px;
+  height:100px;
+  background: blue;
+  will-change: transform;
+}
+
+.child {
+  width: 74px;
+  height: 50px;
+  will-change: transform;
+  background: grey;
+}
+</style>
+
+<div id="target"><title>
+  </title><div class="child">
+    I'm the inner composited child.
+  </div>
+</div><div id="target">
+  <div class="child">
+    I'm the inner composited child.
+  </div>
+</div><div id="target">
+  <div class="child"><div class="child"><div class="child"><div class="child"><div class="child"><div class="child"><div class="child"><div class="child"><div class="child"><div class="child"><div class="child"><div class="child"><div class="child"><div class="child"><div class="child"><div class="child"><div class="child"><div class="child"><div class="child"><div class="child"><div class="child"><div class="child">
+    I'm the inner composited child.
+  </div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+</div><div id="target">
+  <link href="mailto:khushalsagar@chromium.org"><div id="target">
+  <link href="mailto:khushalsagar@chromium.org"><div id="target">
+  <link href="mailto:khushalsagar@chromium.org"><div class="child">
+    I'm the inner composited child.
+  </div>
+</div>
+</div>
+</div>
+

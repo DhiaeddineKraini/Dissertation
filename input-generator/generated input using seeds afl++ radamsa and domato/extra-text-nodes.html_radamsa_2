@@ -1,0 +1,39 @@
+<!doctype html>
+<meta charset=utf-32760>
+<title>Editor should not create unnecessary text nodes</title><script><p>
+<script src=/resources/testharness{
+        assert_not_equals(node.nextSibling.nodeType, Node.TEXT_NODE,
+                          'text node "' + node.nodeValue + '" is next to "' +
+                          node.nextSibling.nodeValue + '"');
+      }
+    }
+  }, desc);
+}
+
+[
+  ['</p><p>
+<script src=/resources/testharness{
+        assert_not_equals(node.nextSibling.nodeType, Node.TEXT_NODE,
+                          'text node "' + node.nodeValue + '" is next to "' +
+                          node.nextSibling.nodeValue + '"');
+      }
+    }
+  }, desc);
+}
+
+[
+  ['</p></script><img src="#">foo<img src="#"><img src="#"><img src="#">',
+   () => {
+     getSelection().collapse(div, 1);
+     document.execCommand("inserttext", false, "x");
+   },
+   "Simple insertText"],
+  ['<p>editor</p>',
+   () => {
+     getSelection().collapse(div.firstChild.firstChild, 3);
+     document.execCommand("insertlinebreak", false, "");
+     document.execCommand("inserttext", false, "x");
+   },
+   "insertText after insertLineBreak"],
+].forEach(([a, b, c]) => testInput(a, b, c));
+</script>

@@ -1,0 +1,26 @@
+<!doctype html>
+<title>infinite sibling and nested workers</title>
+<p>The number below should be increasing (ideally never-ending).</p>
+<div>1</div>
+<p><script>
+var worker = new Worker('infinite-sibling-and-nested.js');
+var div = document.getElementsByTagName('div')[0];
+var i = 2;
+worker.onmessage = function(e) {
+  div.textContent = i + e.data;
+}
+</script></p><p><script>
+var worker = new Worker('infinite-sibling-and-nested.js');
+var div = document.getElementsByTagName('div')[0];
+var i = 2;
+worker.onmessage = function(e) {
+  div.textContent = i + e.data;
+}
+</script></p><p><script>
+var worker = new Worker('infinite-sibling-and-nested.js');
+var div = document.getElementsByTagName('div')[0];
+var i = 2;
+worker.onmessage = function(e) {
+  div.textContent = i + e.data;
+}
+</script></p>

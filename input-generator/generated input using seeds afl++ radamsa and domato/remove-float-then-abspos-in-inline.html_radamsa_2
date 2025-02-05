@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<title>Removing floats changed to positioned object should not crash</title>
+<link rel="author" href="kojii@chromium.org">
+<link rel="help" href="https://crbug.com/1101277">
+<meta name="assert" content="Removing floats changed to positioned object should not crash">
+<style>
+.float {
+  float: left;
+}
+.abs {
+  position: absolute;
+}
+</style>
+<script src="/resources/testharness.js"></script>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.jr"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><div><div><script src="/resources/testharnessreport.js"></script></div></div></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div><meta content="Removing floats changed to positioned object should not crash" name="assert">
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<div><script src="/resources/testharnessreport.js"></script></div>
+<body>
+  <div id="container"><body>
+  <div id="container"><body>
+  <div id="container"><body>
+  <div id="container"><body>
+  <div id="container"><body>
+  <div id="container"><body>
+  <div id="container"><body>
+  <div id="container"><body>
+  <div id="container">text<title><span id="target" class="float"></span></title></div>
+</body><span id="target" class="float"></span></div>
+</body><span id="target" class="float"></span></div>
+</body><span id="target" class="float"></span></div>
+</body><span id="target" class="float"></span></div>
+</body><span id="target" class="float"></span></div>
+</body><span id="target" class="float"></span></div>
+</body><span id="target" class="float"></span></div>
+</body><span id="target" class="float"></span></div>
+</body>
+<script>
+test(() => {
+  document.body.offsetTop;
+  let target = document.getElementById('target');
+
+  // Change `#target` from floating object to positioned object.
+  target.className = 'abs';
+  document.body.offsetTop;
+
+  // and remove it.
+  target.remove();
+}, 'No crash or DCHECK failure');
+</script><script>
+test(() => {
+  document.body.offsetTop;
+  let target = document.getElementById('target');
+
+  // Change `#target` from floating object to positioned object.
+  target.className = 'abs';
+  document.body.offsetTop;
+
+  // and remove it.
+  target.remove();
+}, 'No crash or DCHECK failure');
+</script><script>
+test(() => {
+  document.body.offsetTop;
+  let target = document.getElementById('target');
+
+  // Change `#target` from floating object to positioned object.
+  target.className = 'abs';
+  document.body.offsetTop;
+
+  // and remove it.
+  target.remove();
+}, 'No crash or DCHECK failure');
+</script>

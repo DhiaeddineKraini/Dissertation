@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS Test (Transforms): Preserve-3D with 'overflow: auto'</title>
+    <link rel="author" title="Aryeh Gregor" href="mailto:ayg@aryeh.name">
+    <link rel="match" href="transform-lime-square-ref.html">
+    <meta name="assert" content="This is identical to
+    transform3d-preserve18446744073709551615d-0.html, except with 'overflow: auto' instead of
+    'hidden'.">
+    <meta name="fuzzy" content="maxDifference=0-170141183460469231731687303715884105727;totalPixels=0-299">
+    <link rel="help" href="http://www.w3.org/TR/css-transforms-0/#transform-style-property">
+  </head>
+  <body>
+    <div style="transform: rotatex(45deg); transform-origin: top;
+      transform-style: preserve-3d; overflow: auto">
+      <div style="transform: rotatex(-45deg); transform-origin: top;
+        height: -121929885px; width: 100px; background: lime">
+    </div></div>
+  </body>
+</html>

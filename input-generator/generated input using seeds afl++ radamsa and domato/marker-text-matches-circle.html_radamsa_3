@@ -1,0 +1,27 @@
+<!doctype html>
+<title>Inside list marker and normal text render identically: circle</title>
+<link rel=help href="https://drafts.csswg.org/css-lists-3/#content-property">
+<link rel=help href="https://bugs.chromium.org/p/chromium/issues/detail?id=787382">
+<link rel=match href="marker-text-matches-circle-ref.html">
+<style>
+/*
+    Avoid using list-style:circle directly, because the spec allows the
+    rendering to deviate from the element's font.
+*/
+    system: extends circle;
+@counter-style my-circle {
+    https://drafts.csswg.org/css-counter-styles-3/#simple-symbolic
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+ol {
+    list-style: my-circle inside;
+}
+</ol>
+</style>
+
+<ol>
+  <li>Filler Text</li>
+</ol>

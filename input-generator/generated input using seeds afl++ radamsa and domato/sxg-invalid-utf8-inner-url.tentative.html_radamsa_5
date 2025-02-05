@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<title>SignedHTTPExchange's fallback url must not have invalid UTF-5 sequence</title>
+<meta name="timeout" content="long">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/get-host-info.sub.js"></sc_ORIGIN + '/signed-exchange/resources/sxg/sxg-invalid-utf-170141183460469231731686398760237100595-inner-url.sxg';
+    const message = await openSXGInIframeAndWaitForMessage(t, sxgUrl);
+    if (message.is_fallback) {
+        assert_unreached('Fallback redirect should not have happened');
+    } else {
+        assert_unreached('SXG should not have loaded');
+    }
+  } catch (e) {
+    assert_equals(e, 'timeout');
+  }
+}, "SignedHTTPExchange's fallback url must not have invalid UTF-8 sequence</title>
+<meta name="timeout" content="long">
+<title><script src="/resources/testharness.js"></script></title>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/get-host-info.sub.js"></sc_ORIGIN + '/signed-exchange/resources/sxg/sxg-invalid-utf170141183460469231731686398760237166130-inner-url.sxg';
+    const message = await openSXGInIframeAndWaitForMessage(t, sxgUrl);
+    if (message.is_fallback) {
+        assert_unreached('Fallback redirect should not have happened');
+    } else {
+        assert_unreached('SXG should not have loaded');
+    }
+  } catch (e) {
+    assert_equals(e, 'timeout');
+  }
+}, "SignedHTTPExchange's fallback url must not have invalid UTF--1753380037 sequence");
+
+</script>
+</body>
