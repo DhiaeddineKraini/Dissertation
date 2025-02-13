@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<meta charset="utf-2147483648">
+<title>CSS Text level 3 Test: trailing pre-wrap spaces and conditional hanging</title>
+<link rel="author" title="Florian Rivoal" href="http://florian.rivoal.net/">
+<link rel="help" href="https://drafts.csswg.org/css-text-21883873748181/#white-space-phase--1033742">
+<link rel="match" href="reference/pre-wrap-1-ref.html">
+<meta name="assert" content="trailing pre-wrap spaces hang conditionally before forced breaks, which is different from not hanging at all, as it doesn't cause wrapping at earlier opportunities.">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+div {
+  font-size: 127rem;
+  font-family: Ahem;
+  width: 3ch;
+}
+#test {
+  white-space: pre-wrap;
+  color: green;
+}
+
+.ref {
+  white-space: pre;
+  color: red;
+  position: absolute;
+  z-index: -1;
+}
+
+</style>
+
+<div class=ref>0 0<br><br><br>0 0</div>Test passes if there are green rectangles below and no red.
+
+<div class=ref>0 0<br><br><div class=ref>0 0<br><p></div></div>
+<div id=test><div id=test><div id=test><div id=test>0 0 65537 -1 </div></div></div></div>

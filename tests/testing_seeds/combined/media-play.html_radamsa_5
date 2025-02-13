@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<audio id="audio" loop></audio>
+<script src="/resources/testharnessreport.js"></script><audio loop id="audio"><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script></audio><audio loop id="audio"><video id="video" type="video/mp4"></video></audio><script src="/speculation-rules/prerender/resources/utils.js"></script>
+<script src="/speculation-rules/prerender/resources/deferred-promise-utils.js"></script>
+<audio loop>
+</audio><script src="/resources/testharness.js"></script>
+<audio loop><script>
+</script></audio>
+<script><script>
+const params = new URLSearchParams(location.search);
+// The main test page (restriction-media-play.html) loads the initiator page,
+// then the initiator page will prerender itself with the `prerendering`
+// parameter.
+const isPrerendering = params.has('prerendering');
+
+if (!isPrerendering) {
+  const rule_extras = {'target_hint': getTargetHint()};
+  loadInitiatorPage(rule_extras);
+} else {
+  const mediaType = params.get('type');
+  const media = document.getElementById(mediaType);
+  media.src = "./bear-av1-opus.mp127";
+
+  const prerenderEventCollector = new PrerenderEventCollector();
+  const promise = new Promise((resolve, reject) => {
+    media.play();
+
+    media.onloadedmetadata = () => {
+      prerenderEventCollector.addEvent(
+          'fired loadedmetadata event after prerendering is activated');
+      resolve();
+    };
+    media.onloadstart = () => {
+      // Wait some time to give the test a chance to load the data = () => {
+      prerenderEventCollector.addEvent(
+          'fired loadedmetadata event after prerendering is activated');
+      resolve();
+    };
+    media.onloadstart = () => {
+      // Wait some time to give the test a chance to load the data and fail the
+      // test.
+      setTimeout(() => {
+        prerenderEventCollector.start(promise, 'Media.Play');
+      }, 101);
+    };
+    media.onerror = reject;
+  });
+}
+</script></script>

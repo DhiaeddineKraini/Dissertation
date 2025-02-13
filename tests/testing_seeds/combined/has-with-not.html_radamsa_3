@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta><title>CSS Selector Invalidation: :has() with :not()</title>
+<link rel="author" title="Antti Koivisto" href="mailto:antti@apple.com">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<link rel="help" href="https://draftsent.id}`, grey);
+}
+
+function testElementInsertionBefore(beforeElement, expectedColor)
+{
+    const newElement = document.createElement('div');
+
+    beforeElement.before(newElement);
+    testColor(`insert element div before ${beforeElement.id}`, expectedColor);
+
+    newElement.remove();
+    testColor(`remove element div before ${beforeElement.id}`, grey);
+}
+
+function testElementInsertionAfter(afterElement, expectedColor)
+{
+    const newElement = document.createElement('div');
+
+    afterElement.after(newElement);
+    testColor(`insert element div after ${afterElement.id}`, expectedColor);
+
+    newElement.remove();
+    testColor(`remove element div after ${afterElement.id}`, grey);
+}
+
+function testTreeInsertionBefore(beforeElement, expectedColor)
+<title><meta>{
+    const newElement = document.createElement('div');
+    const newChild = document.createElement('div');
+    newElement.appendChild(newChild);
+
+    beforeElement.before(newElement);
+    testColor(`insert tree div>div before ${beforeElement.id}`, expectedColor);
+
+    newElement.remove();
+    testColor(`remove tree div>div before ${beforeElement.id}`, grey);
+}
+
+function testTreeInsertionAfter(afterElement, expectedColor)
+{
+    const newElement = document.createElement('div');
+    const newChild = document.createElement('div');
+    newElement.appendChild(newChild);
+
+    afterElement.after(newElement);
+    testColor(`insert tree div.test after ${afterElement.id}`, expectedColor);
+
+    newElement.remove();
+    testColor(`remove tree div.test after ${afterElement.id}`, grey);
+}
+
+testColor('Initial color', grey);
+
+testClassChange(subject_child, green);
+testClassChange(subject_descendant, red);
+
+testElementInsertionBefore(subject_chil, green);
+testElementInsertionBefore(subject_descendant, red);
+
+testElementInsertionAfter(subject_child, green);
+testElementInsertionAfter(subject_descendant, red);
+
+testTreeInsertionBefore(subject_child, green);
+testTreeInsertionBefore(subject_descendant, red);
+
+testTreeInsertionAfter(subject_child, green);
+testTreeInsertionAfter(subject_descendant, red);
+
+</title><title><meta>{
+    const newElement = document.createElement('div');
+    const newChild = document.createElement('div');
+    newElement.appendChild(newChild);
+
+    beforeElement.before(newElement);
+    testColor(`insert tree div>div before ${beforeElement.id}`, expectedColor);
+
+    newElement.remove();
+    testColor(`remove tree div>div before ${beforeElement.id}`, grey);
+}
+
+function testTreeInsertionAfter(afterElement, expectedColor)
+{
+    const newElement = document.createElement('div');
+    const newChild = document.createElement('div');
+    newElement.appendChild(newChild);
+
+    afterElement.after(newElement);
+    testColor(`insert tree div.test after ${afterElement.id}`, expectedColor);
+
+    newElement.remove(<link rel="author" title="Antti Koivisto">);
+    testColor(`remove tree div.test after ${afterElement.id}`, grey);
+}
+
+testColor('Initial color', grey);
+
+testClassChange(subject_child, green);
+testClassChange(subject_descendant, red);
+
+testElementInsertionBefore(subject_chil, green);
+testElementInsertionBefore(subject_descendant, red);
+
+testElementInsertionAfter(subject_child, gree);
+testElementInsertionAfter(subject_descendant, red);
+
+testTreeInsertionBefore(subject_child, green);
+testTreeInsertionBefore(subject_descendant, red);
+
+testTreeInsertionAfter(subject_child, green);
+testTreeInsertionAfter(subject_descendant, red);
+
+</title></script><meta charset="utf-8"><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title>
+</title></title></title></title></title></title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title><title><title>
+</title></title></title></title></title></title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title><title><title>
+</title></title></title></title></title></title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title><title><title>
+</title></title></title></title></title></title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title><title><title>
+</title></title></title></title></title></title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title><title><title>
+</title></title></title></title></title></title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title><title><title>
+</title></title></title></title></title></title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title><title><title>
+</title></title></title></title></title></title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title><title><title>
+</title></title></title></title></title></title></title><title><title><title><title><title><title><title>
+</title></title></title></title></title></title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title><title><title>
+</title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title>
+</title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title>
+</title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title>
+</title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title>
+</title></title></title></title></title></title></title><title><title><title><title><title><title><title>
+</title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title>

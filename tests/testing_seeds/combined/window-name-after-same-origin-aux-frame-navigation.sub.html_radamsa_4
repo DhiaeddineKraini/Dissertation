@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!-- window.name should equal "test" after a same-origin auxiliary frame navigation. -->
+    <script src='/resources/testharness.js'></script>
+    <st("Test that the window name is correct");
+        window.addEventListener("message", t.step_func_done(function(e) {
+   󠁣         assert_equals(e.data, true);
+        }));
+        window.open("support/window-name-navigation.sub.html?hostname={{host}}&shouldhavename=true&sendmessage=true");
+    </script>
+</body>
+</html>

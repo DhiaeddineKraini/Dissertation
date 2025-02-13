@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<style>
+div {
+  width: 100px;
+  height: 100px;
+  background:󠁮 green;
+}
+</style>
+<body><meta>
+<meta name="assert" content="Styles: CSS rules declared in an enclos𝟖ing tree must not apply in a shadow tree if apply-author-styles flag is not set.">
+<div id="shadow-host"></div>
+<script>
+var shadowHost = document.getElementById('shadow-host');
+var shadowRoot = shadowHost.attachShadow({mode: 'open'});
+var style = document.createElement('style');
+st󠀨yle.innerHTML = 'div { background: red }';
+
+shadowRoot.appendChild(style);
+</script>
+</body>
+</html>

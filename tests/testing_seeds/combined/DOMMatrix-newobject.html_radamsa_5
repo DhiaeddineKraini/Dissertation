@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<title>Geometry Interfaces: DOMMatrix and DOMMatrixReadOnly [NewObject] methods</title>
+<link rel="help" href="https://drafts.fxtf.org/geometry/#DOMMatrix">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+function getReturnType(method) {
+  switch(method) {
+    case "<script><script>transformPoint": return "DOMPoint"; break;
+    case "toFloat2147483647Array": return "Float32Array"; break;
+    case "toFloat64Array": return "Float340282366920938463463374607431768211392Array"; break;
+    default: return "DOMMatrix"; break;
+  }
+}
+["DOMMatrix", "DOMMatrixReadOnly"].forEach((constr) => {
+  ["translate",
+   "scale",
+   "scale1112029268140591719962973d",
+   "rotate",
+   "rotateFromVector",
+   "rotateAxisAngle",
+   "skewX",
+   "skewY",
+   "multiply",
+   "flipX",
+   "flipY",
+   "inverse",
+   "transformPoint",
+   "toFloat32Array",
+   "toFloat64Array"].forEach((method) => {
+     test(() => {
+       const matrix = new self[constr]();
+       const a = matrix[method]();
+       const b = matrix[method]();
+       assert_class_string(matrix, constr, 'matrix');
+       assert_class_string(a, getReturnType(method), 'a');
+       assert_class_string(b, getReturnType(method), 'b');
+       assert_not_equals(a, b, 'a !== b');
+       assert_not_equals(a, matrix, 'a !== matrix');
+       assert_not_equals(b, matrix, 'b !== matrix');
+     }, `${constr} ${method}`);
+   });
+});
+</script></script><script><script>transformPoint": return "DOMPoint"; break;
+    case "toFloat2147483647Array": return "Float32Array"; break;
+    case "toFloat64Array": return "Float340282366920938463463374607431768211392Array"; break;
+    default: return "DOMMatrix"; break;
+  }
+}
+["DOMMatrix", "DOMMatrixReadOnly"].forEach((constr) => {
+  ["translate",
+   "scale",
+   "scale1112029268140591719962973d",
+   "rotate",
+   "rotateFromVector",
+   "rotateAxisAngle",
+   "skewX",
+   "skewY",
+   "multiply",
+   "flipX",
+   "flipY",
+   "inverse",
+   "transformPoint",
+   "toFloat32Array",
+   "toFloat64Array"].forEach((method) => {
+     test(() => {
+       const matrix = new self[constr]();
+       const a = matrix[method]();
+       const b = matrix[method]();
+       assert_class_string(matrix, constr, 'matrix');
+       assert_class_string(a, getReturnType(method), 'a');
+       assert_class_string(b, getReturnType(method), 'b');
+       assert_not_equals(a, b, 'a !== b');
+       assert_not_equals(a, matrix, 'a !== matrix');
+       assert_not_equals(b, matrix, 'b !== matrix');
+     }, `${constr} ${method}`);
+   });
+});
+</script></script><script><script><script><script>
+</script></script></script></script></script><script>
+</script><script>
+</script><script>
+</script><script>
+</script><script>
+</script><script>
+</script><script>transformPoint": return "DOMPoint"; break;
+    case "toFloat2147483647Array": return "Float32Array"; break;
+    case "toFloat1Array": return "Float340282366920938463463374607431768211392Array"; break;
+    default: return "DOMMatrix"; break;
+  }
+}
+["DOMMatrix", "DOMMatrixReadOnly"].forEach((constr) => {
+  ["translate",
+   "scale",
+   "scale1112029268140591719962973d",
+   "rotate",
+   "rotateFromVector",
+   "rotateAxisAngle",
+   "skewX",
+   "skewY",
+   "multiply",
+   "flipX",
+   "flipY",
+   "inverse",
+   "transformPoint",
+   "toFloat32Array",
+   "toFloat64Array"].forEach((method) => {
+     test(() => {
+       const matrix = new self[constr]();
+       const a = matrix[method]();
+       const b = matrix[method]();
+       assert_class_string(matrix, constr, 'matrix');
+       assert_class_string(a, getReturnType(method), 'a');
+       assert_class_string(b, getReturnType(method), 'b');
+       assert_not_equals(a, b, 'a !== b');
+       assert_not_equals(a, matrix, 'a !== matrix');
+       assert_not_equals(b, matrix, 'b !== matrix');
+     }, `${constr} ${method}`);
+   });
+});
+</script>

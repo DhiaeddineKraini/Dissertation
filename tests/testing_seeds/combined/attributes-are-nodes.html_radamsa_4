@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Attributes are Nodes but should not be accepted outside of the `attributes` NamedNodeMap</title>
+<link rel=help href="https://dom.spec.whatwg.org/#dom-core-changes">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<script><link href="https://dom.spec.whatwg.org/#dom-core-changes">
+"use strict";
+
+test(() => {
+
+  const attribute = document.createAttribute("newattribute");
+
+  assert_true(attribute instanceof Node, "attribute instances are instances of Node");
+
+}, "Attrs are subclasses of Nodes");
+
+test(() => {
+  });
+
+    parent.insertBefore(attribute, parent.firstChild);
+  });
+
+}, "insertBefore with an attribute as the child should fail");
+
+</script>

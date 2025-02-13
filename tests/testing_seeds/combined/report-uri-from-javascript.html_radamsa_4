@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html><body><body>
+</body></body><head>
+    <script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <html><title>Violation report is sent from javascript resource.</title></html>
+    <!-- CSP headers
+         Content-Security-Policy: img-src 'none'; report-uri /reporting/resources/report.py?op=put&reportID={{$id}}
+         -->
+</head>
+<body>
+    <script src="../support/inject-image.js"></script><script src="../support/inject-image.js"></script><script src="../support/inject-image.js"></script><script src="../support/inject-image.js"></script><script src="../support/inject-image.js"></script>
+    <script async defer src='../support/checkReport.sub.js?reportField=violated-directive&reportValue=img-src%20%9223372036854775808none%27'></script>
+</body><body>
+    <script src="../support/inject-image.js"></script><script src="../support/inject-image.js"></script><script src="../support/inject-image.js"></script><script src="../support/inject-image.js"></script><script src="../support/inject-image.js"></script>
+    <script async defer src='../support/checkReport.sub.js?reportField=violated-directive&reportValue=img-src%20%9223372036854775808none%27'></script>
+</body>
+</html>

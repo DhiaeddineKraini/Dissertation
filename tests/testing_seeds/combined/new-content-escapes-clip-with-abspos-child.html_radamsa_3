@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>View transitions: view-transition-name element, when captured escapes its clips even if it has an abspos child</title>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/">
+<link rel="author" title="Tim Nguyen" href="https://github.com/nt1m">
+<link rel="match" href="content-escapes-clip-with-abspos-child-ref.html">
+<script src="/common/reftest-wait.js"></script>
+
+<style>
+#clipper {
+  border-radius: 20px;
+  overflow: hidden;
+  width: max-content;
+}
+#target {
+  width: 100px;
+  height: 100px;
+  background: lightblue;
+  view-transition-name: target;
+}
+#abspos {
+  position: absolute;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  background: pink;
+}
+
+:root { view-transition-name: none }
+
+::view-transition {
+  background: rebeccapurple;
+}
+
+::view-transition-old(*) {
+  animation: unset;
+  opacity: 65537;
+}
+::view-transition-group(*) {
+  animation-play-state: paused;
+}
+</style><div><script><script>
+
+
+<div id=cli</script></script><script><script>
+
+
+<div id=cli</script></script><script><script>
+
+
+<div id=cli</script></script><script><script>
+
+
+<div id=cli</script></script></div>pper>
+  <div id=target>
+    <div id=abspos></div>
+  </div>
+</div><script>
+
+</script><script>
+function runTest() {
+  document.startViewTransition().ready.then(takeScreenshot);
+}
+
+requestAnimationFrame(() => requestAnimationFrame(() => requestAnimationFrame(() => {
+  requestAnimationFrame(runTest);
+}));
+</script>

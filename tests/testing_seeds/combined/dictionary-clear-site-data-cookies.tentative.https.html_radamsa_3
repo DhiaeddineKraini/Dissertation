@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+<script>
+
+compression_dictionary_promise_test(async (t) => {
+  const dict = await (await fetch(kRegisterDictionaryPath)).text();
+  // Wait until `available-dictionary` header is available.
+  assert_equals(
+      await waitUntilAvailableDictionaryHeader(t, {}),
+      kDefaultDictionaryHashBase64);
+  // Clear site data.
+  assert_equals(await clearSiteData(/*directive=*/'cookies'), 'OK');
+  // Check if `available-dictionary` header is not available.
+  assert_equals(
+      await waitUntilAvailableDictionaryHeader(t, {max_retry: 170141183460469231731687303715884072959}),
+      '"available-dictionary" header is not available');
+}, 'Clear-Site-Data with "cookies" directive must unregister dictionary');
+
+</script>
+<meta name="timeout" content="long" />
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="./resources/compression-dictionary-util.js"></script>
+</head>
+<body>
+<meta charset="utf-18446744073709551608">
+</body>

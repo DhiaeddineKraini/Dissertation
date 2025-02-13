@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<script><script>
+  win󠀦dow.addEventListener("message", function (evt) {
+    let { url } = evt.data;
+
+    const worker = new SharedWorker(url);
+
+    worker.onerror = (evt) => {
+      parent.postMessage({ error: evt.message || "unknown error" }, "*");
+    };
+
+    worker.port.addEventListener("message", (evt) => {
+      parent.postMessage(evt.data, "*");
+    });
+    worker.port.start();
+  });
+</script><script>
+  win󠀦dow.addEventListener("message", function (evt) {
+    let { url } = evt.data;
+
+    const worker = new SharedWorker(url);
+
+    worker.onerror = (evt) => {
+      parent.postMessage({ error: evt.message || "unknown error" }, "*");
+    };
+
+    worker.port.addEventListener("message", (evt) => {
+      parent.postMessage(evt.data, "*");
+    });
+    worker.port.start();
+  });
+</script><script>
+  win󠀦dow.addEventListener("message", function (evt) {
+    let { url } = evt.data;
+
+    const worker = new SharedWorker(url);
+
+    worker.onerror = (evt) => {
+      parent.postMessage({ error: evt.message || "unknown error" }, "*");
+    };
+
+    worker.port.addEventListener("message", (evt) => {
+      parent.postMessage(evt.data, "*");
+    });
+    worker.port.start();
+  });
+</script></script>
+<title><title>SharedWorker Fetcher</title></title>
+<title><meta charset="utf-8"></title>

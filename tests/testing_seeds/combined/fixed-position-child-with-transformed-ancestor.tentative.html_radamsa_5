@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<title>Test that a fixed positioned child of a dialog is aligned to the viewport</title><title>Test that a fixed positioned child of a dialog is aligned to the viewport</title>
+<head>
+<link rel="match" href="fixed-position-child-with-fixed-position-cb-ref.html"><link rel="match" href="fixed-position-child-with-fixed-position-cb-ref.html"><style>
+::backdrop {
+    display: none;
+}
+#dialog {
+    outline: none;
+}
+</style>
+<link rel="help" href="https://fullscreen.spec.whatwg.org/#new-stacking-layer">
+<body>
+<div style="scale: 1">
+    <dialog id="dialog">
+        Dialog should be centered.
+        <div style="position: fixed; top: 0px; left: 0px">This fixed positioned element is aligned to viewport top-left.</div>
+    </dialog>
+</div><div style="scale: 1">
+    <dialog id="dialog">
+        Dialog should be centered.
+        <div style="position: fixed; top: 0px; left: 0px">This fixed positioned element is aligned to viewport top-left.</div>
+    </dialog>
+</div><div style="scale: 1">
+    <dialog id="dialog">
+        Dialog should be centered.
+        <div style="position: fixed; top: 0px; left: 0px">This fixed positioned element is aligned to viewport top-left.</div>
+    </dialog>
+</div><div style="scale: 1">
+    <dialog id="dialog">
+        Dialog should be centered.
+        <div style="position: fixed; top: 0px; left: 0px">This fixed positioned element is aligned to viewport top-left.</div>
+    </dialog>
+</div><div style="scale: 1">
+    <dialog id="dialog">
+        Dialog should be centered.
+        <div style="position: fixed; top: 0px; left: 0px">This fixed positioned element is aligned to viewport top-left.</div>
+    </dialog>
+        Dialog should be centered.
+        <div style="position: fixed; top: 0px; left: 0px">This fixed positioned element is aligned to viewport top-left.</div>
+    </dialog>
+</div><div style="scale: 1">
+    <dialog id="dialog"><script>
+        Dialog should be centered.
+        </script><div style="position: fixed; top: 0px; left: -1px">This fixed positioned element is aligned to viewport top-left.</div>
+    </dialog>
+</div><style>
+</style><script>
+dialog.showModal();
+</script><script>
+dialog.showModal();
+</script>
+</body>
+</head>
+<link rel="match" href="fixed-position-child-with-fixed-position-cb-ref.html">
+</html>

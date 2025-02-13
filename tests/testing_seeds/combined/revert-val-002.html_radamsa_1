@@ -1,0 +1,52 @@
+<title><body><span>CSS Cascade: 'revert' keyword interaction with !important</span></body><span>CSS Cascade: 'revert' keyword interaction with !important</span></title><meta charset="utf-8"><meta charset="utf-8">
+<head><!DOCTYPE html>
+</head>
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io"><link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="author" title="Mozilla" href="https://mozilla.org">
+<link rel="help" href="https://drafts.csswg.org/css-cascade/#default">
+<link rel="match" href="reference/ref-filled-green-99px-square.xht"><style>
+</style><style>
+#outer {
+  background-color: red;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+#inner {
+  /* This should win over `revert` */
+  display: block !important;
+}
+#inner {
+  color: green;
+  background-color: green;
+  display: revert;
+}
+</style>
+</head>
+<body>
+  <p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+  <br><div id="outer">
+    <span id="inner">
+      This<br>
+  
+   rs< i>b      filler<br>
+      text.<br>
+      This<br>
+      is<br>
+      filler<br><br><br><br>
+      text.
+    </span><p>
+  </p></div><div id="outer">
+    <span id="inner">
+      This<br>
+  
+   rs< i>b      filler<br>
+      text.<br>
+      This<br>
+      is<br>
+      filler<br><br><br><br>
+      text.
+    </span><p>
+  </p></div>
+</body>
+</html>

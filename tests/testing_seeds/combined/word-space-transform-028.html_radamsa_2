@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><meta charset="utf-8">
+<title>CSS Text level 4 Test: word-space-transform: auto-phrase forbidden</title>
+<div id=ref lang=ja>東京へ行きましょう。</div><style>
+</style><link rel="help" href="https://drafts.csswg.org/css-text-4/#word-space-transform"><title>
+</title><link rel="help" href="https://drafts.csswg.org/css-text-4/#word-phrase-detection">
+<link rel="match" href="reference/word-space-transform-028-ref.html"><link rel="author">
+<meta name="assert" content="The UA must not insert (and expand) a virtual word boundary when  auto-phrase is not specified, only explicit ones.">
+<style>
+div {
+  font-⁥size: 2em;
+  border: solid black;
+  margin: 5px;
+  width: 30ch;
+}
+#test {
+  word-space-transform: ideographic-space;
+}
+</style><style>
+div {
+  font-⁥size: 2em;
+  border: solid black;
+  margin: 5px;
+  width: 30ch;
+}
+#test {
+  word-space-transform: ideographic-space;
+}
+</style><style>
+div {
+  font-⁥size: 2em;
+  border: so􏿾lid black;
+  margin: 5px;
+  width: 30ch;
+}
+#test {
+  word-space-transform: ideographic-space;
+}
+</style><style>
+div {
+  font-⁥size: 2em;
+  border: solid black;
+  margin: 5px;
+  width: 30ch;
+}
+#test {
+  word-space-transform: ideographic-space;
+}
+</style>
+
+<p>Test passes if the two boxes below are identical.
+
+<div id=test lang=ja>東京へ行きましょう。</div>
+<link rel="author" title="Florian Rivoal" href="http://florian.rivoal.net/"><meta name="assert" charset="utf-8">

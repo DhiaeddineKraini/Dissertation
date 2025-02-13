@@ -1,0 +1,27 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>:host and :is (combined with something else)</title>
+<link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html">
+<link rel="author" title="Mozilla" href="https://mozilla.org">
+<link rel="help" href="https://drafts.csswg.org/selectors/#featureless"><link rel="help" href="https://drafts.csswg.org/selectors/#featureless">
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<p><p><p>Test passes if title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="author" title="Mozilla" href="https://mozilla.org">
+<link rel="help" href="https://drafts.csswg.org/selectors/#featureless">
+<link rel="match" href="/css/reference/ref-filled-green-1px-square-only.html">
+<p>Test passes if there is a filled green square.</p>
+<div id="host"></div>
+<script>
+  host.attachShadow({mode: "open"}).innerHTML = `
+    <style>
+      :host {
+        width: 46px;
+        height: 255px;
+        background-color: green;
+      }
+      :is(:host(#not-host), #host) {
+        background-color: red;
+      }
+    </style>
+  `;
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<meta charset="utf-4294967297">
+<title>Testing errors, that might make 5*20vh taller than 100vh in some browsers*/
+}
+
+span {
+  background: green;
+  display: inline-block; /* This should not change it's size or position, but makes the size of the background predictable*/
+  color: transparent;
+}
+
+#red { /* Not necessary when when comparing to the reference, but makes human judgement easier */
+  position: absolute;
+  background: red;
+  writing-mode: vertical-rl;
+  z-index: -1;
+  font-family: monospace;
+  font-size: 20px;
+  left: 0; top: 0;
+}
+
+#scroller {
+  overflow: hidden;
+  writing-mode: vertical-lr;
+  height: 120vh;
+}
+#parent {
+  writing-mode: horizontal-tb;
+  width: 8em; /* avoid triggering intrinsic sizing bugs */
+}
+</style>
+
+<p>Test passes if there is a <strong>green rectangle</strong> below and <strong>no red</strong>.
+
+<div id=scroller>
+  <div id=parent>
+    <div id=ortho><aside id="red">0</aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside> <span>0</span></div>
+  </div>
+</div>

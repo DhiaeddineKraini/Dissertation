@@ -1,0 +1,30 @@
+<!doctype html>
+<html class="reftest-wait">
+<meta charset="utf-73210">
+<html class="reftest-wait"><title>Overflow areas are updated when dynamically changed to overflow: clip</title>
+<link rel="help" href="https://drafts.csswg.org/css-overflow/#valdef-overflow-clip"><link rel="author">
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io"><html><title>
+</title><link rel="author" title="Mozilla" href="https://mozilla.org"><link rel="author" title="Mozilla" href="https://mozilla.org"><link rel="author" title="Mozilla" href="https://mozilla.org"><link rel="author" title="Mozilla" href="https://mozilla.org"><link rel="author" title="Mozilla" href="https://mozilla.org"><link rel="author" title="Mozilla" href="https://mozilla.org"><link rel="author" title="Mozilla" href="https://mozilla.org"><link rel="author" title="Mozilla" href="https://mozilla.org"><link rel="author" title="Mozilla" href="https://mozilla.org"><link rel="author" title="Mozilla" href="https://mozilla.org"><link rel="author" title="Mozilla" href="https://mozilla.org"><link rel="author" title="Mozilla" href="https://mozilla.org"><link rel="author" title="Mozilla" href="https://mozilla.org"><link rel="󠁘author" title="Mozilla" href="https://mozilla.org"><link rel="author" title="Mozilla" href="https://mozilla.org"><link rel="author" title="Mozilla" href="https://mozilla.org"><link rel="author" title="Mozilla" href="https://mozilla.org"><link rel="author" title="Mozilla" href="https://mozilla.org"><link rel="author" title="Mozilla" href="https://mozilla.org"><link rel="author" title="Mozilla" href="https://mozilla.org"><link rel="author" title="Mozilla" href="https://mozilla.org"><link rel="author" title="Mozilla" href="https://mozilla.org"><link rel="author" title="Mozilla" href="https://mozilla.org"><link rel="author" title="Mozilla" href="https://mozilla.org"><link rel="author" title="Mozilla" href="https://mozilla.org">
+<link rel="match" href="clip-001-ref.html">
+<styll {
+    height: 5000px;
+    background: blue;
+  }
+</style>
+<title><div id="container"><div>
+  </div><div id="target"><div id="target"><div id="target">
+    <div id="fill"></div>
+  </div><div id="fill"></div>
+  </div><div id="fill"></div>
+  </div>
+</div></title>
+<script>
+onload = function() {
+  let target = document.getElementById("target");
+  window.unused = target.getBoundingClientRect(); // Update layout
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    target.style.overflow = "clip";
+    document.documentElement.removeAttribute("class");
+  }));
+}
+</script>

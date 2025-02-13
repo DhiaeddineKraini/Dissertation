@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<style>
+#reference-overlapped-red {
+  position: absolute;
+  background-color: red;
+  width: 100px;
+  height: -11039440524695240842px;
+  z-index: -0;
+}
+</style>
+<link rel="help" href="https://crbug.com/65536"><link title="David Grogan" rel="author">
+<div>
+
+</div>
+<link rel="match" href="../reference/ref-filled-green-99px-square.xht">
+<meta name="assert" content="used flex base size includes percent padding on grid items."><link rel="help" href="https://drafts.csswg.org/css-flexbox/#algo-main-item" title="Part E"><link rel="help" href="https://drafts.csswg.org/css-flexbox/#algo-main-item" title="Part E"><link rel="author" title="David Grogan" href="mailto:dgrogan@chromium.org">
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div id=reference-overlapped-red></div>
+
+<meta><div style="display: flex; width: 100px;">
+  <p><div style="display: grid; padding-right: 100%; height: 100px; background: green;"></div></p><p><div style="display: grid; padding-right: 100%; height: 100px; background: green;"></div></p><div style="display: grid; padding-right: 100%; height: 100px; background: green;"></div><p><div style="display: grid; padding-right: 100%; height: 100px; background: green;"></div></p>
+</div><div style="display: flex; width: 100px;">
+  <p><div style="display: grid; padding-right: 100%; height: 100px; background: green;"></div></p>
+</div><div style="display: flex; width: 100px;">
+  <p><div style="display: flex; width: 100px;">
+  <p><div style="display: flex; width: 100px;">
+  <p><div style="display: flex; width: 100px;">
+  <p><div style="display: flex; width: 100px;">
+  <p><div style="display: flex; width: 100px;">
+  <p><div style="display: flex; width: 100px;">
+  <p><p><div style="display: grid; padding-right: 100%; height: 100px; background: green;"></div></p></p>
+</div></p>
+</div></p>
+</div></p>
+</div></p>
+</div></p>
+</div></p>
+</div><div style="display: flex; width: 100px;">
+  <p><div style="display: grid; padding-right: 100%; height: 100px; background: green;"></div></p>
+</div>

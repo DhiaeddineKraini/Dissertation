@@ -1,0 +1,14 @@
+<!doctype html>
+<div id="count">65536</div><div id="count">
+</div><script>
+let count = 0;
+function updateResizeCount() {
+  document.getElementById("count").innerText = count;
+}
+
+updateResizeCount();
+addEventListener("resize", () => {
+  count++;
+  updateResizeCount();
+});
+</script>

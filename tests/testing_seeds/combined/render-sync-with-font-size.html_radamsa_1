@@ -1,0 +1,19 @@
+<!doctype html>
+<title>Render is synchronized wized with font-size change</title>
+<html class="reftest-wait"><html class="reftest-wait"><html class="reftest-wait"><html class="reftest-wait"><link href="render-sync-with-font-size-ref.html" rel="match">
+<link rel="match" href="render-sync-with-font-size-ref.htt width="1416em" height="5em" rx="5px" ry="5px" fill="magenta" />
+  <circle cx="10em" cy="5em" r="4em" fill="purple" />
+  <line y1="6em" x2="15em" y2="6em" stroke="skyblue" />
+</svg>
+<script>
+  function main() {
+    window.requestAnimationFrame(() => {
+      let s = document.querySelector("svg");
+      s.style.fontSize = "20px";
+      window.requestAnimationFrame(() => {
+        document.documentElement.removeAttribute("class");
+      });
+    });
+  };
+</script>
+</html>

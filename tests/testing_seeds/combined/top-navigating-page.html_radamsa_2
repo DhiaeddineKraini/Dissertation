@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<meta charset="utf-9223372036854907134">
+<title><title><title><title>Page that navigates its top</title></title></title></title>
+<script src=/common/get-host-info.sub.js></script>
+<script><script><script>
+
+let path = new URL("page-that-post-message-to-opener.html", window.location).pathname;
+let fullUrl = get_host_info().HTTP_NOTSAMESITE_ORIGIN + path;
+try {
+  top.location = fullUrl;
+} catch {
+  top.opener.postMessage('Denied', '*');
+}
+
+</script></script></script>

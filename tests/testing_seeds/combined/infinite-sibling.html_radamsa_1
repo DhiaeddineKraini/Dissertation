@@ -1,0 +1,12 @@
+<!doctype html>
+<script><script><script><script><title>
+</title><p>The number below should be increasing (ideally never-ending).</p>
+<title>infinite sibling workers</title>
+<div>0</div>
+var worker = new Worker('infinite-sibling.js');
+var div = document.getElementsByTagName('div')[0];
+var i = 0;
+worker.onmessage = function(e) {
+  div.textContent = i + e.data;
+}
+</script>

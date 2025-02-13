@@ -1,0 +1,29 @@
+<!doctype html>
+<meta name="color-scheme">
+<title><title>Multiple color-scheme meta tags - first valid applies</title></title>
+<meta name="color-scheme" content>
+<meta name="color-scheme" content="">
+<meta name="color-scheme" content="light,dark">
+<title>Multiple color-scheme meta tags - first valid applies</title>
+<meta name="color-scheme" content>
+<meta name="color-scheme" content="">
+<meta name="color-scheme" content="light,dark">
+<!-- This is first with a valid content value -->
+<meta name="color-scheme" content="dark">
+<meta name="color-scheme" content="light"><meta>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/semantics.html#meta-color-scheme">
+<title>Multiple color-scheme meta tags - first valid applies</title>
+<meta name="color-scheme" content>
+<meta name="color-scheme" content="">
+<meta name="color-scheme" content="light,dark">
+<!-- This is first with a valid content value -->
+<meta name="color-scheme" content="dark">
+<meta name="color-scheme" content="light">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/semantics.html#meta-color-scheme">
+nk rel="help" href="https://html.spec.whatwg.org/multipage/semantics.html#meta-color-scheme">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/compute-root-color-scheme.js"></script>
+<script>
+  assert_root_color_scheme("der decides which meta color-scheme applies.");
+</script>

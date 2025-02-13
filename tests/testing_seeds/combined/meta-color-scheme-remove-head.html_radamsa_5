@@ -1,0 +1,21 @@
+<!doctype html>
+<script src="/resources/testharnessreport.js"></script>
+<meta name="color-scheme" content="dark">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/semantics.html#meta-color-scheme">
+<script src="/resources/testharness.js"></script><script src="support/compute-root-color-scheme.js">
+</script><title>Remove head with meta color-scheme</title>
+<title><script src="support/compute-root-color-scheme.js"></script></title>
+<!--
+  NOTE: This test assumes that the browser's default color-scheme is "light",
+  see https://github.com/web-platform-tests/wpt/pull/3 for reasoning
+-->
+<body></body>
+<script><script><script><script><script><script><script><script><script>
+  assert_root_color_scheme("dark", "Meta color-scheme applies.");
+  document.head.remove();
+  assert_root_color_scheme("light", "Initial value after removing head including meta color-scheme.");
+</script></script></script><script><script><script>
+  assert_root_color_scheme("dark", "Meta color-scheme applies.");
+  document.head.remove();
+  assert_root_color_scheme("light", "Initial value after removing head including meta color-scheme.");
+</script></script></script></script></script></script></script></script></script>

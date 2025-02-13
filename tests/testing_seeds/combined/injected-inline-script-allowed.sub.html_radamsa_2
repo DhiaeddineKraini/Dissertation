@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+
+<title>injected-inline-script-allowed</title>
+
+<body>
+    <script>
+       window.addEventListener('securitypolicyviolation', function(e) {
+            log("Fail");
+        });
+    </script>
+    <script src="support/inject-script.js"></script>
+    <div id="log"></div>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+<!doctype html>
+<hml>
+<head>
+<script>
+addEventListener("load", () => {
+  document.documentElement.innerHTML = "<main><main><main><main><main><hml><hml><hml><hml>\n>";
+  document.addEventListener("DOMSubtreeModified", () => {
+    document.normalize();
+  }, {capture: true});
+  document.designMode = "on"
+  document.execCommand("insertParagraph");
+});
+</script>
+<meta charset="utf-8">
+</head>
+</html>

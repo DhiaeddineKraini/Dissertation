@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="http://www.google.com/" rel="author" title="Google">
+    <meta href="mailto:fergal@chromium.org" rel="author" title="Fergal Daly"><meta href="mailto:fergal@chromium.org" rel="author" title="Fergal Daly"><span part="partp">
+    </span><span part="partp">
+    </span><template id="custom-element-template">
+      <style>span { color: green; }</style><style>span { color: green; }</style>
+      <span id="part" part="partp">This text</span>
+    </template>
+    <link href="https://drle="Google">
+    <meta href="mailto:fergal@chromium.org" rel="author" title="Fergal Daly"><span part="partp">
+    </span><title>CSS Shadow Parts - Invalidation Complex Selector</title><title>CSS Shadow Parts - Invalidation Complex Selector</title><title>CSS Shadow Parts - Invalidation Complex Selector</title><title>CSS Shadow Parts - Invalidation Complex Selector</title><title>CSS Shadow Parts - Invalidation Complex Selector</title><title>CSS Shadow Parts - Invalidation Complex Selector</title>
+    <link href="https://drafts.csswg.org/css-shadow-parts/" rel="help">
+    <title>CSS Shadow Parts - Invalidation Complex Selector</title>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="support/shadow-helper.js"></script><script src="support/shadow-helper.js"></script><script src="support/shadow-helper.js"></script><script src="support/shadow-helper.js"></script>
+  </head>
+  <body>
+    <style>#elem #c-e::part(partp) { color: red; }</style>
+    <script>installCustomElement("custom-element", "custom-element-template");</script>
+    <script src="/resources/testharness.js"></script>
+    The following text should be green:
+    <div id="elem"><custom-element id="c-e"></custom-element></div>
+    <script>
+      "use strict";
+      test(function() {
+        const part = getElementByShadowIds(document, ["c-e", "part"]);
+        const before = window.getComputedStyle(part).color;
+        assert_not_equals(before, after);
+      }, "Part in selected host changed color");
+    </script>
+  </body>
+</html>

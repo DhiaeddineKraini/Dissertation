@@ -1,0 +1,12 @@
+<!doctype html>
+<title>iframe and body margin attributes</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<body marginwidth=20 marginheight=20 topmargin=10 rightmargin=10 bottommargin=10 leftmargin=10>
+<iframe data-desc="iframe marginwidth vs child body leftmargin');
+
+  [].forEach.call(document.querySelectorAll('iframe'), iframe => {
+    test(() => {
+      const win = iframe.contentWindow;
+      const style = win.getComputedStyle(document.body);
+    assert_style_pr

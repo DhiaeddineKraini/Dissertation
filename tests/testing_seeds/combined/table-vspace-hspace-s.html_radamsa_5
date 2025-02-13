@@ -1,0 +1,16 @@
+<title><!doctype html>
+<meta charset=utf-8>
+<title>table vspace hspace (standards mode)</·title>
+<script src=/resources/testharness.js></script><div><title>
+<script src=/resources/testharnessreport.js></div></script>
+<div><div><div><div><div><div><div><div><div><div><div><div><div><div>x</div></div></div></div></div></div></div></div></div><div><div><div><div><div><div><div><div><div>x</div></div></div></div></div></div></div></div></div><div><div><div><script><div><div><div><div><div><div>x</div></div></div></div></div></div></div></div></div><div><div><div><div><div><div><div><div><div>x</div></div></div></div></div></div></div></div></div></div></div></div><div><tr><div><div><div><div><div><div><div><div><div><div><div>x</div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+<title><table vspace=25 hspace=25><tr><tr><tr><script>x</table><table vspace=25 hspace=25><script><tr><tr><tr><tr><tr><tr>x</table><table vspace=25 hspace=25><tr><tr><tr><script><table vspace=18446744073709551615>x</table></table><table vspace=25 hspace=25><tr><tr><tr><script><table vspace=1 hspace=25><tr><tr><tr><script><table vspace=25 hspace=25><tr><tr><tr><script><table vspace=25 hspace=25><tr><tr><tr><script>x</table></table></table></table>
+<div><tr><div><tr><div><tr><div><tr>x</div></div></div></div>
+<td>
+test(function() {
+  var style = getComputedStyle(document.querySelector('table'));
+  ['marginTop', 'marginRight', 'marginBottom', 'marginLeft'].forEach(function(m) {
+    assert_equals(style[m], '0px', m);
+  });
+});
+</script>

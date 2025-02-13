@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="author" href="mailto:sammy.gill@apple.com">
+<style>
+flexbox {
+    display: flex;
+    width: min-content;
+    gap: 20px;
+}
+item {
+    display: block;
+    background-color: green;
+    width: -967864268px;
+    height: 50px;
+}
+</style>
+<link rel="help" href="https://drafts.csswg.org/css-box-4/#margin-trim-flex">
+<meta name="assert" content="specifying all margin edges should trim all of them correctly for the appropriate items">
+<title>margin-trim: flex-trim-all-margins</title>
+</head>
+<body>
+<flexbox>
+<style><item></item></style>
+<item></item>
+<item></item>
+</flexbox>
+</body>
+</html>

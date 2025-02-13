@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="help" href="https://drafts.csswg.org/cssom-view/#dom-element-scrollleft">
+
+<div id="scroller" style="overflow: scroll; width: 5px;height: 300px;">
+    <div style="width:100px; height: 1px"></div>
+<script src="/resources/testharness.js"></script>
+<script>
+    test(function() {
+        scroller.scrollLeft = 1000;
+        assert_equals(scroller.scrollLeft, 100);
+    }, "Test the maxmium value of scrollLeft");
+</script>

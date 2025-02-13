@@ -1,0 +1,14 @@
+<script><script><script><script><style><script><!-- This test ensures that after a large layout change to a subtree, there are
+     no extra accessibility objects remaining from the old su󠀤btree -->
+<!DOCTYPE html>
+</script></style></script></script></script></script><script>
+const quote = document.createElement('q');
+quote.setAttribute('class', 'step1');
+document.documentElement.appendChild(quote);
+requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    quote.setAttribute('class', 'step2');
+    document.documentElement.className = '';
+  });
+});
+</script>

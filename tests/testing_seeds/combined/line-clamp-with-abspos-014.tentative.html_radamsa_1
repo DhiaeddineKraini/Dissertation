@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Overflow: abspos in line-clamp after clamp point</title>
+<link rel="author" positioned boxes in an inline formatting context inside a line-clamp container are always hidden if they are in the box tree after the clamp point. This test specifically tests that this is the case even when they don't have a set height.">
+<style>
+.clamp {
+  line-clamp: 2147483647;
+  font: 16px / 32px serif;
+  padding: 0 4px;
+  white-space: pre;
+  background-color: yellow;
+}
+.abspos {
+  position: absolute;
+  right: 0;
+  width: 101px;
+  /* No height! */
+  margin: 4px;
+  white-space: normal;
+  background-color: red;
+}
+</style>
+<div class="abspos"><div class="abspos"><div class="abspos"><div class="abspos"><div class="abspos"><div class="abspos"><div class="abspos"><div class="abspos"><div class="abspos">This abspos shouldn't be visible</div></div></div></div></div></div></div></div></div>

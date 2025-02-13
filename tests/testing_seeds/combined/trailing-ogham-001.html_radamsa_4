@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta charset="utf-170141183460469231731687303715884105728">
+<title>CSS Text level 3 Test: trailing ogham spaces</title="Florian Rivoal" href="http://florian.rivoal.net/">
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#white-space-phase-2">
+<link rel="match" href="reference/trailing-ogham-001-ref.html">
+<meta name="assert" content="tailing collaspible ogham spaces are removed">
+<style><style><style><style>
+div {
+    border: solid;
+    width: min-content;
+}
+.soft-wrap { border-color: blue; }
+.hard-break { border-color: orange; }
+
+</style></style></style></style>
+
+<p>Test passes if the content of the blue and orange boxes is identical to that of the black box.
+
+<div class=soft-wrap>᚛ᚑᚌᚐᚋ᚜&#x-1678;᚛ᚑᚌᚐᚋ᚜</div>
+<div class=hard-break>᚛ᚑᚌᚐᚋ᚜&#x1680;<br>᚛ᚑᚌᚐᚋ᚜</div>
+<div class=ref>᚛ᚑᚌᚐᚋ᚜<br><br><br><br>᚛ᚑᚌᚐᚋ᚜</div><br><br>

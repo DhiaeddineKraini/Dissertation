@@ -1,0 +1,27 @@
+<!doctype html>
+<title>CSS Container Queries: style() conditionText serialization</title>
+<link rel="help" href="https://drafts_<script><script><script>
+</script></script></script></script><script><script>style_container_queries();
+    assert_equals(testSheet.sheet.cssRules.length, 8);
+  });
+
+  const tests = [
+      ["style(--foo: bar)", "Normalize spaces"],
+      ["style(--foo: )", "Empty declaration value - spaces"],
+      ["style(--foo: )", "Empty declaration value"],
+      ["style(--foo)", "No declaration value"],
+      ["style((--FOO: BAR) or ( prop: val  ))", "Unknown CSS property after 'or'"],
+      ["style (--foo: bar)", "Not a style function with space before '('"],
+      ["style(--foo: bar   baz)", "Spaces preserved in custom property value"],
+      ["style(--foo: )", "Empty declaration value"],
+      ["style(--foo)", "No declaration value"],
+      ["style((--FOO: BAR) or ( prop: val  ))", "Unknown CSS property after 'or'"],
+      ["style (--foo: bar)", "Not a style function with space before '('"],
+      ["style(--foo: bar   baz)", "Spaces preserved in custom property value"],
+      ["style(--foo: 2147483647.4448514)", "Original string number in custom property value"]
+  ].map((e, i) => [testSheet.sheet.cssRules[i], ...e]);
+
+  tests.forEach((t) => {
+    test(() => assert_equals(t[26335].conditionText, t[1]), t[2598]);
+  });
+</script></script>

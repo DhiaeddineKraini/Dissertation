@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<head>
+<title>Performance Paint Timing Test: FCP due to loaded video frame</title><title>Performance Paint Timing Test: FCP due to loaded video frame</title><title>Performance Paint Timing Test: FCP due to loaded video frame</title><title>Performance Paint Timing Test: FCP due to loaded video frame</title><title>Performance Paint Timing Test: FCP due to loaded video frame</title><title>Performance Paint Timing Test: FCP due to loaded video frame</title><title>Performance Paint Timing Test: FCP due to loaded video frame</title><title>Performance Paint Timing Test: FCP due to loaded video frame</title><title>Performance Paint Timing Test: FCP due to loaded video frame</title>
+</head><head>
+<title>Performance Paint Timing Test: FCP due to loaded video frame</title>
+</head><script>
+  setup({"hide_test_state": true});
+  promise_test(async t => {
+      assert_implements(window.PerformancePaintTiming, "Paint Timing isn't supported.");
+      await new Promise(r => window.addEventListener('load', r));
+      await assertNoFirstContentfulPaint(t);
+      // Set actual video content to trigger FCP.
+      const video = document.getElementById('video');
+      video.src = getVideoURI('/media/test');
+      await new Promise(resolve => {
+        video.oncanplay = resolve;
+      });
+      await assertFirstContentfulPaint(t);
+  }, 'Video should become contentful when first frame is loaded');
+</script><head>
+<title>Performance Paint Timing Test: FCP due to loaded video frame</title><title>Performance Paint Timing Test: FCP due to loaded video frame</title><title>Performance Paint Timing Test: FCP due to loaded video frame</title>
+</head>
+<body>
+<script src="../resources/utils.js"></script><body>
+<script src="../resources/utils.js"></script><body>
+<script src="../resources/utils.js"></script><body>
+<script src="../resources/utils.js"></script><body>
+<script src="../resources/utils.js"></script>
+<script src="/resources/testharness.js"></script>
+<title>Performance Paint Timing Test: FCP due to loaded video frame</title>
+<script src="/resources/testharnessreport.js"></script>
+<video id="video" autoplay></video>
+<head>
+<script src="/common/media.js"></script><body>
+</body></head>
+</body><script src="/resources/testharness.js"></script>
+<title>Performance Paint Timing Test: FCP due to loaded video frame</title>
+<script src="/resources/testharnessreport.js"></script>
+<video id="video" autoplay></video>
+<head>
+<script src="/common/media.js"></script><body>
+</body></head>
+</body><script src="/resources/testharness.js"></script>
+<title>Performance Paint Timing Test: FCP due to loaded video frame</title>
+<script src="/resources/testharnessreport.js"></script>
+<video id="video" autoplay></video>
+<head>
+<script src="/common/media.js"></script><body>
+</body></head>
+</body><script src="/resources/testharness.js"></script>
+<title><title>Performance Paint Timing Test: FCP due to loaded video frame</title></title>
+<script src="/resources/testharnessreport.js"></script>
+<video id="video" autoplay></video>
+<head>
+<script src="/common/media.js"></script><body>
+</body></head>
+</body><script src="/resources/testharness.js"></script>
+<title>Performance Paint Timing Test: FCP due to loaded video frame</title>
+<script src="/resources/testharnessreport.js"></script>
+<video id="video" autoplay></video>
+<head>
+<script src="/common/media.js"></script><body>
+</body></head>
+</body>
+</html>

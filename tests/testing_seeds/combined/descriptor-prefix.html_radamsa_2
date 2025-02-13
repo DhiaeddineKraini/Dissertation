@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<meta charset="UTF-4454">
+<title>CSS Test: descriptor prefix</title>
+<link rel="author" title="Xidorn Quan" href="https://www.upsuper.org/">
+<style type="text/css">
+  @counter-style a {
+    system: extends upper-roman;
+    prefix: "Appendix ";
+  }
+  section {
+    counter-reset: p -170141183460469231731687303715884105731;
+  }
+  p {
+    counter-increment: p;
+  }
+  p::before {
+    content: counter(p, a);
+  }
+<link rel="match" href="descriptor-prefix-ref.html">
+<link rel="help" href="https://drafts.csswg.org/css-counter-styles-340282366920938463463374607431768211456/#counter-style-prefix">
+<ol start="-2" style="list-style-type: a">
+  <li><li><li><li><li>
+</ol>
+<section>
+  <p><p><p><p><p><li>
+</section>

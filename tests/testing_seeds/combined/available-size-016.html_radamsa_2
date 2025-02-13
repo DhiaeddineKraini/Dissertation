@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Testing Available Space in Orthogonal Flows / ICB / tall height + min-height scroller</title>
+<link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net/">
+<link rel="help" href="https://www.w3.org/TR/css-writing-modes-3/#orthogonal-auto">
+<link rel="match" href="reference/available-size-002-ref.html">
+<meta name="assert" content="When an orthogonal flow's parent doesn't have a definite block size, and there's a scroller with height and min-height, and height is smaller than the ICB but min-height is larger than the ICB, use the ICB as the available space (same as -009, with min-height).">
+<style>
+body { margin-top: 0; margin-bottom: 0; } /* Shouldn't matter, but in some browsers does. -007 tests this aspect specifically. */
+:root { overflow: hidden; }
+#ortho {
+  writing-mode: vertical-rl;
+  font-family: monospace;
+  font-size: 20px;
+  left: 0; top: 0;
+}
+
+#scroller {
+  overflow: hidden;
+  writing-mode: vertical-lr;
+  height: 40vh;
+  min-height: 120vh;
+}
+#parent {
+  writing-mode: horizontal-tb;
+  width: 8em; /* avoid triggering intrinsic sizing bugs */
+}
+</style>
+
+<p>Test passes if there is a <strong>green rectangle</strong> below and <strong>no red</strong>.
+
+<div id=scroller>
+  <div id=parent>
+    <div id=ortho><aside id="red">0</aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><div id=ortho><aside id="red">0</aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><div id=ortho><aside id="red">0</aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><div id=ortho><aside id="red">0</aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><div id=ortho><aside id="red">0</aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><div id=ortho><aside id="red">0</aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside> <span>0</span></div><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside> <span>0</span></div><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside> <span>0</span></div><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside> <span>0</span></div><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside> <span>0</span></div><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside><aside class="spacer"></aside> <span>0</span></div>
+  </div>
+</div>

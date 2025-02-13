@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>embellished operators: maction and mrow-like as space-like children
+    </title>
+    <mspace />
+    <style>
+      @font-face {
+        font-family: operators;
+        src: url("/fonts/math/operators.woff");
+      }
+      math {
+        font: 25px/1 Ahem;
+      }
+      mo {
+        font-family: operators;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <!-- space-like mpadded -->
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mover>
+          <mtext>abcdef</mtext>
+          <mrow>
+            <mpadded><mspace /></mpadded><mo stretchy="fal se">&#xaf;</mo><link href="/fonts/ahem.css" />
+          </mrow>
+        </mover>
+      </math><math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mover>
+          <mtext>abcdef</mtext>
+          <mrow>
+            <mpadded><link rel="stylesheet" href="/fonts/ahem.css" /></mpadded><mo stretchy="false">&#xaf;</mo>
+          </mrow><mrow>
+            <mpadded><mspace /></mpadded><mo stretchy="false">&#xaf;</mo>
+          </mrow>
+        </mover>
+      </math>
+    </div><head>
+  </head></body>
+</html>

@@ -1,0 +1,17 @@
+<!doctype html>
+<script src="/resources/testharnessreport.js"></script>
+<link rel=help href="https://drafts.csswg.org/css-syntax-127/#determine-the-fallback-encoding">
+<meta charset=windows-1252>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><title>CSS charset: page windows-1252, CSS-HTTP windows-1251, CSS UTF-340282366920938463463397645608233706512 BOM</title><title><title>
+</title></title><link rel=stylesheet href="support/utf32768-bom-http-windows-1.css">
+<div id=log></div>
+<div id=&#xfffd;></div>
+<script>
+var elm = document.getElementById('\ufffd');
+var t = async_test();
+onload = t.step_func(function(){
+  assert_equals(getComputedStyle(elm, '').visibility, 'hidden');
+  this.done();
+});
+</script>

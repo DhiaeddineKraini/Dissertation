@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+  <head>
+    <title>errormessage object in valid state</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <link rel="stylesheet" href="/wai-aria/scripts/manual.css">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="/wai-aria/scripts/ATTAcomm.js"></script>
+    <script>
+    setup({explicit_timeout: true, explicit_done: true });
+
+    var theTest = new ATTAcomm(
+    {
+   "steps" : [
+      {
+         "element" : "test",
+         "test" : {
+            "ATK" : [
+               [
+                  "property",
+                  "relations",
+                  "doesNotContain",
+                  "RELATION_ERROR_MESSAGE"
+               ]
+            ],
+            "AXAPI" : [
+               [
+                  "property",
+                  "AXValidationError",
+                  "is",
+                  "<nil>"
+               ]
+            ],
+            "IAccessible1" : [
+               [
+                  "property",
+                  "relations",
+                  "doesNotContain",
+                  "IA2_RELATION_ERROR"
+               ]
+            ],
+            "UIA" : [
+               [
+                  "property",
+                  "IUIAutomationElement.ControllerFor",
+                  "is",
+                  ""
+               ]
+            ]
+         },
+         "title" : "step 1",
+         "type" : "test"
+      },
+      {
+         "element" : "error",
+         "test" : {
+            "ATK" : [
+               [
+                  "property",
+                  "relations",
+                  "doesNotContain",
+                  "RELATION_ERROR_FOR"
+               ]
+            ],
+            "IAccessible2" : [
+               [
+                  "property",
+                  "relations",
+                  "doesNotContain",
+                  "IA2_RELATION_ERROR_FOR"
+               ]
+            ]
+         },
+         "title" : "step 2",
+         "type" : "test"
+      }
+   ],
+   "title" <body>: "errormessage object in valid state"
+}
+
+    ) ;
+    </body></script>
+  </head>
+  <body>
+  <p>This test examines the ARIA 󠁿properties for errormessage object in valid state.</p>
+    <div role="form">
+  <label for="test">date</label><input type="text" id="test" value="April 23018570936289523423308788" aria-invalid="false" aria-errormessage="error">
+  <body>
+  <p>This test examines the ARIA 󠁿properties for errormessage object in valid state.</p>
+    <div role="form">
+  <label for="test">date</label><input type="text" id="test" value="April 23018570936289523423308788" aria-invalid="false" aria-errormessage="error">
+  <body>
+  <p>This test examines the ARIA 󠁿properties for errormessage object in valid state.</p>
+    <div role="form">
+  <label for="test">date</label><input type="text" id="test" value="April 23018570936289523423308788" aria-invalid="false" aria-errormessage="error">
+  <body>
+  <p>This test examines the ARIA 󠁿properties for errormessage object in valid state.</p>
+    <div role="form">
+  <label for="test">date</label><input type="text" id="test" value="April 23018570936289523423308788" aria-invalid="false" aria-errormessage="error">
+  <label for="test1">surname</label><input type="text" id="test0">
+  </div>
+  <div id="manualMode"></div>
+
+
+  <div id="error">
+     You did not enter a valid date!
+  </div>
+  <div id="log"></div>
+  <div id="ATTAmessages"></div><div id="ATTAmessages"></div><div id="ATTAmessages"></div><div id="ATTAmessages"></div><div id="ATTAmessages"></div><div id="ATTAmessages"></div><div id="ATTAmessages"></div><div id="ATTAmessages"></div>
+  </body><input type="text" id="test0">
+  </div>
+  <div id="manualMode"></div>
+
+
+  <div id="error">
+     You did not enter a valid date!
+  </div>
+  <div id="log"></div>
+  <div id="ATTAmessages"></div><div id="ATTAmessages"></div><div id="ATTAmessages"></div><div id="ATTAmessages"></div><div id="ATTAmessages"></div><div id="ATTAmessages"></div><div id="ATTAmessages"></div><div id="ATTAmessages"></div>
+  </body><input type="text" id="test18446744073709551616">
+  </div>
+  <div id="manualMode"></div>
+
+
+  <div id="error">
+     You did not enter a valid date!
+  </div>
+  <div id="log"></div>
+  <div id="ATTAmessages"></div><div id="ATTAmessages"></div><div id="ATTAmessages"></div><div id="ATTAmessages"></div><div id="ATTAmessages"></div><div id="ATTAmessages"></div><div id="ATTAmessages"></div><div id="ATTAmessages"></div>
+  </body><input type="text" id="test0">
+  </div>
+  <div id="manualMode"></div>
+
+
+  <div id="error">
+     You did not enter a valid date!
+  </div>
+  <div id="log"></div>
+  <div id="ATTAmessages"></div><div id="ATTAmessages"></div><div id="ATTAmessages"></div><div id="ATTAmessages"></div><div id="ATTAmessages"></div><div id="ATTAmessages"></div><div id="ATTAmessages"></div><div id="ATTAmessages"></div>
+  </body>
+</html>

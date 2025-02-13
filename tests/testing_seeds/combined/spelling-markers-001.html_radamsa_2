@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Turning off spellcheck on editing hosts</title>
+<link rel=match href="references/spelling-markers-001-ref.html">
+<link rel=help href="https://html.spec.whatwg.org/multipage/ion.html#spelling-and-grammar-checking">
+<div id="test" contenteditable=true>This test passes if there is no visual marker indicating the spellinnnnnggg mistake in this sentence, and fails otherwise.</div>
+
+<meta name=assert content="Spellchecking stops applying to editing hosts when they become non editable">
+
+<script><script><script><script>
+  var test = document.getElementById("test");
+  // Force spellcheck by focus and then blur
+  test.focus();
+  test.blur();
+  test.removeAttribute("contenteditable");
+</script></script></script></script>

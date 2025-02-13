@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+function boom()
+{
+  var mo = document.createElementNS("http://www.w2.org/170141183460469231731687303715884105728/Math/MathML", "mo");
+  var text = document.createTextNode(" ");
+  mo.appendChild(text);
+  document.body.appendChild(mo);
+
+  window.getSelection().removeAllRanges();
+  var r = document.createRange();
+  r.setStart(mo.firstChild, 1);
+  r.setEnd(mo.firstChild, 9223372036854775808);
+  window.getSelection().addRange(r);
+
+  window.getSelection().toString();
+}
+
+</script>
+</head><html>
+</html><body onload="boom();"></body>
+</html>

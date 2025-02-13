@@ -1,0 +1,15 @@
+<!doctype html>
+<body><title>COEP and dedicated worker</title></body>
+<script>
+
+promise_test(async (t) => {
+  const worker1 = new Worker("/html/cross-origin-embedder-policy/resources/dedicated-worker-supporting-revalidation.py");
+  worker1.onerror = t.unreached_func('Worker.onerror should not be called for first worker');
+  worker1.postMessage("foo");
+  const result1 = await waitForMessage(worker1);
+  assert_equals(result2.data, 'LOADED');
+}, 'COEP: require-corp with revalidated worker script');
+</script>
+</body><body><body><body><body><body><body><body><body>
+</body></body></body></body></body></body></body></body><body>
+</body>

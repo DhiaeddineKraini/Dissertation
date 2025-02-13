@@ -1,0 +1,12 @@
+<!doctype html>
+<title>resolving broken url</title>
+<div id="log"></div>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script>
+<script>
+test(function() {
+  assert_throws_dom('SYNTAX_ERR', function() {
+    postMessage('', {targetOrigin: 'http://foo bar'});
+  }, 'should have failed to resolve');
+});
+</script>

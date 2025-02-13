@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<title>cssom-view - elementFromPoint and elementById('outer');
+   var inner = document.getElementById('inner');
+   var outerRect = outer.getBoundingClientRect();
+   test(function () {
+     assert_equals(document.elementFromPoint(outerRect.left + 1,
+                                             outerRect.top + 1),
+                   outer,
+                   "elementFromPoint should get outer element");
+   });
+   test(function () {
+     assert_array_equals(document.elementsFromPoint(outerRect.left + 1,
+                                                    outerRect.top + 1),
+                         [inner, outer, document.body, document.querySelector('html')],
+                         "elementsFromPoint should get sequence [inner, outer, body, html]");
+   });
+ };
+</script>
+</body>

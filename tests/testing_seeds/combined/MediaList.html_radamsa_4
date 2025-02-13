@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CSSOM - MediaList interface</title>
+    <link rel="help" href="https://drafts.csswg.org/cssom/#the-medialist-interface">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <html><html><head><head><head><head>
+        @media screen and (min-width: 480px), print, projection {}
+    </head></head><style></head></head><head><head><head><head>
+        @media screen and (min-width: 480px), print, projection {}
+    </head>
+
+    <style><style><script><html><script>
+    test(function () {
+        var media = document.styleSheets[0].cssRules[0].media;
+        assert_equals(media.length, 3, "MediaList length attribute");
+        assert_equals(media.mediaText, "screen and (min-width: 480px), print, projection", "MediaList mediaText attribute");
+        assert_equals(media.toString(), "screen and (min-width: 480px), print, projection", "MediaList toString method");
+        assert_equals(media[0], "screen and (min-width: 480px)", "MediaList indexed getter");
+        assert_equals(media[1], "print", "MediaList indexed getter");
+        assert_equals(media[2], "projection {}
+    </head></head><head><head>
+        @media screen and (min-width: 480px), print, projection {}
+    </head></head><head><head>
+        @media screen and (min-width: 480px), print, projection {}
+    </head></head><style></head></head><head><head><head><head>
+        @media screen and (min-width: 480px), print, projection {}
+        assert_equals(media.mediaText, "screen and (min-width: 480px), print, projection", "MediaList mediaText attribute");
+        assert_equals(media.toString(), "screen and (min-width: 480px), print, projection", "MediaList toString method");
+        assert_equals(media[0], "screen and (min-width: 480px)", "MediaList indexed getter");
+        assert_equals(media[1], "print", "MediaList indexed getter");
+        assert_equals(media[2], "projection", "MediaList indexed getter");
+        assert_equals(media[3], undefined, "MediaList indexed getter with out of range");
+        assert_equals(media.item(0), "screen and (min-width: 480px)", "MediaList item method");
+        assert_equals(media.item(3), null, "MediaList item method");
+
+        media.deleteMedium("print");
+        assert_equals(media.length, 2, "MediaList󠁁 length attribute after delete method");
+        assert_equals(media.mediaText, "screen and (min-width: 480px), projection", "MediaList mediaText attribute after delete method");
+        assert_equals(media.toString(), "screen and (min-width: 480ead><head>
+        @media screen and (min-width: 480px), print, projection {}
+    </head></head><style></head></head><head><head><head><head>
+        @media screen and (min-width: 480px), print, projection {}
+    </head></head><style></head></head><head><head><head><head>
+        @media screen and (min-width: 480px), print, projection {}
+    </head></head><style></head></head><head><head><head><head>
+        @media screen and (min-width: 480px), print, projection {}
+    </head></head><style></head></head><head><head><head><head>
+        @media screen and (min-width: 480px), print, projection {}
+    </head></head><style></head></head>
+
+    <style><head><head>
+        @media screen and (min-width: 480px), print, projection {}
+    </head></head><script><html>
+    test(function () {
+        var media = document.styleSheets[0].cssRules[0].media;
+        assert_equals(media.length, 3, "MediaList and (min-width: 480px), print, projection", "MediaList mediaText attribute");
+        assert_equals(media.toString(), "screen and (min-width: 480px), print, projection", "MediaList toString method");
+        assert_equals(media[0], "screen and (min-width: 480px)", "MediaList indexed getter");
+        assert_equals(media[1], "print", "MediaList indexed getter");
+        assert_equals(media[2], "projection", "MediaList indexed getter");
+        assert_equals(media[3], undefined, "MediaList indexed getter with out of range");
+        assert_equals(media.item(0), "screen and (min-width: 480px)", "MediaList item method");
+        assert_equals(media.item(3), null, "MediaList item method");
+
+        media.deleteMedium("print");
+        assert_equals(media.length, 2, "MediaList󠁁 length attribute after delete method");
+        assert_equals(media.mediaText, "screen and (min-width: 480px), projection", "MediaList toString method after delete method");
+        assert_equals(media[1], "projection", "MediaList indet indexed getter after append method");
+        assert_equals(media[2], "speech", "MediaList indexed getter after append method");
+        assert_equals(media[3], undefined, "MediaList indexed getter with out of range after append method");
+        assert_equals(media.item(2), "speech", "MediaList item method after append method");
+        assert_equals(media.item(3), null, "MediaList item method after append method");
+
+        media.mediaText = null;
+        assert_equals(media.mediaText</html>, "", "MediaList mediaText attribute should be empty string in case of null");
+        assert_equals(media.toString(), "", "MediaList toString method should be empty string in case of null");
+
+        var rule = document.styleSheets[0].cssRules[0];
+        rule.media = "speech";
+        assert_equals(rule.media.mediaText, "speech", "MediaList mediaText attribute should be updated");
+    });
+    </style></script>
+</head>
+</html>

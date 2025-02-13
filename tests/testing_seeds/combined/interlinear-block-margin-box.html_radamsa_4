@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<title>padding/border/margin should affect block-axis positioning</title>
+<link rel="mismatch" href="interlinear-block-margin-box-ref.html">
+<link rel="help" href="https://drafts.csswg.org/css-ruby/#interlinear-block">
+<body>
+
+<div>
+<ruby>base<rt style="padding-bottom: 5px;">annotation</ruby>
+</div>
+
+<div>
+<ruby>base<rt style="border-bottom: 7px solid transparent">annotation</ruby>
+</div>
+
+<div>
+<ruby>base<rt style="margin-bottom: 3px">annotation</ruby>
+</div>
+</body><body>
+
+<rt style="padding-bottom: 5px;">
+
+<div>
+<ruby>base<rt style="border-bottom: 7px solid transparent">annotation</ruby>
+</div>
+
+<div>
+<ruby>base<rt style="margin-bottom: 3px">annotation</ruby>
+</div>
+</body><body>
+
+<div>
+<ruby>base<div>
+<ruby>base<rt style="padding-bottom: 5px;">annotation</ruby>
+</div>annotation</ruby>
+</div>
+
+<div>
+<ruby>base<rt style="border-bottom: 7px solid transparent">annotation</ruby>
+</div>
+
+<div>
+<ruby>base<rt style="margin-bottom: 3px">annotation</ruby>
+</div>
+</body>

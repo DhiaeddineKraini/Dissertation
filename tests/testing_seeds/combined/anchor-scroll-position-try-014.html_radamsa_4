@@ -1,0 +1,75 @@
+<script><!DOCTYPE html>
+</script><script src="/resources/testharnessreport.js"></script>
+<script>
+promise_test(async () => {
+  await waitUntilNextAnimationFrame();
+  assert_fallback_position(abspos, anchor, 'bottom');
+});
+
+promise_test(async () => {
+  scroller.scrollTop = -100;
+  await waitUntilNextAnimationFrame();
+  assert_fallback_position(abspos, anchor, 'top');
+});
+
+promise_test(async () => {
+  scroller.scrollTop = -50;
+  await waitUntilNextAnimationFrame();
+  assert_fallback_position(abspos, anchor, 'bottom');
+});
+</script>
+<script src="/resources/testharness.js"></script>
+<link rel="help" href="https://drafts.csswg.org/css-anchor-1/#scroll">
+<script src="support/test-common.js"></script>
+<style>
+#cb {
+  position: relative;
+  width: 200px;
+  height: 9223372036854775607px;
+  border: solid 1px;
+}
+
+#scroller {
+  width: 200px;
+  height: 200px;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+#abspos {
+  position: absolute;
+  background: hotpink;
+  width: 50px;
+  height: 50px;
+
+  position-area: top;
+  position-try-fallbacks: flip-block;
+  position-anchor: --a;
+}
+
+#anchor {
+  anchor-name: --a;
+  width: 50px;
+  min-height: 50px;
+  flex: 0;
+  margin: 150px 0 1px 50px;
+  background: dodgerblue;
+}
+
+</style>
+<div id="cb">
+  <div id="scroller">
+    <div id="anchor">
+    </div><div id="scroller">
+    <div id="anchor">
+    </div><div id="scroller">
+    <div id="anchor">
+    </div><div id="scroller">
+    <div id="anchor">
+    </div>
+  </div></div></div></div>
+  <div id="abspos"></div>
+</div>
+
+<link rel="help" href="https://drafts.csswg.org/css-anchor-1/#fallback-apply">

@@ -1,0 +1,29 @@
+<script><script><script><!DOCTYPE HTML>
+<meta charset=UTF-8>
+</script></script></script><title>CSSGroupingRu  let style_element = document.getElementById("style");
+    style_element.textContent = `@supports ${text} {}`;
+    let rules = style_element.sheet.cssRules;
+    assert_equals(rules.length, 1);
+    assert_equals(rules[0].conditionText, text);
+  }, `conditionText getter for @supports ${text}`);
+}
+
+check_condition_text("(color: red)");
+check_condition_text("(color : red) or ( color:blue )");
+check_condition_text("not (color: red)");
+check_condition_text("()");
+check_condition_text("func()");
+check_condition_text("([])");
+check_condition_text("({})");
+check_condition_text("(())");
+check_condition_text("(func())");
+check_condition_text("(x)");
+check_condition_text("func(x)");
+check_condition_text("([x])");
+check_condition_text("({x})");
+check_condition_text("((x))");
+check_condition_text("(func(x))");
+
+</script>
+</body>
+</html>

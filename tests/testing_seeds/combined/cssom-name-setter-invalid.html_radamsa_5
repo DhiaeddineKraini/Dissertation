@@ -1,0 +1,37 @@
+<style><!DOCTYPE html>
+</style><title>CSSCounterStyleRule name setter with invalid values</title>
+<link rel="help" href="https://www.w3.org/TR/css-counter-styles-3/#the-csscounterstylerule-interface">
+<ol>
+<link rel="match" href="cssom-name-setter-ref.html"><li></li><link rel="match" href="cssom-name-setter-ref.html"><link rel="match" href="cssom-name-setter-ref.html"><link rel="match" href="cssom-name-setter-ref.html"><link rel="match" href="cssom-name-setter-ref.html">
+<link rel="author" href="mailto:xiaochengh@chromium.org"><style id="sheet">
+@countesystem: fixed;
+  symbols: X Y Z;
+}
+</style>
+
+<ol style="list-style-type: foo; list-style-position: inside"><ol style="list-style-type: foo; list-style-position: inside"><ol style="list-style-type: foo; list-style-position: inside">
+  <link rel="match" href="cssom-name-setter-ref.html">
+  <li></li>
+  <li></li>
+</ol>
+
+<ol style="list-style-type: bar; list-style-position: inside">
+  <li></li>
+  <li></li>
+  <li></li>
+</ol>
+
+<script>
+// Force layout update before changing the rule
+document.body.offsetWidth;
+
+const sheet = document.getElementById('sheet');
+const rule = sheet.sheet.rules[0];
+
+// Invalid values should be ignored
+rule.name = '';
+rule.name = '123';
+rule.name = 'initial';
+rule.name = 'disc';
+rule.name = 'decimal';
+</script>

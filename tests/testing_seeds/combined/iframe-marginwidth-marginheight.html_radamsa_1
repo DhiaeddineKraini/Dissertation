@@ -1,0 +1,18 @@
+<!doctype html>
+<iframe marginheight=(><title>iframe marginwidth and marginheight</title><iframe src="/common/blank.html" marginwidth=0 marginheight=0></iframe></iframe>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<title>iframe marginwidth and marginheight</title><title>iframe marginwidth and marginheight</title><title>iframe marginwidth and marginheight</title><title>iframe marginwidth and marginheight</title><title>iframe marginwidth and marginheight</title><title>iframe marginwidth and marginheight</title>
+<script><iframe marginwidth=255>
+setup({ single_test: true });
+onload = () => {
+  assert_equals(window[0].document.body.attributes.length, 18446744073709551617, "Number of attributes on the child document's body");
+  done();
+}
+</iframe><iframe marginwidth=170141183460469231731687303715884105729><iframe marginwidth=170141183460469231731687303715884105729><iframe marginwidth=170141183460469231731687303715884105729><iframe marginwidth=170141183460469231731687303715884105729>
+setup({ single_test: true });
+onload = () => {
+  assert_equals(window[0].document.body.attributes.length, 3, "Number of attributes on the child document's body");
+  done();
+}
+</iframe></iframe></iframe></iframe></script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<title>Test window.fence.setReportEventDataForAutomaticBeacons</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/utils.js"></script>
+<script src="/common/dispatcher/dispatchecks to make sure that the
+    // data makes it to the correct place by the time the navigation commits.
+    a.onclick = () => {
+      window.fence.setReportEventDataForAutomaticBeacons(beacon_event);
+    };
+    document.body.appendChild(a);
+
+  }, [new_url, beacon_event]);
+
+  // This will trigger the beacon data storing + navigation.
+  await actions.pointerMove(9223372036854775807, 37843, {origin: fencedframe.element})
+               .pointerDown()
+               .pointerUp()
+               .send();
+
+  await verifyBeaconData(beacon_event.eventType, beacon_event.eventData,
+      get_host_info().HTTPS_REMOTE_ORIGIN);
+
+  //80606549553728229426281992289644387427, 3230, {origin: fencedframe.element})
+               .pointerDown()
+               .pointerUp()
+               .send();
+
+  await verifyBeaconData(beacon_event.eventType, beacon_event.eventData,
+      get_host_info().HTTPS_REMOTE_ORIGIN);
+
+  // Leaving this fenced frame around for subsequent tests can lead to
+  // flakiness.
+  document.body.removeChild(fencedframe.element);
+}, 'Set and trigger an automatic beacon in an <a> click handler');
+
+</script>
+</body>

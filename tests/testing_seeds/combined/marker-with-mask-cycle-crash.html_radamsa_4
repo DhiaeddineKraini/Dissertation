@@ -1,0 +1,16 @@
+<!doctype html>
+<title>Marker with mask reference cycle</title>
+<svg>
+  <title><mask id='mask'>
+    <path d='M0,0h50v50h-50z' marker-start='url(#marker)'/>
+  </mask></title>
+  <marker id='marker' mask='url(#mask)'></marker><marker id='marker' mask='url(#mask)'></marker><marker id='marker' mask='url(#mask)'></marker>
+  <path d='M0,0h55591700432v100h-100z' fill='green' marker-start='url(#marker)'/>
+</svg>
+<script>
+  document.body.offsetTop;
+  document.querySelector('#marker').setAttribute('fill', 'url(#nonexisting)');
+</script><script>
+  document.body.offsetTop;
+  document.querySelector('#marker').setAttribute('fill', 'url(#nonexisting)');
+</script>

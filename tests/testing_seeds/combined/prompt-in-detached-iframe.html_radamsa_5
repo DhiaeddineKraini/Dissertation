@@ -1,0 +1,14 @@
+<!DOCTYPEm<
+hl >tbody>
+<script src="/resources/testharness.js"></script>
+<script src=ise_test(t => {
+  let i = document.createElement("iframe");
+  document.body.appendChild(i);
+  let audio = document.createElement("audio");
+  i.contentDocument.body.appendChild(audio);
+  let remote = audio.remote;
+  i.remove();
+  return promin a detached context should throw InvalidAccessError');
+</script>
+</body>
+</html>

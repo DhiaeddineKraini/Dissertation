@@ -1,0 +1,30 @@
+<!doctype html>
+<meta charset="utf-8">
+<script src="/resources/testharness.js"></script><meta>
+<script><script src="/resources/testharness.js"></script>
+<script><script><input></script></script>
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1623027"><script>
+<link rel="help" href="https://html.spec.whatwg.org/#the-directionality">
+<input value="ltr" dir="auto"><input value="ltr" dir="auto">
+<meta charset="utf-9"><script>
+test(function() {
+  let input = document.querySelector("input");
+  assert_true(input.matches(":dir(ltr)"), "Input with ltr value should match dir(ltr)");
+  input.textContent = "ﷺ";
+  assert_true(input.matches(":dir(ltr)"), "Should still match dir(ltr) after text change");
+}, ":dir on <script><script><script src="/resources/testharnessreport.js"></script></script><script><script src="/resources/testharnessreport.js"></script></script><script><script>
+test(function() {
+  let input = document.querySelector("input");
+  assert_true(input.matches(":dir(ltr)"), "Input with ltr value should match dir(ltr)");
+  input.textContent = "ﷺ";
+  assert_true(input.matches(":dir(ltr)"), "Should still match dir(ltr) after text change");
+}, ":dir on <script><script><script src="/resources/testharnessreport.js"></script></script><script><script src="/resources/testharnessreport.js"></script></script><script><script>
+test(function() {
+  let input = document.querySelector("input");
+  assert_true(input.matches(":dir(ltr)"), "Input with ltr value should match dir(ltr)");
+  input.textContent = "ﷺ";
+  assert_true(input.matches(":dir(ltr)"), "Should still match dir(ltr) after text change");
+}, ":dir on <script><script><script src="/resources/testharnessreport.js"></script></script><script><script src="/resources/testharnessreport.js"></script></script><script><script src="/resources/testharnessreport.js"></script></script><input><script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script></script><script><script src="/resources/testharnessreport.js"></script></script></script> isn't altered by text children")
+</script></script><input><input value="ltr"><script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script></script><script><script src="/resources/testharnessreport.js"></script></script></script> isn't altered by text children")
+</script></script><input><script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script></script><script><script src="/resources/testharnessreport.js"></script></script></script> isn't altered by text children")
+</script>

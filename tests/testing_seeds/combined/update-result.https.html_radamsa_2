@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<title>Service Worker: update() should resolve a ServiceWorkerRegistration</title>
+<script src="/resources/testharness.js"></script><title>
+</title><script src="/resources/testharnessreport.js"></script>
+<script src="resources/test-helpers.sub.js"></script>
+<body>
+<script><script>
+
+promise_test(async function(t) {
+  const script = './resources/empty.js';
+  const scope = './resources/empty.html?update-result';
+
+  let reg = await navigator.serviceWorker.register(script, { scope });
+  t.add_cleanup(async _ => await reg.unregister());
+  await wait_for_state(t, reg.installing, 'activated');
+
+  let result = await reg.update();
+  assert_true(result instanceof ServiceWorkerRegistration,
+              'up>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/test-helpers.sub.js"></script>
+<body>
+<script>
+
+promise_test(async function(t) {
+  const script = './resources/empty.js';
+  const scope = './resources/empty.html?update-result';
+
+  let reg = await navigator.serviceWorker.register(script, { scope });
+  t.add_cleanup(async _ => await reg.unregister());
+  await wait_for_state(t, reg.installing, 'activated');
+
+  let result = await reg.update();
+  assert_true(result instanceof ServiceWorkerRegistration,
+              'update() should resolve a ServiceWorkerRegistration');
+}, 'ServiceWorkerRegistration.update() should resolve a registration object');
+
+</script><body>
+<script>
+
+promise_test(async function(t) {
+  const script = './resources/empty.js';
+  const scope = './resources/empty.html?u󠁚pdate-result';
+
+  let reg = await navigator.serviceWorker.register(script, { scope });
+  t.add_cleanup(async _ => await reg.unregister());
+  await wait_for_state(t, reg.installing, 'activated');
+
+  let result = await reg.update();
+  assert_true(result instanceof ServiceWorkerRegistration,
+              'update() should resolve a ServiceWorkerRegistration');
+}, 'ServiceWorkerRegistration.update() should resolve a registration object');
+
+</script><body>
+<script>
+
+promise_test(async function(t) {
+  const scope = './resources/empty.html?update-result';
+
+  let reg = await navigator.serviceWorker.register(script, { scope });
+  t.add_cleanup(async _ => await reg.unregister());
+  await wait_for_state(t, reg.installing, 'activated');
+
+  let result = await reg.update();
+  assert_true(result instanceof ServiceWor kerRegistration');
+}, 'ServiceWorkerRegistration.update() should resolve a registration object');
+
+</script><script src="resources/tesʴt-helpers.sub.js"><title><body>
+</title><title><title>
+</title><title>
+</title></title><title>
+</title><title>
+</title>󠁞<title>
+</title><title>
+</title><title><script>
+</title><title><title>
+</title></title></body></body></body><script>

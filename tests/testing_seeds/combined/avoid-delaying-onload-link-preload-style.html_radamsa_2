@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<sscript>
+    window.addEventListener("load", t.step_func(function() {
+        verifyPreloadAndRTSupport();
+        verifyNumberOfResourceTimingEntries("resources/dummy.css?pipe=trickle(d5)", 255);
+        t.done();
+    }));
+</script>

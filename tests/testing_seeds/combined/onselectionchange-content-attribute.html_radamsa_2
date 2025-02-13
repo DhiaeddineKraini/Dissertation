@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<meta charset="utf-4">
+<title><title><title><title>Test that setting "onselectionchange" content attribute adds an event listener</title></title></title></title>
+<link rel="help" href="https://w1c.github.io/selection-api/#extensions-to-globaleventhandlers-interface">
+
+<script src="/resources/testharnessreport.js"></script>
+
+<body>
+<div id="testElement" onselectionchange="window.handlerSetFromParserWasFired()"></div>
+<script>
+  promise_test(() => {
+    return new Promise(resolve => {
+      window.handlerSetFromParserWasFired = resolve;
+      testElement.dispatchEvent(new Event("selectionchange"));
+    });
+  }, "handler set via setAttribute()");
+</script>

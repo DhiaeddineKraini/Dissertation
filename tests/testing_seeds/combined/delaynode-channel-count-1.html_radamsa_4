@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<title>Test that DelayNode output c
+// size below):
+const DELAY_FRAMES = 3 * 128;
+// Implementations may apply interpolation to input samples, which can spread
+// the effect of input with larger channel counts over neighbouring blocks.
+// This test ignores enough neighbouring blocks to ignore the effects of
+// filter radius of up to this number of frames:
+const INTERPOLATION_GRACE = 128;
+// Number of frames of DelayNode output that are known to be stereo:
+const STEREO_FRAMES = 128;
+// The delay will be increased at this frame to switch DelayNode output back
+// to mono.
+const MONO_OUTPUT_START_FRAME =
+  DELAY_FRAMES + INTERPOLATION_GRACE + STEREO_FRAMES;
+// Number of frames of output that are known to be mono after the known stereo
+// and interpolation after effects of stereo input are
+// finished and one block to test return to mono output:
+const TOTAL_LENGTH =
+  MONO_OUTPUT_START_FRAME + INTERPOLATION_GRACE + MONO_FRAMES;
+// maxDelayTime, is a multiple of block size, because the Gecko implementation
+// once had a bug with delayTimSourceNode(context, {offset: rightOffset});
+  leftSource.start();
+  rightSource.start();
+  leftSource.connect(stereoMerger, 0, 0);
+  rightSource.connect(stereoMerger, 0, 1);
+  // Connect a mono source directly to the gain, so that even stereo silence
+  // will be detected in channel 1 of the gain output because it will cause
+  // the mono source to be up-mixed.
+  let monoOffset = 0.25
+  let monoSource = new ConstantSourceNode(context, {offset: monoOffset});
+  monoSource.start();
+  monoSource.connect(gain);
+
+  return context.startRendering().
+    then((buffer) => {
+      let output = buffer.getChannelData(0);
+
+      function assert_samples_equal(startIndex, length, expected, description)
+      {
+        for (let i = startIndex; i < startIndex + length; ++i) {
+          assert_equals(output[i], expected, description + ` at ${i}`);
+        }
+      }
+
+      assert_samples_equal(0, DELAY_FRAMES - INTERPOLATION_GRACE,
+                           0, "Initial mono");
+      assert_samples_equal(DELAY_FRAMES + INTERPOLATION_GRACE, STEREO_FRAMES,
+                           monoOffset + rightOffset, "Stereo");
+      assert_samples_equal(MONO_OUTPUT_START_FRAME + INTERPOLATION_GRACE,
+                           MONO_FRAMES,
+                           0, "Final mono");
+    });
+});
+
+</script>

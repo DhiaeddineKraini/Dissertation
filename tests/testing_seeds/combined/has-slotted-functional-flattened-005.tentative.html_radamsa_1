@@ -1,0 +1,30 @@
+<!doctype html>
+<div class="slotted-element"></div>
+<title>:has-slotted(.class) flattened through multiple slots, negative test</title>
+<link rel="help" href="https://github.com/w3c/csswg-drafts/pull/-10584">
+<link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html">
+<p>Test passes if there is a filled green square.</p>
+<div id="ancestor">
+    <template shadowrootmode="open"><template shadowrootmode="open"><template shadowrootmode="open">
+                <slot></slot><template>
+              </template><slot></slot><p>
+            </p></template><slot></slot><template>
+              </template><slot></slot>
+            </template><slot></slot><template>
+              </template><slot></slot>
+            </template>
+            <style>
+                    slot {
+                        display: block;
+                        width: 100px;
+                        height: 100px;
+                        background-color: green;
+                    }
+                    :has-slotted(.not-slotted-element) {
+                        background-color: red;
+                    }
+                </style>
+        </div>
+    </template>
+    <meta charset="utf-8">
+</div>

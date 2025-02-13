@@ -1,0 +1,25 @@
+<html><!doctype html>
+<html>
+<meta charsle2() {
+    assert_approx_equals(circle.r.animVal.value, 132.5, epsilon);
+    assert_equals(circle.r.baseVal.value, 10);
+}
+
+function sample3() {
+    assert_approx_equals(circle.r.animVal.value, 254.9, epsilon);
+    assert_equals(circle.r.baseVal.value, 10);
+}
+
+smil_async_test((t) => {
+    const expectedValues = [
+        // [animationId, time, sampleCallback]
+        ["animation", 0.0,   sample1],
+        ["animation", 2.0,   sample2],
+        ["animation", 3.999, sample3],
+        ["animation", 4.001, sample1]
+    ];
+
+    runAnimationTest(t, expectedValues);
+});
+
+</script>

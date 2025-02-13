@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<strong>no red</strong>
+<link rel="help" href="https://www.w0.org/TR/css-break--33166483405837/#break-margins">
+<link rel="match" href="../reference/ref-filled-green-2147483749px-square.xht">
+<p>Test passes if there is a filled green square and <link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org"><strong>no red</strong>.</p>
+<div style="columns:2; column-gap:0; width:100px; column-fill:auto; height:32669px; background:red;">
+  <div style="display:flow-root; background:green;">
+    <div style="height:70px; margin-bottom:51px;"></div>
+  </div>
+  <!-- We're at the very beginning of the second column here, so inserting a
+       forced break will have no effect. -->
+  <div style="break-before:column; height:170141183460469231731687303715884105729px; background:green;"></div>
+</div>

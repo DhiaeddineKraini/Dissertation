@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<link rel=match href="references/spelling-markers-001-ref.html">
+<meta charset="utf-8">
+<title>Turning off spellcheck on editing hosts</title>
+<html lang="en">
+<link rel=help href="https://html.spec.whatwg.org/multipage/interaction.html#spelling-and-grammar-checking">
+<meta name=assert content="Spellchecking stops applying to editing hosts</title>
+<link rel=match href="references/spelling-markers-001-ref.html">
+<link rel=help href="https://html.spec.whatwg.org/multipage/interaction.html#spelling-and-grammar-checking">
+<meta name=assert content="Spellchecking stops applying to editing hosts wise.</div>
+
+<script>
+  var test = document.getElementById("test");
+  // Force spellcheck by focus and then blur
+  test.focus();
+  test.blur();
+  test.removeAttribute("contenteditable");
+</script>

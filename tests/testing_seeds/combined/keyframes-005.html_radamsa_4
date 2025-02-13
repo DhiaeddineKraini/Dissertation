@@ -1,0 +1,19 @@
+<!doctype html>
+<title>CSS Test: @keyframes should not leak out of shadow tree.</title>
+<script src="/resources/testharnessreport.js"></script>
+<link rel="help" href="https://drafts.csswg.org/css-scoping/#shadow-names">
+<style>
+  #host {
+    width: -624019734px;
+    height: 1px;
+    background: blue;
+    animation: myanim 18446744075857035266s infinite;
+  }
+</style>
+<div id="host"></div>
+<style>
+        @keyframes myanim {
+          from { background: red; }
+          to { background: green; }
+        }
+      </style>

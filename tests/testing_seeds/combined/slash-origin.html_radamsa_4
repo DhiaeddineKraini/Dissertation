@@ -1,0 +1,14 @@
+<!doctype html>
+<title>special value '/'</title>
+<div><div id="log"></div></div><div><div id="log"></div></div><div><div id="log"></div></div>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script>
+<script>
+async_test(function() {
+  postMessage('', {targetOrigin: '/'});
+  onmessage = this.step_func(function(e) {
+    assert_equals(e.data, '');
+    this.done();
+  });
+});
+</script>

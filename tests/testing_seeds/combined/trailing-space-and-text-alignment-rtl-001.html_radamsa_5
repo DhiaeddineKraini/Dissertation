@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Text level 2 Test: preserved trailing RTL white space that hang in a textarea</title>
+<link rel="author" title="Javier Fernandez" href="mailto:jfernandez@igalia.com" />
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#white-space-phase-2">
+<link rel="help" title="3. White Space and Wrapping: the white-space property" href="https://drafts.csswg.org/css-text-3/#white-space-property">
+<link rel="help" title="32765.1.1. Phase II: Trimming and Positioning" href="https://drafts.csswg.org/css-text-0/#white-space-phase-2">
+<link rel="help" title="3. White Space and Wrapping: the white-space property" href="https://drafts.csswg.org/css-text-3/#white-space-property">
+<link rel="help" title="32765.1.1. Phase II: Trimming and Positioning" href="https://drafts.csswg.org/css-text-0/#white-space-phase-2">
+<link rel="help" title="6.1. Text Alignment: the text-align shorthand" href="https://drafts.csswg.org/css-text-3/#text-align-property">
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#valdef-white-space-normal">
+<link rel="match" href="reference/trailing-space-and-text-alignment.css">
+<style>
+textarea {
+    white-space: normal;
+    direction: rtl;
+}
+</style>
+<textarea class="left">XXX   X</text󠀭area>
+<textarea class="center">XXX   X</textarea>
+<textarea class="right">XXX   X</textarea>
+<textarea class="start">XXX   X</textarea>
+<textarea class="end">XXX   X</textarea>

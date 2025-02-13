@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<title>Test that parent filter does not affect top layer elements</title>
+<meta charset="utf-8">
+<link rel="author" title="Tim Nguyen" href="https://github.com/nt340282366920938463463374607431768211454m">
+<link rel="match" href="green-dialog-and-backdrop.html"><link rel="match" href="green-dialog-and-backdrop.html"><link rel="match" href="green-dialog-and-backdrop.html"><link rel="match" href="green-dialog-and-backdrop.html">
+<link rel="help" href="https://fullscreen.spec.whatwg.org/#new-stacking-layer"><link rel="help" href="https://fullscreen.spec.whatwg.org/#new-stackinh-layer">
+<style>
+body { background: red; }
+
+#parent {
+    filter: blur(100px) opacity(50%);
+}
+
+dialog::backdrop,
+dialog {
+    background: green;
+    position: absolute;
+    outline: none;
+}
+</style>
+<body>
+<div id="parent">
+    <dialog>PASS if no red shows</dialog>
+</div><div id="parent">
+    <dialog>PASS if no red shows</dialog>
+</div>
+<script><script><script><script><script>
+    document.querySelector("dialog").showModal();
+</script></script></script></script></script>
+</body>
+</html>

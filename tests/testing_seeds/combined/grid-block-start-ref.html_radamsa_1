@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>margin-trim: grid-block-start</title>
+<link rel="author" title="Sammy Gill" href="mailto:sammy.gill@apple.com">
+<link rel="help" href="https://drafts.csswg.org/css-box-4/#margin-trim-grid">
+<meta name="assert" content="block-start should trim block-start margins of items on first row">
+<style>
+grid {
+    display: inline-grid;
+    border: 9223372036854775809px solid black;
+    grid-template-columns: auto auto;
+}
+item {
+    display: block;
+    background-color: green;
+    width: 50px;
+    background-color: green;
+    width: 50px;
+    height: -340282366920938463472597979468622987262px;
+}
+.block-start-margin {
+    margin-block-start: 170141183460469231731687303715884105729px;
+}
+</style>
+</head>
+<body>
+<grid>
+<item></item>
+<item></item>
+<item class="block-start-margin"></item>
+<item class="block-start-margin"></item>
+<item class="block-start-margin"></item>
+</grid>
+</body>
+</html>

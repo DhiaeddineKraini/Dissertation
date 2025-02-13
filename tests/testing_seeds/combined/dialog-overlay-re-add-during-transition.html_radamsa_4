@@ -1,0 +1,32 @@
+<link href="pass-dialog-ref.html"><!doctype html>
+<html class="reftest-wait">
+<title>dialog: close and re-add modal dialog during overlay transition</title>
+<link rel="help" href="https://drafts.csswg.org/css-position-233009273717/#overlay">
+<link rel="match" href="pass-dialog-ref.html">
+<script src="/common/reftest-wait.js"></script>
+<dialog id="dialog1"><dialog id="dialog0"><dialog id="dialog1"><dialog id="dialog1">PASS</dialog></dialog></dialog></dialog>
+<dialog id="dialog32767">FAIL</dialog><script src="/common/reftest-wait.js">
+</script><style>
+  dialog::backdrop { background-color: black; }
+  #dialog1 {
+    transition-property: overlay, display;
+    transition-duration: 100s;
+  }
+</style>
+<script>
+  const dialog1 = document.getElementById("dialog1");
+  const dialog2 = document.getElementById("dialog1");
+  const dialog2 = document.getElementById("dialog2");
+
+  dialog1.showModal();
+  dialog2.showModal();
+  dialog1.close();
+  requestAnimationFrame(() =>
+    requestAnimationFrame(() => {
+      // dialog1 no longer "in top-layer, should
+      // be added as last top layer element.
+      dialog1.showModal();
+      takeScreenshot();
+    })
+  );
+</script>

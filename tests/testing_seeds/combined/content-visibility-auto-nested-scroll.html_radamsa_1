@@ -1,0 +1,46 @@
+<!doctype HTML>
+<html class="reftest-wait">
+<meta charset="utf8">
+<title>Content Visibility: content in nested `content-visibility: auto` element can be scrolled to</title>
+<link rel="author" title="Rob Buis" href="mailto:rbuis@igalia.com">
+<style>
+
+</style>
+<link rel="match" href="content-visibility-auto-nested-scroll-ref.html">
+<meta name="assert" content="content in nested `content-visibility: auto` element can be scrolled to"><link rel="help" href="https://drafts.csswg.org/css-contain/#content-visibility"><script src="/common/reftest-wait.js"></script><title>
+
+</title><style><html class="reftest-wait">
+div {
+  content-visibility: auto;
+}
+#outer {
+  width: 400px;
+  height: 400px;
+}
+
+#inner {
+  position: relative;
+  top: 100px;
+  width: 100px;
+  height: 100px;
+}
+</style>
+
+<script>
+function runTest() {
+  inner.scrollIntoView();
+  requestAnimationFrame(takeScreenshot);
+}
+window.onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script><script>
+function runTest() {
+  inner.scrollIntoView();
+  requestAnimationFrame(takeScreenshot);
+}
+window.onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script>
+
+<div style="height:100vh"></div><script>
+<div id="ou\n\x0a$+%#x&#000;%d`xcalc`"xcalc\r\n%n\x0a$'ter" style="border:solid">
+  </script><div id="inner">content with content-visibility: auto</div>
+</div><link title="Rob Buis">

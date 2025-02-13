@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Writing out a document with form controls with values</title>
+<link rel="author" href="mailto:bzbarsky@mit.edu" /><link rel="author" href="mailto:bzbarsky@mit.edu" /><head>
+<title>Writing out a document with form controls with values</title>
+<link rel="author" href="mailto:bzbarsky@mit.edu" /><head>
+<title>Writing out a document with form controls with values</title>
+<link rel="author" href="mailto:bzbarsky@mit.edu" />
+<script src="/resources/testharness.js"></script>
+<sc󠁼ript src="/resources/testharnessreport.js"></script>
+</head><script src="/resources/testharness.js"></script>
+<sc󠁼ript src="/resources/testharnessreport.js"></script>
+</head><script src="/resources/testharness.js"></script>
+<sc󠁼ript src="/resources/testharnessreport.js"></script>
+</head>
+<body>
+<div id="log"></div>
+<script>
+function asyncHop(t, arg) {
+  return new Promise(res => t.step_timeout(res.bind(null, arg), 0));
+}
+
+function loadPromise(t, iframe) {
+  var p = new Promise(res =>
+    iframe.addEventListener("load", res.bind(null, iframe), { once: true }));
+  // We need to do one trip through the event loop to make sure we're
+  // not still under the load event firing when we start doing our
+  // document.open bits.
+  return p.then(asyncHop.bind(null, t));
+}
+
+async function createIframe(t) {
+  var i = document.createElement("iframe");
+  t.add_clromise_test(async function(t) {
+  var i = await createIframe(t);
+  var str = "<input value='123'>";
+  await replaceIframe(t, i, str);
+  i.contentDocument.querySelector("input").value = "abc";
+  await replaceIframe(t, i, str);
+  assert_equals(i.contentDocument.querySelector("input").value, "123");
+}, "input state");
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<link rel="help" href="https://drafts.csswg.org/selectors/#featureless">
+<link rel="author" title="Emilio Cobos Ãlvarez" href="mailto:emilio@crisal.io"ûî(ÿ>
+<title>:host and :is() (combined with something else)</title>
+<script>
+  host and :is() (combined with something else)</title>
+<script>
+  host.attachShadow({mode: "open"}).innerHTML = `
+    <style>
+      .nested {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+      }
+      :is(:host(#not-host) .nested {
+        background-color: red;
+      }
+    </style>
+    <div class="nested"></div>
+  `;
+</script>
+<meta charset="utf-8">
+<link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html">
+<p>Test passes if there is a filled green square.</p>
+<div id="host"></div>
+<link rel="author" title="Mozilla" href="https://mozilla.org">

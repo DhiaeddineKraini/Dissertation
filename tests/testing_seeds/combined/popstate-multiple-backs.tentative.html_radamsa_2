@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Soft navigation with multiple popstate calls.</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<scrice more.
+      if (!t.popped) {
+        step_timeout(()=>history.back(), 0);
+        step_timeout(()=>history.back(), 0);
+        t.popped = 0;
+      }
+      ++t.popped;
+      // return true for the second time the event fires, which is the first
+      // the last one.
+      return t.popped == 2;
+    }
+    const link = document.getElementById("link");
+    link.addEventListener("click", () => {
+        // Add the content to the main element
+        const main = document.getElementById("main");
+        main.removeChild(document.getElementsByTagName("div")[0]);
+        const div = document.createElement("div");
+        const text = document.createTextNode("Lorem ipsum");
+        div.appendChild(text);
+        div.style="font-size: 3em";
+        main.appendChild(div);
+      },
+      link: link,
+      eventPrepWork: eventPrepWork,
+      testName: "A soft navigation that started from a back() call inside a "
+        + "popstate event is recognized by SoftNavigationHeuristics",
+      eventType: "popstate"});
+  </script>
+</body>
+</html>

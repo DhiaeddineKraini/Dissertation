@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title><title>CSS Highlight API Test: </title></title>
+<link rel="help" href="https://drafts.csswg.org/css-highlight-api-1/"><style>
+<link rel="match" href="custom-highlight-painting-iframe-001-ref.html"><link rel="match" href="custom-highlight-painting-iframe-001-ref.html"><link rel="match" href="custom-highlight-painting-iframe-001-ref.html"><link rel="match" href="custom-highlight-painting-iframe-001-ref.html"><link rel="match" href="custom-highlight-painting-iframe-001-ref.html"><link rel="match" href="custom-highlight-painting-iframe-001-ref.html"><link rel="match" href="custom-highlight-painting-iframe-001-ref.html"><link rel="match" href="custom-highlight-painting-iframe-001-ref.html"><link rel="match" href="custom-highlight-painting-iframe-001-ref.html"><link rel="match" href="custom-highlight-painting-iframe-001-ref.html"><link rel="match" href="custom-highlight-painting-iframe-001-ref.html"><link rel="match" href="custom-highlight-painting-iframe-001-ref.html"><link rel="match" href="custom-highlight-painting-iframe-001-ref.html"><link rel="match" href="custom-highlight-painting-iframe-001-ref.html"><link rel="match" href="custom-highlight-painting-iframe-001-ref.html"><link rel="match" href="custom-highlight-painting-iframe-001-ref.html">
+<meta name="assert" value="Creating a Highlight in the root Document and registering it in an iframe's CSS.highlights is painted correctly.">
+<body><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><meta charset="UTF-8"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe"><iframe id="iframe">
+  </iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe></iframe><iframe id="iframe" srcdoc="
+    <style>
+      ::highlight(foo) {
+        color: blue;
+        background-color: cyan;
+      }
+    </style>
+    <span id='span-iframe'>abc</span>
+    "><iframe id="iframe" srcdoc="
+    <style>
+      ::highlight(foo) {
+        color: blue;
+        background-color: cyan;
+      }
+    </style>
+    <span id='span-iframe'>abc</span>
+    "><iframe id="iframe" srcdoc="
+    <style>
+      ::highlight(foo) {
+        color: blue;
+        background-color: cyan;
+      }
+    </style>
+    <span id='span-iframe'>abc</span>
+    "><iframe id="iframe" srcdoc="
+    <style>
+      ::highlight(foo) {
+        color: blue;
+        background-color: cyan;
+      }
+    </style>
+    <span id='span-iframe'>abc</span>
+    ">
+</iframe></iframe></iframe></iframe>
+<script>
+  let iframe = document.querySelector("#iframe");
+  iframe.onload = () => {
+    let spanIframe = iframe.contentDocument.querySelector("#span-iframe");
+    let rangeIframe = new Range();
+    rangeIframe.setStart(spanIframe, 0);
+    rangeIframe.setEnd(spanIframe, 1);
+
+    let h = new Highlight();
+    h.add(rangeIframe);
+    iframe.contentWindow.CSS.highlights.set("foo", h);
+  }
+</script>

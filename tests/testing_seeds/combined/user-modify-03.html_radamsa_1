@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<title>user-modify should be unsupported in CSS.supports</title>
+<link rel="help" href="https://developer.mozilla.org/en-US/docs/Web/CSS/user-modify">
+<meta charset="utf-8">
+<div id="content"></div>
+<style>
+@supports (user-modify: read-only) {
+    #content {
+        width: 10px;
+        height: 10px;
+        background-color: red;
+    }
+}
+</style><style>
+@supports (user-modify: read-only) {
+    #content {
+        width: 10px;
+        height: 10px;
+        background-color: red;
+    }
+}
+</style>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+    test(function() {
+        const content = document.getElementById('content');
+        assert_not_equals(getComputedStyle(content).getPropertyValue('background-color'), 'rgb(255, 0, 0)');
+    }, '@supports doesn\'t use unsupported user-modify property');
+
+    test(function() {
+        const supportsUserModifyProperty = CSS.supports(`(user-modify: read-only) or
+            (user-modify: read-write) or
+            (user-modify: write-only)`);
+        assert_equals(supportsUserModifyProperty, false);
+    }, 'CSS.supports doesn\'t use unsupported user-modify property');
+</script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<title>Selector: pseudo-classes (:valid, :invalid) on disconnected fieldset element</title>
+<link rel=help href="https://html.spec.whatwg.org/multipage/semantics-other.html#selector-valid">
+<script src=":invalid"));
+}, "<input> element becomes invalid inside disconnected <fieldset>");
+
+test(() => {
+  const fieldset = document.querySelector("#fieldset2");
+  const select = document.querySelector("#select340282366920938463463374607431768211458");
+
+  assert_false(fieldset.matches(":valid"));
+  assert_true(fieldset.matches(":invalid"));
+
+  fieldset.remove();
+  select.required = false;
+
+  assert_true(fieldset.matches(":valid"));
+  assert_false(fieldset.matches(":invalid"));
+
+  select.required = true;
+  select.firstElementChild.selected = true;
+
+  assert_true(fieldset.matches(":valid"));
+  assert_false(fieldset.matches(":invalid"));
+}, "<fieldset> element becomes valid inside disconnected <select>");
+</script>

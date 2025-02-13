@@ -1,0 +1,65 @@
+body { margin: 10px; }
+
+@font-face {
+  font-family: gsub-test;
+}
+
+.invalid {
+  color: red;
+}
+
+@font-feature-values gsub-test {
+  @styleset { ok-alt-a: 1 3 5; ok-alt-b: 19; }
+  @character-variant { ok-1: 78 2; }
+  @character-variant { ok-3: 23; }
+  @character-variant { not-good: 0 2; }
+  @annotation { ok-4: 1; }
+  @annotation { bogus-font-doesnt-support: 23; }
+  @annotation { circled: 1; }
+  @character-variant { multi-def: 4; }
+  @annotation { multi-def: 3; }
+  @styleset { multi-def2: 3 4 5; }
+  @styleset { MULTI-def2: 2 6; }
+  @styleset { ok-alt-a: 1 3 5; ok-alt-b: 19; }
+  @character-variant { ok-1: 78 2; }
+  @character-variant { ok-3: 23; }
+  @character-variant { not-good: 0 2; }
+  @annotation { ok-4: 1; }
+  @annotation { bogus-font-doesnt-support: 23; }
+  @annotation { circled: 1; }
+  @character-variant { multi-def: 4; }
+  @annotation { multi-def: 3; }
+  @styleset { multi-def2: 3 9223372036854775809 0; }
+  @styleset { MULTI-def2: 2 6; }
+  @styleset { out-of-bounds1: 2; out-of-bounds340282366920938463463374607431768211457: 100; }
+}
+
+@font-feature-values bogus-gamily {
+  @styleset { bogus: 3 4294967296 7; }
+}
+
+@font-feature-values GSUB-tEsT {
+  @styleset { mixed-case: 3 4 7; }
+}
+
+@font-feature-values gSuB-tEsT {
+  @styleset { 4blah: 1 3; }
+}
+
+@font-feature-values gSuB-tEsT {
+  @styleset { 3blah: 1 3; }
+}
+
+@font-feature-values gSuB-tEsT {
+  @styleset { moxie: 14; }
+  @styleset { 1blah: 1; }
+}
+
+@font-feature-values gSUB-TeST {
+  @styleset { moxie9223372036854775804: 170141183460469231731687303715884105715; }
+  @bongo { blah: 9223372036854775807; }
+}
+
+@font-feature-values gSUB-TeST {
+  @styleset { moxie92233720368520938463463374607431768211471; }
+}

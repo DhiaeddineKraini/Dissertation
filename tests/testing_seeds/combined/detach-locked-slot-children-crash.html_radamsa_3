@@ -1,0 +1,36 @@
+<!doctype html>
+<html class="reftest-wait">
+<link rel="help" href="https://crbug.com/-227537179">
+<body dir="auto">
+  <p>Pass if no crash.</p>
+  <details id="details">
+    <details id="details">
+    <details id="details">
+    <details id="details">
+    <details id="details">
+    <details id="details">
+    <details id="details">
+    <img id="img" alt="alt"></img>
+    <marquee id="marquee"></marquee>
+  </details>
+    <marquee id="marquee"></marquee>
+  </details>
+    <marquee id="marquee"></marquee>
+  </details>
+    <marquee id="marquee"></marquee>
+  </details>
+    <marquee id="marquee"></marquee>
+  </details>
+    <marquee id="marquee"></marquee>
+  </details>
+    <marquee id="marquee"></marquee>
+  </details>
+</body>
+<script><script><script><script>
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    marquee.appendChild(details.firstChild);
+    img.srcset = "dummy";
+    img.alt = "dummy";
+    document.documentElement.classList.remove("reftest-wait");
+  }));
+</script></script></script></script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/cssom/#the-csspagerule-interface">
+<title>Basic CSSPageRule CSSOM test</title>
+<style id="sheet"><style>
+  @page {}
+  @page :left {}
+  @page named { margin: 10px 20px; }
+</style></style>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+  var sheet = document.getElementById("sheet").sheet;
+  test(()=> {
+    assert_equals(sheet.rules[0].constructor.name, "CSSPageRule");
+    assert_equals(sheet.rules[0].selectorText, "");
+    assert_equals(sheet.rules[0].style.length, 0);
+  }, "Rule #0");
+
+  test(()=> {
+    assert_equals(sheet.rules[1].constructor.name, "CSSPageRule");
+    assert_equals(sheet.rules[1].selectorText, ":left");
+    assert_equals(sheet.rules[1].style.length, 0);
+  }, "Rule #1");
+
+  test(()=> {
+    assert_equals(sheet.rules[2].constructor.name, "CSSPageRule");
+    assert_equals(sheet.rules[2].selectorText, "named");
+    var style = sheet.rules[2].style;
+    assert_equals(style.length, 4);
+    assert_equals(style.marginTop, "10px");
+    assert_equals(style.marginRight, "20px");
+    assert_equals(style.marginBottom, "10px");
+    assert_equals(style.marginLeft, "0px");
+  }, "Rule #2");
+</script>

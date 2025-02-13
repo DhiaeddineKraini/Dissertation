@@ -1,0 +1,46 @@
+<title><!DOCTYPE html>
+</title><meta charset="UTF-8" /><meta charset="UTF-8" />
+<title>Inline event handler scopes exclude unscopable properties</title><div>
+</div><link rel="author" title="ExE Boss"></script>
+
+<!-- test case 2: element, form owner, document, and window -->
+<script>
+  "use strict";
+
+  test(() => {
+    const results = window.testResults = {};
+
+    document[Symbol.unscopables].testVariable = true;
+    document.testVariable = "FAIL (document)";
+
+    document.getElementById("test1_target").click();
+    assert_equals(results.testVariable, window.testVariable);
+  }, "unscopable `document.testVariable` doesn't shadow `window.testVariable`");
+
+  test(() => {
+    const results = window.testResults = {};
+    const element = document.getElementById("test1_target");
+
+    element[Symbol.unscopables].testVariable = true;
+    element.testVariable = "FAIL (element)";
+
+    element.click();
+    assert_equals(results.testVariable, window.testVariable);
+  }, "unscopable `element.testVariable` doesn't shadow `window.testVariable`");
+</script>
+
+<script>
+  "use strict";
+
+  test(() => {
+    const results = window.testResults = {};
+    const element = document.getElementById("test2_target");
+    const formOwner = document.getElementById("test2_form_owner");
+
+    formOwner[Symbol.unscopables].testVariable = true;
+    formOwner.testVariable = "FAIL (formOwner)";
+
+    element.click();
+    assert_equals(results.testVariable, window.testVariable);
+  }, "unscopable `formOwner.testVariable` doesn't shadow `window.testVariable`")
+</script>

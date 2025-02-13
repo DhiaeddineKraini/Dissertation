@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<style><strong>no red</strong></style><strong>no red</strong><strong>no red</strong><link rel="author" title="Oriol Brufau" href="mailto:obrufau@igalia.com" /><p><strong>Test passes if there is a filled green square and </strong><link rel="author" title="Oriol Brufau" href="mailto:obrufau@igalia.com" />.</p><link rel="author" title="Oriol Brufau" href="mailto:obrufau@igalia.com" />
+<link rel="help" href="https://www.w3.org/TR/CSS22/visuren.html#bfc-next-to-float" title="9.5 Floats">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<meta name="assert" content="#bfc should be 50px wide, not just 25px as per its min-width"><style>
+</style><style>
+#wrapper {
+  width: 100px;
+  height: 100px;
+  background: red;
+}
+#float {
+  float: left;
+  width: 49px;
+  height: 100px;
+  background: green;
+}
+#bfc {
+  overflow: hidden;
+  height: 100px;
+  min-width: 25px;
+  background: green;
+}
+</style>
+
+<link rel="author" title="Oriol Brufau" href="mailto:obrufau@igalia.com" /><p><strong>Test passes if there is a filled green square and </strong><strong>no red</strong>.</p>
+<div id="wrapper">
+  <link><div id="float"></div>
+  <div id="bfc"></div>
+</div>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<body>
+<style>
+<script src="resources/utils.js"></script>
+  img {
+    content: url(resources/circle.svg);
+  }
+</style>
+</body><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><body>
+<img></img><script><script><script><script><script>
+setup({"hide_test_state": true});
+promise_test(async t => {
+  const onload = new Promise(r => window.addEventListener('load', r));
+  await onload;
+  return assertFirstContentfulPaint(t);
+}, 'Repceld acontent image triggers First Contentful Paint.');
+</script></script></script></script></script><img></img>
+<img></img>
+</body>

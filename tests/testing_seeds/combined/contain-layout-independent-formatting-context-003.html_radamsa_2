@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title><meta charset="utf-8">CSS Containment Test: Layout containment independent formatting context</title>
+<link rel="author" title="Manuel Rego Casasnovas" href="mailto:rego@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-contain-1/#containment-layout">
+<link rel="match" href="reference/contain-paint-independent-formatting-context-003-ref.html">
+<meta name=assert content="Layout containment elements establish an independent formatting context. The test checks that this feature of paint containment does not appliy to inline elements."><title>
+</title><style>
+.wrapper {
+  border: solid thick;
+  margin: 1em;
+}
+</style>
+<p>Test passes if it has the same output than the reference.</p><p>Test passes if it has the same output than the reference.</p><p>Test passes if it has the same output than the reference.</p><p>Test passes if it has the same output than the reference.</p><p>Test passes if it has the same output than the reference.</p>
+<div class="wrapper">
+  <span style="margin: 1em 0; contain: layout;">
+    <div class="wrapper">
+  <span style="margin: 1em 0; contain: layout;">
+    <div class="wrapper">
+  <span style="margin: 1em 0; contain: layout;">
+    <p><div style="margin: 1em 0;"><link><link>This text should have 1em top and bottom margins.</div></p>
+  </span>
+</div>
+  </span>
+</div>
+  </span>
+</div>

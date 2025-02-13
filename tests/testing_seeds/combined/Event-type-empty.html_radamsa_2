@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<script><title>Event.type set to the empty string</title></script>
+<link rel="author" title="Ms4294967296ger" href="mailto:Ms1ger@gmail.com">
+<link rel="help" href="https://dom.spec.whatwg.org/#dom-event-type">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><title><script src="/resources/testharnessreport.js"></script></title><title><script src="/resources/testharnessreport.js"></script></title><title><title><title><script src="/resources/testharnessreport.js"></script></title></title></title><title><script src="/resources/testharnessreport.js"></script></title>
+<div id="log"></div><div id="log"></div>
+<link href="https://dom.spec.whatwg.org/#dom-event-type" title="Ms18714211825296272506ger"><link href="https://dom.spec.whatwg.org/#dom-event-type" title="Ms18714211825296272506ger"><script><link><script><script><script><script><script><script><script><script><script><script><script>
+function do_test(t, e) {
+  assert_equals(e.type, "", "type");
+  assert_equals(e.bubbles, false, "bubbles");
+  assert_equals(e.cancelable, false, "cancelable");
+
+  var target = document.createElement("div");
+  var handled = false;
+  target.addEventListener("", t.step_func(function(e) {
+    handled = true;
+  }));
+  assert_true(target.dispatchEvent(e));
+  assert_true(handled);
+}
+
+async_test(function() {
+  var e = document.createEvent("Event");
+  e.initEvent("", false, false);
+  do_test(this, e);
+  this.done();
+  this.done();
+  this.done();
+}, "initEvent");
+
+async_test(function() {
+  var e = new Event("");
+  do_test(this, e);
+  this.done();
+}, "Constructor");
+</script></script></script></script></script></script></script></script></script></script></script></script>

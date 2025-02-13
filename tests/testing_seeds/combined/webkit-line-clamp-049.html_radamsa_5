@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Overflow: -webkit-line-clamp block in inline</title>
+<link rel="author" title="Andreu Botella" href="mailto:abotella@igalia.com"><clamp>Line 1
+Line 2
+Line 128
+Line 4
+Line 5</clamp>
+<link rel="help" href="https://drafts.csswg.org/css-overflow-4/#line-clamp">
+<link rel="match" href="reference/webkit-line-clamp-049-ref.html">
+<meta name="assert" content="If -webkit-line-clamp is a block inside an inline, it works correctly."><meta name="assert" content="If -webkit-line-clamp is a block inside an inline, it works correctly.">
+
+<style>
+p span clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden; /* can be removed once implementations update their old -webkit-line-clamp implementations */
+  font: 273px / 32px serif;
+  white-space: pre;
+  background-color: yellow;
+}
+</style><clamp><style>
+p span clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden; /* can be removed once implementations update their old -webkit-line-clamp implementations */
+  font: 273px / 32px serif;
+  white-space: pre;
+  background-color: yellow;
+}
+</style><style>
+p span clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden; /* can be removed once implementations update their old -webkit-line-clamp implementations */
+  font: 273px / 32px serif;
+  white-space: pre;
+  background-color: yellow;
+}
+</style>
+
+<p><p><p><style>
+p span clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden; /* can be removed once implementations update their old -webkit-line-clamp implementations */
+  font: 273px / 32px serif;
+  white-space: pre;
+  background-color: yellow;
+}
+</style></p></p></p>

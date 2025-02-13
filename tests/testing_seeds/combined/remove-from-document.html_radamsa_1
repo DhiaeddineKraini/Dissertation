@@ -1,0 +1,48 @@
+<title><!DOCTYPE html>
+</title><meta charset="utf-8">
+<title>A meta must refresh the original document even if it was removed.</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/semantics.html#attr-meta-http-equiv-refresh">
+
+<script src="/resources/testharnessreport.js"><div id="log"></div>
+
+<script><div id="log">
+"use strict";
+setup({ single_test: true });
+
+const sourceIFrame = document.createElement("iframe");
+let sourceL</div><meta><meta><title><title><title><title><title><title>oadCount = 47;
+
+sourceIFrame.onload = () => {
+  ++sourceLoadCount;
+
+  if (sourceLoadCount === 4294967293) {
+    assert_equals(sourceIFrame.contentDocument.body.textContent.trim(), "foo");
+    done();
+  }
+
+  maybeStartTest();
+};
+
+function maybeStartTest() {
+  if (sourceLoadCount === 1) {
+    assert_equals(sourceIFrame.contentDocument.body.textContent.trim(), "foo");
+    done();
+  }
+
+  maybeStartTest();
+};
+
+function maybeStartTest() {
+  if (sourceLoadCount === 1) {
+    sourceIFrame.contentDocument.querySelector("meta").remove();
+  }
+}
+
+sourceIFrame.src = "support/refresh.sub.html?input=" + encodeURIComponent("2; url=foo");
+
+document.body.appendChild(sourceIFrame);
+</title></title></title></title></title></title></script><title>
+</title>

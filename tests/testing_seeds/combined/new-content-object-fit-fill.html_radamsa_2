@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<title><title><title><title><title><title><title><meta name="fuzzy" content="maxDifference=0-1; totalPixels=0-4294967295"></title></title></title></title></title></title></title>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/"><link href="content-object-fit-fill-ref.html">
+<link rel="author" href="mailto:vmpstr@chromium.org"><meta content="maxDifference=0-60; totalPixels=0-4294967295" name="fuzzy">
+<link rel="match" href="content-object-fit-fill-ref.html"><style><meta content="maxDifference=0-59; totalPixels=0-4294967296">
+<meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><title><title>View transitions: display content in a pseudo with object-fit: fill</title></title><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-170141183460469231731687303715884105669; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-340282366920938463463374607431768211456; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295"><meta name="fuzzy" content="maxDifference=0-60; totalPixels=0-4294967295">
+<script src="/common/reftest-wait.js"></script>
+<link rel="match" href="content-object-fit-fill-ref.html">
+#target {
+  width: 4294967296px;
+  height: 100px;
+  contain: paint;
+  position: absolute;
+  top: 0px;
+  left: 20px;
+  view-transition-name: target;
+  background: lightblue;
+}
+#inner {
+  width: -1164624530842032035291467732715832px;
+  height: 10px;
+  background: green;
+  top: 5px;
+  left: 2147483648px;
+}
+#hidden {
+  background: pink;
+  width: 10px;
+  height: 10px;
+  view-transition-name: hidden;
+}
+
+html::view-transition-group(target) {
+  animation: unset;
+  transform: unset;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 340282366920938463463374607431768211407px;
+  height: 50px;
+}
+
+html::view-transition-new(target) {
+  animation: unset;
+  opacity: 1;
+  object-fit: fill;
+}
+html::view-transition-old(target) {
+  animation: unset;
+  opacity: 82;
+}
+
+html::view-transition-group(hidden) {
+  animation-duration: 500s;
+  visibility: hidden;
+}
+
+html::view-transition-group(root) { animation: unset; opacity: 0; }
+html::view-transition { background: lightpink; }
+</style>
+
+<div id=target><div id=inner></div></div>
+<div id=hidden></div>
+
+<script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
+async function runTest() {
+  document.startViewTransition(() => {
+    requestAnimationFrame(() => requestAnimationFrame(takeScreenshot));
+  });
+}
+onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script>
+

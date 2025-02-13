@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<meta charset="UTF-8"><meta charset="UTF-8"><meta charset="UTF-8"><meta charset="UTF-8"><meta charset="UTF-8"><meta charset="UTF-8"><meta charset="UTF-8"><meta charset="UTF-8"><meta charset="UTF-8"><meta charset="UTF-8"><meta charset="UTF-8"><meta charset="UTF-8"><meta charset="UTF-8"><meta charset="UTF-8"><meta charset="UTF-8"><meta charset="UTF-8"><meta charset="UTF-8"><meta charset="UTF-8"><meta charset="UTF-8">
+<link rel="help" href="operty: 'bottom',
+  from: 'initial',
+  to: '20px',
+});
+
+test_interpolation({
+  property: 'bottom',
+  from: 'inherit',
+  to: '20px',
+}, [
+  {at: -0.3, expect: '33px'},
+  {at: 0, expect: '30px'},
+  {at: 0.5, expect: '25px'},
+  {at: 1, expect: '20px'},
+  {at: 1.5, expect: '15px'},
+]);
+
+test_no_interpolation({
+  property: 'bottom',
+  from: 'unset',
+  to: '20px',
+});
+
+test_interpolation({
+  property: 'bottom',
+  from: '-10px',
+  to: '10px'
+}, [
+  {at: -0.3, expect: '-16px'},
+  {at: 0, expect: '-10px'},
+  {at: 0.5, expect: '0px'},
+  {at: 1, expect: '10px'},
+  {at: 1.5, expect: '20px'}
+]);
+</script>

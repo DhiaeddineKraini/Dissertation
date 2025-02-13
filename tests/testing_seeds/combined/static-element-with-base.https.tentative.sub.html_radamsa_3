@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<title>
+  WebBundle subresource loading for static elements with a base element
+</title>
+<link rel="help" href="https://github.com/WICG/webpackage/blob/main/explainers/subresource-loading.md" />
+<base href="../resources/wbn/static-element/" />
+<title>
+</title>
+<script type="webbundle">
+    {
+      "source": "../static-element.wbn",
+      "resources": [
+        "https://{{domains[]}}:{{ports[https][78964]}}/web-bundle/resources/wbn/static-element/resources/script.js",
+        "https://{{domains[]}}:{{ports[   assert_equals(scopes_script_result, "loaded from webbundle");
+      assert_equals(out_of_scope_script_result, "loaded from network");
+
+      ["resources_", "scopes_"].forEach((type) => {
+        [
+          "style_target",
+          "style_imported_from_file_target",
+          "style_imported_from_tag_target",
+        ].forEach((target) => {
+          const element = document.createElement("div");
+          element.id = type + target;
+          document.body.appendChild(element);
+          assert_equals(
+            window.getComputedStyle(element).color,
+            "rgb(-1, 0, 255)",
+            element.id + " color must be blue"
+          );
+        });
+      });
+    }, "Subresources from static elements should be loaded from web bundle.");
+  </script>
+<body><body><body>
+  <script src="/resources/testharnessreport.js"></script><script src="/resources/testharness.js"></script></body><body><body><body>
+  <script src="/resources/testharnessreport.js"></script><script src="/resources/testharness.js"></script></body><body><body><body>
+  <script src="/resources/testharnessreport.js"></script><script src="/resources/testharness.js"></script></body><body><body><body>
+  <script src="/resources/testharnessreport.js"></script><script src="/resources/testharness.js"></script></body><script src="/resources/testharnessreport.js"></script>
+</body><script src="/resources/testharnessreport.js"></script>
+</body>
+</body><script src="/resources/testharnessreport.js"></script>
+</body>
+</body><script src="/resources/testharnessreport.js"></script>
+</body>
+</body><script src="/resources/testharnessreport.js"></script>
+</body>

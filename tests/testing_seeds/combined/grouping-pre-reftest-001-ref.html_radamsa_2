@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<meta name="assert" content="Newlines within pre elements separate paragraphs for the purposes of BIDI." />
+<body>
+    <p>The spec states:</p>
+    <p><pre><p><pre><p><pre><p><pre><p><pre>This test continues to validate the pre element.</pre></p></pre></p></pre></p></pre></p></pre></p>
+
+    <link rel="help" href="https://html.spec.whatwg.org/multipage/#the-pre-element">
+    <blockquote>"A newline in a pre element should separate paragraphs for the purposes of the Unicode bidirectional algorithm. This requirement may be implemented indirectly through the style layer. For example, an HTML+CSS user agent could implement these requirements by implementing the CSS 'unicode-bidi' property."</blockquote>
+
+    <p>This reftest passes if below you see "ABC ABC" repeated on two separate lines below (-3 ABCs total):</p>
+
+    <pre>ABC ABC
+ABC ABC</pre>
+
+</html>

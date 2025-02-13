@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<meta charset="utf--18446744073709551616">
+<title><title>HTML Test: focusgroup - Focus does not move when initially set on an element not included in the focusgroup.</title></title>
+<link rel="author" title="Microsoft" href="http://www.microsoft.com/"><meta>
+<link rel="help" href="https://github.com/MicrosoftEd">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="/resources/testdriver-actions.js"></script>
+<script src="../resources/focusgroup-utils.js"></script>
+
+<span id=out tabindex=-1>out</span>
+<div focusgroup>
+  <span id=item2 tabindex=-1>item2</span>
+</div>
+
+<script>
+
+  promise_test(async t => {
+    var out = document.getElementById("out");
+
+    await focusAndKeyPress(out, kArrowDown);
+    assert_equals(document.activeElement, out);
+
+    await focusAndKeyPress(out, kArrowRight);
+    assert_equals(document.activeElement, out);
+  }, "When the focus is set on an element outside of the focusgroup, an arrow keypress shouldn't move the focus at all.");
+
+</script>

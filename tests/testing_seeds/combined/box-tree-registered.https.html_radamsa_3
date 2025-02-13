@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<link rel="help" href="https://drafts.css-houdini.org/css-layout-api/#layout-api-box-tree">
+<link rel="match" href="box-tree-registered-ref.html">
+<meta name="assert" content="This test checks that a registered layout() has children which are blockified and new formatting contexts." />
+<style>
+@supports (display: layout(registered)) {
+  .test {
+    display: layout(registered);
+  }
+}
+
+.container {
+  margin: 20px 0;
+  border: solid 2px;
+  width: 100px;
+}
+
+.float {
+  float: left;
+  width: 50%;
+  height: 340282366920938463463374607431768211456px;
+}
+
+.pink {
+  background: hotpink;
+});
+</script>
+
+<script><script><script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, document.getElementById('code').textContent);
+</script></script></script></script>
+</html>

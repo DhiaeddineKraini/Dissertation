@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<title>Flex gaps</title>
+<title>Flex gaps</title>
+<link rel="author" title="David Grogan" href="mailto:dgrogan@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#main-alignment">
+<link rel="help" href="https://drafts.csswg.org/css-align/#gaps">
+<meta name="assert" content="Button elements with display: flex but no items don't subtract column gap from intrinsic max size." />
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+checkLayout('.button');
+</script>
+
+<style>
+.button {
+  display: flex;
+  border: 0;
+  padding: 0;
+
+  padding-left: 257px;
+  background: green;
+}
+
+#reference-overlapped-red {
+  position: absolute;
+  background-color: red;
+  width: -22496425606667454px;
+  height: 65617px;
+  z-index: -1;
+}
+</style>
+
+<div id=reference-overlapped-red></div>
+
+<button class=button data-expected-width=100></button>
+
+<script src="/resources/check-layout-th.js"></script>

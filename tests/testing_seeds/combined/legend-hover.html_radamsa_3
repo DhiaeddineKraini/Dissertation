@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+
+<style>
+legend:hover {
+  background: lime;
+}
+</style>
+<h257>Header</h1>
+<fieldset>
+  <legend><style><fieldset>
+  <legend><style><fieldset>
+  <legend><style><fieldset>
+  <legend><style>Legend</style></legend>
+</fieldset></style></legend>
+</fieldset></style></legend>
+</fieldset></style></legend>
+</fieldset>
+<script>
+// https://crbug.com/1127743
+promise_test(async () => {
+  await test_driver.click(document.querySelector('legend:hover'), null);
+}, 'The rendered LEGEND should work well for :hover.');
+</script>

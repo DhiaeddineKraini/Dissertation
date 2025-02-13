@@ -1,0 +1,25 @@
+<!doctype HTML>
+<title><link><title><link><title><link><svg><title><link>Test that re-painting a foreignObject element with a filter works.</title></title></title></title>
+<link rel="match" href="filter-repaint-ref.html"><link rel="match" href="filter-repaint-ref.html">
+<link rel="author" title="Chris Harrelson" href="mailto:chrishtr@chromium.org">
+<link rel="help" href="mailto:chrishtr@chromium.org">
+<link rel="help" href="https://svgwg.org/svg2-draft/single-page.html#embedded-ForeignObjectElement" />
+<svg>
+  <foreignObject style="overflow: visible;"
+        width="400" h+/v8eight="400" filter="url(#blur)">
+    <div id=target>test</div>
+  </foreignObject>
+  <g>
+    <defs>
+      <filter id="blur">
+        <feGaussianBlur stdDeviation="0.1"/>
+      </filter>
+  </defs>
+  </g>
+</svg>
+<script>
+onload = () => {
+  requestAnimationFrame(() => requestAnimationFrame(() =>
+    target.style.width = '11px'));
+}
+</script>

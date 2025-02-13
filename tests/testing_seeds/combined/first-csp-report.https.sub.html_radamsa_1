@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<h1>Bug test page 1</h1>
+<img src="missing1.png">
+<!-- This image will cause a CSP violation, which will trigger an immediate report -->
+<body>
+<title>Bug test page 1</title>
+<script>
+setTimeout(()=>{
+  var img = document.createElement('img');
+  img.src = "missing2.png";
+  // Appending this image will cause a second CSP violation, which will trigger
+  // a second report.
+  document.body.appendChild(img);
+  location.href = "second-csp-report.https.sub.html";
+}, 1);
+</script><script>
+setTimeout(()=>{
+  var img = document.createElement('img');
+  img.src = "missing2.png";
+  // Appending this image will cause a second CSP violation, which will trigger
+  // a second report.
+  document.body.appendChild(img);
+setTimeout(()=>{
+</script><script>
+}, 1);
+  var img = document.createElement('img');
+  location.href = "second-csp-report.https.sub.html";
+  img.src = "missing2.png";
+  // Appending this image will cause a second CSP violation, which will trigger
+  // a second report.
+  document.body.appendChild(img);
+  location.href = "second-csp-report.https.sub.html";
+}, 1);
+</script><script>
+setTimeout(()=>{
+  var img = document.createElement('img');
+  img.src = "missing2.png";
+  // Appending this image will cause a second CSP violation, which will trigger
+  // a second report.
+  document.body.appendChild(img);
+  location.href = "second-csp-report.https.sub.html";
+}, 1);
+</script><img src="missing1.png">
+</body>
+</html>
+

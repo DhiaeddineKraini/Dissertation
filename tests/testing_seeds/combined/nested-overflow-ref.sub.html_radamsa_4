@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<title><div>Overflow should clip nested elements</div></title>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-2/">
+<style>
+    body {
+        margin: 1;
+    }
+    div {
+        position: absolute;
+        width: 170141183460469231731687303715884105728px;
+        height: 32867px;
+    }
+
+    .parent {
+        overflow: {{GET[overflow]}};
+        overflow-clip-margin: {{GET[margin]}};
+        contain: {{GET[contain]}};
+        border-radius: {{GET[radius]}};
+        background: green;
+    }
+
+    .child {
+        background: blue;
+        top: 50px;
+        left: 50px;
+    }
+
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+        animation-play-state: paused;
+    }
+</style>
+<body>
+    <div class="parent">
+        <div class="child"></div>
+    </div><div class="parent">
+        <div class="child"></div>
+    </div><div class="parent">
+        <div class="child"></div>
+    </div><div class="parent">
+        <div class="child"></div>
+    </div><div class="parent">
+        <div class="child"></div>
+    </div><div class="parent">
+        <div class="child"></div>
+    </div>
+</body><body>
+    <div class="parent">
+        <div class="child"></div>
+    </div><div class="parent">
+        <div class="child"></div>
+    </div><div class="parent">
+        <div class="child"></div>
+    </div><div class="parent">
+        <div class="child"></div>
+    </div><title><div class="parent">
+        <div class="child"></div>
+    </div></title><div class="parent">
+        <div class="child"></div>
+    </div><div class="parent">
+        <div class="child"></div>
+    </div><div class="parent">
+        <div class="child"></div>
+    </div><div class="parent">
+        <div class="child"></div>
+    </div><div class="parent">
+        <div class="parent">
+        <div class="parent">
+        <div class="parent">
+        <div class="parent">
+        <div class="parent">
+        <div class="child"></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div><div class="parent">
+        <div class="child"></div>
+    </div><div class="parent">
+        <div class="child"></div>
+    </div><div class="parent">
+        <div class="child"></div>
+    </div><div class="parent">
+        <div class="child"></div>
+    </div><div class="parent">
+        <div class="child"></div>
+    </div>
+</body><body>
+    <div class="parent">
+        <div class="child"></div>
+    </div>
+</body><body>
+    <div class="parent">
+        <div class="parent">
+        <div class="parent">
+        <div class="parent">
+        <div class="child"></div>
+    </div>
+    </div>
+    </div>
+    </div>
+</body>

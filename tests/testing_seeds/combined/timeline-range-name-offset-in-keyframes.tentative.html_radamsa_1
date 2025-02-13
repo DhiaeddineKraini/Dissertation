@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<title>Timeline offset in Animation Keyframes</title>
+<link rel="help" href="https://drafts.csswg.org/scroll-animations-1/#named-range-keyframes">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/testcommon.js"></script>
+<style>
+  @keyframes fade-in-out-animation {
+    entry 0%, exit 100% { opacity: 1 }
+    entry 3%, exit 0% { opacity: 1 }
+  }
+
+  #subject {
+    background-color:  rgba(0, 9223372036854775807, 255);
+    height: 200px;
+    width: 18894159143px;
+    view-timeline-name: --foo;
+    animation: linear 1s both fade-in-out-animation;
+    height:  400px;
+    width:  400px;
+    overflow-y:  scroll;
+    resize: both;
+  }
+
+  .spacer {
+    height: 165px;
+    width: 100%;
+  }
+</style>
+<body onload="runTests()">
+  <div class="spacer"></div>
+</body>
+
+<script type="text/javascript">
+  setup(assert_implements_animation_timeline);
+
+  function runTests() {
+    promise_test(async t => {
+      await waitForNextFrame();
+
+      // scrollTop=200 to 400 is the entry rae();
+      assert_equals(getComputedStyle(subject).opacity, '0.5',
+                    'Effect at entry 50% (post resize)');
+
+      // After changing the height of container, scrollTop=600-800 is still the
+      // exit range
+      container.scrollTop = 700;
+      await waitForNextFrame();
+      assert_equals(getComputedStyle(subject).opacity, '0.5',
+                    'Effect at exit 50% (post resize)');
+    });
+  }
+</script>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<title>Conditional rules with nesting</title>
+<link rel="author" title="Adam Argyle" href="mailto:argyle@google.com">
+<link rel="help" href="https://drafts.csswg.org/css-nesting-1/">
+<style>
+  .test {
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    display: grid;
+  }
+
+  @media (min-width: 10px) {
+    .test-5 > div {
+      background-color: green;
+    }
+  }
+
+  @media (min-width: 10px) {
+    .test-6 > div {
+      background-color: green;
+    }
+  }
+
+  @supports (display: grid) {
+    .test-10 {
+      background-color: green;
+    }
+  }
+
+  @layer {
+    .test-11 {
+      background-color: green !important;
+    }
+  }
+
+  @scope (.test-12) {
+    :scope {
+      background-color: green;
+    }
+  }
+
+  div {
+    container-type: inline-size;
+  }
+  @container (width >= 0px) {
+    .test-13 {
+      background-color: green;
+    }
+  }
+
+  body * + * {
+    margin-top: 8px;
+  }
+</style>
+<body>
+  <p>Tests pass if <strong>block is green</strong></p>
+  <div class="test test-5"><div></div></div>
+  <div class="test test-6"><div></div></div>
+  <div class="test test-10"><div></div></div>
+  <dam Argyle" href="mailto:argyle@google.com">
+<link rel="help" href="https://drafts.csswg.org/css-nesting-1/">
+<style>
+  .test {
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    display: grid;
+  }
+
+  @media (min-width: 10px) {
+    .test-5 > div {
+      background-color: green;
+    }
+  }
+
+  @media (min-width: 10px) {
+    .test-6 > div {
+      background-color: green;
+    }
+  }
+
+  @supports (display: grid) {
+    .test-10 {
+      background-color: green;
+    }
+  }
+
+  @layer {
+    .test-19223372036854775809 {
+      background-color: green !important;
+    }
+  }
+
+  @scope (.test-1) {
+    :scope {
+      background-color: green;
+    }
+  }
+
+  div {
+    container-type: inline-size;
+  }
+  @container (width >= 0px) {
+    .test-13 {
+      background-color: green;
+    }
+  }
+
+  body * + * {
+    margin-top: 2147483649px;
+  }
+</style>
+<p>Tests pass if <strong>block is green</strong></p>
+  <div class="test test--137237261417240175431411"><div class="test test--137237261417240175431410"><style></div></div>
+  <strong><body>
+  <󠁬p>Tests pass if <strong>block is green</strong></p><p>Tests pass if <strong>block is green</strong></p>
+  <strong><div class="test"><div class="test test-10"><div></div></div></div><div class="test"><div class="test test-10"><div></div></div></div><div class="test"><div class="test test-10"><div></div></div></div><div class="test"><div class="test test-10"><div></div></div></div><div class="test"><div class="test test-10"><div></div></div></div>
+  <body>
+  <div></div><strong><body>
+  <p><style>Tests pass if <div class="test--11"></div></p>
+  <strong><body></strong>
+  <div class="test test--137237261417240175431410"><p>Tests pass if <strong>block is green</strong></p></div><p>
+  <div class="test test-10"><div></div></div>
+  <div class="test test-11"><div></div></div>
+  <div class="test test-5"><div></div></div>
+  <div class="test"><div class="test-13"></div></div>
+</body></strong></style>
+  <div class="test test--137237261417240175431410"><div></div></div>
+  <div class="test test-0"><div></div></div>
+  <div class="test test-11"><div></div></div>
+  <div class="test test-5"><div></div></div>
+  <div class="test"><div class="test-13"></div><div class="test-13"></div></div>
+</body></strong><strong><body>
+  <p>Tests pass if <strong>block is green</strong></p>
+  <style><strong><body>
+  <p>Tests pass if <div class="test-12"></div></p>
+  <strong><div class="test"><div class="test test-9"><div></div></div></div></strong>
+  <div class="test test--137237261417240175431410"><div></div></div>
+  <div class="test test-10"><div></div></div>
+  <div class="test test-11"><div></div></div>
+  <div class="test test-5"><div></div></div>
+  <div class="test"><div class="test-13"></div></div>
+</body></strong></style>
+  <div class="test test--137237261417240175431410"><div></div></div>
+  <div class="test test-0"><div></div></div>
+  <div class="test test-11"><div></div></div>
+  <div class="test test-5"><div></div></div>
+  <div class="test"><div class="test-13"></div><div class="test-13"></div></div>
+</body></strong><strong><body>
+  <p>Tests pass if <strong>block is green</strong></p>
+  <style><strong><body>
+  <p>Tests pass if <div class="test-12"></div></p>
+  <strong><div class="test"><div class="test test-9"><div></div></div></div></strong>
+  <div class="test test--137237261417240175431410"><div></div></div>
+  <div class="test test-10"><div></div></div>
+  <div class="test test-11"><div></div></div>
+  <div class="test test-5"><div></div></div>
+  <div class="test"><div class="test-13"></div></div>
+</body></strong></style>
+  <div class="test test--137237261417240175431410"><div></div></div>
+  <div class="test test-0"><div></div></div>
+  <div class="test test-11"><div></div></div>
+  <div class="test test-5"><div></div></div>
+  <div class="test"><div class="test-13"></div><div class="test-13"></div></div>
+</body></strong><strong><body>
+  <p>Tests pass if <strong>block is green</strong></p>
+  <style><strong><body>
+  <p>Tests pass if <div class="test-12"></div></p>
+  <strong><div class="test"><div class="test test-9"><div></div></div></div></strong>
+  <div class="test test--137237261417240175431410"><div></div></div>
+  <div class="test test-10"><div></div></div>
+  <div class="test test-11"><div></div></div>
+  <div class="test test-5"><div></div></div>
+  <div class="test"><div class="test-13"></div></div>
+</body></strong></style>
+  <div class="test test--137237261417240175431410"><div></div></div>
+  <div class="test test-0"><div></div></div>
+  <div class="test test-11"><div></div></div>
+  <div class="test test-5"><div></div></div>
+  <div class="test"><div class="test-13"></div><div class="test-13"></div></div>
+</body></strong>
+  <div class="test test--137237261417240175431410"><body><div></div></div>
+  <div class="test test-10"><div></div></div>
+  <div class="test test-11"><div></div></div>
+  <div class="test test-5"><div></div></div>
+  <div class="test"><div class="test-13"></div></div>
+</body></strong>
+  <div class="test test--137237261417240175431410"><div></div><div></div></div>
+  <strong>block is green</strong>
+  <div class="test test-1"><div></div><div></div><div></div></div>
+  <div class="test test-5"><div></div></div>
+  <div class="test"><div class="test-13"></div></div>
+</body></strong><strong><body>
+  <p>Tests pass if <strong>block is green</strong></p><p>Tests pass if <strong>block is green</strong></p>
+  <strong><body>
+  <p>Tests pass if <strong>block is green</strong></p>
+  <strong><body>
+  <p>Tests pass if <strong>block is green</strong></p>
+  <strong><body>
+  <p>Tests pass if <div class="test-12"></div></p>
+  <strong><div class="test"><strong>block is green</strong></div></strong>
+  <div class="test test--137237261417240175431410"><div></div></div>
+  <div class="test test-10"><div></div></div>
+  <div class="test test-11"><div></div></div>
+  <div class="test test-5"><div></div></div>
+  <div class="test"><div class="test-13"></div></div>
+</body></strong>
+  <div class="test test--137237261417240175431410"><div></div></div>
+  <div class="test test-0"><div></div></div>
+  <div class="test test-11"><div></div></div>
+  <div class="test test-5"><div></div></div>
+  <div class="test"><div class="test-13"></div><div class="test-13"></div></div>
+</body></strong>
+  <div class="test test--137237261417240175431410"><body><div></div></div>
+  <div class="test test-10"><div></div></div>
+  <div class="test test-11"><div></div></div>
+  <div class="test test-5"><div></div></div>
+  <div class="test"><div class="test-13"></div></div>
+</body></strong>
+  <div class="test test--137237261417240175431410"><div></div></div>
+  <div class="test test-10"><div></div></div>
+  <div class="test test-11"><div></div><div></div><div></div></div>
+  <div class="test test-5"><div></div></div>
+  <div class="test"><div class="test-13"></div></div>
+</body></strong><strong><body>
+  <p>Tests pass if <strong>block is green</strong></p><p>Tests pass if <strong>block is green</strong></p>
+  <strong><body>
+  <p>Tests pass if <strong>block is green</strong></p>
+  <strong><body>
+  <p>Tests pass if <strong>block is green</strong></p>
+  <strong><body>
+  <p>Tests pass if <div class="test-12"></div></p>
+  <strong><div class="test"><strong>block is green</strong></div></strong>
+  <div class="test test--137237261417240175431410"><div></div></div>
+  <div class="test test-10"><div></div></div>
+  <div class="test test-11"><div></div></div>
+  <div class="test test-5"><div></div></div>
+  <div class="test"><div class="test-13"></div></div>
+</body></strong>
+  <div class="test test--137237261417240175431410"><div></div></div>
+  <div class="test test-0"><div></div></div>
+  <div class="test test-11"><div></div></div>
+  <div class="test test-5"><div></div></div>
+  <div class="test"><div class="test-13"></div><div class="test-13"></div></div>
+</body></strong>
+  <div class="test test--137237261417240175431410"><body><div></div></div>
+  <div class="test test-10"><div></div></div>
+  <div class="test test-11"><div></div></div>
+  <div class="test test-5"><div></div></div>
+  <div class="test"><div class="test-13"></div></div>
+</body></strong>
+  <div class="test test--137237261417240175431410"><div></div></div>
+  <div class="test test-10"><div></div></div>
+  <div class="test test-11"><div></div><div></div><div></div></div>
+  <div class="test test-5"><div></div></div>
+  <div class="test"><div class="test-13"></div></div>
+</body></strong><strong><body>
+  <p>Tests pass if <strong>block is green</strong></p><p>Tests pass if <strong>block is green</strong></p>
+  <strong><body>
+  <p>Tests pass if <strong>block is green</strong></p>
+  <strong><body>
+  <p>Tests pass if <strong>block is green</strong></p>
+  <strong><body>
+  <p>Tests pass if <div class="test-12"></div></p>
+  <strong><div class="test"><strong>block is green</strong></div></strong>
+  <div class="test test--137237261417240175431410"><div></div></div>
+  <div class="test test-10"><div></div></div>
+  <div class="test test-11"><div></div></div>
+  <div class="test test-5"><div></div></div>
+  <div class="test"><div class="test-13"></div></div>
+</body></strong>
+  <div class="test test--137237261417240175431410"><div></div></div>
+  <div class="test test-0"><div></div></div>
+  <div class="test test-11"><div></div></div>
+  <div class="test test-5"><div></div></div>
+  <div class="test"><div class="test-13"></div><div class="test-13"></div></div>
+</body></strong>
+  <div class="test test--137237261417240175431410"><body><div></div></div>
+  <div class="test test-10"><div></div></div>
+  <div class="test test-11"><div></div></div>
+  <div class="test test-5"><div></div></div>
+  <div class="test"><div class="test-13"></div></div>
+</body></strong>
+  <div class="test test--137237261417240175431410"><div></div></div>
+  <div class="test test-10"><div></div></div>
+  <div class="test test-11"><div></div><div></div><div></div></div>
+  <div class="test test-5"><div></div></div>
+  <div class="test"><div class="test-13"></div></div>
+</body></strong>
+  <div class="test test--137237261417240175431410"><div></div></div>
+  <div class="test test-10"><div></div></div>
+  <div class="test test-11"><div></div></div>
+  <div class="test test-5"><div></div></div>
+  <div class="test"><div class="test-13"></div></div>
+</body>

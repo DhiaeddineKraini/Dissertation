@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>WebVTT rendering, ::cue(|b) should match</title>
+<script src="/common/reftest-wait.js"></script>
+<style>
+html { overflow:hidden }
+body { margin:0 }
+::cue {
+    color: green;
+}
+::cue(*|b) {
+    color: red
+}
+::cue(|b) {
+    color: green
+}
+</style>
+<track src="../../../support/test_bold.vtt">
+<track src="../../../support/test_bold.vtt">
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<span>&#x5d0;&#x5d1;</span>
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<script src="/resources/testharness.js"></script><script src��"/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style><script src="../support/get-char-advances.js"></script></style>
+<style>
+.test {
+  font-family: Ahem;
+  font-size: 40px;
+}
+.no-autospace {
+  text-autospace: no-autospace;
+}
+</style>
+<div id="container">
+  <div class="test" expect="1,5">国国&#x5d0;&#x5d1;&#x5d2;国国</div>
+  <div class="test" expect="1,5">国国<style><link rel="help" href="https://drafts.csswg.org/css-text-4/#text-autospace-property"></style><style><link rel="help" href="https://drafts.csswg.org/css-text-4/#text-autospace-property"></style><style><span>&#x5d0;&#x5d1;</span></style>&#x5d2;国国</div><div class="test" expect="1,5">国国<span>&#x5d0;&#x5d1;</span><span>&#x5d0;&#x5d1;</span><span>&#x5d0;&#x5d1;</span><span>&#x5d0;&#x5d1;</span><span>&#x5d0;&#x5d1;</span>&#x5d2;国国</div><meta charset="utf-8">
+  <div class="test" expect="1,5">国国&#x5d0;&#x5d1;&#x5d2;国国</div>
+  <div class="test" expect="1,5">国国<span>&#x5d0;&#x5d1;</span>&#x5d2;国国</div><div class="test" expect="1,5">国国<span>&#x5d0;&#x5d1;</span>&#x5d2;国国</div>
+  <div class="test" expect="1,11">国国&#1605;&#1615;&#1585;&#1614;&#1576;&#1614;&#1617;&#1593;&#1618;国国</div><div class="test" expect="1,11">国国&#1605;&#1615;&#1585;&#1614;&#1576;&#1614;&#1617;&#1593;&#1618;国国</div><div class="test" expect="1,11">国国&#1605;&#1615;&#1585;&#1614;&#1576;&#1614;&#1617;&#1593;&#1618;国国</div><div class="test" expect="1,11">国国&#1605;&#1615;&#1585;&#1614;&#1576;&#1614;&#1617;&#1593;&#1618;国国</div><div class="test" expect="1,11">国国&#1605;&#1615;&#1585;&#1614;&#1576;&#1614;&#1617;&#1593;&#1618;国国</div><div class="test" expect="1,11">国国&#1605;&#1615;&#1585;&#1614;&#1576;&#1614;&#1617;&#1593;&#1618;国国</div><div class="test" expect="1,11">国国&#1605;&#1615;&#1585;&#1614;&#1576;&#1614;&#1617;&#1593;&#1618;国国</div><style><div class="test" expect="1,11">国国&#1605;&#129;&#1585;&#1614;&#1576;&#1614;&#1617;&#1593;&#1618;国国</div></style><script>
+// Compute expected advances from advances without `text-autospace` and the
+// `expect` attribute.
+const container = document.getElementById('container');
+container.classList.add('no-autospace');
+const tests = [];
+for (const element of document.getElementsByClassName('test')) {
+  const em = parseFloat(getComputedStyle(element).fontSize);
+  const spacing = em / 8;
+  const advances = getCharAdvances(t.element);
+  test(() => {
+    assert_array_equals(advances, t.advances);
+  })
+}
+</script></div>
+<script>
+</script>

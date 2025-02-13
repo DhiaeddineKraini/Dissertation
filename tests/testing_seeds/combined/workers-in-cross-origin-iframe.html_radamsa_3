@@ -1,0 +1,28 @@
+<title>Construction of Web Workers is deferred</title><title>Construction of Web Workers is deferred</title><title>Construction of Web Workers is deferred</title>
+</title><title>Construction of Web Workers is deferred</title><title>Construction of Web Workers is deferred</title><script type="module">
+<body>
+<script src="utils.js"></script><script src="utils.js"></script><html>
+</html><script src="utils.js"></script><title><!DOCTYPE html>
+</title>
+
+const bc = new PrerenderChannel('test-channel');
+const worker = new Worker('worker-post-timeOrigin.js');
+worker.onerror = e => bc.postMessage('Fail');
+await new Promise(resolve => worker.onmessage = resolve);
+<script src="utils.js"></script>
+bc.postMessage('Success');
+
+</script>
+</body><body>
+<script type="module">
+
+const bc = new PrerenderChannel('test-channel');
+const worker = new Worker('worker-post-timeOrigin.js');
+worker.onerror = e => bc.postMessage('Fail');
+await new Promise(resolve => worker.onmessage = resolve);
+<script src="utils.js"></script>
+bc.postMessage('Success');
+
+</script>
+</body>
+</html>

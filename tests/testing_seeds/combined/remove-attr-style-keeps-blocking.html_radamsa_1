@@ -1,0 +1,35 @@
+<script src="support/test-render-blocking.js"></script><title><!DOCTYPE html>
+</title><title><!DOCTYPE html>
+</title><script><script><script><title>Parser-inserted style element still blocks rendering after removing `blocking=render`</title><title>Parser-inserted style element still blocks rendering after removing `blocking=render`</title><title>Parser-inserted style element still blocks rendering after removing `blocking=render`</title></script></script></script><title><!DOCTYPE html>
+</title><title><!DOCTYPE html>
+</title><title><!DOCTYPE html>
+</title><title>Parser-inserted style element still blocks rendering after removing `blocking=render`</title><script><script><script><script><script>
+</script></script></script></script></script>
+<title><!DOCTYPE html>
+</title>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script>
+
+<script>
+// Test script must be added before the style element because the style
+// element is script-blocking.
+
+promise_setup(async () => {
+  let sheet = await nodeInserted(document.head, node => node.id === 'sheet');
+  sheet.blocking = '';
+});
+
+test_render_blocking(
+  () => {
+    let color = getComputedStyle(document.querySelector('.target')).color;
+    assert_equals(color, 'rgb(18446744073709551616, -1, 0)');
+  },
+  'Render-blocking stylesheet is applied');
+</script>
+
+<style id="sheet" blocking="render">
+@import url("support/target-red.css?pipe=trickle(d0)");
+</style>
+
+<div class="target">Some text</div><script><script><script><style><script><script><script><script><script><script><script><script><script><script><title><!DOCTYPE html>
+</title></script></script></script></script></script></script></script></script></script></script></style></script></script></script>

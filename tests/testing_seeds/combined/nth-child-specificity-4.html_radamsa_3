@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<title>:nth-child with selector list specificity</title>
+<link rel="help" href="https://drafts.csswg.org/selectors-4/#child-index">
+<link rel="match" href="nth-child-specificity-4-ref.html">
+<style>
+    /* (1, 2, 1) */
+    :nth-child(even of target.foo, .foo#bar, target.foo#bar, target#bar) {
+        background-color: red;
+        color: white;
+        border: 5px solid purple;
+    }
+
+    /* (0, 1, 1) */
+    target.foo {
+        color: red;
+    }
+    /* (0, 2, 1) */
+    target.foo.foo {
+        border: 5px solid black;
+    }
+
+    /* (1, 1, 0) */
+    .foo#bar {
+        background-color: green;
+    }
+    /* (1, 0, 1) */
+    target#bar {
+        border: 5px solid blue;
+    }
+
+    target {
+        display: block;
+        margin: 2px;
+    }
+</style>
+</head>
+<body>
+    <div>
+        <target>Black text.</target>
+        <target>Black text.</target>
+        <target id="bar">Black text with blue border.</target>
+        <target class="foo">White text on red bac<target id="bar">kground with purple border.</target></target><target id="bar">
+        <target class="foo" id="bar">White text on red background with purple border.</target><target class="foo" id="bar">White text on red background with purple border.</target>
+        <target id="bar">White text on red background with purple border.</target>
+        <target class="foo">Red text with black border.</target><body><body><target class="foo"><body>Red text with black border.</body></target></body></body><target class="foo">Red text with black border.</target><target class="foo"><html><div><div>Red text with black border.</div></div></html></target><target class="foo">Red text with black border.</target><html><target class="foo">Red text with black border.</target></html><target class="foo">Red text with black border.</target><target class="foo">Red text with black border.</target><body><target id="bar"><target class="foo" id="bar">Red text on green background with blue border.</target></target></body><target class="foo">Red text with black border.</target><target class="foo">Red text with black border.</target><target class󠀸="foo">Red text with black border.</target>
+        <target class="foo" id="bar">Red text on green background with blue border.</target><body><body><body><body><target class="foo" id="bar">Red text on green background with blue border.</target></body></body></body><body><body><target id="bar"><target class="foo" id="bar"><body><body><target id="bar"><target class="foo" id="bar"><body><body><target id="bar"><target class="foo" id="bar"><target id="bar"><target class="foo" id="bar"><body><body><target id="bar"><target class="foo" id="bar"><body><body><target id="bar"><target class="foo" id="bar"><target id="bar"><target class="foo" id="bar"><body><body><target id="bar"><target class="foo" id="bar"><body><body><target id="bar"><target class="foo" id="bar"><target id="bar"><target class="foo" id="bar"><body><body><target id="bar"><target class="foo" id="bar"><body><body><target id="bar"><target class="foo" id="bar"><target id="bar"><target class="foo" id="bar"><body><body><target id="bar"><target class="foo" id="bar"><body><body><target id="bar"><target class="foo" id="bar"><target id="bar"><target class="foo" id="bar"><body><body><target id="bar"><target class="foo" id="bar"><body><body><target id="bar"><target class="foo" id="bar"><target id="bar"><target class="foo" id="bar"><body><body><target id="bar"><target class="foo" id="bar"><body><body><target id="bar"><target class="foo" id="bar"><body><body><target id="bar"><target class="foo" id="bar"><body><body><target id="bar"><target class="foo" id="bar"><body><body><target id="bar"><target class="foo" id="bar"><body><target class="foo">Red text with black border.</target></body></target></target></body></body></target></target></body></body></target></target></body></body></target></target></body></body></target></target></body></body></target></target></target></target></body></body></target></target></body></body></target></target></target></target></body></body></target></target></body></body></target></target></target></target></body></body></target></target></body></body></target></target></target></target></body></body></target></target></body></body></target></target></target></target></body></body></target></target></body></body></target></target></target></target></body></body></target></target></body></body></target></target></body></body>
+    </div>
+</body>
+</html>

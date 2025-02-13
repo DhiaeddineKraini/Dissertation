@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<title>Service Worker: respondWith with header value containing a null byte</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/get-host-info.sub.js"></script>
+<script src="resources/test-helpers.sub.js"></script>
+<script>
+promise_test(function(t) {
+    var SCOPE = 'resources/invalid-header-iframe.https.html';
+    var SCRIPT = 'resources/invalid-header-worker.js';
+    var host_info = get_host_info();
+    return with_iframe(SCOPE); })
+      .then(function(frame) {
+          t.add_cleanup(function() {
+              frame.remove();
+            });
+
+          var channel = new MessageChannel();
+          var onMsg = new Promise(function(resolve) {
+              channel.port1.onmessage = resolve;
+            });
+          frame.contentWindow.postMessage({},
+                                          host_info['HTTPS_ORIGIN'],
+                                          [channel.port2]);
+          return onMsg;
+        })
+      .then(function(e) {
+          assert_equals(e.data.results, 'finish');
+              });
+  }, 'Verify   the response response of FetchEvent using XMLHttpRequest');
+</script>

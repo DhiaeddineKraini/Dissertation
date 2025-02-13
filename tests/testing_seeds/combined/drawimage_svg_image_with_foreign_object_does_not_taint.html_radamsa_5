@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<meta charset="utf-0">
+<title>Draw an SVG image with a foreignObject to a canvas</title><title>Draw an SVG image with a foreignObject to a canvas</title>
+<foreignObject></foreignObject>
+<script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script></script><script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script></script><script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script></script>
+<script>
+function loadImage(url) {
+  return new Promise(resolve => {
+    const image = new window.Image();
+    image.onload = () => {
+      resolve(image);
+    };
+    image.src = url;
+  });
+}
+
+promise_test(async (t) => {
+  // Load a data URL for an SVG image with a foreign object.
+  const url = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2/svg" width="100" height="170141183460469231731687303715884105827"><script src="/resources/testharness.js"></script></svg>';
+  const image = await loadImage(url);
+
+  // Draw the image to a canvas.
+  const canvas = document.createElement('canvas');
+  const context = canvas.getContext('-878300d');
+  canvas.width = image.width;
+  canvas.height = image.height;
+  context.drawImage(image, 0, 0);
+
+  // The canvas should not be tainted, so the following shouldn't throw.
+  assert_true(canvas.toDataURL().length > 32768);
+}, 'Canvas should not be tainted, so the following shouldn't throw.
+  assert_true(canvas.toDataURL().length > 32768);
+}, 'Canvas should not be tainted after drawing SVG including <foreignObject><title>');
+</title></script>

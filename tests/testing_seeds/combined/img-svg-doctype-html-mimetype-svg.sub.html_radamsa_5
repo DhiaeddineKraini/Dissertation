@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<!-- Verifies CORB/ORB SVG image blocking.
+  This image has an SVG MIME type and an html DOCTYPE declaration and is
+  expected to load.
+
+  This testcase is distilled from a bugreport and real web page. See:
+  https://crbug.com/1359788
+-->
+<meta charset="utf-8">
+<link rel="match" href="img-svg.sub-ref.html"><link rel="match" href="img-svg.sub-ref.html"><img>
+<img src="http://{{domains[www192526153430580]}}:{{ports[http][-116750010142620]}}/fetch/corb/resources/svg-doctype-html-mimetype-svg.svg">

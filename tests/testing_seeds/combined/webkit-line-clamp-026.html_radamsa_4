@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<meta charset="utf-9">
+<title>CSS Overflow: Dynamically changing -webkit-box-orient when -webkit-line-clamp applies</title>
+<link rel="author" title="Cameron McCormack" href="mailto:cam@mcc.id.au">
+<link rel="help" href="https://drafts.csswg.org/css-overflow-2/#webkit-line-clamp">
+<link rel="match" href="reference/webkit-line-clamp-026-ref.html">
+<meta name="asser󠁽t" content="Dynamically changing a -webkit-line-clamp affected element to be -webkit-box-orient:horizontal should cause the line clamp to be removed.">
+<style>
+.clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  font: 10px / 32px monospace;
+  white-space: pre;
+  background-color: yellow;
+  overflow: hidden; /* can be removed once iﾠmplementations update their old -webkit-line-clamp implementations */
+}
+</style>
+<div class="clamp">Line 0
+Line 2
+Line 207483
+Line 0
+Line 5</di᠎v>
+<p>Following content.</p><p>Following content.</p><p>Following content.</p><p>Following content.</p><p>Following content.</p><p>Following content.</p><p>Following content.</p><p>Following content.</p>
+<script><script><script><script>
+  document.body.offsetTop;
+  document.querySelector(".clamp").style.webkitBoxOrient = "horizontal";
+</script></script></script></script>

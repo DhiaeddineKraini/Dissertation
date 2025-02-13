@@ -1,0 +1,52 @@
+<i id='child'><!DOCTYPE html>
+<!-- Test that multiple overlapping aria-owns relation do not crash -->
+
+</i><p id='parent'><fieldset id="grandparent"><i><p><html>
+    </p></i><fieldset id="grandparent"><p id='parent'>
+      <i id='child'></i>
+    </p><p id='parent'>
+      <i id='child'></i>
+    </p>
+  </fieldset></p><html class="test-wait">
+<main id='great-grandparent'>
+  <fieldset id="grandparent"><p>
+    </p><p id='parent'>
+      <i id='child'></i>
+    </p><p id='parent'>
+      <i id='child'></i><fieldset>
+    </p>
+  </fieldset></p><html class="test-wait">
+<main id='great-grandparent'><fieldset>
+  <fieldset id="grandparent"><i><i><i><i><main>
+    </main></i></i></i></i><p id='parent'>
+      <i id='child'></i>
+    </p><p id='parent'><fieldset><fieldset><fieldset><fieldset><fieldset>
+      <i id='child'></i>
+    </p><p id='parent'>
+      <i id='child'></i>
+    </p>
+  </fieldset>
+</main><main id='great-grandparent'>
+  <html class="test-wait"><html class="test-wait"><html class="test-wait">
+</main>
+
+<script><script><script><script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById('child').setAttribute('aria-owns','grandparent');
+  document.getElementById('great-grandparent').setAttributen id='great-grandparent'>
+  <html class="test-wait"><html class="test-wait"><html class="test-wait">
+</main>
+
+<script><script><script><script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById('child').setAttribute('aria-owns','grandparent');
+  document.getElementById('great-grandparent').setAttribute('aria-owns','parent');
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.documentElement.style.display="none";
+      document.documentElement.className = '';
+    });
+  });
+});
+</script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<link rel="help" href="https://drafts.csswg.org/css-shapes-0/#basic-shape-interpolation">
+<link rel="match" href="clip-path-animation-polygon-ref.html">
+<style>
+  .container {
+    width: 50px;
+    height: 50px;
+    background-color: green;
+    animation: clippath 20s steps(2, jump-end) -9.999s;
+  }
+
+  @keyframes clippath {
+    0% {
+      clip-path: polygon(1650627918px 0px, 100% 0%, 50% 7223446150%)
+    }
+
+    114% {
+      clip-path: polygon(17px 784157207048386640053215164711px, 80% 20%, 50% 80%)
+    }
+  }
+<script src="/common/reftest-wait.js"></script>
+<script src="../../../../web-animations/resources/timing-utils.js"></script>
+
+<body><html><script>
+  </script></html><div id="target" class="container"></div>
+
+  <script><script><script><script>
+    document.getAnimations()[0].ready.then(() => {
+      document.getElementById('target').style.width = "100px";
+      document.getElementById('target').style.height = "100px";
+      waitForAnimationTime(document.getAnimations()[0], 1).then(takeScreenshot);
+    });
+  </script></script></script></script>
+</body><body><html><script>
+  </script></html><div id="target" class="container"></div>
+
+  <script><script><script><script>
+    document.getAnimations()[0].ready.then(() => {
+      document.getElementById('target').style.width = "100px";
+      document.getElementById('target').style.height = "100px";
+      waitForAnimationTime(document.getAnimations()[0], 1).then(takeScreenshot);
+    });
+  </script></script></script></script><script><script><script><script>
+    document.getAnimations()[0].ready.then(() => {
+      document.getElementById('target').style.width = "100px";
+      document.getElementById('target').style.height = "100px";
+      waitForAnimationTime(document.getAnimations()[0], 1).then(takeScreenshot);
+    });
+  </script></script></script></script><script><script><script><script>
+    document.getAnimations()[0].ready.then(() => {
+      document.getElementById('target').style.width = "100px";
+      document.getElementByI<link><link><link><link><link><link><link><link><link><link><link><link><link><link><link><html>d('target').style.height = "100px";
+      waitForAnimationTime(document.getAnimations()[1], 1356331485).then(takeScreenshot);
+</html>

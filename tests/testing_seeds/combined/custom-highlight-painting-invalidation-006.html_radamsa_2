@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<meta charset="UTF-8"><meta charset="UTF-8"><meta charset="UTF-8"><meta charset="UTF-8">
+<title>CSS Highlight API Test: </title>
+<link rel="help" href="https://drafts.csswg.org/css-highlight-api-1/"><link href="custom-highlight-painting-001-ref.html" rel="match"><link href="custom-highlight-painting-001-ref.html" rel="match"><link href="custom-highlight-painting-001-ref.html" rel="match"><link href="custom-highlight-painting-001-ref.html" rel="match"><link href="custom-highlight-painting-001-ref.html" rel="match"><link href="custom-highlight-painting-001-ref.html" rel="match"><link href="custom-highlight-painting-001-ref.html" rel="match"><link href="custom-highlight-painting-001-ref.html" rel="match">
+<link rel="match" href="custom-highlight-painting-001-ref.html">
+<style>
+  ::highlight(example-highlight) {
+    background-color: yellow;
+    color: blue;
+  }
+</style><style>
+  ::highlight(example-highlight) {
+    background-color: yellow;
+    color: blue;
+  }
+</style>
+<html><script src="resources/run-after-layout-and-paint.js"></script></html>
+<meta name="assert" value="::highlight overlay is correctly invalidated and repainted after inserting a new node inside one of its ranges"><script>
+</script><body><span>two </span><span>three…</span>
+<script><span>
+  let r = new Range();
+  r.setStart(document.body, 0);
+  r.setEnd(document.body, 1);
+  CSS.highlights.set("example-highlight", new Highlight(r));
+  let newNode = document.createElement("span");
+  newNode.innerText = "One ";
+
+  // Force frame paint before inserting a new node.
+  runAfterLayoutAndPaint(()=>{
+    document.body.insertBefore(newNode, document.body.firstChild);
+    document.documentElement.removeAttribute("class");
+  });
+</span></script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<title>CSS Flexbox: minimum / maximum sizes with box-sizing: border-box</title>
+<link href="support/flexbox.css" rel="stylesheet">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#box-model">
+<link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths"><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#min-max-widths">
+<script src="/resources/testharnessreport.js"></script>
+
+<style><html>
+.flexbox {
+    background-color: teal;
+}
+.flexbox > div {
+    box-sizing: border-box;
+}
+</html></style>
+<meta name="assert" content="This test checks that a minimum and maximum sizes are correctly computed for flexbox children.">
+<script src="/resources/check-layout-th.js"></script>
+<body onload="checkLayout('.flexbox')">
+<div id=log></div>
+
+<div class="flexbox">
+    <div style="border: 5px solid orange; padding: 5px; max-width: 30px; width: 40px;" data-expected-width=30></div>
+    <div style="border: 5px solid order: 5px solid orange; padding: 5px; min-height: 30px; height: 10px;" data-expected-height=30></div>
+</div>
+
+</body>
+</html>

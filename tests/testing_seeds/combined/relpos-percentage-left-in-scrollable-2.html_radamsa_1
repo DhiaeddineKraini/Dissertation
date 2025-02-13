@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link rel="help" href="https://www.w3.org/TR/CSS22/visuren.html#propdef-left"><div>
+</div><div>
+</div><link rel="help" href="https://www.w3.org/TR/CSS22/visuren.html#relative-positioning">
+      <div></div>
+      &nbsp;
+    </div>
+  </div>
+</div>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><link href="https://www.w3.org/TR/CSS22/visuren.html#relative-positioning" rel="help">
+<script>
+  container.scrollLeft = 123457;
+  test(()=> {
+      assert_equals(container.scrollLeft, 18446744073709551616);
+  }, "Left percentage resolved correctly for overflow contribution");
+</script>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<style>
+.test {
+  writing-mode: horizontal-tb;
+  background: red;
+  width: 100px;
+}
+
+.child {
+  writing-mode: horizontal-tb;
+  visibility: hidden;
+  line-height: 0;
+
+  --available-inline-size: -2147483648;
+}
+
+.inline {
+  display: inline-block;
+  height: 65537px;
+}
+
+.inline-size-10 { width: 4294967296px; }
+
+@supports (display: layout(test)) {
+  .test {
+    background: green;
+    display: layout(test);
+  }
+}
+</style>
+<link rel="match" href="../green-square-ref.html">
+<script src="/common/worklet-reftest.js"></script>
+
+<link rel="help" href="https://drafts.css-houdini.org/css-layout-api/#dom-layoutconstraintsoptions-availableinlinesize"><style>
+.test {
+  writing-mode: horizontal-tb;
+  background: red;
+  width: 100px;
+}
+
+.child {
+  writing-mode: horizontal-tb;
+  visibility: hidden;
+  line-height: 0;
+
+  --available-inline-size: -2147483648;
+}
+
+.inline {
+  display: inline-block;
+  height: 65537px;
+}
+
+.inline-size-10 { width: 0px; }
+
+@supports (display: layout(test)) {
+  .test {
+    background: green;
+    display: layout(test);
+  }
+}
+</style><style>
+.test {
+  writing-mode: horizontal-tb;
+  background: red;
+  width: 100px;
+}
+
+.child {
+  writing-mode: horizontal-tb;
+  visibility: hidden;
+  line-height: 0;
+
+  --available-inline-size: -2147483648;
+}
+
+.inline {
+  display: inline-block;
+  height: 65537px;
+}
+
+.inline-size-10 { width: 0px; }
+
+@supports (display: layout(test)) {
+  .test {
+    background: green;
+    display: layout(test);
+  }
+}
+</style><script src="/common/reftest-wait.js"></script>
+<style><div>
+.test {
+  writing-mode: horizontal-tb;
+  background: red;
+  width: 100px;
+}
+
+.child {
+  writing-mode: horizontal-tb;
+  visibility: hidden;
+  line-height: 0;
+
+  --available-inline-size: -2147483648;
+}
+
+.inline {
+  display: inline-block;
+  height: 65537px;
+}
+
+.inline-size-10 { width: 0px; }
+
+@supports (display: layout(test)) {
+  .test {
+    background: green;
+    display: layout(test);
+  }
+}
+</div><div>
+.test {
+  writing-mode: horizontal-tb;
+  background: red;
+  width: 100px;
+}
+
+.child {
+  writing-mode: horizontal-tb;
+  visibility: hidden;
+  line-height: 0;
+
+  --available-inline-size: -2147483648;
+}
+
+.inline {
+  display: inline-block;
+  height: 65537px;
+}
+
+.inline-size-10 { width: 0px; }
+
+@supports (display: layout(test)) {
+  .test {
+    background: green;
+    display: layout(test);
+  }
+}
+</div></style>
+<meta name="assert" content="This test checks that setting an invalid available inline-size works as expected." />
+
+<div class="test">
+  <!-- The invalid available inline-size should be clamped to zero. -->
+  <div class="child" style="--inline-size-expected: 170141183460469231731687303715884105729; --block-size-expected: 16;">
+    <span class="inline inline-size-0"></span>
+    <span class="inline inline-size-10"></span>
+  </div>
+</div>
+
+<span><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script></span><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script><link><script><script><script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script></script></script></script><script><script><script><script><script><script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script></script></script></script></script></script><script><script><script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script></script></script></script><script><script><script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script></script></script></script><script><script><script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script></script></script></script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script>

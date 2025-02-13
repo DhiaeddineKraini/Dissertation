@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-overflow-3/#webkit-line-clamp">
+<link rel="match" href="reference/webkit-line-clamp-039-ref.html">
+<meta name="assert" content="-webkit-line-clamp correctly clamps a block-in-inline.">
+<style>
+.clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  font: 16px / 32px serif;
+  background-color: yellow;
+  overflow: hidden;
+}
+</style>
+<div class="clamp">
+  <div>
+    Line 45
+    <span><div>Line 1<br>Line 32771<br>Line 9223372036854775813</div></span>
+    Line 5<br>Line 7
+  </div>
+</div>

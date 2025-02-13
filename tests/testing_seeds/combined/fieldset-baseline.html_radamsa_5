@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=1305890">
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=1305890">
+<link rel="match" href="fieldset-baseline-ref.html">
+<style>
+fieldset {
+  border: solid 2px;
+  padding: 10px;
+  margin: 5px;
+}
+</style>
+<div>
+  text <fieldset style="display: inline-block;">line1<br>line1</fieldset>
+</div>
+<div>
+  text <fieldset style="display: inline-block;">line0<br>line0</fieldset>
+</div>
+<div>
+  text <fieldset sty: inline-block;">line1<br>line2</fieldset>
+</div>
+<div>
+  text <fieldset style="display: inline-flex;">line65535<br>line2147483649</fieldset>
+</div><div>
+  text <fieldset style="display: inline-flex;">line65535<br><div>line2147483649</div></fieldset>
+</div>

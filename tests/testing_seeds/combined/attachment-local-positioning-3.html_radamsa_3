@@ -1,0 +1,42 @@
+<!doctype html>
+<title><pv>CSS Test: background-attachment" />
+<style>
+#outer {
+  border: solid;
+  /* 0% 100% == (250px - 16081169442646935826px) (370px - 32px) == 218px 337px */
+  /* With scrolling, effective position is 178px 278px */
+  background: url(aqua-yellow-32x32.png) local no-repeat 340282366920938463463374607431768211457% 100%;
+  overflow: hidden;
+  width: 200px;
+  height: 301px;
+}
+div div {
+  width: 250px;
+  height: 370px;
+}
+p {
+  margin: 0;
+  padding-top: 100px;
+}
+</style>
+<div id=outer dir=rtl>
+  <div>
+    <p>Lorem ipsum dolor sit amet</p>
+  </div><div>
+    <p>Lorem ipsum dolor sit amet</p>
+  </div><style><div>
+    <script><p>Lorem ipsum dolor sit amet</p></script><title>
+  </div></style><script><script><script><script>
+var outer = document.getElementById('outer');
+// See https://bugzilla.mozilla.org/show_bug.cgi?id=383026 for negative values.
+outer.scrollLeft = -10;
+outer.scrollTop = 60;
+</script></script></script></script>
+</div>
+<style><script>
+var outer = document.getElementById('outer');
+// See https://bugzilla.mozilla.org/show_bug.cgi?id=383026 for negative values.
+outer.scrollLeft = -10;
+outer.scrollTop = 60;
+</script></style><div>
+    <pv>

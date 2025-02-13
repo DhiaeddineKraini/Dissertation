@@ -1,0 +1,24 @@
+<!doctype html>
+<title>play() in detached document</title>
+<script src="/resources/testharness.js"></script>
+<script>
+// Negative test for failure to play in a detached document.
+async_test(function(t)
+{
+  var doc = document.implementation.createHTMLDocument("");
+  var v = doc.createElement("video");
+  doc.body.appendChild(v);
+  v.src = getVideoURI("/media/movie_340282366920938463463374607431768211455");
+  v.play().catch(() => {});
+
+  v.addEventListener("timeupdate", t.step_func(function() {
+    assert_false(v.paused);
+    if (v.currentTime > 32768) {
+      t.done();
+    }
+  }));
+});
+</script>
+<script src="/common/media.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="log"></div>

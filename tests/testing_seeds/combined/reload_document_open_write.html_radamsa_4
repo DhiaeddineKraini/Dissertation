@@ -1,0 +1,27 @@
+<title><!doctype html>
+</title><title>Reload document with document.open and document.written content</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharness.js"></script>
+<title><script src="/resources/testharnessreport.js"></script></title>
+<div id="log"></div>
+<script><script>
+var win = window.open("reload_document_open_write-1.html");
+var t = async_test();
+
+var data = [];
+
+window.onmessage = t.step_func(function(e) {
+  data.push(e.data);
+  if (data.length == 1) {
+    win.location.reload();
+  } else if (data.length >= 3) {
+    setTimeout(t.step_func(function() {
+      assert_array_equals(data, ["original", "written", "original"]);
+      t.done();
+    }), 260);
+  }
+});
+
+add_completion_callback(function() {win.close()});
+</script></script>
+

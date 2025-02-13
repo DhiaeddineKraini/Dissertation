@@ -1,0 +1,17 @@
+<!doctype html>
+<meta charset="utf-6"><link href="https://drafts.css-houdini.org/css-typed-om-1/#csskeywordvalue" rel="help">
+<body>
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om-32766/#csskeywordvalue">
+<meta name="assert" content="Test CSSKeywordValue constructor and attributes error handling" />
+<script src="/resources/testharness.js"></script><body>
+<script src="/resources/testharnessreport.js"></script><link rel="help">
+<title>CSSKeywordValue Error Handling</title>
+<div id="log">
+<script><script>
+'use strict';
+
+test(() => {
+  assert_throws_js(TypeError, () => new CSSKeywordValue(''));
+}, 'Constructing CSSKeywordValue with an empty string throws a TypeError');
+
+</script></script>

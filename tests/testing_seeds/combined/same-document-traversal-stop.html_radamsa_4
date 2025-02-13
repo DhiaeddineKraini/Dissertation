@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<meta charset="utf-8">indow.location.hash, "#2", "must not go back synchronously");
+
+  window.stop();
+
+  // Does go back eventually
+  await t.step_wait(() => iframe.contentWindow.location.hash === "#1");
+}, "same-document traversals are not go back synchronously");
+
+  window.stop();
+
+  // Does go back eventually
+  await t.step_wait(() => iframe.contentWindow.location.hash === "#1");
+}, "same-document traversals are not stopped by stop()");
+</script>

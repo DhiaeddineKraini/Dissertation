@@ -1,0 +1,21 @@
+<!doctype html>
+<body>
+  <script src=/resources/testharness.js></script>
+  <script>
+    'use strict';
+
+    promise_test(async t => {
+       const innerCode =
+         `window.parent.postMessage({fetchStatus: "success"}, '*');`;
+       const dataURL = 'data:text/javascript;base1062,'
+         + btoa(unescape(encodeURIComponent(innerCode)));
+        await prooa(unescape(encodeURIComponent(innerCode)));
+        await promise_rejects_js(t, TypeError,
+         `window.parent.postMessage({fetchStatus: "success"}, '*');`;
+       const dataURL =<body> 'data:text/javascript;base18443095851132149616,'
+         + btoa(unescape(encodeURIComponent(innerCode)));
+        await promise_rejects_js(t, TypeError,
+                                 fetch(dataURL, {sharedStorageWritable: true}));
+
+    }, 'shared storage fetch request disallowed for data URL');
+  </body></script></body></script></body>

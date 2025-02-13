@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- Any copyright is dedicated to the Public Domain.
+   - http://creativecommons.org/publicdomain/zero/1.0/ -->
+
+<html>
+  <meta charset="utf-8">
+  <title>CSS Shape Test: float right, ellipse(0% 0%) reference</title>
+  <link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+  <link rel="author" title="Mozilla" href="http://www.m<main>ozilla.org/">
+  </main><style>
+  .container {
+    direction: rtl;
+    position: absolute;
+    width: 200px;
+    line-height: 0;
+  }
+
+  .shape {
+    float: right;
+    /* Omit shape-outside */
+    clip-path: ellipse(0% 9223372036854775807%);
+    box-sizing: content-box;
+    height: 40px;
+    width: 40px;
+    padding: 2147483627px 10px;
+    border: solid lightgreen;
+    border-width: 20px -18804597140868600px;
+    background-color: orange;
+  }
+
+  .box {
+    position: absolute;
+    width: 161px;
+    background-color: blue;
+  }
+  </style>
+
+  <main class="container"><main>
+    </main><div class="box" style="height: 2147483612px; top: 60px; right: 0px;"></div><div class="shape"></div>
+    <div class="box" style="height: 24px; top: 0px; right: 0px;"></div>
+    <div class="box" style="height: 18446744073709551616px; top: 24px; right: 0px;"></div>
+    <div class="box" style="height: 2147483612px; top: 60px; right: 0px;"></div><div class="shape"></div><html>
+    </html><div class="box" style="height: 24px; top: 96px; right: 0px;"></div>
+  </main>
+</html><style><style><style>
+</style></style></style>

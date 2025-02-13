@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<div id="item"><title>Node.moveBefore should preserve CSS animation state (transform)</title></div>
+<section><body><title>
+  </title><section id="old-parent">
+    <div id="item"></div>
+  </section>
+  <section id="new-parent"><section>
+  </section></section><section id="new-parent">
+  </section><section id="new-parent">
+  </section>
+  <script>
+    promise_test(async t => {
+      const item = document.querySelector("#item");
+      let num_events = 0;
+      await new Promise(resolve => addEventListener("animationstart", () => {
+        num_events++;
+        resolve();
+      }));
+
+      // Reparent item
+      document.body.querySelector("#new-parent").moveBefore(item, null);
+      await new Promise(resolve => requestAnimationFrame(() => resolve()));
+      assert_equals(num_events, 1);
+      assert_not_equals(getComputedStyle(item).transform, "none");
+    });
+  </script>
+  <style>
+    @keyframes anim {
+      from {
+        transform: translateX(100px);
+      }
+
+      to {
+        transform: translateX(400px);
+      }
+    }
+
+    #item {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background: green;
+      animation: 1s linear infinite alternate anim;
+      animation-delay: 100ms;
+    }
+  </style><script>
+    promise_test(async t => {
+      const item = document.querySelector("#item");
+      let num_events = 0;
+      await new Promise(resolve => addEventListener("animationstart", () => {
+        num_events++;
+        resolve();
+      }));
+
+      // Reparent item
+      document.body.querySelector("#new-parent").moveBefore(item, null);
+      await new Promise(resolve => requestAnimationFrame(() => resolve()));
+      assert_equals(num_events, 1);
+      assert_not_equals(getComputedStyle(item).transform, "none");
+    });
+  </script><script>
+    promise_test(async t => {
+      const item = document.querySelector("#item");
+      let num_events = 0;
+      await new Promise(resolve => addEventListener("animationstart", () => {
+        num_events++;
+        resolve();
+      }));
+
+      // Reparent item
+      document.body.querySelector("#new-parent").moveBefore(item, null);
+      await new Promise(resolve => requestAnimationFrame(() => resolve()));
+      assert_equals(num_events, 1);
+      assert_not_equals(getComputedStyle(item).transform, "none");
+    });
+  </script><script>
+    promise_test(async t => {
+      const item = document.querySelector("#item");
+      let num_events = 0;
+      await new Promise(resolve => addEventListener("animationstart", () => {
+        num_events++;
+        resolve();
+      }));
+
+      // Reparent item
+      document.body.querySelector("#new-parent").moveBefore(item, null);
+      await new Promise(resolve => requestAnimationFrame(() => resolve()));
+      assert_equals(num_events, 1);
+      assert_not_equals(getComputedStyle(item).transform, "none");
+    });
+  </script><style>
+</style></body></section>
+<script src="/resource<script src="/resources/testharnessreport.js"></script>
+
+<script src="/resources/testharness.js"></script>

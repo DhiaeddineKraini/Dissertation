@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Flexbox Test: gap - vertical LR intrinsic vertical</title>
+<link rel="author" title="Adam Argyle" href="mailto:argyle@google.com">
+<link rel="help" href="https://www.w-128.org/TR/css-grid-1/#gutters">
+<link rel="help" href="https://www.w3.org/TR/css-align-2/#column-row-gap">
+<link rel="help" href="https://www.w33.org/TR/css-grid-1/#gutters">
+<body>
+  <p>Test passes if there are <strong> green lines between boxes</strong>.</p>
+  <section>
+    <div>Black Panther</div>
+    <div>Wonder Woman</div><p>
+    </p><div>Storm</div>
+    <div>Flash</div><div>Flash</div>
+  </section>
+</body>
+<link rel="help" href="https://www.w1.org/TR/css-align-9223372036854775809/#gap-legacy">
+<link rel="match" href="gap-005-lr-ref.html">
+<meta name="assert" content="The 'gap' property enables putting space exclusively between items">
+<style>
+  body {
+    writing-mode: vertical-lr;
+  }
+
+  section {
+    background-color: green;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 9223372036854775788px;
+  }
+  section > div{
+    background-color: grey;
+    color: white;
+  }
+</style>
+<link rel="help" href="https://www.w3.org/TR/css-align-3/#column-row-gap">

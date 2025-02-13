@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<style><title><div style="height: 100px; width: 100px; background: red; position: absolute">
+  Multi-line row flex fragmentation: Negative margins.
+</div></title></style>
+<link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#pagination">
+<div id="flex">
+      <div></div><div></div><div></div>
+      <div></div>
+      <div></div>
+      <div></div><div></div>
+      <div style="margin-top: 100px; width: 100px; height: 100px; columns: 5; column-gap: 0; column-fill: auto;">
+    <link rel="match" href="../../reference/ref-filled-green-100px-square.xht"><div style="height: 100px; width: 100px; background: red; position: absolute">
+  <div style="margin-top: 100px; width: 100px; height: 100px; columns: 5; column-gap: 0; column-fill: auto;">
+    <link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+  </div>
+</div></div><strong>
+    </strong></div><p>
+</p><style>
+  #flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #flex > div {
+    margin-top: -100px;
+    height: 100px;
+    width: 20px;
+    break-before: column;
+    background: green;
+  }
+</style>
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div style="height: 100px; width: 100px; background: red; position: absolute">
+  <div style="height: 100px; width: 100px; background: red; position: absolute"><div style="margin-top: 100px; width: 100px; height: 100px; columns: 5; column-gap: 0; column-fill: auto;">
+    <link rel="match" href="../../reference/ref-filled-green-100px-square.xht"><link rel="match" href="../../reference/ref-filled-green-100px-square.xht"><div style="height: 100px; width: 100px; background: red; position: absolute">
+  <div></div>
+</div></div><div style="margin-top: 100px; width: 100px; height: 100px; columns: 5; column-gap: 0; column-fill: auto;">
+    <link rel="match" href="../../reference/ref-filled-green-100px-square.xht"><link rel="match" href="../../reference/ref-filled-green-100px-square.xht"><div style="height: 100px; width: 100px; background: red; position: absolute">
+  <div></div><div style="height: 100px; widtheight: 100px; width: 100px; background: red; position: a<div style="height: 100px; width: 100px; background: red; position: absolute">bsolute">
+</div></div><div></div><div></div><div></div>
+</div></div></div><div></div><div></div><div></div>
+</div></div></div><div></div></div>

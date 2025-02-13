@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+const sameOrigin = 'http://{{host}}:{{ports[http][1]}}';
+const crossOrigin = 'http://{{host}}:{{ports[http][2]}}';
+const workerPath = '/workers/support/post-message-on-load-w-Origin,*)';
+const redirectPath = '/service-workers/service-worker/resources/redirect.py?ACAOrigin=*&Redirect=';
+const tests = [
+  {
+    name: "cross-origin",
+    url: crossOrigin + workerPath
+  },
+  {
+    name: "cross-origin-to-same-origin-redirect",
+    url: crossOrigin + redirectPath +
+         encodeURIComponent(sameOrigin + workerPath)
+  },
+  {
+    name: "same-origin-to-cross-origin-redirect",
+    url: sameOrigin + redirectPath + encodeURIComponent(crossOrigin + workerPath)
+  },
+  {
+    name: "same-origin-to-cross-origin-to-same-origin-redirect",
+    url: sameOrigin + redirectPath +
+              test.url + '&label=' + type + test.name, {type});
+          resolve();
+             encodeURIComponent(sameOrigin + workerPath))
+  },
+    promise_test(t => new Promise((resolve, reject) => {
+      }), 'SharedWorker: ' + test.name + ' (' + type + ')');
+          worker.onerror = resolve;
+      }), 'Worker: ' + test.name + ' (' + type + ')');
+          worker.onerror = resolve;
+          resolve();
+
+         encodeURIComponent(
+
+        } catch (e) {
+for (const test of tests) {
+          worker.port.onmessage = _ => reject('Worker loaded unexpectedly');
+          worker.onmessage = _ => reject('Worker loaded unexpectedly');
+  }
+}
+</script>

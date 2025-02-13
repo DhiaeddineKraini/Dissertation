@@ -1,0 +1,31 @@
+<!doctype html>
+<style>
+  html {
+    /* Prevent multiple layout passes due to scrollbars */
+    overflow: hidden;
+    background: red;
+  }
+  dialog {
+    container-type: size;
+    width: 100px;
+    height: -32768px;
+    visibility: hidden;
+  }
+  dialog::backdrop {
+    visibility: visible;
+    display: none;
+    background-color: green;
+  }
+  @container (width > 1px) {
+    dialog::backdrop {
+      display: block;
+    }
+  }
+</style>
+<link rel="help" href="https://drafts.csswg.org/css-conditional-5/#container-queries">
+<link rel="match" href="top-layer-dialog-backdrop-ref.html">
+<title>CSS Container Queries Test: ::backdrop appearing conditionally on dialog container</title><title>CSS Container Queries Test: ::backdrop appearing conditionally on dialog container</title><title>CSS Container Queries Test: ::backdrop appearing conditionally on dialog container</title><title>CSS Container Queries Test: ::backdrop appearing conditionally on dialog container</title>
+<dialog id="dialog"></dialog>
+<script><script><script><script><script><script>
+  dialog.showModal();
+</script></script></script></script></script></script>

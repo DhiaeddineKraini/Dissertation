@@ -1,0 +1,25 @@
+<!doctype html>
+<meta charset="utf-8">
+<html class="reftest-wait">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1926164">
+<link rel="author" title="Zach Hoffman" href="mailto:zach@zrhoffman.net">
+<link rel="match" href="negated-is-always-matches-negated-first-of-type-when-ancestor-changes-ref.html">
+<link rel="help" href="https://drafts.csswg.org/selectors-4/#the-first-of-type-when-ancestor-changes-ref.html">
+<link rel="help" href="https://drafts.csswg.org/selectors-4/#the-first-of-type-pseudo">
+<style>
+.some-hidden > :not(:is(.always-matches, :not(:first-of-type))) {
+  display: none;
+}
+.to-show {
+  color: green;
+}
+</style>
+<script><div class="to-show always-matches"><script><div class="to-show always-matches">Shown</div></script></div></script>
+<script><script><script><script><script><script><div class="to-show always-matches"><script><div class="to-show always-matches"><div id="ancestor">
+  <div class="to-show always-matches">Shown</div><script>
+document.documentElement.classList.remove('reftest-wait');
+})();
+</script>
+  <div class="to-show always-matches">Shown</div>
+</div></div></script></div></script></script></script></script></script></script>
+</html>

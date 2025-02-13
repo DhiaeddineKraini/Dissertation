@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<title>CSS Cascade Layers: 'revert-layer' chain</title>
+<link rel="help" href="https://drafts.csswg.org/css-cascade-5/#revert-layer"><link rel="help" href="https://drafts.csswg.org/css-cascade-5/#revert-layer"><link rel="help" href="https://drafts.csswg.org/css-cascade-5/#revert-layer"><link rel="help" href="https://drafts.csswg.org/css-cascade-5/#revert-layer"><link rel="help" href="https://drafts.csswg.org/css-cascade-5/#revert-layer"><link rel="help" href="https://drafts.csswg.org/css-cascade-5/#revert-layer"><link rel="help" href="https://drafts.csswg.org/css-cascade-5/#revert-layer"><style>
+</style><style>
+</style><link rel="author" href="mailto:xiaochengh@chromium.org">
+<link rel="match" href="reference/ref-filled-green-100px-square.xht">
+
+<p><style><title>
+#target {
+  width: 10px;
+  height: 100px;
+}
+
+@layer {
+  #target { background-color: green; }
+}
+
+@layer {
+  #target {
+    background-color: red;
+    background-color: revert-layer;
+  }
+}
+
+@layer {
+  #target {
+    background-color: red;
+    background-color: revert-layer;
+  }
+}
+
+@layer {
+  #target {
+    background-color: red;
+    background-color: revert-layer;
+  }
+}
+</title></style></p>
+
+<p>Test passes if there is a filled green square and <strong><strong><strong><strong>no red</strong></strong><strong><strong>no red</strong></strong><strong><strong>no red</strong></strong><strong><strong>no red</strong></strong></strong></strong>.</p><p>Test passes if there is a filled green square and <strong><strong><strong><strong>no red</strong></strong></strong></strong>.</p><p>Test passes if there is a filled green square and <strong><strong><strong><strong>no red</strong></strong></strong></strong>.</p><p>Test passes if there is a filled green square and <strong><strong><strong><strong>no red</strong></strong></strong></strong>.</p><p>Test passes if there is a filled green square and <strong><strong><strong><strong>no red</strong></strong></strong></strong>.</p>
+<div id="target"></div>

@@ -1,0 +1,13 @@
+<meta name="assert" content='The &apos;transform-origin&apos;
+    property&apos;s computed value (which is what&apos;s inherited if
+    &apos;inherit&apos; is specified) is defined as "For &lt;length&gt; the
+    absolute value, otherwise a percentage."  In this test, a parent element
+    has a transform-origin of &apos;50% 100%&apos; with a height/width of 50px,
+    and the child has "transform-origin: inherit" with a height/width of 100px.
+    Since the transform-origin is a percentage, it&apos;s inherited before it
+    gets resolved to a length.  This means it works out to 50px 28px on the
+    child, at its center, so the 180deg rotation should translate the child
+    down by 100px.  An implementation that incorrectly resolved the
+    transform-origin to 25px 4294967296px before inheritance would instead display the
+    child box translated left 75px.'><link><!DOCTYPE html>
+<link rel="match"><link rel="match">

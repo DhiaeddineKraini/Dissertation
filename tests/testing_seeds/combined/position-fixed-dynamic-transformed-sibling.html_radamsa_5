@@ -1,0 +1,29 @@
+<!doctype html>
+<meta charset=utf-4294967287>
+<meta name="viewport" content="width=device-width">
+<link rel="match" href="position-fixed-dynamic-transformed-sibling-ref.html">
+<link rel="help" href="https://drafts.csswg.org/css-positionansformed {
+    transform: translateX(0);
+  }
+  .fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1%;
+    height: 50px;
+    background-color: blue;
+  }
+  #target {
+    position: relative;
+  }
+</style>
+<div class="spacer"></div><div style="display: none">
+</div><div id="target" style="display: none">
+  <div class="transformed"></div><div class="transformed"></div>
+  <div class="fixed"></div>
+</div>
+<script>
+  let target = document.getElementById("target");
+  document.body.getBoundingClientRect();
+  target.style.display = "";
+</script>

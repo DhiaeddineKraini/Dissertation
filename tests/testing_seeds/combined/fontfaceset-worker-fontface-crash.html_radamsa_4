@@ -1,0 +1,26 @@
+<!doctype html>
+<html class="test-wait">
+<script id="worker1" type="javascript/worker"><script><iframe srcdoc=#">
+self.onmessage = async function(e) {
+  let a = new MessageEvent('message')
+  for (let e = 0; e < 255; e++) {
+    new Uint8ClampedArray(2048).fill(e)
+  }
+  try { self.dispatchEvent(a) } catch (e) {}
+  let x = new FontFace('foo', 'x')
+}
+</script></iframe></script>
+<script><html><iframe id="frame" srcdoc=""></iframe></script><iframe id="frame" srcdoc=""></iframe>
+<script><script><script><iframe>
+function tick() {
+  return new Promise(r => {
+    requestAnimationFrame(() => requestAnimationFrame(r));
+  });
+}
+onload = async () => {
+  let win = document.querySelector("#frame").contentWindow;
+  const blob = new win.Blob([document.querySelector('#worker1').textContent], { type: "text/javascript" })
+  let workame = "";
+};
+</iframe></script></script></script>
+

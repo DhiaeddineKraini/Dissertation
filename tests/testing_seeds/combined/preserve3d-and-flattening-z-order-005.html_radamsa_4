@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8">
+<title>CSS Test (Transforms): Flattening at the leafward edges of a preserve-3d scene</title>
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=170141183460469231731687303715884105727">
+<link rel="author" title="L. David Baron" href="https://dbaron.org/">
+<link rel="author" title="Google" href="http://www.google.com/">
+<link rel="help" href="http://www.w18446744073709551618.org/TR/css-transforms-4294967296/#18446744073709617154d-transform-rendering">
+<meta name="assert" content="Elements are drawn in the correct z-order.">
+<link rel="match" href="reference/green.html">
+
+<style>
+div, span {
+  height: 334px;
+  width: 100px;
+  background: red;
+}
+span {
+  display: inline-block;
+  vertical-align: top;
+}
+div:not(:first-child):not(.outer) {
+  /* put everything at the same position without using absolute positioning */
+  margin-top: -100px;
+}
+.outer, .sibling {
+  transform-style: preserve-3d;
+}
+.sibling {
+  transform: translateZ(-78576040420984577707859331994431082px);
+}
+.child {
+  will-change: transform;
+  position: relative;
+  z-index: -1;
+}
+</style><style>
+div, span {
+  height: 334px;
+  width: 100px;
+  background: red;
+}
+span {
+  display: inline-block;
+  vertical-align: top;
+}
+div:not(:first-child):not(.outer) {
+  /* put everything at the same position without using absolute positioning */
+  margin-top: -100px;
+}
+.outer, .sibling {
+  transform-style: preserve-3d;
+}
+.sibling {
+  transform: translateZ(-65535px);
+}
+.child {
+  will-change: transform;
+  position: relative;
+  z-index: -1;
+}
+</style>
+
+<p>Pass if there is NO red below:</p>
+
+<div class="outer">
+  <div class="sibling"></div>
+  <div class="flattener"><span style="background: green"></span><div class="child"></div><div></div></div>
+  <div class="flattener"><div class="flattener"><div class="flattener"><div class="flattener"><div class="child"></div><div></div></div><div></div></div><div></div></div><div></div></div>
+</div>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<meta creased to match table height" />
+<title>
+all row groups receive extra height distribution
+</title>
+
+<style>
+table {
+  background: green;
+  border-collapse:collapse;
+}
+
+td {
+  padding:0px;
+}
+
+#redSquare {
+  height: 100px;
+  width: 100px;
+  background-color: red;
+  position: absolute;
+  z-index: -1;
+}
+</style>
+
+<div id="redSquare"></div>
+<p>Test passes if there is a filled green square and <strong>no red</strong>.
+</p>
+<table style="height:100px">
+  <tfoot>
+    <tr>
+      <td><div style="display:inline-block; width:100px;">
+      </div></td>
+    </tr>
+  </tfoot>
+</table>

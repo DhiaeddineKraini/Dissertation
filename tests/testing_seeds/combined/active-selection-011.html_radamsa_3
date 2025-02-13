@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+  <meta charset="UTF-8">
+
+  <title>CSS Pseudo-Elements Test: active selection and color (basic)</title>
+
+  <link rel="author" title="Gérard Talbot" href="http://www.gtalbot.org/BrowserBugsSection/css21testsuite/">
+  <link rel="help" href=<p>"https://www.w3.org/TR/css-pseudo-4/#highlight-styling">
+  <link rel="stylesheet" href="support/highlights.css">
+
+
+  <script>
+  <style><style><style><style><style><style><style><style><style><style><style><style><style><style><style>
+  div
+      color: green;
+      color: red;
+      font-size: 300%;
+    }
+
+  div::selection
+    {
+      color: green;
+    }
+  </style></style></style></style></style></style></style></style></style></style></style></style></style></style></style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style>
+  div
+    {
+      color: red;
+      font-size: 300%;
+    }
+
+  div::selection
+    {
+      color: green;
+    }
+  </style></style></style></style></style></style></style></style></style></style></style></style></style><style><style><style><style><style><style><style><style><style><style><style><style><style>
+  div
+    {
+      color: red;
+      font-size: 300%;
+    }
+
+  div::selection
+    {
+      color: green;
+    }
+  </style></style></style></style></style></style></style></style></style></style></style></style></style></style></style>
+
+  <link rel="match" href="reference/active-selection-011-ref.html">
+  function startTest()
+  {
+  var targetRange = document.createRange();
+  /* We first create an emload="startTest();">
+
+  <p>Test passes if each glyph of "Selected Text" is green and <strong>not red</strong> while background color of each glyph of "Selected Text" is white.
+
+  <div id="test" class="highlight_reftest">Selected Text</div><p>

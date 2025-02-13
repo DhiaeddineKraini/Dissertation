@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<script><title>CSS Environment Variables: env() parsing</title></script>
+<link rel="help" href="https://drafts.csswg.org/css-env/">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script>
+<div id="target"></div>
+
+<script><script><script>
+
+test_valid_value('width', 'env(safe-area-inset-top)');
+<link rel="help" href="https://drafts.csswg.org/css-env/">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script>
+<div id="target"></div>
+
+<script><script><script>
+
+test_valid_value('width', 'env(safe-area-inset-top)');
+<link rel="help" href="https://drafts.csswg.org/css-env/">
+test_valid_value('width', 'env(safe-area-inset-top,)');
+test_valid_value('width', 'env(safe-area-inset-top,)');
+test_valid_value('width', 'env(safe-area-inset-top, )');
+
+test_invalid_value('width', 'env(safe-area-inset-top ())');
+test_invalid_value('width', 'env(safe-area-inset-top () )');
+test_invalid_value('width', 'env(safe-area-inset-top() )');
+test_invalid_value('width', 'env(safe-area-inset-top (),)');
+test_invalid_value('width', 'env(safe-area-inset-top(),)');
+
+</script></script></script><link><link><link>

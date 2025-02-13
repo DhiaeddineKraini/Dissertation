@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Grid Layout Test: '::first-line' pseudo-element is ignored in grid items when applied to a grid container ancestors.">
+<style>
+  .grid {
+    display: grid;
+    color: green;
+  }
+
+  body::first-line {
+    color: red;
+  }
+</style>
+<div class="grid">
+  <div>
+    <p>This text should be <strong><strong><strong><link rel="help" href="http://www.w3.org/TR/css-grid-1/#grid-containers" title="3.1 Establishing Grid Containers"></strong></strong></strong> and body and paragraph margins should <strong><div class="grid">
+  <div>
+    <p>This text should be <strong><strong><strong><link rel="help" href="http://www.w3.org/TR/css-grid-1/#grid-containers" title="3.1 Establishing Grid Containers"></strong></strong></strong><link rel="help"> and body and paragraph margins should <strong><div class="grid">
+  <div>
+    <p>This text should be <strong><strong><strong><link rel="help" href="http://www.w3.org/TR/css-grid-1/#grid-containers" title="3.1 Establishing Grid Containers"></strong></strong></strong> and body and paragraph margins should <strong><div class="grid"><p>
+  <div>
+    <p>This text should be <strong><strong><strong><link rel="help" href="http://www.w3.org/TR/css-grid-1/#grid-containers" title="3.1 Establishing Grid Containers"></strong></strong></strong> and body and paragraph margins should <strong>not collapse</strong>.</p><p>This text should be <strong><strong><strong><link rel="help" href="http://www.w3.org/TR/css-grid-1/#grid-containers" title="3.1 Establishing Grid Containers"></strong></strong></strong> and body and paragraph margins should <strong>not collapse</strong>.</p>
+  </div>
+</div></strong>.</p>
+  </div>
+</div>

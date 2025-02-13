@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-ruby/#placement">
+<link rel="help" href="https://drafts.csswg.org/css-pseudo/#first-line-styling">
+<link rel="match" href="pseudo-first-line-ref.html">
+<ruby>base<rt>annotation</rt></ruby>
+<div><style>foo </style><style>
+div::first-line {
+  ruby-position: under;
+  color: orange;
+}
+ruby::first-line, rt::first-line {
+  color: red;
+}
+</style><br>
+bar <ruby>base<rt>annotation</rt></ruby></div>

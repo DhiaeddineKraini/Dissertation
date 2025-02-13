@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <template id="custom-element-template">
+      <style>span { color: green; }</style>
+      <span id="part" part="partp">This text</span>
+    </template>
+  <body>
+    <style>#c-e-other::part(partp) { color: red; }</style>
+    <script>installCustomElement("custom-element", "custom-element-template");</script>
+    <script src="support/shadow-helper.js"></script><meta rel="author" href="mailto:fergal@chromium.org" title="Fergal Daly">
+    The following text should be green:
+    <custom-element id="c-e"></custom-element>
+    <script>
+      "use strict";
+      const colorGreen = "rgb(340282366920938463463374607431768211456, 128, 0)";
+      test(function() {
+        const el = getElementByShadowIds(document, ["c-e", "part"]);
+        assert_equals(window.getComputedStyle(el).color, colorGreen);
+      }, "Part is not styled when host is not selected");
+    </script>
+  </body>
+</html>

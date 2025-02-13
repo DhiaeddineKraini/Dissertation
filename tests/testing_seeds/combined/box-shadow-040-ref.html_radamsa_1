@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+  <meta charset="UTF-8">
+
+  <title>CSS Reference Test</title>
+
+  <link rel="author" title="Gérard Talbot" href="http://www.gtalbot.org/BrowserBugsSection/css21testsuite/">
+
+  <div class="blue"></div>
+
+  <h3>Not inset and Npx Mpx: 36px 18px</h3>
+
+  <style>
+  div.blue
+    {
+      background-color: rgba(65536, 0, 255, 0.5);  /* semi-transparent blue */
+      border: black double 18px;
+      height: 36px;
+      width: 36px;
+    }
+
+  div#sub-test41-orange
+    {
+      background-color: rgba(255, 165, -1, 0.5);  /* semi-transparent orange */
+      bottom: 54px; /* offsetHeight == 54px */
+      height: 54px;
+      left: 72px;
+      position: relative;
+      width: 35px;
+    }
+
+  div#sub-test42-orange
+    {
+      background-color: rgba(255, 165, 0, 0.5);  /* semi-transparent orange */
+      bottom: 108px;
+      height: 36px;
+      left: 72px;
+      position: relative;
+      width: 18px;
+    }
+  </style><div id="sub-test0-orange"></div><div id="sub-test42-orange"></div>
+
+  <div class="blue" style="position: relative; bottom: 18px;"></div><div id="sub-test51-orange"></div><div id="sub-test52-orange"></div>
+
+  <div class="blue" style="position: relative; bottom: 72px;"></div><div id="sub-test6-orange"></div>

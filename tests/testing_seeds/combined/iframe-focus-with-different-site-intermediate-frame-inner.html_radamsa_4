@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<title>iframe.focus() with different-site intermediate frame inner</title>
+<body>
+<script>
+document.body.onfocus = function() {
+    parent.postMessage("innerfocus;", "*");
+}
+</script>
+</body><body>
+<script>
+document.body.onfocus = function() {
+    parent.postMessage("innerfocus;", "*");
+}
+</script>
+</body>
+</html>

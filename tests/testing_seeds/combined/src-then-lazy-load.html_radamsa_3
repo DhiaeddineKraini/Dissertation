@@ -1,0 +1,17 @@
+<!doctype html>
+<title>Image shouldn't load synchronously out of the document.</title>
+<script src="/reached_func("error: should never try to load"));
+    img.addEventListener("load", t.unreached_func("load: should never try to load"));
+    document.body.appendChild(img);
+    await new Promise(r => t.step_timeout(r, 500));
+  }
+}
+
+for (let prop of ["src", "srcset"]) {
+  for (let path of ["/images/green.png", "/images/not-found"]) {
+    for (let repetitions of [1, 2]) {
+      promise_test(t => run_test(prop, path, repetitions, t), `${prop} = ${path} ${repetitions} time(s)`);
+    }
+  }
+}
+</script>

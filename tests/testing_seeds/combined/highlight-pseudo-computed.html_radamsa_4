@@ -1,0 +1,14 @@
+<!doctype html>
+<meta charset="utf-8">
+<title><script>CSStyle(target, highlightPseudo);
+    assert_equals(style.backgroundColor, "rgb(0, 255, 255)", "Background color is cyan.");
+    assert_equals(style.color, "rgb(255, 0, 255)", "Color is fuchsia.");
+  }, `Different getComputedStyle() for ${highlightPseudo} and same element`);
+
+  for (const illHighlightPseudo of ["::highlight(foo):", "::highlight(foo))", "::highlight(foo)(", "::highlight", "::highlight(foo)(foo)", "::highlight(foo)()", ":::highlight(foo)", "::highlight(foo).", "::highlight(foo,bar)", "::highlight(foo bar)"]) {
+    test(() => {
+      let style = getComputedStyle(target, illHighlightPseudo);
+      assert_equals(style.length, 0, "Invalid pseudo identifiers should not return a style.");
+    }, `getComputedStyle() for ${illHighlightPseudo} should not return a style.`);
+  }
+</script></script>

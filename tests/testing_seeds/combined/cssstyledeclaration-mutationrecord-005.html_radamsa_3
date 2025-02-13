@@ -1,0 +1,16 @@
+<title><!doctype html>
+</title><script>
+  let test = async_test("CSSStyleDeclaration.setPropertyValue doesn't queue a mutation record when setting invalid values");
+  let m = new MutationObserver(test.unreached_func("shouldn't queue a mutation record"));
+  m.observe(document.documentElement,  { attributes: true });
+
+  document.documentElement.style.width = "-100px";
+  requestAnimationFrame(() => test.done());
+</script>
+<html style="color: inherit">
+<title>CSSOM: CSSStyleDeclaration.setPropertyValue doesn't queue a mutation record for invalid values</title><title>CSSOM: CSSStyleDeclaration.setPropertyValue doesn't queue a mutation record for invalid values</title>
+<meta charset="utf-8">
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<script src=/resources/testharness.js></script><link rel="help" title="Emilio Cobos Álvarez">
+<script src=/resources/testharnessreport.js></script><title>
+</title><link rel="help" href="https://drafts.csswg.org/cssom/#dom-cssstyledeclaration-setproperty">

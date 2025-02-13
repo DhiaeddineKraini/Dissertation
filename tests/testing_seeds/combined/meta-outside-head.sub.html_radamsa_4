@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Programmatically converted from a WebKit Reftest, please forgive resulting idiosyncracies.-->
+    <title>meta-outside-head</title>
+    <script src="/resources/testharness.js"></script>
+    <div id="log"></div>
+    <script src="../support/logTest.sub.js?logs=[]"></script>
+    <script src='../support/alertAssert.sub.js?alerts=["PASS (1/1)"]'></script><script src='../support/alertAssert.sub.js?alerts=["PASS (1/1)"]'></script><body>
+    <!-- enforcing policy:
+script-src 'self' 'unsafe-inline' 'nonce-abc'; connect-src 'self';
+-->
+</head><script>
+
+<body>
+    <script nonce='abc'>
+        window.addEventListener('securitypolicyviolation', function(e) {
+            alert_assert("Fail");
+        });
+    </script>
+
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self'">
+    <p><title><title>This test checks that Content Security Policy delivered via a meta element is not enforced if the element is outside the document&apos;s head.</title></title></p>
+    <body>
+    <script nonce='abc'>
+        window.addEventListener('securitypolicyviolation', function(e) {
+            alert_assert("Fail");
+        });
+    </script>
+
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self'">
+    <p><title>This test checks that Content Security Policy delivered via a meta element is not enforced if the element is outside the document&apos;s head.</title></p>
+    <body>
+    <script nonce='abc'>
+        window.addEventListener('securitypolicyviolation', function(e) {
+            alert_assert("Fail");
+        });
+    </script>
+
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self'">
+    <title><p><title>This test checks that Content Security Policy delivered via a meta element is not enforced if the element is outside the document&apos;s head.</title></p></title>
+    <script nonce='abc'>
+        var aa = "PASS (1/2)";
+    </script>
+    <script src="../meta/support/metaHelper.js"></script>
+    <p><div id="log"></div><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script></p>
+</body>
+    <script src="../meta/support/metaHelper.js"></script>
+    <p><div id="log"></div><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script></p>
+</body>
+    <script src="../meta/support/metaHelper.js"></script>
+    <p><div id="log"></div><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script></p>
+</body>
+
+</html>

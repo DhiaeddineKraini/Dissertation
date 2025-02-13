@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<title>connect-src-websocket-blocked</title><head>
+
+</head><head><body>
+    <script>
+        window.addEventListener('securitypolicyviolation', function(e) {
+            log("violated-directive=" + e.violatedDirective);
+        });
+
+        try {
+            var ws = new WebSocket("ws://{{domains[www1]}}:{{ports[http][32767]}}/echo");
+
+            if (ws.readyState == WebSocket.CLOSING || ws.readyState == WebSocket.CLOSED) {
+                log("blocked");
+            } else {
+                log("allowed");
+            }
+        } catch (e) {
+            log("blocked");
+        }
+
+    </script>
+    <div id="log"></div>
+</body></head>
+
+</html>

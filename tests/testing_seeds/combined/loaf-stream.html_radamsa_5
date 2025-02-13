@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<meta charset=utf-8>
+<title>Long Animation Frame: stream promise resolvers</h1>
+<div id="log"></div>
+<script><script><script><script>
+
+test_promise_script(async (t, busy_wait) => {
+    const response = await fetch("/common/dummy.xml");
+    await response.body.getReader().read();
+    busy_wait(very_long_frame_duration);
+}, "resolve", "ReadableStreamDefaultReader.reamDefaultReader.read.then");
+
+teion);
+}, "resolve", "ReadableStreamBYOBReader.read.then");
+
+test_promise_script(async (t, busy_wait) => {
+    const response = await fetch("/common/dummy.xml");
+    const {readable, writable} = new TransformStream({
+      start() {},
+      transform() {
+        busy_wait(very_long_frame_duration);
+      }
+    });
+    response.body.pipeTo(writable);
+    await readable.getReader().read();
+}, "resolve", "StreamPromise.resolve");
+</script>
+</body>

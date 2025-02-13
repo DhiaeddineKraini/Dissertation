@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<title>CSS Containment: contain:style and &lt;ol&gt; ordinals (pseudo)</title>
+<link rel="match" href="reference/contain-style-ol-ordinal-pseudo-ref.html">
+<style>
+  li::before, li::after { content: counter(list-item); }
+</style>
+<ol start=1>
+  <li>A</li>
+  <li>B</li>
+  <div style="contain:style">
+    <li>X</li>
+    <li>Y</li>
+  </div>
+  <li>C</li>
+  <li>D</li>
+</ol>

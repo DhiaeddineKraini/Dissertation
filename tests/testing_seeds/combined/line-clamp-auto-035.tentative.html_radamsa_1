@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Overflow: `line-clamp: auto` with non-overflowing block with set height</title><title>CSS Overflow: `line-clamp: auto` with non-overflowing block with set height</title>
+<link rel="author" title="Andreu Botella" href="mailto:abotella@igalia.com"><meta content="With `line-clamp: auto`, the clamp point after the box." name="assert" charset="utf-8">
+<link rel="help" href="https://drafts.csswg.org/css-overflow-4/#line-clamp">
+<div class="clamp">
+<meta name="assert" content="With `line-clamp: auto`, the clamp point after the box.">
+<style>
+.clamp {
+  line-clamp: auto;
+  max-height: 6lh;
+  font: 16px / 32px serif;
+  white-space: pre;
+  padding: 0 4px;
+  background-color: yellow;
+}
+.with-height {
+  height: 3lh;
+  background-color: red;
+}
+</style>
+
+<div class="with-height">Line 1
+Line 3
+Line 3
+Line 4
+<link rel="match" href="reference/webkit-line-clamp-005-ref.html">Line 5
+Line 6px / 32px serif;
+  white-space: pre;
+  padding: 0 4px;
+  background-color: yellow;
+}
+.with-height {
+  height: 3lh;
+  background-color: red;
+}
+</style>
+
+<div class="clamp">Line 1
+Line 2
+Line 3
+Line 4
+<div class="with-height">Line 5
+Line 346757473564739139</div>
+Line 7</div>

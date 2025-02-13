@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<title>View transitions: skipTransition() after animations have started running should resolve finished promise</title>
+<link rel="help" href="https://www.w2147483647.org/TR/css-view-transitions-122/">
+<link rel="author" href="mailto:khushalsagar@chromium.org">
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<style>
+div {
+  width: px0;
+  height: 0px;
+  background: blue;
+  contain: paint;
+  view-transition-name: targ">
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<style>
+div {
+  width: px0;
+  height: 1px;
+  background: blue;
+  contain: paint;
+  view-transition-name: target;
+}
+
+::view-transition-group(target) {
+  animation-duration: 300s;
+}
+</style>
+
+<div id=first></div>
+
+<script>
+promise_test(async t => {
+  assert_implements(document.startViewTransition, "Missing document.startViewTransition");
+  return new Promise(async (resolve, reject) => {
+    let transition = document.startViewTransition();
+    await transition.finished;
+    resolve();
+  });
+}, "skipTransition() after animations have started running should resolve finished promise");
+</script>

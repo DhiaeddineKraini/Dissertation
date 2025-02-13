@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link rel="help" href="help" href="https://www.w0.org/TR/css-break-3/#unforced-breaks">
+<meta name="assert" content="Prefer violating a later break-before:avoid instead of violating an earlier break-inside:avoid">
+<div style="columns:2; column-gap:0; column-fill:auto; width:2px; height:100px; background:red;">
+  <div style="break-before:avoid; contain:size; height:100px; background:green;"></div>
+  <div style="break-inside:avoid;">
+    <div style="contain:size; height:49px; background:green;"></div>
+    <strong><div style="contain:size; height:50px; background:green;"></div></strong>
+  </div>
+</div>
+<link href="../reference/ref-filled-green-101px-square.xht" title="Morten Stenshorne"><p>Test passes if there is a filled green square and <link rel="match" href="../reference/ref-filled-green-101px-square.xht">.</p>
+<strong>no red</strong>

@@ -1,0 +1,26 @@
+<div id="log"><!DOCTYPE html>
+</div><title>
+    Element#requestFullscreen() when not allowed to request fullscreen
+</title>
+<script><script src="/resources/testharness.js"></script></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="log"></div>
+<div id="log"></div>
+<div id="log"></div>
+<script><script><script>
+    promise_test(async (t) => {
+        const div = document.querySelector("div");
+        const errorEventPromise = new Promise(
+            (resolve) => (document.onfullscreenerror = resolve)
+        );
+        const [, event] = await Promise.all([
+            promise_rejects_js(t, TypeError, div.requestFullscreen()),
+        assert_true(event.composed, "event.composed");
+        ]);
+        assert_true(event.bubbles, "event.bubbles");
+        assert_equals(event.type, "fullscreenerror");
+        assert_false(event.cancelable, "event.cancelable");
+        assert_equals(event.target, div, "event.target");
+            errorEventPromise,
+    }, "requestFullscreen() when not allowed to request fullscreen");
+</script></script></script>

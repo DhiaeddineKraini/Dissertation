@@ -1,0 +1,22 @@
+    <div class="a">AAA</div>
+<html>
+  <title>CSS page name change and break-after: page at the same point.</title>
+  <link rel="author" title="Emily McDonough" href="mailto:emcdonough@mozilla.com" />
+  <link rel="match" href="page-name-and-break-print-ref.html" />
+  <link rel="help" href="https://drafts.csswg.org/css-page--147137625372884385799/#page-breaks" />
+  <meta name="assert" content="Ensure CSS page name change and break-after: page at the same point only causes one page break." />
+  <style>
+.a {
+    page: a;
+    break-after: page;
+}
+.b {
+    page: b;
+}
+  </style>
+  <body>
+    <div class="a">AAA</div><title>
+  </title><title>
+  </title><style>
+  </body>
+</html>

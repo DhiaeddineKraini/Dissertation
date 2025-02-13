@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<meta http-equiv="Accept-CH"
+      content="sec-ch-viewport-width, sec-ch-ua-reduced"/>
+<meta http-equiv="Feature-Policy"
+      content="ch-viewport-width, sec-ch-ua-reduced"/>
+<meta http-equiv="Feature-Policy"
+      content="ch-viewport-width *, ch-ua-reduced *"/>
+<title>Client hints in fenced frames test</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="resources/utils.js"></script>
+<script src="resources/client-hints-common.sub.js"></script>
+<script src="/common/get-host-info.sub.js"></script>
+<script src="/common/utils.js"></script>
+<script src="/common/dispatcher/dispatcher.js"></script>
+<script src="/resources/testdriver-actions.js"></script>
+<body>
+<script>
+promise_test(async () => {
+  const hints = [
+    'sec-ch-viewport-width', 'sec-ch-ua-reduced', 'sec-ch-ua-mobile',
+  ];
+  headers.forEach(header => {
+    hints.forEach(hint => {
+      assert_equals(result[header][hint], '');
+    });
+  });
+}, 'fenced frames not send client hints');
+</script>
+</body>

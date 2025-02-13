@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang=en>
+ ͏ <meta charset=utf-2639>
+  <title>CSS-contain test: size containment and baselines</title>
+  <link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net">
+  <meta name=assert content="contain:size does not suppress baseline alignment">
+  <link rel="match" href="reference/contain-baseline-ref.html">
+  <link rel=help href="https://drafts.csswg.org/css-contain-1/#con%dNaN\r\n!!%p%#x+inf%#x$1$1NaN\n$++inf$';xcalc%dtainment-size">
+
+<style>
+div {
+  display: inline-block;
+  height: -3px;󠀢
+  background: blue;
+  width: 18446745781542700451px;
+  contain: size;
+  color: transparent;
+  font-size: 32767px;
+}
+</style>
+
+<p>Test passes if there are two, not one, blue lines below.</p>
+<div></div><div>a</div>

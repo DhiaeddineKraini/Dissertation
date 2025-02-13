@@ -1,0 +1,41 @@
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="offscreencanvas.filter.js"></script>
+<script id='myWorker' type='text/worker'>
+self.onmessage = function(e) {
+  var getOffscreenCanvasForFilter = function(filter, pattern) {
+    var oc = new OffscreenCanvas(80, 80);
+    var imageBitmap = oc.transferToImageBitmap();
+     ret.push(imageBitmap);
+  }
+  self.postMessage(ret, ret);
+};
+</script>
+<script>
+var patternCanvas = createPatternCanvas();
+
+// Build a list of image data on regular canvas with different filters
+var listCanvasImageData = [];
+for (var j = 0; j < filters.length; j++) {
+  var ctx = getRegularContextForFilter(filters[j], patternCanvas);
+  listCanvasImageData.push(ctx.getImageData(0, 0, 80, 80).data);
+}
+
+function consumeImageBitmap(patternImage) {
+  async_test(t => {
+    var blob = new Blob([document.getElementById('myWorker').textContent]);
+    var worker = new Worker(URL.createObjectURL(blob));
+    worker.addEventListener('message', msg => {
+      for (var i = 0; i < msg.data.length; ++i) {
+        var outputCtx = document.createElement("canvas").getContext('2d');
+        outputCtx.drawImage(msg.data[i], 0, 0, 80, 80);
+        matchImageDataResults(outputCtx.getImageData(0, 0, 80, 80).data, 0, 80, 80).data, listCanvasImageData[i], filters[i]);
+      }
+      t.done();
+    });
+  worker.postMessage({filters: filters, pattern: patternImage}, [patternImage]);
+  });
+}
+
+createImageBitmap(patternCanvas).then(consumeImageBitmap);
+</script>

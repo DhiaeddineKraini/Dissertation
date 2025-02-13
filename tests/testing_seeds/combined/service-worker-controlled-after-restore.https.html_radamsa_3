@@ -1,0 +1,28 @@
+<!doctype html>
+<meta name="timeout" content="long">
+<meta><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+trolled before navigation');
+
+  await navigateAndThenBack(pageA, pageB, urlB);
+  await assert_bfcached(pageA);
+
+  assert_true(
+    await pageA.execute_script(
+        () => (navigator.serviceWorker.controller !== null)),
+    'navigator.serviceWorker.controller should be non-null ' +
+    'after restored from BFCache');
+
+  const isControlled = await pageA.execute_script(
+      () => fetch('/is-controlled').then(r => r.text()));
+
+  assert_true(
+    await pageA.execute_script(
+        () => (navigator.serviceWorker.controller !== null)),
+    'navigator.serviceWorker.controller should be non-null ' +
+    'after restored from BFCache and after fetch');
+
+  assert_equals(isControlled, 'controlled',
+    'fetch should be intercepted after restored from BFCache');
+}, 'Pages should remain controlled after restored from BFCache');
+</script>

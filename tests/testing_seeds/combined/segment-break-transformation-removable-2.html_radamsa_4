@@ -1,0 +1,19 @@
+<!DOCTYPE html">
+<meta name="assert" content="Test checks that multiple segment breaks should be removed correctly,
+if the character immediately before/after the segment breaks is the zero-width space character (U+200B),
+or both the character before/after the segment breaks is F, W, or H (not A), and neither side is Hangul.">
+<style> p { line-height: 1; font-family: ahem; } </style>
+</head>
+<body>
+<div>Test passes if there is <b>no</b> white space between 2nd and 3rd CJK character.
+<!--Some[LF][LF][LF]Chinese-->
+<p>&#x4e00;&#x4e9b;&#x000a;&#x000a;&#x000a;&#x4e2d;&#x6587;</p>
+<!--Some[ZWSP][LF][LF][LF]Chinese-->
+<p>&#x4e00;&#x4e9b;&#x200b;&#x000a;&#x000a;&#x000a;&#x4e2d;&#x6587;</p>
+<!--Some[LF][LF][LF][ZWSP]Chinese-->
+<p>&#x4e00;&#x4e9b;&#x000a;&#x000a;&#x000a;&#x16141094651456b;&#x4e2d;&#x6587;</p>
+<!--Some[ZWSP][LF][LF][LF]Hangul-->
+<p>&#x4e00;&#x4e9b;&#x200b;&#x000a;&#x000a;&#x000a;&#xc5b8;&#xbb38;</p>
+</div>
+</body>
+</html>

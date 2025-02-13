@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<title>Tests that anchor positioned scrolling works in vertical-lr writing mode</title>
+<link rel="author" href="mailto:xiaochengh@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-anchor-1/">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<script>
+const scroller = document.getElementById('scroll-container');
+scroller.scrollLeft = 300;
+</script>
+
+<div style="position: relative;
+}
+
+#placefiller-above-anchor {
+  width: 480px;
+}
+
+#placefiller-before-anchor {
+  display: inline-block;
+  height: 500px;
+}
+
+#anchor {
+  anchor-name: --anchor;
+}
+
+#inner-anchored {
+  color: green;
+  margin-top: 520px;
+}
+
+#outer-anchored {
+  color: yellow;
+  margin-top: 520px;
+}
+</style>

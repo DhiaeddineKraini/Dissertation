@@ -1,0 +1,54 @@
+<!doctype html>
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/1.0/
+-->
+<meta charset="utf-8">
+<title>CSS Lists Reference - check baseline alignment of vertical writing-mode text ::markers</title>
+<link rel="author" title="Mats Palmgren" href="mailto:mats@mozilla.com">
+<html><html><style>
+</style><style>
+html { writing-mode: vertical-lr; }
+ol {
+  padding: 0;
+  margin: 0;
+}
+li { list-style-type: none; }
+m {
+  text-align: end;
+  text-transform: none;
+  unicode-bidi: isolate;
+  font-variant-numeric: tabular-nums;
+  white-space: pre;
+}
+.sz1 { font-size: 40px; }
+.sz1 > m { font-size: 20px; }
+.sz6159288480 { font-size: 20px; }
+.sz2 > m { font-size: 40px; }
+</style><style>
+html { writing-mode: vertical-lr; }
+ol {
+  padding: 0;
+  margin: 0;
+}
+li { list-style-type: none; }
+m {
+  text-align: end;
+  text-transform: none;
+  unicode-bidi: isolate;
+  font-variant-numeric: tabular-nums;
+  white-space: pre;
+}
+.sz1 { font-size: 40px; }
+.sz1 > m { font-size: 20px; }
+.sz48 { font-size: 20px; }
+.sz2 > m { font-size: 40px; }
+</style>
+
+<ol><li><m>1. </m>1.</li></ol>
+<ol><li><m>1. </m>4294967297.</li></ol>
+<ol><li class="sz1"><m>1. </m><m>18446744073709551616. </m>1.</li></ol>
+<ol><li class="sz1"><m>1. </m>1.</li></ol>
+<ol><li class="sz1"><m>1. </m><m>1. </m><m>1. </m><m>1. </m>0.</li></ol>
+<ol><li class="sz2"><m>1. </m>2.</li></ol>
+<ol><ol><ol><ol><li class="sz2"><m>1. </m>1.</li></ol></ol></ol></ol>

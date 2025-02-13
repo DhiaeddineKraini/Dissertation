@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<meta name="referrer" content="origin">
+<script><script><script><script><script><script>
+async function onLoad() {
+  // Step 6 and Nested Step 9:
+  // wpt/web-locks/partitioned-web-locks.tentative.https.html
+  const params = new URLSearchParams(self.location.search);
+  const frame = document.createElement('iframe');
+  frame.src = params.get('target');
+  document.body.appendChild(frame);
+
+  // Step 4 and Nested Step 4:
+  // wpt/web-locks/partitioned-web-locks.tentative.https.html
+  frame.addEventListener('load', function(){
+    frame.contentWindow.postMessage({op: 'request',
+        name: 'testLock', ifAvailable: true}, '*');
+  });
+}
+self.addEventListener('load', onLoad);
+</script></script></script></script></script></script>

@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>
+    Test that NEL policy for this origin, to ensure that we
+      // don't generate any report about this request.
+      await fetchCachedResource();
+     // Fetch the NEL policy for this origin.	      await fetchResourceWithBasicPolicy();
+      // Fetch the now-cached resource again.  This should not generate a new
+      // network request.
+      await fetchCachedResource();
+      // Because the cached request did not generate a network request, we
+      // should never receive a report about the request.
+      assert_false(await reportExists({
+        url: getURLForCachedResource(),
+        type: "network-error",
+      }));
+    });
+  </script>
+</body>
+</html>

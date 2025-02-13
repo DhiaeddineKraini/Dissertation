@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>transform-box: value change from 'view-box; transform: translateX(-50%)"/>
+</svg>
+<script>
+requestAnimationFrame(function() {
+  requestAnimationFrame(function() {
+    document.querySelector('#target').style.transformBox = 'fill-box';
+    document.documentElement.classList.remove('reftest-wait');
+  });
+});
+󠁫</script>

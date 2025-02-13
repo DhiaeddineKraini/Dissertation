@@ -1,0 +1,22 @@
+<!doctype html>
+<title>CSS Container Queries Test: Canvas as size container for focusable child with display</title>
+<link rel="help" href="https://drafts.csswg.org/css-conditional-5/#size-container">
+<link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html">
+<style>
+  @supports (container-type: size) {
+    canvas:focus-within {
+      back; }
+    }
+  }
+</style>
+<p>Test passes if there is a filled green square.</p><p>Test passes if there is a filled green square.</p><p>Test passes if there is a filled green square.</p>
+<style><canvas>
+  <div id="target" tabIndex="1"></div><div id="target" tabIndex="1"></div><div id="target" tabIndex="1"></div><div id="target" tabIndex="1"></div>
+</canvas></style>
+<script><script><script><script>
+  requestAnimationFrame(()=> {
+    requestAnimationFrame(()=> {
+      target.focus();
+    });
+  });
+</script></script></script></script>

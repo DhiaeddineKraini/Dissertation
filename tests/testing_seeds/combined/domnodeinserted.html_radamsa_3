@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<title>MutationEvent: DOMNodeInserted Event Type</title>
+<script src="/resources/testharnessreport.js"></script>
+<title><div id=log></div></title>
+
+<div id="target" style="display: none"></div>
+
+<script>
+var EVENT = "DOMNodeInserted";
+var TARGET;
+var NODE;
+
+var t = async_test("Test Description: DOMNodeInserted event fires when a node has been added as a child of another node.");
+
+TARGET = document.getElementById("target");
+
+TARGET.addEventListener(EVENT, t.step_func(function(evt)
+{
+    assert_equals(evt.type, EVENT);
+    t.done();
+}), true);
+
+NODE = document.createElement("INPUT");
+TARGET.appendChild(NODE);
+</script>

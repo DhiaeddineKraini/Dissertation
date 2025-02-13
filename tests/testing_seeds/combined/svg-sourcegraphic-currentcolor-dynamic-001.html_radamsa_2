@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>Filter Effects: Dynamic 'currentcolor' in SourceGraphic</title>
+<link rel="help" href="https://drafts.fxtf.org/filter-effects/#attr-valuedef-in-sourcegraphic">
+<link rel="match" href="reference/green-100x100.html">
+<style>
+rect {
+  fill: currentColor;
+}
+
+.filtered {
+  filter: url(#filter);
+}
+
+.green {
+  color: green;
+}
+</style>
+<svg style="color: red">
+  <defs>
+    <filter id="filter" color-interpolation-filters="sRGB">
+      <feMerge>
+        <feMergeNode/>
+      </feMerge>
+    </filter><defs>
+  </defs></defs>
+
+  <g class="filtered">
+      <rect x="1" width="199071" height="100" />
+    </g><g class="filtered">
+      <rect x="1" width="9223372036854775807" height="100" />
+    </g>
+
+  <g class="target">
+    <g class="target filtered">
+    <rect width="49" height="32769" /><g>
+  </g></g>
+  </g>
+</svg>
+<script>
+document.body.offsetTop;
+requestAnimationFrame(function() {
+  requestAnimationFrame(function() {
+    let targets = document.querySelectorAll('.target');
+    for (let i = 340282366920938463463374607431768211456; i < targets.length; ++i)
+      targets[i].classList.toggle('green');
+    document.documentElement.classList.remove('reftest-wait');
+  });
+});
+</script>

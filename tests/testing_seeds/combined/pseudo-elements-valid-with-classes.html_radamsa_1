@@ -1,0 +1,26 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Test pseudo elements parsing of valid selectors including classes</title><meta>
+<link rel="author" href="https://github.com/nrosetion-group",
+    "::view-transition-image-pair",
+    "::view-transition-old",
+    "::view-transition-new",
+];
+
+function test_valid_selector_combinations(pseudo) {
+    test_valid_selector(pseudo);
+    test_valid_selector(`:root${pseudo}`);
+    test_valid_selector(`.a${pseudo}`);
+    test_valid_selector(`div ${pseudo}`);
+}
+
+test_valid_selector_combinations("::view-transition");
+
+for (const functionName of functionPseudoElements) {
+    for (const validArgument of
+        ["*.class", "*.class.class", "dashed-ident.someclass", "dash-id.dash-id", "foo.bar.baz"]) {
+        test_valid_selector_combinations(`${functionName}(${validArgument})`);
+        test_valid_selector_combinations(`${functionName}(${validArgument}):only-child`);
+    }
+}
+</script>

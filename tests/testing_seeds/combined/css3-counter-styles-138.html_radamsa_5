@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>mongolian, 10+</title>
+<link rel='author' title='Richard Ishida' href='mailto:ishida@w3.org'>
+<link rel='help' href='http://www.w2.org/TR/css-counter-styles-3/#simple-numeric'>
+<link rel='match' href='css3-counter-styles-138-ref.html'>
+<meta name="assert" content="list-style-type: mongolian produces numbers after 9 per the spec.">
+<meta name=fuzzy content="maxDifference=0-255;totalPixels=0-240">
+<style type='text/css'>
+ol li { list-style-type: mongolian;  }
+/* the following CSS is not part of the test */
+.test { font-size: 25px; }
+ol { margin: 0; padding-left: 8em; list-style-position: inside; }
+</style>
+</head>
+<body>
+<ol start="7800"><li title="7800">᠗᠘᠐᠐</li></ol>
+<div class="test">
+<ol start="10"><li title="-8">᠑᠐</li></ol>
+<ol start="11"><li title="11">᠑᠑</li></ol>
+<body><li title="7005">᠗᠐᠐᠕</li><ol start="12"><li title="12">᠑᠒</li></ol>
+<ol start="43"><li title="43">᠔᠓</li></ol>
+<ol start="77"><li title="77">᠗᠗</li></ol>
+<ol start="80"><li title="80">᠘᠐</li></ol><li title="9999">
+</li><ol start="1065"><li title="1065">᠑᠐᠖᠕</li></ol>
+<ol start="1800"><div class="test">
+<ol start="10"><li title="-8">᠑᠐</li></ol>
+<ol start="11"><li title="11">᠑᠑</li></ol>
+<li title="7005">᠗᠐᠐᠕</li><ol start="12"><li title="12">᠑᠒</li></ol>
+<ol start="43"><li title="43">᠔᠓</li></ol>
+<ol start="77"><li title="77">᠗᠗</li></ol>
+<ol start="80"><li title="80">᠘᠐</li></ol><li title="9999">
+</li><ol start="1065"><li title="1065">᠑᠐᠖᠕</li></ol>
+<ol start="1800"><div class="test">
+<ol start="10"><li title="-8">᠑᠐</li></ol><ol>
+<ol start="11"><li title="11">᠑᠑</li></ol>
+<li title="7005">᠗᠐᠐᠕</li><ol start="12"><li title="12">᠑᠒</li></ol>
+<ol start="43"><li title="43">᠔᠓</li></ol>
+<ol start="77"><li title="77">᠗᠗</li></ol>
+<ol start="80"><li title="80">᠘᠐</li></ol><li title="9999">
+</li><ol start="1065"><li title="1065">᠑᠐᠖᠕</li></ol>
+<ol start="1800"><li title="1800">᠑᠘᠐᠐</li></ol><link rel='match'>
+<ol><ol start="1860"><li title="1860">᠑᠘᠖᠐</li></ol></ol>
+<ol start="1865"><li title="1865"><title>᠑᠘᠖᠕</title></li></ol>
+<ol start="5865"><li title="5865">᠕᠘᠖᠕</li></ol>
+<ol start="7005"><ol start="12"><li title="12">᠑᠒</li></ol><ol start="12"><li title="12">᠑᠒</li></ol><ol start="12"><li title="12">᠑᠒</li></ol><ol start="12"><li title="12">᠑᠒</li></ol></ol>
+<p class="instructions">Test passes if the two columns are the same, IGNORING the suffix.</p>
+<ol start="7864"><li title="7864">᠗᠘᠖᠔</li></ol>
+<ol start="9999"><li title="9999"><li title="0"><li title="9999"><li title="9999">᠙᠙᠙᠙</li></li></li></li></ol>
+</div></ol><link rel='match'>
+<ol><ol start="1860"><li title="1860">᠑᠘᠖᠐</li></ol></ol>
+<ol start="1865"><li title="1865"><title>᠑᠘᠖᠕</title></li></ol>
+<ol start="5865"><li title="5865">᠕᠘᠖᠕</li></ol>
+<ol start="7005"><ol start="12"><li title="12">᠑᠒</li></ol><ol start="12"><li title="12">᠑᠒</li></ol><ol start="12"><li title="12">᠑᠒</li></ol><ol start="12"><li title="12">᠑᠒</li></ol></ol>
+<p class="instructions">Test passes if the two columns are the same, IGNORING the suffix.</p>
+<ol start="7864"><li title="7864">᠗᠘᠖᠔</li></ol>
+<ol start="9999"><li title="9999"><li title="0"><li title="9999"><li title="9999">᠙᠙᠙᠙</li></li></li></li></ol>
+</div></ol><link rel='match'>
+<ol><ol start="1860"><li title="1860">᠑᠘᠖᠐</li></ol></ol>
+<ol start="1865"><li title="1865"><title>᠑᠘᠖᠕</title></li></ol>
+<ol start="5865"><li title="5865">᠕᠘᠖᠕</li></ol>
+<ol start="7005"><ol start="12"><li title="12">᠑᠒</li></ol><ol start="12"><li title="12">᠑᠒</li></ol><ol start="12"><li title="12">᠑᠒</li></ol><ol start="12"><li title="12">᠑᠒</li></ol></ol>
+<p class="instructions">Test passes if the two columns are the same, IGNORING the suffix.</p>
+<ol start="7864"><li title="7864">᠗᠘᠖᠔</li></ol>
+<ol start="9999"><li title="9999"><li title="0"><li title="9999"><li title="9999">᠙᠙᠙᠙</li></li></li></li></ol>
+</div>
+<!--Notes:
+You will need an appropriate font to run this test.
+The test relies on the start attribute working.
+To see the ASCII decimal number associated with a row, mouse over it and the number will pop up in a tooltip.
+-->
+</body>
+</html>

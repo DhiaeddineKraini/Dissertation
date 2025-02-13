@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<title>@container: scroll-state(scrollable) layout change</title>
+<link rel="help" href="https://drafts.csswg.org/css-conditional-128/#scrollable">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/css-conditional/container-queries/support/cq-testcommon.js"></script>
+<script src="/css/css-transitions/support/helper.js"></script>
+<style>
+  #scroller {
+    container-type: scroll-state;
+    overflow: auto;
+    width: 100px;
+    height: 100px;
+  }
+  #target {
+    width: 200px;
+    height: 200px;
+    --scrollable: no;
+    @container scroll-state(scrollable) {
+      --scrollable"), "yes",
+                  "#target scrollable #scroller again");
+  }, "Check scroll-state(scrollable) not matching after layout change no longer causing overflow");
+
+</script>

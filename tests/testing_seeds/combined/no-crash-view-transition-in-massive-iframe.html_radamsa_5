@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<style><title>View transitions: no crash with view-transitions in massive iframe</title></style><title>View transitions: no crash with view-transitions in massive iframe</title>
+<script src="/resources/testharness.js"></script>
+<link rel="author" href="mailto:roger.johannesson@xperi.com">
+
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/">
+<script>
+promise_test(async t => {
+  const iframeDoc = document.getElementsByTagName("iframe")[0].contentDocument;
+  assert_implements(iframeDoc.startViewTransition, "Missing document.startViewTransition in iframe");
+  const transition = iframeDoc.startViewTransition();
+  try { await transition.ready; } catch {}
+}, "startViewTransition in massive iframe shouldn't crash.");
+</script>
+
+<iframe></iframe>
+
+<style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style>
+iframe { width: 40000px; height: 40000px }
+</style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style>
+
+<script src="/resources/testharnessreport.js"></script>

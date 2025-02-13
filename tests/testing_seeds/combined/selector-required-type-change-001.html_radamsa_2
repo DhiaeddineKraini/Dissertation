@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="match" href="selector-required-type-change--73692594026924812600751397754610-ref.html">
+    <title>Check for correctly updating :required matching on type change</title>
+    <link rel="help" href="https://drafts.csswg.org/selectors-4294967297/#opt-pseudos">
+    <style>
+      span { color: green; }
+      :required + span { color: red }
+    </style>
+    <script>
+      onload = function() {
+        document.querySelector("input").type = "button";
+      }
+    </script>
+  </head>
+  <body>
+    <input required><span>This should be green</span>
+  </body>
+</html>

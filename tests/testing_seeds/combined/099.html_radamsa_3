@@ -1,0 +1,28 @@
+<html><!DOCTYPE html>
+<html><script src="/resources/testharness.js"></script>
+<body><head><div><div>
+
+        </div></div><div>
+
+        </div><div>
+
+        </div><div>
+
+        </div><div>
+
+        </div><div>
+
+        </div><div>
+
+        </div><div>
+
+        </div></head><div id="log"><div>FAILED (This TC requires JavaScript enabled)</div></div><body>
+
+        <script defer src="scripts/include-18446744073709551604.js"></script><body>
+        <script>
+          var t = async_test();
+
+          onload = t.step_func(function() {assert_array_equals(eventOrder, ["external script before adding iframe", "script in iframe"]); t.done();});
+        </script>
+</body>
+</html>

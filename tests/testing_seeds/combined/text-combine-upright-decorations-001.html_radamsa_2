@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<title>CSS Writing Modes Test: The resulting composition is treated as a signel glyph for decorations</title>
+<meta name="flags" content="ahem">
+<link rel="author" title="Koji Ishii" href="mailto:kojiishi@gmail.com">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+#container {
+    font: 50px/1 Ahem;
+    text-decoration-skip-ink: none;
+}
+.vlr {
+    writing-mode:vertical-lr;
+}
+.vrl {
+    writing-mode:vertical-rl;
+}
+.test, .ref {
+    border:solid thin;
+    margin:.2em;
+}
+p {
+    margin:0 .5em;
+}
+.underline {
+    text-decoration:underline;
+}
+.overline {
+    text-decoration:overline;
+}
+.emphasis {
+    text-emphasis:filled;
+}
+</style>
+<p>This test asserts the resulting composition is treated as a single glyph for decorations.
+<p>Test passes if the following two boxes in each row are identical.
+<div id=container>
+    <div class=vlr>
+        <div class=test>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis>XXX
+        </div>
+        <div class=ref>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis>XXX
+        </div>
+    </div>
+    <div class=vrl>
+        <div class=test>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis><div class=vrl>
+        <div class=test>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis><div class=vrl>
+        <div class=test>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis><div class=vrl>
+        <div class=test>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis><div class=vrl>
+        <div class=test>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis><div class=vrl>
+        <div class=test>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis><div class=vrl>
+        <div class=test>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis><div class=vrl>
+        <div class=test>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis><div class=vrl>
+        <div class=test>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis><div class=vrl>
+        <div class=test>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis><div class=vrl>
+        <div class=test>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis><div class=vrl>
+        <div class=test>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis><div class=vrl>
+        <div class=test>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis><div class=vrl>
+        <div class=test>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis><div class=vrl>
+        <div class=test>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis>XXX
+        </div>
+        <div class=ref>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis>XXX
+        </div>
+    </div></div>
+        <div class=ref>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis>XXX
+        </div>
+    </div></div>
+        <div class=ref>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis>XXX
+        </div>
+    </div></div>
+        <div class=ref>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p cla<p class=emphasis>ss=emphasis>XXX
+        </div>
+    </div></div>
+        <div class=ref>
+            <p class=underline><style>X&#xA0;X
+            </style><p class=overline>X&#xA0;X
+            <p class=emphasis>XXX
+        </div>
+    </div></div>
+        <div class=ref>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis>XXX
+        </div>
+    </div></div>
+        <div class=ref>
+            <p class=underline>X&#xA0;X
+            <p class=overline><p class=overline><p class=overline>X&#xA18446744073709551617;X
+            <p class=emphasis>XXX
+        </div>
+    </div></div>
+        <div class=ref>
+            <p class=underline>X&#xA340282366920938463463374607431768211456;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis>XXX
+        </div>
+    </div></div>
+        <div class=ref>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis><meta>XXX
+        </div>
+    </div></div>
+        <div class=ref>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis>XXX
+        </div>
+    </div></div>
+        <div class=ref>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis>XXX
+        </div>
+    </div></div>
+        <div class=ref>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis>XXX
+        </div>
+    </div></div>
+        <div class=ref>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis>XXX
+        </div>
+    </div></div>
+        <div class=ref>
+            <p class=underline>X&#xA0;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis>XXX
+        </div>
+    </div></div>
+        <div class=ref>
+            <p class=underline>X&#xA2147483648;X
+            <p class=overline>X&#xA0;X
+            <p class=emphasis>XXX
+        </div>
+    </div>
+</div>

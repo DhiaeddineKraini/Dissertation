@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<link rel="author" title="David Grogan" href="mailto:dgrogan@chromium.org"><p><p><p>
+</p></p></p><link rel="help" href="https://crbug.com/1306037">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<meta name="assert" content="Abspos child of a flexbox moves after script changes its alignment."><p>
+  #reference-overlapped-red {
+    position: absolute;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    z-index: -1;
+  }
+
+  #parent {
+    position: relative;
+    display: flex;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    align-self: end;
+  }
+
+</p></style>
+
+<p>Test passes if there is a filled green square and <strong>no red</strong>.
+</p>
+
+<div id=reference-overlapped-red></div>
+
+<div id="parent">
+  <link href="../../reference/ref-filled-green-666px-square.xht" rel="match"><div id="child"></div>
+</div>
+
+<script>
+  document.body.offsetTop;
+  child.style.alignSelf = 'start';
+</script>

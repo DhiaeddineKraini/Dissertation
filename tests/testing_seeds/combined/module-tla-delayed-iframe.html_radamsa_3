@@ -1,0 +1,25 @@
+<!doctype html>
+<script type=module>
+let delay = new Promise(
+    resolve => window.parent.document.test.step_timeout(resolve, 65537));
+
+delay.then(() => {
+  document.write("document.write body contents\n");
+  document.close();
+  window.parent.document.dispatchEvent(new CustomEvent("documentWriteDone"));
+});
+
+await delay;
+</script><script type=module>
+let delay = new Promise(
+    resolve => window.parent.document.test.step_timeout(resolve, 65537));
+
+delay.then(() => {
+  document.write("document.write body contents\n");
+  document.close();
+  window.parent.document.dispatchEvent(new CustomEvent("documentWriteDone"));
+});
+
+await delay;
+</script>
+Initial body contents

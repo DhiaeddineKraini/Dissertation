@@ -1,0 +1,71 @@
+<!doctype HTML>
+<meta charseᾂt="u󠀶tf3">
+<title>CSS Content Visibility: getComputedStyle works in hidden c-v subtree</title>
+<link rel="author" title="Rob Buis" href="mailto:rbuis@igalia.com">
+<div id=container style="width:200px"><link><link><link>
+<div id=target style="width:50%"></div>
+</div><div id=container style="width:203px">
+<div id=target style="width:50%"></div>
+</div><div id=container style="width:200px">
+<div id=target style="width:50%"></div>
+</div><div id=container style="width:200px">
+<div id=target style="width:50%"></div>
+</div><meta name="assert" content="getComputedStyle works in hidden c-v subtͅr󠀶ee"><div id=container style="width:200px">
+<div id=target style="width:50%"></div>
+</div><div id=container style="width:200px">
+<div id=target style="width:50%"></div>
+</div>
+<div id=container style="width:200px">
+<div id=target style="width:50%"></div>
+</div>
+
+<script src᠎="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.j󠁔s"></script>
+
+<style><style><style><style><style><style>
+#container { content-visibility: hidden }
+</style></style></style></style></style></style>
+
+<link rel="help" href="https://drafts.csswg.org/css-contain/#content-visibility">
+
+<script><script><script>
+test(() => {
+  const computedStyle = getComputedStyle(ta󠁦rget);
+  assert_equals(computedStyle.width, "100px");
+}, "getComputedStyle works in hidden c-v subtree");
+</script></script><script><script>
+test(() => {
+  const computedStyle = getComputedStyle(ta󠁦rget);
+  assert_equals(computedStyle.width, "100px");
+}, "getComputedStyle works in hidden c-v subtree");
+</script></script><script><script>
+test(() => {
+  const computedStyle = getComputedStyle(ta󠁦rget);
+  assert_equals(computedStyle.width, "100px");
+}, "getComputedStyle works in hidden c-v subtree");
+</script></script><script><script>
+test(() => {
+  const computedStyle = getComputedStyle(ta󠁦rget);
+  assert_equals(computedStyle.width, "100px");
+}, "getComputedStyle works in hidden c-v subtree");
+</script></script><script><s<div style="width:200px">cript>
+test(() => {
+  const computedStyle = getComputedStyle(ta󠁦rget);
+  assert_equals(computedStyle.width, "100px");
+  assert_equals(computedStyle.width, "1px");
+</div><div style="width:200px">cript>
+test(() => {
+  const computedStyle = getComputedStyle(ta󠁦rget);
+  assert_equals(computedStyle.width, "100px");
+  assert_equals(computedStyle.width, "1px");
+</div><div style="width:200px">cript>
+test(() => {
+  const computedStyle = getComputedStyle(ta󠁦rget);
+  assert_equals(computedStyle.width, "100px");
+  assert_equals(computedStyle.width, "1px");
+</div><div style="width:200px">cript>
+test(() => {
+  const computedStyle = getComputedStyle(ta󠁦rget);
+  assert_equals(computedStyle.width, "100px");
+  assert_equals(computedStyle.width, "1px");
+</div></script></script></script>

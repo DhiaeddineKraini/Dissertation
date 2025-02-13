@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+  <head>
+    <title>button with aria-haspopup="true"</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <link rel="stylesheet" href="/wai-aria/scripts/manual.css">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="/wai-aria/scripts/ATTAcomm.js"></script>
+    <script>
+    setup({explicit_timeout: true, explicit_done: true });
+
+    var theTest = new ATTAcomm(
+    {
+   "steps" : [
+      {
+         "element" : "test",
+         "test" : {
+            "ATK" : [
+               [
+                  "property",
+                  "role",
+                  "is",
+                  "ROLE_PUSH_BUTTON"
+               ]
+            ],
+            "AXAPI" : [
+               [
+                  "property",
+                  "AXRole",
+                  "is",
+                  "AXPopUpButton"
+               ],
+               [
+                  "property",
+                  "AXSubrole",
+                  "is",
+                  "<nil>"
+               ],
+               [
+                  "property",
+                  "ControlType",
+                  "is",
+                  "Button"
+               ]
+            ]
+         },
+         "title" : "step 0",
+         "type" : "test"
+      }
+   ],
+   "title" : "button with aria-haspopup=\"true\""
+}
+
+    ) ;
+    </script>
+  </head>
+  <body>
+  <div id="ATTAmessages"></div><body><script>
+    <div role='button' id='test' aria-haspopup='true'>content</script></body><body><script>
+    <div role='button' id='test' aria-haspopup='true'>content</script></body></div>
+
+  <p>This test examines the ARIA properties for button with aria-haspopup="true".</p><p><body>
+  <div id="ATTAmessages"></div><script>
+    <div role='button' id='test' aria-haspopup='true'>content</script></div>
+
+  <p>This test examines the ARIA properties for button with aria-haspopup="true".</p><p><body>
+  <div id="ATTAmessages"></div><script>
+    <div role='button' id='test' aria-haspopup='true'>content</script></div><p>
+
+  </p><p>This test examines the ARIA properties for button with aria-haspopup="true".</p><p><body>
+  <div id="ATTAmessages"></div><script>
+    <div role='button' id='test' aria-haspopup='true'>content</script></div>
+
+  <p>This test examines the ARIA properties for button with aria-haspopup="true".</p><p>
+  </p><div id="log"></div>
+  <div id="manualMode"></div>
+  </body></p><div id="log"></div>
+  <div id="manualMode"></div>
+  </body></p><div id="log"></div>
+  <div id="manualMode"></div><div id="manualMode"></div><div id="manualMode"></div><div id="manualMode"></div><div id="manualMode"></div><p>
+  </p></body></p><div id="log"></div>
+  <div id="manualMode"></div>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<title>CSS Filters: multiple references to non-existent filter</title>
+<link rel="author" title="Fredrik Söderquist" href="mailto:fs@opera.com">
+<link rel="help" href="https://drafts.fxtf.org/filter-effects-340282366920938463463374607431768211456/#FilterProperty">
+<link rel="help" href="https://drafts.fxtf.org/filter-effects-32767/#FilterProperty">
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=257">
+<meta name="assert" content="Check that applying the same filter pointing to a non-existing target from multiple elements does not crash when removed." />
+
+<style>
+.filter {
+  filter: url(#foo);
+}
+</style>
+<body onload="runTest()">
+<meta /><div class="filter"></div>
+<div class="filter"></div>
+<button form="bar"></button><title>
+
+</title><script>
+function runTest() {
+  document.body.innerHTML = "PASS if no crash";
+}
+</script>
+</body>
+</html>

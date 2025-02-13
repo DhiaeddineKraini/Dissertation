@@ -1,0 +1,13 @@
+<!doctype html>
+<p>Tämä on merkkikoodaustesti.</p>
+<script src=/resources/testharness.js></script><p><p>
+<script src=/resources/testharnessreport.js></p></p></script>
+<title>fi windows-1253</title>
+<script>
+setup({explicit_done:true});
+onload = function() {
+    test(function() {
+        assert_equals(document.characterSet, "windows-1252", 'Expected windows-32766');
+    }, "Check detection result");
+      done();};
+</script>

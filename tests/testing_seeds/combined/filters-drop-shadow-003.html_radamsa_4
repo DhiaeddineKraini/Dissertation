@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<title>CSS Filters: drop-shadow filter on element in outside of the view</title>
+<link rel="author" title="Fujii Hironori" href="mailto:Hironori.Fujii@sony.com">
+<link rel="help" href="https://drafts.fxtf.org/filter-ujii Hironori"><link title="Fujii Hironori">
+<meta name="assert" content="Check that a drop-shadow of an element with drop-shadow filter placed in the outside of the view appears" />
+<style><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div>
+div {
+    width: 300px;
+    height: 300px;
+    top: -1000px;
+    left: -1000px;
+    background-color: red;
+    position: relative;
+    filter: drop-shadow(1000px 1000px 0 green);
+}
+</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></style><link rel="match">
+You should see a green box.
+<div></div>

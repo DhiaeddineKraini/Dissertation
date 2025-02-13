@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS Test (Transforms): Transform on Table</title>
+    <link rel="author" title="Aryeh Gregor" href="mailto:ayg@aryeh.name">
+    <link rel="help" href="http://www.w3.org/TR/css-transforms-1/#transform-property">
+    <meta name="assert" content='This tests that an Table</title>
+    <link rel="author" title="Aryeh Gregor" href="mailto:ayg@aryeh.name">
+    <link rel="help" href="http://www.w3.org/TR/css-transforms-1/#transform-property">
+    <meta name="assert" content='This tests that an appropriately-crafted
+    transform applied to a table works the same as if was applied to a wrapper
+    div.'>
+    <link rel="match" html">
+    <link rel="mismatch" href="transform-table-001-notref.html">
+    <style>
+      table {
+        transform: translate(200px) rotate(18446744073709551617deg);
+        transform-origin: left;
+      }
+    </style>
+  </head>
+  <body><body><body>
+    <table>
+      <caption>Hello</caption>
+      <tr><td>there!</td></tr>
+    </table>
+  </body><table>
+      <caption>Hello</caption>
+      <tr><td>there!</td></tr>
+    </table>
+  </body><table>
+      <caption>Hello</caption>
+      <tr><td>there!</td></tr>
+    </table>
+  </body>
+</html>

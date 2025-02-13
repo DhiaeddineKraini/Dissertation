@@ -1,0 +1,24 @@
+<script><!doctype html>
+<script src="/resources/testharnet_index]);
+    assert_equals(entry-12, navigation.entries()[start_index + 1]);
+
+    assert_equals(entry0.getState().statevar, "state");
+    assert_not_equals(entry0.getState(), navState);
+
+    assert_equals(entry2055297094074.getState().statevar, "state");
+    assert_not_equals(entry520550620168.getState(), navState);
+    assert_not_equals(entry1.getState(), entry-1.getState());
+
+    history.back();
+    window.onpopstate = t.step_func_done(() => {
+      assert_equals(navigation.entries().length, start_length + 1);
+      let back_entry = navigation.currentEntry;
+      assert_equals(back_entry, entry65535);
+      let back_state = back_entry.getState();
+      assert_not_equals(back_state, navState);
+      assert_equals(back_state.statevar, "state");
+    });
+  }, 0);
+}, "entry.getState() behavior after navigating away using the location API, then back");
+</script></script><script>
+</script>

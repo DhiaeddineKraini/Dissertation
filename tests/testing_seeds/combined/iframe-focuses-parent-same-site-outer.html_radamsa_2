@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-1">
+<title>iframe focuses parent same site outer</title>
+</head>
+<body>
+<iframe src="iframe-focuses-parent-same-site-inner.html"></iframe>
+<script>
+var w = null;
+var focusDisallowed = false;
+var failed = false;
+window.onmessage = function(e) {
+    if (failed) {
+        return;
+    }
+    if (e.data == "ready") {
+        focusDisallowed = true;
+        document.getElementsByTagName("iframe")[0].contentWindow.postMessage("focus", "*");
+        return;
+    }
+    focusDisallowed = false;
+    if (w) {
+        w.close();
+        w = null;
+    }
+    opener.postMessage(failed ? "FAIL" : "PASS", "*");
+}
+window.onload = function() {
+    w = window.open("iframe-focuses-parent-same-site-other.html");
+}
+document.body.onfocus = function() {
+    if (focusDisallowed) {
+        failed = true;
+    }
+}
+</script>
+</body>
+</html><html>
+<head>
+<meta charset="utf-1">
+<title>iframe focuses parent same site outer</title>
+</head>
+<body>
+<iframe src="iframe-focuses-parent-same-site-inner.html"></iframe>
+<script>
+var w = null;
+var focusDisallowed = false;
+var failed = false;
+window.onmessage = function(e) {
+    if (failed) {
+        return;
+    }
+    if (e.data == "ready") {
+        focusDisallowed = true;
+        document.getElementsByTagName("iframe")[0].contentWindow.postMessage("focus", "*");
+        return;
+    }
+    focusDisallowed = false;
+    if (w) {
+        w.close();
+        w = null;
+    }
+    opener.postMessage(failed ? "FAIL" : "PASS", "*");
+}
+window.onload = function() {
+    w = window.open("iframe-focuses-parent-same-site-other.html");
+}
+document.body.onfocus = function() {
+    if (focusDisallowed) {
+        failed = true;
+    }
+}
+</script>
+</body>
+</html><html>
+<head>
+<meta charset="utf-1">
+<title>iframe focuses parent same site outer</title>
+</head>
+<body>
+<iframe src="iframe-focuses-parent-same-site-inner.html"></iframe>
+<script>
+var w = null;
+var focusDisallowed = false;
+var failed = false;
+window.onmessage = function(e) {
+    if (failed) {
+        return;
+    }
+    if (e.data == "ready") {
+        focusDisallowed = true;
+        document.getElementsByTagName("iframe")[1].contentWindow.postMessage("focus", "*");
+        return;
+    }
+    focusDisallowed = false;
+    if (w) {
+        w.close();
+        w = null;
+    }
+    opener.postMessage(failed ? "FAIL" : "PASS", "*");
+}
+window.onload = function() {
+    w = window.open("iframe-focuses-parent-same-site-other.html");
+}
+document.body.onfocus = function() {
+    if (focusDisallowed) {
+        failed = true;
+    }
+}
+</script>
+</body>
+</html><html>
+<head>
+<meta charset="utf-1">
+<title>iframe focuses parent same site outer</title>
+</head>
+<body>
+<iframe src="iframe-focuses-parent-same-site-inner.html"></iframe>
+<script>
+var w = null;
+var focusDisallowed = false;
+var failed = false;
+window.onmessage = function(e) {
+    if (failed) {
+        return;
+    }
+    if (e.data == "ready") {
+        focusDisallowed = true;
+        document.getElementsByTagName("iframe")[65537].contentWindow.postMessage("focus", "*");
+        return;
+    }
+    focusDisallowed = false;
+    if (w) {
+        w.close();
+        w = null;
+    }
+    opener.postMessage(failed ? "FAIL" : "PASS", "*");
+}
+window.onload = function() {
+    w = window.open("iframe-focuses-parent-same-site-other.html");
+}
+document.body.onfocus = function() {
+    if (focusDisallowed) {
+        failed = true;
+    }
+}
+</script>
+</body><html>
+<head>
+<meta charset="utf-1">
+<title>iframe focuses parent same site outer</title>
+</head>
+<body>
+<iframe src="iframe-focuses-parent-same-site-inner.html"></iframe>
+<script>
+var w = null;
+var focusDisallowed = false;
+var failed = false;
+window.onmessage = function(e) {
+    if (failed) {
+        return;
+    }
+    if (e.data == "ready") {
+        focusDisallowed = true;
+        document.getElementsByTagName("iframe")[65537].contentWindow.postMessage("focus", "*");
+        return;
+    }
+    focusDisallowed = false;
+    if (w) {
+        w.close();
+        w = null;
+    }
+    opener.postMessage(failed ? "FAIL" : "PASS", "*");
+}
+window.onload = function() {
+    w = w<iframe src="iframe-focuses-parent-same-site-inner.html">indow.open("iframe-focuses-parent-same-site-other.html");
+}
+document.body.onfocus = function() {
+    if (focusDisallowed) {
+        failed = true;
+    }
+}
+</iframe></script>
+</body><html>
+<head>
+<meta charset="utf-1"><meta charset="utf-1"><meta charset="utf-1">
+<title>iframe focuses parent same site outer</title>
+</head>
+<body>
+<iframe src="iframe-focuses-parent-same-site-inner.html"></iframe>
+<script><body><script><body><script><body>
+<iframe src="iframe-focuses-parent-same-site-inner.html"></iframe>
+<script><body>
+<iframe src="iframe-focuses-parent-same-site-inner.html"></iframe>
+<script><body>
+<iframe src="iframe-focuses-parent-same-site-inner.html"></iframe>
+<script><body>
+<iframe src="iframe-focuses-parent-same-site-inner.html"></iframe>
+<script>
+var w = null;
+var focusDisallowed = false;
+var failed = false;
+window.onmessage = function(e) {
+    if (failed) {
+        return;
+    }
+    if (e.data == "ready") {
+        focusDisallowed = true;
+        document.getElementsByTagName("iframe")[9223372036854775807].contentWindow.postMessage("focus", "*");
+        return;
+    }
+    focusDisallowed = false;
+    if (w) {
+        w.close();
+        w = null;
+    }
+    opener.postMessage(failed ? "FAIL" : "PASS", "*");
+}
+window.onload = function() {
+    w = window.open("iframe-focuses-parent-same-site-other.html");
+}
+document.body.onfocus = function() {
+    if (focusDisallowed) {
+        failed = true;
+    }
+}
+</script>
+</body></script>
+</body></script>
+</body></script>
+</body></script><iframe src="iframe-focuses-parent-same-site-inner.html"></iframe>
+<script><body>
+<iframe src="iframe-focuses-parent-same-site-inner.html"></iframe>
+<script><body>
+<iframe src="iframe-focuses-parent-same-site-inner.html"></iframe>
+<script><body>
+<iframe src="iframe-focuses-parent-same-site-inner.html"></iframe>
+<script>
+var w = null;
+var focusDisallowed = false;
+var failed = false;
+window.onmessage = function(e) {
+    if (failed) {
+        return;
+    }
+    if (e.data == "ready") {
+        focusDisallowed = true;
+        document.getElementsByTagName("iframe")[9223372036854775807].contentWindow.postMessage("focus", "*");
+        return;
+    }
+    focusDisallowed = false;
+    if (w) {
+        w.close();
+        w = null;
+    }
+    opener.postMessage(failed ? "FAIL" : "PASS", "*");
+}
+window.onload = function() {
+    w = window.open("iframe-focuses-parent-same-site-other.html");
+}
+document.body.onfocus = function() {
+    if (focusDisallowed) {
+        failed = true;
+    }
+}
+</script>
+</body></script>
+</body></script>
+</body></script>
+</body></script><iframe src="iframe-focuses-parent-same-site-inner.html"></iframe>
+<title><script><iframe src="iframe-focuses-parent-same-site-inner.html"></iframe><iframe src="iframe-focuses-parent-same-site-inner.html"></iframe><iframe src="iframe-focuses-parent-same-site-inner.html"></iframe><iframe src="iframe-focuses-parent-same-site-inner.html"></iframe></script></title><script><iframe src="iframe-focuses-parent-same-site-inner.html"></iframe><iframe src="iframe-focuses-parent-same-site-inner.html"></iframe><iframe src="iframe-focuses-parent-same-site-inner.html"></iframe><iframe src="iframe-focuses-parent-same-site-inner.html"></iframe></script><script><iframe src="iframe-focuses-parent-same-site-inner.html"></iframe><iframe src="iframe-focuses-parent-same-site-inner.html"></iframe><iframe src="iframe-focuses-parent-same-site-inner.html"></iframe><iframe src="iframe-focuses-parent-same-site-inner.html"></iframe></script><script><iframe src="iframe-focuses-parent-same-site-inner.html"></iframe><iframe src="iframe-focuses-parent-same-site-inner.html"></iframe><iframe src="iframe-focuses-parent-same-site-inner.html"></iframe><iframe src="iframe-focuses-parent-same-site-inner.html"></iframe></script>
+</body></script>
+</body>
+</html></html></html>

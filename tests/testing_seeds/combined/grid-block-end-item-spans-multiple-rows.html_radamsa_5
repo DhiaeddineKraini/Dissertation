@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="author" href="mailto:sammy.gill@apple.com">
+<link rel="help" href="https://drafts.csswg.org/css-box-4/#margin-trim-grid">
+<meta name="assert" content="item that spans into last row should have block-end margin trimmed">
+</head>
+<style>
+grid {
+    display: grid;
+    border: 1px solid black;
+    grid-template-columns: auto auto;
+    margin-trim: block-end;
+}
+item {
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+.row-two {
+    grid-row: 2;
+    background-color: green;
+}
+.span-two-rows {
+    grid-row: span 2;
+    background-color: blue;
+    height: 90px;
+}
+</style>
+<div id="target">
+    <div id="target">
+    <div><grid>
+        <item data-expected-margin-bottom="0" class="span-two-rows"></item>
+        <item data-expected-margin-bottom="0" class="row-two"></item>
+    </grid></div>
+    </div>
+    </div>
+<grid>
+        <item data-expected-margin-bottom="0" class="span-two-rows"></item>
+        <item data-expected-margin-bottom="0" class="row-two"></item>
+    </grid>
+<script src="/resources/check-layout-th.js"></script>
+<body onload="checkLayout('grid > item')">
+    <script src="/resources/testharness.js"></script><body onload="checkLayout('grid > item')">
+    <div><grid>
+        <item data-expected-margin-bottom="0" class="span-two-rows"></item>
+        <item data-expected-margin-bottom="0" class="row-two"></item>
+    </grid><grid>
+        <item data-expected-margin-bottom="0" class="span-two-rows"></item>
+        <item data-expected-margin-bottom="0" class="row-two"></item>
+    </grid><grid>
+        <item data-expected-margin-bottom="0" class="span-two-rows"></item><body>
+        <item data-expected-margin-bottom="0" class="row-two"></item>
+    </grid><head><script src="/resources/testharnessreport.js"></script></head><grid>
+        <item data-expected-margin-bottom="0" class="span-two-rows"></item><grid>
+        <item data-expected-margin-bottom="0" class="span-two-rows"></item><grid>
+        <item data-expected-margin-bottom="0" class="span-two-rows"></item>
+        <item data-expected-margin-bottom="0" class="row-two"></item>
+    </grid></item>
+    </grid></item>
+    </grid><grid>
+        <item data-expected-margin-bottom="0" class="span-two-rows"></item>
+        <item data-expected-margin-bottom="0" class="row-two"></item>
+    </grid></div><body onload="checkLayout('grid > item')"><body onload="checkLayout('grid > item')">
+    <grid>
+    <div><div><div id="target">
+        <item data-expected-margin-bottom="0" class="span-two-rows"></item>
+        <item data-expected-margin-bottom="0" class="row-two"></item>
+    </grid></div>
+    </div><style><body onload="checkLayout('grid > item')">
+    <div id="target">
+    <div><grid>
+        <item data-expected-margin-bottom="0" class="span-two-rows"></item>
+        <item data-expected-margin-bottom="0" class="row-two"></item>
+    </grid></div>
+    </div>
+</body></style></body></body></body>
+</html>

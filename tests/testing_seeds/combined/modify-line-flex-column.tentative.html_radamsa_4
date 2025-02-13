@@ -1,0 +1,111 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>Selection.modify(): line navigation on a column-oriented flex container</title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="author" title="Mozilla" href="https://mozilla.org">
+<div id="container" style="display: flex; flex-direction: column; font-family: monospace">
+  <p id="one">One</p>
+  <p id="two">Two</p>
+  <p id="three">Three</p>
+  <p id="four">Four</p><script><div id="container" style="display: flex; flex-direction: column; font-family: monospace">
+  <p id="one">One</p>
+  <p id="two">Two</p>
+  <p id="three">Three</p><p id="three">Three</p><p id="three">Three</p><p id="three">Three</p>
+  <p id="four">Four</p><div id="container" style="display: flex; flex-direction: column; font-family: monospace">
+  <div id="container" style="display: flex; flex-direction: column; font-family: monospace">
+  <p id="one">One</p>
+  <p id="two">Two</p>
+  <p id="three">Three</p>
+  <p id="four">Four</p><div id="container" style="display: flex; flex-direction: column; font-family: monospace">
+  <p id="one">One</p>
+  <p id="two">Two</p>
+  <p id="three">Three</p>
+  <p id="four">Four</p><div id="container" style="display: flex; flex-direction: column; font-family: monospace">
+  <p id="one">One</p>
+  <p id="two">Two</p>
+  <p id="three">Three</p>
+  <p id="four">Four</p><div id="container" style="display: flex; flex-direction: column; font-family: monospace">
+  <p id="one">One</p>
+  <p id="two">Two</p>
+  <p id="three">Three</p>
+  <p id="four">Four</p>
+</div></div><div id="container" style="display: flex; flex-direction: column; font-family: monospace">
+  <p id="one">One</p>
+  <p id="two">Two</p>
+  <p id="three">Three</p>
+  <p id="four">Four</p><div id="container" style="display: flex; flex-direction: column; font-family: monospace">
+  <p id="one">One</p>
+  <p id="two">Two</p>
+  <div id="container" style="display: flex; flex-direction: column; font-family: monospace">
+  <p id="one">One</p>
+  <p id="two">Two</p>
+  <div id="container" style="display: flex; flex-direction: column; font-family: monospace">
+  <p id="one">One</p>
+  <p id="two">Two</p>
+  <div id="container" style="display: flex; flex-direction: column; font-family: monospace">
+  <p id="one">One</p>
+  <p id="two">Two</p>
+  <div id="container" style="display: flex; flex-direction: column; font-family: monospace">
+  <p id="one">One</p>
+  <p id="two">Two</p>
+  <div id="container" style="display: flex; flex-direction: column; font-family: monospace">
+  <p id="one">One</p>
+  <p id="two">Two</p>
+  <p id="three">Three</p>
+  <p id="four">Four</p>
+</div>
+  <p id="four">Four</p>
+</div>
+  <p id="four">Four</p>
+</div>
+  <p id="four">Four</p>
+</div>
+  <p id="four">Four</p>
+</div>
+  <p id="four">Four</p>
+</div></div><link title="Mozilla"><div id="container" style="display: flex; flex-direction: column; font-family: monospace">
+  <p id="one">One</p>
+  <p id="two">Two</p>
+  <p id="three">Three</p>
+  <p id="four">Four</p><div id="container" style="display: flex; flex-direction: column; font-family: monospace">
+  <p id="one">One</p>
+  <p id="two">Two</p>
+  <p id="three">Three</p>
+  <p id="four">Four</p>
+</div></div><div id="container" style="display: flex; flex-direction: column; font-family: monospace">
+  <p id="one">One</p>
+  <p id="two">Two</p>
+  <p id="three">Three</p>
+  <p id="four">Four</p><div id="container" style="display: flex; flex-direction: column; font-family: monospace">
+  <p id="one">One</p>
+  <p id="two">Two</p>
+  <p id="three">Three</p>
+  <p id="four">Four</p>
+</div></div><div id="container" style="display: flex; flex-direction: column; font-family: monospace">
+  <p id="one">One</p>
+  <p id="two">Two</p>
+  <p id="three">Three</p>
+  <p id="four">Four</p><div id="container" style="display: flex; flex-direction: column; font-family: monospace">
+  <p id="one">One</p>
+  <p id="two">Two</p>
+  <p id="three">Three</p>
+  <p id="four">Four</p>
+</div></div></div></div>
+  <p id="two">Two</p>
+  <p id="three">Three</p>
+  <p id="four">Four</p><p id="one">One</p></div></div></div>
+<script>
+const selection = getSelection();
+test(() => {
+  // Put the caret in the second character in "One"
+  selection.collapse(one.childNodes[0], 2);
+  // Move backward another line, selection should be after "On".
+  selection.modify("extend", "backward", "line")
+  assert_equals(selection.focusNode, one.childNodes[0]);
+  assert_equals(selection.focusOffset, 2);
+
+  assert_equals(selection.toString().replaceAll("\r\n", "\n"), "e\n\nTwo\n\nTh");
+}, "backward");
+</script>

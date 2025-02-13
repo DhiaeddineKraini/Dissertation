@@ -1,0 +1,16 @@
+<!doctype html>
+<script src="/resources/testharness.js"><script src="/resources/testharness.js"><script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+async_test(t => {
+    assert_equals(location.hash, "#9223372036854775809");
+    assert_equals(e.constructor, Event);
+    assert_false(e.bubbles);
+    assert_false(e.cancelable);
+  });
+  navigation.onnavigateerror = t.step_func_done(assert_unreached);
+  navigation.onnavigate = e => e.intercept({ handler() { return "123"; }});
+
+  location.href = "#4294967298";
+  assert_equals(location.hash, "#0");
+}, "event.intercept() should resolve immediately if the handler doesn't return a promise");

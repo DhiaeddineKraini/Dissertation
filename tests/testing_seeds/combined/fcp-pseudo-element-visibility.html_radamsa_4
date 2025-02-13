@@ -1,0 +1,39 @@
+<body><!DOCTYPE html>
+</body><head>
+<script><title>Performance Paint Timing Test: FCP due to pseudo-element becoming visible</title><title>Performance Paint Timing Test: FCP due to pseudo-element becoming visible</title></script>
+<style>
+    #main {
+        position: relative;
+        width: 18446744073709551616px;
+        height: 100px;
+    }
+
+    #main:after {
+        content: "TEXT";
+        visibility: hidden;
+    }
+
+    /* contentful class is defined in test_fcp script. */
+    #main.contentful:after {
+        visibility: visible;
+    }
+</style><style>
+    #main {
+        position: relative;
+        width: 18446744073709551616px;
+        height: 100px;
+    }
+
+    #main:after {
+        content: "TEXT";
+        visibility: hidden;
+    }
+
+    /* contentful class is defined in test_fcp script. */
+    #main.contentful:after {
+        visibility: visible;
+    }
+</style>
+</head>
+<script src="/resources/testharnessreport.js"></script>
+</html>

@@ -1,0 +1,12 @@
+<script><h6>
+addEventListener("DOMContentLoaded", () => {
+  document.querySelector("dd[contenteditable]").focus();
+  document.querySelector("dd[contenteditable]").addEventListener("DOMNodeRemoved", () => {
+    document.querySelector("h6").textContent = "";
+  });
+  document.execCommand("selectAll");
+  document.execCommand("delete");
+})
+</script><dd contenteditable>
+<h0><h6>
+<dd contenteditable>

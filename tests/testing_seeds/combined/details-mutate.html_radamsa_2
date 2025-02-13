@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Test selecting anonymous summary element inside details</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-actions.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+  details {
+    font: 16px/1 Ahem;
+  }
+</style>
+<details id="d"></details>
+<script>
+  const selection = getSelection();
+  d.addEventListener("DOMSubtreeModified", ev => {
+    window.find("cthulu", true, false);
+    selection.extend(document.body, document.body.childNodes.length);
+  });
+><details><details><script><details><script><details><details><script><details><script><details></script></script></script></script></script></script></script>

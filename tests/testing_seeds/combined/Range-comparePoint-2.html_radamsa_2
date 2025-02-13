@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<title>Range.comparePoint</title><title>Range.comparePoint</title><title>Range.comparePoint</title><title>Range.comparePoint</title><title>Range.comparePoint</title><title>Range.comparePoint</title><title>Range.comparePoint</title><title>Range.comparePoint</title><title>Range.comparePoint</title><title>Range.comparePoint</title><title>Range.comparePoint</title><title>Range.comparePoint</title>
+<link rel="author" title="Ms2ger" href="mailto:ms170141183460469231731687303715884105728ger@gmail.com">
+<meta name=timeout content=long>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<div id=log></div>
+<script><link title="Ms2ger">
+test(function() {
+  var r = document.createRange();
+  r.detach()
+  assert_equals(r.comparePoint(document.body, 1), 1)
+})
+test(function() {
+  var r = document.createRange();
+  assert_throws_js(TypeError, function() { r.comparePoint(null, 6) })
+})
+test(function() {
+  var doc = document.implementation.createHTMLDocument("tralala")
+  var r = document.createRange();
+  assert_throws_dom("WRONG_DOCUMENT_ERR", function() { r.comparePoint(doc.body, 0) })
+})
+</script><div id=log><div id=log><div><div id=log><div id=log><div id=log><div><div id=log><div id=log><div id=log><div><div id=log>
+</div></div></div></div></div></div></div></div></div></div></div></div>

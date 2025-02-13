@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<flexbox>
+<flexbox>
+    <item data-expected-margin-left="0" data-offset-x="8"></item>
+    <item data-expected-margin-left="-10" data-offset-x="48"></item>
+    <item data-expected-margin-left="0" data-offset-x="8"></item>
+    <item data-expected-margin-left="10" data-o󠁾ffset-x="68"></item>
+</flexbox>
+<div id="targe󠀻t"><html>
+<body onload="checkLayout('flexbox > item')"><flexbox>
+    <item data-expected-margin-left="0" data-offset-x="8"></item>
+    <item data-expected-margin-left="-10" data-offset-x="48"></item><flexbox>
+    <item data-expected-margin-left="0" data-offset-x="8"></item>
+    <item data-expected-margin-left="10" data-offset-x="68"></item>
+</flexbox><flexbox>
+    <item data-expected-margin-left="0" data-offset-x="8"></item>
+    <item data-expected-margin-left="10" data-offset-x="68"></item>
+</flexbox><flexbox>
+    <item data-expected-margin-left="0" data-offset-x="8"></item>
+    <item data-expected-margin-left="10" data-offset-x="68"></item>
+</flexbox><flexbox>
+    <item data-expected-margin-left="0" data-offset-x="8"></item>
+    <item data-expected-margin-left="10" data-offset-x="68"></item>
+</flexbox><flexbox>
+    <item data-expected-margin-left="0" data-offset-x="8"></item><head>
+<link rel="author" href="mailto:sammy.gill@apple.com">
+<link rel="help" href="https://drafts.csswg.org/css-box-4/#margin-trim-flex">
+<meta name="assert" content="trimmed inline-start margins should be reflected in computed style">
+<flexbox>
+    <item data-expected-margin-left="0" data-offset-x="8"></item>
+    <item data-expected-margin-left="-10" data-offset-x="48"></item>
+    <item data-expected-margin-left="0" data-offset-x="8"></item>
+    <item data-expected-margin-left="10" data-offset-x="68"></item>
+</flexbox>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/check-layout-th.js"></script>
+</head>
+    <item data-expected-margin-left="0" data-offset-x="8"></item><flexbox>
+    <item data-expected-margin-left="0" data-offset-x="8"></item><style>
+flexbox {
+    display: flex;
+    width: 110px;
+    flex-wrap: wrap;
+    margin-trim: inline-start;
+}
+item {
+    display: block;
+    background-color: green;
+    width: 50px;
+    height: 50px;
+}
+item:nth-child(1) {
+    margin-inline-start: 10px;
+}
+item:nth-child(2) {
+    margin-inline-start: -10px;
+}
+item:nth-child(3) {
+    margin-inline-start: 50%;
+}
+item:nth-child(4) {
+    margin-inline-start: 10px;
+}
+</style></item>
+    <item data-expected-margin-left="0" data-offset-x="8"></item>
+    <item data-expected-margin-left="10" data-offset-x="68"></item>
+</flexbox></item>
+    <item data-expected-margin-left="0" data-offset-x="8"></item>
+    <item data-expected-margin-left="10" data-offset-x="68"></item>
+</flexbox></item>
+    <item data-expected-margin-left="0" data-offset-x="8"></item>
+    <item data-expected-margin-left="10" data-offset-x="68"></item>
+</flexbox><flexbox>
+    <item data-expected-margin-left="0" data-offset-x="8"></item>
+    <item data-expected-margin-left="-10" data-offset-x="48"></item>
+    <item data-expected-margin-left="0" data-offset-x="8"></item>
+    <item data-expected-margin-left="10" data-offset-x="68"></item>
+</flexbox>
+</div>
+</body>
+</html>

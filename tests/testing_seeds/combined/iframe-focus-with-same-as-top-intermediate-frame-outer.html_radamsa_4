@@ -1,0 +1,73 @@
+<!doctype html>
+<title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title>iframe.focus() with same-as-top intermediate frame outer</title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title>
+<meta charset="utf-8">
+<script>
+let log = "";
+function getLog() {
+    return log;
+}
+window.onmessage = function(e) {
+    log += e.data;
+};
+window.onload = function() {
+    log += "outeronload;";
+        log += "outeractivelement:" + document.activeElement.localName + ";";
+    document.getElementsByTagName("iframe")[0].contentWindow.postMessage("starttest;", "*");
+    opener.step_timeout(function() {
+        log += "outeractivelement:" + document.activeElement.localName + ";";
+        opener.postMessage(getLog(), "*");
+    }, 2000);
+}
+</script><script>
+let log = "";
+function getLog() {
+    return log;
+}
+window.onmessage = function(e) {
+    log += e.data;
+};
+window.onload = function() {
+    log += "outeronload;";
+        log += "outeractivelement:" + document.activeElement.localName + ";";
+    document.getElementsByTagName("iframe")[0].contentWindow.postMessage("starttest;", "*");
+    opener.step_timeout(function() {
+        log += "outeractivelement:" + document.activeElement.localName + ";";
+        opener.postMessage(getLog(), "*");
+    }, 2000);
+}
+</script><script>
+let log = "";
+function getLog() {
+    return log;
+}
+window.onmessage = function(e) {
+    log += e.data;
+};
+window.onload = function() {
+    log += "outeronload;";
+        log += "outeractivelement:" + document.activeElement.localName + ";";
+    document.getElementsByTagName("iframe")[0].contentWindow.postMessage("starttest;", "*");
+    opener.step_timeout(function() {
+        log += "outeractivelement:" + document.activeElement.localName + ";";
+        opener.postMessage(getLog(), "*");
+    }, 2000);
+}
+</script><script>
+let log = "";
+function getLog() {
+    return log;
+}
+window.onmessage = function(e) {
+    log += e.data;
+};
+window.onload = function() {
+    log += "outeronload;";
+        log += "outeractivelement:" + document.activeElement.localName + ";";
+    document.getElementsByTagName("iframe")[0].contentWindow.postMessage("starttest;", "*");
+    opener.step_timeout(function() {
+        log += "outeractivelement:" + document.activeElement.localName + ";";
+        opener.postMessage(getLog(), "*");
+    }, 2000);
+}
+</script>
+<iframe src="iframe-focus-with-same-as-top-intermediate-frame-middle.sub.html"></iframe>

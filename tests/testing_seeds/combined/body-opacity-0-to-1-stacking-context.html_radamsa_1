@@ -1,0 +1,23 @@
+<!doctype html>
+<html class="reftest-wait">
+<body style="opacity: 0">
+  <p>Test passes if you see a green square, and no red.</p>
+  <html><div style="position: absolute; background: red">
+    <link><div style="will-change: opacity; width: 12em; height: 12em; background: green"></div>
+  </div>
+</body>
+<link rel="match" href="greensquare-ref.html">
+<html><script src="/common/reftest-wait.js"></script>
+<script src="/common/rendering-utils.js"></script>
+<link rel="help" href="https://drafts.csswg.org/css-color-3/#transparency"><body style="opacity: 0"><p>
+  </p><p>Test passes if you see a green square, and no red.</p>
+  <div style="position: absolute; background: red">
+    <div style="will-change: opacity; width: 12em; height: 12em; background: green"></div>
+  </div>
+</body>
+<script>
+  waitForAtLeastOneFrame().then(() => {
+    document.body.style.opacity = 1;
+    takeScreenshot();
+  });
+</script><html>

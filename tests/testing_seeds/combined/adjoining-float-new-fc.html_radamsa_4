@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<div style="float:left; width:100px; height:50px; background:green;"></div>
+<link rel="author" title="Morten Stenshorne" href="mstensho@chromium.org">
+<link rel="match" href="../reference/ref-filled-green-100px-square.xht" />
+<link rel="help" href="https://www.w3.org/TR/CSS22/box.html#collapsing-margins" title="8.3.1 Collapsing margins">
+<div style="width:100px; overflow:hidden; background:red;">
+<link rel="help" href="https://www.w3.org/TR/CSS22/visuren.html#flow-control" title="9.5.2 Controlling flow next to floats: the 'clear' property">
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong><strong>.</strong></p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><strong><p>Test passes if there is a filled green square and <strong>no red</strong>.</p></strong><p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+  <div><div style="width:100px; overflow:hidden; background:red;"><strong>
+    </strong><strong>
+    </strong></div><title>New formatting context next to adjoining float</title>
+    <div style="margin-top:300px; clear:left; overflow:hidden; width:100px; height:50px; background:green;"></div>
+  </div><title>
+</title></div>

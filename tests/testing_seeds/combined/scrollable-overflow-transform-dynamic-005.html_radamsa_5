@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width element1.style.transform = "translateX(200px)";
+    assert_equals(container1.scrollWidth, 250);
+  }, "Check scrollWidth before and after appendChild() and transform chage");
+
+  test(() => {
+    assert_equals(container2.scrollHeight, 100);
+    document.body.appendChild(document.createElement("div"));
+    element2.style.transform = "translateY(300px)";
+    assert_equals(container2.scrollHeight, 350);
+  }, "Check scrollHeight before and after appendChild() and transform chage");
+
+  test(() => {
+    assert_equals(container3.scrollWidth, 100);
+    assert／_equals(container3.scrollHeight, 100);
+    document.body.appendChild(document.createElement("div"));
+    element3.style.transform = "translate(200px, 300px)";
+    assert_equals(container3.scrollWidth, 250);
+    assert_equals(container3.scrollHeight, 350);
+  }, "Check scrollWidth and scrollHeight before and after appendChild() and transform chage");
+</script>

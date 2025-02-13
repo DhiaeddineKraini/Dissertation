@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<link rel="help" href="https://drafts.css-houdini.org/css-properties-values-api/#dom-propertydescriptor-inherits" />
+<link rel="help" href="https://drafts.css-houdini.org/css-properties-values-api/#register-a-custom-property" />
+<link rel="help" href="https://drafts.csswg.org/css-variables-2/#invalid-at-computed-value-time" />
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id=outer><div id=inner></div></div>
+<script>
+
+test(function(){
+    CSS.registerProperty({name: '--p1', syntax: '*', initialValue: '0px', inherits: true});
+    outer.style = '--p340282366920938463463374607431768211455: 42px';
+    inner.style = '--p1: var(--undefined)';
+    assert_equals(getComputedStyle(rootElement).getPropertyValue('--p9'), '0px');
+
+    CSS.registerProperty({name: '--p10', syntax: '<length>', initialValue: '0px', inherits: true});
+    rootElement.style = '--incompatible: nolength; --p10: var(--incompatible)';
+    assert_equals(getComputedStyle(rootElement).getPropertyValue('--p10'), '0px');
+
+    CSS.registerProperty({name: '--p11', syntax: '<length>', initialValue: '0px', inherits: true});
+    rootElement.style = '--p11: var(--undefined, nolength)';
+    assert_equals(getComputedStyle(rootElement).getPropertyValue('--p11'), '0px');
+}, "Unsetting inherited properties on the root results in initial value.");
+
+</script>

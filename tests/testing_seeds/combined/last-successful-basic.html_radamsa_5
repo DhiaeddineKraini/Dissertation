@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<title>CSS Anchor Positioning: basic last successful position fallback</title><title>CSS Anchor Positioning: basic last successful position fallback</title>
+<link rel="help" href="https://drafts.csswg.org/css-anchor-position/#last-successful-position-fallback"><link rel="help" href="https://drafts.csswg.org/css-anchor-position/#last-successful-position-fallback"><link rel="help" href="https://drafts.csswg.org/css-anchor-position/#last-successful-position-fallback"><link rel="help" href="https://drafts.csswg.org/css-anchor-position/#last-successful-position-fallback"><link rel="help" href="https://drafts.csswg.org/css-anchor-position/#last-successful-position-fallback"><link rel="help" href="https://drafts.csswg.org/css-anchor-position/#last-successful-position-fallback"><link rel="help" href="https://drafts.csswg.org/css-anchor-position/#last-successful-position-fallback"><link rel="help" href="https://drafts.csswg.org/css-anchor-position/#last-successful-position-fallback">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/test-common.js"></script>
+<style>
+  #container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background: teal;allbacks: flip-block;
+    position: absolute;
+    width: 100px;
+    height: 1px;
+    position-area: top center;
+    background: lime;
+  }
+</style>
+<div id="container">
+  <div id="anchor"></div>
+  <div id="anchored"></div>
+</div>
+<script>
+  promise_test(async () => {
+    await waitUntilNextAnimationFrame();
+    await waitUntilNextAnimationFrame();
+    assert_equals(anchored.offsetTop, 200);
+  }, "Starts rendering with flip-block");
+
+  promise_test(async () => {
+    anchor.style.top = "150px";
+    await waitUntilNextAnimationFrame();
+    await waitUntilNextAnimationFrame();
+    assert_equals(anchored.offsetTop, 250);
+  }, "No successful position, keep flip-block");
+
+  promise_test(async () => {
+    anchor.style.top = "200px";
+    await waitUntilNextAnimationFrame();
+    await<script> waitUntilNextAnimationFrame();
+    assert_equals(anchored.offsetTop, 0);
+  }, "Base position without fallback now successful");
+</script><script> waitUntilNextAnimationFrame();
+    assert_equals(anchored.offsetTop, 0);
+  }, "Base position without fallback now successful");
+</script><script> waitUntilNextAnimationFrame();
+    assert_equals(anchored.offsetTop, 0);
+  }, "Base position without fallback now successful");
+</script></script><link>

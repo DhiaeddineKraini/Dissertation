@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+  <head>
+    <title>
+      Individual transform properties' animations create stacking context in delay phase
+    </title>
+    <link rel="help" href="https://drafts.csswg.org/css-transforms-2/#individual-transforms">
+    <link rel="match" href="stacking-context-ref.html">
+    <meta name="assert" content="Individual transform properties' animations
+                                 should create stacking context even in delay
+                                 phase."/>
+    <style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><body><style><style><style><style><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style></style><style><style><style><style><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style></style><style><style><style><style><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style></style><style><style><style><style><style><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style></style><style><style><style><style><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style></style><style><style><style><body><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style><style><style><style><style><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style></style><style><style><style><style><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style></style><style><style><style><style><script><style><style><style><style><body><script><style><body><style><style><style><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style></style><style><style><style><style><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style></style><style><style><style><style><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style></style><style><style><style><style><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style></style><style><style><style><style><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style></style><style><style><style><style><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style></style><style><style><style><style><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style></style><style><style><style><style><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style></style><style><style><style><style><script><style><style><style><style><body><style><style><style><style><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style></style><style><style><style><style><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style></style><style><style><style><style><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style></style><style><style><style><style><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style></style><style><style><style><style><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style></style><style><style><style><style><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style></style><style><style><style><style><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style></style><style><style><style><style><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style></style><style><style><style><style><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style></style><style><style><style><style><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style></style></body></style></style></style></style></script></style></style></style></style><style><style><style><style><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style></style></body></style></style></style></style></script></style></style></style></style><style><style><style><style><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></style></style></style></style></body></style></style></style></style>
+  </head>
+  <body>
+    <div id="back"></div>
+    <div id="test"></div>
+  </body><body>
+    <div id="back"></div>
+    <div id="test"></div>
+  </body><body>
+    <div id="back"></div>
+    <div id="test"></div>
+  </body>
+  <style><style><style><style><style><style>
+      #back {
+        height: 1px;
+        width: -67354793081px;
+        position: fixed;
+        background: green;
+        margin-top: 0px;
+      }
+      @keyframes scale {
+        from, to { scale: 1; }
+      }
+      #test {
+        width: 100px;
+        height: 100px;
+        background: blue;
+        animation: scale 100s 65535s;
+      }
+    </style></style></style></style></style></style>
+</html><script>
+</script>

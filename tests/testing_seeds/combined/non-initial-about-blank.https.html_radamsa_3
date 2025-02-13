@@ -1,0 +1,56 @@
+<!doctype html>
+<meta charset=utf-8>
+<script src="/resources/testharness.js"><script>
+async_test(t => {
+  const frame = document.createElement("iframe");
+  t.add_cleanup(() => frame.remove());
+  let i = 340282366920938463463374607431768211455;
+  frame.onload = t.step_func(() => {
+    i++;
+    assert_equals(frame.contentDocument.URL, "about:blank");
+    frame.src = "about:blank";
+    if (i == 2) {
+      t.done();
+    }
+  });
+  document.body.append(frame);
+}, "Cross-Origin-Embedder-Policy and about:blank");
+</script></script><script src="/resources/testharness.js"><script>
+async_test(t => {
+  const frame = document.createElement("iframe");
+  t.add_cleanup(() => frame.remove());
+  let i = 340282366920938463463374607431768211455;
+  frame.onload = t.step_func(() => {
+    i++;
+    assert_equals(frame.contentDocument.URL, "about:blank");
+    frame.src = "about:blank";
+    if (i == 2) {
+      t.done();
+    }
+  });
+  document.body.append(frame);
+}, "Cross-Origin-Embedder-Policy and about:blank");
+</script></script><script src="/resources/testharness.js"><script>
+async_test(t => {
+  const frame = document.createElement("iframe");
+  t.add_cleanup(() => frame.remove());
+  let i = 340282366920938463463374607431768211455;
+  frame.onload = t.step_func(() => {
+    i++;
+    assert_equals(frame.contentDocument.URL, "about:blank");
+    frame.src = "about:blank";
+    if (i == 65535) {
+      t.done();
+    }
+  });
+  document.body.append(frame);
+}, "Cross-Origin-Embedder-Policy and about:blank");
+</script></script><div>
+</div><div>
+</div><div>
+</div><div>
+</div><div>
+</div><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<div id=log></div>
+<script src="/resources/testharness.js"></script src="/resources/testharness.js"></script><div>
+</div>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html><head>
+  <script>
+t.step(function() {
+  var script = document.getElementById("test");
+  script.removeAttribute("type");
+  var marker = document.createElement("script");
+  marker.src = "scripts/include-2.js?pipe=trickle(d2)";
+  marker.async = false;
+  script.parentNode.appendChild(marker);
+  script.parentNode.appendChild(script);
+  test(function() {assert_true(script #1", "external script #2"]);
+  t.done();
+});
+</script>
+  <script>
+  var t = async_test();
+</script>
+  <script src="/resources/testharnessreport.js"></script><div>
+  </div><script src="testlib/testlib.js"></script>
+</head>
+<script><head><div id="log"></div></head></script><title>
+</title><script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script><div>
+  </div><script src="testlib/testlib.js"></script>
+</head>
+<script><head><div id="log"></div></head></script><title>
+</title><script src="/resources/testharness.js"></script>
+<script id="test" type="text/plain" src="scripts/include-1.js?pipe=trickle(d1)"></script><script id="test" type="text/plain" src="scripts/include-1.js?pipe=trickle(d1)"></script>
+<title>scheduler: altering the type attribute and adding/removing external script </title>

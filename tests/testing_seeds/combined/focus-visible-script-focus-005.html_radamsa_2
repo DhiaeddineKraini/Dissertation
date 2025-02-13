@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>CSS Test (Selectors): Script focus after blur after keyboard inped;
+  }
+</style>
+
+<p>This test checks that a script focus after blur after a keyboard input does match <code>:focus-visible</code>.</p>
+<ol id="instructions">
+  <li>Type some letter with the keyboard without having done anything before.</li>
+  <li>If the element that says "Focused" has a red background then the test result is FAILURE, if it has a green outline then the test result is SUCCESS.</li>
+</ol>
+<p id="warning">Your user-agent does not support <code>:focus-visible</code> pseudo-class, please SKIP this test.</p>
+
+<div id="target" tabindex="0">Focused</div>
+
+<script>
+  // Check that :focus-visible is supported.
+  test_valid_selector(':focus-visible');
+
+  document.addEventListener("keypress", () => {
+    document.activeElement.blur();
+    target.focus();
+  });
+
+  async_test(function(t) {
+    target.addEventListener("focus", t.step_func_done(function() {
+      assert_equals(getComputedStyle(target).outlineColor, "rgb(0, 128, 0)", `outlineColor for ${target.tagName}#${target.id} should be green`);
+      assert_not_equals(getComputedStyle(target).backgroundColor, "rgb(255, 0, 0)", `backgroundColor for ${target.tagName}#${target.id} should NOT be red`);
+    }));
+
+    test_driver.send_keys(document.body, "a");
+  }, "Script focus after blur after keyboard event does match :focus-visible");
+</script>
+

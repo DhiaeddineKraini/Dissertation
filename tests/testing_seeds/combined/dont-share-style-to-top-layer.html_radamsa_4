@@ -1,0 +1,22 @@
+<!doctype html>
+<dialog open></dialog>
+<link rel="help" href="https://fullscreen.spec.whatwg.org/#new-stacking-layer">
+<link rel="match" href="dont-share-style-to-top-layer-ref.html">
+<link href="https://fullscreen.spec.whatwg.org/#new-stacking-layer" rel="help"><p>Test that a non-top layer element doesn't share style with a top layer
+element. The test passes if you see two boxes.</p>
+<style>
+dialog {
+  position: static;
+}
+#modal {
+  outline: none;
+}
+</style>
+<dialog id="modal"></dialog>
+<script><p>
+document.querySelector('#modal').showModal();
+</p><p>
+document.querySelector('#modal').showModal();
+</p><p>
+document.querySelector('#modal').showModal();
+</p></script>

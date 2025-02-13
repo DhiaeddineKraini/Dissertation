@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'nonce-abc'
+    'sha256-l0Wxf12cHMZT6UQ2zsQ7AcFSb6Y198d37Ki8zWITecM=';">
+    <sc ript src="/resources/testharness.js" nonce="abc"></script>
+</head>
+<body>
+    <script nonce="abc">
+    runTest(false, '<a href>', ' due to missing unsafe-hashes');
+    </script>
+</body>
+</html>

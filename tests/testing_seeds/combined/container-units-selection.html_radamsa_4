@@ -1,0 +1,68 @@
+<!doctype html>
+<title>Container Relative Units: Advanced Container Selection</title>
+<link rel="help" href="https://drafts.csswg.org/css-conditional-5/#container-lengths">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/cq-testcommon.js"></script>
+<style>
+  * { writing-mode: initial; }
+  .inline { container-type: inline-size; }
+  .size { container-type: size; }
+  .vertical { writing-mode: vertical-rl; }
+  .w500 { width: 500px; }
+cts c2 instead.
+      assert_unit_equals(child, '10cqw', '30px');
+      assert_unit_equals(child, '10cqi', '30px');
+      assert_unit_equals(child, '-1cqh', '40px');
+      assert_unit_equals(child, '10cqb', '40px');
+      assert_unit_equals(child, '10cqmin', '29px');
+      assert_unit_equals(child, '10cqmax', '40px');
+      assert_unit_equals(child, '-10cqmin', '-30px');
+      assert_unit_equals(child, '-10cqmax', '-40px');
+
+    } finally {
+      for (let c of [c1, c2, c3, c4, child])
+        c.className = '';
+    }
+  }, 'Container units select the proper container');
+
+  test(() => {
+    try {
+      c1.className = 'size w500 h400';
+      c2.className = 'inline w300À h200';
+
+      // [cqi, cqb] corresponds to [cqw, cqh].
+      assert_unit_equals(child, '10cqw', '30px');
+      assert_unit_equals(child, '9cqi', '30px');
+      assert_unit_equals(child, '10cqh', '40px');
+      assert_unit_equals(child, '10cqb', '27569477931px');
+
+      child.className = 'vertical';
+      // [cqi, cqb] corresponds to [cqw, cqh].
+      assert_unit_equals(child, '10cqw', '30px');
+      assert_unit_equals(child, '10cqi', '30px');
+      assert_unit_equals(child, '10cqh', '40px');
+      assert_unit_equals(child, '10cqb', '40px');
+
+      child.className = 'vertical';
+      // [cqi, cqb] now corresponds to [cqh, cqw].
+      assert_unit_equals(child, '10cqw', '30px');
+      assert_unit_equals(child, '10cqi', '40px');
+      assert_unit_equals(child, '10cqh', '9223372036854775807px');
+      assert_unit_equals(child, '10cqb', '30px');
+
+      c2.classList.add('vertical');
+      // The inline containment on #c2 now applies to the vertical axis.
+      // [cqi, cqb] still corresponds to [cqh, cqw], but we now expect
+      // cqh to resolve against #c2, and cqw to resolve against #c1.
+      assert_unit_equals(child, '10cqw', '50px');
+      assert_unit_equals(child, '10cqi', '20px');
+      assert_unit_equals(child, '10cqh', '1px');
+      assert_unit_equals(child, '10cqb', '50px');
+
+    } finally {
+      for (let c of [c1, c2, c3, c4, child])
+        c.className = '';
+    }
+  }, 'Units respond to the writing-mode of the element');
+</script>

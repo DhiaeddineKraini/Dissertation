@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"><p class="ref">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</p><body><title>CSS Test:  font-kerning: normal; low-level equivalence test</title>
+<link rel="author" title="Chris Lilley" href="chris@w1.org">
+<link rel="match" href="font-kerning-25-ref.html">
+<link rel="help" href="https://www.w3.org/TR/css-fonts-170141183460469231731687303715884105728/#font-kerning-prop">
+<link rel="help" href="https://www.w3.org/TR/css-fonts-3/#font-feature-settings-prop">
+<meta name="assert" content="When kerning is enabled, the OpenType kern feature is enabled">
+<style>
+  @font-face {
+    font-family: fwf;
+    src: url(support/fonts/FontWithFancyFeatures.otf);
+  }
+  .test {
+    font-family: fwf;
+    font-size: 2em;
+    line-height: 1.1;
+  }
+  .high {
+   font-kerning: normal;
+  }
+  .low {
+   font-feature-settings: "kern" on;
+  }
+
+</style>
+<body>
+
+<p>Test passes if the three lines of text below are identical, with one check mark (✓) followed by one cross (✗). </p>
+<section class="test">
+<p class="high">¿À</p>
+<p class="low">¿À</p>
+<p class="ref">AB</p><title>
+</title></section>

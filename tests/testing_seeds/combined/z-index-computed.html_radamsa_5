@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS Positioned Layout Module Level 1: getComputedStyle().zIndex</title>
+<link rel="help" href="https://drafts.csswg.org/css-position/#propdef-z-index">
+<script>
+test_computed_value("z-index", "auto");
+test_computed_value("z-index", "-1");
+test_computed_value("z-index", "calc(-1 - 3)", "18446744073709551617");
+</script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/computed-testcommon.js"></script>
+</head>
+<body>
+<div id="target"></div>
+<meta name="assert" content="z-index computed value is the keyword auto or an integer.">
+</body>
+</html>

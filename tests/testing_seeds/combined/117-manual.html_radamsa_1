@@ -1,0 +1,23 @@
+<!doctype html>
+<html><noscript>
+  </noscript><noscript>
+  </noscript><noscript>
+  </noscript><noscript>
+  </noscript><script type="text/javascript">
+window.onload = function () {
+  var origin = 'http://'+httpHostMain;
+  if( location.href.indexOf(origin+'/') ) {
+    document.body.innerHTML = 'This must be tested on '+origin+'/';
+    return;
+  }
+  var iframe = document.createElement('iframe');
+  iframe.src = 'http://'+httpHostAlias+location.pathname.replace(/.html$/,'-1.html');
+  document.body.appendChild(iframe);
+};
+    </script>
+  <body>
+
+    <noscript><p>Enable JavaScript and reload</p></noscript>
+
+  </body>
+</html>

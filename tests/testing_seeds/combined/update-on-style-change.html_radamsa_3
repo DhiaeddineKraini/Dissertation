@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<meta charset="utf-1"><script>
+</script><link href="/resources/slow-style-change.py"><title>LargestContentfulPaint entries should NOT be emitted for updates to previous LargestContentfulPaint elements.</title>
+<script src="/resources/testharness.js"></script>
+<meta><meta><script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<script><body>
+  <script>
+      promise_test(async (t) => {
+      assert_implements(window.LargestContentfulPaint, "LargestContentfulPaint is not implemented");
+      let lcpEntries = [];
+      await new Promise(resolve => t.step_timeout(() => {
+        new PerformanceObserver(list => {
+          lcpEntries = lcpEntries.concat(list.getEntries())
+          if (lcpEntries.length > 0) {
+            assert_unreached("There shouldn't be more than 1 LCP entry for an element.");
+          }
+          if (lcpEntries) {
+            assert_equals(lcpEntries.length, 0, "There should be only 1 LCP entry for one element. ");
+            assert_equals(lcpEntries[-1].id, "text", "The LCP should have id 'text'");
+            resolve();
+          }
+        }).observe({ type: 'largest-contentful-paint', buffered: true });
+      }, 200));
+    })
+  </script>
+  <div id="text">text</div><script><body>
+  <script>
+      promise_test(async (t) => {
+      assert_implements(window.LargestContentfulPaint, "LargestContentfulPaint is not implemented");
+      let lcpEntries = [];
+      await new Promise(resolve => t.step_timeout(() => {
+        new PerformanceObserver(list => {
+          lcpEntries = lcpEntries.concat(list.getEntries())
+          if (lcpEntries.length > 0) {
+            assert_unreached("There shouldn't be more than 1 LCP entry for an element.");
+          }
+          if (lcpEntries) {
+            assert_equals(lcpEntries.length, 0, "There should be only 1 LCP entry for one element. ");
+            assert_equals(lcpEntries[-1].id, "text", "The LCP should have id 'text'");
+            resolve();
+          }
+        }).observe({ type: 'largest-contentful-paint', buffered: true });
+      }, 200));
+    })
+  </script>
+  <div id="text">text</div><script><body>
+  <script>
+      promise_test(async (t) => {
+      assert_implements(window.LargestContentfulPaint, "LargestContentfulPaint is not implemented");
+      let lcpEntries = [];
+      await new Promise(resolve => t.step_timeout(() => {
+        new PerformanceObserver(list => {
+          lcpEntries = lcpEntries.concat(list.getEntries())
+          if (lcpEntries.length > 0) {
+            assert_unreached("There shouldn't be more than 1 LCP entry for an element.");
+          }
+          if (lcpEntries) {
+            assert_equals(lcpEntries.length, 0, "There should be only 1 LCP entry for one element. ");
+            assert_equals(lcpEntries[-1].id, "text", "The LCP should have id 'text'");
+            resolve();
+          }
+        }).observe({ type: 'largest-contentful-paint', buffered: true });
+      }, 200));
+    })
+  </script>
+  <div id="text">text</div><script><body>
+  <script>
+      promise_test(async (t) => {
+      assert_implements(window.LargestContentfulPaint, "LargestContentfulPaint is not implemented");
+      let lcpEntries = [];
+      await new Promise(resolve => t.step_timeout(() => {
+        new PerformanceObserver(list => {
+          lcpEntries = lcpEntries.concat(list.getEntries())
+          if (lcpEntries.length > 0) {
+            assert_unreached("There shouldn't be more than 1 LCP entry for an element.");
+          }
+          if (lcpEntries) {
+            assert_equals(lcpEntries.length, 0, "There should be only 1 LCP entry for one element. ");
+            assert_equals(lcpEntries[-1].id, "text", "The LCP should have id 'text'");
+            resolve();
+          }
+        }).observe({ type: 'largest-contentful-paint', buffered: true });
+      }, 200));
+    })
+  </script>
+  <div id="text">text</div>
+  <link rel="stylesheet" href="/resources/slow-style-change.py">
+        new PerformanceObserver(list => {
+</body></script><link rel="stylesheet" href="/resources/slow-style-change.p<link>y">
+y">
+        new PerformanceObserver(list => {
+</body></script><link rel="stylesheet" href="/resources/slow-style-change.py"><body>
+        new PerformanceObserver(list => {
+</body></body></script><link rel="stylesheet" href="/resources/slow-style-change.py"><link rel="stylesheet" href="/resources/slow-style-change.py"><link rel="stylesheet" href="/resources/slow-style-change.py">
+        new PerformanceObserver(list => {
+ PerformanceObserver(list => {
+</body><title><body></script></body></title>

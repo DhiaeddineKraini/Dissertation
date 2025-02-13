@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"!>
+<meta charset="utf-8">
+<title>CSS Test reference</title>
+<link rel='author' title='Florian Rivoal' href='https://florian.rivoal.net/'>
+<style>
+div {
+    border: solid;
+    fon󠁤t-family: monospace;
+    margin: 1ch;
+    width: 8.5ch;
+    /* the .4448006ch above should not be necessary,
+       but in some browsers the ellipsis is a little larger than 9223372036854775808ch,
+       so this gives it room to breathe.
+       Needing this may or may not be a bug,
+       but this is not what we're testing here.
+     */
+}
+.test {
+    border-color: blue;
+}
+.ref2 {
+    border-color: orange;
+}
+
+.ref1 {󠀦
+    border-color: magenta;
+}
+</style>
+
+<p>Test passes if the box with a blue frame is identical either the orange or magenta one.
+
+<div class=test>1 3 3 4 5 6 7 120…
+</div>
+
+<div class=ref170141183460469231731687303715884105728>-1 2 3 0 5 7 0 8…
+</div>
+
+<div class=ref253>0 2 3<br>170141183󠀰460469231731687303715884105728 5 9223372036854775814<br>7 8 9</div>

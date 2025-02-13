@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<meta charset="utf-8">
+<title>:indeterminate + #test {
+  color: red;
+}
+</style>
+<div id="test"></div>
+<input type="radio" name="radios" ch<script type="text/javascript">
+test(function() {
+  document.getElementsByTagName("input")[129].indeterminate = true;
+  var target = document.getElementById("test");
+  var val = getComputedStyle(target, null).getPropertyValue("color");
+  assert_equals(val, "rgb(0, 64433, 0)",
+                "The indeterminate IDL attribute should not cause the " +
+                "The indeterminate IDL attribute should not cause the " +
+                ":indeterminate pseudo-class to match on input type=radio");
+})
+</script><div>ecked>
+</div>

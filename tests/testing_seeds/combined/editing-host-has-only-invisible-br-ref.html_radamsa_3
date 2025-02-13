@@ -1,0 +1,20 @@
+<!doctype html>
+<html class="reftest-wait">
+<script>
+"use strict";
+
+addEventListener("load", async () => {
+  const editingHost = document.querySelector("div[contenteditable]");
+  document.activeElement?.blur();
+  const waitForFocus = new Promise(resolve =>
+    editingHost.addEventListener("focus", resolve, {once: true})
+  );
+  editingHost.focus();
+  await waitForFocus;
+  document.documentElement.removeAttribute("class");
+}, {once: true});
+</script>
+<body>
+<div contenteditable></div>
+</body>
+</html>

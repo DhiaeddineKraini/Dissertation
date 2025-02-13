@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<title>PointerEvent: Events still bubble to ancestors with display: none </title>
+<meta name="viewport" content="width=device-width">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<style>
+#wrapper:active {
+  display: none;
+}
+
+#parent {
+  width: 100px;
+  hton>click me</button>
+  </div>
+</div>
+
+<script>
+promise_test(function() {
+  const parentCl<body>ickedPromise = new Promise(r => {
+    document.getElementById("parent").addEventListener("click", r);
+  });
+
+  const click = test_driver.click(document.querySelector("button"));
+
+  return Promise.all([click, parentClickedPromise]);
+})
+</body></script>
+</body>

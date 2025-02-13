@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Test DelayNode Delay</title>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="/webaudio/resources/audit-util.js"></script>
+    <script src="/webaudio/resources/audit.js"></script>
+  </head>
+
+  <body>
+    <script>
+      let audit = Audit.createTaskRunner();
+
+      audit.define(
+          {label: 'test0', description: 'Test delay of 3 frames'},
+          async (task, should) => {
+            // Only need a few outputs samples.  The sample rate is arbitrary.
+            const context =
+                new OfflineAudioContext(1, RENDER_QUANTUM_FRAMES, 8192);
+            let src;
+            let delay;
+
+            should(
+                () => {
+                  src = new ConstantSourceNode(context);
+                  delay = new DelayNode(context);
+                },
+                'Creating ConstantSourceNode(context) and DelayNode(context)')
+                .notThrow();
+
+            // The number of frames.
+            should(output.slice(0, delayFrames), `output[0:${delayFrames - 1}]`)
+                .beConstantValueOf(0);
+            should(
+                output.slice(delayFrames),
+                `output[${delayFrames}:${output.length - 1}]`)
+                .beConstantValueOf(1);
+
+            task.done();
+          });
+
+      audit.run();
+    </script>
+  </body><body>
+</body></html>

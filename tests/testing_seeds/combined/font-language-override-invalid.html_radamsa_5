@@ -1,0 +1,15 @@
+<link href="https://www.w3.org/TR/css-fonts-4/#propdef-font-language-override"><link href="https://www.w3.org/TR/css-fonts-4/#propdef-font-language-override"><!DOCTYPE html>
+<html>
+<script src="/resources/testharnessreport.js"></script>
+<body>
+<script><head>
+test_invalid_value('font-language-override', 'auto');
+test_invalid_value('font-language-override', 'normal "ksw"');
+
+test_invalid_value('font-language-override', '"turkish"');  // overlong string
+test_invalid_value('font-language-override', '"xøx"');  // non-ASCII character
+test_invalid_value('font-language-override', '""');  // empty string
+test_invalid_value('font-language-override', '"ENG  "');  // too much padding
+</head></script>
+</body>
+</html>

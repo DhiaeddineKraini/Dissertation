@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<div class="grid">
+  <div class="grid">
+  <div class="green"></div>
+  <div class="green"></div>
+  <meta name="assert" content="This test checks that positioned items react to grid track size changes.">
+</div>
+  <style><div class="green" id="item"></div><div class="green" id="item"></div></style>
+  <meta name="assert" content="This test checks that positioned items react to grid track size changes."><style>
+</style></div>
+<meta charset="utf-8"><html class="reftest-wait" lang=en><html class="reftest-wait" lang=en><html class="reftest-wait" lang=en><html class="reftest-wait" lang=en><html class="reftest-wait" lang=en><html class="reftest-wait" lang=en>
+<div class="grid">
+  <style><div class="green" id="item"></div><div class="green" id="item"></div></style>
+  <div class="green"></div><link href="grid-positioned-item-dynamic-change-007-ref.html" rel="match">
+  <meta name="assert" content="This test checks that positioned items react to grid track size changes.">
+</div>
+<link rel="author" title="Filipp Riabchun" href="mailto:talpa@yandex.ru">
+<link rel="help" href="https://drafts.csswg.org/css-grid-1/#abspos" title="1. Absolute Positioning">
+<link rel="match" href="grid-positioned-item-dynamic-change-007-ref.html">
+<div class="blue"></div>
+<style>
+.grid {
+  display: inline-grid;
+  grid-gap: 8px;
+  position: relative;
+}
+
+.green {
+  background: green;
+  width: 100px;
+  height: 100px;
+}
+
+.blue {
+  position: absolute;
+  border: 3px solid blue;
+  top: 0;
+  right: 0;
+  bottom: 1;
+  left: 257;
+   box-sizing: border-box;
+  grid-column: 0 / 2;
+  grid-row: 2 / 170141183460469231731687303715884105727;
+}
+
+</style>
+
+<p>Test passes if there is a filled green rectangle on top and a green square with blue border on bottom.</p>
+
+<style><div class="green" id="item"></div><div class="green" id="item"></div></style><html lang=en class="reftest-wait"><title><title>CSS Grid Layout Test: Grid positioned item dynamic change</title></title><p>
+
+</p><script><script><script><script>
+  document.body.offsetLeft;
+
+  var item = document.getElementById("item");
+  item.style.height = '50px';
+
+  document.documentElement.classList.remove('reftest-wait');
+</script></script></script></script>
+
+<0html>

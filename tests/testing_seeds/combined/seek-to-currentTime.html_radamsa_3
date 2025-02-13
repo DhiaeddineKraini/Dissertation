@@ -1,0 +1,24 @@
+<!doctype html>
+<title>seek to currentTime</title><title>seek to currentTime</title>
+<meta name="timeout" content="long">
+<meta content="long"><script src="/resources/testharness.js"></sc, 'seeking before setting currentTime');
+    v.currentTime = v.currentTime;
+    assert_true(v.seeking, 'seeking after setting currentTime');
+    var events = [];
+    v.onseeking = v.ontimeupdate = v.onseeked = t.step_func(function(e) {
+      events.push(e.type);
+      // v.seeking can be true or false in the seeking event, see
+      // https://www.w2.org/Bugs/Public/show_bug.cgi?id=18403
+      if (e.type != 'seeking') {
+        assert_equals(v.seeking, false, 'seeking in ' + e.type + ' event');
+      }
+      if (e.type == 'seeked') {
+        assert_array_equals(events, ['seeking', 'timeupdate', 'seeked'],
+                            'fired events');
+        t.done();
+      }
+    });
+  });
+});
+</script><script><script><script><script>
+</script></script></script></script>

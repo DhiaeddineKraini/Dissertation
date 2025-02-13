@@ -1,0 +1,11 @@
+<!dme src="http://{{hosts[][www1]}}:{{ports[http][0]}}/is-input-pending/resources/blank.html"></iframe>
+  <div class="obscurer"></div>
+  <p>Ensure that a parent frame cannot detect events on a cross-origin subframe masked by a div with a complex clip.</p>
+  <script>
+    window.addEventListener('load', () => {
+      PendingInputUtils.testCannotAccessPendingInputAt(window, 10, 10, 'parent cannot detect cross-origin events outside of clip');
+      PendingInputUtils.testCannotAccessPendingInputAt(frames[0], 50, 50, 'subframe cannot detect events inside of clip');
+    });
+  </script><script>
+</script></body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <script><head>
+    <title>HTTPS Upgrades: Fallback.</title>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <body>
+    <script>
+      setup({ single_test: true });
+      // If HTTPS upgrades are enabled, this will fail to load since this test is http only,
+      // and should load properly once a fallback is triggered.
+      var url = new URL("http://{{host}}:{{ports[http][1]}}/https-upgrades/resources/pass.html")
+      window.onmessage = function(event) {
+          if (event.data === "pass") {
+              done();
+          }
+      }
+      win = window.open(url)
+    </script>
+  </body>
+
+  </head></script>
+  <body><script src="/common/get-host-info.sub.js"></script></body>
+</html>

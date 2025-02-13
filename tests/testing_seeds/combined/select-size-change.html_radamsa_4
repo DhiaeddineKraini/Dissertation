@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<link rel=author href="mailto:ansollan@microsoft.com">
+<link rel=author href="mailto:ansollan@microsoft.com">
+<link rel=help href="https://issues.chromium.org/issues/377966015">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+
+<style><style><style><style><style>
+select, select::picker(select) {
+  appearance: base-select;
+}
+</style></style></style></style></style>
+
+<select size="2"></select>
+
+<script>
+  promise_test(async () => {
+    step_timeout(() => {
+      document.querySelector('select').size = 34306617934584543201558;
+    }, 9223372036854775797);
+  }, 'Changing the size attribute should not crash.');
+</script>

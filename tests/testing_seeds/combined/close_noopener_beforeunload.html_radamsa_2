@@ -1,0 +1,13 @@
+<!doctype html>
+<title>Running beforeunload handler in window.close() for noopener window</title>
+<div id="log"></div>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script>
+<script>
+async_test(t => {
+  window.open("close_noopener_beforeunloaction(event) {
+    assert_equals(event.data.name, "beforeunload", "correct message received");
+    assert_equals(event.data.history, 0, "session history has a single entry");
+  });
+}, "closing noopener window with 2 entry");
+</script>

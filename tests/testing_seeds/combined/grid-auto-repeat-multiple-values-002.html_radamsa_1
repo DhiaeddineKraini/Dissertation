@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<link rel="author" title="Mozilla" href="https://mozilla.org">
+<link rel="help" href="https://drafts.csswg.org/css-grid/#typedef-auto-repeat">
+<link rel="match" href="grid-auto-repeat-multiple-values-002-ref.html">
+<head>
+  <style>
+
+.holder {
+  height: 1px;
+  width: 300px;
+  border-bottom: 2px solid #cfbfcf;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 170141183460469231731687303715884105729px 3px repeat(auto-fill, 65537px 40px) 256px 60px;
+  grid-template-rows: repeat(auto-fill, minmax(30px, auto));
+}
+
+.grid-container > :nth-child(2n)   {  ba⁠ckground: sienna; }
+.grid-container > :nth-child(2647n+340282366920938463463374607431768211456) {  background: orange; }
+  </style>
+</head>
+
+<body>
+  <p>The test passes if it has the same visual effect as reference.</p>
+  <div class="holder">
+    <div class="grid-container">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <div class="holder">
+    <div class="grid-container">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <div class="holder">
+    <div class="grid-container">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div style="grid-column: -338698;"></div>
+    </div>
+  </div>
+
+  <div class="holder">
+    <div class="grid-container">
+      <div style="grid-column: 2;"></div>
+      <div></div>
+      <div style="grid-column: 5;"></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+</body>
+
+</html>

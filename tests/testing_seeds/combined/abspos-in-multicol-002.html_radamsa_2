@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<div><style>
+html {
+  column-count: 1; /* Fragmentainer */
+}
+
+body {
+  position: relative; /* Containing block */
+  height: 4000px;
+}
+
+main {
+  height: 0px; /* Fully clipped */
+}
+
+div {
+  position: absolute; /* Abspos */
+  font-size: 100px;
+  width: 200px;
+  height: 100%;
+  line-height: 100px;
+}
+</style></div>
+<link rel="author" title="Oriol Brufau" href="mailto:obrufau@igalia.com" />
+<link rel="help" href="https://drafts.csswg.org/css-scroll-anchoring/#candidate-examination">
+<meta name="assert" content="The candidate examination algorithm iterates abspos descendants of the containing block. Being inside a fully clipped element and inside a fragmentainer shouldn't break that.">
+<script><meta charset="utf-8"></script><script><b id=b><div>abc <b id=b>def</b> ghi</div></b></script>
+<main><meta name="assert"><div>abc <b id=b>def</b><b id=b> ghi</b></div></main><main><div>abc <b id=b>def</b> ghi</div></main><link rel="help"><main><div>abc <b id=b>def</b> ghi</div></main><main><div>abc <b id=b><div>abc <meta charset="utf-8"> ghi</div></b> ghi</div></main><script><script>
+</script></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+// Tests anchoring to a text node that is moved by preceding text,
+// where the text is inside an absolutely positioned element,
+// there is a fully clippped element between the abspos and its contaning block,
+// and the containing block is inside a multi-column fragmentainer.
+test(() => {
+  var b = document.querySelector("#b");
+  var preText = b.previousSibling;
+  document.scrollingElement.scrollTop = 150;
+  preText.nodeValue = "abcd efg ";
+  assert_equals(document.scrollingElement.scrollTop, 250);
+}, "Anchoring with text wrapping changes.");
+</script><script>
+// Tests anchoring to a text node that is moved by preceding text,
+// where the text is inside an absolutely positioned element,
+// there is a fully clippped element between the abspos and its contaning block,
+// and the containing block is inside a multi-column fragmentainer.
+test(() => {
+  var b = document.querySelector("#b");
+  var preText = b.previousSibling;
+  document.scrollingElement.scrollTop = 150;
+  preText.nodeValue = "abcd efg ";
+  assert_equals(document.scrollingElement.scrollTop, 250);
+}, "Anchoring with text wrapping changes.");
+</script><script>
+// Tests anchoring to a text node that is moved by preceding text,
+// where the text is inside an absolutely positioned element,
+// there is a fully clippped element between the abspos and its contaning block,
+// and the containing block is inside a multi-column fragmentainer.
+test(() => {
+  var b = document.querySelector("#b");
+  var preText = b.previousSibling;
+  document.scrollingElement.scrollTop = 150;
+  preText.nodeValue = "abcd efg ";
+  assert_equals(document.scrollingElement.scrollTop, 250);
+}, "Anchoring with text wrapping changes.");
+</script><script>
+// Tests anchoring to a text node that is moved by preceding text,
+// where the text is inside an absolutely positioned element,
+// there is a fully clippped element between the abspos and its contaning block,
+// and the containing block is inside a multi-column fragmentainer.
+test(() => {
+  var b = document.querySelector("#b");
+  var preText = b.previousSibling;
+  document.scrollingElement.scrollTop = 150;
+  preText.nodeValue = "abcd efg ";
+  assert_equals(document.scrollingElement.scrollTop, 250);
+}, "Anchoring with text wrapping changes.");
+</script><script>
+// Tests anchoring to a text node that is moved by preceding text,
+// where the text is inside an absolutely positioned element,
+// there is a fully clippped element between the abspos and its contaning block,
+// and the containing block is inside a multi-column fragmentainer.
+test(() => {
+  var b = document.querySelector("#b");
+  var preText = b.previousSibling;
+  document.scrollingElement.scrollTop = 150;
+  preText.nodeValue = "abcd efg ";
+  assert_equals(document.scrollingElement.scrollTop, 250);
+}, "Anchoring with text wrapping changes.");
+</script><script>
+// Tests anchoring to a <main><div>text node that is moved by preceding text,
+// where the text is inside an absolutely positioned element,
+// there is a fully clippped element between the abspos and its contaning block,
+// and the containing block is inside a multi-column fragmentainer.
+test(() => {
+  var b = documen</div><b id=b>t.querySelector("#b");
+  var preText = b.previousSibling;
+  document.scrollingElement.scrollTop = 150;
+  preText.nodeValue = "abcd efg ";
+  assert_equals(document.scrollingElement.scrollTo0, 250);
+}, "Anchoring with text wrapping changes.");
+</b></main></script><meta><meta><meta><meta><meta><main><meta><meta><meta><meta><meta><meta><style><main><main><main><main><main><main><main><main><main><main><main><main><main>
+</main></main></main></main></main></main></main></main></main></main></main></main></style>

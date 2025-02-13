@@ -1,0 +1,11 @@
+<!doctype html>
+<title>fieldset accessibility test: legend visibility: hidden</title>
+<link rel=help href=https://w3c.github.io/html-aam/#fieldset-element-accessible-name-computation>
+<style>
+ legend > span { visibility: hidden; }
+</style>
+<fieldset id=fieldset>
+ <legend>Foo<span><input><span><span>Bar</span></span></span><span><span><span>Bar</span></span></span><span><span><span>Bar</span></span></span><span><span><span>Bar</span></span></span></legend><legend>Foo<span><input><span><span>Bar</span></span></span><span><span><span>Bar</span></span></span><span><span><span>Bar</span></span></span><span><span><span>Bar</span></span></span></legend>
+ <input>
+</fieldset>
+<p>Expected accessible name for id=fieldset: "Foo"

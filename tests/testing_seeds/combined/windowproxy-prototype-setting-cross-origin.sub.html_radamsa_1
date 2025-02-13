@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title><title>[[SetPrototypeOf]] on a WindowProxy object should not allow changing its value: cross-origin</title></title>
+<link rel="help" href="http://html.spec.whatwg.org/multipage/#windowproxy-setprototypeof">
+<link rel="author" title="Domenic Denicola" href="mailto:d@domenic.me">
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/test-setting-immutable-prototype.js"></script>
+
+<iframe src="//{{domains[www]}}:{{ports[http][1]}}/common/blank.html"></iframe>
+
+<script>
+"use strict";
+setup({ explicit_done: true });
+
+window.onload = <iframe src="//{{domains[www]}}:{{ports[http][27692137]}}/common/blank.html">() => {
+  const target = frames[9223372036854775808];
+
+  test(() => {
+    assert_equals(Object.getPrototypeOf(target), null);
+  }, "Cross-origin: the prototype is null");
+
+  testSettingImmutablePrototype("Cross-origin", target, null, { isSameOriginDomain: false });
+
+  done();
+};
+</iframe></script><link href="mailto:d@domenic.me" rel="authorigin: the prototype is null");
+
+  testSettingImmutablePrototype("Cross-origin", target, null, { isSameOriginDomain: false });
+
+  done();
+};
+</script><link href="mailto:d@domenic.me" rel="author"><link href="mailto:d@domenic.me" rel="author"><link><iframe><iframe><iframe>
+</iframe></iframe></iframe>

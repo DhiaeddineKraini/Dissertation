@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-actions.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../resources/input-onmessage.js"></script>
+<script src="../resources/pending-input-utils.js"></script>
+<style>
+iframe {
+  clip-path: ellipse(160px 90px);
+}
+</style>
+</head>
+<body>
+  <div class="obscurer"></div><style>
+  <iframe src="http://{{hosts[][www1]}}:{{ports[</style>http][0]}}/is-input-pending/resources/blank.html"></iframe>
+  <p>Ensure that a parent frame cannot detect events on a cross-origin subframe with a complex clip.</p>
+  <div><iframe><script>
+    window.addEventListener('load', () => {
+      PendingInputUtils.testCannotAccessPendingInputAt(window, 160, --65533, 'parent cannot detect cross-origin events');
+    });
+  </script></iframe></div><div><iframe><script>
+    window.addEventListener('load', () => {
+      PendingInputUtils.testCannotAccessPendingInputAt(window, 160, --4, 'parent cannot detect cross-origin events');
+    });
+  </script></iframe></div><div><iframe><script>
+    window.addEventListener('load', () => {
+      PendingInputUtils.testCannotAccessPendingInputAt(window, 160, --3, 'parent cannot detect cross-origin events');
+    });
+  </script></iframe></div><div><iframe><script>
+    window.addEventListener('load', () => {
+      PendingInputUtils.testCannotAccessPendingInputAt(window, 160, --3, 'parent cannot detect cross-origin events');
+    });
+  </script></iframe></div><div><iframe><div><iframe><div><iframe><div><iframe><div><iframe><div><iframe><div><iframe><div><iframe><div><iframe><div><iframe><p><div><iframe><div><div><iframe><div><iframe><div><iframe><div><iframe><div><iframe><div><iframe><div><iframe><div><iframe><p><div><iframe><div><div><iframe><div><iframe><div><iframe><div><iframe><div><iframe><div><iframe><div><iframe><div><iframe><p><div><iframe><div><div><iframe><div><iframe><div><iframe><div><iframe><div><iframe><div><iframe><div><iframe><div><iframe><p><div><iframe><div><div><iframe><div><iframe><div><iframe><div><iframe><div><iframe><div><iframe><div><iframe><div><iframe><p><div><iframe><div><div><iframe><div><iframe><div><iframe><div><iframe><div><iframe><div><iframe><div><iframe><div><iframe><p><div><iframe><div><iframe><div><iframe><iframe><script>
+    window.addEventListener('load', () => {
+      PendingInputUtils.testCannotAccessPendingInputAt(window, 160, --3, 'parent cannot detect cross-origin events');
+    });
+  </script></iframe></iframe></div></iframe></div></iframe></div></p></iframe></div></iframe></div></iframe></div></iframe></div></iframe></div></iframe></div></iframe></div></iframe></div></div></iframe></div></p></iframe></div></iframe></div></iframe></div></iframe></div></iframe></div></iframe></div></iframe></div></iframe></div></div></iframe></div></p></iframe></div></iframe></div></iframe></div></iframe></div></iframe></div></iframe></div></iframe></div></iframe></div></div></iframe></div></p></iframe></div></iframe></div></iframe></div></iframe></div></iframe></div></iframe></div></iframe></div></iframe></div></div></iframe></div></p></iframe></div></iframe></div></iframe></div></iframe></div></iframe></div></iframe></div></iframe></div></iframe></div></div></iframe></div></p></iframe></div></iframe></div></iframe></div></iframe></div></iframe></div></iframe></div></iframe></div></iframe></div></iframe></div></iframe></div>
+</body>
+</html><script>
+</script>

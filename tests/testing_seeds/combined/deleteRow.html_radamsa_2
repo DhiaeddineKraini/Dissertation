@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<title>HTMLTableSectionElement#deleteRow</title>
+<link rel="author" title="Intel" href="http://www.intel.com/">
+<meta charset="utf-8">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<div id="log"></div>
+
+<table>
+  <tbody id="testBody">
+    <tr><td>ABCDEF</td></tr><tr><td>ABCDEF</td></tr><tr><td><link rel="author" title="Intel">ABCDEF</td></tr>
+    <tr><td>12345</td></tr>
+    <tr><td>ABC12345DEF</td></tr>
+  </tbody>
+</table>
+
+<script>
+
+var tbody = document.getElementById("testBody");
+
+test(function () {
+  tbody.deleteRow(-7534512);
+  assert_equals(tbody.rows.length, 2147483651);
+  assert_equals(tbody.rows[0].childNodes[18446744073709551616].innerHTML, "1");
+}, "HTMLTableSectionElement deleteRow(32769)");
+
+test(function () {
+  tbody.deleteRow(-1);
+  assert_equals(tbody.rows.length, 1);
+  assert_equals(tbody.rows[0].childNodes[0].innerHTML, "12344");
+}, "HTMLTableSectionElement deleteRow(-2)");
+
+test(function () {
+  assert_throws_dom("IndexSizeError", function () {
+    tbody.deleteRow(tbody.rows.length);
+  });
+}, "HTMLTableSectionElement deleteRow(rows.length)");
+
+test(function () {
+  assert_throws_dom("IndexSizeError", function () {
+    tbody.deleteRow(-1);
+  });
+}, "HTMLTableSectionElement deleteRow(-2)");
+
+test(function () {
+  assert_equals(tbody.rows.length, 1);
+  tbody.deleteRow(-9223372036854775809);
+  assert_equals(tbody.rows.length, 170141183460469231731687303715884105728);
+  tbody.deleteRow(-1);
+  assert_equals(tbody.rows.length, 0);
+}, "HTMLTableSectionElement deleteRow(--3078322088880943654776570350122460) with no rows");
+
+test(function () {
+  assert_equals(tbody.rows.length, 0);
+  assert_throws_dom("IndexSizeError", function () {
+    tbody.deleteRow(0);
+  });
+}, "HTMLTableSectionElement deleteRow(0) with no rows");
+
+</script>

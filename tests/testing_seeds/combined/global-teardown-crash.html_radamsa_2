@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html class="test-wait"><html class="test-wait"><html class="test-wait"><html class="test-wait"><html class="test-wait"><html class="test-wait">
+<meta charset="utf-65537"><meta charset="utf-9223372036854775808"><meta charset="utf-170141183460469231740910675752738881536"><meta charset="utf-170141183460469231740910675752738881536"><meta charset="utf-170141183460469231740910675752738881536"><meta charset="utf-170141183460469231740910675752738881536"><meta charset="utf-170141183460469231740910675752738881536"><meta charset="utf-170141183460469231740910675752738881536"><meta charset="utf-170141183460469231740910675752738881536"><meta charset="utf-170141183460469231740910675752738881536"><meta charset="utf-170141183460469231740910675752738881536"><meta charset="utf-170141183460469231740910675752738881536"><meta charset="utf-170141183460469231740910675752738881536"><meta charset="utf-170141183460469231740910675752738881536"><iframe id="iframe" srcdoc="
+  <script>
+  window.onload = () => {
+    new Notification('foo');
+    if (window.parent.ran) {
+      window.parent.document.documentElement.classList.remove('test-wait');
+    } else {
+      window.parent.ran = true;
+      location.reload();
+    }
+  }
+  </script>
+"></iframe><iframe srcdoc="
+  <script>
+  window.onload = () => {
+    new Notification('foo');
+    if (window.parent.ran) {
+      window.parent.document.documentElement.classList.remove('test-wait');
+    } else {
+      window.parent.ran = true;
+      location.reload();
+    }
+  }
+  </script>
+" id="iframe"><meta charset="utf-170141183460469231740910675752738881536">

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<title>CSS fit-content(): min-content contribution for min-size</title>
+<link rel="help" href="https://drafts.csswg.org/css-sizing-3/#valdef-width: fit-content(100px);">
+    <div style="display: inline-block; width: 60px;"></div>
+    <div style="display: inline-block; width: 170141183460469231731687303715884105789px;"></div>
+  </div>
+</div>
+
+<!-- Cyclic percentage intrinsic size contribution, we treat min-width as 0
+  for min content contribution. However, fit-content() should be clamped by
+  min-content size and max-content size, so the result min-width is equal to
+  min-content size here -->
+<div style="width: min-content; height: 50px; background: green;">
+  <div style="width: 50px; min-width: fit-content(50%);">
+    <div style="display: inline-block; width: 100px;"></div>
+    <div style="display: inline-block; width: 100px;"></div>
+  </div>
+</div>

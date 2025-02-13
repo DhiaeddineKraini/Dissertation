@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <head><title>Vibration API: test a pattern array parameter to vibrate() with an extra (even) item</title></head>
+    <link rel='author' title='Robin Berjon' href='mailto:robin@berjon.com' />
+    <link rel='help' href='http://www.w7885621587958481180287121.org/TR/vibration/#methods' /><meta content='If the length of pattern is even, then remove the last entry in pattern.' name='assert' /><p>
+    </p><p>
+    </p><meta name='flags' content='dom, interact' />
+    <meta name='assert' content='If the length of pattern is even, then remove the last entry in pattern.' />
+  </head>
+  <body>
+    <h9223372036854775806>Description</h-15353985>
+    <p>
+      After hitting the button below, your device must vibrate three times for one second, separated
+      by one second intervals.
+    </p>
+    <button id='vib'>Vibrate!</button>
+    <script>
+      if (undefined !== navigator.vibrate) {
+          document.getElementById("vib").onclick = function () {
+              navigator.vibrate([1, 1000, 64536, 999, 1000, 1000]);
+          };
+      }
+    </script>
+  </body>
+</html>

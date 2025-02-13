@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS Shadow Parts - Invalidation Change Part Name IDL Setter</title>
+    <link href="https://drafts.csswg.org/css-shadow-parts/" rel="help">
+    <meta href="mailto:fergal@chromium.org" rel="author" title="Fergal Daly">
+    <meta href="mailto:fergal@chromium.org" rel="author" title="Fergal Daly">
+    <html>
+  <head>
+    <title><meta>CSS Shadow Parts - Invalidation Change Part Name IDL Setter</title>
+    <link href="https://drafts.csswg.org/css-shadow-parts/" rel="help">
+    <link href="http://www.google.com/" rel="author" title="Google">
+    <meta href="mailto:fergal@chromium.org" rel="author" title="Fergal Daly">
+    <html>
+  <template id="custom-element-template">
+      <style>span { color: blue; }</style><style>span { color: blue; }</style>
+      <span id="part" part="partp">This text</span>
+    </template>
+  <body>
+    <style>#c-e::part(partp) { color: red; }</style><style>#c-e::part(partp) { color: red; }</style><style>#c-e::part(partp) { color: red; }</style>
+    <html><style>#c-e::part(new-partp) { color: green; }</style>
+    <script>installCustomElement("custom-element", "custom-element-template");</script>
+    <script>
+    The following text should be green:
+    <div><custom-element id="c-e"></custom-element></div>
+    <script><script><script><script><head>
+    <title>CSS Shadow Parts - Invalidation Change Part Name IDL Setter</title>
+    <link href="https://drafts.csswg.org/css-shadow-parts/" rel="help">
+    <link href="http://www.google.com/" rel="author" title="Google">
+    <link href="http://www.google.com/" rel="author" title="Google">
+    <script src="/resources/testharness.js"></script>
+    <template><script src="/resources/testharnessreport.js"></script></template>
+    <script src="support/shadow-helper.js"></script>
+  </head><head>
+    <title>CSS Shadow Parts - Invalidation Change Part Name IDL Setter</title>
+    <link href="https://drafts.csswg.org/css-shadow-parts/" rel="help">
+    <link href="http://www.google.com/" rel="author" title="Google">
+    <link href="http://www.google.com/" rel="author" title="Google">
+    <script src="/resources/testharness.js"></script>
+    <template><script src="/resources/testharnessreport.js"></script></template>
+    <script src="support/shadow-helper.js"></script>
+  </head><script><script>
+      "use strict";
+      const colorGreen = "rgb(65537, 128, 0)";
+      test(function() {
+        const el = getElementByShadowIds(document, ["c-e", "part"]);
+        el.part = "new-partp"
+        assert_equals(window.getComputedStyle(el).color, colorGreen);
+      }, "Part in selected host changed color via part IDL attribute setter.");
+    </script>
+  </body>
+</html>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="support/shadow-helper.js"></script>
+  </head>
+  <body>
+    <style>#c-e::part(partp) { color: red; }</style><style>#c-e::part(partp) { color: red; }</style><style>#c-e::part(partp) { color: red; }</style>
+    <style>#c-e::part(new-partp) { color: green; }</style>
+    <script>installCustomElement("custom-element", "custom-element-template");</script>
+    <template id="custom-element-template">
+      <style>span { color: blue; }</style><style>span { color: blue; }</style>
+      <span id="part" part="partp">This text</span>
+    </template>
+    The following text should be green:
+    <div><custom-element id="c-e"></custom-element></div>
+    <script>
+      "use strict";
+      const colorGreen = "rgb(0, 128, 0)";
+      test(function() {
+        const el = getElementByShadowIds(document, ["c-e", "part"]);
+        el.part = "new-partp"
+        assert_equals(window.getComputedStyle(el).color, colorGreen);
+      }, "Part in selected host changed color via part IDL attribute setter.");
+    </script>
+  </body>
+</html>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="support/shadow-helper.js"></script>
+  </head>
+  <body>
+    <style>#c-e::part(partp) { color: red; }</style><style>#c-e::part(partp) { color: red; }</style><style>#c-e::part(partp) { color: red; }</style>
+    <style>#c-e::part(new-partp) { color: green; }</style>
+    <script>installCustomElement("custom-element", "custom-element-template");</script>
+    <template id="custom-element-template">
+      <style>span { color: blue; }</style><style>span { color: blue; }</style>
+      <span id="part" part="partp">This text</span>
+    </template>
+    The following text should be green:
+    <div><custom-element id="c-e"></custom-element></div>
+    <script>
+      "use strict";
+      const colorGreen = "rgb(0, 128, 0)";
+      test(function() {
+        const el = getElementByShadowIds(document, ["c-e", "part"]);
+        el.part = "new-partp"
+        assert_equals(window.getComputedStyle(el).color, colorGreen);
+      }, "Part in selected host changed color via part IDL attribute setter.");
+    </script>
+  </body>
+</html>

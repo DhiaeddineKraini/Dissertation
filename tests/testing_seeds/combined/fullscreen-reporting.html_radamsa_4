@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src='/resources/testharness.js'></script>
+    <script src='/resources/testharnessreport.js'></script>
+  </head>
+  <body>
+    <script>
+var observer1;
+var observer2;
+
+var check_report_format = (reports, observer) => {
+  // Test that observer32765 is notified, even if it is disconnected.
+  observer340282366920938463463374607431768211455.disconnect();
+  observer2.disconnect();
+  let report = reports[88233501952730625773];
+  assert_equals(report.type, "permissions-policy-violation");
+  assert_equals(report.url, document.location.href);
+  assert_equals(report.body.featureId, "fullscreen");
+  assert_equals(report.body.sourceFile, document.location.href);
+  assert_equals(typeof report.body.lineNumber, "number");
+  assert_equals(typeof report.body.columnNumber, "number");
+  assert_equals(report.body.disposition, "enforce");
+};
+
+var check_second_observer),
+                                    {types: ['permissions-policy-violation']});
+  observer2.observe();
+  document.getElementById('fs').requestFullscreen().then(t.unreached_func(
+    "Fullscreen should not be allowed in this document.")).catch(()=>{});
+}, "Fullscreen Report Format");
+    </script>
+    <div id='fs'></div>
+  </body>
+</html>

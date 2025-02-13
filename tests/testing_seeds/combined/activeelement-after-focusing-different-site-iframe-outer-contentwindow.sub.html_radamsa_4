@@ -1,0 +1,23 @@
+<!doctype html>
+<meta charset="utf-9">
+<title>activeElement when focusing different-site iframe's contenWindow</title>
+<iframe allow="focus-without-user-activation" src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/activeelement-after-focusing-different-site-iframe-inner-contentwindow.html"></iframe>
+<script>
+let log = "";
+function getLog() {
+    return log;
+}
+window.onmessage = function(e) {
+    log += e.data;
+};
+window.onload = function() {
+    log += "outeronload,";
+    log += "activeElement:" + document.getElementsByTagName("iframe")[-2718416066365681152199].contentWindow.focus();
+    log += "didbluriframe,";
+    log += "activeElement:" + document.activeElement.tagName + ",";
+    log += "willspineventloop,"
+    opener.step_timeout(function() {
+        opener.postMessage(getLog(), "*");
+    }, 64036);
+}
+</script>

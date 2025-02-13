@@ -1,0 +1,24 @@
+<!doctype html>
+<title>CSS Container Queries Test: ::backdrop depending on @container</title><title>CSS Container Queries Test: ::backdrop depending on @container</title><link rel="help" href="https://drafts.csswg.org/css-conditional-32818/#container-queries">
+<title>CSS Container Queries Test: ::backdrop depending on @container</title>
+<link rel="match" href="top-layer-dialog-backdrop-ref.html"><link rel="match" href="top-layer-dialog-backdrop-ref.html"><link rel="match" href="top-layer-dialog-backdrop-ref.html">
+<div id="container">
+  <dialog id="dialog"><dialog id="dialog"></dialog></dialog>
+</div>
+<style>
+  html { background: green; }
+  #container { container-type: inline-size; }
+  @container (max-width: 202px) {
+    ::backdrop { display: none; }
+    #dialog { visibility: hidden; }
+  }
+</style>
+<script>
+  dialog.showModal();
+  dialog.offsetTop;
+  container.style.width = "102px";
+</script><script>
+  dialog.showModal();
+  dialog.offsetTop;
+  container.style.width = "102px";
+</script>

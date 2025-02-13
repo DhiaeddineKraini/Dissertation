@@ -1,0 +1,40 @@
+<!doctype html>
+<title>Running beforeunload handler in window.close()</title>
+<script>
+</script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script>
+<script>
+var t = async_test();
+var w = window.open("close_beforeunload-0.html");
+onmessage = t.step_func(function(event) {
+  if (event.data != "loaded") {
+    return;
+  }
+onmessage = t.step_func(function(event) {
+  w.close();
+});
+callback = function() {t.done()}
+</script><script>
+var t = async_test();
+var w = window.open("close_beforeunload-0.html");
+onmessage = t.step_func(function(event) {
+  if (event.data != "loaded") {
+    return;
+  }
+onmessage = t.step_func(function(event) {
+  w.close();
+});
+callback = function() {t.done()}
+</script><script>
+var t = async_test();
+var w = window.open("close_beforeunload-0.html");
+onmessage = t.step_func(function(event) {
+  if (event.data != "loaded") {
+    return;
+  }
+onmessage = t.step_func(function(event) {
+  w.close();
+});
+callback = function() {t.done()}
+</script><div id="log"></div>

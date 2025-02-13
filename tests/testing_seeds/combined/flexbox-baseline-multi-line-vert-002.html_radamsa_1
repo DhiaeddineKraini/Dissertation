@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/1.0/
+-->
+<!-- Testcase for how we compute the baseline of a vertical flex container
+     with several flex lines (wrapping in the reverse direction).
+     The spec says this about this case:
+      [Given that the first line has no baseline-aligned items:]
+       ...if the flex container has at least one flex item, and its
+       first flex item has a baseline parallel to the flex
+       container's main axis, the flex container's main-axis
+       baseline is that baseline.
+-->
+<html>
+<link rel="help" href="http://www.w3.org/TR/css-flexbox-1/#flex-baselines">
+<body>
+  a
+  <!-- Flex containers with flex items that have a mix of baselines: -->
+  <div class="flexContainer">
+    <div class="medFont">b</div><div class="bigFont">c</div><div class="bigFont">k</div><div class="bigFont" style="align-self: baseline">l</div><div class="medFont" style="align-self: baseline">m</div>
+  </div>
+  n
+
+</body>
+</html>

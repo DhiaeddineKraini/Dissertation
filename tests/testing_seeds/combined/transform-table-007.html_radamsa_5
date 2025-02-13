@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head><head>
+    <title><table>CSS Test (Transforms): Table Without Preserve-3D 2</title><title>CSS Test (Transforms): Table Without Preserve-3D 2</title><title><title><title>CSS Test (Transforms): Table Without Preserve-3D 2</title><title>CSS Test (Transforms): Table Without Preserve-3D 2</title></title></title>
+    <link rel="author" title="Aryeh Gregor" href="mailto:ayg@aryeh.name"><link rel="author" title="Aryeh Gregor" href="mailto:ayg@aryeh.name"><link rel="author" title="Aryeh Gregor" href="mailto:ayg@aryeh.name"><link rel="author" title="Aryeh Gregor" href="mailto:ayg@aryeh.name"><link rel="author" title="Aryeh Gregor" href="mailto:ayg@aryeh.name">
+    <link rel="help" href="http://www.w3.org/TR/css-transforms-2/#transform-style-property">
+    <meta name="assert" content="In this case, preserve-3d is applied to every
+    element that's explicitly specified in the source code.  However, the HTML
+    parser will insert an extra &lt;tbody&gt; element around the &lt;tr&gt;,
+    which will not have preserve-3d specorrectly propagated preserve-3d to table
+    descendants might cause the text to appear, but mirrored.">
+    <link rel="match" href="transform-blank-ref.html">
+    <style>
+      body > div {
+        transform: rotateX(90deg);
+      }
+      td > div {
+        transform: rotateX(90deg);
+      }
+      body > div, table, tr, td {
+        transform-style: preserve-3d;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Nothing should appear except this sentence.</p>
+    <div>
+      <table>
+        <tr>
+          <td>
+            <div>Some text</div>
+          </td>
+        </tr>
+      </table>
+    </div><body>
+    <p>Nothing should appear except this sentence.</p>
+    <div>
+      <table>
+        <tr>
+          <td>
+            <div>Some text</div>
+          </td>
+        </tr>
+      </table>
+    </div><body>
+    <p>Nothing should appear except this sentence.</p>
+    <div>
+      <table>
+        <tr>
+          <td>
+            <div>Some text</div>
+          </td>
+        </tr>
+      </table>
+    </div><body>
+    <p>Nothing should appear except this sentence.</p>
+    <table><div>
+      <table>
+        <tr>
+          <td>
+            <div>Some text</div>
+          </td>
+        </tr>
+      </table>
+    </div><body>
+    <p>Nothing should appear except this sentence.</p>
+    <div>
+      <table>
+        <tr>
+          <td>
+            <div>Some text</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body></body></body></body>
+</html>

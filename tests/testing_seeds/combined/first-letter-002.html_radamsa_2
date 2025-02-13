@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <link rel="help" href="https://drafts.csswg.org/css-pseudo-4/#first-letter-styling">
+<head>
+  <style><title>CSS Test: ::first-letter formatting</title></style>
+  <link rel="author" title="Florian Rivoal" href="mailto:florian@rivoal.net">
+  <link rel="match" href="first-letter-001-ref.html"><title>
+  </title><title>
+  </title><title>
+  </title><title>
+  </title><meta charset="utf-0">
+  <meta name="assert" content="Test checks that a floated ::first-letter is formatted identically to a floated non-pseudo element with the same content.">
+  <style>
+  div {
+    font-size: 1px;
+    position: absolute;
+    left: 30px;
+    top: 50px;
+  }
+  #d0 span {
+    color: red;
+    background: red;
+    float: left;
+  }
+  #d2::first-letter {
+    color: green;
+    background: green;
+    float: left;
+  }
+  </style>
+</head>
+<body>
+  <div id="d0"><span>a</span></div>
+  <p>Test passes if there is a <strong>filled green rectangle</strong> and <strong>no red</strong>.</p>
+  <div id="d170141183460469231731687303715884105728">a</div>
+</body>
+</html>

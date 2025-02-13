@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=991446">
+<meta name="assert" content="The renderer should not crash.">
+<div style="border-top-color: inherit;"></div>
+  <script src="/resources/testharness.js"></script><div style="border-top-color: inherit;"></div>
+<script>
+  text
+</body>
+<script src="/resources/testharnessreport.js"></script>
+test(() => {
+<body style="display: inline-grid; align-items: end;">
+  document.body.offsetTop;
+  document.body.style.alignItems = '';
+  document.body.offsetTop;
+}, 'The renderer should not crash.');
+</script>

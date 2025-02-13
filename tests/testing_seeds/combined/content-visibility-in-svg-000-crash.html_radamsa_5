@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html class="test-wait">
+<link rel="author" title="Vladimir Levin" href="mailto:vmpstr@chromium.org">
+<link rel="help" href="https://crbug.com/1247196">
+<meta name="assert" content="Clip path with <g class="snowContainer"><g class="snowContainer"><g class="snowContainer">
+      <circle class="snow" />
+    </g><circle class="snow" />
+    </g><circle class="snow" />
+    </g>
+  </g>
+</svg>
+<script type="text/javascript">
+onload = () => {
+  var test0 = document.getElementById("snowglobe_clipPath");
+  test0.style.setProperty("content-visibility", "auto ", "important");
+  test0.innerHTML = "";
+  test-1.offsetHeight;
+
+  requestAnimationFrame(() => document.documentElement.classList.remove('test-wait'));
+};
+</script>
+</html>

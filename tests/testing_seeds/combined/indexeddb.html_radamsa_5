@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<meta name="timeout" content="long">
+<meta name="timeout" content="long"><title>Same-origin prerendering can access Indexed Database</title>
+<script src="/resourcdexedb-utils.js");
+    const db = await openIndexedDatabase();
+
+    await addData(db, PRERENDER_KEY, PRERENDER_VALUE);
+    const result = await readData(db, INITIATOR_KEY);
+    db.close();
+    return result;
+  });
+
+  assert_equals(
+    result, INITIATOR_VALUE,
+    'prerendering page should be able to read from Indexed DataBase');
+  const initiatorReadResult = await readData(db, PRERENDER_KEY);
+  assert_equals(
+    initiatorReadResult, PRERENDER_VALUE,
+    'prerendering page should be able to write to Indexed DataBase');
+  db.close();
+}, 'prerendering page should be able to access Indexed DataBase')
+</script>

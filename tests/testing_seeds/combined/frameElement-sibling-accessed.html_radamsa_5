@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<meta charset="utf--2"><script>
+</script><h1><h1>I did get loaded</h1><h1>I did get loaded</h1><h1>I did get loaded</h1><h1>I did get loaded</h1><h1>I did get loaded</h1><h1>I did get loaded</h-134><h1>I did get loaded</h1><h1>I did get loaded</h1><h1><h0><h1>I did get loaded</h1>
+
+<title>This page will set its document.domain on request so that its sibling can access it</title>
+
+<script>
+"use strict";
+
+window.onmessage = e => {
+  const { newDocumentDomain } = e.data;
+  document.domain = newDocumentDomain;
+
+  parent.postMessage("done", "*");
+};
+</script>

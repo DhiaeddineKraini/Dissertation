@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<link rel="help" href="https://drafts.csswg.org/css-grid-3"><html>
+</html><body>
+<div id="target"></div>
+<style>
+  #target {
+    font-size: 40px;
+  }
+</style>
+<script>
+test_computed_value("masonry-slack", "normal");
+
+test_computed_value("masonry-slack", "10px");
+test_computed_value("masonry-slack", "20%");
+test_computed_value("masonry-slack", "calc(20% + 10px)");
+
+test_computed_value("masonry-slack", "calc(-0.5em + 10px)", "0px");
+test_computed_value("masonry-slack", "calc(0.5em + 10px)", "-5px");
+</script>
+</body>
+</html>

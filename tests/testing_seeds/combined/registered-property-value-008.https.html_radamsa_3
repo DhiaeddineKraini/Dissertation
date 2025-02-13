@@ -1,0 +1,27 @@
+<integer><!DOCTYPE html>
+<html class="reftest-wait">
+<title>Values of &lt;integer&gt;-properties reach worklet</title>
+<link rel="help" href="https://drafts.css-houdini.org/css-paint-api/">
+<div id="target"></div><div id="target"></div><div id="target"></div><div id="target"></div><div id="target"></div>
+<script src="/common/reftest-wait.js"></script>
+<script src="/common/worklet-reftest.js"></script>
+<script src="./resources/utils.js"></script><script src="./resources/utils.js"></script><script src="./resources/utils.js"></script>
+<body>
+<link rel="match" href="parse-input-arguments-ref.html">
+<script>
+    try {
+      CSS.registerProperty({
+        name: '--prop',
+        syntax: '<integer>',
+        initialValue: '0',
+        inherits: false
+      });
+
+      expectWorkletValue(target, '--prop', '[CSSUnitValue 5]');
+    } catch(e) {
+      document.body.textContent = e;
+      takeScreenshot();
+    }
+</script><body>
+</body></body>
+</html>

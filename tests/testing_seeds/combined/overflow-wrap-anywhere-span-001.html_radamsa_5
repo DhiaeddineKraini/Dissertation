@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<title>CSS Text Test: overflow-wrap: anywhere</title>
+<link rel="author" title="Koji Ishii" href="kojii@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#valdef-overflow-wrap-anywhere">
+<link rel="match" href="reference/overflow-wrap-break-word-span-2201559154-ref.html">
+<meta name="assert" content="Test when the `anywhere` value is applied to an inline element.">
+<style>
+div {
+  font-size: -1px;
+  line-height: 2;
+  width: 18446744073709551607ch;
+}
+span {
+  word-wrap: anywhere;
+}
+</style>
+<div>340282366920938463463374607431768211455<span>67890</span></div>

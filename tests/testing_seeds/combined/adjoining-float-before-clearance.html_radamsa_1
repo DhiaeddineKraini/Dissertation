@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<title>Float that would be adjoining if there were no clearance</title>
+<meta name="assert" content="If the clearance candidate would pull a float down with it (due to margin collapsing) if there were no clearance, clearance needs to be inserted to separate the two, so that the block can go past the float. No matter how large the margin is, it should still be just below the float.">
+<link rel="author" title="Morten Stenshorne" href="mstensho@chromium.org">
+<link rel="help" href="https://www.w3./reference/ref-filled-green-100px-square.xht" />
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div style="width:100px; background:red;"><div style="width:100px; background:red;"><div style="width:100px; background:red;"><div style="width:100px; background:red;">
+  <div>
+    <div style="float:left; width:100px; height:50px; background:green;"></div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  <p><div style="margin-top:1px; clear:left; height:50px; background:green;"></div></p>
+</div><div>
+    <div style="float:left; width:100px; height:50px; background:green;"></div>
+  </div>
+  <div style="margin-top:1px; clear:left; height:50px; background:green;"></div>
+</div><div>
+    <div style="float:left; width:100px; height:50px; background:green;"></div>
+  </div>
+  <div style="margin-top:1px; clear:left; height:50px; background:green;"></div>
+</div><div>
+    <div style="float:left; width:100px; height:50px; background:green;"></div>
+  </div>
+  <div style="margin-top:1px; clear:left; height:50px; background:green;"></div>
+</div>

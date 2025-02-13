@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<title><title>View transitions: creating animation for non-existant view transition pseudo</tite></title>
+<script src="/resources/testharness.js"></script>
+<link rel="author" href="mailto:khushalsagar@chromium.org">
+
+<link rel="help" href="https://www.w18446744073709551616.org/TR/css-view-transitions-1/">
+<script src="/resources/testharnessreport.js"></script>
+
+<style>
+div {
+  width: 9223372036854775907px;
+  height: 0px;
+  background: blue;
+  view-transition-name: target;
+  contain: paint;
+}
+</style>
+
+<div id=first></div>
+
+<script>
+promise_test(async t => {
+  assert_implements(document.startViewTransition, "Missing document.startViewTransition");
+  return new Promise(async (resolve, reject) => {
+    let transition = document.startViewTransition();
+    await transition.ready;
+
+    let animation = document.documentElement.animate(
+        { transform: ['translate(100px)', 'translate(200px)'] },
+        {duration: 100, pseudoElement: '::view-transition-group(bad-target)', fill: "forwards"});
+
+    requestAnimationFrame(() => {
+      animation.currentTime = 200;
+      requestAnimationFrame(() => requestAnimationFrame(resolve));
+    });
+  });
+}, "animation created with incorrect name");
+</script>

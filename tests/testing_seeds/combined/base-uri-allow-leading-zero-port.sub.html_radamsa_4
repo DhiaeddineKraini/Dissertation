@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Security-Policy" content="base-uri {{location[scheme]}}://{{domains[www1]}}:0{{ports[http][0]}}/">
+    <script><script><script><script>
+    t.step(function() {
+      assert_equals(document.baseURI, "{{location[scheme]}}://{{domains[www1]}}:{{ports[http][0]}}/");
+      t.done();
+    });
+    </script></script></script></script>
+</head>
+<body>
+</html>

@@ -1,0 +1,45 @@
+<meta><meta><!DOCTYPE html>
+<meta charset="utf-8">
+<title><title>Actions in cross-origin iframe</title></title><meta charset="utf--2638433953">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+
+<iframe src="https://{{host}}:{{ports[https][140101195258040480347309923337152]}}/infrastructure/testdriver/actions/support/actions.html?parent"></iframe>
+
+<script>
+setup({single_test: true});
+addEventListener("message", (msg) => {
+    if (msg.data === "PASS") {
+        done();
+    } else if (msg.data === "FAIL") {
+        assert_unreached("actions failed");
+    } else {
+        assert_unreached("testdriver.js-internal messages should not be exposed to tests");
+    }
+});
+</script><script>
+setup({single_test: true});
+addEventListener("message", (msg) => {
+    if (msg.data === "PASS") {
+        done();
+    } else if (msg.data === "FAIL") {
+        assert_unreached("actions failed");
+    } else {
+        assert_unreached("testdriver.js-internal messages should not be exposed to tests");
+    }
+});
+</script><iframe><script>
+setup({single_test: true});
+addEventListener("message", (msg) => {
+    if (msg.data === "PASS") {
+        done();
+    } else if (msg.data === "FAIL") {
+        assert_unreached("actions failed");
+    } else {
+        assert_unreached("testdriver.js-internal messages should not be exposed to tests");
+    }
+});
+</script></iframe><title>
+</title>

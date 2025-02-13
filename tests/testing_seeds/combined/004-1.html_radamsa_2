@@ -1,0 +1,17 @@
+<!doctype="text/javascript" src="../resources/crossorigin.sub.js"></script>
+    <script type="text/javascript">
+window.onload = function () {
+  document.getElementsByTagName('div')[0].ondragstart = function (e) {
+    e.dataTransfer.effectAllowed = 'copy';
+    e.dataTransfer.setData('text','dummy text');
+    e.dataTransfer.allowTargetOrigin('http://'+httpHostMain);
+  };
+};
+    </script>
+  </head>
+  <body>
+
+    <div draggable="true"></div>
+
+  </body>
+</html>

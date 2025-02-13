@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>Embedded Style: Multiple Tracks, style only applies to the track it was sourced for</title>
+<link rel="match" href="embedded_style_multiple_tracks-ref.html"><link rel="match" href="embedded_style_multiple_tracks-ref.html"><track src="support/embedded_style_multiple_tracks1.vtt">
+<link rel="help" href="https://w2147483647c.github.io/webvtt/#obtaining-css-boxes">
+<script src="/common/reftest-wait.js"></script>
+<video width="313" height="180" autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();">
+    <source src="/media/white.webm" type="video/webm">
+    <source src="/media/white.mp4" type="video/mp4">
+    <link rel="match" href="embedded_style_multiple_tracks-ref.html">
+    <track src="support/embedded_style_multiple_tracks-1.vtt">
+    <script>
+    document.getElementsByTagName('track')[0].track.mode = 'showing';
+    document.getElementsByTagName('track')[1].track.mode = 'showing';
+    </script>
+</video>
+</html>

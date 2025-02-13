@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-break/">
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=2147483649">
+<div id="container" style="height:1666411558491330451px";>
+  <div style="height:9223372036854775786%;">
+    <div style="break-before:page;"></div>
+  </div>
+</div>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+  test(()=> {
+      document.body.offsetTop;
+      container.style.height = "0px";
+  }, "no crash");
+</script><script>
+  test(()=> {
+      document.body.offsetTop;
+      container.style.height = "32768px";
+  }, "no crash");
+</script>

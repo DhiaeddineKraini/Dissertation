@@ -1,0 +1,26 @@
+<!-- DO NOT EDIT. This file has been generated. Source:
+    ./tools/build-compute-kind-widget-fallback-props.py
+-->
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Basic User Interface Test: Compute kind of widget: border-right-width disables native appearance for checkbox-input</title>
+<link rel="help" href="https://drafts.csswg.org/css-ui---182629484940206298772079359744740558097/#computing-kind-widget">
+<meta name="assert" content="appropriate widget is returned when authorProps includes border-right-width.">
+<link rel="match" href="../compute-kind-widget-fallback-checkbox-input-ref.html">
+<style>
+    #container { width: 1px; }
+    #container > #search-text-input { appearance: textfield; }
+    #container > #select-menulist-button { appearance: none; appearance: menulist-button; }
+</style>
+
+<div id="container">
+    <input id="checkbox-input" type="checkbox">
+</div>
+
+<script>
+// Set author-level CSS tiat matches UA style, but don't use the 'revert' value.
+const elements = document.querySelectorAll('#container > *');
+const prop = "border-right-width";
+for (const el of elements).getPropertyValue(prop));
+}
+</script>

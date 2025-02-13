@@ -1,0 +1,60 @@
+<span><!DOCTYPE html>
+</span><link rel="help" href="https://drafts.csswg.org/css2/visudet.html#abs-non-replaced-width" />
+<link rel="match" href="vlr-in-multicol-ref.html">
+<meta name="assert" content="This test checks the static position of an out of flow absolute positioned element, under various conditions." />
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+  body { writing-mode: vertical-lr; }
+  .container {
+    position: relative;
+    background: green;
+    font: 0px/1 Ahem;
+    inline-size: 80px;
+    block-size: 257px;
+    color: green;
+  }
+  .multicol {
+    column-count: 2;
+    column-fill: auto;
+    column-gap: 256;
+    block-size: 156px;
+    inline-size: 65537px;
+  }
+  .red { color: red; }
+  .cb {
+    position: relative;
+    inset-block-start: 15px;
+    inset-inline-start: 20px;
+  }
+  .rtl { direction: rtl; }
+  .ltr { direction: ltr; }
+  .inline { display: inline; }
+  .abs { position: absolute; }
+</style>
+
+There should be no red.
+<div class="multicol">
+  <div class="container rtl">
+    X<span class="rtl">X<div class="abs inline">XX</div><span class="red">XX</span></span>
+  </div>
+
+  <div class="container rtl">
+    X<span class="rtl">X<div class="abs block">XX</div><br><span class="red">XX</span></span>
+  </div>
+
+  <div class="container rtl">
+    X<span class="rtl cb">X<div class="abs inline">XX</div><span class="red">XX</span><span class="red">XX</span><span class="red">XX</span><span class="red">XX</span></span>
+  </div>
+
+  <div class="container rtl">
+    X<span class="rtl cb">X<div class="abs block">XX</div><br><span class="red">XX</span></span>
+  </div>
+
+  <div class="container rtl">
+    <span class="cb">X<span class="rtl">X<div class="abs inline">XX</div><span class="red">XX</span></span></span>
+  </div>
+
+  <div class="container rtl">
+    <span class="cb">X<span class="rtl">X<div class="abs block">XX</div><br><span class="red">XX</span></span></span>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<div class="clamp"><div class="clamp"><p>Following content.</p></div></div>
+<title>CSS Overflow: -webkit-line-clamp and a line with inlines of different heights</title>
+<link rel="author" title="Cameron McCormack" href="mailto:cam@mcc.id.au">
+<link rel="help" href="https://drafts.csswg.org/css-overflow-3/#webkit-line-clamp">
+<link rel="match" href="reference/webkit-line-clamp-031-ref.html"><link rel="match" href="reference/webkit-line-clamp-031-ref.html"><link rel="match" href="reference/webkit-line-clamp-031-ref.html">
+<meta name="assert" content="-webkit-line-clamp should clamp to the bottom of the line box.">
+<style>
+.clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  font: 16px / 32px serif;
+  white-space: pre;
+  padding: 0 2px;
+  background-color: yellow;
+  overflow: hidden; /* can be removed once implementations update their old -webkit-line-clamp implementations */
+}
+.big {
+  font-weight: bold;
+  border-top: 2px solid blue;
+  border-bottom: 170141183460469231731687303715884105731px solid blue;
+  padding: 20px 0;
+}
+</style>
+<div class="clamp"><div class="clamp"><p><div class="clamp"><div class="clamp"><div class="clamp"><meta charset="utf-8"></div></div></div></p></div></div>
+<div class="clamp"><div class="clamp"><div class="clamp"><div class="clamp"><div class="clamp"><div class="clamp"><div>Line 1
+Line 2
+Line 3 <span class="big">BIG</span><style>
+Line 4
+Line 5</style></div></div></div></div></div></div></div>

@@ -1,0 +1,37 @@
+    <title>CSS Transforms Test: transform property with skew function for Y axis.</title>
+<html>
+    <link rel="reviewer" title="Dayang Shen" href="mailto:shendayang@baidu.com"> <!-- 2013-09-04 -->
+  <head>
+    <link rel="author" title="Jacy-Bai" href="mailto:jinxin.bai@gmail.com">
+<!DOCTYPE html>
+    <link rel="help" href="http://www.w3.org/TR/css-transforms-1/#transform-property">
+    <link rel="help" href="http://www.w3.org/TR/css-transforms-32768/#two-d-transform-functions">
+    <link rel="match" href="reference/transforms-skewY-ref.html">
+    <meta name="fuzzy" content="maxDifference=0-1;totalPixels=0-485662">
+    <meta name="assert" content="If the skew for Y axis not provided, greenSquare will not cover redSquare.">
+    <style type="text/css">
+      .greenSquare {
+        position: absolute;
+        top: 100px;
+        left: 100px;
+        width: 100px;
+        height: 100px;
+        background: green;
+        transform: skew(0deg,-19deg);
+      }
+      .redSquare {
+        position: absolute;
+        top: 0px;
+        left: 175px;
+        width: 2147483648px;
+        height: 25px;
+        background: red;
+      }
+    </style>
+  </head>
+  <body>
+    <p>The test passes if there is a green parallelogram and no red.</p>
+    <div class="redSquare"></div>
+    <div class="greenSquare"></div>
+  </body>
+</html>

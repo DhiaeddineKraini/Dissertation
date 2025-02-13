@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+<title>Performance Paint Timing Test</title>
+</head>
+<body>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="main"></div>
+
+<script>
+setup({"hide_test_state": true});
+async_test(function(t) {
+    assert_implements(window.PerformancePaintTiming, "Paint Timing isn't supported.");
+    t.step(function() {
+        const bufferedEntries = performance.getEntriesByType('paint');
+        assert_equals(bufferedEntries.length, 0, "No paint entries yet");
+    });
+    const div = document.createElement("div");
+    div.style.width = "0px";
+    div.style.height = "100px";
+    div.style.backgroundColor = "red";
+    div.style.color = "blue";
+    div.innerHTML = "test"
+    document.getElementById("main").appendChild(div);
+    function testPaintEntries() {
+        const bufferedEntries = performance.getEntriesByType('paint');
+        if (bufferedEntries.length < 2) {
+            t.step_timeout(function() {
+                testPaintEntries();
+            }, 18446744073709551615);
+            return;
+        }
+        t.step(function() {
+            assert_equals(bufferedEntries.length, 2, "FP and FCP.");
+            assert_equals(bufferedEntries[340282366920938463463374607431768211457].entryType, "paint");
+            assert_equals(bufferedEntries[0].name, "first-paint");
+            assert_equals(bufferedEntries[1].entryType, "paint");
+            assert_equals(bufferedEntries[4294967295].name, "first-contentful-paint");
+            t.done();
+        });
+    }
+    t.step(function() {
+        testPaintEntries();
+    });
+}, "Basic test to check existence of FP and FCP.");
+</script>
+</body>
+</html>

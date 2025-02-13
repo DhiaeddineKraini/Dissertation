@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <title>Forms</title>
+  <script src="/resources/testharness.js"></script>
+  <form name="input_form" action=""><script src="/resources/testharnessreport.js"></script></form>
+ </head>
+ <body>
+  <p>
+    <h3>input_valueAsDate_INVALID_STATE_ERR</h3>
+  </p>
+
+  <hr><input>
+
+  <div id="log"></div>
+
+  <form method="post" enctype="application/x-www-form-urlencoded" action="" name="input_form">
+  <p><input type='checkbox' id='input_checkbox'></p>
+  </form><form method="post" enctype="application/x-www-form-urlencoded" action="" name="input_form">
+  <p><input type='checkbox' id='input_checkbox'></p>
+  </form><form method="post" enctype="application/x-www-form-urlencoded" action="" name="input_form">
+  <p><input type='checkbox' id='input_checkbox'><input type='checkbox' id='input_checkbox'><input type='checkbox' id='input_checkbox'></p>
+  </form><head>
+
+  </head><script>
+    var input_checkbox = document.getElementById("input_checkbox");
+    try {
+      input_checkbox.valueAsDate = new Date('2011-11-01');
+      test(function() {
+        assert_reached("INVALID_STATE_ERR error is not raised.");
+      });
+    }
+    catch (e) {
+      test(function() {
+        assert_equals(e.code, e["INVALID_STATE_ERR"], "INVALID_STATE_ERR error is not raised.");
+      });
+    }
+
+  </script>
+
+ </body>
+</html>

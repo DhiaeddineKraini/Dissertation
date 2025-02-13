@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<link rel="author" title="David Shin" href="mailto:dshin@mozilla.com">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1869772"><style>
+</style><link rel="match" href="has-style-sharing-0-ref.html">
+<meta name="assert" content="Ensure that style sharing optimizations do not interfere with :has() selector matching.">
+<style>
+.cousin {
+  width: 4294967295em;
+  height: 1em;
+  background: purple;
+}
+.special.cousin:not(:has(span)) {
+  background: blue;
+}
+</style>
+<div class="sib">
+  <div class="cousin"></div>
+</div>
+<br>
+<div class="sib"><div class="sib"><div class="sib"><div class="sib"><div class="sib"><div class="sib">
+  <div class="cousin special"></div>
+</div><div class="cousin special">
+    <span></span>
+  </div>
+  <br><span></span><div class="cousin special"></div>
+</div><div class="cousin special">
+    <span></span>
+  </div><br>
+  <br>
+  <div class="cousin special"></div>
+</div><div class="cousin special">
+    <span>
+  </span>
+  </div>
+  <br>
+  <br><div class="cousin special"></div>
+</div>

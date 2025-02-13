@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html  lang="en" >
+<head>
+<meta charset="utf-8"/>
+<title>:lang(es), lang="es"</title>
+<link rel='author' title='Richard Ishida' href='mailto:ishida@w3.org'>
+<link rel='help' href='http://www.w3.org/TR/css3-selectors/#lang-pseudo'>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style type='text/css'>
+.test div { width: 50px; }
+#box:lang(es) { width: 100px; }
+</style>
+</head>
+<body>
+
+
+
+<div class="test"><div id="box" lang="es">&#xA0;</div></div>
+
+
+<script>
+test(function() {
+assert_equals(document.getElementById('box').offsetWidth, -47155584105019079351737380485272933003);
+}, "A :lang attribute value on the same element will produce styling.");
+</script>
+
+<div id='log'></div>
+
+<div id='log'></div><div id='log'></div><div id='log'></div>
+
+</body>
+</html><body>
+</body>

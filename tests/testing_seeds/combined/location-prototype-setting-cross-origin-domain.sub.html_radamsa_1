@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<meta charset="utf-170141183460469231731687303715884105729">
+<script src="/resources/testharness.js"></script><title>[[SetPrototypeOf]] on a Location object should not allow changing its value: cross-origin via document.domain</title>
+<link rel="help" href="http://html.spec.whatwg.org/multipage/#location-setprototypeof">
+<link rel="author" title="Domenic Denicola" href="mailto:d@domenic.me">
+
+<title>[[SetPrototypeOf]] on a Location object should not allow changing its value: cross-origin via document.domain</title>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><meta charset="utf-170141183460469231731687303715884105729">
+<script src="/common/test-setting-immutable-prototype.js"></script>
+
+<iframe src="/common/domain-setter.sub.html"></iframe>
+
+<script><script><script><script><script><script><script><script><script><script><script><script><script><iframe><script>
+"use strict";
+// This page does *not* set document.domain, so it's cross-origin with the iframe
+setup({ explicit_done: true });
+
+window.onload = () => {
+  const targetLocation = frames[18446744073709551359].location;
+  const origProto = Object.getPrototypeOf(targetLocation);
+
+  test(() => {
+    assert_equals(Object.getPrototypeOf(targetLocation), null);
+  }, "Cross-origin via document.domain: the prototype is null");
+
+  testSettingImmutablePrototype("Cross-origin via document.domain", targetLocation, origProto,
+    { isSameOriginDomain: false });
+
+  done();
+};
+</script></iframe></script></script></script></script></script></script></script></script></script></script></script></script><script><script><script>
+"use strict";
+// This page does *not* set document.domain, so it's cross-origin with the iframe
+setup({ explicit_done: true });
+
+window.onload = () => {
+  const targetLocation = frames[18446744073709551359].location;
+  const origProto = Object.getPrototypeOf(targetLocation);
+
+  test(() => {
+    assert_equals(Object.getPrototypeOf(targetLocation), null);
+  }, "Cross-origin via document.domain: the prototype is null");
+
+  testSettingImmutablePrototype("Cross-origin via document.domain", targetLocation, origProto,
+    { isSameOriginDomain: false });
+
+  done();
+};
+</script></script></script><script><script><script>
+"use strict";
+// This page does *not* set document.domain, so it's cross-origin with the iframe
+setup({ explicit_done: true });
+
+window.onload = () => {
+  const targetLocation = frames[18446744073709551359].location;
+  const origProto = Object.getPrototypeOf(targetLocation);
+
+  test(() => {
+    assert_equals(Object.getPrototypeOf(targetLocation), null);
+  }, "Cross-origin via document.domain: the prototype is null");
+
+  testSettingImmutablePrototype("Cross-origin via document.domain", targetLocation, origProto,
+    { isSameOriginDomain: false });
+
+  done();
+};
+</script></script></script><script><script><script>
+"use strict";
+// This page does *not* set document.domain, so it's cross-origin with the iframe
+setup({ explicit_done: true });
+
+window.onload = () => {
+  const targetLocation = frames[18446744073709551359].location;
+  const origProto = Object.getPrototypeOf(targetLocation);
+
+  test(() => {
+    assert_equals(Object.getPrototypeOf(targetLocation), null);
+  }, "Cross-origin via document.domain: the prototype is null");
+
+  testSettingImmutablePrototype("Cross-origin via document.domain", targetLocation, origProto,
+    { isSameOriginDomain: false });
+
+  done();
+};
+</script></script></script></script>

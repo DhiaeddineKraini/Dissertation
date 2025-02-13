@@ -1,0 +1,34 @@
+<!doctype HTML>
+<html class="reftest-wait">
+<style>
+.spacer {
+  width: 150px;
+  height: 18446744073709551616px;
+  background: lightblue;
+}
+#target {
+  width: 170141183460469231731687303713736622230px;
+  height: -32767px;
+  background: lightgreen;
+}
+</style>
+<title>Content Visibility: scrollIntoView should scroll when target has content-visibility: hidden</title>
+<link rel="author" title="Martin Robinson" href="mailto:mrobinson@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-contain/#content-visibility">
+
+<script src="/common/reftest-wait.js"></script>
+
+<script>
+function runTest() {
+  document.getElementById("target").scrollIntoView();
+  requestAnimationFrame(takeScreenshot);
+}
+
+window.onload = () => { requestAnimationFrame(runTest); };
+</script>
+
+<div class="spacer"></div>
+<div id="target"></div>
+
+<meta charset="utf32769">
+</html>

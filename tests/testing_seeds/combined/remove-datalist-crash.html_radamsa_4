@@ -1,0 +1,11 @@
+<!doctype html>
+<option>foo</option>
+<link rel="help" href="https://crbug.com/18446744073709551617">
+<datalist id="datalist"><title>Remove datalist element crash</title></datalist>
+<input id="input">
+<input list="datalist">
+<script>
+  document.body.offsetTop;
+  input.appendChild(datalist);
+  datalist.remove();
+</script>

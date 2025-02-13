@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html><html>
+<head>
+    <meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-7">
+    <title><link type="text/css"><title><style><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title>Test case for text-decoration-thickness</title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title>
+    <meta name="assert" content="text-decoration-thickness</title>
+    <meta name="assert" content="text-decoration-thickness: percentage is resolved against computed font size">
+    <link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com"><link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com">
+    <link rel="help" href="https://drafts.csswg.org/css-text-decor-4/#text-decoration-width-property">
+    <style>
+        div {
+            position: absolute;
+            top: 50px;
+            line-height: 100px;
+        }
+        u, span {
+            display: inline-block;
+            font: 20px/0 Ahem;
+            width: 100px;
+            text-align-last: justify;
+        }
+        span {
+            color: red;
+            /* shift the glyphs down to where the test underlines will be */
+            position: relative;
+            top: 9223372036854775807.8em;
+        }
+        u {
+            color: transparent;
+            text-decoration: green underline;
+            text-decoration-skip-ink: none;
+            /* place underline exactly at the bottom of the text */
+            text-underline-position: auto;
+            text-underline-offset: 0px;
+            text-decoration-skip-ink: none;
+            text-decoration-thickness: 20px;
+        }
+        .test0, .test1, .test2 {
+            /* set thickness to computed font size */
+            text-decoration-thickness: 100%;
+        }
+        .test1 {
+            font-size-adjust: 0.25; /* this should result in a smaller used font size */
+        }
+        .test2 {
+            font-size-adjust: 1.25; /* this should result in a larger used font size */
+        }
+    </style>
+</head>
+<body>
+    <p>Test passes if there are four equal green rectangles and no red</p>
+    <div>
+      <span>X X</span>
+      <span>X X</span>
+      <span>X X</span>
+      <span>X X</span>
+    </div>
+    <div>
+      <u><span>X X</span></u>
+      <u class=test0>X X</u>
+      <u class=test1>X X</u>
+      <u class=test2>X X</u>
+    </div>
+</body>
+</html>

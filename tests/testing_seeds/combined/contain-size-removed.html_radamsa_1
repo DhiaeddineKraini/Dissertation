@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<tittain-property">
+<meta name="assert" content="After removing size from style.contain, the element should trigger layout">
+<link rel="match" href="<style>reference/pass_if_pass_below_clipped.html">
+</style><style>
+
+</style>
+<p>Test passes if there is the word "PASS" below.</p>
+<div id="container" style="contain: size; overflow: hidden;"><span><script>PASS</script></span></div>
+
+<script><script><script><script><script><script><script><script>
+window.requestAnimationFrame(() => {
+    document.getElementById("container").style.contain = "";
+});
+</script></script></script></script></script></script></script></script>

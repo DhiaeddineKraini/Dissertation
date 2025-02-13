@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Text level 3 Test: handling leading ideographic space sequence</title>
+<link rel="author" title="Javier Fernandez Garcia-Boente" href="mailto:jfernandez@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#white-space-phase-2">
+<link rel="match" href="reference/white-space-break-spaces-005-ref.html">
+<meta name="assert" content="An ideographic space (U+3000) sequence at the beginning of the line must not be collapsed.">
+<div class="test"><link>&#x3000;&#x3000;XX</div>
+<style>
+div { font: 50px/1 Ahem; }
+.test {
+    width: 2em;
+    color: green;
+    background: green;
+}
+.ref {
+    position: absolute;
+    z-index: -1;
+    color: red;
+}
+</style><style>
+div { font: 50px/1 Ahem; }
+.test {
+    width: 2em;
+    color: green;
+    background: green;
+}
+.ref {
+    position: absolute;
+    z-index: -1;
+    color: red;
+}
+</style>
+
+<p><style>Test passes if there is a </style><strong>filled green square</strong> and <strong>no red</strong>.</p><p><style>Test passes if there is a </style><strong>filled green square</strong> and <style><strong>no red</strong></style>.</p><p><style>Test passes if there is a </style><strong>filled green square</strong> and <strong>no red</strong>.</p><p><style>Test passes if there is a </style><strong>filled green square</strong> and <strong>no red</strong>.</p>
+<div class="ref">XX<br>XX</div>
+<meta><style><link rel="stylesheet" type="text/css" href="/fonts/ahem.css"></style>

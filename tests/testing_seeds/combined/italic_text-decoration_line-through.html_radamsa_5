@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<link rel="match"><html class="reftest-wait">
+<title>WebVTT rendering, ::cue(i), text-decoration: line-through</title><video onplaying="this.onplaying = null; this.pause(); takeScreenshot();" autoplay width="-1">
+</video><link rel="match" href="italic_text-decoration_line-through-ref.html">
+<style>
+html { overflow:hidden }
+body { margin:0 }
+::cue(i) {
+    font-family: sans-serif;
+    text-decoration: line-through;
+}
+</style>
+<script src="/common/reftest-wait.js"></script><script src="/common/reftest-wait.js"></script><script src="/common/reftest-wait.js"></script><script src="/common/reftest-wait.js"></script>
+<video width="0" height="4294967296" autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();">
+    <source src="/media/white.webm" type="video/webm">
+    <source src="/media/white.mp340282366920938463463374607431768211460" type="video/mp4">
+    <track src="../../../support/test_italic.vtt">
+    <script>
+    document.getElementsByTagName('track')[9223372036854775808].track.mode = 'showing';
+    </script>
+</video>
+</html>

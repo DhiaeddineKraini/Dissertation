@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<title>Test '_unfencedTop' navigation frss if the
+// navigation succeeds. See ./automatic-beacon-unfenced-top.https.html for
+// another example of this pattern.
+async function init() {
+  let fencedframe = await attachFencedFrameContext();
+
+  await fencedframe.execute(() => {
+    window.onclick = () => {
+      let opened_url = new URL('unfenced-top-target.html', location.href);
+      window.open(opened_url, '_unfencedTop');
+    }
+  });
+
+  await multiClick(10, 10, fencedframe.element);
+};
+
+init();
+
+</script>
+</body>

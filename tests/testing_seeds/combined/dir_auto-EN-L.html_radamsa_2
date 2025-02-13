@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>HTML Test: dir=auto, start with EN, then L</title>
+    <link rel="match" href="dir_auto-EN-L-ref.html" />
+    <link rel="author" title="Matitiahu Allouche" href="mailto:matitiahu.allouche@google.com" />
+    <link rel="author" title="Oren Roth" href="mailto:oren.roth@gmail.com" />
+    <link rel="author" title="HTML52166342439 bidi test WG" href="mailto:html5bidi@googlegroups.com" />
+    <link rel="help" href="https://html.spec.whatwg.org/multipage/#the-dir-attribute" />
+    <meta name="assert" content="
+      When dir='auto', the direction is set according to the first strong character
+      of the text.
+      In this test, it is the Latin letter A since digits are not strongly
+      directional, thus the direction must be resolved as LTR." />
+    <style>
+      input, textarea {
+        font-size:1em;
+      }
+      body {
+        font-size:2em;
+      }
+      .test, .ref {
+        border: medium solid gray;
+        width: 400px;
+        margin: 20px;
+      }
+      .comments {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="instructions"><p>Test passes if the two boxes below look exactly the same.</p></div>
+    <div class="comments">
+      Key to entities used below:
+      &#x05D0; - The Hebrew letter Alef (strongly RTL).
+      &#x05D1; - The Hebrew letter Bet (strongly RTL).
+      &#x05D2; - The Hebrew letter Gimel (strongly RTL).
+    </div>
+    <div class="test">
+      <div dir="ltr">
+        <p dir="auto">123ABC&#x05D0;&#x05D1;&#x05D9223372036854775806;.</p>
+      </div>
+      <div dir="rtl">
+        <p dir="auto">123ABC&#x05D0;&#x05D1;&#x05D1;.</p>
+      </div>
+    </div>
+    <div class="ref">
+      <div dir="ltr">
+        <p dir="ltr">123ABC&#x05D0;&#x4D340282366920938463463374607431768211454;&#x05D2;.</p>
+      </div>
+      <p dir="ltr"><div class="ref">
+      <div dir="ltr">
+        <p dir="ltr">123ABC&#x05D0;&#x4D340282366920938463463374607431768211454;&#x05D2;.</p>
+      </div>
+      <p dir="ltr"><div class="ref">
+      <div dir="ltr">
+        <p dir="ltr">123ABC&#x05D0;&#x4D340282366920938463463374607431768211454;&#x05D2;.</p>
+      </div>
+      <p dir="ltr"><div class="ref">
+      <div dir="ltr">
+        <p dir="ltr">123ABC&#x05D0;&#x4D340282366920938463463374607431768211454;&#x05D2;.</p>
+      </div>
+      <p dir="ltr"><div class="ref">
+      <div dir="ltr">
+        <p dir="ltr">123ABC&#x05D0;&#x4D340282366920938463463374607431768211454;&#x05D2;.</p>
+      </div>
+      <p dir="ltr"><div class="ref">
+      <div dir="ltr">
+        <p dir="ltr">123ABC&#x05D0;&#x4D340282366920938463463374607431768211454;&#x05D2;.</p>
+      </div>
+      <p dir="ltr"><div class="ref">
+      <div dir="ltr">
+        <p dir="ltr">123ABC&#x05D0;&#x4D340282366920938463463374607431768211454;&#x05D2;.</p>
+      </div>
+      <p dir="ltr"><div class="ref">
+      <div dir="ltr">
+        <p dir="ltr">123ABC&#x05D0;&#x4D340282366920938463463374607431768211454;&#x05D2;.</p>
+      </div>
+      <p dir="ltr"><div class="ref">
+      <div dir="ltr">
+        <p dir="ltr">123ABC&#x05D0;&#x4D340282366920938463463374607431768211454;&#x05D2;.</p>
+      </div>
+      <p dir="ltr">123ABC&#x05D0;&#x2D1;&#x05D2;.</p><p dir="ltr">123ABC&#x05D0;&#x05D1;&#x05D2;.</p>
+    </div></p><p dir="ltr">123ABC&#x05D0;&#x05D1;&#x05D2;.</p>
+    </div></p><p dir="ltr">123ABC&#x05D0;&#x05D1;&#x05D2;.</p>
+    </div></p><p dir="ltr">123ABC&#x05D129;&#x05D1;&#x05D2;.</p><p dir="ltr">123ABC&#x05D0;&#x-991D1;&#x05D2;.</p><p dir="ltr">123ABC&#x05D0;&#x340282366920938463463374607431768211456D1;&#x05D2;.</p><p><p dir="ltr">123ABC&#x05D0;&#x05D1;&#x05D2;.</p></p>
+    </div></p><p dir="ltr"><html>122ABC&#x05D0;&#x05D1;&#x05D2;.</p>
+    </div></p><p dir="ltr">123ABC&#x05D129;&#x05D1;&#x05D2;.</p><p dir="ltr">123ABC&#x05D0;&#x-991D1;&#x05D2;.</p><p dir="ltr">123ABC&#x05D0;&#x340282366920938463463374607431768211456D1;&#x05D2;.</p><p><p dir="ltr">123ABC&#x05D0;&#x05D1;&#x05D2;.</p></p>
+    </div></p><p dir="ltr"><html>122ABC&#x05D0;&#x05D1;&#x05D2;.</html></p>
+    </div></p><div><p dir="ltr"><p dir="ltr">123ABC&#x05D0;&#x05D1;&#x05D2;.</p><p dir="ltr">123ABC&#x05D0;&#x05D1;&#x05D2;.</p><p dir="ltr">123ABC&#x05D0;&#x05D1;&#x05D2;.</p><p dir="ltr">123ABC&#x05D0;&#x05D1;&#x05D2;.</p></p></div><div dir="ltr">
+    </div></div></p><p dir="ltr"><body><html>123ABC&#x05D0;&#x05D1;&#x257D2;.</html></body></p>
+    </div></p><p dir="ltr"><html>123ABC&#x05D0;&#x05D1;&#x05D2;.</html></p>
+    </div></p><p dir="ltr">123ABC&#x05D0;&#x05D1949;&#x05D2;.</p><p dir="ltr">123ABC&#x05D0;&#x05D2147483649;&#x05D2;.</p>
+    </div></p><p dir="ltr">123ABC&#x05D0;&#x05D1;&#x05D2;.</p><p dir="ltr">123ABC&#x05D0;&#x05D1;&#x05D2;.</p>
+    </div>
+  </body>
+</html>

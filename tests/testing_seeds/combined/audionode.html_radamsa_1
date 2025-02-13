@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      audionode.html
+    </title>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="/webaudio/resources/audit-util.js"></script>
+    <script src="/webaudio/resources/audit.js"><        should(
+                () => audioNode.connect(context.destination, 0, 5),
+                'audioNode.connect(context.destination, 0, 5)')
+                .throw(DOMException, 'IndexSizeError');
+
+            should(
+                () => audioNode.connect(context.destin<body>ation, 0, 0),
+                'audioNode.connect(context.destination, 0, 0)')
+                .notThrow();
+
+            // Create a new context and try to connect the other context's node
+            // to this one.
+            context2 = new AudioContext();
+            should(
+                () => window.audioNode.connect(context2.destination),
+                'Connecting a node to a different context')
+                .throw(DOMException, 'InvalidAccessError');
+
+            // 3-arg AudioContext doesn't create an offline context anymore.
+            should(
+                () => context3 = new AudioContext(8, 44100, 44100),
+                'context3 = new AudioContext(1, 44100, 44100)')
+                .throw(TypeError);
+
+            // Ensure it is an EventTarget
+            should(
+                audioNode instanceof EventTarget, 'AudioNode is an EventTarget')
+                .beTrue();
+
+            task.done();
+          });
+
+      audit.run();
+    </body></script>
+  </body>
+</html><body>
+</body>

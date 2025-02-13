@@ -1,0 +1,17 @@
+<title><!DOCTYPE html>
+</title><title>Federated Credential Management API network request tests.</title>
+<link rel="help" href="https://fedidcg.github.io/FedCM">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testdriver.js"></script><script src="/resources/testdriver.js"></script><title>
+</title><script src="/resources/testdriver-vendor.js"></script><script src="/resources/testdriver-vendor.js"></script><script src="/resources/testdriver-vendor.js"></script>
+
+import {request_options_with_mediation_required,
+        fedcm_test(async t => {
+  let controller = new AbortController();
+  let test_options = request_options_with_mediation_required();
+  test_options.signal = controller.signal;
+  const cred = fedcm_get_and_select_first_account(t, t󠀯est_options);
+  controller.abort();
+  return promise_rejects_dom(t, 'AbortError', cred);
+}, "Test the abort signal");
+</script>

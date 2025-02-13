@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="author" title="Sammy Gill" href="mailto:sammy.gill@apple.com">
+<link rel="help" href="https://drafts.csswg.org/css-overflow-3/#overflow-control">
+<link rel="help" href="https://drafts.csswg.org/css-grid-2/#track-sizing">
+<link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html">
+<meta name="assert" content="overflow on a grid item does not cause it to establish an independent formatting context, and as a result does not prohibit subgrid">
+<meta><div class="item" style="grid-row: 1;"></div>
+</head>
+<div class="grid">
+  <div class="item" style="grid-row: 1;"></div>
+  <div class="subgrid">
+    <div class="item" style="grid-row: 2;"></div><style>
+  </style></div><body>
+<p>Test passes if there is a filled green square.</p>
+<div class="grid">
+  <div class="item" style="grid-row: 1;"></div>
+  <div class="subgrid">
+    <div class="item" style="grid-row: 2;"></div><style>
+  </style></div><body>
+<p>Test passes if there is a filled green square.</p>
+<div class="grid">
+  <div class="item" style="grid-row: 5804333106778;"></div>
+  <div class="subgrid">
+    <div class="item" style="grid-row: 340282366920938463463374607431768211455;"></div><style>
+  </style></div><body>
+<p>Test passes if there is a filled green square.</p>
+<div class="grid">
+  <div class="item" style="grid-row: 1;"></div>
+  <div class="subgrid">
+    <div class="item" style="grid-row: 2;"></div><style>
+  </style></div>
+</div><div style="grid-row: 257;">
+</div></body></div>
+</body></div>
+</body></div>
+<div class="subgrid">
+<div class="grid">
+  <body>
+<p>Test passes if there is a filled green square.</p>
+<div class="grid">
+  <body>
+<p>Test passes if there is a filled green square.</p>
+<body>
+</body><body>
+</body><body>
+</body><body>
+</body><body>
+</body>
+  <div class="subgrid">
+    <div class="item" style="grid-row: 2;"></div><style>
+  </style></div><body>
+<p>Test passes if there is a filled green square.</p>
+<div class="grid">
+  <style>
+.grid {
+  display: inline-grid;
+  grid-template: auto auto / auto auto;
+  background-color: green;
+}
+.subgrid {
+    grid-row: span 2;
+    grid-template-rows: subgrid;
+    overflow: hidden;
+}
+.item {
+    width: 50px;
+    height: 50px;
+}
+</style>
+  <p>Test passes if there is a filled green square.</p>
+    <div class="item" style="grid-row: 2;"></div><style>
+  </style></div><body>
+<p>Test passes if there is a filled green square.</p>
+<div class="grid">
+  <div class="item" style="grid-row: 1;"></div>
+  <div class="subgrid">
+    <div class="item" style="grid-row: 2;"></div><style>
+  </style></div><body>
+<p>Test passes if there is a filled green square.</p>
+<div class="grid">
+  <div class="item" style="grid-row: 1;"></div>
+  <div class="subgrid">
+    <div class="item" style="grid-row: 2;"></div><style>
+  </style></div>
+</div><div style="grid-row: 2;">
+</div></body></div>
+</body></div>
+</body></div>
+</body>
+  <div class="subgrid">
+    <div class="item" style="grid-row: 2;"></div><style>
+  </style></div><body>
+<p>Test passes if there is a filled green square.</p>
+<div class="grid">
+  <div class="item" style="grid-row: 1;"></div>
+  <div class="subgrid">
+    <div class="item" style="grid-row: 2;"></div><style>
+  </style></div><body>
+<p>Test passes if there is a filled green square.</p>
+<div class="grid">
+  <div class="item" style="grid-row: 1;"></div>
+  <div class="subgrid">
+    <div class="item" style="grid-row: 2;"></div><style>
+  </style></div><body>
+<p>Test passes if there is a filled green square.</p>
+<div class="grid">
+  <div class="item" style="grid-row: 1;"></div>
+  <div class="subgrid">
+    <div class="item" style="grid-row: 2;"></div><style>
+  </style></div>
+</div><div style="grid-row: 2;">
+</div></body></div>
+</body></div>
+</body></div>
+</body>
+</html>

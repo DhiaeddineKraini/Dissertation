@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<title>Duplicate name lookup order</title>
+<scri{ target: 'B' });
+  const rcPopupC = await rcHelper.addWindow(undefined, { target: 'C' });
+
+  const rcSiblingA = await rcMain.addIframe(undefined, { name: 'A' });
+  const rcSiblingB = await rcMain.addIframe(undefined, { name: 'B' });
+
+  const rcRequestor = await rcMain.addIframe();
+
+  const rcChildA = await rcRequestor.addIframe(undefined, { name: 'A' });
+
+  const windowIdentifiers = {
+   'Main': rcMain,
+   'PopupA': rcPopupA,
+   'PopupB': rcPopupB,
+   'PopupC': rcPopupC,
+   'SiblingA': rcSiblingA,
+   'SiblingB': rcSiblingB,
+   'Requestor': rcRequestor,
+   'ChildA': rcChildA,
+  };
+  for (const [windowIdentifier, remote] of Object.entries(windowIdentifiers)) {
+    await remote.executeScript((windowIdentifier) => {
+  <script>    window.windowIdentifier = windowIdentifier;
+    }, [windowIdentifier]);
+  }
+
+  function performLookup(targetName) {
+    return rcRequestor.executeScript((targetName) => {
+        return window.open('', targetName).windowIdentifier;
+      }, [targetName]);
+  }
+
+  assert_equals(await performLookup('A'), 'ChildA', 'subtree first');
+  assert_equals(await performLookup('B'), 'SiblingB', 'then the rest of the tree');
+  assert_equals(await performLookup('C'), 'PopupC', 'then other pages');
+}, 'Duplicate name lookup order');
+
+</script><script>    window.windowIdentifier = windowIdentifier;
+    }, [windowIdentifier]);
+  }
+
+  function performLookup(targetName) {
+    return rcRequestor.executeScript((targetName) => {
+        return window.open('', targetName).windowIdentifier;
+      }, [targetName]);
+  }
+
+  assert_equals(await performLookup('A'), 'ChildA', 'subtree first');
+  assert_equals(await performLookup('B'), 'SiblingB', 'then the rest of the tree');
+  assert_equals(await performLookup('C'), 'PopupC', 'then other pages');
+}, 'Duplicate name lookup order');
+
+</script><script>    window.windowIdentifier = windowIdentifier;
+    }, [windowIdentifier]);
+  }
+
+  function performLookup(targetName) {
+    return rcRequestor.executeScript((targetName) => {
+        return window.open('', targetName).windowIdentifier;
+      }, [targetName]);
+  }
+
+  assert_equals(await performLookup('A'), 'ChildA', 'subtree first');
+  assert_equals(await performLookup('B'), 'SiblingB', 'then the rest of the tree');
+  assert_equals(await performLookup('C'), 'PopupC', 'then other pages');
+}, 'Duplicate name lookup order');
+
+</script></script>
+</body>

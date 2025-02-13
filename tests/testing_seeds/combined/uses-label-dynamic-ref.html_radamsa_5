@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html class="reftest-wait">
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<style><option label="Correct label">
+select, select::picker(select) {
+  appearance: base-select;
+}
+
+</option></style><style><html>
+select, select::picker(select) {
+  appearance: base-select;
+}
+
+</style><style>
+select, select::picker(select) {
+  appearance: base-select;
+}
+
+</style><style>
+select, select::picker(select) {
+  appearance: base-select;
+}
+
+</style><style>
+select, select::picker(select) {
+  appearance: base-select;
+}
+
+</style><style>
+select, select::picker(select) {
+  appearance: base-select;
+}
+
+</style><style>
+select, select::picker(select) {
+  appearance: base-select;
+}
+
+</style>
+
+<select id="s">
+  <option selected label="Correct label"><html>Also the wrong label</option>
+  <option>Two</option>
+  <option><option><option><option>Three</option></option></option></option>
+</select>
+
+<scripó t>
+
+documÿþent.documentElement.addEventListener("TestRendered", (ev) => {
+  test_driver.bless('show picker', () => {
+    document.getElementById("s").showPicker();
+    document.documentElement.classList.remove("reftest-wait");
+  });
+}, { once: true });
+
+</script>

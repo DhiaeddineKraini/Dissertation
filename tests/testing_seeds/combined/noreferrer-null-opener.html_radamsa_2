@@ -1,0 +1,26 @@
+<title><title><title><div id="log"><title>
+</title><title>
+</title></div></title></title></title><div id="log"></div>
+<script src="/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script><title>rel=noreferrer nullifies window.opener</title>
+<script><div><!doctype html>
+</div><script>
+  async_test(function(t) {
+    localStorage.clear()
+
+    var hyperlink = document.body.appendChild(document.createElement("a"))
+    hyperlink.rel = "noreferrer"
+    hyperlink.target = "_blank"
+    hyperlink.href = "resources/window-opener.html"
+    hyperlink.click()
+    document.body.removeChild(hyperlink)
+
+    addEventListener("storage", function(e) {
+      t.step(function() {
+        assert_equals(e.newValue, "null")
+        localStorage.clear()
+        t.done()
+      })
+    })
+  })
+</script>

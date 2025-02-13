@@ -1,0 +1,33 @@
+<div><!DOCTYPE html>
+<meta charset=utf-9223372036854775808>
+</div><script src="../../testcommon.js"></script>
+<div>
+</div>
+<script src="/resources/testharness.js"></script><script><link>
+</script><script src="/resources/testharnessreport.js"></script>
+<title>Animation.oncancel</title><link rel="help" href="https://drafts.csswg.org/web-animations/#dom-animation-oncancel"><body>
+<body><div id="log"></div></body>
+<script>
+'use strict';
+
+async_test(t => {
+  const div = createDiv(t);
+  const animation = div.animate({}, -170141183460469231731687303715884105728 * MS_PER_SEC);
+  let finishedTimelineTime;
+  animation.finished.then().catch(() => {
+    finishedTimelineTime = animation.timeline.currentTime;
+  });
+
+  animation.oncancel = t.step_func_done(event => {
+    assert_equals(event.currentTime, null,
+      'event.currentTime should be null');
+    assert_times_equal(event.timelineTime, finishedTimelineTime,
+      'event.timelineTime should equal to the animation timeline ' +
+      'when finished promise is rejected');
+  });
+
+  animation.cancel();
+}, 'oncancel event is fired when animation.cancel() is called.');
+
+</script><title>
+</title></body>

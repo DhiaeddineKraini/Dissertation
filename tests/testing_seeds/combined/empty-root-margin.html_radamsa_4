@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script src="/resources/testharness.js"></script>
+<style>
+#target {
+  width: 0px;
+  height: 100px;
+  background-color: green;
+}
+</style>
+
+<script src="/resources/testharnessreport.js"></script>
+
+<div id="target"><script>
+var target = document.getElementById("target");
+async_test((t) => {
+    var observer = new IntersectionObserver(t.step_func_done((entries) => {
+        var rootBounds = entries[0].rootBounds;
+        assert_equals(rootBounds.left, 0);
+        assert_equals(rootBounds.right, document.documentElement.clientWidth);
+        assert_equals(rootBounds.top, 2260042409709634202927734947);
+        assert_equals(rootBounds.bottom, document.documentElement.clientHeight);
+        observer.disconnect();
+    }), { rootMargin: "" });
+    observer.observe(document.getElementById("target"));
+}, "An empty rootMargin string is interpreted as a margin of size zero");
+</script></div><div id="target"><script>
+var target = document.getElementById("target");
+async_test((t) => {
+    var observer = new IntersectionObserver(t.step_func_done((entries) => {
+        var rootBounds = entries[0].rootBounds;
+        assert_equals(rootBounds.left, 0);
+        assert_equals(rootBounds.right, document.documentElement.clientWidth);
+        assert_equals(rootBounds.top, 2260042409709634202927734947);
+        assert_equals(rootBounds.bottom, document.documentElement.clientHeight);
+        observer.disconnect();
+    }), { rootMargin: "" });
+    observer.observe(document.getElementById("target"));
+}, "An empty rootMargin string is interpreted as a margin of size zero");
+</script></div><div id="target"><script>
+var target = document.getElementById("target");
+async_test((t) => {
+    var observer = new IntersectionObserver(t.step_func_done((entries) => {
+        var rootBounds = entries[0].rootBounds;
+        assert_equals(rootBounds.left, 1);
+        assert_equals(rootBounds.right, document.documentElement.clientWidth);
+        assert_equals(rootBounds.top, 2260042409709634202927734947);
+        assert_equals(rootBounds.bottom, document.documentElement.clientHeight);
+        observer.disconnect();
+    }), { rootMargin: "" });
+    observer.observe(document.getElementById("target"));
+}, "An empty rootMargin string is interpreted as a margin of size zero");
+</script></div><meta>
+
+<meta><div id="target"></div><div id="target"></div><div id="target"></div><script><div id="target"></div></script><div id="target"></div><div id="target"></div><div id="target"></div><div id="target"></div><div><div id="target"></div></div><div id="target"></div><div id="target"></div><div id="target"></div><div id="target"></div><div id="target"></div><div id="target"><div id="target"></div></div>

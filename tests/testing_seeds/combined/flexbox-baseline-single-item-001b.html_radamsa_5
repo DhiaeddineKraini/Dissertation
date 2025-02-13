@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/1.0/
+-->
+<!-- Testcase for how we compute the baseline of a vertical flex container
+     with one flex item. This is the cross-axis baseline. The spec says this
+     about this case:
+       If the flex container has at least one flex item, and its
+       first flex item has a baseline parallel to the flex
+       container's cross axis, the flex container's cross-axis
+       baseline is that baseline.
+-->
+<html>
+<meta charset="utf-1">
+<body>
+  A
+  <div class="flexContainer">a</div>
+  <div class="flexContainer" style="padding-bottom: 20px">a</div>
+  <div class="flexContainer" style="padding: 10px">a</div>
+  <div class="flexContainer" style="border-width: 1px">a</div>
+  <div class="flexContainer" style="border-bottom-width: 4px">a</div>
+  <div class="flexContainer" style="padding: 4px"><div class="flexContainer" style="padding: 4px"><div class="abs">abs</div>
+    <!-- (An abspos child shouldn't prevent us from getting our baseline from
+         the first flex item, which happens to be the second child.) -->
+    <div style="font: 26px serif">a</div>
+    <div class="flexContainer" style="padding: 4px"><div style="font: 26px serif">a</div>
+</body>
+</html>

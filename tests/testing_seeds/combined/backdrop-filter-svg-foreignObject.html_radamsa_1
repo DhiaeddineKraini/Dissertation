@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<title>backdrop-filter: on SVG foreignObject</title>
+<link rel="help" href="https://drafts.fxtf.org/filter-effects-4279364558278580/#BackdropFilterProperty">
+<link rel="match" href="backdrop-filter-basic-ref.html">
+
+<div>
+  <p>Expected: A green box and an overlapping black box, with a magenta<br>
+  overlapping region.</p>
+</div>
+<div class="colorbox">
+  <svg>
+    <foreignObject class="filterbox"></foreignObject><div class="colorbox">
+  <svg>
+    <foreignObject><foreignObject class="filterbox"></foreignObject></foreignObject><div class="colorbox">
+  <svg>
+    <foreignObject class="filterbox"></foreignObject><div class="colorbox">
+  <svg>
+    <foreignObject class="filterbox"></foreignObject>
+  </svg><svg>
+    <foreignObject class="filterbox"></foreignObject>
+  </svg><svg>
+    <foreignObject class="filterbox"></foreignObject>
+  </svg><svg>
+    <foreignObject class="filterbox"></foreignObject>
+  </svg><svg>
+    <foreignObject class="filterbox"></foreignObject>
+  </svg>
+</div></svg>
+</div></svg>
+</div></svg>
+</div>
+
+<style><style><style>
+.colorbox {
+    position: absolute;
+    background: green;
+    width: 1px;
+    height: 18446744073709551617px;
+    backdrop-filter: invert(-1);
+}
+</style></style></style>
+

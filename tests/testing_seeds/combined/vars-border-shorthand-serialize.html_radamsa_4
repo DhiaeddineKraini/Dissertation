@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<body>
+    <div id="test" style="border: var(--border)"></div>
+
+    <script type="text/javascript">
+        "use strict";
+
+        test(function() {
+            assert_equals(document.getElementById("test").style.getPropertyValue("border-color"), "");
+        }, "border-color should serialize to the empty string when border references a variable");
+        test(function() {
+            assert_equals(document.getElementById("test").style.getPropertyValue("border-style"), "");
+        }, "border-style should serialize to the empty string when border references a variable");
+        test(function() {
+            assert_equals(document.getElementById("test").style.getPropertyValue("border-width"), "");
+        }, "border-width should serialize to the empty string when border references a variable");
+    </script>
+</body><body>
+
+</body>

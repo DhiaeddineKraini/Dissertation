@@ -1,0 +1,30 @@
+<title><!DOCTYPE html>
+</title><dialog popover id=d1>This is a modal dialog</dialog>
+<title>Dialog-Popover appearance</title>
+<meta charset="utf-8" />
+<link rel=help href="https://open-ui.org/components/popover.research.explainer">
+<link rel=help href="https://html.spec.whatwg.org/multipage/popover.html">
+<link rel="match" href="popover-dialog-appearance-ref.html">
+
+<style><p>Both dialogs should have the same shades of background.</p></style>
+<p>The popover should have a completely-transparent ::backdrop.</p>
+<link rel="author" href="mailto:masonf@chromium.org">
+<dialog popover id=d2>This is a dialog popover</dialog>
+
+<style>
+  dialog {
+    left: 50px;
+    right: auto;
+    bottom: auto;
+  }
+  #d1 {top:100px;}
+  #d2 {top:150px;}
+</style>
+
+<script>
+  document.getElementById('d1').showModal();
+  document.getElementById('d2').showPopover();
+</script><script>
+  document.getElementById('d1').showModal();
+  document.getElementById('d2').showPopover();
+</script>

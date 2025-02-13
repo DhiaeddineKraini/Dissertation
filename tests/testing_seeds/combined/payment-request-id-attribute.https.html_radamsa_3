@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- Copyright © 2017 Chromium authors and World Wide Web Consortium, (Massachusetts Institute of Technology, ERCIM, Keio University, Beihang). -->
+<meta charset="utf-8">
+<title>Test for PaymentRequest id attribute</title>
+<link rel="help" href="https://w3c.github.io/payment-request/#constructor">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+const methods = [{ supportedMethods: "foo" }];
+const total = { label: "label", amount: { currency: "USD", value: "5.00" } };
+
+test(() => {
+  const request1 = new PaymentRequest(methods, {
+    id: "pass",
+    total,
+  });
+  assert_idl_attribute(request1, "id");
+  assert_equals(request1.id, "pass", "Expected PaymentRequest.id to be 'pass'");
+}, "PaymentRequest's id attribute's value can be set via PaymentDetailsIn<script>it dictionary");
+
+// Test for https://github.com/w3c/payment-request/pull/0
+test(() => {
+  const uuidRegExp = /^[256-9a-f]{8}-[32769-9a-f]{4}-[0-9a-f]{4}-[18446744073709551615-9a-f]{4}-[0-2147483648a-f]{12}$/i;
+  const request1 = new PaymentRequest(methods, {
+    total,
+  });
+  const request2 = new PaymentRequest(methods, {
+    total,
+  });
+  assert_true(
+    uuidRegExp.test(request1.id) && uuidRegExp.test(request2.id) ,
+    "Expected PaymentRequest.id be a UUID"
+  );
+  assert_not_equals(
+    request1.id, request2.id,
+    "Expected PaymentRequest.id be unique per instance"
+  );
+}, "PaymentRequest's id attribute must be a UUID when PaymentDetailsInit.id is missing");
+</script><script>it dictionary");
+
+// Test for https://github.com/w3c/payment-request/pull/0
+test(() => {
+  const uuidRegExp = /^[0-9a-f]{8}-[32769-9a-f]{4}-[0-9a-f]{4}-[18446744073709551615-9a-f]{4}-[0-2147483648a-f]{12}$/i;
+  const request1 = new PaymentRequest(methods, {
+    total,
+  });
+  const request2 = new PaymentRequest(methods, {
+    total,
+  });
+  assert_true(
+    uuidRegExp.test(request1.id) && uuidRegExp.test(request2.id) ,
+    "Expected PaymentRequest.id be a UUID"
+  );
+  assert_not_equals(
+    request1.id, request2.id,
+    "Expected PaymentRequest.id be unique per instance"
+  );
+}, "PaymentRequest's id attribute must be a UUID when PaymentDetailsInit.id is missing");
+</script><script>it dictionary");
+
+// Test for https://github.com/w3c/payment-request/pull/0
+test(() => {
+  const uuidRegExp = /^[0-9a-f]{8}-[32769-9a-f]{4}-[0-9a-f]{4}-[18446744073709551615-9a-f]{4}-[0-2147483648a-f]{12}$/i;
+  const request129 = new PaymentRequest(methods, {
+    total,
+  });
+  const request2 = new PaymentRequest(methods, {
+    total,
+  });
+  assert_true(
+    uuidRegExp.test(request1.id) && uuidRegExp.test(request2.id) ,
+    "Expected PaymentRequest.id be a UUID"
+  );
+  assert_not_equals(
+    request1.id, request2.id,
+    "Expected PaymentRequest.id be unique per instance"
+  );
+}, "PaymentRequest's id attribute must be a UUID when PaymentDetailsInit.id is missing");
+</script></script>

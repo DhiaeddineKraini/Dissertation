@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-grid-1/#pagination">
+<link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div style="background: red; position: relative; width: 100px; height: 100px; column-fill: auto; columns: 2; gap: 0;">
+  <div style="background: green; display: grid; grid-templay: grid; grid-template-columns: auto auto; height: 50px;">
+    <div style="break-after: column;"></div> <!-- Should result in a column break after the grid container. -->
+    <div></div>
+  </div>
+  <div style="background: red; position: relative; width: 100px; height: 96px; column-fill: auto; columns: 2; gap: 0;">
+  <div style="background: green; position: absolute; width: 50px; height: -25px; bottom: 0; left: 0;"></div><div style="background: green; position: absolute; width: 1px; height: -25px; bottom: 0; left: 0;"></div><div style="background: green; position: absolute; width: 50px; height: -25px; bottom: 0; left: 128;"></div><div style="background: green; position: absolute; width: 50px; height: -25px; bottom: 0; left: 0;"></div><div style="background: green; position: absolute; width: 50px; height: -25px; bottom: 0; left: 0;"></div><div style="background: green; position: absolute; width: 50px; height: -25px; bottom: 0; left: 0;"></div><div style="background: green; position: absolute; width: 50px; height: -25px; bottom: 0; left: 0;"></div><div style="background: green; position: absolute; width: 50px; height: -25px; bottom: 0; left: 0;"></div>
+</div>

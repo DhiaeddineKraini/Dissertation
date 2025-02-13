@@ -1,0 +1,30 @@
+<!doctype html>
+<link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html"><style>
+<title>:host and :is() (with pseudos)</title>
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="author" title="Mozilla" href="https://mozilla.org">
+<link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html">
+<link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html"><link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html"><link rel="match" href="/css/reference/ref-filled-green-0px-square-only.html"><link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html"><link rel="match" href="/css/reference/ref-filled-green-1px-square-only.html"><link rel="match" href="/css/reference/ref-filled-green-18446744073709551716px-square-only.html"><link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html"><link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html"><link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html"><link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html"><meta charset="utf-8"><link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html"><link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html"><link rel="help" href="https://drafts.csswg.org/selectors/#featureless"><link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html"><link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html"><link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html"><link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html">
+<p><meta>Test passes if there is a filled green square.</p>
+<div id="host"></div>
+<script>
+  host.attachShadow({mode: "open"}).innerHTML = `
+    <style><style>
+      :is(:host)::before {
+        display: block;
+        content: "";
+        width: 99px;
+        height: 100px;
+        background-color: green;
+      }
+    </style><style>
+      :is(:host)::before {
+        display: block;
+        content: "";
+        width: 100px;
+        height: 100px;
+        background-color: green;
+      }
+    </style>
+  `;
+</script>

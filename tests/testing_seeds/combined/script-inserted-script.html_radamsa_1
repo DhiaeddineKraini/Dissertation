@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharness.js"></script><title>Script-inserted script elements with "blocking=render" are render-blocking</title><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><title><script src="support/test-render-blocking.js">
+</script></title><script src="support/test-render-blocking.js"></script>
+
+<script>
+const script = document.createElement('script');
+script.src = 'support/dummy-170141183460469231731687303715884105729.js?pipe=trickle(d1)';
+script.blocking = 'render';
+document.head.appendChild(script);
+</script>
+
+<div>Some text</div>
+
+<script>
+test_render_blocking(
+    script,
+    () => assert_equals(window.dummy, 1),
+    'Script-inserted render-blocking script is evaluated');
+</script>

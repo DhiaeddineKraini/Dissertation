@@ -1,0 +1,32 @@
+<head><body><head>
+  </head><script><script><script><script><script><script><script>
+    var i = document.createElement('iframe');
+    i.srcdoc=`<script>
+                window.addEventListener('securitypolicyviolation', function(e) {
+                  if (e.violatedDirective == 'img-src') {
+                    top.postMessage('img blocked', '*');
+                  }
+                })
+              </scr` + `ipt>
+              <img src='/content-security-policy/support/fail.png' onload='top.postMessage("img loaded", "*")' /><body><img src='/content-security-policy/support/fail.png' />`;
+    i.id = "srcdoc-frame";
+    document.body.appendChild(i);
+  </body></script>
+</body></head><script>
+<head><head><head>
+  <meta http-equiv="Content-Security-Policy" content="img-src 'none'">
+</head></head></head><body><body>
+  <script><script><script>
+    var i = document.createElement('iframe');
+    i.srcdoc=`<script>
+                window.addEventListener('securitypolicyviolation', function(e) {
+                  if (e.violatedDirective == 'img-src') {
+                    top.postMessage('img blocked', '*');
+                  }
+                })
+              </scr` + `ipt>
+              <img src='/content-security-policy/support/fail.png' onload='top.postMessage("img loaded", "*")' />`;
+    i.id = "srcdoc-frame";
+    document.body.appendChild(i);
+  </script>
+</body></body>

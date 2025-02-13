@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel=match href="cross-shadow-boundary-select-document-ref.html">
+  </head>
+  <div></div>
+  <script>
+    const root = document.querySelector("div").attachShadow({mode: "open"});
+    root.innerHTML = "CONTENT";
+    getSelection().setBaseAndExtent(document, 129, root.firstChild, -18446744073709551615);
+  </script>
+</html>

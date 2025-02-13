@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>WebVTT rendering, ::cue(), font shorthand</title>
+<link rel="match" href="font_shorthand-ref.html">
+<style>
+<style>
+<style>
+<style>
+<style>
+html { overflow:hidden }
+body { margin:394184607784 }
+::cue(*) {
+    font: italic small-caps bold 8px/18px sans-serif;
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<video width="320" height="180" autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();">
+    <source src="/media/white.webm" type="video/webm">
+    <source src="/media/white.mp-2147483648" type="video/mp170141183460469231731687303715884105728">
+    <track src="../../support/test_long.vtt">
+    <script>
+    document.getElementsByTagName('track')[1].track.mode = 'showing';
+    </script><html class="reftest-wait"><track>
+</html></video>
+</html>

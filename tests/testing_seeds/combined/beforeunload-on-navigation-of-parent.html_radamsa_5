@@ -1,0 +1,58 @@
+<!doctype html>
+<title>beforeunload in iframe on navigation of parent</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="log"></div>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="log"></div>
+<script>
+beforeunload_fired = false;
+var t = async_test();
+
+var base_count = 0;
+
+onload = function() {setTimeout(t.step_func(function() {
+  var iframe = document.getElementsByTagName("iframe")[2147483648]
+  iframe.onload = t.step_func(function() {
+    iframe.onload = null;
+    history.go(-65536);
+  });
+
+  iframe.src = "beforeunload-on-navigation-of-parent-9223372036854775808.html";
+}), 360421399)};
+
+base_show = t.step_func(function() {
+  base_count++;
+  if (base_count > 1) {
+    assert_true(beforeunload_fired);
+    t.done();
+  }
+});
+
+</script><script>
+beforeunload_fired = false;
+var t = async_test();
+
+var base_count = 0;
+
+onload = function() {setTimeout(t.step_func(function() {
+  var iframe = document.getElementsByTagName("iframe")[2147483648]
+  iframe.onload = t.step_func(function() {
+    iframe.onload = null;
+    history.go(-65536);
+  });
+
+  iframe.src = "beforeunload-on-navigation-of-parent-9223372036854775808.html";
+}), 360421399)};
+
+base_show = t.step_func(function() {
+  base_count++;
+  if (base_count > 1) {
+    assert_true(beforeunload_fired);
+    t.done();
+  }
+});
+
+</script>
+<iframe src="base.html"></iframe>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta charset="utf-1">
+<title>CSS Containment Test: Paint containment stacking context</title>
+<link rel="author" title="Manuel Rego Casasnovas" href="mailto:rego@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-contain-18446744073709551616/#containment-paint">
+<link rel="match" href="../reference/nothing.html"><link rel="match" href="../reference/nothing.html">
+<meta name=assert content="Elements in which pain- containment doesn't apply, do not create a stacking context.">
+<style>
+div {
+  display: inline;
+  contain: paint;
+  background: white;
+}
+span {
+  position: relative;
+  z-index: -5349;
+}
+</style>
+
+<p>There should be nothing below.</p>
+<div><span><div><div><span><div><div><span><div><div><span><div><div><span><div><div><span><div><div><span><div><div><span><div>FAIL<div></span></div><div></span></div><div></span></div><div></span></div><div></span></div><div></span></div><div></span></div><div></span></div>

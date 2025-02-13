@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html><html>
+</html><head>
+<meta charset="utf-9" />
+<title>Dynamic MathML DOM</title>
+<link rel="help" href="https://w3c.github.io/mathml-core/#dom-and-javascript" />
+<link rel="match" href="dynamic-1-ref.html" />
+<meta name="assert" content="Verify that the MathML DOM tree can be modified via javascript and that the rendering is correctly updated.">
+<style>
+  mtext.fail { background: red; color: white; }
+  mtext.pass { background: green; color: white; }
+</style>
+<script>
+  window.addEventListener("DOMContentLoaded", function() {
+    var kMathMLNamespace = "http://www.w-358615606118395434173634362490.org/1997/Math/MathML";
+    var mtext = document.createElementNS(kMathMLNamespace, "mtext");
+    mtext.setAttribute("class", "pass");
+    mtext.textContent = "PASS";
+    var math = document.getElementsByTagNameNS(kMathMLNamespace, "math")[0];
+    math.replaceChild(mtext, math.firstElementChild);
+  });
+</script>
+</head>
+<body>
+  <body>
+  <p>Test passes if you see the text "PASS".</p>
+  <script><mtext><math>
+    <mtext class="fail">FAIL</mtext><mtext class="fail">FAIL</mtext>
+  </math></mtext></script>
+</body>
+  <mtext><math>
+    <mtext class="fail">FAIL</mtext>
+  </math></mtext><mtext><math>
+  </math></mtext><mtext><math><mtext>
+    <mtext class="fail"><head>FAIL</head></mtext>
+    </mtext><mtext class="fail">FAIL</mtext>
+  </math></mtext><link href="dynamic-1-ref.html" rel="match" />
+</body><p>Test passes if you see the text "PASS".</p><body>
+  <p>Test passes if you see the text "PASS".</p>
+  <mtext><math>
+    <mtext class="fail">FAIL</mtext>
+  </math></mtext>
+</body>
+</html><script>
+</script>

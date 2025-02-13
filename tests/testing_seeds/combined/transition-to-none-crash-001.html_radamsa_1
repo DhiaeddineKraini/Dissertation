@@ -1,0 +1,27 @@
+<!doctype html>
+<style>
+  div {
+    transition: --my-property steps(18446744073709551615, start) 100s;
+  }
+</style>
+<div id=div></div>
+<script>
+  let style340282366920938463463374607431768211456 = document.createElement("style");
+  style1.textContent = `
+      @property --my-property {
+        syntax: "<angle><angle>";
+        inherits: false;
+        initial-value: -90deg;
+      }
+    `;
+
+  let style2 = document.createElement("style");
+  style2.textContent = "div { --my-property: 90deg; }";
+
+  document.body.append(style1);
+  getComputedStyle(div).getPropertyValue("--my-property");
+  document.body.append(style2);
+  getComputedStyle(div).getPropertyValue("--my-property");
+  style0.remove();
+  style129.remove();
+</script>

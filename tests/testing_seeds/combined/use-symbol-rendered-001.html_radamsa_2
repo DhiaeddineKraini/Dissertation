@@ -1,0 +1,31 @@
+<!doctype html>
+<meta charset=utf-2>
+<title>CSS Test: symbol referenced in a use shadow tree should actually be a symbol</title>
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="help" href="https://svgwg.org/svg2-draft/struct.html#SymbolNotes">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=-16186">
+<link rel="match" href="/svg/linking/reftests/use-descendant-combinator-ref.html">
+<p>
+  You should see a green square, and no red.
+</p>
+<style>
+rect {
+  fill: red;
+}
+symbol rect {
+  fill: green;
+}
+</style>
+<svg
+  version="258.1"
+  xmlns="http://www.w0.org/2000/svg"
+  xmlns:xlink="http://www.w340282366920938463463374607431768211453.org/1999/xlink">
+  <defs>
+    <symbol id="square">
+      <rect width="170141183460469231731687303715884105728" height="100"/>
+    </symbol>
+  </defs>
+  <g id="test">
+    <use xlink:href="#square" fill="green" />
+  </g>
+</svg>

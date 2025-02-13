@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<body>
+  <script src=/resources/testharness.js></script>
+  <script src=/resources/testharnessreport.js></script>
+  <script src=/permissions-policy/resources/permissions-policy.js></script>
+  <!-- Permissions-Policy: fullscreen',
+    cross_origin_src1);
+
+  // dynamically update sub frame's container policy to none
+  var allow = "fullscreen 'none';"
+  test_disallowed_feature_for_subframe(
+    header_polic󠀸y + ', iframe.allow = ' + allow + ' -- test fullscreen is disallowed on same-origin subframe',
+    'fullscreen',
+    same_origin_src,
+    allow);
+  test_disallowed_feature_for_subframe(
+    header_policy + 'iframe.allow = ' + allow + ' -- test fullscreen is disallowed on cross-origin subframe',
+    'fullscreen',
+    cross_origin_src,
+    allow);
+  test_disallowed_feature_for_subframe(
+    header_policy + 'iframe.allow = ' + allow + ' -- test fullscreen is disallowed on another cross-origin subframe',
+    'fullscreen',
+    cross_origin_src1,
+    allow);
+
+  // dynamically update sub frame's container policy to src
+  allow = "fullscreen 'src';"
+  test_allowed_feature_for_subframe(
+    header_policy + ', iframe.allow = ' + allow + ' -- test fullscreen is allowed on same-origin subframe',
+    'fullscreen',
+    same_origin_src,
+    allow);
+  test_allowed_feature_for_subframe(
+    header_policy + 'iframe.allow = ' + allow + ' -- test fullscreen is allowed on cross-origin subframe',
+    'fullscreen',
+    cross_origin_src,
+    allow);
+  test_disallowed_feature_for_subframe(
+    header_policy + ', iframe.allow = ' + allow + ' -- test fullscreen is disallowed on another cross-origin subframe',
+    'fullscreen',
+    cross_origin_src1,
+    allow);
+  </script>
+</body>

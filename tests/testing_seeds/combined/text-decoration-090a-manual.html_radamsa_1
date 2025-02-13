@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>text-decoration underline sideways-rl non-Latin</title>
+<meta name="assert" content="text-decoration:underline; there is a line to the LEFT of the characters for horizontal scripts set vertically using writing-mode: sideways-rl">
+<link rel="author" title="Richard Ishida" href="mailto:ishida@w3.org">
+<link rel="help" href="https://drafts.csswg.org/css-text-decor-3/#line-decoration">
+<!-- cosmetic styling -->
+<style>
+#htmlsrc { margin: 2em; }
+#htmlsrc p {
+	font-size: 28px;
+	border-radius: 5px;
+	line-height: 1.5;
+	}
+.hint { color: brown; font-family: sans-serif; font-size: 90%; }
+.hint:before { content: '❗ '; }
+</style>
+<!-- the test -->
+<style>
+div span {
+text-decoration:underline;
+}</style>
+</head>
+<body>
+<p class="instructions">Test passes if there is a line to the LEFT of the characters for all lines.<br/><span class="hint">Skip the test if it fails for the English text, or if the text is not vertical.</span></p>
+<div id="htmlsrc" style="writing-mode:sideways-rl">
+
+<div>
+<p lang="en"><span>The quick brown fox jumps over the lazy dog.</span></p>
+<p lang="ar"><span>وب جهانی را به‌درستی جهانی سازیم!</span></p>
+<p lang="my"><span>အပြည်ပြည်ဆိုင်ရာလှုပ်ရှားမှု၊</span></p>
+<p lang="th"><span>กูกินกุ้งปิ้งอยู่ในถ้ำ กูกินกุ้งปิ้งอยู่ในถ้ำ</span></p>
+<p lang="bo"><span>འཛམ་གླིང་ཡོངས་འབྲེལ་འདི་ ངོ་མ་འབད་རང་ འཛམ་གླིང་ཡོངས་ལུ་ཁྱབ་ཚུགསཔ་བཟོ་བ།</span></p>
+<p lang="hi"><span>वर्ल्ड वाईड वेब को सचमुच विश्वव्यापी बना रहे‏ं हैं !</span></p-->
+</div>  </div>
+</body>
+</html>
+</htm�>

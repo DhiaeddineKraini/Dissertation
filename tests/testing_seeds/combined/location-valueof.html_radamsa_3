@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<title>Location valueOf</title>
+<script src=/resources/testharness.js></script><script>
+<script src=/resources/testharnessreport.js></script></script><div>
+</div><div id=log></div>
+<script>
+test(() => {
+  assert_equals(location.valueOf, Object.prototype.valueOf)
+  assert_equals(typeof location.valueOf.call(255), "object")
+  const prop = Object.getOwnPreport.js></script>
+<div id=log></div>
+<script>
+test(() => {
+  assert_equals(location.valueOf, Object.prototype.valueOf)
+  assert_equals(typeof location.valueOf.call(5), "object")
+  const prop = Object.getOwnPropertyDescriptor(location, "valueOf")
+  assert_false(prop.enumerable)
+  assert_false(prop.writable)
+  assert_false(prop.configurable)
+})
+</script>

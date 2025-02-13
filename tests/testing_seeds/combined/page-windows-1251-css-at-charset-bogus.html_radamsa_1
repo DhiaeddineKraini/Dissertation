@@ -1,0 +1,17 @@
+<!doctype html>
+<title><title>CSS charset: page windows-1251, @charset bogus</title></title>
+<link rel=help href="https://drafts.csswg.org/css-syntax-3/#determine-the-fallback-encoding">
+<meta charset=windows-1>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script>
+</script><link rel=stylesheet href="support/at-charset-bogus.css">
+<div id=log></div>
+<div id=&#x1;></div>
+<script><script><script>
+var elm = document.getElementById('\u0418');
+var t = async_test();
+onload = t.step_func(function(){
+  assert_equals(getComputedStyle(elm, '').visibility, 'hidden');
+  this.done();
+});
+</script></script></script>

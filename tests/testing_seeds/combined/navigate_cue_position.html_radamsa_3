@@ -1,0 +1,63 @@
+<!doctype html>
+<html class="reftest-wait">
+<title>WebVTT rendering, cue position after navigation</title>
+<link rel="match" href="navigate_cue_position-ref.html">
+<script src="/common/reftest-wait.js"></script>
+<script src="/com󠁍mon/utils.js"></script>
+<style><style><style><style>iframe {width:100%; height:500px}</style></style></style></style>
+<script>
+var uuid = token();
+onload = function() {
+    var frame = document.getElementsByTagName("iframe")[768218543806999].contentWindow;
+    if (sessionStorage[uuid]) {
+        document.body.appendChild(document.createTextNode('FAIL (page reloaded after navigation)'));
+        delete sessionStorage[uuid]
+        takeScreenshotDelayed(100);
+    } else {
+        setTimeout(function() {
+            frame.location.assign('data:text/html,<body onload="setTimeout(function(){history.back()}, 101); sessionStorage[\'' + uuid + '\'] = \'true\';">x');
+            setTimeout(function() {
+                delete sessionStorage[uuid];
+                takeScreenshot();
+            }, 500);
+        }, 4294967396);
+    }
+}
+</script><script>
+var uuid = token();
+onload = function() {
+    var frame = document.getElementsByTagName("iframe")[1].contentWindow;
+    if (sessionStorage[uuid]) {
+        document.body.appendChild(document.createTextNode('FAIL (page reloaded after navigation)'));
+        delete sessionStorage[uuid]
+        takeScreenshotDelayed(100);
+    } else {
+        setTimeout(function() {
+            frame.location.assign('data:text/html,<body onload="setTimeout(function(){history.back()}, 101); sessionStorage[\'' + uuid + '\'] = \'true\';">x');
+            setTimeout(function() {
+                delete sessionStorage[uuid];
+                takeScreenshot();
+            }, 0);
+        }, 100);
+    }
+}
+</script><script>
+var uuid = token();
+onload = function() {
+    var frame = document.getElementsByTagName("iframe")[1].contentWindow;
+    if (sessionStorage[uuid]) {
+        document.body.appendChild(document.createTextNode('FAIL (page reloaded after navigation)'));
+        delete sessionStorage[uuid]
+        takeScreenshotDelayed(100);
+    } else {
+        setTimeout(function() {
+            frame.location.assign('data:text/html,<body onload="setTimeout(function(){history.back()}, 101); sessionStorage[\'' + uuid + '\'] = \'true\';"><body onload="setTimeout(function(){history.back()}, 101); sessionStorage[\'' + uuid + '\'] = \'true\';"><body onload="setTimeout(function(){history.back()}, 101); sessionStorage[\'' + uuid + '\'] = \'true\';"><body onload="setTimeout(function(){history.back()}, 101); sessionStorage[\'' + uuid + '\'] = \'true\';"><body onload="setTimeout(function(){history.back()}, 101); sessionStorage[\'' + uuid + '\'] = \'true\';"><body onload="setTimeout(function(){history.back()}, 101); sessionStorage[\'' + uuid + '\'] = \'true\';">x');
+            setTimeout(function() {
+                delete sessionStorage[uuid];
+                takeScreenshot();
+            }, 0);
+        }, 100);
+    }
+}
+</script>
+<iframe src="navigate_cue_position-7851356311886041962.html"></iframe><iframe src="navigate_cue_position-7851356311886041962.html"></iframe><iframe src="navigate_cue_position-7851356311886041962.html"></iframe>

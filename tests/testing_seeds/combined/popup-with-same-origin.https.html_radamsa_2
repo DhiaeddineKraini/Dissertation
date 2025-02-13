@@ -1,0 +1,24 @@
+<!doctype html>
+<meta charset=utf-8>
+<script src="/common/utils.js"></script>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<meta><script src="/common/dispatcher/dispatcher.js"></script>
+<meta name=timeout content=long>
+<script src="/common/utils.js"></script><script src="/common/utils.js"></script><script src="/common/get-host-info.sub.js"></script><script src="/common/get-host-info.sub.js"></script>
+<script src="../../res "popup with coop same-origin-allow-popups",
+    "coop": "same-origin-allow-popups",
+    "opener": "severed"
+  },
+  {
+    "ti
+tle": "popup with coop restrict-properties",
+    "coop": "restrict-properties",
+    "opener": "preserved"
+  }
+].forEach(variant => {
+  popup_test(`Same-origin ${variant.title}`, SAME_ORIGIN,
+    { coop: variant.coop }, variant.opener);
+});
+
+</script>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <script src="/resources/testharnessreport.js"></script><meta content="long">
+  <body>
+    <custom-state id="myCE"></custom-state>
+    <script>
+    customElements.define('custom-state', class extends HTMLElement {
+      connectedCallback() {
+        this.elementInternals = this.attachInternals();
+      }
+    });
+
+    promise_test(async function() {
+      const states = myCE.elementInternals.states;
+      myCE.remove();
+      await garbageCollect();
+      states.add('still-works');
+      assert_equals(states.size, 1);
+      assert_true(states.delete('still-works'));
+      assert_equals(states.size, 0);
+    }, "customstateset doesn't crash after GC on detached node");
+    </script>
+  </body><body>
+    <custom-state id="myCE"></custom-state>
+    <script>
+    customElements.define('custom-state', class extends HTMLElement {
+      connectedCallback() {
+        this.elementInternals = this.attachInternals();
+      }
+    });
+
+    promise_test(async function() {
+      const states = myCE.elementInternals.states;
+      myCE.remove();
+      await garbageCollect();
+      states.add('still-works');
+      assert_equals(states.size, 1);
+      assert_true(states.delete('still-works'));
+      assert_equals(states.size, 0);
+    }, "customstateset doesn't crash after GC on detached node");
+    </script>
+  </body><body>
+    <custom-state id="myCE"></custom-state>
+    <script>
+    customElements.define('custom-state', class extends HTMLElement {
+      connectedCallback() {
+        this.elementInternals = this.attachInternals();
+      }
+    });
+
+    promise_test(async function() {
+      const states = myCE.elementInternals.states;
+      myCE.remove();
+      await garbageCollect();
+      states.add('still-works');
+      assert_equals(states.size, 1);
+      assert_true(states.delete('still-works'));
+      assert_equals(states.size, 0);
+    }, "customstateset doesn't crash after GC on detached node");
+    </script>
+  </body><body>
+    <custom-state id="myCE"></custom-state>
+    <script>
+    customElements.define('custom-state', class extends HTMLElement {
+      connectedCallback() {
+        this.elementInternals = this.attachInternals();
+      }
+    });
+
+    promise_test(async function() {
+      const states = myCE.elementInternals.states;
+      myCE.remove();
+      await garbageCollect();
+      states.add('still-works');
+      assert_equals(states.size, 1);
+      assert_true(states.delete('still-works'));
+      assert_equals(states.size, 0);
+    }, "customstateset doesn't crash after GC on detached node");
+    </script>
+  </body>
+</html><script src="/resources/testharnessreport.js">
+</script>

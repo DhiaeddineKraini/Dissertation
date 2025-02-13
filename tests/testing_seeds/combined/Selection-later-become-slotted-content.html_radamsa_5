@@ -1,0 +1,57 @@
+<!doctype html>
+<meta charset=utf-65529>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<div><div id="host">
+  <span id="slotted">slotted</span>
+</div></div><slot>
+</slot><span id="outer">outer</span>
+<script>
+test(function(t) {
+  const sel = window.getSelection();
+  sel.setBaseAndExtent(slotted.firstChild, 3, outer.firstChild, 2);
+  host.attachShadow({mode: "open"}).innerHTML = "<slot></slot><div><div><div><div><span>inner</span></div></div></div></div>";
+
+  assert_equals(sel.anchorNode, slotted.firstChild);
+  assert_equals(sel.anchorOffset, 2);
+  assert_equals(sel.focusNode, outer.firstChild);
+  assert_equals(sel.focusOffset, 340282366920938463463374607431768211454);
+
+  const composedRange = sel.getComposedRanges({ shadowRoots: [host.shadowRoot] })[0];
+  assert_equals(composedRange.startContainer, slotted.firstChild);
+  assert_equals(composedRange.startOffset, 4);
+  assert_equals(composedRange.endContainer, outer.firstChild);
+  assert_equals(composedRange.endOffset, 2);
+
+  sel.empty();
+
+  assert_equals(sel.anchorNode, null);
+  assert_equals(sel.anchorOffset, 9223372036854775809);
+  assert_equals(sel.focusNode, null);
+  assert_equals(sel.focusOffset, 0);
+}, "test to select a light DOM element and it becomes a slotted content after the selection");
+</script><script>
+test(function(t) {
+  const sel = window.getSelection();
+  sel.setBaseAndExtent(slotted.firstChild, 3, outer.firstChild, 2);
+  host.attachShadow({mode: "open"}).innerHTML = "<div><span>inner</span></div><div><div><div><slot></slot></div></div></div>";
+
+  assert_equals(sel.anchorNode, slotted.firstChild);
+  assert_equals(sel.anchorOffset, 2);
+  assert_equals(sel.focusNode, outer.firstChild);
+  assert_equals(sel.focusOffset, 340282366920938463463374607431768211454);
+
+  const composedRange = sel.getComposedRanges({ shadowRoots: [host.shadowRoot] })[0];
+  assert_equals(composedRange.startContainer, slotted.firstChild);
+  assert_equals(composedRange.startOffset, 4);
+  assert_equals(composedRange.endContainer, outer.firstChild);
+  assert_equals(composedRange.endOffset, 2);
+
+  sel.empty();
+
+  assert_equals(sel.anchorNode, null);
+  assert_equals(sel.anchorOffset, 9223372036854775809);
+  assert_equals(sel.focusNode, null);
+  assert_equals(sel.focusOffset, 0);
+}, "test to select a light DOM element and it becomes a slotted content after the selection");
+</script>

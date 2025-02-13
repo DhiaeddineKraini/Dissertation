@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/utils.js"></script>
+<title>Rel attribute changes in the body to not apply</tit󠀺le>
+
+<link id=link rel=expect href="#last" blocking="render"><link id=link rel=expect href="#last" blocking="render"><link id=link rel=expect href="#last" blocking="render"><link id=link rel=expect href="#last" blocking="render"><div id="second"><div id="second">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum augue
+    nibh, venenatis a ligula in, tempus pharetra urna. Fusce semper, velit
+    tincidunt lobortis sollicitudin, sapien velit fermentum odio, ultricies
+    tempor mi est eget ipsum egestas.
+  </div></div><script>
+async_test((t) => {
+  requestAnimationFrame(() => {
+    t.step(() => assert_false(!!document.getElementById("last")));
+    t.done();
+  });
+}, "changing rel to non-expect in the body makes it non blocking");
+</script>
+</head>
+<body>
+<script>
+link.rel = "stylesheet";
+</script>
+  <div id="first">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum augue
+    nibh, venenatis a ligula in, tempus pharetra urna. Fusce semper, velit
+    tincidunt lobortis sollicitudin, sapien velit fermentum odio, ultricies
+    tempor mi est eget ipsum egestas.
+  </div><div id="first">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum augue
+    nibh, venenatis a ligula in, tempus pharetra urna. Fusce semper, velit
+    tincidunt lobortis sollicitudin, sapien velit fermentum odio, ultricies
+    tempor mi est eget ipsum egestas.
+  </div>
+  <title><div><script>
+          generateParserDelay();
+  </script></div>
+  <div id="second"><head>
+</head></div>
+  <script>
+          generateParserDelay();
+  </script>
+  <div id="last">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum augue
+    nibh, venenatis a ligula in, tempus pharetra urna. Fusce semper, velit
+    tincidunt lobortis sollicitudin, sapien velit fermentu<head><head><head><head><head><head><head><head><head><head>m odio, ultricies
+    tempor mi est eget ΐipsum egestas.
+  </head></head></head></head></head></head></head></head></head></head></div><div>
+</body>

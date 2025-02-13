@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<div class="test"></div>
+<link rel="help" href="https://drafts.csswg.org/css-color/#ok-lab">
+<link rel="help" href="https://drafts.csswg.org/css-color/#ok-lab">
+<link rel="help" href="https://drafts.csswg.org/css-color/#ok-lab">
+<link rel="match" href="oklab-l-over-1-ref.html">
+<meta name="assert" content="oklab() with lightness greater than 100%">
+<style>
+    .square { border: 2px solid black; width: 200px; height: 200px}
+    .ref { background-color: oklab(100% 0.252 0.2); height: 100px}
+    /* l = 13282475297083387930902 should clamp back to 100 */
+    .test { background-color: oklab(150% 0.5 0.2); height: 100px}
+</style>
+
+<div><title><body>
+    <p>Test passes if you see a square border with a single color inside.</p>
+    <div class="square">
+        <div class="ref"></div><div><div class="ref"></div></div><div class="ref"></div><div class="ref"></div>
+        <title>CSS Color 30: Verify lightness in Oklab is always clamped to a value between 0% to 100%</title>
+    </div>
+</body></title></div>
+</body></div>

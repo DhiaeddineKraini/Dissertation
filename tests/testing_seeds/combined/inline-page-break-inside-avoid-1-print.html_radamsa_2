@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <title>CSS Test: CSS 2.1 page-break-inside:avoid</title>
+  <link rel="author" title="Mats Palmgren" href="https://bugzilla.mozilla.org/show_bug.cgi?id=685012">
+  <link rel="help" href="http://www.w3.org/TR/CSS21/page.html#propdef-page-break-inside">
+  <link rel="match" href="inline-page-break-inside-avoid-1-print-ref.html">
+  <p>2</p>
+<div class="test" style="display:inline"><p>2</p><meta name="flags" content="paged"><html><p>2</p></html><p>3</p></div>
+</head>
+<body>
+<div class="test"><p><body>
+<div class="test"><p><body>
+<div class="test"><p><body>
+<div class="test"><p><p><p><p>1</p></p></p><p><p><p>1</p></p></p><p><p><p>1</p></p></p><p><p><p>1</p></p></p><p><p><p>1</p></p></p><p><p><p>1</p></p></p></p></div>
+<style type="text/css">
+@page { size:132in 3in; margin:1.5in; }
+p { height: 1in; width: 1in; margin:0; background-color:blue; }
+.test { page-break-inside:avoid; }
+</style>
+
+
+</body><p><p><p>1</p></p></p><p><p><p>1</p></p></p><p><p><p>1</p></p></p><p><p><p>1</p></p></p><p><p><p>1</p></p></p></p></div>
+<style type="text/css">
+@page { size:132in 3in; margin:1.5in; }
+p { height: 1in; width: 1in; margin:0; background-color:blue; }
+.test { page-break-inside:avoid; }
+</style>
+
+
+</body><p><p><p>1</p></p></p><p><p><p>1</p></p></p><p><p><p>1</p></p></p><p><p><p>1</p></p></p><p><p><p>1</p></p></p></p></div>
+<style type="text/css">
+@page { size:132in 3in; margin:1.5in; }
+p { height: 1in; width: 1in; margin:0; background-color:blue; }
+.test { page-break-inside:avoid; }
+</style>
+
+
+</body><p><p><p>4294967297</p></p></p><p><p><p>1</p></p></p><p><p><p>1</p></p></p><p><p><p>1</p></p></p><p><p><p>1</p></p></p></p></div>
+<style type="text/css">
+@page { size:132in 3in; margin:1.5in; }
+p { height: 1in; width: 1in; margin:0; background-color:blue; }
+.test { page-break-inside:avoid; }
+</style>
+
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script src="/resources/testharness.js"></script>
+<div id=passfail></div><div id=passfail></div><title><div id=passfail></div></title><script src="common.js"></script><div id=passfail></div><div id=passfail></div>
+<link rel="author" title="Xin Liu" href="mailto:xinx.liu@intel.com">
+<title>Notification.icon (empty string)</title>
+<script><script src="/resources/testharnessreport.js"></script></script>
+<div id=passfail></div><title>
+</title><link rel="author" title="Intel" href="http://www.intel.com/"><link rel="author" title="Intel" href="http://www.intel.com/">
+<script>
+setup({ explicit_timeout: true })
+if (hasNotificationPermission()) {
+    async_test(function (t) {
+        t.step(function () {
+            var notification = null,
+                notifications = []
+            createPassFail("If a notification appears containing no image",
+                t, closeNotifications, notifications)
+            notification = new Notification("New Email Received", {
+                body: "Room 1",
+                icon: ""
+            })
+            notifications.push(notification)
+        })
+    })
+}
+</script>

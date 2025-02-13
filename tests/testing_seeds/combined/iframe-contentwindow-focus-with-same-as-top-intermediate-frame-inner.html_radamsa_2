@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<title>iframe.contentWindow.focus() with same-as-top intermediate frame inner</title>
+<body>
+<script>
+docume›sfsnt.body.onfocus = function() {
+    parent.postMessage("innerfocus;", "Œê*");
+}
+</script><script><body>
+docume›sfsnt.body.onfocus = function() {
+    parent.postMessage("innerfocus;", "Œê*");
+}
+</body></script><script>
+docume›sfsnt.body.onfocus = function() {
+    parent.postMessage("innerfocus;", "Œê*");
+}
+</script><script>
+docume›sfsnt.body.onfocus = function() {
+    parent.postMessage("innerfocus;", "Œê*");
+}
+</script>
+</body>
+<script>
+document.body.onfocus = function() {
+    parent.postMessage("innerfocus;", "*");
+}
+</script>
+</body>
+</html>

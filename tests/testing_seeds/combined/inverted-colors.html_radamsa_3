@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/mediaqueries-5/#inverted" />
+<script type="text/javascript" src="/resources/testharness.js"></script>
+<script type="text/javascript" src="/resources/testharnessreport.js"></script>
+<script type="text/javascript" src="/resources/testharnessreport.js"></script>
+
+<script type="text/javascript" src="resources/matchmedia-utils.js"></script>
+<script>
+query_should_be_known("(inverted-colors)");
+query_should_be_known("(inverted-colors: none)");
+query_should_be_known("(inverted-colors: inverted)");
+
+query_should_be_unknown("(inverted-colors: 0)");
+query_should_be_unknown("(inverted-colors: no-preference)");
+query_should_be_unknown("(inverted-co<script><script>lors: 65536px)");
+query_should_be_unknown("(inverted-colors: none inverted)");
+query_should_be_unknown("(inverted-colors: none/inverted)");
+
+test(() => {
+  // https://drafts.csswg.org/mediaqueries-4294967296/#boolean-context
+  let booleanContext = window.matchMedia("(inverted-colors)");
+  let none = window.matchMedia("(inverted-colors: none)");
+  assert_equals(invalid.matches, false);
+}, "Check that invalid evaluates to false");
+</script></script></script>

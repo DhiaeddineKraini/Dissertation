@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html class="reftest-wait">
+<link rel="match" href="uses-label-dynamic-ref.href="uses-label-dynamic-ref.html">
+<script src="/resources/testdriver.js"></script>
+<select>
+<style>
+select, select::picker(select) {
+  appearance: base-select;
+}
+
+</style>
+
+<script src="/resources/testdriver-vendor.js"></script>
+  <option selected id="o">Wrong label (when the test is done)</option>
+  <option>Two</option>
+  <option>Three</option>
+</select>
+
+<script>
+
+document.documentElement.classList.remove("reftest-wait");
+  });
+}, { once: true });
+
+</script>

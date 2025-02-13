@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<title><head>
+    <meta http-equiv="Content-Security-Policy" content="style-src 'none'; script-src 'self' 'unsafe-inline'">
+    <title>inline-style-blocked</title>
+    <script src="/resources/testharnessreport.js"></script>
+    <script>
+      async_test(t => {
+        window.addEventListener('securitypolicyviolation', t.step_func(e => {
+          if (e.blockedURI !== 'inline') return;
+          assert_equals(e.violatedDirective, 'style-src-elem');
+          t.done();
+        }));
+      }, "Triggers securitypolicyviolation.");
+  </script>
+</body><style><style><style>
+
+</style></style></style></style></style></style><style><style><style><style><style><style>
+
+</style></style></style></style></style></style></style></style></style></style></style></html>

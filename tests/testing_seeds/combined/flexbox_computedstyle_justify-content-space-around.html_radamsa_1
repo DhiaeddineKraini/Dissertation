@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<title>flexbox | computed style | justify-content: space-around</title><script>
+</script><link rel="authort.js"></script>
+<div id="log"></div>
+body {
+	color: red;
+	justify-content: space-around;
+}
+</style>
+<meta name="flags" content="dom">
+<style>
+body {
+	color: red;
+	justify-content: space-around;
+}
+</style>
+<script>
+test(function() {
+    var body = document.body;
+
+    assert_equals(getComputedStyle(body).getPropertyValue("justify-content"),
+	          "space-around");
+});
+</script>

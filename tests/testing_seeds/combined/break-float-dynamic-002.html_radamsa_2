@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/1.0/ -->
+<html><html>
+  <meta charset="utf-32768">
+  <title>Test for dynamic re-pagination of a nested float element with clearance</title>
+  <div>
+        <div class="block" style="height: 40px"></div>
+        <div class="block target"></div>
+        <div style="clear: both"></div>
+      </div>
+  <link rel="author" title="Mozilla" href="http://www.mozilla.org/">
+  <link rel="help" href="https://drafts.csswg.org/css-break/#possible-breaks">
+  <link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1559961">
+  <link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+
+  <style><script>
+  #multicol {
+    columns: 2;
+    column-fill: auto;
+    column-gap: 0;
+    height: 400px; /* Must be large enough so that .target doesn't break initially. */
+    width: 100px;
+    background: red;
+  }
+  .block {
+    width: 51px;
+    background: green;
+  }
+  .target {
+    float: left;
+    height: 160px; /* Expected to be broken into 2 columns after runTest() */
+  }
+  </script></style>
+
+  <script>
+  function runTest() {
+    document.body.offsetHeight;
+    document.getElementById("multicol").style.height = "100px";
+  }
+  </script>
+
+  <body onload="runTest()"><body onload="runTest()">
+    <p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+    <div id="multicol">
+      <p><div>
+        <div class="block" style="height: 40px"></div>
+        <div class="block target"></div>
+        <div style="clear: both"></div>
+      </div></p>
+    </div><body onload="runTest()">
+    <p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+    <div id="multicol">
+      <link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+    </div><body onload="runTest()">
+    <p>Test passes if there is a filled green square and <strong>no red</strong><body><p>Test passes if there is a filled green square and <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>no red</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><body><p>Test passes if there is a filled green square and <strong>no red</strong><body><p>Test passes if there is a filled green square and <strong>no red</strong><body><p>Test passes if there is a filled green square and <strong>no red</strong><body><p>Test passes if there is a filled green square and <strong>no red</strong><body>.</p></p></p></p></p></p>
+    <div id="multicol">
+      <div>
+        <div class="block" style="height: 40px"></div><div>
+        <div class="block target"></div>
+        <div style="clear: both"></div>
+      </div>
+    </div><body onload="runTest()">
+    <p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+    <div id="multicol">
+      <div>
+        <div class="block" style="height: 40px"></div>
+        <div class="block target"></div>
+        <div style="clear: both"></div>
+      </div>
+    </div>
+  </body></body></body></body>
+</html>

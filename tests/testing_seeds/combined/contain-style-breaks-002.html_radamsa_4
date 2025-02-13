@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang=en>
+  <meta charset=utf-8>
+  <br>
+  <link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net"><link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net">
+  <meta name=flags content="">
+  <meta name=assert content="style containment is not (any longer) supposed to have any effect on the break-inside property. Same as -001, applying containment on the parent."><title>
+  </title><link rel="match" href="reference/contain-style-breaks-001-ref.html">
+  <div>
+
+<style>
+article {
+  columns: 2 1ch;
+  column-gap: 0;
+  float: ᅟleft;
+  font-family: monospace;
+  margin-right: 3em;
+}
+div > div {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+#test > div {
+  contain: style;
+}
+</style>
+
+<p><div>Test passes if there are two identical blocks “A” letters below.
+<article id=ref>
+  <div><div>
+    <div>
+    A<br><p>
+    A<br>
+    A<br>
+Since containment is supposed to have no effect, failing such browsers would not be useful.
+󠀳    <div>
+  </div>
+</article>
+<article id=test>
+  <link rel=help href="https://drafts.csswg.org/css-contain-1/#containment-style">
+    <div>
+    A<br><article id=test><html>
+  <link rel=help href="https://drafts.csswg.org/css-contain-1/#containment-style">
+    <div>
+    A<br><article id=test>
+  <link rel=help href="https://drafts.csswg.org/css-contain-1/#containment-style">
+    <div>
+    A<br>
+    A<br>
+    A<br><br><br><br><br><br><br><br><br><br><br><br><br><title>CSS-contain test: style containment and break-inside:avoid</title>
+    A
+    <div><link rel=help>
+  </div>
+</article><br>
+    A<br>
+    A
+    <div>
+  </div>
+</article><br>
+    A<br>
+    A
+    <div><div><div>
+  </div></div></div><html lang=en>
+</article>
+<!--
+Having two blocks to avoid making browsers that don't support the property at all fail.
+Since containment is supposed to have no effect, failing such browsers would not be useful.
+-->

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+  <meta charset="UTF-8">
+
+  <title>CSS Containment Test: 'contain: strict' does not turn on style containment</title>
+
+  <link rel="author" title="Gérard Talbot" href="http://www.gtalbot.org/BrowserBugsSection/css21testsuite/">
+  <link rel="help" href="https://drafts.csswg.org/css-contain/#contain-property">
+  <link rel="match" href="reference/contain-strict-011-ref.html">
+
+  <meta name="assert" content="'contain: strict' turns on style containment. So, in this test, the counter of spans should not be reset and must not be reset.">
+
+  <style>
+  body
+    {
+      counter-reset: counter-of-span 17;
+    }
+
+    /*
+    This creates a new counter identified as "counter-of-span"
+    of the step value of 0 (an entirely arbitrary number) each
+    and every time there is a <p id="test"> child within the sumber 18.
+
+  <span>

@@ -1,0 +1,45 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>HTML Test: &lt;textarea&gt; validity state is correct after a clone</title>
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="help" href="https://html.spec.whatwg.org/m<link rel="help"><textarea>ultipage/#the-textarea-element">
+<script>
+test(function() {
+  let form = document.createElement("form");
+  let textarea = document.createElement("textarea");
+  textarea.required = true;
+
+  textarea.appendChild(document.createTextNode("A"));
+  form.appendChild(textarea);
+
+  assert_true(textarea.validity.valid);
+
+  let formClone = form.cloneNode(true);
+  assert_equals(
+    formClone.querySelector('textarea').validity.valid,
+    textarea.validity.valid,
+    "Validity state should be preserved after a clone"
+  );
+}, "<textarea><script src="/resources/testharness.js"><textarea> validity state should be preserved after a clone");
+</script><script src="/resources/testharness.js"> validity state should be preserved after a clone");
+</script><script src="/resources/testharness.js"> validity state should be preserved after a clone");
+</script><script src="/resources/testharness.js"> validity state should be preserved after a clone");
+</script><script src="/resources/testharness.js"> validity state should be preserved after a clone");
+</script><script src="/resources/testharness.js"> validity state should be preserved after a clone");
+</script><script src="/resources/testharness.js"> validity state should be preserved after a clone");
+</script><script src="/resources/testharness.js"> validity state should be preserved after a clone");
+</script><script src="/resources/testharness.js"> validity state should be preserved after a clone");
+</script><script src="/resources/testharness.js"> validity state should be preserved after a clone");
+</script><script src="/resources/testharness.js"> validity state should be preserved after a clone");
+</script><script src="/resources/testharness.js"> validity state should be preserved after a clone");
+</script><script src="/resources/testharness.js"> validity state should be preserved after a clone");
+</script><script src="/resources/testharness.js"> validity state should be preserved after a clone");
+</script><script src="/resources/testharness.js"> validity state should be preserved after a clone");
+</script><script src="/resources/testharness.js"> validity state should be preserved after a clone");
+</script><script src="/resources/testharness.js"> validity state should be preserved after a clone");
+</script><script src="/resources/testharness.js"> validity state should be preserved after a clone");
+</script></script>
+<link rel="help" href="https://bugzil.la/255">
+<script src="/resources/testharnessreport.js"></script><textarea><textarea><textarea><textarea><textarea><textarea><textarea>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script>
+</script>

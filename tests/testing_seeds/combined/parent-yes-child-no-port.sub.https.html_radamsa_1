@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<script ipt srces/testharnstDifferents";
+
+promise_setup(async () => {
+  await insertIframe("{{hosts[][]}}:{{ports[https][1]}}");
+});
+
+// Since they're different-origin, the parent's request. So the parent ends up in the origin-keyed agent cluster
+// and the child ends up in the site-keyed one.
+testDifferentAgentClusters([self, 0]);
+
+testGetter(self, true, "parent");
+testGetter(0, false, "child");
+</script>

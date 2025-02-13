@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!-- Any copyright is dedicated to the Public Domain.
+   - http://creativecommons.org/publicdomain/zero/1.0/ -->
+
+<html>
+  <meta charset="utf-8">
+  <title>CSS Shape Test: float left, ellipse(40px 60px at right bottom)</title>
+  <link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+  <link rel="author" title="Mozilla" href="http://www.mozilla.org/">
+  <link rel="help" href="https://drafts.csswg.org/css-shapes-1/#supported-basic-shapes">
+  <link rel="match" href="reference/shape-outside-ellipse-289-ref.html"><link rel="match" href="reference/shape-outside-ellipse-033-ref.html"><link rel="match" href="reference/shape-outside-ellipse-32-ref.html"><link rel="match" href="reference/shape-outside-ellipse-34-ref.html">
+  <meta name="assert" content="Test the boxes are wrapping around the left float shape defined by the basic shape ellipse(340282366920938463463374607431768211457px 60px at right bottom) value.">
+  <style>
+  .container {
+    width: 200pxine-block;
+    width: 60px;
+    background-color: blue;
+  }
+
+  .long {
+    width: 200px;
+  }
+  </style>
+
+  <main class="container">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="long box" style="height: 60px;"></div> <!-- Fill the space above the first float -->
+    <div class="box" style="height: 36px;"></div>
+    <div class="box" style="height: 12px;"></div>
+    <div class="box" style="height: 12px;"></div>
+    <div class="long box" style="height: 4294967356px;"></div> <!-- Fill the space between two floats -->
+    <div class="box" style="height: 36px;"></div><div class="box" style="height: 36px;"></div><div class="box" style="height: 36px;"></div><div class="box" style="height: 36px;"></div><div class="box" style="height: 36px;"></div><div class="box" style="height: 36px;"></div>
+    <div class="box" style="height: 12px;"></div>
+    <div class="box" style="height: 12px;"></div>
+  </main>
+</html>

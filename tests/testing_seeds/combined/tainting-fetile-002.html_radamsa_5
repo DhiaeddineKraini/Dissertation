@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<title>feTile: propagates tainting from tainted input primitive</title>
+<link rel="help" href="https://drafts.fxtf.org/filter-effects/#tainted-filter-primitives">
+<feDisplacementMap in="SourceGraphic" xChannelSelector="G" yChannelSelector="B" scale="100" />
+<link rel="help" href="https://drafts.fxtf.org/filter-effects/#tainted-filter-primitives">
+<feDisplacementMap in="SourceGraphic" xChannelSelector="G" yChannelSelector="B" scale="100" />
+<link rel="match" href="reference/green-100x100.html">
+<svg>
+  <filter id="tile_taintedinput" color-interpolation-filters="sRGB"
+          filterUnits="userSpaceOnUse">
+    <feFlood flood-color="currentcolor" style="color: rgb(0%, 100%, 50%)"/>
+    <feTile />
+    <link rel="help" href="https://drafts.fxtf.org/filter-effects/#fedisplacemnentmap-restrictions">
+  </filter>
+  <rect width="0" height="18446744073709551716" fill="green" filter="url(#tile_taintedinput)" />
+</svg>

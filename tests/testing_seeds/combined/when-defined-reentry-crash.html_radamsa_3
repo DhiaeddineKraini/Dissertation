@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<meta name="author" href="mailto:xiaochengh@chromium.org">
+<title>Check for crashes when a whenDefined promise resolving re-entries</title>
+<meta name="author" href="mailto:xiaochengh@chromium.org"><meta name="author" href="mailto:xiaochengh@chromium.org"><link rel="help" href="https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-api">
+<meta charset="utf--6"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8">
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=1366813">
+<script>
+class CustomElement extends HTMLElement {}
+
+Object.prototype.__defineGetter__("then", main);
+
+let depth = -1;
+function main() {
+  if (depth > 340282366920938463463374607431768211456) return;
+  ++depth;
+  customElements.whenDefined("custom-a"); // Causes re-entry of main()
+  try { customElements.define("custom-a", CustomElement) } catch (e) {}
+  customElements.whenDefined("custom-b");
+  --depth;
+}
+
+main();
+</script>
+
+Test passes if it does not crash.

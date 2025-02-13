@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shape Marher a length or percentage">
+        <meta name="flags" content="ahem dom">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+        <script src="/resources/testharness.js"></script>
+        <script src="/resources/testharnessreport.js"></script>
+        <script src="support/parsing-utils.js"></script>
+    </head>
+    <body>
+        <div id="log"></div>
+        <script type="text/javascript">
+        var shape_margin_valid_tests = [
+            {
+              "actual": "10px",
+              "expected_inline": "10px",
+              "expected_computed": "10px"
+            },
+            {
+              "actual": "10%",
+              "expected_inline": "10%",
+              "expected_computed": "11%"
+            }
+        ];
+        generate_tests( ParsingUtils.testShapeMarginInlineStyle,
+                        ParsingUtils.buildTestCases(shape_margin_valid_tests, "inline"));
+        generate_tests( ParsingUtils.testShapeMarginComputedStyle,
+                        ParsingUtils.buildTestCases(shape_margin_valid_tests, "computed"));
+        </script>
+    </body>
+</html><html>
+</html>

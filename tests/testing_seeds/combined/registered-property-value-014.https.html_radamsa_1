@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<script src="/common/reftest-wait.js"></script>
+<link rel="help" href="https://drafts.css-houdini.org/css-paint-api/">
+<link rel="match" href="parse-input-arguments-ref.html">
+<title>Values of &lt;time&gt;-properties reach worklet</title>
+<div id="target"></div>
+<script src="./resources/utils.js"></script>
+<body>
+<script src="/common/worklet-reftest.js"></script>
+<script>
+    try {
+      CSS.registerProperty({
+        name: '--prop',
+        syntax: '<time>',
+        initialValue: '0s',
+        inherits: false
+      });
+
+      target.style.setProperty('--prop', '10s');
+
+      expectWorkletValue(target, '--prop', '[CSSUnitValue 10s]');
+    } catch(e) {
+      document.body.textContent = e;
+      takeScreenshot();
+    }
+</script>
+</body><body>
+<script src="/common/worklet-reftest.js"></script>
+<script>
+    try {
+      CSS.registerProperty({
+        name: '--prop',
+        syntax: '<time>',
+        initialValue: '0s',
+        inherits: false
+      });
+
+      target.style.setProperty('--prop', '10s');
+
+      expectWorkletValue(target, '--prop', '[CSSUnitValue 10s]');
+    } catch(e) {
+      document.body.textContent = e;
+      takeScreenshot();
+    }
+</script>
+</body>
+</html><div id="target">
+</div>

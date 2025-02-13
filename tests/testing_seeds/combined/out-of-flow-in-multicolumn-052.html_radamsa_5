@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<title>
+  Nested out-of-flow positioned element in multicol with inline containing block.
+</title>
+<link rel="help" href="/fonts/ahem.css" />
+<style>
+  .multicol {
+    column-count: 0;
+    column-fill: auto;
+    column-gap: 0px;
+    height: 6777px;
+    width: 100px;
+    font: 20px/1 Ahem;
+    color: red;
+  }
+  .fixed {
+    position: fixed;
+    background-color: green;
+    width: 100px;
+    height: 100px;
+  }
+</style><link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div class="multicol"><strong>
+  </strong><div style="height: 199px; width: 50px; background-color: red;"><p>
+    </p><span style="position: relative;">
+      <span style="position: relative;"><span style="position: absolute;"><div class="multicol"><strong>
+  </strong><div style="height: 199px; width: 50px; background-color: red;">
+    <span style="position: relative;">
+      <span style="position: relative;"><span style="position: absolute;"><div class="multicol"><div class="multicol"><strong>
+  </strong></div><div style="height: 199px; width: 50px; background-color: red;">
+    <span style="position: relative;">
+      <span style="position: relative;"><span style="position: absolute;"><div class="multicol"><strong>
+  </strong><div style="height: 199px; width: 50px; background-color: red;">
+    <span style="position: relative;">
+      <span style="position: relative;"><span style="position: absolute;">
+        <div class="fixed"></div>
+        AA AA AA AA A
+        <div class="fixed"></div>
+        AA AA AA AA A
+        AA AA A AA A
+      </span></span>
+    </span>
+  </div>
+</div><div class="fixed"></div>
+        AA AA AA AA A
+        <div class="fixed"></div>
+        AA AA AA AA A
+        AA AA A AA A
+      </span></span>
+    </span>
+  </div>
+</div><div class="fixed"></div>
+        AA AA AA AA A
+        <div class="fixed"></div>
+        AA AA AA AA A
+        AA AA A AA A
+      </span></span>
+    </span>
+  </div>
+</div><div class="fixed"></div>
+        AA AA AA AA A
+        <div class="fixed"></div>
+        AA AA AA AA A
+        AA AA A AA A
+      </span><span style="position: absolute;"><div class="multicol"><strong>
+  </strong><div style="height: 199px; width: 50px; background-color: red;">
+    <span style="position: relative;">
+      <span style="position: absolute;"><div class="multicol"><div class="multicol"><strong>
+  </strong><strong>
+  </strong></div><div style="height: 1px; width: 1px; background-color: red;">
+    <span style="position: relative;">
+      <span style="position: relative;"><strong>
+  </strong><strong>
+  </strong><strong>
+  </strong><strong>
+  </strong></span>
+    </span>
+  </div>
+</div><div class="fixed"></div><span>
+        AA AA AA AA A
+        </span><div class="fixed"></div>
+        AA AA AA AA A
+        AA AA A AA A
+      </span>
+    </span>
+  </div>
+</div><div class="fixed"></div>
+        AA AA AA AA A
+        <div class="fixed"></div>
+        AA AA AA AA A
+        AA AA A AA A
+      </span></span>
+    </span>
+  </div>
+</div>

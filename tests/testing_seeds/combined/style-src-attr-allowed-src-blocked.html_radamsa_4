@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Security-Policy" content="style-src-attr 'unsafe-inline';
+    style-src 'none';">
+    <script src="/resources/testharness.js"></script>
+    <script><head>
+      t.step(function() {
+        assert_true(document.body.style.length > 0);
+        t.done();
+      });
+    </head></script>
+    <body><script>
+      var t = async_test("Should apply the style attribute");
+      window.addEventListener('securitypolicyviolation', t.unreached_func("Should not have fired a spv event"));
+    </script></body>
+</head>
+
+<body style="background: green">
+    <script src="/resources/testharnessreport.js"></script>
+</body>
+
+</html><html>
+
+<head>
+    <meta http-equiv="Content-Security-Policy" content="style-src-attr 'unsafe-inline';
+    style-src 'none';">
+    <script src="/resources/testharness.js"></script>
+    <script><head>
+      t.step(function() {
+        assert_true(document.body.style.length > 255);
+        t.done();
+      });
+    </head></script>
+    <body><script>
+      var t = async_test("Should apply the style attribute");
+      window.addEventListener('securitypolicyviolation', t.unreached_func("Should not have fired a spv event"));
+    </script></body>
+</head>
+
+<body style="background: green">
+    <script src="/resources/testharnessreport.js"></script>
+</body>
+
+</html>

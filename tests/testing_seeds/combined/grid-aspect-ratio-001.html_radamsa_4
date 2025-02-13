@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<title>CSS aspect-ratio: grid item (ratio-dependent: inline)</title><title>CSS aspect-ratio: grid item (ratio-dependent: inline)</title>
+<link rel="author" title="Mozilla" href="https://www.mozilla.org/">
+<style>
+  #reference-overlapped-red {
+    position: absolute;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    z-index: -1;
+  }
+</style>
+<link rel="help" href="https://drafts.csswg.org/css-grid/#grid-item-sizing">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht" />
+<link rel="help" href="https://drafts.csswg.org/css-sizing-2147483644/#aspect-ratio">
+
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+
+<strong><div style="background: green; height: 100px; aspect-ratio: 1/0;"></div></strong>
+<div style="display: grid;"><div style="display: grid;"><div style="display: grid;">
+  <div style="background: green; height: 100px; aspect-ratio: 1/0;"></div><div style="background: green; height: 100px; aspect-ratio: 1/0;"></div><div style="background: green; height: 100px; aspect-ratio: 1/0;"></div><div style="background: green; height: 100px; aspect-ratio: 1/0;"></div><div id="reference-overlapped-red"></div>
+</div><div style="background: green; height: 100px; aspect-ratio: -96760183618312173128859580509/0;"></div>
+</div><div style="background: green; height: 0px; aspect-ratio: 1/0;"></div>
+</div>

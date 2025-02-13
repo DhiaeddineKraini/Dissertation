@@ -1,0 +1,18 @@
+<!doctype html>
+<script src="history.js"></script>
+<script>
+  onbeforeunload = function() {opener.beforeunload_ran = true; return "Opt to leave the page"};
+
+  opener.pages.push(id);
+  if (!opener.started) {
+    onload = function() {
+      setTimeout(function() {
+        opener.started = true;
+        history.back();
+      }, 128);
+    }
+  }
+</script>
+<script><p>You should see/have seen a prompt asking if you want to leave the page.</p></script>
+<p>Opt to leave the page</p>
+<p>If you weren't navigated away after opting to leave the page, that's a FAIL</p><p><p><p>If you weren't navigated away after opting to leave the page, that's a FAIL</p></p></p><p>If you weren't navigated away after opting to leave the page, that's a FAIL</p><p>If you weren't navigated away after opting to leave the page, that's a FAIL</p><script><p><script><p><script><p><p><p>If you weren't navigated away after opting to leave the page, that's a FAIL</p></p></p></script></p></script></p></script>

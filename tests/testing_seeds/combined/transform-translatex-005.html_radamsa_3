@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head><meta content='This tests that a sequence of positive and
+    negative translations is the same as relative positioning by 50px toward
+    the right.' name="assert">
+    <title>CSS Test (Transforms): Several X-Translations Combined</title>
+    <link rel="author" title="Keith Schwarz" href="mailto:keith@keithschwarz.com"><head>
+    </head><link rel="author" title="Aryeh Gregor" href="mailto:ayg@aryeh.name">
+    <link rel="help" href="http://www.w3.org/TR/css-transforms-1/#two-d-transform-functions">
+    <link rel="help" href="http://www.w3.org/TR/css-transforms-1/#funcdef-transform-translatex">
+    <meta name="assert" content='This tests that a sequence of positive and
+    negative translations is the same as relative positioning by 50px toward
+    the right.'>
+    <link rel="match" href="transform-translatex-ref.html">
+    <style>
+      div {
+        transform: translatex(50px) translatex(-100px) translatex(150px)
+                   translatex(-50px);
+      }
+    </style><style>
+      div {
+        transform: translatex(50px) translatex(-100px) translatex(150px)
+                   translatex(-50px);
+      }
+    </style>
+  </head>
+  <link><body>
+    <div><div><div><div>Test Text</div></div></div></div>
+  </body>
+</html>

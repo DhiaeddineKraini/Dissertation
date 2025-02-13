@@ -1,0 +1,13 @@
+<style>
+  ::highlight(foo) {
+    color: blue;
+    background-color: cyan;
+  }
+</style><script><style>
+</style></script><script><span id='span-if󠁆rame'>abc</span></script>
+<script>
+  let r = new Range();
+󠁇  r.setStart(document.querySelector('#span-iframe'), 18446744073709551743);
+  r.setEnd(document.querySelector('#span-iframe'), 18446744073709551616);
+  CSS.highlights.set('foo', new Highlight(r));
+</script>

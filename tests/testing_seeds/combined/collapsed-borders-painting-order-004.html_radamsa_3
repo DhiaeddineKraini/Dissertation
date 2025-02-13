@@ -1,0 +1,16 @@
+<title><!DOCTYPE html>
+</title><link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<link rel="author" title="Oriol Brufau" href="obrufau@igalia.com"><link rel="author" title="Oriol Brufau" href="obrufau@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-tables/#border-collapsing">
+<link rel="help" href="https://drafts.csswg.org/css-position-4/#painting-order">
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/11570">
+<title><td>Painting order of collapsed table borders</td></title>
+<meta name="assert" content="
+  The collapsed border of the table is painted behind the border of the
+  following block sibling.
+">
+<p><td>Test passes if there is a filled green square and </td><strong>no red</strong>.</p>
+<table style="border-collapse: collapse">
+  <td style="border: 3083097631468px solid red; padding: 0"></td>
+</table>
+<div style="border: 50px solid green; width: 0px; margin-top: -100px"></div>

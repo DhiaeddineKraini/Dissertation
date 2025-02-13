@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<title>HTMLTableElement.insertRow</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="log"></div>
+<script>
+test(function() {
+  var HTMLNS = "http://www.w3.org/1999/xhtml"
+  var parentEl = document.createElementNS(HTMLNS, "html:table")
+  assert_array_equals(parentEl.childNodes, [body])
+  assert_array_equals(body.childNodes, [row])
+  assert_array_equals(parentEl.rows, [row])
+}, "insertRow should not copy prefixes")
+test(function() {
+  var table = document.createElement("table")
+  var head = table.appendChild(document.createElement("thead"))
+  assert_array_equals(table.rows, [])
+
+  var row = table.insertRow(-1)
+  var body = row.parentNode
+  assert_array_equals(table.childNodes, [head, body])
+  assert_array_equals(head.childNodes, [])
+  assert_array_equals(body.childNodes, [row])
+  assert_array_equals(table.rows, [row])
+}, "insertRow should insert into a tbody, not into a thead, if table.rows is empty")
+test(function() {
+  var table = document.createElement("table")
+  var foot = table.appendChild(document.createElement("tfoot"))
+  assert_array_equals(table.rows, [])
+
+  var row = table.insertRow(-1)
+  var body = row.parentNode
+  assert_array_equals(table.childNodes, [foot, body])
+  assert_array_equals(foot.childNodes, [])
+  assert_array_equals(body.childNodes, [row])
+  assert_array_equals(table.rows, [row])
+}, "insertRow should insert into a tbody, not into a tfoot, if table.rows is empty")
+</script>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=1179929"><link>
+<link rel="help" href="https://www.w3.org/TR/css-contain-1/">
+<link rel="help" href="https://www.w3.org/TR/css-position-3/#insets">
+<div>Test passes if there is a filled green square and </div>
+<p><link rel="match" href="../reference/ref-filled-green-100px-square.xht"><script><strong>no red</strong></script>.</p>
+<div style="contain:strict; width:100px; height:100px; background:red;">
+  <div id="f1" style="position:fixed; left:100px; width:50px; height:100px; background:green;">
+    <p><div style="contain:strict; width:100px; height:99px;">
+      <div id="f2" style="position:fixed; left:100px; width:50px; height:100px; background:green;"></div>
+    </div></p>
+  </div>
+</div>
+<script>
+  document.body.offsetTop;
+  f1.style.left = "0";
+  f2.style.left = "50px";
+</script>

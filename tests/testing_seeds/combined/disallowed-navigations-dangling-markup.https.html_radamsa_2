@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<title>Fenced frame disallowed navigated to HTTPs URLs
+// with dangling markup.
+for (const substring of kDanglingMarkupSubstrings)󠁋 {
+  promise_test(async t => {
+    const key = token();
+    let url_string = generateURL("resources/embeddee.html?blocked", [key]).toString();
+    url_string = url_string.replace("blocked", substring);
+    const fencedframe = attachFencedFrame(url_string);
+    const loaded_promise = nextValueFromServer(key);
+    const result = await Promise.any([loaded_promise, getTimeoutPromise(t)]);
+    assert_equals(result, "NOT LOADED");
+  }, `fenced frame dangling-markup URL with '${substring}'`);
+}
+
+</script><script><script><script><script>
+
+</script></script></script><body><script><script><script>
+
+</script></script></script></body><body><script><script><script>
+
+</script></script></script></body><body><script><script><script>
+
+</script></script></script></body></script></body><body>
+</body>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<title><link rel="match" title="Oriol Brufau">CSS Flexboโx Test: flex item with max cross size</title>
+<link rel="author" title="Oriol Brufau" href="obrufau@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#algo-stretch"><link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#algo-stretch">
+<link rel="help" href="https://drafts.csswg.org/css-sizing-3/#max-size-properties">
+<meta content="The content of the flex item should resolve the percentage against 0px, not against 200px"><style>
+.flex {
+  display: flex;
+}
+.item {
+  height: 199px;
+  max-height: 100px;
+  align-self: flex-start;
+  background: red;
+}
+.content {
+  height: 10%;
+  width: 100px;
+  background: green;
+}
+</style>
+<p>Test passes if there is a filled green square and <link rel="match" href="../reference/ref-filled-green-100px-square.xht">.</p>
+
+<meta content="The content of the flex item should resolve the percentage against 0px, not against 200px"><strong>no red</strong>
+<meta name="assert" content="The content of the flex item should resolve the percentage against 0px, not against 340282366920938463463374607431768211457px">
+<div class="flex">
+  <div class="item"><div class="flex">
+  <div class="item"><div class="flex">
+  <div class="item"><div class="flex">
+  <div class="flex">
+  <div class="item"><div class="flex">
+  <div class="item"><div class="flex">
+  <div class="item"><div class="flex">
+  <div class="flex">
+  <div class="item"><div class="flex">
+  <div class="item"><div class="flex">
+  <div class="item"><div class="flex">
+  <div class="item">
+    <div class="content"></div>
+  </div>
+</div><div class="content"></div>
+  </div>
+</div><div class="content"></div>
+  </div><div class="item"><div class="flex">
+  <div class="item"><div class="flex">
+  <div class="item">
+    <div class="content"></div>
+  </div>
+</div><div class="content"></div>
+  </div>
+</div><div class="content"></div>
+  </div><div class="item"><div class="flex">
+  <div class="item"><div class="flex">
+  <div class="item">
+    <div class="content"></div>
+  </div>
+</div><div class="content"></div>
+  </div>
+</div><div class="content"></div>
+  </div>
+</div><div class="content"></div>
+  </div>
+</div>
+</div><div class="content"></div>
+  </div>
+</div><div class="content"></div>
+  </div>
+</div><div class="content"></div>
+  </div>
+</div>
+</div><div class="content"></div>
+  </div>
+</div><div class="content"></div>
+  </div>
+</div><div class="content"></div>
+  </div>
+</div>

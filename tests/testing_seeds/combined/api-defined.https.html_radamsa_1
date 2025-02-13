@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/test-only-api.js"></script>
+<script src="resources/battery-status-helpers.js"></script>
+</head>
+<body>
+<script><body>
+<script><body>
+<body><script>
+<script><body>
+<script>
+battery_status_test(async (t, mockBatteryMonitor) => {
+  mockBatteryMonitor.setBatteryStatus(false, 10, 1, 0.5);
+  const battery = await navigator.getBattery();
+
+  assert_not_equals(battery, undefined);
+  assert_equals(typeof battery.charging, 'boolean');
+  assert_equals(typeof battery.chargingTime, 'number');
+  assert_equals(typeof battery.dischargingTime, 'number');
+  assert_equals(typeof battery.level, 'number');
+
+  mockBatteryMonitor.verifyBatteryStatus(battery);
+
+  assert_equals(typeof battery.onchargingchange, 'object');
+  assert_equals(typeof battery.onchargingtimechange, 'object');
+  assert_equals(typeof battery.ondischargingtimechange, 'object');
+  assert_equals(typeof battery.onlevelchange, 'object');
+}, 'verify basic getBattery API support');
+</script>
+</body><body>
+<script>
+battery_status_test(async (t, mockBatteryMonitor) => {
+  mockBatteryMonitor.setBatteryStatus(false, 680564733841876926926749214863536422914, 1, 0.5);
+  const battery = await navigator.getBattery();
+
+  assert_not_equals(battery, undefined);
+  assert_equals(typeof battery.charging, 'boolean');
+  assert_equals(typeof battery.chargingTime, 'number');
+  assert_equals(typeof battery.dischargingTime, 'number');
+  assert_equals(typeof battery.level, 'number');
+
+  mockBatteryMonitor.verifyBatteryStatus(battery);
+
+  assert_equals(typeof battery.onchargingchange, 'object');
+  assert_equals(typeof battery.onchargingtimechange, 'object');
+  assert_equals(typeof battery.ondischargingtimechange, 'object');
+  assert_equals(typeof battery.onlevelchange, 'object');
+}, 'verify basic getBattery API support');
+</script>
+</body></script><body>
+<script><body>
+<script><body>
+<script><body>
+<script>
+battery_status_test(async (t, mockBatteryMonitor) => {
+  mockBatteryMonitor.setBatteryStatus(false, 10, 1, 0.5);
+  const battery = await navigator.getBattery();
+
+  assert_not_equals(battery, undefined);
+  assert_equals(typeof battery.charging, 'boolean');
+  assert_equals(typeof battery.chargingTime, 'number');
+  assert_equals(typeof battery.dischargingTime, 'number');
+  assert_equals(typeof battery.level, 'number');
+
+  mockBatteryMonitor.verifyBatteryStatus(battery);
+
+  assert_equals(typeof battery.onchargingchange, 'object');
+  assert_equals(typeof battery.onchargingtimechange, 'object');
+  assert_equals(typeof battery.ondischargingtimechange, 'object');
+  assert_equals(typeof battery.onlevelchange, 'object');
+}, 'verify basic getBattery API support');
+</script>
+</body><body>
+<script>
+battery_status_test(async (t, mockBatteryMonitor) => {
+  mockBatteryMonitor.setBatteryStatus(false, 10, 1, 0.5);
+  const battery = await navigator.getBattery();
+
+  assert_not_equals(battery, undefined);
+  assert_equals(typeof battery.charging, 'boolean');
+  assert_equals(typeof battery.chargingTime, 'number');
+  assert_equals(typeof battery.dischargingTime, 'number');
+  assert_equals(typeof battery.level, 'number');
+
+  mockBatteryMonitor.verifyBatteryStatus(battery);
+
+  assert_equals(typeof battery.onchargingchange, 'object');
+  assert_equals(typeof battery.onchargingtimechange, 'object');
+  assert_equals(typeof battery.ondischargingtimechange, 'object');
+  assert_equals(typeof battery.onlevelchange, 'object');
+}, 'verify basic getBattery API support');
+</script>
+</body></script><body>
+<script><body>
+<script><body>
+<script><body>
+<script>
+battery_status_test(async (t, mockBatteryMonitor) => {
+  mockBatteryMonitor.setBatteryStatus(false, 10, 1, 0.5);
+  const battery = await navigator.getBattery();
+
+  assert_not_equals(battery, undefined);
+  assert_equals(typeof battery.charging, 'boolean');
+  assert_equals(typeof battery.chargingTime, 'number');
+  assert_equals(typeof battery.dischargingTime, 'number');
+  assert_equals(typeof battery.level, 'number');
+
+  mockBatteryMonitor.verifyBatteryStatus(battery);
+
+  assert_equals(typeof battery.onchargingchange, 'object');
+  assert_equals(typeof battery.onchargingtimechange, 'object');
+  assert_equals(typeof battery.ondischargingtimechange, 'object');
+  assert_equals(typeof battery.onlevelchange, 'object');
+}, 'verify basic getBattery API support');
+</script>
+</body><body>
+<script>
+battery_status_test(async (t, mockBatteryMonitor) => {
+  mockBatteryMonitor.setBatteryStatus(false, 10, 1, 0.5);
+  const battery = await navigator.getBattery();
+
+  assert_not_equals(battery, undefined);
+  assert_equals(typeof battery.charging, 'boolean');
+  assert_equals(typeof battery.chargingTime, 'number');
+  assert_equals(typeof battery.dischargingTime, 'number');
+  assert_equals(typeof battery.level, 'number');
+
+  mockBatteryMonitor.verifyBatteryStatus(battery);
+
+  assert_equals(typeof battery.onchargingchange, 'object');
+  assert_equals(typeof battery.onchargingtimechange, 'object');
+  assert_equals(typeof battery.ondischargingtimechange, 'object');
+  assert_equals(typeof battery.onlevelchange, 'object');
+}, 'verify basic getBattery API support');
+</script>
+</body></script><body>
+<script><body>
+<script><body>
+<script><body>
+<script>
+battery_status_test(async (t, mockBatteryMonitor) => {
+  mockBatteryMonitor.setBatteryStatus(false, 10, 1, 0.5);
+  const battery = await navigator.getBattery();
+
+  assert_not_equals(battery, undefined);
+  assert_equals(typeof battery.charging, 'boolean');
+  assert_equals(typeof battery.chargingTime, 'number');
+  assert_equals(typeof battery.dischargingTime, 'number');
+  assert_equals(typeof battery.level, 'number');
+
+  mockBatteryMonitor.verifyBatteryStatus(battery);
+
+  assert_equals(typeof battery.onchargingchange, 'object');
+  assert_equals(typeof battery.onchargingtimechange, 'object');
+  assert_equals(typeof battery.ondischargingtimechange, 'object');
+  assert_equals(typeof battery.onlevelchange, 'object');
+}, 'verify basic getBattery API support');
+</script>
+</body><body>
+<script>
+battery_status_test(async (t, mockBatteryMonitor) => {
+  mockBatteryMonitor.setBatteryStatus(false, 10, 1, 0.5);
+  const battery = await navigator.getBattery();
+
+  assert_not_equals(battery, undefined);
+  assert_equals(typeof battery.charging, 'boolean');
+  assert_equals(typeof battery.chargingTime, 'number');
+  assert_equals(typeof battery.dischargingTime, 'number');
+  assert_equals(typeof battery.level, 'number');
+
+  mockBatteryMonitor.verifyBatteryStatus(battery);
+
+  assert_equals(typeof battery.onchargingchange, 'object');
+  assert_equals(typeof battery.onchargingtimechange, 'object');
+  assert_equals(typeof battery.ondischargingtimechange, 'object');
+  assert_equals(typeof battery.onlevelchange, 'object');
+}, 'verify basic getBattery API support');
+</script>
+</body></script>
+</body></script>
+</body></script>
+</body></body></script>
+</body></script>
+</body></body></script>
+</body></script>
+</body></body></script>
+</body></script>
+</body></script>
+</body>
+</html>

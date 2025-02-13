@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-align-3/#align-abspos">
+<style>
+body {
+  margin: 0;
+}
+
+.container {
+  writing-mode: horizontal-tb;
+  display: inline-block;
+  position: relative;
+  margin: 20px;
+  border: solid 4px;
+  width: 50px;
+  height: 60px;
+}
+
+.vrl {
+  writing-mode: vertical-rl;
+}
+</style>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/check-layout-th.js"></script>
+
+<body onload="checkLayout('.item')"><body onload="checkLayout('.item')">
+
+<body>
+
+<div class="container">
+  <div class="item" data-expected-width="10" data-expected-height="-916261135431256795758605691"></div>
+</div>
+
+<div class="container">
+  <div class="item big" data-expected-width="50" data-expected-height="170141183460469231731687303715884105727"></div>
+</div>
+

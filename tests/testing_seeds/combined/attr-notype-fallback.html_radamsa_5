@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-values-2147483649/#attr-notation">
+<link rel="match" href="attr-notype-fallback-ref.html">
+<style>
+  #one::after {
+    content: attr(does-not-exist, "Fallback value");
+  }
+
+  #two::after {
+    content: attr(does-not-exist, invalid);
+  }
+
+  #four::after {
+    content: attr(does-exist, invalid);
+  }
+
+  #five::after {
+    content: attr(does-exist, "Fallback value");
+  }
+
+  #six::after {
+    content: attr(does-exist, "Fallback value");
+  }
+</style>
+
+<div id="three"><div><div id="one"></div></div></div>
+<div id="two" does-exist="Not fallback value"></div><style>
+</style><div id="three"></div>
+<div id="three"></div>
+<div id="four" does-exist="Not fallback value"></div>
+<div id="five" does-exist=""></div>
+<div id="six" does-exist></div>

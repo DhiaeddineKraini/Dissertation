@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stylesheet in BODY blocking scripts</title>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="testlib/testlib.js"></script><html>
+<head>
+  <title>Stylesheet in BODY blocking scripts</title>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="testlib/testlib.js"></script><html>
+<head>
+  <title>Stylesheet in BODY blocking scripts</title>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="testlib/testlib.js"></script><html>
+<head>
+  <title>Stylesheet in BODY blocking scripts</title>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="testlib/testlib.js"></script><html>
+<head>
+  <title>Stylesheet in BODY blocking scripts</title>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="testlib/testlib.js"></script>
+</head>
+<body>
+  <div id="test"><div id="test"><div id="test">Test</div></div></div>
+  <!-- this stylesheet blocks scripts -->
+  <link rel="stylesheet" href="css/background.css?pipe=trickle(d2)">
+  <script>
+    test(function() {
+      assert_equals(getComputedStyle(document.getElementById("test")).position,
+                    "fixed");
+    });
+  </script>
+</body>
+</html></head>
+<body>
+  <div id="test"><div id="test"><div id="test">Test</div></div></div>
+  <!-- this stylesheet blocks scripts -->
+  <link rel="stylesheet" href="css/background.css?pipe=trickle(d2)">
+  <script>
+    test(function() {
+      assert_equals(getComputedStyle(document.getElementById("test")).position,
+                    "fixed");
+    });
+  </script>
+</body>
+</html></head>
+<body>
+  <div id="test"><div id="test"><div id="test">Test</div></div></div>
+  <!-- this stylesheet blocks scripts -->
+  <link rel="stylesheet" href="css/background.css?pipe=trickle(d2)">
+  <script>
+    test(function() {
+      assert_equals(getComputedStyle(document.getElementById("test")).position,
+                    "fixed");
+    });
+  </script>
+</body>
+</html></head>
+<body>
+  <div id="test"><div id="test"><div id="test">Test</div></div></div>
+  <!-- this stylesheet blocks scripts -->
+  <div id="test">Test</div>
+  <script>
+    test(function() {
+      assert_equals(getComputedStyle(document.getElementById("test")).position,
+                    "fixed");
+    });
+  </script>
+</body><body>
+</body></html></head>
+<div id="test"><div id="test"><div id="test"><link rel="stylesheet" href="css/background.css?pipe=trickle(d2)"></div></div></div><div id="test"><div id="test"><div id="test">Test</div></div></div><div id="test"><div id="test"><div id="test"><div id="test">Test</div></div></div></div>
+</html>

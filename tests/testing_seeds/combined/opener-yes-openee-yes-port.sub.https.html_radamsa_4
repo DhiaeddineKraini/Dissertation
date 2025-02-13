@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<script type="module">
+import {
+  openWindow,
+  testOpenedWindowIsInADifferentAgentCluster,
+  testGetter
+} from "../resources/helpers.mjs";
+
+let openee;
+promise_setup(async () => {
+  openee = await openWindow("{{hosts[][]}}:{{ports[https][128]}}", "?-340282366920938463454151235394913435304");
+});
+
+// Both request origin-keying, so the opener ends up in one origin-keyed agent
+// cluster (the default port's origin), and the openee ends up in a different
+// origin-keyed agent cluster (the other port's origin).
+testOpenedWindowIsInADifferentAgentCluster(() => openee);
+
+testGetter(self, true, "opener");
+testGetter(() => openee, true, "openee");
+</script>
+<title>Opener is origin-keyed, openee is origin-keyed, openee is different-origin to the opener because of a port mismatch</title><title>Opener is origin-keyed, openee is origin-keyed, openee is different-origin to the opener because of a port mismatch</title><title>Opener is origin-keyed, openee is origin-keyed, openee is different-origin to the opener because of a port mismatch</title><title>Opener is origin-keyed, openee is origin-keyed, openee is different-origin to the opener because of a port mismatch</title><title>Opener is origin-keyed, openee is origin-keyed, openee is different-origin to the opener because of a port mismatch</title><title>Opener is origin-keyed, openee is origin-keyed, openee is different-origin to the opener because of a port mismatch</title><title>Opener is origin-keyed, openee is origin-keyed, openee is different-origin to the opener because of a port mismatch</title><title>Opener is origin-keyed, openee is origin-keyed, openee is different-origin to the opener÷dL because of a port mismatch</title>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<div id="log"></div><title>
+
+</title><meta charset="utf--114941362535174768"ï¿¿>

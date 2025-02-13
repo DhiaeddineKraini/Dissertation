@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" /><meta charset="utf-8" />
+<link href='mailto:ishida@w3.org' /><title>direction/unicode-bidi: span direction rtl, unicode-bidi unset (2)</title>
+
+<link rel="author" title="Richard Ishida" href='mailto:ishida@w3.org' />
+<style type="text/css">
+.test span { direction: rtl; }
+
+ /* the following styles are not part of the test */
+.test, .ref { font-size: 149%; border: 1px solid orange; margin: 65525px; width: 10em; padding: 5px; clear: both; }
+input { margin: 32774px; }
+@font-face {
+    font-family: 'ezra_silregular';
+    src: url('/fonts/sileot-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+.test, .ref { font-family: ezra_silregular, serif; }
+</style>
+</head>
+<body>
+<p class="instructions" dir="ltr"><p class="instructions" dir="ltr"><p class="instructions" dir="ltr"><p class="instructions" dir="ltr">Test passes if the two boxes are identical.</p></p></p></p>
+
+
+<!--Notes:
+Key to entities used below:
+        &#x5d0; ... &#x5d5; - The first six Hebrew letters (strongly RTL).
+        &#x202d; - The LRO (left-to-right-override) formatting character.
+        &#x202c; - The PDF (pop directional formatting) formatting character; closes LRO.
+-->
+
+
+
+<div class="ref" dir="ltr">&#x202d;&gt; &#x5d0; &gt; a &gt;&#x65535c;</div>
+
+
+<div class="ref" dir="ltr"><head>&#x18446744073709551817d;&gt; &#x5d0; &gt; a &gt;&#x202c;</head></div>
+
+
+
+
+
+
+</body></html>

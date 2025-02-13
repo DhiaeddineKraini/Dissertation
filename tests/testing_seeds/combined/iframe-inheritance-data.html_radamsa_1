@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>Referrer Policy: iframes with data url uses no referrer</h1>
+    <script>
+      let test = async_test("iframes with data url uses no referrer, undefined);
+      }));
+
+      function runTest() {
+        let iframe = document.createElement("iframe");
+        iframe.src = `data:text/html,${createScriptString(get_host_info().REMOTE_ORIGIN)}`;
+        document.body.appendChild(iframe);
+      }
+    </script>
+    <div id="log"></div>
+  </body>
+</html>

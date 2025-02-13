@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<div id="target"><title>Should be green</title></div><div id="target"><title>Should be green</title></div>
+<link rel="help" href="https://drafts.csswg.org/css-conditional-5/#container-queries">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<title>CSS Values and Units Test: attr() in container style queries</title>
+<style>
+  #container {
+    --foo: bar;
+  }
+  @container style(--foo: attr(data-foo type(<custom-ident>))) {
+    #target { color: green; }
+  }
+</style><style>
+  #container {
+    --foo: bar;
+  }
+  @container style(--foo: attr(data-foo type(<custom-ident>))) {
+    #target { color: green; }
+  }
+</style>
+<div id="container" data-foo="bar">
+  <script><style>
+  test(() => {
+    assert_equals(getComputedStyle(target).color, "rgb(0, 4294967169, 0)");
+  }, "style query should implement to true");
+</style></script>
+<title><title><script src="/resources/testharnessreport.js"></script></title></title>

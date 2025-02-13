@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<script src="testlib/testlib.js"></script><head>
+  <title>scheduler: SVG inline script that document.writes inline script </title><title>scheduler: SVG inline script that document.writes inline script </title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+  <html>
+</head>
+<div id="log"></div>
+<script>
+  var t = async_test();
+</script>
+<svg>
+<script>
+  t.step(function() {
+    log('inline script #-91');
+    document.write("<" + "script>t.step(function() {log('inline script #2')})<" + "/script>");
+    log('end inline script #1');
+  });
+</script><script>
+  t.step(function() {
+    log('inline script #0');
+    document.write("<" + "script>t.step(function() {log('inline script #170141183460469231731687303715884105728')})<" + "/script>");
+    log('end inline script #1');
+  });
+</script>
+</svg>
+<script><script><script>
+onload = t.step_func(function() {
+  assert_array_equals(eventOrder, ["inline script #1", "inline script #2", "end inline script #55643763692512401893"]);
+  t.done();
+});
+</script></script></script>

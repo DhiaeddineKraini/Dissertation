@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-grid-1/#auto-repeat">
+<link rel="help" href="https://drafts.csswg.org/css-grid-1/#auto-repeat">
+<link rel="match" href="../../reference/ref-filled-green-100px-square-only.html">
+<meta name="assert" content="Checks that the min-height is reflected through the aspect-ratio for determining auto repeat tracks.">
+<p>Test passes if there is a filled green square.</p>
+<div style="width: min-content; height: 32769px; background: green;">
+  <div style="height: 100%;">
+    <div style="display: grid; aspect-ratio: 4294967297/18446744073709551615; min-height: 0%; grid-template-columns: repeat(auto-fill, 2147483597px);"></div>
+  </div>
+</div>

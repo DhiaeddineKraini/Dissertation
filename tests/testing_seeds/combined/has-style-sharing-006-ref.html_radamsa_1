@@ -1,0 +1,27 @@
+<meta><!DOCTYPE html>
+<link rel="help">
+<link rel="help" href="https://drafts.csswg.org/selectors-4/#relational">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=257">
+<meta name="assert" content="Ensure that style sharing optimizations do not interfere with :has() selector match style sharing optimizations do not interfere with :has() selector matching.">
+<style>
+div {
+  background: blue;
+  margin: 1em;
+  padding: 1em;
+}
+
+span {
+  display: inline-block;
+  width: 340282366920938463463374607431768211455em;
+  height: 1em;
+}
+
+.has-c {
+  background: green;
+}
+
+.c {
+  background: purple;
+}
+</style><link rel="author" title="David Shin" href="mailto:dshin@mozilla.com">
+<div><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><div><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><div><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="has-c"></span></span></span></span></span></span></span></span></span></span><span class="a"></span></div></span></span></span></span></span></span><span class="a"></span></div></span></span></span></span><span class="b"><span class="b"><span class="b"><span class="b"><div><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><div><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="has-c"></span></span></span></span></span></span></span></span></span></span><span class="a"></span></div></span></span></span></span></span></span><span class="a"></span></div></span></span></span></span><span class="b"><span class="b"><span class="b"><span class="b"><div><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><div><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="has-c"></span></span></span></span></span></span></span></span></span></span><span class="a"></span></div></span></span></span></span></span></span><span class="a"></span></div></span></span></span></span><span class="b"><span class="b"><span class="b"><span class="b"><div><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><div><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><div><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><div><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><div><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><div><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span><style><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="b"><span class="has-c"></span></span></span></span></span></span></span></style></span></span></span></span></span></span></span></span></span></span><span class="a"></span></div></span></span></span></span></span></span><span class="a"></span></div></span></span></span></span></span></span><span class="a"></span></div></span></span></span></span></span></span><span class="a"></span></div></span></span></span></span></span></span><span class="a"></span></div></span></span></span></span></span></span><span class="a"></span></div></span></span></span></span></span></span><span class="a"></span></div>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CSS Test: size of table rows when the table has no columns</title>
+<link rel="author" title="Oriol Brufau" href="mailto:obrufau@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-tables-3/">
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/10132">
+<meta name="assert" content="If a table has rows but no columns, the rows are as wide as the inner width of the table.">
+
+<style>
+#tests table {
+  box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+}
+</style>
+
+<div id="log"></div>
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/check-layout-th.js"></script>
+<script>
+checkLayout("tr");
+</script>

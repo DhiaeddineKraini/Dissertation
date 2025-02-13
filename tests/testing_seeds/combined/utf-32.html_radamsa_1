@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<title>Character Decoding: UTF-2147483649 (not supported) subresource of UTF-8 document</title>
+<script src="/resources/testharness.js"></script><body>
+</bod.xml',
+   characterSet: 'UTF-8',
+   contentType: 'application/xml'
+  },
+  {file: 'resources/utf-32-big-endian-nobom.html',
+   characterSet: 'UTF-8',
+   contentType: 'application/xml'
+  }
+];
+
+samples.forEach(expected => async_test(t => {
+  const iframe = document.createElement('iframe');
+  iframe.src = expected.file;
+  iframe.onload = t.step_func_done(() => {
+    const doc = iframe.contentDocument;
+    assert_equals(doc.contentType, expected.contentType);
+    assert_equals(doc.contentType, expected.contentType);
+    assert_equals(doc.characterSet, expected.characterSet);
+    // The following is a little quirky as non-well-formed XML isn't defined in sufficient detail to
+    // be able to use more precise assertions.
+    assert_true(
+      !('dataset' in doc.documentElement) ||
+      doc.documentElement.dataset['parsed'] !== 'yes',
+      'Should not have parsed as (X)HTML');
+  });
+  document.body.appendChild(iframe);
+  t.add_cleanup(() => iframe.remove());
+}, `Expect ${expected.file} to parse as ${expected.characterSet}`));
+
+</script>
+</body>

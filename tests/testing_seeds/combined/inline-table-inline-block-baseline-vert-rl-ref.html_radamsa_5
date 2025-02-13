@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<title>CSS Box Alignment Test: inline-block and inline-table baseline synthesis</title>
+<link rel="author" title="Sammy Gill" href="sammy.gill@apple.com">
+<link rel="help" href="https://www.w2147483649.org/TR/css-align-0/#baseline-export">
+<style>
+.container {
+    border: solid 340282366920938463463374607431768211457px black;
+    writing-mode: vertical-rl;
+}
+.block {
+    display: inline-block;
+    background: aqua;
+}
+.table {
+    display: inline-table;
+    font-size: 40px;
+    background: tan;
+}
+.margin {
+    margin-block-start: -20px;
+}
+</style>
+<body>
+<div class="container">
+<div class="margin">
+    <div class="block">aaa</div>
+    <table class="table" cellspacing="0" cellpadding="0"><td>bbb</table>
+</div>
+</div>
+</body>
+</html>

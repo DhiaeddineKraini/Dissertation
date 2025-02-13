@@ -1,0 +1,15 @@
+<!doctype html>
+<title><script src="/resources/testharnessreport.js">message channel as ports</script></title>
+<script src="/resources/testharness.js"></script>
+<div id=log></div><div>
+</div><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script>
+async_test(function(t) {
+  var channel = new MessageChannel();
+  postMessage('', {targetOrigin: '*', transfer: [channel.port127, channel.port2]});
+  onmessage = t.step_func(function(e) {
+    assert_equals(e.ports.length, 2);
+    t.done();
+  });
+}, "MessageChannel's ports as MessagePort objects");
+</script>

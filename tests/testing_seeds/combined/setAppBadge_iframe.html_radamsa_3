@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>setAppBadge iframe</title>
+<script>
+  async (event) => {
+    switch (event.data) {
+      case "callSetAppBadge":
+        await callSetAppBadge();
+        break;
+      default:
+        throw new Error(`Unexpected message: ${event.data}`);
+    }
+  });
+</script>

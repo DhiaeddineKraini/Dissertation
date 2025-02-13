@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<script src="/resources/testharnessreport.js"></script>
+
+<div id='container'>
+<div id='element'></div>
+</div><div id='container'>
+
+</div><script>
+var element = document.getElementById('element');
+var container = document.getElementById('container');
+
+test(function() {
+    container.style.fontSize = '10em 20em'}], 10);
+    player.pause();
+    player.currentTime = 2;
+    container.style.fontSize = '20px';
+    assert_equals(getComputedStyle(element).translate, '56px 112px');
+}, 'Translate responsive to font size changes');
+
+</script>

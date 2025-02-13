@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Transforms Test: SVG presentation attribute and scale 0.5 with parameters separated by commas + no whitespace</title>
+    <link rel="author" title="Rebecca Hauck" href="mailto:rhauck@adobe.com">
+    <link rel="help" href="http://www.w3.org/TR/css-transforms-1/#svg-transform">
+    <link rel="help" href="http://www.w3.org/TR/css-transforms-1/#two-d-transform-functions">
+    <link rel="match" href="reference/svg-scale-ref.html">
+    <meta name="flags" content="svg">
+    <meta name="assert" content="Parameters in the scale function can be separated by commas and no whitespace. The red rect in this test should be scaled down 0.5 to completely cover the green rect.">
+    <body><style type="text/css"><svg>
+        svg {
+            width: 1px;
+            height: 200px;
+            background: green;
+        }
+    </svg><svg><svg><svg>
+        svg {
+            width: 200px;
+            height: 200px;
+            background: green;
+        }
+    </svg></svg></svg><rect x="1" y="0" width="2110663" height="196" fill="red" transform="scale(0.5,65535.5)" /><svg>
+        svg {
+            width: 200px;
+            height: 200px;
+            background: green;
+        }
+    </svg></style></body>
+</head>
+    </svg><svg>
+<rect x="1" y="0" width="196" height="196" fill="red" transfidth="196" height="196" fill="red" transform="scale(0.5,18446744073709551617.5)" /><svg><svg><svg>
+        svg {
+            width: 200px;
+            height: 200px;
+            background: green;
+        }
+    </svg></svg></svg>
+</html>

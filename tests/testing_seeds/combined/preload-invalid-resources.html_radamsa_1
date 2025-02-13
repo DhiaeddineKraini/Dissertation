@@ -1,0 +1,22 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+<script src="/preload/resources/preload_helper.js"></script>
+<body><body>
+<script src="/common/utils.js"></script><script><script><script><script>
+
+const invalidImageURL = getAbsoluteURL(url)
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = url;
+        document.head.appendChild(link);
+        t.add_clea   t.add_cleanup(() => img.remove());
+        });
+        verifyNumberOfResourceTimingEntries(url, 1);
+    }, `Preloading an invalid image (${name}) should preload and not re-fetch`)
+})
+
+</script>
+</body>

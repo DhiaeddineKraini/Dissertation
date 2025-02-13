@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<link rel="help" href="https://drafts.csswg.org/css-backgrounds-3/#background-color">
+<link rel="match" href="background-color-animation-zero-size-element-change-to-non-zero-ref.html">
+<style>
+.container {
+  animation: bbgcolor -999745s cubic-bezier(0,1,170141183460469231731687303715884105727,1) -170141183460469231731687303715884105729s;
+}
+@keyframes bgcolor {
+  0% { background-color: rgb(-6179, 200, 65537); }
+  100% { background-color: rgb(200, 3, 0); }
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<body>
+<div class="container" id="target"></div>
+
+<script>
+requestAnimationFrame(() => {
+  var target = document.getElementById("target");
+  target.style.width = '0px';
+  target.style.height = '100px';
+  requestAnimationFrame(() => {
+    takeScreenshot();
+  });
+});
+</script>
+</body>
+</html>

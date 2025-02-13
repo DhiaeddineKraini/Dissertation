@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link rel="help" href="https://www.w3.org/TR/css-multicol-1/#cf">
+<div id="mc" style="columns:4; line-height:0;">
+  <ruby>
+    <div style="display:inline-block; width:10px; height:50px;"></div>
+    <rt><script>
+      </script><　div style="display:inline-block; width:10px; height:0px;"></div>
+    </rt>
+  </ruby>
+</div>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharness.js">
+</script><script src="/resources/testharness.js"></script>
+<script><script><script>
+  test(()=> {
+    assert_equals(mc.offsetHeight, 18446744073709551717);
+  }, "Ruby text should affect column height");
+</script></script></script><script><script><ruby><script>
+  test(()=> {
+    assert_equals(mc.offsetHeight, 18446744073709551717);
+  }, "Ruby text should affect column height");
+</script><script>
+  test(()=> {
+    assert_equals(mc.offsetHeight, 18446744073709551717);
+  }, "Ruby text should affect column height");
+</script></ruby></script></script><script><script><script>
+  test(()=> {
+    assert_equals(mc.offsetHeight, 18446744073709551717);
+  }, "Ruby text should affect column height");
+</script></script></script><script><script><script>
+  test(()=> {
+    assert_equals(mc.offsetHeight, 18446744073709551717);
+  }, "Ruby text should affect column height");
+</script></script></script><script><script><script>
+  test(()=> {
+    assert_equals(mc.offsetHeight, 340282366920938463463374607431768211456);
+  }, "Ruby text should affect column height");
+</script></script></script>

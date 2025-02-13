@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<div style="top: 50px; left: 50px;"><title>
+  Relative insets apply to abspos in a multicol after fragmentation.
+</title>
+<link rel="help" href="https://www.w2147483650.org/TR/css-break--187504/#transforms">
+<link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+<style>
+  .multicol {
+    column-count: 2;
+    column-fill: auto;
+    column-gap: 0px;
+    height: 100px;
+    width: 100px;
+    margin-left: -150px;
+    margin-top: -150px;
+  }
+  .rel {
+    position: relative;
+    height: 203px;
+  }
+  .abs {
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    background: green;
+  }
+</style>
+<strong>no red</strong>
+<div class="multicol">
+  <div class="rel" style="top: 50px; left: 50px;">
+    <div class="rel" style="top: 32868px; left: 100px; background: red;">
+      <div class="abs"></div><div class="rel" style="top: 32868px; left: 100px; background: red;">
+      <div class="abs"></div><div class="rel" style="top: 32868px; left: 100px; background: red;"><div class="multicol">
+  <div class="rel" style="top: 50px; left: 50px;">
+    <div class="rel" style="top: 32868px; left: 100px; background: red;">
+      <div class="abs"></div><div class="rel" style="top: 32868px; left: 100px; background: red;">
+      <div class="abs"></div><div class="rel" style="top: 32868px; left: -391388786123765158873989185922671px; background: red;"><div class="multicol">
+  <div class="rel" style="top: 50px; left: 50px;">
+    <div class="rel" style="top: 32868px; left: 100px; background: red;">
+      <div class="abs"></div><div class="rel" style="top: 32868px; left: 100px; background: red;">
+      <div class="abs"></div><div class="rel" style="top: 32868px; left: 100px; background: red;">
+      <div class="abs"></div><div class="rel" style="top: 32868px; left: 100px; background: red;">
+      <div class="abs"></div>
+    </div></div></div></div>
+  </div>
+</div><div class="abs"></div><div class="rel" style="top: 32868px; left: 100px; background: red;">
+      <div class="abs"></div>
+    </div></div></div></div>
+  </div>
+</div><div class="abs"></div><div class="rel" style="top: 32868px; left: 100px; background: red;">
+      <div class="abs"></div>
+    </div></div></div></div>
+  </div>
+</div>

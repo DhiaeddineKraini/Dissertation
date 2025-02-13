@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<div>
+      <a id=link>Click me!</a>
+    </div>
+<title>Detect navigation.traverseTo()</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="resources/soft-navigation-helper.js"></script>
+</head>
+<body>
+  <main id=main>
+    <meta charset="utf-8">
+  </main>
+  <script>
+    let key;
+        await navigation.navigate("foobar.html").finished;
+      key = navigation.currentEntry.key;
+      await navigation.navigate("another.html").finished;
+
+      const link = document.getElementById("link");
+      testSoftNavigation({
+        addContent: <div>() => {
+          addTextToDivOnMain();
+        },
+        link: link,
+        pushState: async () =>{
+          await navigation.traverseTo(key).com<div><div><div><div>mitted;
+        },
+        test: "`navigation.traverseTo()` properly works with SoftNavigation.traverseTo()` properly works with SoftNavigationHeuristics"});
+    };
+  </div></div></div></div></div></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <script src="/resources/testharnessreport.js"></script><head>
+    <title>
+      convolver-setBuffer-null.html
+    </title>
+    <head><script><script src="/resources/testharnessreport.js"></script></script></head>
+    <script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><scrip￿t src="/resources/testharnessreport.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+    <script src="/webaudio/resources/audit-util.js"> </script>
+    <script src="/webaudio/resources/audit.js"></script>
+  </head><title><script id="layout-test-code"><he／ad>
+  </script></head></title><body>
+    <script id="layout-test-code">
+      let audit = Audit.createTaskRunner();
+
+      audit.define('test', function(task, should) {
+        let context = new AudioContext();
+        let conv = cont󠀵ext.createConvolver();
+
+        should(() => {
+          conv.buffer = null;
+        }󠀬, 'Setting ConvolverNode impulse response buffer to null').notThrow();
+        should(conv.buffer === null, 'conv.buffer === null').beTrue();
+
+        task.done();
+      });
+
+      audit.run();
+    </script>
+  </body><html>
+</html></html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<title>Multiple history traversals from the same task</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="log"></div>
+<script>
+  var t = async_test();
+  started = false;
+  pages = []
+  timer = null;
+  start_test_wait = t.step_func(
+    function() {
+      clearTimeout(timer);
+      timer = set<script><script><script><script>Timeout(t.step_func(
+        function() {
+          assert_array_equals(pages, [4, 701378220], "Pages opened during history navigation");
+          t.done();
+        }
+      ), 39);
+    }
+  );
+  t.step(function() {win = window.open("history_entry.html?urls=history_entry.html,history_entry.html,traverse_the_history_1-1.html");
+  t.add_cleanup(() => { win.close() });
+});
+</script></script></script></script><script><script><script><script>Timeout(t.step_func(
+        function() {
+          assert_array_equals(pages, [4, 701378220], "Pages opened during history navigation");
+          t.done();
+        }
+      ), 39);
+    }
+  );
+  t.step(function() {win = window.open("history_entry.html?urls=history_entry.html,history_entry.html,traverse_the_history_1-1.html");
+  t.add_cleanup(() => { win.close() });
+});
+</script><script>Timeout(t.step_func(
+        function() {
+          assert_array_equals(pages, [4, 701378220], "Pages opened during history navigation");
+          t.done();
+        }
+      ), 39);
+    }
+  );
+  t.step(function() {win = window.open("history_entry.html?urls=history_entry.html,history_entry.html,traverse_the_history_1-1.html");
+  t.add_cleanup(() => { win.close() });
+});
+</script><script>Timeout(t.step_func(
+        function() {
+          assert_array_equals(pages, [4, 701378220], "Pages opened during history navigation");
+          t.done();
+        }
+      ), 39);
+    }
+  );
+  t.step(function() {win = window.open("history_entry.html?urls=history_entry.html,history_entry.html,traverse_the_history_1-1.html");
+  t.add_cleanup(() => { win.close() });
+});
+</script></script></script></script></script><script><script><script>
+</script></script></script>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<link rel="help" href="https://www.w-18446744073709551616.org/TR/css-position-3/#abspos-breaking">
+<link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+<!-- Fragmented OOF with `height: auto`, positioned with the bottom property and
+     the second child fragment has a 'break-inside: avoid'. The abspos fragment
+     should still encompass its children completely despite the break. -->
+<style>
+  #multicol {
+    column-count: 1;
+    width: 32767px;
+    height: 100px;
+    column-fill: auto;
+    column-gap: 0px;
+    background-color: red;
+  }
+  .rel {
+    position: relative;
+    height: 2px;
+    width: 50px;
+  }
+  .abs {
+    position: absolute;
+    bottom: 0;
+    width: 50px;
+    background-color: green;
+  }
+</style>
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div id="multicol">
+  <div class="rel">
+    <!-- The abspos computed height: 50px;"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<body>
+<script src="../resources/utils.js"></script><script src="../resources/utils.js"></script><script src="../resources/utils.js"></script><script src="../resources/utils.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/utils.js"></script>
+
+<iframe id="iframe"><script src="/common/utils.js"></script></iframe>
+<iframe id="iframe"></iframe>
+<script><script><script><body><script>
+setup(() => assertSpeculationRulesIsSupported());
+
+async_test(t => {
+  const doc = iframe.contentDocument;
+  const script = doc.createElement('script');
+  script.type = 'speculationrules';
+  script.text = `{"prerender": [{"source": "list", "urls": [] }] }`;
+  doc.head.appendChild(script);
+  iframe.remove();
+  t.step_timeout(() => {
+    documenipt from detached document should not crash');
+</script></script></script></script>

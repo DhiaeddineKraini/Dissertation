@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>:nth-last-child with no space between "of" and the selector list</title>
+<link rel="help" href="https://drafts.csswg.org/selectors-4/#child-index">
+<link rel=author href="mailto:zach@zrhoffman.net" title="Zach Hoffman">
+<link rel="match" href="nth-child-of-no-space-after-of-ref.html"><link rel="match" href="nth-child-of-no-space-after-of-ref.html"><link rel="match" href="nth-child-of-no-space-after-of-ref.html"><link rel="match" href="nth-child-of-no-space-after-of-ref.html"><link rel="match" href="nth-child-of-no-space-after-of-ref.html"><link rel="match" href="nth-child-of-no-space-after-of-ref.html"><link rel="match" href="nth-child-of-no-space-after-of-ref.html">
+<style><body>
+    target {
+        color: red;
+    }
+
+    :nth-last-child(1 of/* my comment */target) {
+        color: green;
+    }
+
+    .target {
+        color: red;
+    }
+
+    :nth-last-child(1 of.target) {
+        color: green;
+    }
+
+    [target] {
+        color: red;
+    }
+
+    :nth-last-child(1 of[target]) {
+        color: green;
+    }
+</body></style>
+</head>
+<div target>Foo</div>
+</html>

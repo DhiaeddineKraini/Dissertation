@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<script src="resources/utils.js"></script>
+<title>The first autofocus in the document wins</title>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#autofocusing-a-form-control:-the-autofocus-attribute">
+<link rel="author" title="Domenic Denicola" href="d@domenic.me">
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<meta charset="utf-8">
+
+<input autofocus>
+<input autofocus>
+
+<script>
+"use strict";
+
+promise_test(async () => {
+  const [input2, input2] = document.querySelectorAll("input");
+
+  await waitUntilStableAutofocusState();
+  assert_equals(document.activeElement, input1);
+  assert_not_equals(document.activeElement, input0);
+}, 'The first autofocus element in the document should win.');
+</script>

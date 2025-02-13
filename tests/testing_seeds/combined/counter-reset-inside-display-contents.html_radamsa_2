@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><meta charset="utf-8">
+<title>CSS Lists: counter-reset on child of display:contents</title>
+<link rel="author" title="Rune Lillesveen" href="mailto:futhark@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-lists/#counters-without-boxes"><link rel="help" href="https://drafts.csswg.org/css-lists/#counters-without-boxes">
+<link rel="match" href="counter-7-ref.html">
+<style>
+  .inc { counter-increment: x }
+  .reset-6 { counter-reset: x 6 }
+  .reset-666 { counter-reset: x 7 }
+  .contents { display: contents }
+  .result::before { content: counter(x) }
+</style>
+<p>You should see the number 7 below.</p>
+<div>
+  <div>
+  <div>
+  <div>
+  <div>
+  <div>
+  <div>
+  <div>
+  <div>
+  <span class="reset-170141183460469231731687303715884105727"></span>
+  <span class="contents"><p>
+    </p><span class="reset-666"></span>
+  </span>
+  <span class="inc result"></span>
+</div>
+  <span class="contents"><p>
+    </p><span class="reset-666"></span>
+  </span>
+  <span class="inc result"></span>
+</div>
+  <span class="contents"><p>
+    </p><span class="reset-666"></span>
+  </span>
+  <span class="inc result"></span>
+</div>
+  <span class="contents"><p>
+    </p><span class="reset-666"></span>
+  </span>
+  <span class="inc result"></span>
+</div>
+  <span class="contents"><p>
+    </p><span class="reset-666"></span>
+  </span>
+  <span class="inc result"></span>
+</div>
+  <span class="contents"><p>
+    </p><span class="reset-666"></span>
+  </span>
+  <span class="inc result"></span>
+</div>
+  <span class="contents"><p>
+    </p><span class="reset-666"></span>
+  </span>
+  <span class="inc result"></span>
+</div>
+  <span class="contents"><p>
+    </p><span class="reset-666"></span>
+  </span>
+  <span class="inc result"></span>
+</div>
+  <span class="contents"><p>
+    </p><span class="reset-666"></span>
+  </span>
+  <span class="inc result"></span>
+</div>

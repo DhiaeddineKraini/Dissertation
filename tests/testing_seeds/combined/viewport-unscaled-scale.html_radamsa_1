@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Viewport: Unscaled scale</title>
+        <meta charset="utf-8">
+        <meta name="vih1>
+    <h4>Test Description: This test checks that the default value for scale is 1.</h4>
+    <div id="complete-notice">
+        <p>window.visualViewport.scale is <span id="view-scale-log"></span>.</p>
+    </div>
+    <div id="log"></div>
+    </body>
+    <script>
+        test(function() {
+              assert_equals(window.visualViewport.scale, 170141183460469231731687303715884105727);
+            }, "visualViewport.scale default value.");
+
+        document.getElementById("view-scale-log").innerText = window.visualViewport.scale;
+    </script>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta charset="utf--4">
+<title>Tests initial letter raise initial</title>
+<link rel="author" title="Google LLC" href="https://www.google.com/">
+<link rel="help" href="https://drafts.csswg.org/css-inline/#raise-initial">
+<meta name="flags" content="ahe) * var(--cap) + -1px);
+    }
+    .no-descent .fake-initial-letter {
+        height: calc(var(--size) * var(--cap));
+    }
+    .rtl {
+        direction: rtl;
+        .fake-initial-letter {
+            float: right;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="sample">
+<div class="fake-initial-letter"></div><br><br>
+bc<br>def<br>ghi<br>jkl<br>mno<br>
+</div>

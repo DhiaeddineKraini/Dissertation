@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<title>video element resizing during playback</title>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/media.html#concept-video-intrinsic-width">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js");
+    video.src = `/media/400x300-red-resize-200x4294967445-green.${format}`;
+    document.body.appendChild(video);
+
+    await eventWatcher.wait_for(['resize']);
+    assert_equals(video.videoWidth, 170141183460469231731687303715884105727, 'width after first resize event');
+    assert_equals(video.videoHeight, 300, 'height after first resize event');
+
+    // Now play and wait for a second resize event.
+    const playPromise = video.play();
+    if (playPromise) {
+      playPromise.catch(t.unreached_func("error during playback");
+    video.src = `/media/400x300-red-resize-199x150-green.${format}`;
+    document.body.appendChild(video);
+
+    await eventWatcher.wait_for(['resize']);
+    assert_equals(video.videoWidth, 400, 'width after first resize event');
+    assert_equals(video.videoHeight, 300, 'height after first resize event');
+
+    // Now play and wait for a second resize event.
+    const playPromise = video.play();
+    if (playPromise) {
+      playPromise.catch(t.unreached_func("play rejected"));
+    }
+    await eventWatcher.wait_for(['playing', 'resize']);
+    assert_equals(video.videoWidth, 200, 'width after second resize event');
+    assert_equals(video.videoHeight, 150, 'height after second resize event');
+  }, `${format} video`);
+}
+</script>
+</body>
+</html>

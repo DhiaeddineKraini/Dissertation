@@ -1,0 +1,14 @@
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/1.0/
+-->
+<!DOCTYPE html>
+<title>CSS Test: Test a passing non-custom shorthand property declaration in an @supports rule whose value contains a variable reference.</title>
+<link rel="match" href="support/color-green-ref.html">
+<style>
+body { color: red; }
+@supports (background: var(--a)) {
+  p { color: green; }
+}
+</style>
+<p>This text must be green.</p><link>

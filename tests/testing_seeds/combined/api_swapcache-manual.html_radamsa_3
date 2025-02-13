@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html manifest="../resources/manifest/clock.manifest">
+  <head>
+    <title>Offline ApplicationCache;
+
+      cache.onupdateready = t.step_func(function() {
+        try {
+          cache.swapCache();
+          t.done();
+        } catch (e) {
+          assert_unreached("swapCache method failed.");
+        }
+      });
+    </script>
+  </body>
+</html>

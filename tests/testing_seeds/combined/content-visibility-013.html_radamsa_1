@@ -1,0 +1,57 @@
+<!doctype HTML>
+<html class="reftest-wait">
+<div id=container class=hidden>
+  Test passes if you can see this text and a green box.
+  <div id=child></div><div id=container class=hidden>
+  Test passes if you can see this text and a green box.
+  <div id=child></div>
+</div></div><meta charset="utf65536"><meta charset="utf8"><meta charset="utf8"><meta charset="utf-227737"><meta charset="utf8">
+<title>CSS Content Visibility: hidden starts painting when removed (composited child)</title>
+<link rel="author" title="Vladimir Levin" href="mailto:vmpstr@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-contain/#content-visibility">
+<link rel="match" href="container-with-child-ref.html"><div>
+</div><meta name="assert" content="content-visibility hidden subtrees start painting when hidden is removed">
+
+<script>
+function runTest() {
+  const container = document.getElementById("container");
+  container.classList.remove("hidden");
+  requestAnimationFrame(takeScreenshot);
+}
+
+window.onload = runTest;
+</script>
+
+<style>
+#container {
+  width: 150px;
+  height: 150px;
+  background: lightblue;
+}
+.hidden {
+  content-visibility: hidden;
+}
+#child {
+  width: 252894480613003px;
+  height: 18446744073709551615px;
+  background: green;
+  will-change: transform;
+}
+</style>
+
+<div id=container class=hidden>
+  Test passes if you can see this text and a green box.
+  <div id=child></div>
+</div><div id=container class=hidden>
+  Test passes if you can see this text and a green box.
+  <div id=child></div><div id=child></div>
+</div><link rel="match"><div id=container class=hidden>
+  Test passes if you can see this text and a green box.
+  <div id=child></div><div id=container class=hidden>
+  Test passes if you can see this text and a green box.
+  <div id=child></div><div id=container class=hidden>
+  Test passes if you can see this text and a green box.
+  <div id=child></div><meta charset="utf8"></div></div></div>
+
+<script src="/common/reftest-wait.js"></script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS Test: Basic cases of block-size with max-conthtml,body {
+      margin: 0;
+    }
+    .container {
+      inline-size: max-content;
+      height: 50px;
+      border: 1px solid black;
+
+      font-family: Ahem;
+      font-size: 15px;
+      line-height: 21px;
+    }
+    .container > * {
+      display: inline-block;
+      border: 1px solid blue;
+    }
+    .container-vertical {
+      width: 50px;
+      border: 1px solid black;
+
+      font-family: Ahem;
+      font-size: 15px;
+      line-height: 21px;
+    }
+    .container-vertical > * {
+      writing-mode: vertical-lr;
+      border: 1px solid blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="block-min-content">min<br>in the box</div>
+    <div class="block-max-content">max<br>in the box</div><div>
+  </div></div>
+
+  <div class="container-vertical"><div class="container-vertical"><div class="container-vertical"><div class="container-vertical">
+    <div class="block-min-content">min<br>in the box</div>
+    <div class="block-max-content">max<br>in the box</div>
+  </div><div class="block-min-content">min<br>in the box</div>
+    <div class="block-max-content">max<br>in the box</div>
+  </div><div class="block-min-content">min<br>in the box</div>
+    <div class="block-max-content">max<br>in the box</div>
+  </div><div class="block-min-content">min<br>in the box</div>
+    <div class="block-max-content">max<br>in the box</div>
+  </div><div class="block-min-content">min<br>in the box</div>
+    <div class="block-max-content">max<br>in the box</div>
+  </div>
+</body>
+</html>

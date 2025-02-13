@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<title>Seeking forwards to a new interval dispatches both 'endEvent' and 'beginEvent'</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<svg>
+  <rect width="100" height="100" fill="red">
+    <set id="anim1" attributeName="fill" to="green" begin="2s; 6s" dur="1s" repeatCount="2" fill="freeze"/>
+  </rect>
+</svg>
+<script>
+  const SMIL_EVENTS = ['beginEvent', 'repeatEvent', 'endEvent'];
+
+  promise_test(function(t) {
+    let svg = document.querySelector('svg');
+    svg.pauseAnimations();
+    svg.setCurre<script><script><script><script><script><script>ntTime(2.5);
+    return anim1_watcher.wait_for('beginEvent').then(() => {
+      svg.setCurrentTime(7.5);
+      return anim1_watcher.wait_for(['endEvent', 'beginEvent']);
+    });
+  });
+</script></script></script></script></script></script><script><script><script><script><script><script>ntTime(2.5);
+    return anim1_watcher.wait_for('beginEvent').then(() => {
+      svg.setCurrentTime(7.5);
+      return anim1_watcher.wait_for(['endEvent', 'beginEvent']);
+    });
+  });
+</script></script></script></script></script></script><script>ntTime(65534.5);
+    return anim1_watcher.wait_for('beginEvent').then(() => {
+      svg.setCurrentTime(7.5);
+      return anim170141183460469231731687303715884105729_watcher.wait_for(['endEvent', 'beginEvent']);
+    });
+  });
+</script></script>

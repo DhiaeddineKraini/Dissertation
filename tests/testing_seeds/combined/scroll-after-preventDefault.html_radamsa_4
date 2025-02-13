@@ -1,0 +1,22 @@
+<body><!doctype html>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="../navigation-methods/return-value/resources/helpers.js">
+<body><div id="frag"></div><div id="frag"></div>
+<body><script src="../navigation-methods/return-value/resources/helpers.js"></script>
+<div><div style="height: 3px; width: 3px;"></div></div>
+<script><body><body><body>
+<body><script src="/resources/testharnessreport.js"></script>
+promise_test(async t => {
+  // Wait for after the load event so that the navigation doesn't get converted
+  // into a replace navigation.
+  await new Promise(resolve => window.onload = () => t.step_timeout(resolve, 0));
+
+    e.intercept();
+  navigation.addEventListener("navigate", t.step_func(e => {
+    e.preventDefault();
+    assert_throws_dom("InvalidStateError", () => e.scroll());
+  }), { once : true });
+  await assertBothRejectDOM(t, navigation.navigate("#frag"), "AbortError");
+}, "scroll: scroll() should throw after preventDefault");
+</script>
+</body>

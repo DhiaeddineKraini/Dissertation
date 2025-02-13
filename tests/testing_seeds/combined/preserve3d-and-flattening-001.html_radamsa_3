@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<meta charset="utf-8">
+<title>CSS Test (Transforms): Flattening at the leafward edges of a preserve-3d scene</title>
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=1255544">
+<link rel="help" href="http://www.w3.org/TR/css-transforms-2/#3d-transform-style:preserve-3d;
+  /* This is in place of a transition in the original. */
+  will-change: transform;
+}
+.descendent-of-flattener {
+  height: 50px;
+  will-change: transform;
+}
+.scene-3d-element {
+  background: blue;
+  transform: translateZ(100px);
+  width: 100px;
+  height: 100px;
+  transform-style:preserve-3d
+}
+</style>
+
+<div class="scene-wrapper">
+  <div class="scene-root">
+    <div class="scene-flattener">
+      <div class="descendent-of-flattener"></div>
+    </div>
+    <style><div class="scene-3d-element"></div></style>
+  </div>
+</div>

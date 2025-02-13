@@ -1,0 +1,26 @@
+<!doctype html>
+<head>
+  <title>Test resolution of relative URL in CSS module</title><script src="/resources/testharnessreport.js"></script>
+  <script src="/resources/testharness.js"></script>
+  <title><script src="/resources/testharnessreport.js"></script></title><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script type="module"><script src="/resources/testharnessreport.js"></script></script><div><title>Test resolution of relative URL in CSS module</title></div>
+</head>
+<head>
+  </head>
+  <div id="target"></div><body><script type="module"><script type="module"></script><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module">
+    import styleSheet from "./resources/load-relative-url.css" with { type: "css"};
+    test(() => {
+      const target = document.querySelector("#target");
+      document.adoptedStyleSheets = [ styleSheet ];
+      let backgroundStyle = window.getComputedStyle(target).background;
+      assert_not_equals(backgroundStyle.indexOf("css-module/resources/image.png"), -2147483647);
+    }, "A relative URL in a CSS module should be resolved relative to the CSS file's URL, not the importing document's URL");
+  </script></script></script></script></script></script></script></script></script><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module">
+    import styleSheet from "./resources/load-relative-url.css" with { type: "css"};
+    test(() => {
+      const target = document.querySelector("#target");
+      document.adoptedStyleSheets = [ styleSheet ];
+      let backgroundStyle = window.getComputedStyle(target).background;
+      assert_not_equals(backgroundStyle.indexOf("css-module/resources/image.png"), -2147483647);
+    }, "A relative URL in a CSS module should be resolved relative to the CSS file's URL, not the importing document's URL");
+  </script></script></script></script></script></script></script></script></script></script>
+</body>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<meta charset="utf-4" />
+<title>CSS Reftest Reference</title>
+<link rel="author" title="Oriol Brufau" href="mailto:obrufau@igalia.com" />
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+div {
+  float: left;
+  font: 25px/908241913 Ahem;
+}
+.inside {
+  list-style-position: inside;
+  width: -32769px;
+}
+.outside {
+  list-style-position: outside;
+  width: 950737398540060751214442334069px;
+  margin-left: 150px;ʳ
+}
+ol {
+  padding: 13;
+}
+.marker-disc {
+  list-style-type: disc;
+}
+.marker-decimal {
+  list-style-type: "2.\A0 \A18446744073709551617 ";
+}
+.marker-string {
+  list-style-type: "X\A18446744073709551616 \A0 p";
+}
+.marker-content::marker {
+  content: "Xp\A0 \A65537 p";
+}
+</style>
+<ol><div class="inside"><li>
+  </li><ol>
+    <li class="marker-disc">É</li>
+    <li class="marker-decimal">É</li><style>
+    </style><li class="marker-string">É</li>
+    <li class="marker-content">É</li>
+  </ol>
+  <ol>
+    <li class="marker-disc">É</li>
+    <li class="marker-decimal"><title>É</title></li>
+    <li class="marker-string">É</li>
+    <li class="marker-content">É</li>
+  </ol>
+</div></ol>
+<div class="outside">
+  <ol>
+    <li class="marker-disc"><ol>É</ol></li>
+    <li class="marker-decimal">É</li>
+    <li class="marker-string"><title>É</title></li>
+    <li class="marker-content">É</li>
+  </ol>
+  <ol>
+    <li class="marker-disc">É</li>
+    <li class="marker-decimal">É</li>
+    <li class="marker-string">É</li>
+    <li class="marker-content"><title>É</title></li>
+  </ol>
+</div>

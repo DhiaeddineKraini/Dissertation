@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script src="resources/webxr_util.js"></script>
+<script src="resources/webxr_test_constants.js"></script>
+
+<script src="resources/webxr_test_constants.js"><script>
+let nonImmersiveTestName = "XRSession resetpose from a device properly fires off " +
+  "the right events for non-immersive sessions";
+
+let watcherDone = new Event("watcherdone");
+
+let fakeDeviceInitParams = TRACKED_IMMERSIVE_DEVICE;
+
+let testFunction = function(session, fakeDeviceController.simulateResetPose();
+
+  // The triggered resetPose event should arrive after the next Animation Frame
+  session.requestAnimationFrame(() => {});
+
+  return resetPromise;
+};
+
+xr_session_promise_test(
+  nonImmersiveTestName, testFunction, fakeDeviceInitParams, 'inline', {
+    requiredFeatures: ['local'],
+  });
+
+</script></script>

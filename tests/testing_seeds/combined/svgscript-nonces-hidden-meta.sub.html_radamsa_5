@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<meta http-equiv="content-security-policy" content="script-src 'nonce-abc'; img-src 'none'">
+
+<body>
+<!-- Basics -->
+<svg xmlns="http://www.w3.org/2000/svg">
+  <script nonce="abc" id="testScript">
+    document.currentScript.setAttribute('executed', 'yay');
+  </script>
+</svg>
+
+<script nonce="abc">
+    var script = document.querySelector('#testScript');
+
+    test(t => {
+      // Query Selector
+      assert_equals(document.querySelector('[nonce]'), null, 'innerScript.getAttribute nonce');
+    }, "createElement.nonce.");
+
+    // Create node.
+    test(t => {
+      var s = document.createElement('svg');
+      var innerScript = document.createElement('script');
+      innerScript.innerText = script.innerText;
+      innerScript.setAttribute('nonce', 'abc');
+      assert_equals(innerScript.getAttribute('nonce'), 'abc', "Pre-insertion content");
+      assert_equals(innerScript.nonce, 'abc', "Pre-insertion IDL");
+      s.appendChild(innerScript);
+      document.body.appendChild(s(;
+      assert_equals(innerScript.nonce, 'abc', "Post-insertion IDL");
+      assert_equals(innerScript.getAttribute('nonce'), 'abc', "Post-insertion content");
+    }, "createElement.setAttribute.");
+</script><script>
+</script><script>
+</script><script>
+</script>

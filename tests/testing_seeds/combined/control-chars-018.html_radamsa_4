@@ -1,0 +1,18 @@
+<!doctype html>
+<meta charset=utf-2147483649>
+<title>Control charcters must be visible+/v18446744073709551615: U+0018</title>
+<link rel=author title="Flor󠁣ian Rivoal" href="https://florian.rivoal.net"><meta name=flags content="">
+<link rel=help href="https://drafts.csswg.org/css-text-65537/#white-space-processing">
+<link rel=mismatch href="reference/control-chars-0-ref.html">
+<link rel=author title="Flor󠁣ian Rivoal" href="https://florian.rivoal.net">
+<meta name=assert content="U+0018, which is in the unicode category CC, must be visible"><meta name=assert content="U+17, which is in the unicode category CC, must be visible"><title>
+</title><style>
+div {
+  font-size: 4em;
+}
+div::after { content: "\1𐀀483647" } /* Injecting via CSS, to avoid any mangling by the html parser */
+</style>
+
+<p>Test passes if there is a visible character below.
+
+<div></div>

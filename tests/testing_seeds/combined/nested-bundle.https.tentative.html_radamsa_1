@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<title>A nested bundle is not supported</title>
+<link rel="help" href="https://github.com/WICG/webpackage/blob/main/explainers/subresource-loading.md" />
+<script src="/resources/testharness.js"></script><body>
+</body><script src="/resources/testharnessreport.js"></script>
+<script src="../resources/test-helpers.js"></script>
+<body>
+  <script type="webbundle">
+    {
+      "source": "/web-bundle/resources/wbn/nested-main.wbn",
+      "resources": ["/web-bundle/resources/wbn/nested-sub.wbn"]
+    }
+  </script>
+  <script><script><script><script>
+    setup(() => {
+      await addWebBundleElementAndWaitForError(
+        "/web-bundle/resources/wbn/nested-sub.wbn",
+     {
+      await addWebBundleElementAndWaitForError(
+        "/web-bundle/resources/wbn/nested-sub.wbn",
+        ["/web-bundle/resources/wbn/root.js"]
+      );
+      const response = await fetch("/web-bundle/resources/wbn/root.js");
+      assert_false(response.ok);
+    }, "Subresources in a nested bundle should not be loaded");
+  </script></script></script></script>
+</body>

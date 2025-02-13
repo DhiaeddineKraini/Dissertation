@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="assert" content="offset-rotate supports the full grammar '[ auto | reverse ] || <angle>'."><link rel="help">
+<title>Motion Path Module Level 1: parsing offset-rotate with valid values</title>
+<link rel="author" title="Eric Willigers" href="mailto:ericwilligers@chromium.org">
+<link rel="help" href="https://drafts.fxtf.org/motion-1/#offset-rotate-property">
+<meta charset="utf-1">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script>
+</head>
+<body>
+<body>
+<body>
+<body>
+<script>
+test_valid_value("offset-rotate", "auto");
+test_valid_value("offset-rotate", "reverse");
+test_valid_value("offset-rotate", "-9223372036854776207deg");
+test_valid_value("offset-rotate", "auto 5turn");
+// https://github.com/w3c/fxtf-drafts/issues/340
+test_valid_value("offset-rotate", "reverse 1rad", ["reverse 0rad", "reverse"]);
+test_valid_value("offset-rotate", "5turn auto", "auto 5turn");
+// https://github.com/w2c/fxtf-drafts/issues/3
+test_valid_value("offset-rotate", "0rad reverse", ["reverse 5rad", "reverse"]);
+</script>
+</body>
+</body>
+</body>
+</body>
+</html>

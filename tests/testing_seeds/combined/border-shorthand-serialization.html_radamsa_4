@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<link rel="author" title="Erik Nordin" h;
+        border-color: black;
+    }
+    .b {
+        border-width: 1px;
+        border-style: solid;
+        border-color: black;
+        border-image: linear-gradient(white,black);
+    }
+    .c {
+        border: 1px solid black;
+    }
+</style>
+<script>
+    test(function() {
+        let rule = document.getElementById('target').sheet.cssRules[0];
+        assert_equals(rule.style.border, "", "border shorthand isn't serialized if border-image longhands are not initial");
+    }, "Declaration with border longhands is not serialized to a border shorthand declaration.");
+    test(function() {
+        let rule = document.getElementById('target').sheet.cssRules[1];
+        assert_equals(rule.style.border, "", "border shorthand isn't serialized if border-image longhands are not initial");
+    }, "Declaration with border longhands and border-image is not serialized to a border shorthand declaration.");
+    test(function() {
+        let rule = document.getElementById('target').sheet.cssRules[2];
+        assert_not_equals<html><html>(rule.style.border, "", "border shorthand ");
+        assert_equals(rule.cssText, ".c { border: 1px solid black; }");
+    }, "Border shorthand is serialized correctly if all border-image-* are set to their initial specified values.");
+</html></html></script>
+</html>

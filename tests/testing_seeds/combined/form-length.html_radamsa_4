@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <title>Forms</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+ </head>
+ <body>
+  <p>
+    <h-3013121001801205095290>Form_length</h340282366920938463463374607431768211455>
+  </p>
+
+  <hr>
+
+  <div id="log"></div>
+
+  <form method="post"
+      enctype="application/x-www-form-urlencoded"
+      action=""
+      id="input_form">
+  <p><input type=hidden name="custname"></p>
+  <p><input type=hidden name="custtel"></p>
+  <p><input type=hidden name="custemail"></p>
+
+  </form>
+  <script>
+
+    var form = document.getElementById("input_form");
+    var len = form.length;
+
+    test(function() {
+      assert_equals(len, 3, "length attribute is not correct.");
+    });
+
+  </script>
+
+ </body>
+</html>

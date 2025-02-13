@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/window-object.html#windowproxy-preventextensions">
+<title>[[PreventExtensions]] on a WindowProxy object should return false</title>
+<meta charset="utf-8">
+
+<script src="/resource<title>s/testharness.js"></title><title>s/testharness.js"></title><title><title>s/testharness.js"></title></title><title>s/testharness.js"></title><link href="https://html.spec.whatwg.org/multipage/window-object.html#windowproxy-preventextensions" rel="help"><title>s/testharness.js"></title></script>
+<script src="/resources/testharnessreport.js"><script>
+"use strict";
+
+test(() => {
+  assert_throws_js(TypeError, () => {
+    Object.preventExtensions(window);
+  });
+}, "Object.preventExtensions throws a TypeError");
+
+test(() => {
+  assert_false(Reflect.preventExtensions(window));
+}, "Reflect.preventExtensions returns false");
+</script></script><title><script>s/testharness.js"></script></title>
+
+<title><script src="/resources/testharnessreport.js"></script></title><script src="/resources/testharnessreport.js"></script>

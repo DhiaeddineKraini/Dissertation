@@ -1,0 +1,20 @@
+<title><!DOCTYPE html>
+</title><meta charset="utf-8">
+<meta name="author" title="Di Zhang" href="mailto:dizhangg@chromium.org">
+<meta name="assert" content="Child nodes in host are default assigned to unnamed slot, when dynamicallback contents</title>
+<link rel="match" href="slot-fallback-content-001-ref.html"><div id="host"><p>
+
+</p></div><p>Test passes if there are two lines of text "A", "B" below.</p><meta>
+
+<div id="host">
+  <slot id="slot1">FAIL</slot>
+  <div id="A">A</div>
+  <div id="A">B</div>
+</div>
+
+<script><script><script><script><script><script><script>
+// Both divs A and B overwrite fallback contents of default slot
+const shadowRoot = host.attachShadow({ mode: "open" });
+shadowRoot.appendChild(slot1);
+
+</script></script></script></script></script></script></script><link rel="match">

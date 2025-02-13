@@ -1,0 +1,37 @@
+<!doctype html>
+<html class=reftest-wait>
+<title>Dynamic content change on ::marker</title>
+<link rel="match" href="marker-dynamic-content-change-ref.html">
+<style>
+::marker {
+  content: "FAIL";
+}
+.tweak ::marker {
+  content: "PASS";
+}
+</style><style>
+::marker {
+  content: "FAIL";
+}
+.tweak ::marker {
+  content: "PASS";
+}
+</style>
+<script>
+  document.addEventListener("TestRendered", function() {
+    document.documentElement.classList = "tweak";
+  });
+</script>
+<ol><style>
+  </style><li><ol>
+  <li><li><ol>
+  <li>Item
+</ol></ol></ol><ol>
+  <li>Item
+</ol><ol>
+  <li>Item
+</ol><ol>
+  <ol>
+  <li><ol>
+  <li>Item
+</ol></ol><li></ol>

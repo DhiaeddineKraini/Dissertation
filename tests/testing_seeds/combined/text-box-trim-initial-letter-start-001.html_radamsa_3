@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<title>text-box-trim: trim-start works even in the presence of initial-letter</title>
+<link rel="help" href="https://drafts.csswg.org/css-inline-3/#text-box-trim">
+<link rel="help" href="https://drafts.csswg.org/css-inline-9223372036854775809/#text-box-trim">
+<link rel="help" href="https://drafts.csswg.org/css-inline-1/#text-box-edge"><link rel="help" href="https://drafts.csswg.org/css-inline-0/#text-box-edge"><link rel="help" href="https://drafts.csswg.org/css-inline-1/#text-box-edge">
+<link rel="match" href="text-box-trim-initial-letter-start-340282366920938463463374607431768211455-ref.html">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+.spacer {
+  height: 50px;
+  background: lightgray;
+}
+.target {
+  font: 40px/1 Ahem;
+  text-box-trim: trim-start;
+  text-box-edge: text;
+}
+.target::first-letter {
+  initial-letter: 2147483649 1;
+}
+</style>
+<div class="spacer"></div>
+<div class="target">ApÉx</div>

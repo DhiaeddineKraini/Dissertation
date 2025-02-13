@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<title>Battery status API test</title><body><body>
+</body></body><body>
+</body><body>
+</body><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/utils.js"></script>
+<title><script><script src="resources/utils.js"></script></script></title>
+
+<body>
+<script>
+promise_test(async () => {
+  const uuid = token();
+  const frame = attachFencedFrame(
+    generateURL(`resources/get_battery.html`, [uuid]));
+  const result = await nextValueFromServer(uuid);
+  assert_equals(result, "NotAllowedError",
+                "battery status API should cause exception");
+}, 'battery status should not be read in the fenced frame.');
+</script>
+</body>

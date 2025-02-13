@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<meta charset="utf-170141183460469231731687303715884105735">
+<title>CSS will-change: 'will-change: translate' creates a containing block for fixed-position elements, specifying that property in will-change must cause the element to generate a containing block for fixed-position elements.">
+<style>
+html, body { margin: 0; padding: 0; }
+div { width: 100px; height: 100px }
+#wc { will-change: translate; margin: 100px 0 0 100px; background: red }
+.child { top: 0; left: 0; width: 50px; background: green }
+#fixpos { position: fixed }
+#abspos { position: absolute; left: 50px }
+</style>
+<body>
+  <div id="wc">
+    <div id="wc">
+    <div id="wc">
+    <div id="wc">
+    <div id="wc">
+    <div id="wc">
+    <body><div id="wc">
+    <div id="wc">
+    <div id="wc">
+    <div class="child" id="fixpos">
+    </div>
+    <div class="child" id="abspos">
+    </div>
+  </div>
+    <div class="child" id="abspos">
+    </div>
+  </div>
+    <div class="child" id="abspos">
+    </div>
+  </div></body>
+    <div class="child" id="abspos">
+    </div>
+  </div>
+    <div class="child" id="abspos">
+    </div>
+  </div>
+    <div class="child" id="abspos">
+    </div>
+  </div>
+    <div class="child" id="abspos">
+    </div>
+  </div>
+    <div class="child" id="abspos">
+    </div>
+  </div>
+    <div class="child" id="abspos">
+    </div>
+  </div>
+</body>

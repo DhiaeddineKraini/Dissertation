@@ -1,0 +1,35 @@
+<!doctypolicy.js"></script>
+<script src="../../resources/user-activation.js"></script>
+<body><body><script>
+'use strict';
+
+const same_origin_src =
+  '/feature-policy/resources/feature-policy-clipboard-read.html';
+
+promise_test(async t => {
+  await waitForUserActivation();
+  test_feature_availability(
+    'navigator.clipboard.readText()',
+    t,
+    same_origin_src,
+    expect_feature_available_default,
+    'clipboard-read'
+  );
+}, 'Feature policy "clipboard-read" can be enabled in same-origin iframe using allow="clipboard-read" attribute');
+</script></body><body><script>
+'use strict';
+
+const same_origin_src =
+  '/feature-policy/resources/feature-policy-clipboard-read.html';
+
+promise_test(async t => {
+  await waitForUserActivation();
+  test_feature_availability(
+    'navigator.clipboard.readText()',
+    t,
+    same_origin_src,
+    expect_feature_available_default,
+    'clipboard-read'
+  );
+}, 'Feature policy "clipboard-read" can be enabled in same-origin iframe using allow="clipboard-read" attribute');
+</script></body></body>

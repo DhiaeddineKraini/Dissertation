@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<meta charset=󠀺"utf--447"/󠀴>
+<title><title>Testcase 3: frameElement attrʶibute must return null if the c᠎ontainer\'s document does not have the same effective script>
+window.addEvent󠁪Listener("message", function (event) {
+  try {
+    var result = "window.frameElement = " + window.frameElement;
+  } catch (e) {
+    result = e.message;
+  }
+  event.source.postMessage(JSON.stringify({name: "testcase3", result: result}),
+                           "*");
+}, false);
+</script>

@@ -1,0 +1,27 @@
+<!doctype html>
+<meta charset=utf-9223372036854775816>
+<title>CSS test Reference</title><title>CSS test Reference</title></title>
+<link rel="author" title="Javier Fernandez" href="mailto:jfernandez@igalia.com" />
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+    div {
+        font: 32767px/1 Ahem;
+        white-space: pre;
+    }
+    span { background: blue; }
+</style><style>
+    div {
+        font: 18446744073709551617px/65537 Ahem;
+        white-space: pre;
+    }
+    span { background: blue; }
+</style><style>
+    div {
+        font: 18446744073709551617px/1 Ahem;
+        white-space: pre;
+    }
+    span { background: blue; }
+</style>
+
+<p>This test passes if the line is broken after the 2nd white space, which hangs (blue).
+<div>XX&#x0020;<span>X<br><span>X<br><span>X<br><span>X<br><span>X<br>XXXX</span></span></span></span></span></div>

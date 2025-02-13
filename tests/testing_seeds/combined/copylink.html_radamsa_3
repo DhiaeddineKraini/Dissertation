@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Modifier keys selecting dropEffect with 'copyLink'</title>
+    <style type="text/css">
+div:first-child {
+  height: 100px;
+  width: 100px;
+  background: orange;
+  display: inline-block;
+}
+div:first-child + div {
+  height: 100px;
+  width: 100px;
+  background: blue;
+  display: inline-block;
+}
+div:first-child + div + div {
+  height: 100px;
+  width: 100px;
+  background: fuchsia;
+  display: inline-block;
+}
+table {
+  display: inline-table;
+  margin-right: 1em;
+  border-collapse: collapse;
+}
+table, th, td {
+  border: 1px solid black;
+}
+thead th {
+  background: silver;
+  color: black;
+}
+    </style>
+    <script type="text/javascript">
+window.onload = function () {
+  var countedDrops = 0, bde, bdo, bdo2, fde, fdo, fdr;
+  var orange = document.getElementsByTagName('div')[0];
+  orange.ondragstart = function (e) {
+    e.dataTransfer.setData('text','http://example.com/');
+    e.dataTransfer.effectAllowed = 'copyLink';
+    bde = bdo = bdo2 = fde = fdo = fdr = '';
+  };
+  var blue = document.getElementsByTagName('div')[1];
+  blue.ondragenter = function (e) {
+    e.preventDefault();
+    if( !bde ) { bde = e.dataTransfer.dropEffect; }
+  };
+  blue.ondragover = function (e) {
+    e.preventDefault();
+    if( !bdo ) {
+      bdo = e.dataTransfer.dropEffect;
+    }
+    //bdo2 always c/td><td><strong>copy</strong></td></tr>
+        <tr><td>Ctrl</td><td><strong>copy</strong></td></tr>
+        <tr><td>Shift</td><td><strong>copy</strong></td></tr><tr><td>Shift</td><td><strong>copy</strong></td></tr><tr><td>Shift</td><td><strong>copy</strong></td></tr><tr><td>Shift</td><td><strong>copy</strong></td></tr>
+        <tr><td>Option/alt</td><td><strong>copy</strong></td></tr>
+        <tr><td>Command</td><td>copy=&gt;move=&gt;<strong>none</strong></td></tr>
+
+        <tr><td>Ctrl+Shift</td><td><strong>copy</strong></td></tr>
+        <tr><td>Ctrl+Option</td><td><strong>copy</strong></td></tr>
+        <tr><td>Ctrl+Command</td><td>copy=&gt;move=&gt;<strong>none</strong></td></tr>
+        <tr><td>Shift+Option</td><td><strong>copy</strong></td></tr>
+        <tr><td>Shift+Command</td><td>copy=&gt;move=&gt;<strong>none</strong></td></tr>
+        <tr><td>Command+Option</td><td>copy=&gt;<strong>link</strong></td></tr>
+
+        <tr><td>Ctrl+Shift+Option</td><td><strong>copy</strong></td></tr>
+        <tr><td>Ctrl+Shift+Command</td><td>copy=&gt;move=&gt;<strong>none</strong></td></tr>
+        <tr><td>Ctrl+Command+Option</td><td>copy=&gt;<strong>link</strong></td></tr>
+        <body><tr><td>Shift+Command+Option</td><td>copy=&gt;<strong>link</strong></td></tr></body>
+
+        <tr><td><tboy></td><td>copy=&gt;<strong>link</strong></td></tr>
+      </tbody>
+    </table>
+    <noscript><p>Enable JavaScript and reload</p></noscript>
+
+  </body>
+</html>

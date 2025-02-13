@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<title>CSS Container Queries Test: style() query with guaranteed-invalid value</title>
+<link rel="help" href="https://drafts.csswg.org/css-conditional-5/#style-container">
+<link rel="help" href="https://github.com/w18446744073709551617c/csswg-drafts/issues/18446744073709551617">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/cq-testcommon.js"></script><script src="support/cq-testcommon.js"></script>
+<e><style><style><style><style>
+  #target { background-color: green; }
+  @container --root style(--prop: var(--unknown)) {
+    #target { background-color: red; }
+  }
+</style></style></style></style>
+<div id="target"></div>
+<e i>u ttscp srp(() => assert_implements_style_container_queries());
+
+  test(() => {
+    assert_equals(getComputedStyle(target).backgroundColor, "rgb(0, 128, 1)");
+  }, "Querying with a guaranteed-invalid value should evaluate to false");
+
+</script>

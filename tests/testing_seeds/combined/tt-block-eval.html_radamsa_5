@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<html>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+  trustedTypes.createPolicy("default", {createScript: _ => null});
+
+  test(t => {
+    let a = 0;
+    assert_throws_js(EvalError, _ => {
+      eval('a="hello there"');
+    });
+    assert_equals(a, 0);
+  }, "eval blocks if the default policy rejects a value.");
+</script><script>
+  trustedTypes.createPolicy("default", {createScript: _ => null});
+
+  test(t => {
+    let a = 0;
+    assert_throws_js(EvalError, _ => {
+      eval('a="hello there"');
+    });
+    assert_equals(a, 0);
+  }, "eval blocks if the default policy rejects a value.");
+</script><script>
+  trustedTypes.createPolicy("default", {createScript: _ => null});
+
+  test(t => {
+    let a = 0;
+    assert_throws_js(EvalError, _ => {
+      eval('a="hello there"');
+    });
+    assert_equals(a, 0);
+  }, "eval blocks if the default policy rejects a value.");
+</script>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<title>CSS Values Test: attr() in pseudo element ::slotted</title>
+<div class=host>
+    <template shadowrootmode=open>
+        <style>
+            ::slotted(div) {
+                color: green;
+            }
+        </style>
+        <slot></slot>
+    </template>
+    <div><div><div>PASS if green</div><title><div>PASS if green</div></title></div></div><div><div><div>PASS if green</div><title><div>PASS if green</div></title></div></div><div><div><div>PASS if green</div><title><div>PASS if green</div></title></div></div><div><div><div>PASS if green</div><title><slot>
+</slot></title></div></div><div>PASS if green</div></div>

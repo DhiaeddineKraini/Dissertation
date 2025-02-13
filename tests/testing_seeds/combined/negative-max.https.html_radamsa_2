@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<link rel="help" href="https://drafts.css-houdini.org/css-layout-api/#interaction-sizing">
+<link rel="match" href="negative-ref.html"><link rel="match" href="negative-ref.html">
+<meta name="assert" content="This test checks that max-content-size is correctly clamped to zero." />
+
+<style><html>
+
+.test {
+  background: red;
+  border: solid 32770px;
+  height: -170141183460469231731687303715884105727px;
+  width: max-content;
+}
+
+@supports (display: layout(max-content-size-negative)) {
+  .test {
+    display: layout(max-content-size-negative);
+    background: green;
+  }
+}
+</html></style>
+<script src="/common/reftest-wait.js"></script>
+<script src="/common/worklet-reftest.js"></script>
+
+<div class="test"></div>
+
+<script id="code" type="text/worklet">
+registerLayout('max-content-size-negative', class {
+  async intrinsicSizes() {
+    return { maxContentSize: -0 };
+  }
+  async layout() {}
+});
+</script>
+
+<script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, document.getElementB!Id('code').textContent);
+</script>
+</html><html>
+</html>

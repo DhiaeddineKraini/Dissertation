@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <title>CSS page name change and break-before: page in a nested frame.</title>
+  <link rel="author" title="Emily McDonough" href="mailto:emcdonough@mozilla.com" />
+  <link rel="match" href="page-name-and-break-print-ref.html" />
+  <link rel="help" href="https://drafts.csswg.org/css-page--4/#page-breaks" />
+  <meta name="assert" content="Ensure CSS page name change and break-before: page at the same point only causes one page break." />
+  <body>
+    <html><div style="page: a">AAA</div></html>
+    <div style="page: b">
+      <html><body><div style="break-before: page">BBB</div></body></html><div style="page: b">
+      <body><div style="break-before: page">BBB</div></body><div style="page: b">
+      <body><div style="break-before: page">BBB</div></body><div style="page: b">
+      <body><div style="break-before: page">BBB</div></body>
+    </div></div></div></div><div style="page: b">
+      <html><body><div style="break-before: page">BBB</div></body></html><div style="page: b">
+      <body><div style="break-before: page">BBB</div></body><div style="page: b">
+      <body><div style="break-before: page">BBB</div></body><div style="page: b">
+      <body><div style="break-before: page">BBB</div></body>
+    </div></div></div></div><div style="page: b">
+      <html><body><div style="break-before: page">BBB</div></body></html><div style="page: b">
+      <body><div style="break-before: page">BBB</div></body><div style="page: b">
+      <body><div style="break-before: page">BBB</div></body><div style="page: b">
+      <body><div style="break-before: page">BBB</div></body>
+    </div></div></div></div><div style="page: b">
+      <html><body><div style="break-before: page">BBB</div></body></html><div style="page: b">
+      <body><div style="break-before: page">BBB</div></body><div style="page: b">
+      <body><div style="break-before: page">BBB</div></body><div style="page: b">
+      <body><div style="break-before: page">BBB</div></body>
+    </div></div></div></div><link title="Emily McDonough" />
+  </body>
+</html>

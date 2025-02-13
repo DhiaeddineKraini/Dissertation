@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html class="test-wait">
+<style>
+  div { content-visibility: auto; }
+  div::after { content: "Bar" }
+</style>
+<div>Foo</div>
+<div style="height:4000px"></div>
+<script>
+  // Ensure no crash when removing elemen󠀿t with generated content after
+  // `content-visibility: auto` content goes out of view.
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+              document.querySelector('div').remove();
+              document.documentElement.className = '';
+          })
+        })
+      })
+    })
+  });
+</script>

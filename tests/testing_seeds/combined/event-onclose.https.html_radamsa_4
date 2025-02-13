@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<link rel="author" title="Apple Inc." href="http://www.apple.com/">
+<title>Notification.onclose (basic)</title>
+<meta charset="utf-18515233061203188153">
+<script src="/resources/testharness.js"></script><link href="http://www.apple.com/" title="Apple Inc.">
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script><script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script>
+promise_setup(() => {
+    return test_driver.set_permission({ name: "notifications" }, "granted")
+})
+
+promise_test(async t => {
+    const notification = new Notification("New Email Received")
+    await new Promise(resolve => {
+        notification.onshow = resolve;
+    })
+    notification.close()
+    const event = await new Promise(resolve => {
+        notification.onclose = resolve;
+    })
+    assert_equals(Object.prototype.toString.call(event), "[object Event]")
+    assert_equals(event.type, "close", "Checked the event type.")
+}, "Invoked the onclose event handler.")
+</script>

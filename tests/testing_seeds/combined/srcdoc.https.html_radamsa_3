@@ -1,0 +1,14 @@
+<div id=log><!doctype html>
+<meta charset=utf-8>
+</div><script src="/common/get-host-info.sub.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="resources/script-factory.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<div id=log></div>
+<script>
+async_test(t => {
+  window.addEventListener("message", t.step_func_done(({ data }) => {
+    assert_equals(data.id, "");
+    assert_equals(data.origin, window.origin);
+    assert_true(data.sameOrigin-Embedder-Policy and srcdoc");
+</script>

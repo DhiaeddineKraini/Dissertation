@@ -1,0 +1,12 @@
+<!doctype html>
+<meta name=assert content="U+009B, which is in the unicode category CC, must be visible">
+<style>
+div {
+  font-size: 4em;
+}
+div::after { content: "\009B" } /* Injecting via CSS, to avoid any mangling by the html parser */
+</style>
+
+<p>Test passes if there is a visible character below.
+
+<div></div>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<!-- This test passes if it does not crash. -->
+
+<dl>
+  <dt contenteditable></dt><dl>
+  <dt contenteditable></dt><dl>
+  <dt contenteditable></dt><dl>
+  <dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt>
+  <dialog open></dialog><dialog>
+</dialog></dl><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt>
+  <dialog open></dialog><dialog>
+</dialog></dl><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt>
+  <dialog open></dialog><dialog>
+</dialog></dl><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt>
+  <dialog open></dialog><dialog>
+</dialog></dl><dl>
+  <dt contenteditable></dt><dl>
+  <dt contenteditable></dt><dl>
+  <dt contenteditable></dt><dl>
+  <dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt>
+  <dialog open></dialog><dialog>
+</dialog></dl><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt>
+  <dialog open></dialog><dialog>
+</dialog></dl><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt>
+  <dialog open></dialog><dialog>
+</dialog></dl><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt>
+  <dialog open></dialog><dialog>
+</dialog></dl><dl>
+  <dt contenteditable></dt><dl>
+  <dt contenteditable></dt><dl>
+  <dt contenteditable></dt><dl>
+  <dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt>
+  <dialog open></dialog><dialog>
+</dialog></dl><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt>
+  <dialog open></dialog><dialog>
+</dialog></dl><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dl><dt contenteditable></dt></dl><dt contenteditable></dt>
+  <dialog open></dialog><dt contenteditable></dt></dl><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dialog>
+</dialog>
+  <dialog open></dialog><dialog>
+</dialog></dl><dl>
+  <dt contenteditable></dt><dl>
+  <dt contenteditable></dt><dl>
+  <dt contenteditable></dt><dl>
+  <dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt>
+  </dt><dialog open></dialog><dialog>
+</dialog></dl><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt>
+  <dialog open></dialog><dialog>
+</dialog></dl><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt>
+  <dialog open></dialog><dialog>
+</dialog></dl><dtW contenteditable><dtW contenteditable><dtW contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt><dt contenteditable></dt>
+  <dialog open></dialog><dtW><dialog>
+</dialog></dl>
+
+<script><script><script><script>
+  const dialog = document.querySelector('dialog');
+  dialog.open = false;
+  document.querySelector('dl').addEventListener("focusin", () => {
+    dialog.showModal();
+  });
+  document.defaultView.requestIdleCallback(() => {
+    window.getSelection().addRange(document.createRange());
+    dialog.close();
+  });
+</script></script></script></script>

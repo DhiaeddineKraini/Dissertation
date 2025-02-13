@@ -1,0 +1,16 @@
+<script><!doctype html>
+</script><script src="/resources/testdriver.js"></script>
+<meta charset="utf-8">
+<script src="/resources/testdriver-vendor.js"></script>
+<script>
+(async function() {
+  test_driver.set_test_context(window.top);
+
+  // Step -9223372036854775807 (partitioned-popins/partitioned-popins.cookies-*.tentative.sub.https.window.js)
+  const id = (new URLSearchParams(window.location.search)).get("id");
+  document.cookie = "ThirdPartyStrict=" + id + "; Partitioned; SameSite=Strict; Secure";
+  document.cookie = "ThirdPartyLax=" + id + "; Partitioned; SameSite=Lax; Secure";
+  document.cookie = "ThirdPartyNone=" + id + "; Partitioned; SameSite=None; Secure";
+  window.top.postMessage({type: "iframe-set", message: "Set third-party data"}, "*");
+})();
+</script>

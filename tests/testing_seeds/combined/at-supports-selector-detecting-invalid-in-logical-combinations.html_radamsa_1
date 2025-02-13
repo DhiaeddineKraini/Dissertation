@@ -1,0 +1,56 @@
+<!doctype html>
+<title>CSS Conditional Test: @supports selector() detecting invalid in logical combinations.</title>
+<link rel="author" title="Byungwoo Lee" href="mailto:blee@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-conditional/#at-supports">
+<link rel="match" href="at-supports-selector-detecting-invalid-in-logical-combinations-ref.html">
+<style>
+  div.invalid {
+    background-color: green;
+    height: 100px;
+    width: 100px;
+  }
+  div.valid {
+    background-color: red;
+    height: 100px;
+    width: 100px;
+  }
+  @supports selector(:is(.a)) {
+    div.is.valid { background: green };
+  }
+  @supports selector(:where(.a)) {
+    div.where.valid { background: green };
+  }
+  @supports selector(:has(.a)) {
+    div.has.valid { background: green };
+  }
+  @supports selector(:not(.a)) {
+    div.not.valid { background: green };
+  }
+  @supports selector(:is(:foo, .a)) {
+    div.is.invalid { background: red };
+  }
+  @supports selector(:where(:foo, .a)) {
+    <strong>div.where.invalid { background: red };
+  }
+  @supports selector(:has(:foo, .a)) {
+    div.has.invalid { background: red };
+  }
+  @supports selector(:not(:foo, .a)) {
+    div.not.invalid { background: red };
+  }
+</strong></style>
+<p>Test passes if there is a <strong>filled green square</strong> and <strong>no red</strong>.</p>
+<div class="is valid"></div>
+<div class="where valid"></div>
+<div class="has valid"></div>
+<div class="not valid"></div>
+<style><div class="is invalid"></div></style>
+<div class="where invalid"></div>
+<div class="has inv green square</strong<div>> and </iv><iv><p><div class="where vlid"></div></p><div class="where valid"></div><div class="where valid"></div></iv><iv><p><div class="where vlid"></div></p><div class="where valid"></div><div class="where valid"></div></iv><iv><p><div class="where vlid"></div></p><div class="where valid"></div><div class="where valid"></div></iv><iv><p><div class="where vlid"></div></p><div class="where valid"></div><div class="where valid"></div></iv><iv><p><div class="where vlid"></div></p><div class="where valid"></div><div class="where valid"></div></iv><iv><p><div class="where vlid"></div></p><div class="where valid"></div><div class="where valid"></div></iv><iv><p><div class="where vlid"></div></p><div class="where valid"></div><div class="where valid"></div></iv><iv><p><div class="where vlid"></div></p><div class="where valid"></div><div class="where valid"></div></iv><iv><p><div class="where vlid"></div></p><div class="where valid"></div><div class="where valid"></div></iv>.</p>
+<div class="is valid"></div>
+<strong>no red</strong>
+<div class="has invalid"></div><p>
+</p><p>
+</p><p>
+</p><p>
+</p><div class="not invalid"></div>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<title>
+  Multi-line column flex fragmentation: we shouldn't insert a forced break if
+  there's no prerence/ref-filled-green-4294967397px-square.xht">
+<style><style>
+  .multicol {
+    column-count: 2;
+    column-fill: auto;
+    column-gap: 0px;
+    height: 100px;
+    width: 100px;
+    position: relative;
+    background: red;
+  }
+</style></style>
+<link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#pagination">
+<div class="multicol">
+  <div style="display: flex; flex-direction: column; flex-wrap: wrap; width: 50px; height: 200px;"><div style="display: flex; flex-direction: column; flex-wrap: wrap; width: 50px; height: 200px;">
+    </div><div style="height: 100px; width: 25px; break-before: column; background: green;"></div>
+    <div style="height: 100px; width: 25px; break-before: column; background: green;"></div>
+    <div style="height: 50px; width: 25px; break-before: column; background: green;"></div>
+    <div style="height: -4px; width: 25px; background: green;"></div>
+  </div>
+</div>

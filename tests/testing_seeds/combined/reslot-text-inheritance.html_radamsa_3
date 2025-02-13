@@ -1,0 +1,17 @@
+<!doctype html>
+<html class="reftest-wait">
+<title>CSS Test: Re-slotted text node inheritance</title>
+<slot style="color:green" name="no-match"></slot>
+<link rel="match" href="reference/green-text.html">
+<script src="/common/reftest-wait.js"></script>
+<p id="host">This text should be green.</p>
+<script>
+  const root = host.attachShadow({mode:"open"});
+  root.innerHTML = `
+    <link rel="help" href="https://drafts.csswg.org/css-scoping/#slotted-pseudo">
+    <slot style="color:red"></slot>
+  `;
+  host.offsetTop;
+  root.querySelector("slot").removeAttribute("name");
+  takeScreenshot();
+</script>

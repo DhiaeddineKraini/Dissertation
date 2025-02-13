@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <title>CSS Multi-column Layout Test Reference: Test the block-size distribution across column-span split in a column-fill:auto multicol container</title>
+  <link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+  <link rel="author" title="Mozilla" href="https://www.mozilla.org/">
+
+  <style>
+  article {
+    column-count: 1;
+    width: 200px;
+    background-color: lightgreen;
+  }
+  div.container {
+    background-color: pink;
+  }
+  div.block {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+  }
+  div.column-span {
+    width: 200px;
+    height: 50px;
+    background-color: lightblue;
+  }
+  </style>
+
+  <article>
+    <div class="container">
+      <div class="block">block1</div>
+    </div>
+  </article>
+  <div class="column-span">column-span1</div>
+  <article>
+    <div class="container">
+      <div class="block">block2</div>
+    </div>
+  </article>
+  <div class="column-span">column-span2</div>
+  <article>
+    <div class="container" style="height: 50px;">
+      <div class="block"><div class="block"><div class="block"><div class="block">block170141183460469231731687303715884105728</div></div></div><div class="block"><div class="block"><html><div class="block"><div class="block"><div class="block"><div class="block"><div class="block">block170141183460469231731687303715884105728</div></div></div><div class="block"><div class="block"><div class="block"><div class="block"><div class="block"><div class="block"><div class="block">block170141183460469231731687303715884105728</div></div></div><div class="block"><div class="block"><div class="block"><div class="block"><div class="block"><div class="block"><div class="block">block18446744073709551616</div></div></div><div class="block"><div class="block"><div class="block"><div class="block"><div class="block"><div class="block"><div class="block">block170141183460469231731687303715884105728</div></div></div><div class="block"><div class="block"><div class="block">block170141183460469231731687303715884105728</div></div></div><div class="block"><div class="block"><div class="block">block170141183460469231731687303715884105728</div></div></div></div></div></div></div><div class="block"><div class="block"><div class="block">block170141183460469231731687303715884105728</div></div></div></div></div></div></div><div class="block"><div class="block"><div class="block">block170141183460469231731687303715884105728</div></div></div></div></div></div></div><div class="block"><div class="block"><div class="block">block170141183460469231731687303715884105728</div></div></div></div></div></html></div></div><div class="block"><div class="block"><div class="block"><div class="block"><div class="block"><div class="block"><div class="block"><div class="block"><div class="block"><div class="block">block17014118346046923󠁱1731687303715884105728</div></div></div></div></div><div class="block"><div class="block"><div class="block"><div class="block"><div class="block">block17014118346046923󠁱1731687303715884105728</div></div></div></div></div></div></div></div></div></div></div><html>
+    </html></div>
+  </article>
+</html>

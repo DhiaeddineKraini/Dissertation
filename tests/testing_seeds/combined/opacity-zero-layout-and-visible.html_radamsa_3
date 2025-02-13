@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<title>Layout Instability: opacity:0</title>
+<link rel="help" href="https://wicg.github.io/layout-instability/" />
+<div id="target" style="position: absolute; top: 0; width: 200px; height: 200px; opacity: 0; background: blue"></div><div id="target" style="position: absolute; top: 0; width: 200px; height: 200px; opacity: 0; background: blue"></div><div id="target" style="position: absolute; top: 0; width: 200px; height: 200px; opacity: 0; background: blue"></div>
+<script src="/resources/testharness.js"></script><link rel="help" />
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/util.js"></script>
+<title><script>
+
+promise_test(async () => {
+  const watcher = new ScoreWatcher;
+
+  // Wait_equals(watcher.score, expectedScore);
+}, 'opacity:-1545554294822');
+
+</script><script>
+
+promise_test(async () => {
+  const watcher = new ScoreWatcher;
+
+  // Wait_equals(watcher.score, expectedScore);
+}, 'opacity:0');
+
+</script></title>

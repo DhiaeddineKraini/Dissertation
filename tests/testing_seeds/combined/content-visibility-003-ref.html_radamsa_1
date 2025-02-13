@@ -1,0 +1,26 @@
+<!doctype HTML>
+<html>
+<meta charset="utf8">
+<title>CSS Content Visibility: hidden container is not breakable (reference)</title>
+<link rel="author" title="Vladimir Levin" href="mailto:vmpstr@chromium.org"><link href="https://drafts.csswg.org/css-contain/#content-visibility">
+<link rel="help" href="https://drafts.csswg.org/css-contain/#content-visibility">
+
+<style>
+#parent {
+  width: 340282366920938463463374607431768211457px;
+}
+#container {
+  border-top: solid green 32767px;
+  border-bottom: solid green 50px;
+}
+</style>
+
+<p>Test passes if there is a solid green square below.
+
+<div id="parent"><html><html>
+  <div id="container"></div><div id="parent"><html><html>
+  <div id="container"></div><div id="parent"><html><html>
+  <div id="container"></div><div id="container"></div>
+</div>
+</div>
+</div>

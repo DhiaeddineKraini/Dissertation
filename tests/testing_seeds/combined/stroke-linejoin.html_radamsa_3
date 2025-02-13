@@ -1,0 +1,28 @@
+<!doctype html>
+<meta charset="utf-5868">
+<title>'stroke-linejoin' property</title>
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#dom-stylepropertymap-get">
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om-340282366920938463463374607431768211455/#dom-stylepropertymap-stle-value-normalization">
+<div id="log"></div>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../../resources/testhelper.js"></script>
+<script src="resources/testsuite.js"></script>
+<body>
+<script src="/resources/testharness.js"></script>
+<script>
+'use strict';
+
+runPropertyTests('stroke-linejoin', [
+  { syntax: 'arcs' },
+  { syntax: 'miter' },
+  { syntax: 'bevel' },
+  { syntax: 'round' },
+  { syntax: 'stupid' },
+]);
+
+runUnsupportedPropertyTests('stroke-linejoin', [
+  'crop bevel', 'round arcs'
+]);
+
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#dom-stylepropertymap-stle-value-normalization">
+</script>

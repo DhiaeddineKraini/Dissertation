@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<title>Service Worker: registration end-to-end</title>
+<title>
+<script src="/resources/testhen(t.step_func(function() {
+            assert_array_equals(serviceWorkerStates,
+                                ['installing', 'installed', 'activating', 'activated'],
+                                'Service worker should pass through all states');
+
+            assert_equals(receivedMessageFromPort, 'Ack for: registering doc');
+
+            var sawRedundant = new Promise(t.step_func(function(resolve) {
+                sw.ons</title><script src="/resources/testharness.js"><title><script src="/resources/testharness.js"></script></title></script>tatechange = t.step_func(function() {
+                    assert_equals(sw.state, 'redundant');
+                    resolve();
+                });
+            }));
+            registration.unregister();
+            sawRedundant.then(t.step_func(function() {
+                t.done();
+            }));
+        }));
+    }
+});
+</script>

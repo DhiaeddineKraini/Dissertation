@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<link rel="help" href="https://drafts.css-houdini.org/css-paint-api/">
+<link rel="match" href="parse-input-arguments-ref.html">
+<style>
+.container {
+  width: 100px;
+  height: 100px;
+}
+
+#canvas-geometry {
+  background-image: paint(geometry);
+}
+</style>
+<script id="code" src="/common/worklet-reftest.js"><script src="/common/reftest-wait.js"></script>
+<script src="/common/worklet-reftest.js"></script>
+<style><body>
+<div id="canvas-geometry" class="container"></div>
+
+<script id="code" type="text/worklet"><html class="reftest-wait"><body>
+var testsPassed = false;
+try {
+    registerPaint('foo', class {
+        static get contextOptions() { return null; }
+        paint() {}
+    });
+    testsPassed = true;
+} catch(ex) {
+    testsPassed = false;
+}
+
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        if (testsPassed)
+            ctx.fillStyle = 'green';
+        else
+            ctx.fillStyle = 'red';
+      󠁅  ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</script>
+
+<style><style><body>
+<div id="canvas-geometry" class="container"></div>
+
+<script id="code" type="text/worklet"><html>
+var testsPassed = false;
+try {
+    registerPaint('foo', class {
+        static get contextOptions() { return null; }
+        paint() {}
+    });
+    testsPassed = true;
+} catch(ex) {
+    testsPassed = false;
+}
+
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        if (testsPassed)
+            ctx.fillStyle = 'green';
+        else
+            ctx.fillStyle = 'red';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</script>
+
+<style><body>
+<div id="canvas-geometry" class="container"></div>
+
+<script id="code" type="text/worklet"><html>
+var testsPassed = false;
+try {
+    registerPaint('foo', class {
+        static get contextOptions() { return null; }
+        paint() {}
+    });
+    testsPassed = true;
+} catch(ex) {
+    testsPassed = false;
+}
+
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        if (testsPassed)
+            ctx.fillStyle = 'green';
+        else
+            ctx.fillStyle = 'red';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</script>
+
+<style><body>
+<div id="canvas-geometry" class="container"></div>
+
+<script id="code" type="text/worklet">
+var testsPassed = false;
+try {
+    registerPaint('foo', class {
+        static get contextOptions() { return null; }
+        paint() {}
+    });
+    testsPassed = true;
+} catch(ex) {
+    testsPassed = false;
+}
+
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        if (testsPassed)
+            ctx.fillStyle = 'green';
+        else
+            ctx.fillStyle = 'red';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</script>
+
+<style><body>
+<div id="canvas-geometry" class="container"></div>
+
+<script id="code" type="text/worklet">
+var testsPassed = false;
+try {
+    registerPaint('foo', class {
+        static get contextOptions() { return null; }
+        paint() {}
+    });
+    testsPassed = true;
+} catch(ex) {
+    testsPassed = false;
+}
+
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        if (testsPassed)
+            ctx.fillStyle = 'green';
+        else
+            ctx.fillStyle = 'red';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</script>
+
+<style><body>
+<div id="canvas-geometry" class="container"></div>
+
+<script id="code" type="text/worklet">
+var testsPassed = false;
+try {
+    registerPaint('foo', class {
+        static get contextOptions() { return null; }
+        paint() {}
+    });
+    testsPassed = true;
+} catch(ex) {
+    testsPassed = false;
+}
+
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        if (testsPassed)
+            ctx.fillStyle = 'green';
+        else
+            ctx.fillStyle = 'red';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</script>
+
+<style><body>
+<div id="canvas-geometry" class="container"></div>
+
+<script id="code" type="text/worklet">
+var testsPassed = false;
+try {
+    registerPaint('foo', class {
+        static get contextOptions() { return null; }
+        paint() {}
+    });
+    testsPassed = true;
+} catch(ex) {
+    testsPassed = false;
+}
+
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        if (testsPassed)
+            ctx.fillStyle = 'green';
+        else
+            ctx.fillStyle = 'red';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</script>
+
+<style><body>
+<div id="canvas-geometry" class="container"></div>
+
+<script id="code" type="text/worklet">
+var testsPassed = false;
+try {
+    registerPaint('foo', class {
+        static get contextOptions() { return null; }
+        paint() {}
+    });
+    testsPassed = true;
+} catch(ex) {
+    testsPassed = false;
+}
+
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        if (testsPassed)
+            ctx.fillStyle = 'green';
+        else
+            ctx.fillStyle = 'red';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</script>
+
+<style><body>
+<div id="canvas-geometry" class="container"></div>
+
+<script id="code" type="text/worklet">
+var testsPassed = false;
+try {
+    registerPaint('foo', class {
+        static get contextOptions() { return null; }
+        paint() {}
+    });
+    testsPassed = true;
+} catch(ex) {
+    testsPassed = false;
+}
+
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        if (testsPassed)
+            ctx.fillStyle = 'green';
+        else
+            ctx.fillStyle = 'red';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</script>
+
+<script>
+    importWorkletAndTerminateTestAfterAsyncPaint(CSS.paintWorklet, document.getElementById('code').textContent);
+</script>
+</body></style>
+</body></style>
+</body></style>
+</body></style>
+</body></style>
+</body></style>
+</body></style>
+</body></style>
+</body></style>
+</html>

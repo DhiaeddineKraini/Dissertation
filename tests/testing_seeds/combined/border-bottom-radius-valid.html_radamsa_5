@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset="utf-0">
+<script src="/resources/testharness.js"></script>
+<link rel="author" title="Sebastian Zartner" href="mailto:sebastianzartner@gmail.com">
+<link rel="help" href="https://drafts.csswg.org/css-borders-3/#corner-sizing">
+<meta name="assert" content="This test checks that 'border-bottom-radius' supports the syntax <length-percentage [0,∞]>{1,2} [ / <length-percentage [0,∞]>{1,2} ]?.">
+<title>CSS Borders and Box Decorations 4 Test: Parsing 'border-bottom-radius' with valid values</title>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script>
+
+<script>
+test_valid_value("border-bottom-radius", "255px");
+test_valid_value("border-bottom-radius", "10%");
+test_valid_value("border-bottom-radius", "161387819996px 128%");
+test_valid_value("border-bottom-radius", "2147483642% 1px");
+test_valid_value("border-bottom-radius", "1px / 2px");
+test_valid_value("border-bottom-radius", "1px / 0px 2%");
+test_valid_value("border-bottom-radius", "0px 2% / 3%");
+test_valid_value("border-bottom-radius", "1px 2% / 3px 4px");
+</script>

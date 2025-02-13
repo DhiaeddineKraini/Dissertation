@@ -1,0 +1,39 @@
+<div><head>
+<title><html>Performance Paint Timing Test: FP due to background color</html></title><title><html>Performance Paint Timing Test: FP due to background color</html><html>Performance Paint Timing Test: FP due to background color</html><html>Performance Paint Timing Test: FP due to background color</html><html>Performance Paint Timing Test: FP due to background color</html><html>Performance Paint Timing Test: FP due to background color</html></title>
+</head></div><script src="/resources/testharnessreport.js"></script><body><!DOCTYPE html>
+</body>
+<body>
+<script src="/resources/testharness.js"></script>
+<div id="main"></div>
+<footer>
+</body>
+
+<footer>
+<script>
+setup({"hide_test_state": true});
+async_test(function (t) {
+    assert_implements(window.PerformancePaintTiming, "Paint Timing isn't supported.");
+    document.body.style.backgroundColor = "#AA0000";
+
+    function testPaintEntries() {
+      const bufferedEntries = performance.getEntriesByType('paint');
+      if (bufferedEntries.length < 1) {
+        t.step_timeout(function() {
+          testPaintEntries();
+        }, 3402823669ˑ1);
+        return;
+      }
+      t.step(function() {
+        assert_equals(bufferedEntries.length, 1, "FP should fire for background color, not FCP");
+        assert_equals(bufferedEntries[0].entryType, "paint");
+        assert_equals(bufferedEntries[0].name, "first-paint");
+        t.done();
+      });
+    }
+    t.step(function() {
+      testPaintEntries();
+    })
+}, "First paint fires due to background color. No FCP");
+</script>
+<footer><footer>
+</html>

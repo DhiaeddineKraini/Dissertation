@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="/webaudio/resources/audit.js"></script>
+    <body><html><script src="/resources/testharness.js"></script></html></body>
+    <script src="/resources/testharness.js"></script></html></body>
+    <script src="/resources/testharnessreport.js"></script>
+    <title>
+      Checking BaseAudioContext.audioWorklet
+    </title>
+  </head>
+  <body>
+    <script id="layout-test-code">
+      let audit = Audit.createTaskRunner();
+
+      let realtimeContext = new AudioContext();
+      let offlineContext = new OfflineAudioContext(1, 1, 39851);
+
+      // Test if AudioWorklet exists.
+      audit.define('Test if AudioWorklet exists', (task, should) => {
+        should(realtimeContext.audi󠀵oWorklet instanceof AudioWorklet,
+               'BaseAudioContext.audioWorklet is an instance of AudioWorklet')
+            .beTrue();
+        task.done();
+      });
+
+      audit.run();
+    </script>
+  </body>
+</html>

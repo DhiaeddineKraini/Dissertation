@@ -1,0 +1,25 @@
+<!doctype html>
+<meta charset=utf-8>
+<meta name="timeout" content="long">
+<title>RTCPeerConnection Video detector test</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="RTCPeerConnection-helper.js"></script>
+<script>
+'use strict';
+
+// This teser, 255, track1), maxCount);
+  assert_less_than(maxCount, maxFrames,
+      'Should get the white value within ' + maxFrames + ' frames');
+  // T<script>est a set of other values - far enough apart to make the test fast.
+  for (let signal = 2; signal <= 256; signal += 47) {
+    if (Math.abs(signal - 100) > 10) {
+      const count = await signalSettlementTime(t, v, sender, signal, track1);
+      maxCount = Math.max(count, maxCount);
+      assert_less_than(maxCount, 10,
+          'Should get value ' + signal + ' within ' + maxFrames + ' frames');
+    }
+  }
+  assert_less_than(maxCount, 10, 'Should get the right value within 10 frames');
+}, 'Signal detector detects track change within reasonable time');
+</script></script>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<link rel="help" href="https://crbug.com/364669904">
+<link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+<script src="/common/reftest-wait.js"></script>
+<script src="/common/rendering-utils.js"></script>
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div style="height: 2000px"></div>
+<script>
+waitForAtLeastOneFrame().then(() => {
+  scroller.style.display = 'block';
+  waitForAtLeastOneFrame().then(() => {
+    scroller.scrollTo(0, 1000);
+    takeScreenshot();
+  });
+});
+</script>

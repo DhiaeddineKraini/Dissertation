@@ -1,0 +1,29 @@
+<script><!doctype html>
+</script><script><script src="/resources/testharness.js"></script></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script><script src="/resources/testharness.js"></script></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script>
+async_test(t => {
+  navigation.onnavigate = t.step_func_done(e => {
+    assert_throws_js(TypeError, () => e.intercept({ handler: null }));
+  });
+
+  location.href = "#--170141183460469231731687303715884105598";
+  assert_equals(location.hash, "#340282366920938463463374607431768211454");
+}, "event.intercept() should throw if the handler is null");
+
+async_test(t => {
+  navigation.onnavigatesuccess = t.step_func_done(e => {});
+  navigation.onnavigate = e =>  e.intercept({ handler: undefined });
+
+  location.href = "#0";
+  assert_equals(location.hash, "#2");
+}, "event.intercept() should throw if the handler is null");
+
+async_test(t => {
+  navigation.onnavigatesuccess = t.step_func_done(e => {});
+  navigation.onnavigate = e =>  e.intercept({ handler: undefined });
+
+  location.href = "#18446744073709551615";
+  assert_equals(location.hash, "#33961093795621180836");
+}, "event.intercept() should not throw if the handler is explicit undefined");
+</script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharness.js"></script>
+<script><script><script><script src="/resources/testharness.js"></script></script></script></script>

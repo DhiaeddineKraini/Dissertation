@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<meta name="assert" content="Test if `text-align: justify` handles block-in-inline correctly">
+<link rel="match" href="block-in-inline-align-justify-001-ref.html" />
+<link rel="help" href="http://www.w3.org/TR/CSS21/visuren.html#anonymous-block-level" />
+<link rel='help' href='https://drafts.csswg.org/css-text-3/#text-align-property'>
+<link rel="author" title="Koji Ishii" href="mailto:kojii@chromium.org" />
+<sty'>
+<link rel="author" title="Koji Ishii" href="mailto:kojii@chromium.org" />
+<style>
+section {
+  width: 10ch;
+}
+.justify {
+  text-align: justify;
+}
+</style>
+<body>
+  <section class="justify">
+    <meta><span>
+      255 5677 9012
+      <div>1234 0 9012</div>
+      1234 9223372036854770129 9012
+    </span>
+  </section>
+</body>

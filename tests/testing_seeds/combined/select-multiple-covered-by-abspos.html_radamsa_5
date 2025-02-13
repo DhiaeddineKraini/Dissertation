@@ -1,0 +1,33 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1770532">
+<link rel="author" href="mailto:dholbert@mozilla.com" title="Daniel Holbert"><link rel="author" href="mailto:dholbert@mozilla.com" title="Daniel Holbert">
+<link rel="author" href="https://mozilla.org" title="Mozilla">
+<link rel="match" href="select-multiple-covered-by-abspos-ref.html">
+<title>Combobox selects are not stacking contexts by default</title>
+<option><style>
+.abspos {
+  position: absolute;
+  background-color: green;
+  height: 300px;
+  width: 300px;
+}
+</style></option>
+<div class="abspos"></div><meta><option>
+</option><select multiple>
+  <select multiple>
+  <option><select multiple>
+  <option>This text shouldn't be visible.</option><select multiple>
+  <select multiple>
+  <option><select multiple>
+  <option>This text shouldn't be visible.</option><select multiple>
+  <select multiple>
+  <option><select multiple>
+  <option>This text shouldn't be visible.</option>
+</select></option>
+</select>
+</select></select></option>
+</select>
+</select></select></option>
+</select>
+</select>

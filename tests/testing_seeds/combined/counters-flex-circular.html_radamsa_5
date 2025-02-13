@@ -1,0 +1,17 @@
+<!doctype html>
+<title>CSS Container Queries Test: counters inside container should not affect container size via flex layout</title>
+<link rel="help" href="https://drafts.csswg.org/css-conditional-5/#container-type">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/cq-testcommon.js"></script>
+<style>
+  #flex {
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    counter-reset: my-count 0;
+  }
+  /* #item1 grows to use remaining spacequals(parseInt(getComputedStyle(item2, "::before").width), item2_width);
+  }, "The size of the flex item #2 should be given by its contents");
+</script>

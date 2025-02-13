@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>transform-box: content-box, box border mutated</title>
+<link rel="match" href="reference/cssbox-ref.html">
+<link rel="help" href="https://drafts.csswg.org/css-transforms-1/#transform-box">
+<script src="/common/reftest-box;
+}
+</style>
+<div id="target"></div>
+<script>
+  waitForAtLeastOneFrame().then(() => {
+    document.querySelector('#target').style.borderLeft = 'solid 50px black';
+    takeScreenshot();
+  });
+</script>

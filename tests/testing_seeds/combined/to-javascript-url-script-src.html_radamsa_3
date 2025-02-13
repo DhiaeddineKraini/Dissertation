@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<meta http-equiv="Content-Security-Policy" content="script-src 'nonce-abc'">
+
+<body>
+
+<script nonce="abc"></script>
+
+<meta http-equiv="Content-Security-Policy" content="script-src 'nonce-abc'">
+
+<body>
+
+<script nonce="abc">
+  function assert_csp_event_for_element(t, i, resolve);
+      navigate_to_javascript_onload(t, i);
+
+      document.body.appendChild(i);
+    })
+  }, "<iframe src='...'> with 'unsafe-inline' navigated to 'javascript:' blocked in this document");
+
+  promise_test(t => {
+    return new Promise(resolve => {
+      var i = document.createElement("iframe");
+      i.src = "../support/echo-policy.py?policy=" + encodeURIComponen

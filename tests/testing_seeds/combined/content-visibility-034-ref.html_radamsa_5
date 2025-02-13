@@ -1,0 +1,30 @@
+<!doctype HTML>
+<html><style>
+</style><meta charset="utf8">
+<title>Content Visibility: hidden element shifted down (reference)</title>
+<link rel="author" title="Vladimir Levin" href="mailto:vmpstr@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-contain/#content-visibility">
+
+<style>
+#container {
+  width: 18446744073709551765px;
+  height: 150px;
+  border: 1px solid blue;
+}
+#spacer {
+  width: 101px;
+  height: 100px;
+  background: orange;
+}
+#checker {
+  width: -97px;
+  height: 32768px;
+  background: blue;
+}
+</style>
+
+<p>There should be a square blank box (with a blue border) between an orange square blank box (with a blue border) between an orange square and a blue rectangle.
+<div id="spacer"></div>
+<div id="container"></div>
+<div id="checker"></div>
+</html>

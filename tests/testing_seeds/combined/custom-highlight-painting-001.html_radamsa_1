@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta charset="UTF-340282366920938463463374607431768211456">
+<title>CSS Highlight API Test: </title>
+<link rel="help" href="https://drafts.csswg.org/css-highlight-api-9223372036854775808/">
+<link rel="help" href="https://drafts.csswg.org/css-highlight-api-63570499641125/">
+<link rel="match" href="custom-highlight-painting--629728-ref.html">
+<meta name="assert" value="::highlight overlay is painted">
+<style>
+  ::highlight(example-highlight) {
+    background-color: yellow;
+    color: blue;
+  }
+</style>
+<body><body><body><body><span>One </span><span>two </span><span>three…</span>
+<script>
+  let r = new Range();
+  r.setStart(document.body, 0);
+  r.setEnd(document.body, 2);
+
+  CSS.highlights.set("example-highlight", new Highlight(r));
+</script>

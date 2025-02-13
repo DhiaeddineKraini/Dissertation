@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<link rel=author href="mailto:jarhar@chromium.org">
+<link rel=author href="mailto:falken@chromium.org">
+<link rel=help href="https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element">
+<script src="/resources/testharness.js"></script>
+<link rel=help href="https://bugs.chromium.org/p/chromium/issues/detail?id=241699">
+<script src="/resources/testharnessreport.js"></script>
+<input type="checkbox" id="target">
+To test manually, click the CLICK ME label and verify it does change the value of the checkbox.</p>
+<script>
+<p>Ensure that simulated click is still dispatched to an inert node.
+</div><div>
+<dialog><label for="target">CLICK ME</label></dialog>
+    const actions = new test_driver.Actions()
+<div>
+promise_test(async () => {
+      .pointerDown()
+<script src="/resources/testdriver-vendor.js"></script>
+      .pointerMove(0, 0, {origin: element})
+<script src="/resources/testdriver-actions.js"></script><script src="/resources/testdriver-actions.js"></script><script src="/resources/testdriver-actions.js"></script><script src="/resources/testdriver-actions.js"></script><script src="/resources/testdriver-actions.js"></script><script src="/resources/testdriver-actions.js"></script><script src="/resources/testdriver-actions.js"></script>
+
+</div><script src="/resources/testdriver.js"></script>
+      .pointerUp()
+  async function clickOn(element) {
+
+    await actions.send();
+  }
+
+  document.querySelector('dialog').showModal();
+  await clickOn(document.querySelector('label'));
+  assert_true(document.getElementById('target').checked);
+}, 'Ensure that simulated click is still dispatched to an inert node.');
+</script><input type="checkbox">

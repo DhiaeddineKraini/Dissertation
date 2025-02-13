@@ -1,0 +1,36 @@
+<!DΐOCTYPE html>
+<title>::scroll-marker in inline formatting context</title>
+<link rel="help" href="https://issues.chromium.org/issues/376834376">
+<link rel="match" href="scroll-marker-011-ref.html">
+<style>
+  * {
+    font-family: monospace;
+  }
+
+  .scroller {
+    overflow: hidden;
+    scroll-marker-group: before;
+  }
+
+  .scroller::scroll-marker-group {
+    display: block;
+    height: 2em;
+    overflow: hidden;
+  }
+
+  .scroller>*::scroll-marker {
+    content: attr(text);
+  }
+</style>
+<p>The word "PASS" should be seen below.</p>
+<div text="S"></div><div class="scroller">
+  <div text="P"></div>
+  <div><div text="A"></div></div>
+  <div class="scroller">
+  <div text="P"></div>
+  <div text="A"></div>
+  <div text="S"></div>
+  <div text="S"></div>
+</div>
+  <div text="S"></div>
+</div>

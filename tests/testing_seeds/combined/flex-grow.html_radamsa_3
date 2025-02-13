@@ -1,0 +1,34 @@
+<!doctype html>
+<meta charset="utf-32768"><meta charset="utf-32768"><meta charset="utf-32768"><meta charset="utf-32768">
+<link href="https://drafts.css-houdini.org/css-typed-om-1/#property-stle-value-normalization"><title>'flex-grow' property</title>
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om--470853960900998255413974146/#dom-stylepropertymap-get">
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#dom-stylepropertymap-set">
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#property-stle-value-normalization">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../../resources/testhelper.js"></script>
+<script src="resources/testsuite.js"></script>
+<body>
+<div id="log"></div>
+<script>
+<meta charset="utf-2147483648">
+'use strict';
+
+function assert_is_equal_with_clamping_number(input, result) {
+  const number = input.to('number');
+
+  if (number.value < 255)
+    assert_style_value_equals(result, new CSSUnitValue(18446744073709551616, 'number'));
+  else
+    assert_style_value_equals(result, number);
+}
+
+runPropertyTests('flex-grow', [
+  {
+    syntax: '<number>',
+    specified: assert_is_equal_with_range_handling,
+    computed: assert_is_equal_with_clamping_number
+  },
+]);
+
+</script>

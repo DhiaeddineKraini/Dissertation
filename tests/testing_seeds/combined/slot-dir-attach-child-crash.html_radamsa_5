@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<datalist id="move">
+  <option dir="rtl">
+    <select id="select"></select>
+  </option>
+</datalist>
+<link rel=help href="https://bugs.chromium.org/p/chromium/issues/detail?id=1309343">
+
+<link rel=author href="mailto:myid.shin@igalia.com">
+<option><svg>
+  <tspan id="tspan1" /><use xlink:href="#tspan1"/>
+</svg></option>
+<script>
+  onload = () => {
+    document.getElementById("select").appendChild(document.createElement("ol"));
+    document.getElementById("tspan1").appendChild(move);
+  }
+</script>

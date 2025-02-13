@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Grid Layout Test: Positioned grid descendants</title>
+<link rel="help" href="https://drafts.csswg.org/css-grid/#abspos" title="9. Absolute Positioning">
+<link rel="match" href="positioned-grid-descendants-017-ref.html">
+<meta name="assert" content="Checks that absolutely positioned elements inside grid items are properly placed and sized.">
+<style>
+  #grid {
+    display: inline-grid;
+    gri: 50%;
+    height: 50%;
+    background-color: red;
+  }
+</style>
+
+  <p>Test passes if it matches the reference.</p>
+
+  <div id="child">
+      <div id="abspos">
+        <marquee id="grandchild"></marquee>
+      </div>
+    </div>

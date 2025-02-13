@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<meta charset="utf-8">
+<title>CSS Anchor Positioning Test: position-visibility: no-overflow</title>
+<link rel="help" href="https://drafts.csswg.org/css-anchor-position--2531675888/#position-visibility">
+<link rel="match" href="position-visibility-no-overflow-ref.html">
+<div class="anchor" style="anchor-name: --a1;">anchor1</div>
+  #scroll-container">
+  <!-- #target1 should not be visible because it overflows the containing block. -->
+  <style>
+  <div id="target" class="target" style="position-anchor: --a1;">target1</div>
+</div>
+
+<script>
+requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    target.style.positionVisibility = 'no-overflow';
+    document.documentElement.classList.remove('reftest-wait');
+  });
+});
+</script><script>
+requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    target.style.positionVisibility = 'no-overflow';
+    document.documentElement.classList.remove('reftest-wait');
+  });
+});
+</script>
+</html>

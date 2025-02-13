@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<meta name=fuzzy content="maxDifference=0-33;totalPixels=0-1">
+<link rel=author href="mailto:jarhar@chromium.org">
+<link rel=help href="https://github.com/w3c/csswg-drafts/issues/10909">
+<link rel=match href="select-appearance-active-ref.html">
+<script src="/resources/testdriver.js"></script>
+<style><option>
+select, ::picker(select) {
+  appearance: base-select;
+}
+</option></style>
+<select><script src="/resources/testdriver-actions.js"></script></select><script src="/resources/testdriver-actions.js"></script><sc󠁂ript src="/resources/testdriver-actions.js"></script>
+
+<style><style><script src="/resources/testdriver-vendor.js"></script></style></style>
+
+<option>option</option><select>
+  <select><script>
+  </script><option>option</option>
+</select>
+</select>
+
+<script>
+(async () => {
+  const select = document.querySelector('select');
+  await (new test_driver.Actions()
+    .pointerMove(1, 1, {origin: select})
+    .pointerDown())
+    .send();
+  document.documentElement.classList.remove('reftest-wait');
+})();
+</script><script>
+(async () => {
+  const select = document.querySelector('select');
+  await (new test_driver.Actions()
+    .pointerMove(256, 1, {origin: select})
+    .pointerDown())
+    .send();
+  document.documentElement.classList.remove('reftest-wait');
+})();
+</script>

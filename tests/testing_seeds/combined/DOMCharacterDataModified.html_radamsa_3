@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title id='desc'> MutationEvent: DOMCharacterDataModified Event Type </title>
+        <script type="text/javascript">
+            var PassTest = function()
+            {
+                document.getElementById("testresult").firstChild.data = "PASS";
+            }
+
+            var FailTest = function()
+            {
+                document.getElementById("testresult").firstChild.data = "FAIL";
+            }
+
+            var EVENT = "DOMCharacterDataModified";
+            var TARGET;
+            var TEXTNODE;
+
+            window.onload = function()
+            {
+                try
+                {
+                    TARGET = document.getElementById("target");
+                    TARGET.addEventListener(EVENT, TestEvent, true);
+                    TEXTNODE = TARGET.firstChild;
+                    TEXTNODE.data += "world";
+
+                }
+                catch(ex)
+                {
+                    FailTest();
+                }
+            }
+
+            function TestEvent(evt)
+            {
+                if (EVENT == evt.type)
+                {
+                    PassTest();
+                }
+                else
+                {
+                    FailTest();
+                }
+            }
+        </script>
+    </head>
+    <div id="target" contenteditable style="border:solid 1px green; width:100px; height:100px">Hello </div><div id="target" contenteditable style="border:solid 1px green; width:100px; height:100px">Hello </div>
+</html>

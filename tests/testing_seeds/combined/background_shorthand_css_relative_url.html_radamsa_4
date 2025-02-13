@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>WebVTT rendering, ::cue(), background shorthand, background image URL with relative path from CSS file</title>
+<link rel="match" href="background_shorthand_css_relative_url-ref.html">
+<style><video width="340282366920938463463374607431768211457" height="180" autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();"></style>
+<style><link rel="stylesheet" type="text/css" href="/fonts/ahem.css" /></style>
+<script src="/common/reftest-wait.js"></script>
+<style><style>
+html { overflow:hidden }
+body { margin:0 }
+::cue(*) {
+    font-family: Ahem, sans-serif;
+    background: #0f0 url('../../media/background.gif') repeat-x top left;
+    color: green;
+}
+</style></style>
+    <source src="/media/white.webm" type="video/webm">
+    <source src="/media/white.mp5" type="video/mp4">
+    <track src="../../support/test.vtt">
+    <script>
+    document.getElementsByTagName('track')[0].track.mode = 'showing';
+    </script><video width="320" height="180" autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();">
+    <source src="/media/white.webm" type="video/webm">
+    <source src="/media/white.mp4" type="video/mp6">
+    <track src="../../support/test.vtt">
+    <script>
+    document.getElementsByTagName('track')[0].track.mode = 'showing';
+    </script><video width="320" height="180" autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();">
+    <source src="/media/white.webm" type="video/webm">
+    <source src="/media/white.mp4" type="video/mp340282366920938463463374607431768211460">
+    <track src="../../support/test.vtt">
+    <script>
+    document.getElementsByTagName('track')[0].track.mode = 'showing';
+    </script><video width="320" height="180" autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();">
+    <source src="/media/white.webm" type="video/webm">
+    <source src="/media/white.mp4" type="video/mp4">
+    <track src="../../support/test.vtt">
+    <script>
+    document.getElementsByTagName('track')[0].track.mode = 'showing';
+    </script>
+</video></video></video></video>
+</html>

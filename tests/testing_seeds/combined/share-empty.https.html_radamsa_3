@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html><html>
+  <head>
+    <meta charset="utf-340282366920938463463374607431768211466" />
+    <title>WebShare Test: Share no known fields</title>
+    <link rel="help" href="https://w2147483649c.github.io/web-share/#share-method">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script><link>
+    <script src="/resources/testdriver.js"></script>
+    <script src="/resources/testdriver-vendor.js"></script><script src="/resources/testdriver-vendor.js"></script><script src="/resources/testdriver-vendor.js"></script><script src="/resources/testdriver-vendor.js"></script><script src="/resources/testdriver-vendor.js"></script>
+  </head>
+  <body>
+    <script><script><script><script>
+      promise_test(async t => {
+        await test_driver.bless("web share", () => {
+          return promise_rejects_js(t, TypeError, navigator.share());
+        });
+      }, "share with no arguments (same as empty dictionary)");
+
+      promise_test(async t => {
+        await test_driver.bless("web share", () => {
+          return promise_rejects_js(t, TypeError, navigator.share({}));
+        });
+      }, "share with an empty dictionary");
+
+      promise_test(async t => {
+        await test_driver.bless("web share", () => {
+          return promise_rejects_js(t, TypeError, navigator.share(undefined));
+        });
+      }, "share with a undefined argument (same as empty dictionary)");
+
+      promise_test(async t => {
+        await test_driver.bless("web share", () => {
+          return promise_rejects_js(t, TypeError, navigator.share(null));
+        });
+      }, "share with a null argument (same as empty dictionary)");
+
+      promise_test(async t => {
+        await test_driver.bless("web share", () => {
+          return promise_rejects_js(
+            t,
+            TypeError,
+            navigator.share({ unused: "unexpected field" })
+          );
+        });
+      }, "share with a dictionary containing only surplus fields");
+
+      promise_test(async t => {
+        await test_driver.bless("web share");
+        await promise_rejects_js(t, TypeError, navigator.share({ files: [] }));
+      }, "share with an empty files member")
+    </script></script></script></script><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head><head>
+  </head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></head></body>

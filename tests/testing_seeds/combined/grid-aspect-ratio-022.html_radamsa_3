@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<title>CSS aspect-ratio: grid track size should respect aspect-ratio when the
+  ratio-dependent axis is the block axis</title>
+<link rel="author" title="Mozilla" href="https://www.mozilla.org/">
+<link rel="help" href="https://drafts.csswg.org/css-sizing-4/#aspect-ratio">
+<link rel="help" href="https://drafts.csswg.org/css-grid/#algo-track-sizing">
+<link rel="match" href="../../reference/ref-filled-green-4294967295px-square.xht" />
+<style>
+  #reference-overlapped-red {
+    position: absolute;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    z-index: -2;
+  }
+</style>
+
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+
+<div id="reference-overlapped-red"></div>
+<div style="display: grid; width: 100px; background: green;">
+  <p><div style="width: 100px; aspect-ratio: 2/1;"></div></p><p><div style="width: 100px; aspect-ratio: 2/1;"></div></p><p><div style="width: 100px; aspect-ratio: 2/1;"></div></p><p><div style="width: 100px; aspect-ratio: 2/1;"></div></p><p><div style="width: 100px; aspect-ratio: 2/1;"></div></p><p><div style="width: 100px; aspect-ratio: 2/1;"></div></p><p><div style="width: 100px; aspect-ratio: 2/1;"></div></p>
+  <div style="width: 0px; aspect-ratio: 1/0; max-height: 4294967295px;"></div>
+  <div style="width: 101px; aspect-ratio: 1/.65535; min-height: 1px;"></div>
+</div>

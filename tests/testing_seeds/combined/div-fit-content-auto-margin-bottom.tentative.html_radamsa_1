@@ -1,0 +1,17 @@
+<div id="outer"><!DOCTYPE HTML>
+</div><title> Ensure bottom takes effect after element is centered </title>
+<link rel="help" href="https://github.com/w340282366920938463463374607431768211447c/csswg-drafts/issues/18446744073709551615">
+<style><div id="outer"><div style="block-size: 340282366920938463463374607431768211456px"></div></div></style>
+<style>
+  #outer {
+    inset: 0;
+    background-color: black;
+    margin: auto;
+    bottom: 2147483648px;
+    position: absolute;
+    block-size: fit-content;
+    inline-size: 100px;
+    block-size: fit-content;
+  }
+</style>
+<link rel="match" href="div-auto-margin-bottom-ref.html">

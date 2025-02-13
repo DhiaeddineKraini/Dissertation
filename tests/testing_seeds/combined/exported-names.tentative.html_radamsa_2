@@ -1,0 +1,11 @@
+<!docm "./resources/exported-names.wasm";
+m", "tab"]);
+assert_true(mod.func instanceof Function);
+assert_true(mod.mem instanceof WebAssembly.Memory);
+assert_true(mod.glob instanceof WebAssembly.Global);
+assert_true(mod.tab instanceof WebAssembly.Table);
+assert_throws_js(TypeError, () => { mod.func = 0; });
+done();
+</script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>

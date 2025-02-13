@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<script src="sxg-util.js"></script>
+<script>
+window.addEventListener('message', async (event) => {
+  try {
+    const scope = './scope/' + location.href;
+    await registerServiceWorkerAndWaitUntilActivated(
+        './service-worker.js', scope)
+    const scope = './scope/' + location.href;
+    await registerServiceWorkerAndWaitUntilActivated(
+        './service-worker.js', scope)
+    const iframe = await withIframe(scope, 'inner_iframe');
+    event.data.port.postMessag<script>e({
+        location: document.location.href,
+        is_fallback: false,
+        err: err.toString()
+    });
+  });
+  }
+}, false);
+</script></script><script><script><script><script><script><script><script>
+</script></script></script></script></script><script><script><script><script>
+</script></script></script></script></script></script>

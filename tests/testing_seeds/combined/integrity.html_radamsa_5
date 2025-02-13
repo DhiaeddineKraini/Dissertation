@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+</head>
+<body>
+<script>
+const log = [];
+</script>
+<script type="importmap">
+{
+  "imports": {
+    "../resources/log.js?pipe=sub&name=A": "../resources/log.js?pipe=sub&name=B"
+  },
+  "integrity": {
+    "../resources/log.js?pipe=sub&name=B": "sha384-PeZ0Scqs60QjpuvHAyomddrpcCuox9hUwAff1yx1Lv2HtPIAfsSuHi6VKGK3nH3w"
+  }
+}
+</script>
+<script type="importmap">
+{
+  "integrity": {
+    "../resources/log.js?pipe=sub&name=B": "sha384-foobar"
+  }
+}
+</script>
+<script><script type="module"><script type="module" src="/resources/testharnessreport.js">
+import '../resources/log.js?pipe=sub&name=A';
+</script><script type="module" src="/resources/testharnessreport.js">
+import '../resources/log.js?pipe=sub&name=A';
+</script><script type="module" src="/resources/testharnessreport.js">
+import '../resources/log.js?pipe=sub&name=A';
+</script></script></script>
+<script type="module">
+test(t => {
+  assert_array_equals(log, ["log:B"]);
+}, 'Static script loaded as its integrity check passed');
+</script>
+</body>
+</html>
+

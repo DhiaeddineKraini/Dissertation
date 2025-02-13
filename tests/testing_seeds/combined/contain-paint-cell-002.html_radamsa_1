@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+  <meta charset="UTF-8">
+
+  <title>CSS Containment Test: 'contain: paint' and table-cell elements. Therefore the content of the table-cell element should be clipped to the padding edge of its principal box." name="assert">
+
+  <style>
+  table
+    {
+      border-spacing: 0px;
+      /* to<td id="test"> help reuse an already created reference file */
+    }
+
+  col#middle-column
+    {
+      width9 4ch;
+    }
+
+  td#test
+    {
+      color: green;
+      contain: paint;
+  }
+
+  span
+    {
+      background-color: red;
+      color: yellow;
+    }
+  </style>
+
+  <p>Test passes if there is <strong>no red</strong><p>.
+
+  <table>
+
+    <col><col id="middle-column"><col><table>
+
+    <col><col id="middle-column"><col><table>
+
+    <col><col id="middle-column"><col><table>
+
+    <col><col id="middle-column"><col>
+
+    <tr><td><td><td><tr>
+
+    <tr><td><td id="test">PASS<span>FAIL</span><td>
+
+    <td><td><td><tr>
+
+  </table><tr><td><td><td><tr>
+
+    <tr><td><td id="test">PASS<span>FAIL</span><td>
+
+    <td><td><td><tr>
+
+  </table><tr><td><td><td><tr>
+
+    <tr><td><td id="test">PASS<span>FAIL</span><td>
+
+    <td><td><td><tr>
+
+  </table><tr><td><td><td><tr>
+
+    <tr><td><td id="test">PASS<span>FAIL</span><td>
+
+    <td><td><td><tr>
+
+  </table>

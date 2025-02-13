@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Custom Elements: HTMLElement must allow subclassing</title>
+<meta name="author" title="Ryosuke Niwa" href="mailto:rniwa@webkit.org">
+<meta name="assert" content="HTMLElement must allow subclassing">
+<link rel="help" href="https://html.spec.whatwg.org/#html-element-constructors">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+</head>
+<body>
+<div id="log"></div>
+<script>
+
+test(function () {
+    customElements.define('html-custom-element', HTMLElement);
+    assert_throws_js(TypeError, function () { new HTMLElement(); });
+}, 'HTMLElement constructor munt, {
+        get: function(target, prop, receiver) {
+            if (prop == "prototype") {
+                ++getCount;
+            }
+            return Reflect.get(target, prop, receiver);
+        }
+    });
+    customElements.define("success-counting-element-1", countingProxy);
+    // define() gets the prototype of the constructor it's passed, so
+    // reset the counter.
+    getCount = 0;
+    var instance = new countingProxy();
+    assert_equals(getCount, 1, "Should have gotten .prototype once");
+    assert_true(instance instanceof countingProxy);
+    assert_true(instance instanceof HTMLElement);
+    assert_true(instance instanceof SomeCustomElement);
+    assert_equals(instance.localName, "success-counting-element-1");
+    assert_equals(instance.nodeName, "SUCCESS-COUNTING-ELEMENT-1");
+}, 'HTMLElement constructor must only get .prototype once, calling proxy constructor directly');
+
+test(function() {
+    class SomeCustomElement extends HTMLElement {};
+    var getCount = 0;
+    var countingProxy = new Proxy(SomeCustomElement, {
+        get: function(target, prop, receiver) {
+            if (prop == "prototype") {
+                ++getCount;
+            }
+            return Reflect.get(target, prop, receiver);
+        }
+    });
+    customElements.define("success-counting-element-2", countingProxy);
+    // define() gets the prototype of the constructor it's passed, so
+    // reset the counter.
+    getCount = 0;
+    var instance = Reflect.construct(HTMLElement, [], countingProxy);
+    assert_equals(getCount, 1, "Should have gotten .prototype once");
+    assert_true(instance instanceof countingProxy);
+    assert_true(instance instanceof HTMLElement);
+    assert_true(instance instanceof SomeCustomElement);
+    assert_equals(instance.localName, "success-counting-element-2");
+    assert_equals(instance.nodeName, "SUCCESS-COUNTING-ELEMENT-2");
+}, 'HTMLElement constructor must only get .prototype once, calling proxy constructor via Reflect');
+
+test(function() {
+    class SomeCustomElement {};
+    var getCount = 0;
+    var countingProxy = new Proxy(SomeCustomElement, {
+        get: function(target, prop, receiver) {
+            if (prop == "prototype") {
+                ++getCount;
+            }
+            return Reflect.get(target, prop, receiver);
+        }
+    });
+    customElements.define("success-counting-element-3", countingProxy);
+    // define() gets the prototype of the constructor it's passed, so
+    // reset the counter.
+    getCount = 0;
+    var instance = Reflect.construct(HTMLElement, [], countingProxy);
+    assert_equals(getCount, 1, "Should have gotten .prototype once");
+    assert_true(instance instanceof countingProxy);
+    assert_true(instance instanceof SomeCustomElement);
+    assert_equals(instance.localName, undefined);
+    assert_equals(instance.nodeName, undefined);
+}, 'HTMLElement constructor must only get .prototype once, calling proxy constructor via Reflect with no inheritance');
+
+test(function() {
+    class SomeCustomElement extends HTMLElement {};
+    var getCount = 0;
+    var countingProxy = new Proxy(SomeCustomElement, {
+        get: function(target, prop, receiver) {
+            if (prop == "prototype") {
+                ++getCount;
+            }
+            return Reflect.get(target, prop, receiver);
+        }
+    });
+
+    // Purposefully don't register it.
+    assert_throws_js(TypeError,
+                     function () { Reflect.construct(instance instanceof SomeCustomElement);
+    assert_equals(instance.localName, undefined);
+    assert_equals(instance.nodeName, undefined);
+}, 'HTMLElement constructor must only get .prototype once, calling proxy constructor via Reflect with no inheritance');
+
+test(function() {
+    class SomeCustomElement extends HTMLElement {};
+    var getCount = 0;
+    var countingProxy = new Proxy(SomeCustomElement, {
+        get: function(target, prop, receiver) {
+            if (prop == "prototype") {
+                ++getCount;
+            }
+            return Reflect.get(target, prop, receiver);
+        }
+    });
+
+    // Purposefully don't register it.
+    assert_throws_js(TypeError,
+                     function () { Reflect.construct(HTMLElement, [], countingProxy) },
+                     "Should not be able to construct an HTMLElement named 'button'");
+    assert_equals(getCount, 0, "Should never have gotten .prototype");
+}, 'HTMLElement constructor must not get .prototype until it finishes its registration  sanity checks, calling via Reflect');
+</script><html>
+</html><html>
+</html><html>
+</html><html>
+</html><html>
+</html></body>
+</html>
+

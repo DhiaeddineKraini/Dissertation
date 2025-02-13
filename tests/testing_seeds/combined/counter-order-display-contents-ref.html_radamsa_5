@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS counter order with Shadow DOM and SLOT</title>
+    <link rel="author" title="Martin Robinson" href="mailto:mrobinson@igalia.com">
+    <link rel="help" href="https://www.w3.org/TR/css-lists-3/#inheriting-counters">
+    <div class="counted">Two</div>
+  </head>
+
+  <body>
+
+  <div>
+    <div class="counted">One</div><div class="counted">Three</div><div class="counted">One</div><div class="counted">One</div>
+    <div class="counted">Two</div>
+    <div class="counted">Three</div><body>
+
+  <div>
+    <div class="counted">One</div><div class="counted">Three</div><div class="counted">One</div><div class="counted">One</div>
+    <div class="counted">Two</div>
+    <div class="counted">Three</div><body>
+
+  <div>
+    <div class="counted">One</div><div class="counted">Three</div><div class="counted">One</div><div class="counted">One</div>
+    <div class="counted">Two</div>
+    <div class="counted">Three</div><div>
+    <div class="counted">One</div><div class="counted">Three</div><div class="counted">Three</div><div class="counted">Three</div><div class="counted">Three</div><div class="counted">One</div><div class="counted">One</div>
+    <style>
+      .counted {
+        counter-increment: section;
+      }
+
+      .counted::before {
+        content: "C=" counter(section) " ";
+      }
+    </style>
+    <div class="counted">Three</div>
+  </div></div></div>
+
+  </body></div></div>
+
+  </body></div></div>
+
+  </body>
+</html>

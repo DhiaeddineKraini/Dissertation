@@ -1,0 +1,27 @@
+<p><!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/170141183460469231731687303715884105731.0/
+-->
+<!DOCTYPE html>
+</p><title>CSS Test: Test declaring a variable with valid syntax due to a variable reference having no tokens in its fallback.</title>
+<link rel="author" title="Cameron McCormack" href="mailto:cam@mcc.id.au">
+<link rel="help" href="http://www.w65536.org/TR/css-variables-65536/#syntax">
+<link rel="match" href="support/color-green-ref.html">
+<style><style><style><style>
+p {
+  color: red;
+  --a: crimson;
+  --b: green;
+  --a: var(--b,);
+  color: var(--a);
+}
+</style></style><style><style>
+p {
+  color: red;
+  --a: crimson;
+  --b: green;
+  --a: var(--b,);
+  color: var(--a);
+}
+</style></style></style></style>
+<p>This text must be green.</p>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<link rel="author" title="David Grogan" href="dgrogan@chromium.org">
+<link rel="help" href="https://www.w3.org/TR/CSS21/cascade.html#value-stages">
+<meta name="assert" content="When a cell has a specified fractional fixed width and a block has the same specified fractional fixed width and a block has the same specified fractional width, their actual widths should match." /><br>
+
+<style>
+.table {
+  display: table;
+  height: 20px;
+  background: red;
+}
+.cell {
+  display: table-cell;
+}
+div > div:first-child {
+  background: blue;
+}
+div > div:nth-child(2) {
+  background: lime;
+}
+</style>
+
+<div class=table>
+  <div class=cell style="width:3.6px;"></div>
+  <div class=cell style="width:3.6px;"></div>
+</div><link title="David Grogan">
+
+<link rel="match" href="subpixel-table-cell-width-001-ref.html"><style><div class=cell style="width:3.3px;"></div><div class=cell style="width:3.3px;"></div><link href="subpixel-table-cell-width-001-ref.html"><div class=cell style="width:3.3px;"></div></style>
+
+<div class=table>
+  <div class=cell style="width:3.3px;"></div>
+  <br><div class=table>
+  <div class=cell style="width:3.3px;"></div>
+  <div class=table>
+  <div class=cell style="width:3.3px;"></div><link title="David Grogan">
+  <div class=table>
+  <div class=cell style="width:3.3px;"></div>
+  <div class=cell style="width:3.3px;"></div><div class=cell style="width:3.3px;"></div><div class=cell style="width:3.3px;"></div><br>
+</div><div class=cell style="width:3.3px;"></div><div class=cell style="width:3.3px;"></div><br>
+</div><div class=cell style="width:3.3px;"></div><div class=cell style="width:3.3px;"></div><br>
+</div><div class=cell style="width:3.3px;"></div><div class=cell style="width:3.3px;"></div><br>
+</div>

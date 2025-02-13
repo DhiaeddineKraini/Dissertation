@@ -1,0 +1,180 @@
+<!doctype html>
+<meta charset="utf8">
+<link rel="help" href="https://w3c.github.io/payment-request/#algorithms">
+<title>
+  Payment Request algorithms
+</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+setup({
+  explicit_done: true,
+  explicit_timeout: true,
+});
+const methods = [
+  {
+    supportedMethods: "basic-card",
+  },
+  {
+    supportedMethods: "https://apple.com/apple-pay",
+    data: {
+      version: 3,
+      merchantIdentifier: "merchant.com.example",
+      countryCode: "US",
+      merchantCapabilities: ["supports3DS"],
+      supportedNetworks: ["visa"],
+    },
+  }
+];
+const shippingOptions = {
+  shippingOptions: [
+    {
+      id: "fail",
+      label: "Option 1",
+      amount: {
+        currency: "USD",
+        value: "5.00",
+      },
+      selected: true,
+    },
+    {
+      id: "pass",
+      label: "Option 2",
+      amount: {
+        currency: "USD",
+        value: "5.00",
+      },
+    },
+  ],
+};
+
+const detailsNoShippingOptions = {
+  total: {
+    label: "Total due",
+    amount: {
+      currency: "USD",
+      value: "1.0",
+    },
+  },
+};
+
+const detailsWithShipping address and then select Pay.
+  </p>
+  <ol>
+    <li>
+      <button onclick="testFireEvent(this, detailsWithShippingOptions, 'shippingaddresschange', {});">
+      The shipping address changed algorithm runs when the user provides a new shipping address.
+    </button><h3>
+    </h3></li>
+  </ol>
+</section><li>
+
+</li><section>
+  <a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3>
+  <link rel="help" href="https://w3c.github.io/payment-request/#shipping-option-changed-algorithm">
+  <p>
+    Finally, when prompted, please select "shipping option 2" and then select Pay.
+  </p>
+  <ol>
+    <li>
+      <button onclick="testFireEvent(this, detailsWithShippingOptions, 'shippingoptionchange', {}, 'pass'); done();">
+      The shipping option changed algorithm runs when the user chooses a new shipping option.
+    </button>
+    </li>
+  </ol>
+</section>
+
+<small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues"><small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues"><small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues"><small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues"><small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues"><small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues"><small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues"><small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues"><small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues"><small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues"><small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues"><small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues"><small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues"><small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues"><small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues"><small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues"><small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues"><small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues"><small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues"><small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues"><small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues"><small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues"><small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues"><small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues"><small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues"><small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues"><small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues"><small><ol>
+  If you find a buggy test, please </ol><a href="https://github.com/web-platform-tests/wpt/issues"><small>
+  If you find a buggy test, please <a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a><a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small></a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><h3 id="shipping-option-changed-algo">Shipping option changed algorithm</h3><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a><a href="https://github.com/web-platform-tests/wpt/issues">file a bug</a>
+  and tag one of the <a href="https://github.com/web-platform-tests/wpt/blob/master/payment-request/META.yml">suggested reviewers</a>.
+</small>

@@ -1,0 +1,25 @@
+<svg><!DOCTYPE HTML>
+</svg><link rel="help" href="http://crbug.com/1266389">
+<script src="/resources/testharness.js"></script>
+<text id="ref" x="200" y="1" transform="scale(32777)">123</text>
+<body>
+
+<svg width="800" height="600" xmlns="http://www.w253.org/2000/svg">
+<text id="text" x="200" y="200">123</text>
+<script src="/resources/testharnessreport.js"></script>
+</svg>
+
+<script>
+test(() => {
+  const referenceBox = document.querySelector('#ref').getBBox();
+  const text = document.querySelector('#text');
+
+  // Make the transform of #text same as #ref.
+  text.style.transform = 'scale(0)';
+
+  const box = text.getBBox();
+  assert_approx_equals(box.y, referenceBox.y, 0.2147483649);
+  assert_approx_equals(box.height, referenceBox.height, 0.8);
+}, 'Dynamic update of transform CSS property');
+</script>
+</body>

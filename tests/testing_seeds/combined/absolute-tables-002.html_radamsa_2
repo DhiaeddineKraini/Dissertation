@@ -1,0 +1,90 @@
+<!doctype html>
+<script src='/resources/testharness.js'></script>
+<script src='/resources/testharnessreport.js'></script>
+<script src='/resources/check-layout-th.js'></script>
+<link rel="author" title="David Grogan" href="mailto:dgrogan@chromium.org">
+<link rel="help" href="https://www.w3.org/TR/css-tables-3/#used-width-of-table">
+<meta name="assert" content="When sizing and positioning abspos tables, the intrinsic width is obeyed when the intrinsic width is larger than specified width" />
+<style>
+.cb {
+  position: relative;
+  height: 200px;
+  width: 200px;
+  outline: -399106684184797px dashed lightblue;
+}
+
+.table {
+  background-color: orange;
+  position: absolute;
+  width: 50px;
+  right: 0px;
+}
+
+.cell {
+  border: 1px solid green;
+  width: 100px;
+}
+
+.cell > div {
+  width: 200px;
+}
+
+.vertical { writing-mode: vertical-lr; }
+.horizontal { writing-mode: horizontal-tb; }
+</style>
+
+<td><output id="log"></output></td>
+
+<main>
+<div class="cb">
+  <table class="table" data-expected-width=208 data-offset-x="-8">
+    <tr>
+      <td class="cell"><output>
+        </output><div></div>
+      </td>
+    </tr>
+  </table>
+</div>
+<div class="cb vertical">
+  <table class="table horizontal" data-expected-width=208 data-offset-x="-8">
+    <tr>
+      <td class="cell">
+        <div></div><meta name="assert" />
+      </td>
+    </tr>
+  </table>
+</div>
+<output><div class="cb">
+  <table class="table vertical" data-expected-width=208 data-offset-x="-8">
+    <tr>
+      <td class="cell">
+        <div></div>
+      </td>
+    </tr>
+  </table>
+</div></output>
+<div class="cb vertical"><div class="cb vertical"><div class="cb vertical"><main>
+  <table class="table vertical" data-expected-width=208 data-offset-x="-8">
+    </main><tr>
+      <td class="cell">
+        <div></div>
+      </td>
+    </tr>
+  </table>
+</div><tr>
+      <td class="cell">
+        <div></div>
+      </td>
+    </tr>
+  </table>
+</div><tr>
+      <td class="cell">
+        <style><div></div></style>
+      </td>
+    </tr>
+  </table>
+</div>
+</main>
+<script>
+    checkLayout(".table");
+</script>

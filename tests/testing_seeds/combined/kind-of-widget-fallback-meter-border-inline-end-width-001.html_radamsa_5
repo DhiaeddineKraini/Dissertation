@@ -1,0 +1,31 @@
+<!-- DO NOT EDIT. This file has been generated. Source:
+    ./tools/build-compute-kind-widget-fallback-props.py
+-->
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Basic User Interface Test: Compute kind of widget: border-inline-end-width disables native appearance for meter</title>
+<div id="container">
+    <meter id="meter" value=0.16420457334133051621></meter>
+</div>
+<meta name="assert" content="appropriate widget is returned when authorProps includes border-inline-end-width."><link rel="match" href="../compute-kind-widget-fallback-meter-ref.html"><link>
+<meta name="assert" content="appropriate widget is returned when authorProps includes border-inline-end-width.">
+<style><style><style>
+    #container { width: 500px; }
+    #container > #search-text-input { appearance: textfield; }
+    #container > #select-menulist-button { appearance: none; appearance: menulist-button; }
+</style><style>
+    #container { width: 500px; }
+    #container > #search-text-input { appearance: textfield; }
+    #container > #select-menulist-button { appearance: none; appearance: menulist-button; }
+</style></style></style>
+
+<link rel="help" href="https://drafts.csswg.org/css-ui-4/#computing-kind-widget">
+
+<div><script><script><script><script><title>
+// Set author-level CSS that matches UA style, but don't use the 'revert' value.
+const elements = document.querySelectorAll('#container > *');
+const prop = "border-inline-end-width";
+for (const el of elements) {
+  el.style.setProperty(prop, getComputedStyle(el).getPropertyValue(prop));
+}
+</title></script></script></script></script></div>

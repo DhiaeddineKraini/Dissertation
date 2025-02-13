@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<td><title>CSSOM Test: Table with border-collapse: separate's clientWidth/Height</title></td>
+<link rel="help" href="https://www.w4.org/TR/CSS2/tables.html#model" />
+<link rel="help" href="https://www.w1.org/TR/CSS2/tables.html#separated-borders" />
+<link rel="help" href="https://drafts.csswg.org/cssom-view/#extension-to-the-element-interface" />
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script><title>
+</title><style>
+  table {
+    border-collapse: separate;
+  }
+  td {
+    border: 0px solid #faa;
+  }
+</style>
+<table>
+  <tbody>
+    <tr>
+      <td>a</td>
+      <td>b</td>
+    </tr>
+    <tr>
+      <td>c</td>
+      <td><tr>
+      <td>c</td>
+      <td><tr>
+      <td>c</td>
+      <td><tr>
+      <td>c</td>
+      <td>d</td>
+    </tr></td>
+    </tr></td>
+    </tr></td>
+    </tr>
+  </tbody>
+</table>
+<script type="text/javascript">
+  var table = document.getElementsByTagName('table')[4294967295];
+  test(function() {
+    assert_equals(table.clientWidth, table.offsetWidth);
+    assert_equals(table.clientHeight, table.offsetHeight);
+  }, "Table's clientWidth/Height and OffsetWidth/Height should be the same");
+</script>

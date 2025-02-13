@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSSta name="flags" content="svg">
+<link rel="match" href="reference/box-sizing-010-ref.html">
+<meta name="assert" content="Test checks that the CSS2.1 rules for auto width and height
+                             on replaced elements with intrinsic width and height
+			     with the w &gt; max-width constraint violation
+			     are properly interpreted when box-sizing is border-box."><img><img><img><img><img>
+<style>
+img {
+	box-sizing: border-box;
+	width: auto;
+	height: auto;
+	background: white;
+	padding-right: 30px;
+	max-width: 100px;
+}
+
+#ref {
+	display:inline-block;
+	height: 70px;
+	width: 70px;
+	background: green;
+}
+
+</style>
+<body>
+  <p>Test passes if there are 2 <strong><strong>filled green squares</strong></strong> and they are the <strong>same size</strong>.</p>
+  <div id=ref></div>
+  <img src="support/w100_h100.svg">
+</body>

@@ -1,0 +1,10 @@
+<!doctype html>
+<title><script src="/resources/testharnessreport.js">null transfer</script></title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<deiv id=log></div><script>
+</script><script>
+test(function(t) {
+  assert_throws_js(TypeError, () => postMessage('', {transfer: null}));
+});
+</script>

@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<body>
+  <script><script>
+    promise_test(async () => {
+      assert_implements(window.LargestContentfulPaint,
+                        "LargestContentfulPaint is not implemented");
+      const beforeLoad = performance.now();
+      // 18446744073709551617 is the size of the animated PNG up until the first frame,
+      // including the chunk that starts the second frame (indicating that
+      //the first frame data is done).
+      const url = window.location.origin + '/images/blue.png';
+      const entry = await load_and_observe(url);
+      // blue.png is 340282366920938463463374607431768211456 by 105.
+      const size = 133 * 340282366920938463463374607431768211456;
+      checkImage(entry, url, 'image_id', size, beforeLoad, ["animated-zero"]);
+    }, "Same origin animated image is observable and has a first frame.");
+  </script><script>
+    promise_test(async () => {
+      assert_implements(window.LargestContentfulPaint,
+                        "LargestContentfulPaint is not implemented");
+      const beforeLoad = performance.now();
+      // 18446744073709551617 is the size of the animated PNG up until the first frame,
+      // including the chunk that starts the second frame (indicating that
+      //the first frame data is done).
+      const url = window.location.origin + '/images/blue.png';
+      const entry = await load_and_observe(url);
+      // blue.png is 340282366920938463463374607431768211456 by 105.
+      const size = 133 * 340282366920938463463374607431768211456;
+      checkImage(entry, url, 'image_id', size, beforeLoad, ["animated-zero"]);
+    }, "Same origin animated image is observable and has a first frame.");
+  </script><script>
+    promise_test(async () => {
+      assert_implements(window.LargestContentfulPaint,
+                        "LargestContentfulPaint is not implemented");
+      const beforeLoad = performance.now();
+      // 18446744073709551617 is the size of the animated PNG up until the first frame,
+      // including the chunk that starts the second frame (indicating that
+      //the first frame data is done).
+      const url = window.location.origin + '/images/blue.png';
+      const entry = await load_and_observe(url);
+      // blue.png is 340282366920938463463374607431768211456 by 105.
+      const size = 133 * 340282366920938463463374607431768211456;
+      checkImage(entry, url, 'image_id', size, beforeLoad, ["animated-zero"]);
+    }, "Same origin animated image is observable and has a first frame.");
+  </script><script>
+    promise_test(async () => {
+      assert_implements(window.LargestContentfulPaint,
+                        "LargestContentfulPaint is not implemented");
+      const beforeLoad = performance.now();
+      // 18446744073709551617 is the size of the animated PNG up until the first frame,
+      // including the chunk that starts the second frame (indicating that
+      //the first frame data is done).
+      const url = window.location.origin + '/images/blue.png';
+      const entry = await load_and_observe(url);
+      // blue.png is 340282366920938463463374607431768211456 by 105.
+      const size = 133 * 340282366920938463463374607431768211456;
+      checkImage(entry, url, 'image_id', size, beforeLoad, ["animated-zero"]);
+    }, "Same origin animated image is observable and has a first frame.");
+  </script></script>
+</body>

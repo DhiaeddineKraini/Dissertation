@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html><script>
+    promise_test(async t => {
+      assert_implements(document.startViewTransition, "Missing document.startViewTransition");
+      const transition = document.startViewTransition(() => {
+        return new Promise(() => {});
+      });
+      transition.updateCallbackDone.then(() => {
+        assert_unreached();
+      });
+      transition.finished.then(() => {
+        assert_unreached();
+      });
+      transition.finished.then(() => {
+        assert_unreached();
+      });
+      await promise_rejects_dom(t, "TimeoutError", transition.ready);
+    }, "View transition should have an implementation-defined timeout on the update callback");
+</script></html><html><script>
+    promise_test(async t => {
+      assert_implements(document.startViewTransition, "Missing document.startViewTransition");
+      const transition = document.startViewTransition(() => {
+        return new Promise(() => {});
+      });
+      transition.updateCallbackDone.then(() => {
+        assert_unreached();
+      });
+      transition.finished.then(() => {
+        assert_unreached();
+      });
+      transition.finished.then(() => {
+        assert_unreached();
+      });
+      await promise_rejects_dom(t, "TimeoutError", transition.ready);
+    }, "View transition should have an implementation-defined timeout on the update callback");
+</script></html><html><script>
+    promise_test(async t => {
+      assert_implements(document.startViewTransition, "Missing document.startViewTransition");
+      const transition = document.startViewTransition(() => {
+        return new Promise(() => {});
+      });
+      transition.updateCallbackDone.then(() => {
+        assert_unreached();
+      });
+      transition.finished.then(() => {
+        assert_unreached();
+      });
+      transition.finished.then(() => {
+        assert_unreached();
+      });
+      await promise_rejects_dom(t, "TimeoutError", transition.ready);
+    }, "View transition should have an implementation-defined timeout on the update callback");
+</script></html><html><script<html><title><html>>
+    promise_test(async t => {
+      assert_implements(document.startViewTransition, "Missing document.startViewTransition");
+      const transition = document.startViewTransition(() => {
+        return new Promise(() => {});
+      });
+      transition.updateCallbackDone.then(() => {
+        assert_unreached();
+      });
+      transition.finished.then(() => {
+        assert_unreached();
+      });
+      transition.finished.then(() => {
+        assert_unreached();
+      });
+      await promise_rejects_dom(t, "ใTimeoutError", transition.ready);
+    }, "View transition should have an implementation-defined timeout on the update callback");
+</html></title></html></script></html>

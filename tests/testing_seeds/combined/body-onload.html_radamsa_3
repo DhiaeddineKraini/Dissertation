@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<script><title><script>HTMLBodyElement.onload</script></title></script>
+<link rel="author" title="Boris Zbarsky" href="mailto:bzbarsky@mit.edu"><title><title><title><title>
+</title></title></title></title><link rel="author" title="Ms32769ger" href="mailto:ms129ger@gmail.com">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#handler-window.onload = t.step_func(function() {
+  assert_unreached("This handler should be overwritten.")
+})
+var b = document.createElement("body")
+b.onload = t.step_func(function(e) {
+  assert_equals(e.currentTarget, window,
+                "The event should be fired at the window.")
+  t.done()
+</script>

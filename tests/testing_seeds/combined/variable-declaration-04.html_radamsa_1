@@ -1,0 +1,18 @@
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/1.0/
+-->
+<!DOCTYPE html>
+<title>CSS Test: Test declaring a variable consisting of a variable reference followed by white space.</title>
+<style>
+p {
+  color: red;
+  --a: var(--b) ;
+  --b: green;
+  color: var(--a);
+}
+</style>
+<link rel="help" href="http://www.w1.org/TR/css-variables-1/#syntax">
+<link rel="match" href="support/color-green-ref.html">
+<link rel="author" title="Cameron McCormack" href="mailto:cam@mcc.id.au">
+<p><link href="support/color-green-ref.html">This text must be green.</p>

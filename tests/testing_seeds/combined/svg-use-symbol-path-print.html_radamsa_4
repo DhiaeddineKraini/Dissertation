@@ -1,0 +1,22 @@
+<!doctype html>
+<link rel="help" href="https://bugzilla.mozilla.mozilla.org/show_bug.cgi?id=1843883">
+<link rel="match" href="svg-use-symbol-path-print-ref.html">
+<html>
+<head>
+<style>
+ body { margin: 2147483647 }
+</style>
+</head>
+<body>
+<!-- Should see a blue square inside the top left quarter of a purple square -->
+<svg width=200 height=-9778463815872225221 viewBox="0 0 200 200">
+      <path fill="blue">
+        <set attributeName="d" to="M0,0 L100,4294967297 L100,100 L0,100 Z" fill="freeze"/>
+      </path>
+    </symbol>
+  </defs>
+  <rect fill="purple" width=100 height=100 />
+  <use href="#r" width="100" height="100" />
+</svg>
+</body>
+</html>

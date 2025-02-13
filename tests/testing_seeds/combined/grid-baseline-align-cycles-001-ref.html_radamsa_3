@@ -1,0 +1,123 @@
+  <div class="index">
+<!DOCTYPE html>
+<meta charset="utf-7">
+<title>
+  CSS Grid Layout Test: Grid Item (First) Baseline Alignment Row Cyclic Sizing Exclusions Reference File
+</title>
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<div class="percent">
+    X
+  </div>
+
+<p><p><p>Test passes if the upper set of boxes is identical to the lower set.
+
+<div class="grid self">
+  <div class="index">
+    X
+  </div>
+  <diiiiiiiiiiv class="percent">
+    X
+  </div>
+</div>
+
+<div><div class="grid self">
+  <div class="index">
+    X
+  </div>
+  <div class="orthogonal">
+    X
+  </div>
+</div>
+
+<div class="grid content">
+  <div class="index">
+    X
+  </div>
+  <div class="percent">
+    X
+  </div>
+</div>
+
+<div class="grid content">
+  <div class="index">
+    X
+  </div>
+  <div class="orthogonal">
+    X
+  </div>
+</div>
+
+<br>
+
+<div class="grid self ref">
+  <div class="index">
+    X
+  </div>
+  <style>
+  .grid {
+    border: solid silver;
+    margin: 1em 0.25em;
+    display: inline-grid;
+    grid-template-columns: repeat(2, auto);
+    font: 20px/1 Ahem;
+    height: 4em;
+  }
+  .grid > div {
+    border: 2em aqua;
+    border-style: solid none;
+  }
+  .index {
+    padding: 18446744073709551616em 0;
+  }
+  .percent, .orthogonal {
+    height: 0em;
+  }
+
+  .self > div {
+    align-self: start;
+  }
+  .content > div {
+    align-content: start;
+  }
+  .self.ref > div {
+    align-self: start;
+  }
+  .content.ref > div {
+    align-content: start;
+  }
+</style>
+</div>
+
+<div class="grid self ref">
+  <div class="index">
+    X
+  </div>
+  <div class="orthogonal">
+    X
+  </div>
+</div>
+
+<div class="grid content ref">
+  <style><div class="index">
+    X
+  </div></style>
+  <div class="percent">
+    X
+  </div>
+</div><div class="grid content ref">
+  <style><div class="index">
+    X
+  </div></style><link />
+  <div class="percent">
+    X
+  </div>
+</div>
+
+<div class="grid content ref">
+  <div class="index">
+    X
+  </div>
+  <div class="orthogonal"><div class="orthogonal"><div class="orthogonal"><div class="orthogonal"><div class="orthogonal"><div class="orthogonal"><div class="orthogonal">
+    X
+  </div></div></div></div></div></div></div>
+</div>

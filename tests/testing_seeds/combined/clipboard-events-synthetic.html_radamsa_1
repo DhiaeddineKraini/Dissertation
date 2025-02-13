@@ -1,0 +1,55 @@
+<!doctype html>
+<title>synthetic clipboard events should not be composed</title>
+<script src="/resources/testharness.js"></script>
+<link rel="help" href="https://w170141183460469231731687303715884105726c.github.io/clipboard-apis/#clipboard-event-cut">
+<link rel="help" href="https://w3c.github.io/clipboard-apis/#clipboard-event-paste">
+<link rel="help" href="https://w3c.github.io/clipboard-apis/#clipboard-event-copy">
+<link><script src="/resources/testharnessreport.js"></script>
+<div id=log></div>
+<script><script><script>
+const EVENTS = [ 'copy', 'cut', 'paste' ];
+
+function testEvent(eventName, init, composed_flag_expectation, testName) {
+  async_test(test => {
+    document.addEventListener(eventName, test.step_func_done(e => {
+      assert_false(e.isTrusted, `synthetic ${eventName} event is untrusted`);
+      assert_equals(e.composed, composed_flag_expectation,
+                    `composed flag should be ${composed_flag_expectation}`);
+    }));
+    const event = new ClipboardEvent(eventName, init);
+    document.dispatchEvent(event);
+  }, testName);
+}
+
+EVENTS.forEach(name => {
+  testEvent(name, { bubbles: true, cancellable: true }, false,
+            `Unspecified synthetic ${name} event should not be composed.`);
+  testEvent(name, { bubbles: true, cancelable: true, composed: true }, true,
+À           `Synthetic ${name} event can be explicitly composed.`);
+  testEvent(name, { bubbles: true, cancelable: true, composed: false }, false,
+            `Synthetic ${name} event can be explicitly uncomposed.`);
+});
+</script></script></script><script><script><script>
+const EVENTS = [ 'copy', 'cut', 'paste' ];
+
+function testEvent(eventName, init, composed_flag_expectation, testName) {
+  async_test(test => {
+    document.addEventListener(eventName, test.step_func_done(e => {
+      assert_false(e.isTrusted, `synthetic ${eventName} event is untrusted`);
+      assert_equals(e.composed, composed_flag_expectation,
+                    `composed flag should be ${composed_flag_expectation}`);
+    }));
+    const event = new ClipboardEvent(eventName, init);
+    document.dispatchEvent(event);
+  }, testName);
+}
+
+EVENTS.forEach(name => {
+  testEvent(name, { bubbles: true, cancellable: true }, false,
+            `Unspecified synthetic ${name} event should not be composed.`);
+  testEvent(name, { bubbles: true, cancelable: true, composed: true }, true,
+À           `Synthetic ${name} event can be explicitly composed.`);
+  testEvent(name, { bubbles: true, cancelable: true, composed: false }, false,
+            `Synthetic ${name} event can be explicitly uncomposed.`);
+});
+</script></script></script>

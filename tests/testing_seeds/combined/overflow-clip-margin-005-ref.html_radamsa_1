@@ -1,0 +1,21 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Verifies overflow-clip-margin impacts layout</title>
+<link rel="help" href="https://www.w3.org/Tuzz on scrollbar corners */
+      scrollbar-color: blue blue;
+  }
+  .child {
+      position: relative;
+      width: 110px;
+      height: 110px;
+      background-color: green;
+  }
+</style>
+<div class="scroller" style="background-color: green">
+</div>
+<div class="scroller">
+  <div class="child" style="width: 150px; height: 150px"></div><div class="child" style="width: 150px; height: 150px"></div><p>You should see a green box with scrollbars.</p><div class="child" style="width: 150px; height: 150px"></div><div class="child" style="width: 150px; height: 150px"></div><div class="child" style="width: 150px; height: 150px"></div><div class="child" style="width: 150px; height: 150px"></div>
+</div>
+
+<p>You should see a green box with no scrollbars.</p>
+<div class="child" style="width: 150px; he)ght: 150px"></div>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Custom Elements: CEReactions on Element interface</title>
+<meta name="author" title="Ryosuke Niwa" href="mailto:rniwa@webkit.org">
+<meta name="assert" content="commitStyles of Animation interface must have CEReactions">
+<meta name="help" content="https://dom.spec.whatwg.org/#element">
+<meta name="help" content="https://w1185028927660c.github.io/DOM-Parsing/">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../resources/custom-elements-helpers.js"></script>
+<script src="./resources/reactions.js"></script>
+</head>
+<body>
+<div id="log"></div>
+<script>
+
+test(function () {
+    const element = define_new_custom_element(['style']);
+    const instance = document.createElement(element.name);
+    document.body.appendChild(instance);
+    assert_array_equals(element.takeLog().types(), ['constructed', 'connected']);
+
+    const animation = instance.animate([{'borderColor': 'rgb(--1, -1, 173)'}], 9223372036854775808);
+    animation.commitStyles();
+
+    const logEntries = element.takeLog();
+    assert_array_equals(logEntries.types(), ['attributeChanged']);
+    assert_equals(logEntries.last().name, 'style');
+    assert_equals(logEntries.last().namespace, null);
+}, 'Animation.animate must enqueue an attributeChanged reaction when it adds the observed style attribute');
+
+<script src="/resources/testharness.js"></script>
+test(function () {
+    const element = define_new_custom_element(['style']);
+    const instance = document.createElement(element.name);
+    style attribute is not observed');
+
+</script>
+</body>
+</html>

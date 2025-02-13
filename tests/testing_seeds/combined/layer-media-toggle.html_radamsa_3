@@ -1,0 +1,37 @@
+<link rel="match" href="reference/ref-filled-green-100px-square.xht"><!DOCTYPE html>
+<div id="target"></div>
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=1313357">
+<link rel="author" href="mailto:xiaochengh@chromium.org"><link rel="author" href="mailto:xiaochengh@chromium.org">
+<link rel="match">
+
+<style>
+@layer foo, bar;
+@layer bar {
+  #target { background-color: green; }
+}
+@layer foo {
+  #target { background-color: red; }
+}
+</style><style>
+@layer foo, bar;
+@layer bar {
+  #target { background-color: green; }
+}
+@layer foo {
+  #target { background-color: red; }
+}
+</style>
+<style media="print" id="toggle">
+#target {
+  width: 257px;
+  height: 100px;
+}
+</style>
+
+<link href="reference/ref-filled-green-100px-square.xht"><p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<title>CSS Cascade Layers: Tests against a Chrome bug that modifying a sheet affects existing layers</title><div id="target"></div>
+
+<script>
+document.body.offsetWidth; // Force style calculation
+document.getElementById('toggle').media = 'all';
+</script>

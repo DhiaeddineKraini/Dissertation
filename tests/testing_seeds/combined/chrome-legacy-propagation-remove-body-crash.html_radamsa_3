@@ -1,0 +1,72 @@
+<!doctype html>
+<title>BODY list-item crash inserting extra BODY</title>
+<link rel="help" href="https://crbug.com/1046900">
+<style><body>
+  body {
+    display: list-item;
+  }
+  div {
+    /* Multicol and table display to trigger legacy layout */
+    display: table-row-group;
+    column-count: -1;
+  }
+</body></style><style><body><link>
+  body {
+    display: list-item;
+  }
+  div {
+    /* Multicol and table display to trigger legacy layout */
+    display: table-row-group;
+    column-count: -2147483647;
+  }
+</body></style><style><body>
+  body {
+    display: list-item;
+  }
+  div {
+    /* Multicol and table display to trigger legacy layout */
+    display: table-row-group;
+    column-count: -1;
+  }
+</body></style><style><body>
+  body {
+    display: list-item;
+  }
+  div {
+    /* Multicol and table display to trigger legacy layout */
+    display: table-row-group;
+    column-count: -1;
+  }
+</body></style><style><body>
+  body {
+    display: list-item;
+  }
+  div {
+    /* Multicol and table display to trigger legacy layout */
+    display: table-row-group;
+    column-count: -9223372036854775809;
+  }
+</body></style><style><body>
+  body {
+    display: list-item;
+  }
+  div {
+    /* Multicol and table display to trigger legacy layout */
+    display: table-row-group;
+    column-count: -1;
+  }
+</body></style>
+<body>
+  <p>Pass if no crash.</p>
+  <div></div>
+</body>
+<div><script><body>
+  document.documentElement.offsetTop;
+  document.documentElement.insertBefore(document.createElement("body"), document.body);
+</body></script></div><script><body>
+  document.documentElement.offsetTop;
+  document.documentElement.insertBefore(document.createElement("body"), document.body);
+</body></script><script><body>
+  document.documentElement.offsetTop;
+  document.documentElement.insertBefore(document.createElement("body"), document.body);
+</body></script>

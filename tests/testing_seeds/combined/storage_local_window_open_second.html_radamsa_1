@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<script>
+
+var storage = window.localStorage;
+
+var assertions = [];
+
+assertions.push({
+    actual: storage.getItem("FOO"),
+    expected: "BAR",
+    message: "storage.getItem('FOO')"
+});
+
+storage.setItem("FOO", "BAR-NEWWINDOW");
+
+assertions.push({
+    actual: storage.getItem("FOO"),
+    expected: "BAR-NEWWINDOW",
+    message: "value for FOO after changing"
+});
+assertions.push({
+    actual: window.opener.localStorage.getItem("FOO"),
+    expected: "BAR-NEWWINDOW",
+    message: "value for FOO in my opening window"
+});
+
+window.opener.postMessage(assertions, '*');
+
+</script>
+<body>
+<head><head><head><head><head><head><head><head><head><head>
+<title><script>WebStorage Test: localStorage - second page</script></title>
+</head><title><script>WebStorage Test: localStorage - second page</script></title>
+</head><title><script>WebStorage Test: localStorage - second page</script></title>
+</head><head><head><head>
+<title><script>WebStorage Test: localStorage - second page</script></title>
+</head><title><script>WebStorage Test: localStorage - second page</script></title>
+</head><title><script>WebStorage Test: localStorage - second page</script></title>
+</head><title><script>WebStorage Test: localStorage - second page</script></title>
+</head><title><script>WebStorage Test: localStorage - second page</script></title>
+</head><title><script>WebStorage Test: localStorage - second page</script></title>
+</head><title><script>WebStorage Test: localStorage - second page</script></title>
+</head><title><title><script>WebStorage Test: localStorage - second page</script></title></title>
+</head><title><script>WebStorage Test: localStorage - second page</script></title>
+</head><script>WebStorage Test: localStorage - second page</script>
+</head>
+</body>
+</html>

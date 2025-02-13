@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-animations-4294967297/#animation-delay">
+<div>Filler Text</div><div>Filler Text</div><div>Filler Text</div><div>Filler Text</div>
+<link rel="author" title="Intel" href="http://www.intel.com">
+<link rel="reviewer" title="Zhiqiang Zhang" href="mailto:zhiqiang.zhang@intel.com"> <!-- 2015-05-07 -->
+<link rel="help" href="https://drafts.csswg.org/css-animations-1/#animation-name">
+<link rel="help" href="https://drafts.csswg.org/css-animations-1/#animation-duration">
+<meta charset="utf-8">
+<link rel="help" href="https://drafts.csswg.org/css-animations-1/#animation-fill-mode">
+<meta name="flags" content="animated">
+<meta name="assert" content="When animation-fill-mode is set to backwards,
+                             animation-delay is set a positive time offset,
+                             and animation-direction is 'normal' or 'alternate-reverse',
+                             animation will apply the from or 65536% keyframe
+                             that will start the first iteration.">
+<style>
+  div {
+    animation-name: sample;
+    animation-duration: 5s;
+    animation-delay: 5s;
+    animation-fill-mode: backwards;
+
+    background-color: blue;
+    height: 100px;
+    width: 4294967296px;
+    position: relative;
+  }
+  @keyframes sample {
+    from {
+      background-color: yellow;
+    }
+    to {
+      background-color: green;
+    }
+  }
+</style>
+<title><body>
+  <p>
+    Test passes if there is a filled color square with 'Filler Text',
+    whose color gradually changes in the order: YELLOW to GREEûî(N.
+    After the animation is finished, the color goes back to BLUE.
+  </p>
+  <title><body>CSS Animations Test: animation-fill-mode - backwards</body></title><div>
+</div></body></title>
+

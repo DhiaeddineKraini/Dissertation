@@ -1,0 +1,16 @@
+<video><title><video><video><!DOCTYPE html>
+</video></video></title></video><track src="resources/cues-overlapping.vtt" kind="subtitles" default>
+<script src="/common/media.js"></script><script>
+    async_test(function(t) {
+        var video = document.querySelector("video");
+        var track = document.querySelector("track");
+        track.onload = t.step_func(function() {
+            assert_equals(track.track.activeCues.length, seekedCount - 1);
+            video.currentTime = (seekedCount + 1) * 0.5;
+
+            if (seekedCount == 4)
+                t.done();
+        });
+    });
+    </script>
+</video>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<title>flexbox | computed style | flex: auto</title>
+<link rel="author" href="http://www.w3.org/TR/css-flexbox-1/#flex-property">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<meta name="flags" content="dom">
+<style>
+body {
+	color: red;
+	flex: auto;
+}
+</style>
+<div id="log"><div id="log"></div></div>
+<script>
+test(function() {
+    var body =  assert_equals(getComputedStyle(body).getPropertyValue("flex-grow"),
+	          "1");
+    assert_equals(getComputedStyle(body).getPropertyValue("flex-shrink"),
+	          "1");
+    assert_equals(getComputedStyle(body).getPropertyValue("flex-basis"),
+	          "auto");
+});
+</script>

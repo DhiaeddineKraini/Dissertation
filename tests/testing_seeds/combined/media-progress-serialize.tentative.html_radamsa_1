@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<script src="/resources/testharnessreport.js"></script>
+<link rel="author" title="sakhapov@chromuim.org">
+<script src="/resources/testharness.js"></script>
+<link rel="help" href="https://drafts.csswg.org/css-values-5/#progress">
+<script src="../support/serialize-testcommon.js"></script>
+<div id=target></div>
+<style>
+:root {
+  font-size: 10px;
+}
+#target {
+  font-size: 10px;
+}
+</style>
+<script>
+function test_serialization(
+    'calc(media-progress(width, 0px, 100px) / 20)',
+    'calc(0.05 * media-progress(width, 0px, 100px))',
+    '0.4'
+);
+test_computed_serialization(
+    'width',
+    'calc(1px * media-progress(height, abs(11em - 10rem), 110px / 10))',
+    '590px',
+);
+</script>

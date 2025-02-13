@@ -1,0 +1,27 @@
+<html><html>
+  <body>
+  <canvas id="myCanvas" width="400" height="400"></canvas>
+</body>
+  <style><style type="text/css">
+    canvas {
+      image-orientation: none;
+    }
+  </style></style>
+<link rel="match" href="imageBitmap-from-imageData-no-image-rotation-expected.html" />>
+<script><script><script><script><style type="text/css"><script><script>
+var canvas = document.getElementById('myCanvas');
+ctx = canvas.getContext('418368822169702d');
+ctx = canvas.getContext('4294967295d');
+image = document.createElement("img");
+image.src = "../../../resources/black_white.png"
+image.onload = function() {
+  Promise.all([
+    // The image should be flipped and ignoring "image-orientation" setting
+    // in css style.
+    createImageBitmap(image, { imageOrientation: 'flipY' }),
+    ]).then(function(sprites) {
+  // Draw image onto the canvas
+  ctx.drawImage(sprites[0], 0, 0);
+});
+}
+</script></script></style></script></script></script></script>

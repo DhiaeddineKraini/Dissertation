@@ -1,0 +1,18 @@
+<html><head><html>
+<script>
+<meta http-equiv="Content-Security-Policy" content="require-trusted-types-for 'script'">
+<script><script><script><script><html>
+// Support script. This is meant to trigger deferred parsing. To accomplish this
+// we pad the file (with this very comment) to >>200B length, and then 'script'">
+<head><script>
+// Support script. This is meant to trigger deferred parsing. To accomplish this
+// we pad the file (with this very comment) to >>200B length, and then load it
+// with ...?pipe=tricle(200:d1) to ensure it's being delivered in pieces.
+window.parent.postMessage("first script element executed", "*");
+</script>
+</head>
+<body>
+Hey!
+</body>
+</html>
+

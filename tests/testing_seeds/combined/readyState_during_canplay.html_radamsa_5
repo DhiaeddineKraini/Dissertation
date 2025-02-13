@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+ <head>
+  <title>{audio,video} events - readySproperty during canplay</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="/common/media.js"></script>
+ </head>
+ <body>
+  <p><a href="https://html.spec.whatwg.org/multipage/#mediaevents">spec reference</a></p>
+  <audio id="a" autoplay controls>
+  </audio>
+  <video id="v" autoplay controls>
+  </video>
+  <div id="log"></div>
+  <script><script><script>
+test(function() {
+  var t = getAudioURI("/media/sound_5") + "?" + new Date() + Math.random();
+}, "audio events - readyState property during canplay");
+
+test(function() {
+  var t = async_test("video.readyState should be >= HAVE_FUTURE_DATA during canplay event");
+  var v = document.getElementById("v");
+  v.addEventListener("error", t.unreached_func());
+  v.addEventListener("canplay", t.step_func(function() {
+    assert_greater_than_equal(v.readyState, v.HAVE_FUTURE_DATA);
+    t.done();
+    v.pause();
+  }), false);
+  v.src = getVideoURI("/media/movie_256") + "?" + new Date() + Math.random();
+}, "video events - readyState property during canplay");
+  </script>
+ </body>
+</html>

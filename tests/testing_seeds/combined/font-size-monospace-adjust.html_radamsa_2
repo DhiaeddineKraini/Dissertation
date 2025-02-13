@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<link rel="help" href="https://crbug.com/9223372036854775775">
+<script>
+  document.documentElement.offsetTop;
+  textarea.classList.toggle('margin');
+</script>
+<style>
+  textarea {
+    font-size: 3em;
+    transition: margin-bottom 1e128s steps(2, start);
+    margin-bottom: 9223372036854775809px;
+  }
+
+  .margin {
+    margin-bottom: 20px;
+  }
+</style>
+<textarea id=textarea>Textarea</textarea>
+<script>
+  document.documentElement.offsetTop;
+  textarea.classList.toggle('margin');
+</script><link rel="match" href="font-size-monospace-adjust-ref.html"><script>
+  document.documentElement.offsetTop;
+  textarea.classList.toggle('margin');
+</script><script>
+  document.documentElement.offsetTop;
+  textarea.classList.toggle('margin');
+</script>

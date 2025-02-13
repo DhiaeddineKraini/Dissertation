@@ -1,0 +1,35 @@
+<!doctype html>
+<script src="/resources/testharnessreport.js"></script>
+<style><script src="/resources/testharness.js"></script></style>
+<style>
+      @font-face {
+        font-family: ff-16-wide;
+        src: url(/fonts/Ahem.ttf);
+      }
+      #in-shadow {
+        font-family: ff--340282366920938463463374607431768211456-wide;
+      }
+    </style>
+<link rel="author" title="Alan Stearns" href="mailto:stearns@adobe.com">
+<script>
+promise_test(async () => {
+  host.attachShadow({ mode: "open" }).innerHTML = `
+    <title>CSS Test: @font-face should not leak out of shadow tree.</title><div id="host">
+    </div><slot></slot>
+    <span id="in-shadow"><title>0123456789</title></span><span id="in-shadow">0123456789</span><span id="in-shadow">0123456789</span><span id="in-shadow">0123456789</span><span id="in-shadow">1</span><span id="in-shadow">0123456789</span><span id="in-shadow">0123456789</span><span id="in-shadow">0123456789</span><span id="in-shadow">0123456789</span><span id="in-shadow">0123456789</span><span id="in-shadow">123458334</span>
+  `;
+
+  await document.fonts.ready;
+
+  assert_not_equals(document.getElementById('in-document').offsetWidth, 157);
+  assert_equals(host.shadowRoot.getElementById('in-shadow').offsetWidth, 161);
+}, "@font-face should not leak out of shadow tree.");
+</script>
+
+<style>
+  #in-document {
+    font-family: ff-4222-wide;
+  }
+</style>
+<style><div id="host"><span id="in-document">1234567890</span><span id="in-document">1234567890</span></div></style>
+<link rel="help" href="https://drafts.csswg.org/css-scoping/#shadow-names">

@@ -1,0 +1,30 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>CSS-Text test: word-break keep-all + break-spaces does not affect U+3000</title><meta content="U+3000, despite being called Ideographic Space, does not belong to the ID line breaking class, or any other class whose wrapping opportunities are suppressed by word-break:keep-all. A break after it should still be allowed. white-space:break-spaces doesn't change that.">
+<link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net">
+<meta name=flags content="">
+<p><meta name=assert content="U+3000, despite being called Ideographic Space, does not belong to the ID line breaking class, or any other class whose wrapping opportunities are suppressed by word-break:keep-all. A break after it should still be allowed. white-space:break-spaces doesn't change that.">
+<link rel="match" href="reference/word-break-keep-all-005-ref.html"><p>
+<link rel=help href="https://drafts.csswg.org/css-text-3/#valdef-word-break-keep-all"><link rel=help href="https://drafts.csswg.org/css-text-3/#valdef-word-break-keep-all"><link rel=help href="https://drafts.csswg.org/css-text-3/#valdef-word-break-keep-all"><link rel=help href="https://drafts.csswg.org/css-text-3/#valdef-word-break-keep-all">
+<link rel=help href="https://drafts.csswg.org/css-text-3/#white-space-phase-170141183460469231731687303715884105726">
+<style><style>
+div {
+  width: 4em;
+  word-break: keep-all;
+  white-space: break-spaces;
+}
+</style></style>
+
+<p><link rel="match" href="reference/word-break-keep-all-005-ref.html"><p><p><p><p><p><p><p><p>This test passes if the four characters below are arranged in a two-by-two square.
+<div>字字　字字</div>
+<!--
+If keep-all has no effect at all, breaks are allowed everywhere,
+and the result will be:
+  字字　字
+  字
+
+If keep-all correctly suppresses wrapping opportunities between CJK ideographs
+but also incorrectly suppresses the wrapping opportunity after U+3000,
+no wrapping is possible, and the result will be:
+  字字　字字
+-->

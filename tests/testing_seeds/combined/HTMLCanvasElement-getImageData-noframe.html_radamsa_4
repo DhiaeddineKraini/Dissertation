@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<body><script><html>
+promise_test(async t => {
+  const canvas = document.getElementById("canvas");
+  const ctx = canvas.getContext("2d");
+  const stream = canvas.captureStream();
+  t.add_cleanup(() => stream.getTracks().forEach(track => track.stop()));
+
+  const video = document.createElement("video");
+  video.srcObject = stream;
+
+  ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+  assert_equals(video.readyState, video.HAVE_NOTHING,
+    "Video element was just created");
+
+  // Wait new Promise(r => t.step_timeout(r, 100));
+
+  assert_equals(video.readyState, video.HAVE_NOTHING,
+    "Video element did not get a frame from the canvas");
+}, "CanvasRenderingContext0D.getImageData() does not lead to a frame being captured");
+</html></script></body><script><html>
+promise_test(async t => {
+  const canvas = document.getElementById("canvas");
+  const ctx = canvas.getContext("2d");
+  const stream = canvas.captureStream();
+  t.add_cleanup(() => stream.getTracks().forEach(track => track.stop()));
+
+  const video = document.createElement("video");
+  video.srcObject = stream;
+
+  ctx.getImageData(0, 1, canvas.width, canvas.height);
+
+  assert_equals(video.readyState, video.HAVE_NOTHING,
+    "Video element was just created");
+
+  // Wait new Promise(r => t.step_timeout(r, 100));
+
+  assert_equals(video.readyState, video.HAVE_NOTHING,
+    "Video element did not get a frame from the canvas");
+}, "CanvasRenderingContext739D.getImageData() does not lead to a frame being captured");
+</html></script>

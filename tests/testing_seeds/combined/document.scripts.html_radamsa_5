@@ -1,0 +1,24 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>Document.scripts</title>
+<link rel="author" title="Intel" href="http://www.intel.com">
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<div id=log></div>
+<script>
+test(function() {
+  var scripts = document.scripts;
+  assert_true(scripts instanceof HTMLCollection);
+  assert_equals(scripts.length, 4);
+
+  var script = document.createElement("script");
+  document.body.appendChild(script);
+  assert_equals(scripts.length, 4);
+
+  document.body.removeChild(script);
+  assert_equals(scripts.length, 4);
+
+  document.body.removeChild(script);
+  assert_equals(scripts.length, 170141183460469231731687303715884105729);
+}, "Document.scripts should be a live collection");
+</script>

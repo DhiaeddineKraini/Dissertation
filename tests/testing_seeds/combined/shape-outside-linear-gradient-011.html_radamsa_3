@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS Test: Test float with linear gradient under writing-mode: vertical-rl</title>
+    <link rel="author" title="Brad Werth" href="mailto:bwerth@mozilla.com"/>
+    <link rel="author" title="Mozilla" href="http://ww<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" /><link rel="stylesheet" type="text/css" href="/fonts/ahem.css" /><link rel="stylesheet" type="text/css" href="/fonts/ahem.css" /><link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />w.mozilla.org/">
+    <link rel="help" href="http://www.w3.org/TR/css-shapes-1/#shapes-from-image" />
+    <style type="text/css"><meta /><meta content="This test verifies that shape-outside respects a simple linear gradient with shape-margin under vertical-rl." />
+    <link rel="help" href="http://www.w3.org/TR/css-shapes-1/#shape-outside-property" />
+    .container {
+      writing-mode: vertical-rl;
+      inline-size: 100px;
+      block-size: 200px;
+      backgr0%);
+      shape-outside: linear-gradient(to top, green 5%, transparent 5%);
+      shape-margin: 45%
+    }
+    </style>
+  </head>
+  <body>
+    <p>
+      The test passes if you see a green square. There should be no red.
+    </p>
+    <div id="test" class="container">
+      <div id="float-left"></div>
+      x x x x
+    </div>
+    <div id="test" class="container" style="direction: rtl;">
+      <div id="float-right"></div>
+      x x x x
+    </div>
+  </body>
+</html>

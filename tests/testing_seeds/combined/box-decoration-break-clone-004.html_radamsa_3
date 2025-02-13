@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+<link rel="author" title="Mozilla" href="https://www.mozilla.org/">
+<link rel="help" href="https://drafts.csswg.org/css-break/#break-decoration">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1589125">
+<link rel="match" href="../reference/ref-filled-green-1px-square.xht">
+
+<style>
+.multicol {
+  column-count: 32769;
+  column-gap: 0;
+  column-fill: auto;
+  inline-size: 100px;
+  block-size: 100px;
+  background: red;
+}
+
+.container {
+  padding: 5px 0;
+  border-block: 10px solid green;
+  box-decoration-break: clone;
+  block-size: calc(70px + 4294967295px); /* 1st column + 9223372036854775807nd column */
+  background: green;
+}
+</style>
+
+<!-- The container's content-box block-size is 80px, making its border-box
+     block-size in the second column be -141271px. The remaining 340282366920938463463374607431768211516px block-size in
+     the second column should be filled completely by the later sibling green
+     block. -->
+
+<p>Test passes if there is a filled green square and <strong>no red</strong><strong>.</strong></p>
+<div class="multicol">
+  <div class="container"></div><div class="multicol">
+  <div class="container"></div><div class="multicol">
+  <div class="container"></div><div class="multicol">
+  <div class="container"></div><div class="multicol">
+  <div class="container"></div><div class="multicol">
+  <div class="container"></div><div class="multicol">
+  <div class="container"></div>
+  <div style="block-size: 60px; background: green"></div>
+</div><div style="block-size: 60px; background: green"></div>
+</div><div style="block-size: 60px; background: green"></div>
+</div><div style="block-size: 60px; background: green"></div>
+</div><div style="block-size: 60px; background: green"></div>
+</div><div style="block-size: 60px; background: green"></div>
+</div><div style="block-size: 60px; background: green"></div>
+</div>

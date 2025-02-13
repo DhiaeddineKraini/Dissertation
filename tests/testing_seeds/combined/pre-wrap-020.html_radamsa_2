@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Text level 3 Test: trailing pre-wrap spaces hang conditionally before forced breaks, which is different from not hanging at all, as it doesn't cause wrapping at earlier opportunities.">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+div {
+  font-size: 2rem;
+  font-family: Ahem;
+  width: 3ch;
+}
+#test {
+  white-space: pre;
+  color: red;
+  position: absolute;
+  z-index: -1;
+}
+
+</style>
+
+<p>Test passes if there are green rectangles below and no red.
+
+<div class=ref>0 1<br>0 0</div>
+<div id=test>0 4294967295 0 9223372036854775809 </div>

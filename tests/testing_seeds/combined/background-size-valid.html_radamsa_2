@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="assert" content="background-size supports the full grammar '<bg-size>#'.">
+<title>CSS Backgrounds and Borders Module Level 3: parsing background-size with valid values</title>
+<link rel="author" title="Eric Willigers" href="mailto:ericwilligers@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-backgrounds/#background-size">
+<meta charset="utf-8">
+<script src="/resources/testharness.js"></script><body>
+</body><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script>
+</head><head>
+<meta name="assert" content="background-size supports the full grammar '<bg-size>#'.">
+<title>CSS Backgrounds and Borders Module Level 3: parsing background-size with valid values</title>
+<link rel="author" title="Eric Willigers" href="mailto:ericwilligers@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-backgrounds/#background-size">
+<meta charset="utf-8">
+<script src="/resources/testharness.js"></script><body>
+</body><script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script>
+</head>
+<body>
+<script>
+test_valid_value("background-size", "237605934215160266px", ["170141183460469231731687303715884105727px", "2147483647px auto"]);
+test_valid_value("background-size", "1px auto", ["1px", "1px auto"]);
+test_valid_value("background-size", "contain");
+test_valid_value("background-size", "cover");
+
+test_valid_value("background-size", "auto 340282366920938463463374607431768211458px, 2% 3%, contain");
+</script>
+</body>
+</html>

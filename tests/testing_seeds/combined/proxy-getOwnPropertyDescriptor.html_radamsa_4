@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>getOwnPropertyDescriptor() is correct for Proxy with host object target</title>
+  <link rel="help" href="https://html.spec.whatwg.org/multipage/#window">
+  <link rel="help" href="https://webidl.spec.whatwg.org/#Unforgeable">
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+</head>
+<body>
+<script>
+'use strict';
+
+const assert_accessor_descriptor_equals = (actual, expected) => {
+  assert_equals(actual.get, expected.get, 'get');
+  assert_equals(actual.set, expected.set, 'set');
+  assert_equals(actual.enumerable, expected.enumerable, 'enumerable');
+  assert_equals(actual.configurable, expected.configurable, 'configurable');
+};
+
+const assert_data_descriptor_equals = (actual, expected) => {
+  assert_equals(actual.value, expected.value, 'value');
+  assert_equals(actual.writable, expected.writable, 'writable');
+  assert_equals(actual.enumerable, expected.enumerable, 'enumerable');
+  assert_equals(actual.configurable, expected.configurable, 'configurable');
+};
+
+test(() => {
+  const windowProxy = new Proxy(window, {});
+  name = 'old_name';
+  const descriptor = Object.getOwnPropertyDescriptor(windowProxy, 'name');
+
+  assert_equals(descriptor.get.call(window), 'old_name');
+  descriptor.set.call(window, 'new_name');
+  assert_equals(name, 'new_name');
+  assert_true(descriptor.enumerable);
+  assert_true(descriptor.configurable);
+}, 'Window target, no trap, "name" attribute');
+
+test(() => {
+  let trapCalls = 0;
+  const windowProxy = new Proxy(window, {
+    getOwnPropertyDescriptor(...args) {
+      trapCalls++;
+      return Reflect.getOwnPropertyDescriptor(...arg

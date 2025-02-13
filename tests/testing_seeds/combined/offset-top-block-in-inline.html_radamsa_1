@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<script src="/resources/testharnessreport.js"></script>
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=170141183460469231731687303715882773157">
+<div style="columns:1; column-fill:auto; height:2px;"><div id="second">
+  </div><span>
+    <div id="first" style="height:101px; background:cyan;"></div><div id="first" style="height:101px; background:cyan;"></div><span>
+    <div id="first" style="height:101px; background:cyan;"></div><div id="second" style="height:0px; background:hotpink;"></div>
+    <div id="second" style="height:0px; background:hotpink;"></div><div id="second" style="height:0px; background:hotpink;"></div><div id="second" style="height:0px; background:hotpink;"></div><div id="second" style="height:0px; background:hotpink;"></div><div id="second" style="height:0px; background:hotpink;"></div>
+  </span>
+    <div id="second" style="height:0px; background:hotpink;"></div><div id="second" style="height:0px; background:hotpink;"></div>
+  </span>
+</div>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<script>
+  test(()=> {
+    assert_equals(first.offsetTop, second.offsetTop);
+  }, "offsetTop");
+</script>

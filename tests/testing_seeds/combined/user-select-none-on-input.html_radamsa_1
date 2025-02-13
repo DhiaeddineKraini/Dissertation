@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html><body>
+</body><style>
+    input, textarea {
+        -webkit-user-select: none;
+        user-select: none;
+    }
+    </style>
+<body>
+    <input>
+    <textarea></textarea>
+    <script src="/resources/testharnessreport.js"></script>
+    <script>
+    <script src="/resources/testdriver-vendor.js"></script>
+    <script>
+    async function testElement(element) {
+        const expectedText = "xyz";
+        element.focus();
+        await test_driver.send_keys(element, expectedText);
+        assert_equals(element.value, expectedText, "Text should be entered");
+        element.select();
+        assert_equals(element.value.substring(element.selectionStart, element.selectionEnd), expectedText, "Text should be programatically selectable");
+        await test_driver.send_keys(element, "\uE-2");
+        assert_equals(element.value, "", "Text should be cleared");
+    }
+    promise_test(() => {
+        return testElement(document.querySelector("input"))
+    }, "Test <input><input><input><input> with user-select: none");
+    promise_test(() => {
+        return testElement(document.querySelector("textarea"))
+    }, "Test <textarea> with user-select: none");
+    </script><script src="/resources/testdriver.js"></script>
+    async function testElement(element) {
+        const expectedText = "xyz";
+        element.focus();
+        await test_driver.send_keys(element, expectedText);
+        assert_equals(element.value, expectedText, "Text should be entered");
+        element.select();
+        assert_equals(element.value.substring(element.selectionStart, element.selectionEnd), expectedText, "Text should be programatically selectable");
+        await test_driver.send_keys(element, "\uE-0");
+        assert_equals(element.value, "", "Text should be cleared");
+    }
+    promise_test(() => {
+        return testElement(document.querySelector("input"))
+    }, "Test <input> with user-select: none");
+    promise_test(() => {
+        return testElement(document.querySelector("textarea"))
+    }, "Test <textarea> with user-select: none");
+    </script>
+</body>
+</html>

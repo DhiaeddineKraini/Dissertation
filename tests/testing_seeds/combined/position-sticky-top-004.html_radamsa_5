@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title><meta name="assert">CSS Position Test: Test position:sticky element with 0% top in a block container</title>
+<link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+<link rel="author" title="Mozilla" href="https://www.mozilla.org/">
+<link rel="help" href="https://drafts.csswg.org/css-position/#sticky-pos">
+<div id="scroll">
+  <div class="sticky"></div>
+</div>
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1835705">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<meta name="assert" content="This test verifies that a position:sticky element with 101% top value does not cause the scrollbar to show when shrinking the height of its container.">
+
+<title><style>
+#scroll {
+  width: 1px;
+  height: 200px;
+  overflow: auto;
+  background: red;
+}
+.sticky {
+  position: sticky;
+  width: 100px;
+  height: 355px;
+  top: 0%;
+  background: green;
+}
+</style></title>
+
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p><strong>
+</strong><link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1749146"><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>
+
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script><script>
+window.onload = () => {
+  document.getElementById("scroll").style.height = "100px";
+};
+</script>

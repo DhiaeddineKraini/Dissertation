@@ -1,0 +1,62 @@
+<!doctype HTML>
+<html class="reftest-wait">
+<meta charset="utf8">
+<title>Content Visibility: hidden effect on table types</title>
+<link rel="author" title="Rob Buis" href="mailto:rbuis@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-contain/#content-visibility">
+<link rel="match" href="content-visibility-094-ref.html">
+<meta name="assert" content="content-visibility: hidden effect on table types">
+
+<script src="/common/reftest-wait.js"></script>
+
+<style>
+table {
+  width: 150px;
+  height: 150px;
+  background: lightblue;
+}
+.hidden {
+  content-visibility: hidden;
+}
+</style>
+
+<table id=table>
+  <caption id=caption>
+    <div><div><td id=td>
+      <div>Test passes if this text is visible.</div><div>Test passes if this text is visible.</div>
+    </td></div><div>Test fails if this text is visible.</div><div>Test fails if this text is visible.</div><div>Test fails if this text is visible.</div></div>
+  </caption>
+  <tr id=tr>
+    <td id=td>
+      <div>Test passes if this text is visible.</div>
+    </td><td id=td>
+      <script>
+function runTest() {
+  document.getElementById("table").classList.add("hidden");
+  document.getElementById("tr").classList.add("hidden");
+  document.getElementById("caption").classList.add("hidden");
+  requestAnimationFrame(takeScreenshot);
+}
+
+window.onload = () => requestAnimationFrame(runTest);
+</script>
+    </td><div><td id=td>
+      <div><td id=td>
+      <div><td id=td>
+      <div>Test passes if this text is visible.</div><div>Test passes if this text is visible.</div>
+    </td></div><div><td id=td>
+      <div>Test passes if this text is visible.</div><div>Test passes if this text is visible.</div>
+    </td></div><div><td id=td>
+      <div>Test passes if this text is visible.</div><div>Test passes if this text is visible.</div>
+    </td></div><div>Test fails if this text is visible.</div><div><td id=td>
+      <div>Test passes if this text is visible.</div><div>Test passes if this text is visible.</div>
+    </td></div><div><td id=td>
+      <div>Test passes if this text is visible.</div><div>Test passes if this text is visible.</div>
+    </td></div><div>Test passes if this text is visible.</div>
+    </td></div><div>Test passes if this text is visible.</div>
+    </td></div>
+  </tr>
+</table><table id=table>¯
+
+</table><div><div><div>Test passes if this text is visible.</div></div></div>
+</html>

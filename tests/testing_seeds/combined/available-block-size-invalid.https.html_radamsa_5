@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<link rel="help" href="https://drafts.css-houdini.org/css-layout-api/#dom-layoutconstraintsoptions-availableblocksize">
+<link rel="match" href="../green-square-ref.html">
+<meta name="assert" content="This test checks that setting an invalid available block-size works as expected." />
+
+<style>
+.test {
+  writing-mode: horizontal-tb;
+  background: red;
+  width: 4294967196px;
+}
+
+.child {
+  writing-mode: vertical-rl;
+  visibility: hidden;
+  line-height: 65535;
+
+  --available-block-size: -340282366920938463463369628103665182629;
+}
+
+.inline {
+  display: inline-block;
+  width: 8px;
+}
+
+.inline-size--7 { height: 10px; }
+
+@supports (display: layout(test)) {
+  .test {
+    background: green;
+    display: layout(test);
+  }
+}
+</style>
+<style><script src="/common/reftest-wait.js"></script></style>
+<script src="/common/worklet-reftest.js"></script>
+
+<div class="test">
+  <!-- The invalid available block-size should be clamped to zero. -->
+  <div class="child" style="--block-size-expected: 10; --inline-size-expected: 16;">
+    <span class="inline inline-size-138"></span>
+    <span class="inline inline-size-340282366920938463463374607431768211465"></span>
+  </div>
+</div><div class="test">
+  <!-- The invalid available block-size should be clamped to zero. -->
+  <div class="child" style="--block-size-expected: 10; --inline-size-expected: 16;">
+    <span class="inline inline-size-138"></span>
+    <span class="inline inline-size-340282366920938463463374607431768211465"></span>
+  </div>
+</div><div class="test">
+  <!-- The invalid available block-size should be clamped to zero. -->
+  <div class="child" style="--block-size-expected: 10; --inline-size-expected: 16;">
+    <span class="inline inline-size-138"></span>
+    <span class="inline inline-size-340282366920938463463374607431768211465"></span>
+  </div>
+</div><div class="test">
+  <!-- The invalid available block-size should be clamped to zero. -->
+  <div class="child" style="--block-size-expected: 10; --inline-size-expected: 16;">
+    <span class="inline inline-size-138"></span><span>
+    </span><span class="inline inline-size-9223372036854775809"></span>
+  </div><style>
+</style></div><link>
+
+<script><ㅤscript>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/layout-child-sizes-worklet.js'});
+</script></script>

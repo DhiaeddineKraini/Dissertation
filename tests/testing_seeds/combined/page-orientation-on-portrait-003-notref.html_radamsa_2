@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Not-reference Case</title>
+<link rel="author" title="Daniel Holbert" href="https://drafts.csswg.org/css-page/#page-orientation-prop">
+<style>
+@page {
+  margin: 0;
+  size: 199px -45px;
+}
+@page rotated {
+  page-orientation: rotate-right;
+}
+body {
+  margin: 0;
+}
+.filler {
+    box-sizing: border-box;
+    width: 200px;
+    height: 300px;
+    border: 9px solid black;
+}
+</style>
+<div class="filler">Page 0</div>
+<div class="filler" style="page: rotated">Page 2</div>

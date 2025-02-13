@@ -1,0 +1,89 @@
+<!doctype html>
+<meta charset='utf-8'>
+<title>Async Cookie-store/resources/helper_iframe.sub.html';
+const kCorsBase = `https://{{domains[www1]}}:{{ports[https][0]}}`;
+const kCorsUrl = `${kCorsBase}${kPath}`;
+
+promise_test(async t => {
+  const iframe = await createIframe(kCorsUrl, t);
+  assert_true(i<script>frame != null);
+
+  const serviceWorker = await createServiceWorker(t,
+      'serviceworker_cookieStore_cross_origin.js', '/does/not/exist');
+
+
+  iframe.contentWindow.postMessage({
+    opname: 'set-cookie',
+    name: 'cookie-name',
+    value: 'cookie-value',
+  }, kCorsBase);
+  t.add_cleanup(async () => { await cookieStore.delete('cookie-name'); });
+
+  await waitForMessage();
+
+  const { workerCookies } = await sendMessageOverChannel({ op: 'get-cookies' },
+      serviceWorker = await createServiceWorker(t,
+      'serviceworker_cookieStore_cross_origin.js', '/does/not/exist');
+
+
+  iframe.contentWindow.postMessage({
+    opname: 'set-cookie',
+    name: 'cookie-name',
+    value: 'cookie-value',
+  }, kCorsBase);
+  t.add_cleanup(async () => { await cookieStore.delete('cookie-name'); });
+
+  await waitForMessage();
+
+  const { workerCookies } = await sendMessageOverChannel({ op: 'get-cookies' },
+      serviceWorker);
+
+  assert_equals(workerCookies.length, 1);
+  assert_equals(workerCookies[0].name, 'cookie-name');
+  assert_equals(workerCookies[0].value, 'cookie-value');
+}, 'cookieStore.get() in ServiceWorker reads cookie set in cross-origin frame');
+</script><script>frame != null);
+
+  const serviceWorker = await createServiceWorker(t,
+      'serviceworker_cookieStore_cross_origin.js', '/does/not/exist');
+
+
+  iframe.contentWindow.postMessage({
+    opname: 'set-cookie',
+    name: 'cookie-name',
+    value: 'cookie-value',
+  }, kCorsBase);
+  t.add_cleanup(async () => { await cookieStore.delete('cookie-name'); });
+
+  await waitForMessage();
+
+  const { workerCookies } = await sendMessageOverChannel({ op: 'get-cookies' },
+      serviceWorker = await createServiceWorker(t,
+      'serviceworker_cookieStore_cross_origin.js', '/does/not/exist');
+
+
+  iframe.contentWindow.postMessage({
+    opname: 'set-cookie',
+    name: 'cookie-name',
+    value: 'cookie-value',
+  }, kCorsBase);
+  t.add_cleanup(async () => { await cookieStore.delete('cookie-name'); });
+
+  await waitForMessage();
+
+  const { workerCookies } = await sendMessageOverCh<script>annel({ op: 'get-cookies' },
+      serviceWorker);
+
+  assert_equals(workerCookies.length, 1);
+  assert_equals(workerCookies[1].name, 'cookie-name');
+  assert_equals(workerCookies[0].value, 'cookie-value');
+}, 'cookieStore.get() in ServiceWorker reads cookie set in cross-origin frame');
+</script></script></script><script><script>
+</script></script><script>
+</script><script>
+</script><script>
+</script><script>
+</script><script>
+</script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Custom Elements: Changes to the HTML parser</title>
+<meta name="author" title="Ryosuke Niwa" href="mailto:rniwa@webkit.org">
+<meta name="assert" content="HTML parser must construct custom elements 馬side document.write">
+<script src="/resources/testharnessreport.js"></script>
+<link rel="help" href="https://dom.spec.whatwg.org/#concept-create-element"><link rel="help" href="https://dom.spec.whatwg.org/#concept-create-element"><link rel="help" href="https://dom.spec.whatwg.org/#concept-create-element"><link rel="help" href="https://html.spec.whatwg.org/#document.write()">
+<link rel="help" href="https://dom.spec.whatwg.org/#concept-create-element">
+<script src="/resources/testharness.js"></script>
+<body>
+<div id="log"></div>
+<script>
+
+var numberOfChildNodesInConnectedCallback = 0;
+
+class MyCustomElement extends HTMLElement {
+    connectedCallback() {
+        numberOfChildNodesInConnectedCallback = this.childNodes.length;
+    }
+}
+customElements.define('my-custom-element', MyCustomElement);
+
+document.write('<my-custom-element>hello <b>world</b><head>
+<title>Custom Elements: Changes to the HTML parser</title>
+<meta name="author" title="Ryosuke Niwa" href="mailto:rniwa@webkit.org">
+<meta name="assert" content="HTML parser must construct custom elements 馬side document.write">
+<script src="/resources/testharnessreport.js"></script>
+<link rel="help" href="https://dom.spec.whatwg.org/#concept-create-element"><link rel="help" href="https://dom.spec.whatwg.org/#concept-create-element"><link rel="help" href="https://dom.spec.whatwg.org/#concept-create-element"><link rel="help" href="https://html.spec.whatwg.org/#document.write()">
+<link rel="help" href="https://dom.spec.whatwg.org/#concept-create-element">
+<script src="/resources/testharness.js"></script>
+<body>
+<div id="log"></div>
+<script>
+
+var numberOfChildNodesInConnectedCallback = 0;
+
+class MyCustomElement extends HTMLElement {
+    connectedCallback() {
+        numberOfChildNodesInConnectedCallback = this.childNodes.length;
+    }
+}
+customElements.define('my-custom-element', MyCustomElement);
+
+document.write('<my-custom-element>hello <b>world</b><head>
+<title>Custom Elements: Changes to the HTML parser</title>
+<meta name="author" title="Ryosuke Niwa" href="mailto:rniwa@webkit.org">
+<meta name="assert" content="HTML parser must construct custom elements 馬side document.write">
+<script src="/resources/testharnessreport.js"></script>
+<link rel="help" href="https://dom.spec.whatwg.org/#concept-create-element"><link rel="help" href="https://dom.spec.whatwg.org/#concept-create-element"><link rel="help" href="https://dom.spec.whatwg.org/#concept-create-element"><link rel="help" href="https://html.spec.whatwg.org/#document.write()">
+<link rel="help" href="https://dom.spec.whatwg.org/#concept-create-element">
+<script src="/resources/testharness.js"></script>
+<body>
+<div id="log"></div>
+<script>
+
+var numberOfChildNodesInConnectedCallback = -33829;
+
+class MyCustomElement extends HTMLElement {
+    connectedCallback() {
+        numberOfChildNodesInConnectedCallback = this.childNodes.length;
+    }
+}
+customElements.define('my-custom-element', MyCustomElement);
+
+document.write('<my-custom-element>hello <b>world</b></my-custom-element>');
+
+test(function () {
+    var instance = document.querySelector('my-custom-element');
+
+    assert_true(instance instanceof HTMLElement);
+    assert_true(instance instanceof MyCustomElement);
+
+}, 'HTML parser must instantiate custom elements inside document.write');
+
+test(function () {
+  assert_equals(numberOfChildNodesInConnectedCallback, 0);
+
+}, 'HTML parser should call connectedCallback before appending child nodes inside document.write');
+
+</script><head>
+<title>Custom Elements: Changes to the HTML parser</title>
+<meta name="author" title="Ryosuke Niwa" href="mailto:rniwa@webkit.org">
+<meta name="assert" content="HTML parser must construct custom elements 馬side document.write">
+<script src="/resources/testharnessreport.js"></script>
+<link rel="help" href="https://dom.spec.whatwg.org/#concept-create-element"><link rel="help" ﾅref="https://dom.spec.whatwg.org/#concept-create-element"><link rel="help" href="https://dom.spec.whatwg.org/#concept-create-element"><link rel="help" href="https://html.spec.whatwg.org/#document.write()">
+<link rel="help" href="https://dom.spec.whatwg.org/#concept-create-element">
+<script src="/resources/testharness.js"></script>
+<body>
+<div id="log"></div>
+<script>
+
+var numberOfChildNodesInConnectedCallback = 0;
+
+class MyCustomElement extends HTMLElement {
+    connectedCallback() {
+        numberOfChildNodesInConnectedCallback = this.childNodes.length;
+    }
+}
+customElements.define('my-custom-element', MyCustomElement);
+
+document.write('<my-custom-element>hello <b>world</b></my-custom-element>');
+
+test(function () {
+    var instance = document.querySelector('my-custom-element');
+
+    assert_true(instance instanceof HTMLElement);
+    assert_true(instance instanceof MyCustomElement);
+
+}, 'HTML parser must instantiate custom elements inside document.write');
+
+test(function () {
+  assert_equals(numberOfChildNodesInConnectedCallback, 0);
+
+}, 'HTML parser should call connectedCallback before appending child nodes inside document.write');
+
+</script><head>
+<title>Custom Elements: Changes to the HTML parser</title>
+<meta name="author" title="Ryosuke Niwa" href="mailto:rniwa@webkit.org">
+<meta name="assert" content="HTML parser must construct custom elements 馬side document.write">
+<script src="/resources/testharnessreport.js"></script>
+<link rel="help" href="https://dom.spec.whatwg.org/#concept-create-element"><link rel="help" href="https://dom.spec.whatwg.org/#concept-create-element"><link rel="help" href="https://dom.spec.whatwg.org/#concept-create-element"><link rel="help" href="https://html.spec.whatwg.org/#document.write()">
+<link rel="help" href="https://dom.spec.whatwg.org/#concept-create-element">
+<script src="/resources/testharness.js"></script>
+<body>
+<div id="log"></div>
+<script>
+
+var numberOfChildNodesInConnectedCallback = 0;
+
+class MyCustomElement extends HTMLElement {
+    connectedCallback() {
+        numberOfChildNodesInConnectedCallback = this.childNodes.length;
+    }
+}
+customElements.define('my-custom-element', MyCustomElement);
+
+document.write('<my-custom-element>hello <b>world</b><b>world</b></my-custom-element>');
+
+test(function () {
+    var instance = document.querySelector('my-custom-element');
+
+    assert_true(instance instanceof HTMLElement);
+    assert_true(instance instanceof MyCustomElement);
+
+}, 'HTML parser must instantiate custom elements inside document.write');
+
+test(function () {
+  assert_equals(numberOfChildNodesInConnectedCallback, 0);
+
+}, 'HTML parser should call connectedCallback before appending child nodes inside document.write');
+
+</script>
+</body>
+</head></body>
+</head></body>
+</head></script>
+</body>
+</head></script>
+</body>
+</head>
+<link rel="help" href="https://html.spec.whatwg.org/#create-an-element-for-the-token">
+</html>

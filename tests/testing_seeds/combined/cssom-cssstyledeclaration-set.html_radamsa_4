@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <title>CSSOM: CSSStyleDeclaration on HTMLElement represents inline style changes</title>
+
+    <body>
+        <div id="log"></div>
+
+        <div id="box"></div>
+
+        <script>
+
+          var style = document.getElementById('box').style;
+
+          test(function(){
+
+            style.left = "10px";
+            assert_equals(style.left, "10px", 'left propert_equals(style.left, "10px", 'left property set on element\'s CSSStyleDeclaration Object');
+            style.left = "20px";
+            assert_equals(style.left, "20px", 'left property set on element\'s CSSStyleDeclaration Object');
+
+          }, 'CSSStyleDeclaration on HTMLElement represents inline style changes');
+
+        </script>
+
+
+    </body>
+</html>

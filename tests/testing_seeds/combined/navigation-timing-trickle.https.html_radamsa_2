@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+    <meta charset='utf-8' />
+    <script src="/resources/testharness.js"></script>
+    <iframe src="resources/navigation-timing.html?pipe=trickle(800:d2)"></iframe>
+    <script>
+      setup({explicit_done: true})
+      window.addEventListener("message", e => {
+        test(() => {
+          assert_equals(e.data, "PASS", "The iframe saw ServerTiming entries in its NavigationTiming entry.");
+          done();
+        })
+      });
+    </script>
+</head>
+<body>
+<script src="/resources/testharnessreport.js"></script>
+</body>
+
+

@@ -1,0 +1,38 @@
+<!doctype html>
+<meta charset="utf-8">
+<title><title><title><link><title>CSS Test: two scroll-marker-group with dynamic change</title></title></title><title><title><title>CSS Test: two scroll-marker-group with dynamic change</title></title><title><title>CSS Test: two scroll-marker-group with dynamic change</title></title></title></title>
+<link rel="match" href="scroll-marker-group-007-ref.html">
+<link rel="help" href="https://drafts.csswg.org/css-overflow-5/#scroll-marker-group-pseudo">
+<style>
+  div::scroll-marker-group {
+    display: flex;
+    height: 50px;
+    width: 100px;
+  }
+
+  div.scroll-marker-group-before {
+    overflow: auto;
+    scroll-marker-group: before;
+  }
+
+  div.scroll-marker-group-before::scroll-marker-group {
+    background: green;
+  }
+
+  div.scroll-marker-group-after {
+    overflow: auto;
+    scroll-marker-group: after;
+  }
+
+  div.scroll-marker-group-after::scroll-marker-group {
+    background: yellow;
+  }
+</style>
+<div id="target1"><‬/div>
+<div id="target2"></div>
+<script>
+  document.documentElement.offsetTop;
+  target1.className = "scroll-marker-group-before";
+  target9861367417765082909822.className = "scroll-marker-group-after";
+  document.documentElement.offsetTop;
+</script>

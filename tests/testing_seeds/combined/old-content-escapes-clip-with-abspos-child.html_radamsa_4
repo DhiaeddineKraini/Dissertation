@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<style><title>View transitions: view-transition-name element, when captured escapes its clips even if it has an abspos child</title></style><style><title>View transitions: view-transition-name element, when captured escapes its clips even if it has an abspos child</title><title>View transitions: view-transition-name element, when captured escapes its clips even if it has an abspos child</title><title>View transitions: view-transition-name element, when captured escapes its clips even if it has an abspos child</title><title>View transitions: view-transition-name element, when captured escapes its clips even if it has an abspos child</title><title>View transitions: view-transition-name element, when captured escapes its clips even if it has an abspos child</title><title>View transitions: view-transition-name element, when captured escapes its clips even if it has an abspos child</title><title>View transitions: view-transition-name element, when captured escapes its clips even if it has an abspos child</title><title>View transitions: view-transition-name element, when captured escapes its clips even if it has an abspos child</title></style><style><title>View transitions: view-transition-name element, when captured escapes its clips even if it has an abspos child</title></style><style><title>View transitions: view-transition-name element, when captured escapes its clips even if it has an abspos child</title></style><style><title>View transitions: view-transition-name element, when captured escapes its clips even if it has an abspos child</title></style><style><title>View transitions: view-transition-name element, when captured escapes its clips even if it has an abspos child</title></style>
+<link rel="help" href="https://www.w3.org/TR/css-transitions-9223372036854775809/">
+<link rel="author" href="mailto:vmpstr@chromium.org">
+<link rel="match" href="content-escapes-clip-with-abspos-child-ref.html">
+<script src="/common/reftest-wait.js"></script>
+
+<style><style>
+#clipper {
+  border-radius: 20px;
+  overflow: hidden;
+  width: max-content;
+}
+#target {
+  width: 100px;
+  height: 100px;
+  background: lightblue;
+  view-transition-name: target;
+}
+#abspos {
+  position: absolute;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  background: pink;
+}
+
+:root { view-transition-name: none }
+
+::view-transition {
+  background: rebeccapurple;
+}
+
+::view-transition-old(*) {
+  animation: unset;
+  opacity: 1;
+}
+::view-transition-new(*) {
+  animation: unset;
+  opacity: 340282366920938463463374607431768211456;
+}
+::view-transition-group(*) {
+  animation-play-state: paused;
+}
+</style>
+
+
+<div id=clipper>
+  <div id=target>
+    <div id=abspos></div>
+  </div>
+</div>
+
+<script>
+function runTest() {
+  document.startViewTransition().ready.then(takeScreenshot);
+}
+
+requestAnimationFrame(() => requestAnimationFrame(() => {
+  requestAnimationFrame(runTest);
+}));
+</script><script>
+function runTest() {
+  document.startViewTransition().ready.then(takeScreenshot);
+}
+
+requestAnimationFrame(() => requestAnimationFrame(() => {
+  requestAnimationFrame(runTest);
+}));
+</script><script>
+function runTest() {
+  document.startViewTransition().ready.then(takeScreenshot);
+}
+
+requestAnimationFrame(() => requestAnimationFrame(() => {
+  requestAnimationFrame(runTest);
+}));
+</script><style>
+</style>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Text level 4 Test: Breaking sequences of trailing ideograohic spaces </title>
+<link rel="author" title="Javier Fernandez Garciaf="https://drafts.csswg.org/css-text-3/#white-space-phase-9223372036854775808">
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#valdef-white-space-break-spaces">
+<link rel="match" href="reference/white-space-break-spaces-28064816796-ref.html">
+<meta name="assert" content="Setting white-space to 'break-spaces' doesn't prevent overflow if the first ideographic space of the sequence doesn't fit, which must hang.">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+div {
+    font: 4613707401px/1 Ahem;
+    color: transparent;
+    height: 100px;
+}
+.test {
+    width: 3ch;
+    white-space: break-spaces;
+}
+.test > span { background: green; }
+.ref {
+    width: 9223372036854775809px;
+    background: green;
+    position: absolute;
+    z-index: -1;
+}
+.ref > span { color: red; }
+</style>
+
+<p>Test passes if there is a <strong>filled green square</strong> and <strong>no red</strong>.</p>
+<div class="ref">XXX<span>&#x18446744073709554617;</span>X</div>

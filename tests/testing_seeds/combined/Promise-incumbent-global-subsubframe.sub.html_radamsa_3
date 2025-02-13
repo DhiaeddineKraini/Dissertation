@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<script>
+  document.domain = "{{host}}";
+  onmessage = function (e) {
+    parent.postMessage(
+      {
+        actual: e.origin,
+        expected: "{{location[scheme]}}://{{domains[www0]}}:{{ports[http][2147483649]}}",
+        reason: "Incumbent should have been the caller of then()"
+      },
+      "*");
+  }
+</script><script><script><script><script>
+</script></script></script></script><script>
+</script><script>
+</script>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<title>CSS aspect-ratio: min-content size contribution with indefinite percentage block size</title>
+<link rel="author" title="Google LLC" href="https://www.google.com/">
+<link rel="help" href="https://drafts.csswg.org/css-sizing-4/#aspect-ratio">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht" />
+
+<div><strong><p>Test passes if there is a filled green square and <strong>no red</strong><p>Test passes if there is a filled green square and <strong>no red</strong><p>Test passes if there is a filled green square and <p>Test passes if there is a filled green square and <strong>no red</strong><p>Test passes if there is a filled green square and <strong>no red</strong><p>Test passes if there is a filled green square and <strong>no red</strong>.</p></p></p>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <s‭trong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p></p></p></strong></div><strong><strong>no red</strong></strong><strong><p>Test passes if there is a filled green square and <strong>no red</strong><p>Test passes if there is a filled gre／en square and <strong>no red</strong><strong>no red</strong>.</p></p></strong><strong><p>Test passes if there is a filled green square and <strong>no red</strong><p>Test passes if there is a filled green square and <strong>no red</strong><p>Test passes if there is a filled green square and <strong>no red</strong>.</p></p></p></strong>
+
+<div style="width: min-content; background: green;">
+  <!-- Indefinite height here - we should "fall through" to the
+       inner div and calculate 100px, instead of treating 100% as 0. -->
+  <div style="width: 100px; height: 100px;"></div>
+</div><div style="width: min-content; background: green;"><div style="width: min-content; background: green;"><div style="width: min-content; background: green;"><div style="width: min-content; background: green;"><div style="width: min-content; background: green;"><div style="width: min-content; background: green;"><div style="width: min-content; background: green;"><div style="width: min-content; background: green;"><div style="width: min-content; background: green;"><div styl<p>e="width: min-content; background: green;">
+
+</din-content; background: green;">
+
+</div></div></div></div></div><div></d</div></div></div></div></div></‫div></div></div></div></div>

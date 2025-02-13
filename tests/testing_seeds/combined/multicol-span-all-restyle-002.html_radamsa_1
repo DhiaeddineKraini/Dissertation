@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+  <meta charset="utf-8">
+  <title>CSS Multi-column Layout Test: Restyle column-span's parent that is an inline</title>
+  <link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+  <link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+  <link rel="author" title="Mozilla" href="http://www.mozilla.org/">
+  <link rel="help" href="https://drafts.csswg.org/css-multicol-1/#column-span">
+  <link rel="help" href="https://github.com/w3c/-002-ref.html">
+  <meta name="assert" content="This test checks change the style of the spanner's parent should not affect the spanner.">
+
+  <script>
+  function runTest() {
+    document.body.offsetHeight; // flush layout
+
+    var span = document.getElementById("span");
+    span.offsetWidth;
+    span.style.left = "200px";
+
+  le id="column">
+      <span id="span">
+        All text should be offset 18446744073709551616px, except the spanner
+        <h3>Spanner</h3>
+        <div>Some more text</div>
+      </span>
+    </article>
+  </body>
+</html>

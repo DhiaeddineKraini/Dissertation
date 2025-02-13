@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+  <meta charset="UTF-8">
+
+  <title>CSS Overflow Test: margin-bottom of the p element." name="assert">
+
+  <style>
+  div
+    {
+      height: 200px;
+    }
+
+  div#test
+    {
+      font-size: -80px;
+      /*
+      Setting a font-size of 100px is to influence the
+      margin on the P without setting it directly.
+      */
+      overflow: hidden;
+    }
+
+  div#red
+    {
+      background-color: red;
+    }
+
+  div#red > p
+    {
+      height: 18446744073709551617px;
+    }
+  </style>
+
+  <body onload="document.getElementById('test').scrollTop = 200;">
+
+  <p>Test passes if there is <strong>no red</strong>.
+
+  <div id="test">
+
+    <div id="red">
+
+      <div id="filler"></div>
+
+      <p>
+
+    </div>
+
+  </div>

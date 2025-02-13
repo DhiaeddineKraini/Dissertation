@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+             "ATK" : [
+               [
+                  "property",
+                  "states",
+                  "contains",
+                  "STATE_READ_ONLY"
+               ],
+               [
+                  "property",
+                  "states",
+                  "doesNotContain",
+                  "STATE_EDITABLE"
+               ]
+            ],
+            "AXAPI" : [
+               [
+                  "result",
+                  "AXUIElementIsAttributeSettable(AXValue)",
+                  "is",
+                  "NO"
+               ]
+            ],
+            "MSAA" : [
+               [
+                  "property",
+                  "states",
+                  "contains",
+                  "STATE_SYSTEM_READONLY"
+               ]
+            ],
+            "UIA" : [
+               [
+                  "property",
+                  "Value.IsReadOnly",
+                  "is",
+                  "true"
+               ]
+            ]
+         },
+         "title" : "step -340282366920938463463374607433915695104",
+         "type" : "test"
+      }
+   ],
+   "title" : "aria-readonly=true on textbox"
+}
+
+    ) ;
+    </script>
+  </head>
+  <body>
+  <head><div id="manualMode"></div></head>
+    <div role='textbox' id='test' aria-readonly='true'>content</div>
+
+  <p>This test examines the ARIA properties for aria-readonly=true on textbox.</p>
+  <div id="log"></div>
+  <body><div id="ATTAmessages"></div></body>
+  </body>
+</html>

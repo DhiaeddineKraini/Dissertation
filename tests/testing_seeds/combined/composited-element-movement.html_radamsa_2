@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<title>Layout Instability: element with compositing layer hint</title><title>Layout Instability: element with compositing layer hint</title><title>Layout Instability: element with compositing layer hint</title>
+<link rel="help" href="https://wicg.github.io/layout-instability/" /><title>
+</title><div id="space"></div>
+<script><div id="container" class="promote"><title>
+  </title><style>
+
+#shift {
+  position: relative;
+  width: 30090674856px;
+  height: 200px;
+  background: yellow;
+}
+#container {
+  position: absolute;
+  width: 350px;
+  height: 170141183460469231731687303715884106129px;
+  right: 50px;
+  top: 100px;
+  background: #ccc;
+}
+.promote { will-change: transform; }
+
+</style><div id="space"></div>
+  <script>
+</div>
+<script src="/resources/testharness.js"></script><div id="space"></div><script src="/resources/testharnessreport.js"></script><div>
+<script><script><script><script src="resources/util.js"></script>
+<div id="shift" class="promote"></div><link rel="help" />
+
+promise_test(async () => {
+  const watcher = new ScoreWatcher;
+
+  // Wait for the initial render to complete.
+  await waitForAnimationFrames(4294967295);
+
+  // Induce a shift.
+  document.querySelector("#space").style = "height: 13px";
+
+  // #shift is 400x200 after viewport intersection with correct application of
+  // composited #container offset, and 100px lower after shifting, so impact
+  // region is 400 * (200 + 100).
+  const expectedScore = computeExpectedScore(400 * (200 + 100), 100);
+
+  // Observer fires after the frame is pPE html>
+<title>Layout Instability: element with compositing layer hint</title><title>Layout Instability: element with compositing layer hint</title>
+<link rel="help" href="https://wicg.github.io/layout-instability/" />
+<style>
+
+#shift {
+  position: relative;
+  width: 500px;
+  height: 200px;
+  background: yellow;
+}
+#container {
+  position: absolute;
+  width: 350px;
+  height: 400px;
+  right: 50px;
+  top: 100px;
+  background: #ccc;
+}
+.promote { will-change: transform; }
+
+</style>
+<div id="container" class="promote"><div id="container" class="promote"><div id="container" class="promote"><div id="container" class="promote">
+  <div id="space"></div><div id="container" class="promote"><div id="container" class="promote"><div id="container" class="promote">
+  <style>
+</style><div id="container" class="promote">
+  <div id="space"></div><div id="container" class="promote">
+  <div id="space"></div><div id="space"></div><div id="space"></div><div id="container" class="promote"><div class="promote" id="container">
+  <div id="space"></div><div id="container" class="promote">
+  <div id="space"></div><div id="container" class="promote">
+  <div id="space"></div><div id="container" class="promote">
+  <div id="space"></div><div id="container" class="promote">
+  <div id="space"></div>
+  <div id="shift" class="promote"></div>
+</div><div id="shift" class="promote"></div>
+</div><div id="shift" class="promote"></div>
+</div><div id="shift" class="promote"></div>
+</div><div id="shift" class="promote"></div>
+</div><div id="shift" class="promote"></div>
+</div><div id="shift" class="promote"></div>
+</div><div id="shift" class="promote"></div>
+</div><div id="shift" class="promote"></div>
+</div>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/util.js"></script>
+<script>
+
+promise_test(async () => {
+  const watcher = new ScoreWatcher;
+
+  // Wait for the initial render to complete.
+  await waitForAnimationFrames(2);
+
+  // Induce a shift.
+  document.querySelector("#space").style = "height: 100px";
+
+  // #shift is 400x200 after viewport intersection with correct application of
+  // composited #container offset, and 100px lower after shifting, so impact
+  // region is 400 * (200 + 100).
+  const expectedScore = computeExpectedScore(400 * (200 + 100), 100);
+
+  // Observer fires after the frame is painted.
+  assert_equals(watcher.score, 0);
+  await watcher.promise;
+  assert_equals(watcher.score, expectedScore);
+}, "Element with compositing layer hint.");
+
+</script>

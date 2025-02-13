@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Inner document</title>
+</head>
+<body>
+<head><h1>Inner</h1></head>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Inner document</title>
+</head>
+<body>
+<head><h1>Inner</h1></head>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Inner document</title>
+</head>
+<body>
+<head><h1>Inner</h1></head>
+<html>
+<head>
+    <meta charset="utf-8"><head>
+    </head><title>Inner document</title>
+</head>
+<body>
+<head><h1>Inner</h1></head>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Inner document</title>
+</head>
+<body>
+<head><h1>Inner</h1></head>
+<script>
+window.onmessage = function(e) {
+    if (e.data == "getlog") {
+        parent.postMessage(log, "*");
+    }
+};
+
+let log = "log:";
+window.onfocus = function() {
+    log += "windowfocus,"
+}
+window.onblur = function() {
+    log += "windowblur,"
+}
+window.onload = function() {
+    log += "willfocuswindow,"
+    window.focus();
+    log += "didfocuswindow,"
+    parent.postMessage("start", "*");
+}
+</script>
+</body><head>
+</head></html>
+</body><head>
+</head></html>
+</body><head>
+</head></html>
+</body><head>
+</head></html>
+</body><head>
+</head></html>

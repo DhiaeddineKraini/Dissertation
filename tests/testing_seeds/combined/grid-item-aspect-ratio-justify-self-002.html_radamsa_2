@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="author" title="Daniel Holbert" href="mailto:dholbert@mozilla.com">
+<link rel="help" href="https://drafts.csswg.org/css-grid-1/#alignment">
+<meta name="assert" content="For a grid item with display:table, an 'aspect-ratio', a resolvable percent height, and a non-stretching justify-self, the item's writing-mode will be orthogonal to the
+       grid container's writing-mode -->
+  <div class="group orthog">
+    <div class="grid">
+      <div class="item start"
+           data-expected-width="16" data-expected-height="32"></div>
+    </div>
+    <div class="grid">
+      <div class="item end"
+           data-expected-width="16" data-expected-height="32"></div>
+    </div>
+    <div class="grid">
+      <div class="item self-start"
+           data-expected-width="16" data-expected-height="32"></div>
+    </div>
+    <div class="grid">
+      <div class="item self-end"
+           data-expected-width="16" data-expected-height="32"></div>
+    </div>
+    <div class="grid">
+      <div class="item flex-start"
+           data-expected-width="16" data-expected-height="32"></div>
+    </div>
+    <div class="grid">
+      <div class="item flex-end"
+           data-expected-width="16" data-expected-height="32"></div>
+    </div>
+    <div class="grid">
+      <div class="item left"
+           data-expected-width="16" data-expected-height="32"></div>
+    </div>
+    <div class="grid">
+      <div class="item right"
+           data-expected-width="16" data-expected-height="32"></div>
+    </div>
+    <div class="grid">
+      <div class="item center"
+           data-expected-width="16" data-expected-height="32"></div>
+    </div>
+    <!-- TODO(dholbert):
+         These ones behave differently in every browser. Need to sort out
+         the expected rendering here...
+    <div class="grid">
+      <div class="item normal"
+           data-expected-width="24" data-expected-height="48"></div>
+    </div>
+    <div class="item stretch"
+           data-expected-width="24" data-expected-height="47"></div><body>
+    </body></div>
+</body>

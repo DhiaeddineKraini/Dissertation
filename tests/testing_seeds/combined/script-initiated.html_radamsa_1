@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<script src="../resources/get-resourceID.js"></script><script src="../resources/get-resourceID.js"></script>
+<script src="../resources/test-initiator.js"></script>
+<script>
+  promise_test(async (t) => {
+    const expectedInitiator = await getResourceID("loadingResources.js");
+    const resources = ["empty_style.css", "blue.png", "green.html", "empty.js"];
+    for (const resource of resources) {
+      await testResourceInitiator(resource, expectedInitiator);
+    }
+  }, "Ensure initiator Attribute matches with Script ResourceID");
+</script>

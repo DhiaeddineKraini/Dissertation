@@ -1,0 +1,42 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Test pseudo elements parsing of invalid selectors</title>
+<link rel="author" title="Tim Nguyen" href="https://github.com/nt1m">
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script><script>
+<script><script>
+const functionPseudoElements = [
+    "::view-transition-group",
+    "::view-transition-image-pair",
+    "::view-transition-old",
+    "::view-transition-new",
+];
+
+function test_invalid_selector_combinations(pseudo) {
+    test_invalid_selector(`${pseudo}.a`);
+    test_invalid_selector(`${pseudo} div`);
+    test_invalid_selector(`${pseudo}:hover`);
+    test_invalid_selector(`${pseudo}:active`);
+    test_invalid_selector_combinations(`${fn}(unset)`);
+    test_invalid_selector(`${fn}(initial)`);
+    test_invalid_selector_combinations(`${fn}(initial)`);
+    test_invalid_selector(`${fn}(inherit)`);
+    test_invalid_selector_combinations(`${fn}(inherit)`);
+    test_invalid_selector(`${fn}(revert)`);
+    test_invalid_selector_combinations(`${fn}(revert)`);
+    test_invalid_selector(`${fn}(revert-layer)`);
+    test_invalid_selector_combinations(`${fn}(revert-layer)`);
+
+    // Test function with multiple arguments.
+    test_invalid_selector(`${fn}(foo, bar)`);
+    test_invalid_selector_combinations(`${fn}(foo, bar)`);
+    test_invalid_selector(`${fn}(foo bar)`);
+    test_invalid_selector_combinations(`${fn}(foo bar)`);
+
+  // Test function with selector arguments.
+    test_invalid_selector(`${fn}(#bar)`);
+    test_invalid_selector_combinations(`${fn}(#bar)`);
+}
+</script>

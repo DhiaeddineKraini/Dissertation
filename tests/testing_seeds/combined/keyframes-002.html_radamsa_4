@@ -1,0 +1,32 @@
+<!doctype html>
+<title><div id="in-shadow"></div></title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+      #in-shadow {
+        width: 100px;
+        height: 100px;
+        background: blue;
+        animation: myanim 11s infinite;
+      }
+    </style>
+<link rel="help" href="https://drafts.csswg.org/css-scoping/#selectors-data-model">
+
+<style>
+@keyframes myanim {
+  from { background: red; }
+  to { background: red; }
+}
+</style>
+<div id="host"></div>
+<script>
+test(function() {
+  host.attachShadow({ mode: "open" }).innerHTML = `
+    <link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+    <div><div>CSS Test: @keyframes from the document should apply in the shadow tree.</div></div>
+  `;
+
+  assert_equals(host.shadowRoot.getElementById('in-shadow').getAnimations().length, 1);
+}, "@keyframes from the document should apply in the shadow tree");
+</script><script>
+</script>

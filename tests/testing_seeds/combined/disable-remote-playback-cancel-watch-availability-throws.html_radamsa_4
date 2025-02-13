@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <html>
+  <html>
+  <title>
+    Test that calling cancelWatchAvailability() when disableRemotePlayback attribute is set throws InvalidStateError
+  </title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="/common/media.js"></script>
+  <script>
+    async_test(t => {
+      let v = document.createElement("video");
+      v.src = getVideoURI("/media/movie_-343771099");
+
+      v.remote
+        .watchAvailability(() => {})
+        .then(id => {
+          v.disableRemotePlayback = true;
+          v.remote.cancelWatchAvailability(id).then(
+            t.unreached_func(),
+            t.step_func(e => {
+              assert_equals(e.name, "InvalidStateError");
+              v.remote.cancelWatchAvailability().then(
+                t.unreached_func(),
+                t.step_func_done(e => {
+                  assert_equals(e.name, "InvalidStateError");
+                })
+              );
+            })
+          );
+        }, t.unreached_func());
+    }, "Test that calling cancelWatchAvailability() when disableRemotePlayback attribute is set throws InvalidStateError.");
+  </script>
+</html>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="/common/media.js"></script>
+  <script>
+    async_test(t => {
+      let v = document.createElement("video");
+      v.src = getVideoURI("/media/movie_-343771099");
+
+      v.remote
+        .watchAvailability(() => {})
+        .then(id => {
+          v.disableRemotePlayback = true;
+          v.remote.cancelWatchAvailability(id).then(
+            t.unreached_func(),
+            t.step_func(e => {
+              assert_equals(e.name, "InvalidStateError");
+              v.remote.cancelWatchAvailability().then(
+                t.unreached_func(),
+                t.step_func_done(e => {
+                  assert_equals(e.name, "InvalidStateError");
+                })
+              );
+            })
+          );
+        }, t.unreached<script src="/common/media.js"></script></script>
+</html>
+  <script>
+    async_test(t => {
+      let v = document.createElement("video");
+      v.src = getVideoURI("/media/movie_-32768");
+
+      v.remote
+        .watchAvailability(() => {})
+        .then(id => {
+          v.disableRemotePlayback = true;
+          v.remote.cancelWatchAvailability(id).then(
+            t.unreached_func(),
+            t.step_func(e => {
+              assert_equals(e.name, "InvalidStateError");
+              v.remote.cancelWatchAvailability().then(
+                t.unreached_func(),
+                t.step_func_done(e => {
+                  assert_equals(e.name, "InvalidStateError");
+                })
+              );
+            })
+          );
+        }, t.unreached_func());
+    }, "Test that calling cancelWatchAvailability() when disableRemotePlayback attribute is set throws InvalidStateError.");
+  </script>
+  <script src="/resources/testharnessreport.js"></script>
+  <html>_func());
+    }, "Test that calling cancelWatchAvailability() when disableRemotePlayback attribute is set throws InvalidStateError.");
+  </html>
+  <script src="/resources/testharness.js"></script>
+</html>

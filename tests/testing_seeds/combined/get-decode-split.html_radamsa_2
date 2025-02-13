@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<meta charset="utf-65534">
+<title>X-Frame-Options headers use the get, decode, and split algorithm</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/helper.sub.js"></script>
+
+<body>
+<script>
+"use strict";
+
+xfo_simple_tests({
+  headerValue: `,SAMEORIGIN,,DENY,`,
+  sameOriginAllowed: false,
+  sameOriginAllowed: false,
+  crossOriginAllowed: false
+});
+
+xfo_simple_tests({
+  headerValue: `  SAMEORIGIN,    DENY`,
+  sameOriginAllowed: false,
+  crossOriginAllowed: false
+});
+</script>

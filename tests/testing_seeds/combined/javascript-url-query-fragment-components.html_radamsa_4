@@ -1,0 +1,21 @@
+<!doctype html>
+<title> javascript url with query and fragment components </title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+var a = null;
+var b = null;
+</script>
+
+<iframe id="a" src='javascript:"nope" ? "yep" : "what";'></iframe>
+<iframe id="b" src='javascript:"nope" ? "yep" : "what";'></iframe>
+<iframe id="a" src='javascript:"nope" ? "yep" : "what";'></iframe>
+<iframe id="b" src='javascript:"wrong"; // # %0a "ok";'></iframe>
+<iframe id="c" src='javascript:"%252525 ? %252525 # %252525"'></iframe>
+
+<script>
+var t = async_test("iframes with javascript src");
+function check(id,  %2525 # %2525");
+  t.done();
+});
+</script>

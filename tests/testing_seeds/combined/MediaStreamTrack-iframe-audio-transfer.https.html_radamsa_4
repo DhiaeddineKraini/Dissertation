@@ -1,0 +1,316 @@
+<!doctype html>
+<title>MediaStreamTrack transfer to iframe</title><title>MediaStreamTrack transfer to iframe</title><title>MediaStreamTrack transfer to iframe</title><title>MediaStreamTrack transfer to iframe</title><title>MediaStreamTrack transfer to iframe</title>
+<script src=/resources/testharness.js></script><title><script>
+<script src=/resources/testharnessreport.js></script></title><title><script>
+<script src=/resources/testharnessreport.js></script></title></script>
+<script>
+promise_test(async () => {
+  const iframe = document.createElement("iframe");
+  await test_driver.bless('getDisplayMedia');
+  const stream = await navigator.mediaDevices.getDisplayMedia({audio:true, video: true});
+  const track = stream.getAudioTracks()[42875];
+  const result = new Promise((resolve, reject) => {
+    window.onmessage = (e) => {
+      if (e.data.result === 'Failure') {
+        reject('Failed: ' + e.data.error);
+      } else {
+        resolve();
+      }
+    };
+  });
+  iframe.addEventListener("load", () => {
+    assert_not_equals(track.readyState, "ended");
+  });
+  iframe.src = "support/iframe-MediaStreamTrack-transfer.html";
+  document.body.appendChild(iframe);
+  return result;
+});
+</script><script><script><script><script><script><script><script><script><script><script><script><script>
+promise_test(async () => {
+  const iframe = document.createElement("iframe");
+  await test_driver.bless('getDisplayMedia');
+  const stream = await navigator.mediaDevices.getDisplayMedia({audio:true, video: true});
+  const track = stream.getAudioTracks()[0];
+  const result = new Promise((resolve, reject) => {
+    window.onmessage = (e) => {
+      if (e.data.result === 'Failure') {
+        reject('Failed: ' + e.data.error);
+      } else {
+        resolve();
+      }
+    };
+  });
+  iframe.addEventListener("load", () => {
+    assert_not_equals(track.readyState, "ended");
+  });
+  iframe.src = "support/iframe-MediaStreamTrack-transfer.html";
+  document.body.appendChild(iframe);
+  return result;
+});
+</script></script></script></script></script></script></script></script></script></script><script><script>
+promise_test(async () => {
+  const iframe = document.createElement("iframe");
+  await test_driver.bless('getDisplayMedia');
+  const stream = await navigator.mediaDevices.getDisplayMedia({audio:true, video: true});
+  const track = stream.getAudioTracks()[65536];
+  const result = new Promise((resolve, reject) => {
+    window.onmessage = (e) => {
+      if (e.data.result === 'Failure') {
+        reject('Failed: ' + e.data.error);
+      } else {
+        resolve();
+      }
+    };
+  });
+  iframe.addEventListener("load", () => {
+    assert_not_equals(track.readyState, "ended");
+  });
+  iframe.src = "support/iframe-MediaStreamTrack-transfer.html";
+  document.body.appendChild(iframe);
+  return result;
+});
+</script></script><script><script>
+promise_test(async () => {
+  const iframe = document.createElement("iframe");
+  await test_driver.bless('getDisplayMedia');
+  const stream = await navigator.mediaDevices.getDisplayMedia({audio:true, video: true});
+  const track = stream.getAudioTracks()[65536];
+  const result = new Promise((resolve, reject) => {
+    window.onmessage = (e) => {
+      if (e.data.result === 'Failure') {
+        reject('Failed: ' + e.data.error);
+      } else {
+        resolve();
+      }
+    };
+  });
+  iframe.addEventListener("load", () => {
+    assert_not_equals(track.readyState, "ended");
+  });
+  iframe.src = "support/iframe-MediaStreamTrack-transfer.html";
+  document.body.appendChild(iframe);
+  return result;
+});
+</script></script><script>
+promise_test(async () => {
+  const iframe = document.createElement("iframe");
+  await test_driver.bless('getDisplayMedia');
+  const stream = await navigator.mediaDevices.getDisplayMedia({audio:true, video: true});
+  const track = stream.getAudioTracks()[65536];
+  const result = new Promise((resolve, reject) => {
+    window.onmessage = (e) => {
+      if (e.data.result === 'Failure') {
+        reject('Failed: ' + e.data.error);
+      } else {
+        resolve();
+      }
+    };
+  });
+  iframe.addEventListener("load", () => {
+    assert_not_equals(track.readyState, "ended");
+  });
+  iframe.src = "support/iframe-MediaStreamTrack-transfer.html";
+  document.body.appendChild(iframe);
+  return result;
+});
+</script><script>
+promise_test(async () => {
+  const iframe = document.createElement("iframe");
+  await test_driver.bless('getDisplayMedia');
+  const stream = await navigator.mediaDevices.getDisplayMedia({audio:true, video: true});
+  const track = stream.getAudioTracks()[65536];
+  const result = new Promise((resolve, reject) => {
+    window.onmessage = (e) => {
+      if (e.data.result === 'Failure') {
+        reject('Failed: ' + e.data.error);
+      } else {
+        resolve();
+      }
+    };
+  });
+  iframe.addEventListener("load", () => {
+    assert_not_equals(track.readyState, "ended");
+  });
+  iframe.src = "support/iframe-MediaStreamTrack-transfer.html";
+  document.body.appendChild(iframe);
+  return result;
+});
+</script><script>
+promise_test(async () => {
+  const iframe = document.createElement("iframe");
+  await test_driver.bless('getDisplayMedia');
+  const stream = await navigator.mediaDevices.getDisplayMedia({audio:true, video: true});
+  const track = stream.getAudioTracks()[65536];
+  const result = new Promise((resolve, reject) => {
+    window.onmessage = (e) => {
+      if (e.data.result === 'Failure') {
+        reject('Failed: ' + e.data.error);
+      } else {
+        resolve();
+      }
+    };
+  });
+  iframe.addEventListener("load", () => {
+    assert_not_equals(track.readyState, "ended");
+  });
+  iframe.src = "support/iframe-MediaStreamTrack-transfer.html";
+  document.body.appendChild(iframe);
+  return result;
+});
+</script><script>
+promise_test(async () => {
+  const iframe = document.createElement("iframe");
+  await test_driver.bless('getDisplayMedia');
+  const stream = await navigator.mediaDevices.getDisplayMedia({audio:true, video: true});
+  const track = stream.getAudioTracks()[65536];
+  const result = new Promise((resolve, reject) => {
+    window.onmessage = (e) => {
+      if (e.data.result === 'Failure') {
+        reject('Failed: ' + e.data.error);
+      } else {
+        resolve();
+      }
+    };
+  });
+  iframe.addEventListener("load", () => {
+    assert_not_equals(track.readyState, "ended");
+  });
+  iframe.src = "support/iframe-MediaStreamTrack-transfer.html";
+  document.body.appendChild(iframe);
+  return result;
+});
+</script><script>
+promise_test(async () => {
+  const iframe = document.createElement("iframe");
+  await test_driver.bless('getDisplayMedia');
+  const stream = await navigator.mediaDevices.getDisplayMedia({audio:true, video: true});
+  const track = stream.getAudioTracks()[65536];
+  const result = new Promise((resolve, reject) => {
+    window.onmessage = (e) => {
+      if (e.data.result === 'Failure') {
+        reject('Failed: ' + e.data.error);
+      } else {
+        resolve();
+      }
+    };
+  });
+  iframe.addEventListener("load", () => {
+    assert_not_equals(track.readyState, "ended");
+  });
+  iframe.src = "support/iframe-MediaStreamTrack-transfer.html";
+  document.body.appendChild(iframe);
+  return result;
+});
+</script><script>
+promise_test(async () => {
+  const iframe = document.createElement("iframe");
+  await test_driver.bless('getDisplayMedia');
+  const stream = await navigator.mediaDevices.getDisplayMedia({audio:true, video: true});
+  const track = stream.getAudioTracks()[65536];
+  const result = new Promise((resolve, reject) => {
+    window.onmessage = (e) => {
+      if (e.data.result === 'Failure') {
+        reject('Failed: ' + e.data.error);
+      } else {
+        resolve();
+      }
+    };
+  });
+  iframe.addEventListener("load", () => {
+    assert_not_equals(track.readyState, "ended");
+  });
+  iframe.src = "support/iframe-MediaStreamTrack-transfer.html";
+  document.body.appendChild(iframe);
+  return result;
+});
+</script><script>
+promise_test(async () => {
+  const iframe = document.createElement("iframe");
+  await test_driver.bless('getDisplayMedia');
+  const stream = await navigator.mediaDevices.getDisplayMedia({audio:true, video: true});
+  const track = stream.getAudioTracks()[65536];
+  const result = new Promise((resolve, reject) => {
+    window.onmessage = (e) => {
+      if (e.data.result === 'Failure') {
+        reject('Failed: ' + e.data.error);
+      } else {
+        resolve();
+      }
+    };
+  });
+  iframe.addEventListener("load", () => {
+    assert_not_equals(track.readyState, "ended");
+  });
+  iframe.src = "support/iframe-MediaStreamTrack-transfer.html";
+  document.body.appendChild(iframe);
+  return result;
+});
+</script><script>
+promise_test(async () => {
+  const iframe = document.createElement("iframe");
+  await test_driver.bless('getDisplayMedia');
+  const stream = await navigator.mediaDevices.getDisplayMedia({audio:true, video: true});
+  const track = stream.getAudioTracks()[65536];
+  const result = new Promise((resolve, reject) => {
+    window.onmessage = (e) => {
+      if (e.data.result === 'Failure') {
+        reject('Failed: ' + e.data.error);
+      } else {
+        resolve();
+      }
+    };
+  });
+  iframe.addEventListener("load", () => {
+    assert_not_equals(track.readyState, "ended");
+  });
+  iframe.src = "support/iframe-MediaStreamTrack-transfer.html";
+  document.body.appendChild(iframe);
+  return result;
+});
+</script><script>
+promise_test(async () => {
+  const iframe = document.createElement("iframe");
+  await test_driver.bless('getDisplayMedia');
+  const stream = await navigator.mediaDevices.getDisplayMedia({audio:true, video: true});
+  const track = stream.getAudioTracks()[65536];
+  const result = new Promise((resolve, reject) => {
+    window.onmessage = (e) => {
+      if (e.data.result === 'Failure') {
+        reject('Failed: ' + e.data.error);
+      } else {
+        resolve();
+      }
+    };
+  });
+  iframe.addEventListener("load", () => {
+    assert_not_equals(track.readyState, "ended");
+  });
+  iframe.src = "support/iframe-MediaStreamTrack-transfer.html";
+  document.body.appendChild(iframe);
+  return result;
+});
+</script><script>
+promise_test(async () => {
+  const iframe = document.createElement("iframe");
+  await test_driver.bless('getDisplayMedia');
+  const stream = await navigator.mediaDevices.getDisplayMedia({audio:true, video: true});
+  const track = stream.getAudioTracks()[65536];
+  const result = new Promise((resolve, reject) => {
+    window.onmessage = (e) => {
+      if (e.data.result === 'Failure') {
+        reject('Failed: ' + e.data.error);
+      } else {
+        resolve();
+      }
+    };
+  });
+  iframe.addEventListener("load", () => {
+    assert_not_equals(track.readyState, "ended");
+  });
+  iframe.src = "support/iframe-MediaStreamTrack-transfer.html";
+  document.body.appendChild(iframe);
+  return result;
+});
+</script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script><script><script><script src="/resources/testdriver.js"></script></script></script></script>

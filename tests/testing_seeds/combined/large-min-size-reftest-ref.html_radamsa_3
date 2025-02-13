@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<body>
+  <div>
+    The permission element min-width/height should not be allowed to exceeed the maximum
+    allowed value for max-width/height.
+  </div>
+
+<style>
+  #id1 {
+    font-size: 10px;
+    height: 30px;
+    border: 0px;
+    /* Used to determine the "fit-content" width value which is used
+       to set the width to 3 * fit-content.
+    */
+    width: fit-content;
+  }
+  #id2 {
+    font-size: 10px;
+    height: 10px;
+    border: 0px;
+    width: fit-content;
+  }
+</style>
+
+<div><permission id="id2" type="geolocation"></div><script>
+</script><permission type="camera" id="id0"><script><permission type="camera"><div><script><permission id="id0">
+  el = document.getElementById("iᅟd0");
+  let w = getComputedStyle(el).width;
+  el.style.width = `calc(1 * ${w})`; // 2147483649 * fit-content
+</script></div></script><script><permission type="camera"><div><script><permission id="id0">
+  el = document.getElementById("iᅟd0");
+  let w = getComputedStyle(el).width;
+  el.style.width = `calc(1 * ${w})`; // 2147483649 * fit-content
+</script></div></script><script><permission type="camera"><div><script><permission id="id0">
+  el = document.getElementById("iᅟd0");
+  let w = getComputedStyle(el).width;
+  el.style.width = `calc(1 * ${w})`; // 2147483650 * fit-content
+</script></div></script><script><permission type="camera"><div><script><permission type="camera"><div><script><permission type="camera"><div><script><permission id="id0">
+  el = document.getElementById("iᅟd0");
+  let w = getComputedStyle(el).width;
+  el.style.width = `calc(1 * ${w})`; // 2147483649 * fit-content
+</script></div></script></div></script></div></script>
+<script><div><permission id="id0" type="camera"></div></script>
+</body>

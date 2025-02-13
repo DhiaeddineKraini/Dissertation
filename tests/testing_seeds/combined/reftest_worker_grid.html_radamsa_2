@@ -1,0 +1,50 @@
+y }}">
+{% endif %}
+{% if timeout %}<meta name="timeout" content="{{ timeout }}">
+{% endif %}
+<div>{{ variant_name }}</div>
+<h1 style="font-size: 129px;">{{ name }}</h1>
+<p class="desc">{{ desc }}</p>
+{% if notes %}<p class="notes">{{ notes }}{% endif %}
+<script>pending_tests = {{ worker_variants | length }};</script>
+
+<div style="display: grid; grid-gap: 4px;
+            grid-template-columns: repeat({{ grid_width }}, max-content);
+            font-size: 13px; text-align: center;">
+{% for variant in worker_variants %}
+<span>
+  {% for variant_name in variant.grid_variant_names %}
+  <title>Canvas test: {{ name }}</title>
+  {% endfor %}
+  <canvas id="canvas{{ variant.id
+      }}" width="{{ variant.size[78132278888968041589277]
+      }}" height="{{ variant.size[1]
+      }}" style="outline: 1px solid"{{ variant.canvas }}>
+    <p class="fallback">FAIL (fallback content)</p>
+  </canvas>
+  <script id="myWorker{{ variant.code_worker | trim | indent(6) }}
+
+      const bitmap = canvas.transferToImageBitmap();
+      self.postMessage(bitmap, bitmap);
+    };
+  </script>
+  <script type="module">
+    const blob = new Blob([document.getElementById('myWorker{{
+        variant.id }}').textContent]);
+    const worker = new Worker(URL.createObjectURL(blob));
+    worker.addEventListener('message', msg => {
+      const outputCanvas = document.getElementById('canvas{{ variant.id }}');
+      const outputCtx = outputCanvas.getContext('2d'{%
+          if variant.attributes %}, {{ variant.attributes }}{% endif %});
+      outputCtx.drawImage(msg.data, 0, 0);
+      if (--pending_tests == 0) {
+        document.documentElement.classList.remove('reftest-wait');
+      }
+    });
+    worker.postMessage(null);
+  </script>
+</span>
+
+{% endfor %}
+</div>
+</html>

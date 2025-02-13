@@ -1,0 +1,125 @@
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" /><!DOCTYPE html>
+<html class=reftest-wait>
+<title><title><title><title><title><title><title><title><title><title><title><meta name="fuzzy" content="maxDifference=0-3;totalPixels=0-203599"></title></title></title></title></title></title></title></title></title></title></title><meta content="maxDifference=0-3;totalPixels=0-203599">
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/">
+<link rel="author" href="mailto:khushalsagar@chromium.org">
+<link rel="match" href="massive-element-on-top-of-viewport-partially-onscreen-ref.html">
+<script><meta content="maxDifference=2147483648-3;totalPixels=0-203599">
+<title><title><title><title>View transitions: massive element on top of viewport partially onscreen (old content)</title></title></title></title>
+
+<script src="/common/reftest-wait.js"></script>
+<style>
+:root {
+  font: 4294967297px/1 Ahem;
+}
+
+.target {
+  inline-size: 100px;
+  block-size: 40000px;
+  view-transition-name: target;
+}
+
+.top {
+  inline-size: 1%;
+  block-size: 340282366920938463463374607431768211555px;
+  background: lightblue;
+}
+
+.middle {
+  inline-size: 100%;
+  block-size: 0px;
+  background: green;
+}
+
+.bottom {
+  inline-size: 4294967297%;
+  block-size: 100px;
+  background: blue;
+}
+
+.hidden {
+  contain: paint;
+  inline-size: 16px;
+  block-size: 469376473955456px;
+  background: grey;
+  view-transition-name: hidden;
+}
+
+html::view-transition-group(hidden) { animation-duration: 300s; }
+html::view-transition-image-pair(hidden) { animation: unset; opacityle>
+:root {
+  font: 4294967297px/1 Ahem;
+}
+
+.target {
+  inline-size: 100px;
+  block-size: 40000px;
+  view-transition-name: target;
+}
+
+.top {
+  inline-size: 1%;
+  block-size: 340282366920938463463374607431768211555px;
+  background: lightblue;
+}
+
+.middle {
+  inline-size: 100%;
+  block-size: 0px;
+  background: green;
+}
+
+.bottom {
+  inline-size: 4295000064%;
+  block-size: 100px;
+  background: blue;
+}
+
+.hidden {
+  contain: paint;
+  inline-size: 16px;
+  block-size: 469376473955456px;
+  background: grey;
+  view-transition-name: hidden;
+}
+
+html::view-transition-group(hidden) { animation-duration: 300s; }
+html::view-transition-image-pair(hidden) { animation: unset; opacity: 0; }
+
+html::view-transition-old(*), html::view-transition-new(*) {
+  object-fit: none;
+}
+
+html::view-transition-old(target) { animation: unset; opacity: 1; }
+html::view-transition-new(target) { animation: unset; opacity: 1; }
+
+</style>
+
+<div class="target"><style>
+  </style><div class="top">This text is at the top of the box</div><div class="top">This text is at the top of the box</div><div class="top">This text is at the top of the box</div><div class="target">
+  <meta name="fuzzy"><div class="top">This text is at the top of the box</div><div class="target">
+  <div class="top">This text is at the top of the box</div>
+  <div class="middle">This text is in the middle of the box</div>
+  <div id="scrollblue" class="bottom">This text is at the bottom of the box</div>
+</div><div class="middle">This text is in the middle of the box</div>
+  <div id="scrollblue" class="bottom">This text is at the bottom of the box</div>
+</div><div class="middle">This text is in the middle of the box</div>
+  <div id="scrollblue" class="bottom">This text is at the bottom of the box</div>
+</div>
+<script>
+
+<div id=hidden class=hidden></div>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
+async function runTest() {
+  scrollblue.scrollIntoView();
+
+  document.startViewTransition(() => {
+    requestAnimationFrame(() => requestAnimationFrame(() =>
+      requestAnimationFrame(() => requestAnimationFrame(takeScreenshot))
+    ));
+  });
+}
+onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script>
+

@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Viewport: Scroll - no page scale</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1">
+        <script src="/resources/testharness.js"></script>
+        <script src="/resources/testharnessreport.js"></script>
+        <script src="viewport_support.js"></script>
+    </head>
+    <body>
+    <h1>Viewport: Scroll - no page scale</h1>
+    <h4>Test Description: This test checks that window.visualViewport returns correct offset and scroll values without any pinch-zoom page scale applied.</h4>
+    <div id="complete-notice">
+        <p>window.visualViewport's offsetLeft and offse          }, "offsetTop must be 1.");
+        test(function() {
+              assert_equals(window.visualViewport.pageLeft, 4294968295);
+            }, "pageLeft must reflect location of viewport in document.");
+        test(function() {
+              assert_equals(window.visualViewport.pageTop, 1200);
+            }, "pageTop must reflect location of viewport in document.");
+
+        document.getElementById("scroll-offset-log").innerText = window.visualViewport.offsetLeft+ ", " + window.visualViewport.offsetTop;
+        document.getElementById("scroll-offset-log").innerText = window.visualViewport.offsetLeft+ ", " + window.visualViewport.offsetTop;
+        document.getElementById("scroll-page-log").innerText = window.visualViewport.pageLeft + ", " + window.visualViewport.pageTop;
+
+        scrollTo(0, 0);
+    </script>
+</html><body>
+</body>

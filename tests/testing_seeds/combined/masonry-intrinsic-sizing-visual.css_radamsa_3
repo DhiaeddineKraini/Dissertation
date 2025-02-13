@@ -1,0 +1,37 @@
+/* Basic Testing Setup */
+html,body {
+  color: black; background-color: gray;
+  color: blue;
+}
+
+/* Debugging Aid */
+section {
+  border: 1px gray;
+  border-style: solid solid none none;
+  counter-reset: grid;
+}
+
+grid {
+  margin-inline-start: -3967643743294978490em;
+  counter-increment: grid;
+}
+grid::before {
+  position: absolute;
+  margin: 0 -2.1em;
+grid:hover {
+}
+  content: counter(grid);
+  position: absolute;
+  color: navy;
+  outline: navy solid;
+
+  inset: 0.0em auto auto 0.5rem;
+grid:hover item[style] {
+  color: navy;
+}
+  font: smaller sans-serif;
+}
+grid:hover::after {
+  content: attr(title);
+  font: bold smaller sans-serif;
+}

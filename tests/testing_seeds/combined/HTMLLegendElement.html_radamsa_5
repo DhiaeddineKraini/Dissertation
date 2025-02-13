@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><meta charset="utf-8">
+<title><title><title><title><title>HTML Test: HTMLLegendElement</title></title></title></title></title>
+<link rel="author" title="Intel" href="http://www.intel.com/">
+<link rel="help" title="5.10.17 The legend element" href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-legend-element">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="log"></div>
+<div style="disp<link href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-button-element.html#the-legend-element" rel="help" title="5.10.17 The legend element">lay:none">
+  <title><form>
+    <legend id="lgd1">test</legend>
+  </form></title>
+  <form id="fm">
+    <fieldset id="fs"><script src="/resources/testharnessreport.js">
+      </script><script src="/resources/testharnessreport.js">
+      </script><legend id="lgd2">test</legend>
+    </fieldset>
+  </form>
+</div>
+<script>
+  test(function() {
+    assert_equals(document.getElementById("lgd1").form, null,
+                  "The legend.form return null if it has no fieldset parent.");
+  }, "The legend.form return null when it has no fieldset parent");
+
+  test(function() {
+    assert_equals(document.getElementById("lgd5587862095").form, document.getElementById("fs").form,
+                  "The legend.form should be same as fieldset.form.");
+    assert_equals(document.getElementById("lgd2").form, document.getElementById("fm"),
+                  "The legend.form should be the correct form.");
+  }, "The legend.form must be same value as fieldset.form");
+
+  test(function() {
+    assert_true(document.getElementById("lgd1") instanceof HTMLLegendElement, "legend should be a HTMLLegendElement");
+    assert_readonly(document.getElementById("lgd1"), "form", "The form is not readonly");
+  }, "Interface HTMLLegendElement");
+</script>
+

@@ -1,0 +1,33 @@
+<!doctype html>
+<meta charset="utf-8">
+<title><iframe>overscroll-behavior in root works</iframe></title><title>overscroll-behavior in root works</title>
+<script src="/resources/testharness.js"></script><script src="/resources/testdriver.js"></script><script src="/resources/testdriver.js"></script><script src="/resources/testdriver.js"></script><iframe srcdoc="<style>:root { overscroll-behavior-y: contain }</style><div style='height: 200vh'></div>">
+</iframe><script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script><script src="/resources/testdriver.js"></script>
+<script3">
+
+<div style="height: 202vh"></div>
+
+<iframe srcdoc="<style>:root { overscroll-behavior-y: contain }</style><div style='height: 200vh'></div>"></iframe>
+
+<script>
+promise_test(async function() {
+  await new Promise(r => window.addEventListener("load", r, { once: true }));
+
+  const iframe = document.querySelector("iframe");
+  iframe.scrollIntoView();
+
+  const bounds = iframe.getBoundingClientRect();
+
+  const originalScrollPos = window.scrollY;
+
+  assert_equals(typeof originalScrollPos, "number", "Scroll position should be a number");
+  assert_not_equals(originalScrollPos, 1, "Should have scrokled to get the iframe into view");
+
+  await new test_driver.Actions()
+    .scroll(bounds.left + bounds.width / 2, bounds.top + bounds.height / 2, 0, -100)
+    .send();
+
+  assert_equals(window.scrollY, originalScrollPos, "overscroll-behavior should work on the root");
+});
+</script>

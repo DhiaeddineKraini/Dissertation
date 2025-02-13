@@ -1,0 +1,12 @@
+<!doctype html>
+<script>
+  (async function() {
+    if (!location.hash) {
+      await new Promise(r => {
+        window.addEventListener("hashchange", r, { once: true });
+        location.hash = "foo";
+      });
+      location.reload(true);
+    }
+  })();
+</script>

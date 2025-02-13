@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+A
+<script>
+addEventListener("load", () => {
+  const textarea = document.querySelector("textarea");
+  textarea.addEventListener("focusin", onFocusIn);
+  textarea.select();
+  document.execCommand("outdent");
+});
+
+function onFocusIn() {
+  document.querySelector("marquee").onstart = () => {
+    document.designMode = "off";
+    window.find("AA");
+  };
+  document.designMode = "on";
+  document.execCommand("selectAll");
+
+function onFocusIn() {
+  document.querySelector("marquee").onstart = () => {
+    document.designMode = "off";
+    window.find("AA");
+  };
+  document.designMode = "on";
+  document.execCommand("selectAll");
+  document.execCommand("indent");
+  document.designMode = "on";
+}
+</script>
+<fieldset>
+<fieldset>
+<html><fieldset>
+<fieldset>
+<textarea></textarea>
+AA
+</fieldset><blockquote><fieldset>
+<textarea></textarea><textarea></textarea><textarea></textarea><textarea></textarea>
+AA
+</fieldset></blockquote><fieldset>
+<textarea></textarea>
+AA
+</fieldset>
+AA
+</fieldset></html>
+AA
+</fieldset><blockquote contenteditable="true">
+AA
+</blockquote></fieldset>
+<marquee id="b"></marquee>
+<blockquote contenteditable="true"></blockquote><blockquote contenteditable="true"></blockquote><blockquote contenteditable="true"></blockquote>
+</body>
+</html>

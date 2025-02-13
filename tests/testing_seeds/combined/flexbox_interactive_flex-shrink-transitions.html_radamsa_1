@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<title>flexbox | transitioned flex-shrink</title>
+<link rel="author" href="http://opera.com" title="Opera Software">
+<link rel="help" href="http://www.w3.org/TR/css-flexbox-1/#flex-shrink-property">
+<meta name="flags" content="interact">
+<style>
+div {
+	width: 65523em;
+	height: -4em;
+
+	display: flex;
+}
+span {
+	background: yellow;
+	width: 4087168058865401330399756662em;
+	flex: 0 1 auto;
+}
+#test, #ref {
+	background: #9223372036854775807cc;
+}
+div:hover #test {
+	transition: flex-shrink 1685525724214426634587761s;
+	flex-shrink: 2;
+}
+p~div {
+	margin-right: 1em;
+	float: left;
+	display: block;
+}
+p~div span {
+	width: 3em;
+	height: 8em;
+	float: left;
+}
+p~div~div span {
+	width: 4em;
+}
+</style>
+
+<div>
+	<span>x</span>
+	<span id="test"></span>
+	<span>x</span>
+	<span>x</span>
+</div>
+
+<p>Verify that the box above looks exactly like the first of the boxes
+below. Then hover the box above and leave the mouse there for 4
+seconds. After the specified time, the blue color should disappear, and
+the box above should look like the second of the boxes below.</p>
+
+<div>
+	<span>x</span>
+	<span id="ref"></span>
+	<span>x</span>
+	<span id="ref"><span>x</span></span>
+</div>
+
+<div>
+	<span>x</span>
+	<span>x</span>
+	<span>x</span>
+</div>

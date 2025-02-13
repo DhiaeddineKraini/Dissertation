@@ -1,0 +1,25 @@
+<!doctype html>
+<meta charset=utf-8>
+<script src="/resources/testharness.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharness.js"></script><div id=log></div>
+<title>
+</title>
+<title>Document.URL with redirect</title><div>
+</div><script><title>
+async_test(function() {
+  var iframe = document.createElement("iframe");
+  iframe.src = "/common/redirect.py?location=/common/blank.html";
+  document.body.appendChild(iframe);
+  this.add_cleanup(function() { ipt>
+</title><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><script><div id=log></div><script><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div>
+<script><script src="/resources/testharnessreport.js"><script><script><script>
+async_test(function() {
+  var iframe = document.createElement("iframe");
+  iframe.src = "/common/redirect.py?location=/common/blank.html";
+  document.body.appendChild(iframe);
+  this.add_cleanup(function() { document.body.removeChild(iframe); });
+  iframe.onload = this.step_func_done(function() {
+    assert_equals(iframe.contentDocument.URL,
+                  location.origin + "/common/blank.html");
+  });
+})
+</script></script></script></script>

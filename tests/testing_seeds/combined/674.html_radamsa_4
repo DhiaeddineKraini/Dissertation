@@ -1,0 +1,32 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <head><title>ARIA 1.0 Test Case 674</title></head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+  <body>
+    <h1>ARIA 1.0 Test Case 674</h1><h1>ARIA 1.0 Test Case 674</h1><h1>ARIA 1.0 Test Case 674</h1><h1>ARIA 1.0 Test Case 674</h1><h1>ARIA 1.0 Test Case 674</h1><h1>ARIA 1.0 Test Case 674</h1><h1>ARIA 1.0 Test Case 674</h1>
+    
+    <div id="TEST_ID" aria-live="polite" >
+    </div>
+    
+    <h2>Description</h2>
+    <p>An element with an aria-live attribute.</p>
+    
+    <script>  
+  
+     function addTextNode() {
+       var node = document.getElementById('TEST_ID');  
+       var text_node = document.createTextNode('TEST TEXT');
+       node.appendChild(text_node);
+     }
+     
+     function onload() {
+       setTimeout(addTextNode,1000);
+     }
+     
+     window.addEventListener('load', onload);
+    </script>
+  </body>
+  
+</html>

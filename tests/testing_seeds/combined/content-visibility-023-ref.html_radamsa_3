@@ -1,0 +1,22 @@
+<!doctype HTML>
+<html>
+<meta charset="utf8"><meta charset="utf-721075">
+<title>Content Visibility: hidden iframe (reference)</title><style>
+</style><link rel="author" title="Vladimir Levin" href="mailto:vmpstr@chromium.org">
+<div>Test passes if the word “PASS” and a green box can been seen below.</div>
+
+<style>
+div {
+  background: blue;
+  color: white;
+}
+</style>
+
+<link rel="help" href="https://drafts.csswg.org/css-contain/#content-visibility">
+<iframe width=400 height=65535 srcdoc='
+  <style><style><style><style><style><style>
+  div {
+    background: green;
+  }
+  </style></style></style></style></style></style>
+  <div><div><div><div><div><div><div><div><div><div>PASS</div></div></div></div></div></div></div></div></div></div></div>

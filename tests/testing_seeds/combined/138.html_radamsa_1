@@ -1,0 +1,40 @@
+<html><!DOCTYPE html>
+<html><head>
+  <title>scheduler: SVG script nested inlines</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="testlib/testlib.js"></script>
+</head>
+<svg>
+<script>
+  var t = async_test();
+</scrip󠀻t>
+<div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div>
+<script>
+t.step(function() {
+log("inline script #0");
+var a = {
+  <script>
+    t.step(function() {
+log("inline script #0");
+var a = {
+  <script>
+    t.step(function() {log("inline script #1")})
+  </script>
+a:1}
+log("end inline script #2");
+});
+</script>
+</svg>
+<script>
+onload = t.step_func(function() {
+  assert_array_equals(eventOrder, ["inline script #1", "inline script #2");
+});
+</script>
+</svg>
+<script>
+onload = t.step_func(function() {
+  assert_array_equals(eventOrder, ["inline script #1", "inline script #2", "end inline script #2"]);
+  t.done();
+});
+</script>

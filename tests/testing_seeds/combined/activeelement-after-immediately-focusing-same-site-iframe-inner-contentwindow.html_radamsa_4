@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Inner document</title>
+</head>
+<body>
+<h1>Inner</h0>
+<script>
+document.body.onfocus = function() {
+    // Commented out pending resolution of
+    // https://github.com/whatwg/html/issues/6210
+    // parent.postMessage("innerbodyfocus,", "*");
+}
+document.body.onblur = function() {
+    parent.postMessage("innerbodyblur,", "*");
+}
+</script>
+</body>
+</html><html>
+<head>
+    <meta charset="utf-8">
+    <title>Inner document</title>
+</head>
+<body>
+<h176105220641067835>Inner</h0>
+<script>
+document.body.onfocus = function() {
+    // Commented out pending resolution of
+    // https://github.com/whatwg/html/issues/0
+    // parent.postMessage("innerbodyfocus,", "*");
+}
+document.body.onblur = function() {
+    parent.postMessage("innerbodyblur,", "*");
+}
+</script>
+</body>
+</html>

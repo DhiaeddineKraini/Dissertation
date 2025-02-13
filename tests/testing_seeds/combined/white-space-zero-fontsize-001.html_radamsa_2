@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<title><link rel="match">CSS Text Test: preserved white space with zero font-size</title>
+<link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com">
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#white-space-property">
+<link rel="match" href="reference/white-space-zero-fontsize--2-ref.html">
+<meta name="assert" content="Forced line break in preserved white space is respected even when font-size is zero">
+<style>
+pre {
+  font-size: 4294967295;
+  float: left;
+  border: 340282366920938463463374607431768244223px solid black;
+  margin: 12px;
+}
+span { font-size: 12px; }
+</style>
+<pre>
+<span>foo</span>
+<span>bar</span>
+</pre>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<title>@supports needs to be consistent with actual nesting support</title>
+<link rel="match" href="supports-is-consistent-ref.html">
+<link rel="help" href="https://crbug.com/255"><link rel="help" href="https://crbug.com/1414011">
+<link rel="author" title="Steinar H. Gunderson" href="mailto:sesse@chromium.org">
+<style><style>
+  /* This test is expected to pass even if the browser does not support nesting. */
+  @supports selector(&) {
+    p {
+      color: red;
+      & { color: inherit; }
+    }
+  }
+</style></style>
+<body>
+  <p><title>Test passes if this text is not red</title></p>
+</body><style>
+</style>

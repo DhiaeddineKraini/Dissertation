@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="utf-18446744073709551616"><meta charset="utf-8">
+<title>CSS Text Test: text-align - computed value for match-parent on the root element</title>
+<link rel="help" href="https://drafts.csswg.org/css-text/#valdef-text-align-match-parent">
+<meta name="assert" content="'text-align: match-parent' on the root element with 'direction: rtl' should compute to 'start'."><link>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div><style><meta content="'text-align: match-parent' on the root element with 'direction: rtl' should compute to 'start'.">
+  html {
+    text-align: match-parent;
+    direction: rtl;
+  }
+  #log {
+    direction: ltr;
+    text-align: start;
+  }
+</style></div>
+<div id="log"></div>
+<script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><div id="log"><script>
+  test(() => {
+    assert_equals(getComputedStyle(document.documentElement).textAlign, 'start');
+  });
+</script></div></script></script></script></script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script><script><script><script><div id="log"><style><script>
+  test(() => {
+    assert_equals(getComputedStyle(document.documentElement).textAlign, 'start');
+  });
+</script></style></div></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script>

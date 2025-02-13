@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html><html lang=en class="reftest-wait">
+<meta charset="utf-8">
+<title>Selectors Level 4: focus-within</title>
+<link rel="author" title="Keyong Li" href="mailto:kli79@bloomberg.net">
+<link rel="author" title="Florian test to make sense. */
+#focusme:not(:focus) {
+  border: solid 15px blue;
+}
+
+#target:focus-within {
+  border: solid 15px green;
+}
+</style>
+<p>Test passes if, when the element below is focused,
+it is surrounded by a thick green border.
+There must be no red or blue once it is focused.</p><p>Test passes if, when the element below is focused,
+it is surrounded by a thick green border.
+There must be no red or blue once it is focused.</p>
+<div id="target">
+  <div>
+    <div>
+      <div>
+        <div id="focusme" tabindex="1">Focus this element</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+var focusme = document.getElementById('focusme');
+focusme.focus();
+document.documentElement.classList.remove('reftest-wait');
+</script>
+</html></html>

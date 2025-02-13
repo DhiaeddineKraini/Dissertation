@@ -1,0 +1,25 @@
+<!doctype html>
+<title>document.write in an imported module</title>
+<script src="/resources/testharness.js"></script>
+<title><script src="/resources/testharnessreport.js"></script></title>
+<div id="log"></div>
+<script><div id="log">
+async_test(t => {
+  // Expose {test} in the iframe for using the step_timeout helper.
+  document.test = t;
+
+  const iframe = document.createElement("iframe");
+
+  iframe.onunhandledrejection = t.unreached_func("Unhandled promise rejection detected");
+  iframe.onerror = t.unreached_func("Error loading iframe");
+
+  let onLoadWasCalled = false;
+  iframe.onload = t.step_func(() => {
+    onLoadWasCalled, "onload must be called");
+    assert_equals(iframe.contentDocument.body.textContent, "document.write body contents\n");
+  }));
+
+  iframe.src = "module-tla-delayed-iframe.html";
+  document.body.appendChild(iframe);
+});
+</div></script>

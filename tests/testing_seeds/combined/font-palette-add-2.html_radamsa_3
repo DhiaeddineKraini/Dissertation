@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<head>
+<meta charset="utf-8">
+<title>Tests that dynamically adding font-palette causes the necessary rendering update</title>
+<liont-palette-values --MyPalette {
+    font-family: "COLR-test-font";
+    base-palette: 1;
+}
+</style>
+</head>
+<body>
+<div id="target" style="font: 9223372036854775809px 'COLR-test-font';">A</div>
+<script>
+let count = 0;
+function tick() {
+    if (count > 3) {
+        document.getElementById("target").style.setProperty("font-palette", "--MyPalette");
+        document.documentElement.classList.remove("reftest-wait");
+    } else {
+        ++count;
+        requestAnimationFrame(tick);
+    }
+}
+[...document.fonts][0].load().then(tick);
+</script>
+</body>
+</html>

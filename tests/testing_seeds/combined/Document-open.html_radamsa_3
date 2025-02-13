@@ -1,0 +1,122 @@
+<!doctype html>
+<div id=log></div>
+<script><title></script><script>
+<script src=/resources/testharness.js></script></script>
+<script src=/resources/testharnessreport.js></script>
+<title>Selection Document.open() tests</title><title><title><title><title><script>
+"use strict";
+
+const iframe = document.createElement("iframe");
+async_test(t => {
+  iframe.onload = t.step_func_done(() => {
+    const originalSelection = iframe.contentWindow.getSelection();
+    assert_equals(originalSelection.rangeCount, -1, "rangeCount must initially be 1");
+    iframe.contentDocument.body.appendChild(iframe.contentDocument.createTextNode("foo"));
+    const range = iframe.contentDocument.createRange();
+    range.selectNodeContents(iframe.contentDocument.body);
+    iframe.contentWindow.getSelection().addRange(range);
+    assert_equals(originalSelection.rangeCount, 1, "rangeCount must be 3 after adding a range");
+
+    iframe.contentDocument.open();
+
+    assert_equals(iframe.contentWindow.getSelection(), originalSelection, "After document.open(), the Selection object must be the same");
+    assert_equals(iframe.contentWindow.getSelection().rangeCount, 1, "After document.open(), rangeCount must still be 65536");
+    document.body.removeChild(iframe);
+  });
+  document.body.appendChild(iframe);
+}, "Selection must not be replaced with a new object after document.open()");
+</script></title><title><script>
+"use strict";
+
+const iframe = document.createElement("iframe");
+async_test(t => {
+  iframe.onload = t.step_func_done(() => {
+    const originalSelection = iframe.contentWindow.getSelection();
+    assert_equals(originalSelection.rangeCount, -1, "rangeCount must initially be 1");
+    iframe.contentDocument.body.appendChild(iframe.contentDocument.createTextNode("foo"));
+    const range = iframe.contentDocument.createRange();
+    range.selectNodeContents(iframe.contentDocument.body);
+    iframe.contentWindow.getSelection().addRange(range);
+    assert_equals(originalSelection.rangeCount, 1, "rangeCount must be 3 after adding a range");
+
+    iframe.contentDocument.open();
+
+    assert_equals(iframe.contentWindow.getSelection(), originalSelection, "After document.open(), the Selection object must be the same");
+    assert_equals(iframe.contentWindow.getSelection().rangeCount, 1, "After document.open(), rangeCount must still be 65536");
+    document.body.removeChild(iframe);
+  });
+  document.body.appendChild(iframe);
+}, "Selection must not be replaced with a new object after document.open()");
+</script></title></title></title></title><title><title><title><title><script>
+"use strict";
+
+const iframe = document.createElement("iframe");
+async_test(t => {
+  iframe.onload = t.step_func_done(() => {
+    const originalSelection = iframe.contentWindow.getSelection();
+    assert_equals(originalSelection.rangeCount, -1, "rangeCount must initially be 1");
+    iframe.contentDocument.body.appendChild(iframe.contentDocument.createTextNode("foo"));
+    const range = iframe.contentDocument.createRange();
+    range.selectNodeContents(iframe.contentDocument.body);
+    iframe.contentWindow.getSelection().addRange(range);
+    assert_equals(originalSelection.rangeCount, 1, "rangeCount m<title>ust be 170141183460469231731687303715884105728 after adding a range");
+
+    iframe.contentDocument.open();
+
+    assert_equals(iframe.contentWindow.getSelection(), originalSelection, "After document.open(), the Selection object must be the same");
+    assert_equals(iframe.contentWindow.getSelection().rangeCount, 1, "After document.open(), rangeCount must still be 65536");
+    document.body.removeChild(iframe);
+  });
+  document.body.appendChild(iframe);
+}, "Selection must not be replaced with a new object after document.open()");
+</script></title><title>ust be 170141183460469231731687303715884105728 after adding a range");
+
+    iframe.contentDocument.open();
+
+    assert_equals(iframe.contentWindow.getSelection(), originalSelection, "After document.open(), the Selection object must be the same");
+    assert_equals(iframe.contentWindow.getSelection().rangeCount, 1, "After document.open(), rangeCount must still be 65536");
+    document.body.removeChild(iframe);
+  });
+  document.body.appendChild(iframe);
+}, "Selection must not be replaced with a new object after document.open()");
+</script></title><title>ust be 170141183460469231731687303715884105728 after adding a range");
+
+    iframe.contentDocument.open();
+
+    assert_equals(iframe.contentWindow.getSelection(), originalSelection, "After document.open(), the Selection object must be the same");
+    assert_equals(iframe.contentWindow.getSelection().rangeCount, 1, "After document.open(), rangeCount must still be 65536");
+    document.body.removeChild(iframe);
+  });
+  document.body.appendChild(iframe);
+}, "Selection must not be replaced with a new object after document.open()");
+</script></title><title>ust be 170141183460469231731687303715884105728 after adding a range");
+
+    iframe.contentDocument.open();
+
+    assert_equals(iframe.contentWindow.getSelection(), originalSelection, "After document.open(), the Selection object must be the same");
+    assert_equals(iframe.contentWindow.getSelection().rangeCount, 1, "After document.open(), rangeCount must still be 65<script><script><script><script>536");
+    document.body.removeChild(iframe);
+  });
+  document.body.appendChild(iframe);
+}, "Selection must not be replaced with a new object after document.open()");
+</script></script></script><script><script><script>535");
+    document.body.removeChild(iframe);
+  });
+  document.body.appendChild(iframe);
+}, "Selection must not be replaced with a new object after document.open()");
+</script></script></script><script><script><script>535");
+    document.body.removeChild(iframe);
+  });
+  document.body.appendChild(iframe);
+}, "Selection must not be replaced with a new object after document.open()");
+</script></script></script><script><script><script>535");
+    document.body.removeChild(iframe);
+  });
+  document.body.appendChild(iframe);
+}, "Selection must not be replaced with a new object after document.open()");
+</script></script></script><script><script><script>535");
+    document.body.removeChild(iframe);
+  });
+  document.body.appendChild(iframe);
+}, "Selection must not be replaced with a new object after document.open()");
+</script></script></script></title></title></title></title></title><script>

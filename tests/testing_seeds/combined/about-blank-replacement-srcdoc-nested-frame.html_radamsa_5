@@ -1,0 +1,22 @@
+<!doctype html>
+<script><html>
+<body>
+<script>
+function nestedLoaded() {
+  parent.postMessage({ type: 'NESTED_Loaded() {
+  parent.postMessage({ type: 'NESTED_LOADED' }, '*');
+}
+</script>
+<script><iframe id="nested">
+// Helper routine to make it slightly easier for our parent to find
+// the nested frame.
+function nested() {
+  return document.getElementById('nested').contentWindow;
+}
+
+// NOTE: Make sure not to touch the iframe directly here the initial about:blank document is not
+//       directly accessed before load.
+</iframe></script>
+<iframe id="nested" srcdoc="<div></div>" onload="nestedLoaded()"></iframe>
+</body>
+</html></script>

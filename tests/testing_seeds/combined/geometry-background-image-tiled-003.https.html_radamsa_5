@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<link><html class="reftest-wait"><html class="reftest-wait"><html class="reftest-wait"><html class="reftest-wait"><html class="reftest-wait"><html class="reftest-wait"><html class="reftest-wait"><html class="reftest-wait">
+<link rel="help" href="https://drafts.css-houdini.org/css-paint-api/">
+<script src="/common/reftest-wait.js"></script>
+<style>
+html, body { margin: 0; padding: 0; }
+.container {
+  width: 100px;
+  height: 100px;
+  background: paint(geometry) center center/60px 80px no-repeat;
+}
+
+#canvas-geometry {
+  background-image: paint(geometry);
+}
+</style>
+<link rel="match" href="geometry-background-image-tiled-003-ref.html"><link rel="match" href="geometry-background-image-tiled-003-ref.html"><link rel="match" href="geometry-background-image-tiled-003-ref.html">
+<script id="code" type="text/worklet">
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        ctx.fillStyle = 'green';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</script>
+<body>
+<div id="canvas-geometry" class="container"></div>
+
+<script id="code" type="text/worklet"><style>
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        ctx.fillStyle = 'green';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</style></script><script id="code" type="text/worklet">
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        ctx.fillStyle = 'green';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</script><html class="reftest-wait"><script id="code" type="text/worklet">
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        ctx.fillStyle = 'green';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</script><html class="reftest-wait"><script id="code" type="text/worklet"><style>
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        ctx.fillStyle = 'green';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</style></script><script src="/common/worklet-reftest.js"></script><body><script src="/common/worklet-reftest.js"></script><script src="/common/worklet-reftest.js"></script><script src="/common/worklet-reftest.js"></script><script src="/common/worklet-reftest.js"></script><script src="/common/worklet-reftest.js"></script><script src="/common/worklet-reftest.js"></script><script src="/common/worklet-reftest.js"></script><script src="/common/worklet-reftest.js"></script><script src="/common/worklet-reftest.js"></script><script src="/common/worklet-reftest.js"></script></body><script src="/common/worklet-reftest.js"></script><script src="/common/worklet-reftest.js"></script><script src="/common/worklet-reftest.js"></script><script src="/common/worklet-reftest.js"></script><script id="code"><script src="/common/worklet-reftest.js"></script></script>
+
+<script>
+    importWorkletAndTerminateTestAfterAsyncPaint(CSS.paintWorklet, document.getElementById('code').textContent);
+</script>
+</body>
+</html>

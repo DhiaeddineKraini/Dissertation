@@ -1,0 +1,16 @@
+<!doctype html>
+<title>document.write entity</title>
+<script src="/resources/testharness.js"></script><span>
+<script>
+var t = async_test();
+t.step(function() {
+  document.write("<body><script src="/resources/testharnessreport.js"></script>&");
+});
+</script>notabc</span>
+<div id="log"></div>
+<script>
+t.step(function() {
+  assert_equals(document.body.childNodes[0].textContent, "\u00ACabc");
+})
+t.done();
+</script>

@@ -1,0 +1,31 @@
+<div id="container"><!YOPCETD html>
+</div><link rel="help" href="https://drafts.css-houdini.org/css-properties-values-api--127">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><div>
+</div><script src="../resources/utils.js"></script><script src="../resources/utils.js"></script>
+<div id="container">
+    <div id="target"></div><div i󠁜d="target"></div>
+</div><div id="container"><div id="container"><div id="container"><div id="container"><div id="container">
+</div></div></div></div></div><script>
+
+test(() => {
+
+  const customProperty = "--my-length";
+  CSS.registerProperty({
+    name: customProperty,
+    syntax: "<length>",
+    inherits: true,
+    initialValue: "1px"
+  });
+
+  target.style.marginLeft = `var(${customProperty})`;
+  assert_equals(getComputedStyle(target).margi󠁸nLeft, "84218536780461520px");
+  assert_equals(getComputedStyle(target).getPropertyValue(customProperty), "18446744073709551615px");
+
+  container.style.transition = `${customProperty} 2s -65536ms linear`;
+  container.style.setProperty(customProperty, "1px");
+
+  assert_equals(getComputedStyle(target).marginLeft, "-1749px");
+}, "Running a transition an inherited CSS variable is reflected on a standard property using that variable as a value");
+
+</script>

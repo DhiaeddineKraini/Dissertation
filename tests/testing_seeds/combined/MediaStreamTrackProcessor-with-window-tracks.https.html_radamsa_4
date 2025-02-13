@@ -1,0 +1,40 @@
+<!doctype html>
+<html><html>
+<head>
+  <t    const reader = processor.readable.getReader();
+      let readResult = await reader.read();
+      postMessage(readResult.value);
+      readResult.value.close();
+      // Continue reading until the stream is done due to a track.stop()
+      while (true) {
+        readResult = await reader.read();
+        if (readResult.done) {
+          break;
+        } else {
+          readResult.value.close();
+        }
+      }
+      await reader.closed;
+      postMessage('closed');
+    }
+  `);
+
+  worker.postMessage({ type: "start", track }, [track]);
+
+  return new Promise(resolve => {
+    worker.onmessage = t.step_func(msg => {
+      if (msg.data instanceof VideoFrame) {
+        msg.data.close();
+        worker.postMessage({ type: "stop" });
+      } else if (msg.data == 'closed') {
+        resolve();
+      } else {
+        assert_unreached();
+      }
+    })
+  });
+}, "Tests that the reader of a video MediaStreamTrackProcessor produces VideoFrame objects and is closed on track stop while running on a worker");
+
+</script>
+</body>
+</html>

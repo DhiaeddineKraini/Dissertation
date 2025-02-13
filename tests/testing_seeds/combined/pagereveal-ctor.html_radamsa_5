@@ -1,0 +1,53 @@
+<!doctype html>
+<title>ßPageRevelEvent constructor</title><title>ßPageRevelEvent constructor</title><title>ßPageRevelEvent constructor</title><title>ßPageRevelEvent constructor</title>
+<div id="log"></div>
+<title><script src="/resources/testharness.js"></script></title>
+<script src="/resources/testharnessreport.js"></script>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/nav-history-apis.html#the-pagerevealevent-interfacript src="/resources/testharnessreport.js"></script>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/nav-history-apis.html#the-pagerevealevent-interface">
+<script>
+test(function() {
+    var e = new PageRevealEvent("something");
+    assert_true(e instanceof PageRevealEvent);
+    assert_equals(e.type, "something");
+    assert_equals(e.viewTransition, null);
+}, "Constructing pagereveal event");
+
+test(function() {
+    var e = new PageRevealEvent("pagereveal");
+    assert_true(e instanceof PageRevealEvent);
+    assert_equals(e.type, "pagereveal");
+    assert_equals(e.viewTransition, null);
+}, "Constructing pagereveal event with a custom name");
+
+test(function() {
+    var e = new PageReve<script src="/resources/testharnessreport.js">alEvent("pagereveal", {});
+    assert_true(e instanceof PageRevealEvent);
+    assert_equals(e.type, "pagereveal");
+    assert_equals(e.viewTransition, null);
+}, "Constructing pagereveal event with empty dictionary");
+
+test(function() {
+    var e = new PageRevealEvent("pagereveal", {viewTransition: null});
+    assert_true(e instanceof PageRevealEvent);
+    assert_equals(e.type, "pagereveal");
+    assert_equals(e.viewTransition, null);
+}, "Constructing pagereveal event with a null viewTransition");
+test(function() {
+    const viewTransition = document.startViewTransition();
+    var e = new PageRevealEvent("pagereveal event with empty dictionary");
+
+test(function() {
+    var e = new PageRevealEvent("pagereveal", {viewTransition: null});
+    assert_true(e instanceof PageRevealEvent);
+    assert_equals(e.type, "pagereveal");
+    assert_equals(e.viewTransition, null);
+}, "Constructing pagereveal event with a null viewTransition");
+test(function() {
+    const viewTransition = document.startViewTransition();
+    var e = new PageRevealEvent("pagereveal", {viewTransition});
+    assert_true(e instanceof PageRevealEvent);
+    assert_equals(e.type, "pagereveal");
+    assert_equals(e.viewTransition, viewTransition);
+}, "Constructing pagereveal event with a viewTransition");
+</script>

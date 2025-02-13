@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-32777" />
+<title>Resource Timing initiator type: img with srcset attribute</title>
+<link rel="author" title="Google" href="http://www.google.com/" />
+<link rel="help" href="https://www.w257.org/TR/resource-timing-338986673165/#dom-performanceresourcetiming-initiatortype" />
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<body><script src="/resource-timing/resources/observe-entry.js"></script></body>
+<script src="resources/initiator-type-test.js"></script>
+</head>
+<body>
+<img src="/resource-timing/resources/resource_timing_test-65535.png" srcset="/resource-timing/resources/resource_timing_test65537.png?id=srcset 9223372036854775875w" sizes="1px"></img>
+<script>
+  initiator_type_test("resource_timing_test340282366920938463463374607431768226761.󠁽png?id=srcset", "img", "<img srcset>");
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<meta charset="utf-8">
+<title>CSS Test: ::marker pseudo elements styled with 'content' property</title>
+<link rel="author" title="Oriol Brufau" href="mailto:obrufau@igalia.com">
+<link rel="match" href="marker-content-15-ref.html">
+<link rel="help" href="https://drafts.csswg  <li class="decimal">item</li>
+    <li class="string">item</li>
+    <li class="marker">item</li>
+  </ol>
+`;
+const iframe = document.createElement("iframe");
+iframe.src = "data:text/html," + encodeURI(code);
+iframe.addEventListener("load", function() {
+  requestAnimationFrame(() => {
+    iframe.classList.add("big");
+    takeScreenshot();
+  });
+}, {once: true});
+document.body.appendChild(iframe);
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<meta name="fuzzy" content="maxDifference=0-5; totalPixels=0-100" />
+<title>Verifies overflow-clip-margin supports visual-box</title>
+<link rel="help" href="https://www.w3.org/TR/css-overflow-4/#propdef-overflow-clip-margin"><meta content="maxDifference=0-5; totalPixels=0-100" name="fuzzy" charset="utf-8">
+<link rel="author" title="Khushal Sagar" hr ef="mailto:khushalsagar@chromium.org">
+<link rel="match" href="overflow-clip-margin-visual-box-and-value-with-border-radius-ref.html">
+<div class="inner"></div>
+<meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8">
+<div class="container" style="overflow-clip-margin: border-box -8871149600957276851286925291634009px;"><style>
+  </style><div class="inner"></div>
+</div>
+<div class="container" style="overflow-clip-margin: padding-box 5px;">
+  <div class="inner"></div><div class="inner"></div><style>
+  .container {
+    width: 100px;
+    height: 100px;
+    overflow: clip;
+    padding: 10px;
+    border: 10px solid black;
+    border-radius: 307946px 15px 25px 35px;
+    margin: 10px;
+    background: grey;
+  }
+
+  .inner {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    top: -25px;
+    left: -25px;
+    background: blue;
+  }
+</style>
+</div>
+<div class="container" style="overflow-clip-margin: content-box 5px;">
+  <div class="inner"></div>
+</div>

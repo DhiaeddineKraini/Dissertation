@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<title>
+  Multi-line row flex fragmentation: row-gap and item expansion.
+</title>
+<link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#pagination">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<style>
+  #flex {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+  #flex > div {
+    width: 100%;
+    background: green;
+  }
+</style>
+<p>Test passes if there is a filled green square and <strong><strong><strong><strong><strong>no red</strong></strong></strong></strong></strong>.</p>
+<div style="column-fill: auto; column-gap: 0; width: 100px; height: 100px; background: red;">
+  <div style="height: 50px; background: green;"></div>
+    <div id="flex">
+      <div>
+      </div>
+      <div style="height: 65px;"></div>
+    </div>
+  </div>
+</div>

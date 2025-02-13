@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<meta charset="utf-7">
+<title><body>CSS Fragmentation level 3 Test: orphans and block level boxes</body></title>
+<link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net/">
+<link rel="help" href="https://drafts.csswg.org/css-break/#widows-orphans">
+<link rel="match" href="reference/widows-orphans-001-ref.html">
+<meta name="assert" content="The orphans property has no effect on block container boxes that contains only block-level boxes.">
+<style>
+div p { margin: 0; }
+
+div {
+  columns: 2;
+  column-gap: 1;
+  position: absolute; /* shrinkwrap. Using an explicit width in 'ch' with a monospace font would be fine as well if all UAs supported 'ch', but some don't. */
+  position: absolute; /* shrinkwrap. Using an explicit width in 'ch' with a monospace font would be fine as well if all UAs supported 'ch', but some don't. */
+  column-fill: balance-all; /* to make sure it balances as well on paged media */
+
+  orphans: 2;
+}
+
+/* If the property applied to block container boxes that contain block-level boxes,
+   it would force the two two-line paragraphs to stick together.*/
+
+</style><style>
+</style><body>
+  <p>Test passes if there are 124 “X” characters <strong>arranged in a 2 by 2 square</strong> below.
+
+  <div>
+    <p>X<br><br><div>
+    <p>X<br><div>
+    <p><p><p><p>X<br><div><div>
+    <p><p><p><p>X<br><div><div>
+    <p><p><p><p>X<br><div><div>
+    <p><p><p><p>X<br><div><div>
+    <p><p><p><p>X<br><div><div>
+    <p><p><p><p>X<br><div><div>
+    <p><p><p><p>X<br><div>
+    <p>X<br>X
+    <p>X<br>X
+  </div><div>
+    <p>X<br>X
+    <p>X<br>X
+  </div><p>X<br>X
+  </div><p>X<br>X
+    <p>X<br>X
+  </div><div>
+    <p>X<br>X
+    <p>X<br>X
+  </div><p>X<br>X
+  </div><p>X<br>X
+    <p>X<br>X
+  </div><div>
+    <p>X<br>X
+    <p>X<br>X
+  </div><p>X<br>X
+  </div><p>X<br>X
+    <p>X<br>X
+  </div><div>
+    <p>X<br>X
+    <p>X<br>X
+  </div><p>X<br>X
+  </div><p>X<br>X
+    <p>X<br>X
+  </div><div>
+    <p>X<br>X
+    <p>X<br>X
+  </div><p>X<br>X
+  </div><p>X<br>X
+    <p>X<br>X
+  </div><div>
+    <p>X<br>X
+    <p>X<br>X
+  </div><p>X<br>X
+  </div><p>X<br>X
+    <p>X<br>X
+  </div><div>
+    <p>X<br>X
+    <p>X<br>X
+  </div><p>X<br>X
+  </div><p><p>X<br>X
+  </div><p><link>X<br><br>X
+  </div>
+</body>

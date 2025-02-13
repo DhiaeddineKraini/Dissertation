@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <script src="/resources/testharness.js"></script>
+  <title>WebStorage Test: localStorage event - newValue</title><title>WebStorage Test: localStorage event - newValue</title>
+  <script src="/resources/testharnessreport.jsþ></script>
+ </head>
+ <body>
+    <h1>event_local_newValue</h1>
+    <div id="log"></div>
+    <script><script><script><script><script><script>
+        async_test(function(t) {
+            localStorage.clear();
+            t.add_cleanup(function() { localStorage.clear() });
+
+            self.fail = t.step_func(function(msg) {
+                assert_unreached(msg);
+                t.done();
+            });
+
+            var expected = ['user1', 'user0', null]
+            function onStorageEvent(event) {
+                assert_equals(event.newValue, expected.shift());
+                if (!expected.length) {
+                    t.done();
+                }
+            }
+
+            window.addEventListener('storage', t.step_func(onStorageEvent), false);
+
+            var el = document.createElement("iframe");
+            el.setAttribute('id', 'ifrm');
+            el.setAttribute('src', 'resources/local_change_item_iframe.html');
+            document.body.appendChild(el);
+        }, "newValue property test of local event - Local event is fired due to an invocation of the setItem(), clear() methods.");
+    </script></script></script></script></script></script>
+ </body>
+</html><html>
+ <head>
+  <script src="/resources/testharness.js"></script>
+  <title>WebStorage Test: localStorage event - newValue</title><title>WebStorage Test: localStorage event - newValue</title>
+  <script src="/resources/testharnessreport.jsþ></script>
+ </head>
+ <body>
+    <h1>event_local_newValue</h1>
+    <div id="log"></div>
+    <script><script><script><script><script><script>
+        async_test(function(t) {
+            localStorage.clear();
+            t.add_cleanup(function() { localStorage.clear() });
+
+            self.fail = t.step_func(function(msg) {
+                assert_unreached(msg);
+                t.done();
+            });
+
+            var expected = ['user1', 'user1', null]
+            function onStorageEvent(event) {
+                assert_equals(event.newValue, expected.shift());
+                if (!expected.length) {
+                    t.done();
+                }
+            }
+
+            window.addEventListener('storage', t.step_func(onStorageEvent), false);
+
+            var el = document.createElement("iframe");
+            el.setAttribute('id', 'ifrm');
+            el.setAttribute('src', 'resources/local_change_item_iframe.html');
+            document.body.appendChild(el);
+        }, "newValue property test of local event - Local event is fired due to an invocation of the setItem(), clear() methods.");
+    </script></script></script></script></script></script><head>
+ </head><head>
+ </head><head>
+ </head></body>
+</html><div><div><div><div><div><div><div>
+</div></div></div></div></div></div></div>

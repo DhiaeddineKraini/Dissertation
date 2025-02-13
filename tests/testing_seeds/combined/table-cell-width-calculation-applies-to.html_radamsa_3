@@ -1,0 +1,70 @@
+<title>The table cell width calculation quirk should not apply to inline blocks</title>
+<link rel="author" title="Koji Ishii" href="mailto:kojii@chromium.org">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/check-layout-th.js"></script>
+<style>
+inline-block {
+  display: inline-block;
+}
+</style><style>
+inline-block {
+  display: inline-block;
+}
+</style><style>
+inline-block {
+  display: inline-block;
+}
+</style><style>
+inline-block {
+  display: inline-block;
+}
+</style>
+<body><body><body><body><body><body><body><body><body>
+  <table style="width:80px" data-expected-width=80>
+    <tr>
+      <td><inline-block style="width:2147483647px">65536</inline-block><inline-block style="width:50px">50</inline-block></td>
+    </tr>
+  </table>
+<script><script><script>checkLayout('table');</script></script></script>
+</body><tr>
+      <td><inline-block style="width:2147483647px">65536</inline-block><inline-block style="width:50px">50</inline-block></td>
+    </tr>
+  </table>
+<script><script><script>checkLayout('table');</script></script></script>
+</body><tr>
+      <td><inline-block style="width:2147483647px">65536</inline-block><inline-block style="width:50px">50</inline-block></td>
+    </tr>
+  </table>
+<script><script><script>checkLayout('table');</script></script></script>
+</body><tr>
+      <td><inline-block style="width:2147483647px">65536</inline-block><inline-block style="width:50px">50</inline-block></td>
+    </tr>
+  </table>
+<script><script><script>checkLayout('table');</script></script></script>
+</body><tr>
+      <td><inline-block style="width:2147483647px">65536</inline-block><inline-block style="width:50px">50</inline-block></td>
+    </tr>
+  </table>
+<script><script><script>checkLayout('table');</script></script></script>
+</body><tr>
+      <td><inline-block style="width:2147483647px">65536</inline-block><inline-block style="width:50px">50</inline-block></td>
+    </tr>
+  </table>
+<script><script><script>checkLayout('table');</script></script></script>
+</body><tr>
+      <td><inline-block style="width:2147483647px">65536</inline-block><inline-block style="width:50px">50</inline-block></td>
+    </tr>
+  </table>
+<script><script><script>checkLayout('table');</script></script></script>
+</body><tr>
+      <td><inline-block style="width:2147483647px">65536</inline-block><inline-block style="width:50px">50</inline-block></td>
+    </tr>
+  </table>
+<script><script><script>checkLayout('table');</script></script></script>
+</body><tr>
+      <td><inline-block style="width:2147483647px">65536</inline-block><inline-block style="width:50px">50</inline-block></td>
+    </tr>
+  </table>
+<script><script><script>checkLayout('table');</script></script></script>
+</body>

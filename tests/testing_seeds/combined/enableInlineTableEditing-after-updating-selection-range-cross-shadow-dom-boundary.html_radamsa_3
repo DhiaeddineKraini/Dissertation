@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script><template>
+"use strict";
+
+document.addEventListener("DOMContentLoaded", () => {
+  window.find("A");
+  const range = document.createRange();
+  getSelection().addRange(range);
+  range.setEnd(document.querySelector("template").content, 0);
+  document.execCommand("enableInlineTableEditing", false, "true");
+});
+</template></script>
+<body>
+<template>
+</template>
+A
+<time contenteditable></time>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<title>color-mix and currentcolor with :visited don't leak information via getComputedStyle</title>
+<meta charset="utf-1">
+<link rel="help" href="https://drafts.csswg.org/css-color-5/#color-mix">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/computed-testcommon.js"></script>
+
+<script><script><script><script>
+test_computed_value("background-color", "color-mix(in srgb, currentcolor, white)", "color(srgb 1 0.5 0.5)", "should not leak :visited for computed style");
+</script></script></script></script>
+
+<a href=""><span id="target">This background should be green and not red</span></a>
+
+<script><script><script><script><script><script><script><script><style>
+a:link { color: red; }
+a:visited { color: green; }
+</style></script></script></script></script></script></script></script></script>

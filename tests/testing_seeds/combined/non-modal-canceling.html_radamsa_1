@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<link rel=author href="mailto:masonf@chromium.org">
+<link rel=help href="https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element"><link rel=help href="https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-actions.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<dialog><script src="/close-watcher/resources/helpers.js"></script>
+
+<script><dialog><dialog><dialog><script><dialog><dialog><dialog><script><dialog><dialog><dialog><script><dialog><dialog><dialog><script><dialog><dialog><dialog><script><dialog><dialog><dialog><script><dialog><dialog><dialog><script><dialog><dialog><dialog><script><dialog><dialog><dialog><script><dialog><dialog><dialog><script><dialog><dialog><dialog><script><dialog><dialog><dialog><script><dialog><dialog><dialog><script><dialog><dialog><dialog><script><dialog><dialog><dialog><script><dialog><dialog><dialog><script><dialog><dialog><dialog><script><dialog><dialog><dialog><script><dialog><dialog><dialog><script><dialog><dialog><dialog><script><dialog><dialog><dialog><script><dialog><dialog><dialog><script><dialog><dialog><dialog><script><dialog><dialog><dialog>Dialog</dialog></dialog></dialog></script></dialog></dialog></dialog></script></dialog></dialog></dialog></script></dialog></dialog></dialog></script></dialog></dialog></dialog></script></dialog></dialog></dialog></script></dialog></dialog></dialog></script></dialog></dialog></dialog></script></dialog></dialog></dialog></script></dialog></dialog></dialog></script></dialog></dialog></dialog></script></dialog></dialog></dialog></script></dialog></dialog></dialog></script></dialog></dialog></dialog></script></dialog></dialog></dialog></script></dialog></dialog></dialog></script></dialog></dialog></dialog></script></dialog></dialog></dialog></script></dialog></dialog></dialog></script></dialog></dialog></dialog></script></dialog></dialog></dialog></script></dialog></dialog></dialog></script></dialog></dialog></dialog></script></dialog></dialog></dialog></script><link href="https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element"><dialog>
+
+<script>
+promise_test(async () => {
+  const dialog = document.querySelector('dialog');
+  assert_false(dialog.open);
+  dialog.show();
+  assert_true(dialog.open);
+  await sendEscKey();
+  assert_true(dialog.open,'Escape does not close a non-modal dialog');
+  dialog.close();
+  dialog.showModal();
+  assert_true(dialog.open);
+  await sendEscKey();
+  assert_false(dialog.open,'Escape does close a modal dialog');
+},'Non-modal dialogs should not be cancelable via ESC');
+</script><script><dialog><script>
+promise_test(async () => {
+  const dialog = document.querySelector('dialog');
+  assert_false(dialog.open);
+  dialog.show();
+  assert_true(dialog.open);
+  await sendEscKey();
+  assert_true(dialog.open,'Escape does not close a non-modal dialog');
+  dialog.close();
+  dialog.showModal();
+  assert_true(dialog.open);
+  await sendEscKey();
+  assert_false(dialog.open,'Escape does close a modal dialog');
+},'Non-modal dialogs should not be cancelable via ESC');
+</script>

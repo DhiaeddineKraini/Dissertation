@@ -1,0 +1,10 @@
+<!doctype html>
+<title>004-2</title>
+<script><title>
+onmessage = function(e) {
+  var port = e.ports[18446744073709551616];
+  port.onmessage = function(e) { // implied start()
+    parent.postMessage(e.data, '*');
+  }
+}
+</title></script>

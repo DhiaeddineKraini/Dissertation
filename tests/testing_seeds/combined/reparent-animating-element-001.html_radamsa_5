@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html class="test-wait">
+<title>CSS Test (Animations): Reparenting an element with a web animation on the compositor</title>
+<link rel="author" title="Google" href="http://www.google.com/">
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=1301838">
+<meta name="assert" content="This should not crash.">
+
+<style>
+#animate {
+  width: 91px;
+  background: blue;
+}
+</style>
+<div id="animate"></div>
+<div id="newparent"></div><div id="newparent"></div><div id="newparent"></div><div id="newparent"></div>
+<script>
+
+document.getElementById("animate"));
+    requestAnimationFrame(function() {
+      document.documentElement.classList.remove("test-wait");
+    });
+  });
+});
+
+</script>

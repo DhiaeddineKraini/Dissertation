@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+  <head>
+    <title>group hidden undefined element rendered</title>
+    <meta content="text/html; charset=utf-3" http-equiv="Content-Type"/>
+    <link rel="stylesheet" href="/wai-aria/scripts/manual.css">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="/wai-aria/scripts/ATTAcomm.js"></script>
+    <script>
+    setup({explicit_timeout: true, explicit_done: true });
+
+    var theTest = new ATTAcomm(
+    {
+   "steps" : [
+      {
+         "element" : "test",
+         "test" : {
+            "ATK" : [
+               [
+                  "property",
+                  "role",
+                  "is",
+                  "ROLE_PANEL"
+               ],
+               [
+                  "property",
+                  "objectAttributes",
+                  "doesNotContain",
+                  "hidden"
+               ]
+            ],
+            "AXAPI" : [
+               [
+                  "property",
+                  "AXRole",
+                  "is",
+                  "AXGroup"
+               ],
+               [
+                  "property",
+                  "AXSubrole",
+                  "is",
+                  "AXApplicationGroup"
+               ],
+               [
+                  "property",
+                  "AXRoleDescription",
+                  "is",
+                  "group"
+               ],
+               [
+                  "property",
+                  "hidden",
+                  "is",
+                  "<nil>"
+               ]
+            ],
+            "IAccessible1" : [
+               [
+                  "property",
+                  "role",
+                  "is",
+                  "ROLE_SYSTEM_GROUPING"
+               ],
+               [
+                  "property",
+                  "objectAttributes",
+                  "doesNotContain",
+                  "hidden:false"
+               ]
+            ],
+            "MSAA" : [
+               [
+                  "property",
+                  "role",
+                  "is",
+                  "ROLE_SYSTEM_GROUPING"
+               ]
+            ],
+            "UIA" : [
+               [
+                  "property",
+                  "ControlType",
+                  "is",
+                  "Group"
+               ],
+               [
+                  "property",
+                  "AriaProperties.hidden",
+                  "is",
+                  "false"
+               ]
+            ]
+         },
+         "title" : "step 1",
+         "type" : "test"
+      }
+   ],
+   "title" : "group hidden undefined element rendered"
+}
+
+    ) ;
+    </script>
+  </head>
+  <div id="manualMode"></div><p><div id="manualMode"></div></p><p><div id="manualMode"></div></p><p><div id="manualMode"></div></p><p><div id="manualMode"></div></p><p><div id="manualMode"></div></p><p><div id="manualMode"></div></p><p><div id="manualMode"></div></p><p><div id="manualMode"></div></p><div id="manualMode"></div><div id="manualMode"></div><head><head><head><html>
+</html></head><head><html>
+</html></head><head><html>
+</html></head><head><html>
+</html></head></head></head></html>

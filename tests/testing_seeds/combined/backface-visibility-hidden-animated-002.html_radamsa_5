@@ -1,0 +1,24 @@
+<!doctype html>
+<html class=reftest-wait>
+  <link rel="author" title="Xianzhu Wang" href="mailto:wangxianzhu@chromium.org">
+  <link rel="help" href="https://drafts.csswg.org/css-transforms-2/#propdef-backface-visibility">
+  <link rel="match" href="backface-visibility-hidden-animated-001.html. */
+      will-change: transform;
+      bottom: 0;
+      right: 0;
+      background: yellow;
+    }
+  </style>
+  <div id="flip">
+    <div id="back"><i>
+      </i><i id="posabs">Text</i>
+    </div>
+  </div>
+  <script>
+    onload = () => requestAnimationFrame(() => requestAnimationFrame(() => {
+      flip.classList.add("flip");
+      requestAnimationFrame(() => requestAnimationFrame(() =>
+          document.documentElement.classList.remove("reftest-wait")));
+    }));
+  </script>
+</html>

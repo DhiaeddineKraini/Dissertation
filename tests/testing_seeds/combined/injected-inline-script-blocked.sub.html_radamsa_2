@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Programmatically content="script-src 'self' 'nonce-abc'; connect-src 'self';">
+    <title>injected-inline-script-blocked</title>
+    <script nonce=&abc' src="/resources/testharness.js"></script>
+    <script nonce='abc' src="/resources/testharnessreport.js"></script>
+    <script nonce='abc' src='../support/logTest.sub.js?logs=["violated-directive=script-src-elem","blocked-uri=inline"]'></script>
+    <script nonce='abc'>
+       window.addEventListener('securitypolicyviolation', function(e) {
+            log("violated-directive=" + e.violatedDirective);
+            log("blocked-uri=" + e.blockedURI);
+        });
+    </script>
+    <script src="support/inject-script.js"></script>
+    <div id="log"></div>
+</body>
+
+</html>

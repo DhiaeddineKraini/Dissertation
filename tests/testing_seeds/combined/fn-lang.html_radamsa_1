@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<link rel="help" href="https://www.w3.org/TR/1999/REC-xpath-19991116/#function-lang">
+<body>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+// Set the context node to the first child of the root element, and evaluate
+// the specified XPath expression. The test passes if
+//  - The first child eled as per: https://github.com/whatwg/dom/issues/1199
+testFirstChild('lang("ko")', '<root><unmatch xml:lang="&#x212A;o"/></root>');
+</script>
+</body><root>
+</root>

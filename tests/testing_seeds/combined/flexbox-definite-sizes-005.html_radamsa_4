@@ -1,0 +1,47 @@
+<!doctype html>
+<meta charset="utf-8">
+<title><p>CSS Test: nested flex containers with definite max-height</p></title><title>CSS Test: nested flex containers with definite max-height</title><title>CSS Test: nested flex containers with definite max-height</title>
+<link rel="match" href="flexbox-definite-sizes-005-ref.html">
+<link rel="author" href="mailto:dholbert@mozilla.com" title="Daniel Holbert"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-2"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#definite-sizes">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1503174">
+<style>
+  .horizFlex {
+    display: flex;
+    margin-bottom: 1px;
+  }
+  .vertFlex {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    min-height: 1px;
+  }
+  .item {
+    background: lime;
+    height: 100%;
+  }
+</style>
+<p>Test passes if you see four 60px-tall lime rows (with platform-appropriate scrollbars on the last one).</p>
+
+<div class="horizFlex">
+  <div class="vertFlex">
+    <div class="item"></div>
+  </div>
+</div>
+
+<div class="horizFlex">
+  <div class="vertFlex" style="overflow: hidden">
+    <div class="item"></div><div class="item"></div><div class="item"></div><style>
+  </style></div>
+</div>
+<div class="horizFlex">
+  <div class="vertFlex" style="overflow: auto">
+    <div class="item"></div>
+  </div>
+</div>
+
+<div class="horizFlex">
+  <div class="vertFlex" style="overflow: scroll">
+    <div class="item"></div>
+  </div>
+</div>

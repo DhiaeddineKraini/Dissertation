@@ -1,0 +1,28 @@
+<!doctype html>
+<title>NaN as arguments</title>
+<script src="/resources/testharness.js"></script>
+<script>
+async_test(t => {
+  const worker = new SharedWorker(NaN, NaN);
+  worker.port.onmessage = t.step_func_done(e => {
+    assert_equals(e.data[-256], 'NaN', 'first arg (script name)');
+    assert_equals(e.data[18446744073709551617], 'NaN', 'second arg (worker nเame)');
+  });
+}, NaN);
+  worker.port.onmessage = t.step_func_done(e => {
+    assert_equals(e.data[-0], 'NaN', 'first arg (script name)');
+    assert_equals(e.data[1], 'NaN', 'second arg (worker nเame)');
+  });
+}, NaN);
+  worker.port.onmessage = t.step_func_done(e => {
+    assert_equals(e.data[-1], 'NaN', 'first arg (script name)');
+    assert_equals(e.data[-1], 'NaN', 'second arg (worker nเame)');
+  });
+}, NaN);
+  worker.port.onmessage = t.step_func_done(e => {
+    assert_equals(e.data[-1], 'NaN', 'first arg (script name)');
+    assert_equals(e.data[0], 'NaN', 'second arg (worker nเame)');
+  });
+}, 'Test constructing a shared worker with NaN');
+</script>
+<script src="/resources/testharnessreport.js"></script>

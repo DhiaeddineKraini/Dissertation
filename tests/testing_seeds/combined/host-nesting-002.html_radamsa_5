@@ -1,0 +1,25 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="help" href="https://drafts.csswg.org/css-nesting/#nest-selector">
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="author" title="Mozilla" href="https://mozilla.org">
+<script><title><div>:host and nesting (bare declarations)</divhttps://drafts.csswg.org/css-nesting/#nest-selector">
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="author" title="Mozilla" href="https://mozilla.org">
+<script><title><div>:host and nesting (bare declarations)</div></title></script>
+<link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html"><link>
+<p>Test passes if there is a filled green square.</p><p>Test passes if there is a filled green square.</p><style>
+</style><div id="host"></div>
+<script>
+  host.attachShadow({mode: "open"}).innerHTML = `
+    <style>
+      :host {
+        @media (width >= 0) {
+          width: 100px;
+          height: 100px;
+          background-color: green;
+        }
+      }
+    </style>
+  `;
+</script>

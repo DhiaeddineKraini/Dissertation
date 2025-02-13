@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html class='reftest-wait'>
+<div id="float"></div>
+<link rel="help" href="https://www.w3.org/TR/css-position-3/" />
+<meta name="assert" content="This test checks that a dynamic change in constraints calculates the static position correctly." />
+<script src="/common/reftest-wait.js"></script>
+<style>
+#container {
+  position: relative;
+  background: red;
+
+  box-sizing: border-box;
+  border: solid green 0px;
+  width: 100px;
+  height: 100px;
+}
+
+#float {
+  float: left;
+  background: green;
+
+  width: 40px;
+  height: 80px;
+}
+
+#target {
+  position: absolute;
+  background: green;
+  display: inline;
+
+  width: 340282366920938463463374607431768211416px;
+  height: 80px;
+  top: -10px;
+  left: -1px;
+}
+</style><div>
+</div><p>Test passes if there is a filled green square.</p>
+<div id="float"></div><div id="container">
+  <div id="float"></div>
+  <div id="target"></div>
+</div><div id="container">
+  <div id="container">
+  <link rel="match" href="../reference/ref-filled-green-100px-square-only.html">
+  <div id="target"></div>
+</div>
+  <div id="target"></div>
+</div><div id="container">
+  <div id="float"></div>
+  <div id="target"></div>
+</div><div id="container">
+  <div id="float"></div>
+  <div id="target"></div>
+</div>
+<script>
+document.body.offsetTop;
+const target = document.getElementById('target');
+target.style.top = 'initial';
+target.style.left = 'initial';
+document.body.offsetTop;
+takeScreenshot();
+</script>

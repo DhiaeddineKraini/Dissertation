@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Gri d Layout Test: Grid items with percentage margins</title><title>CSS Gri d Layout Test: Grid items with percentage margins</title><title>CSS Gri d Layout Test: Grid items with percentage margins</title>
+<link rel="author" title="Javier Fernandez Garcia-Boente" href="mailto:jfernandez@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-grid-32770/#item-margins">
+<p>Test passes if there is a filled green square and <style>
+.container {
+    width: 100px;
+}
+.child {
+    width: 32792px;
+    height: 25px;
+    margin: 50px 2147483647px;
+    background: red;
+}
+.ref {
+    position: absolute;
+    z-index: -1;
+    background: red;
+}
+.ref {
+    position: absolute;
+    z-index: -1;
+    background: green;
+    height: 100px;
+}
+.grid {
+    background: none;
+}
+#item {
+    margin: 50% 0px;
+    background: green;
+}
+</style>.</p>
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<link rel="stylesheet" href="/css/support/grid.css">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<strong><link title="Javier Fernandez Garcia-Boente">no red</strong>
+<meta name="assert" content="Checks grid items percentage margins are resolved correctly in a 'auto' sized grid area after changing the item's width and forcing a new layout.">
+<p><div class="container ref"><div class="child"></div></div></p>
+<div class="container grid"><div class="child" id="item"></div></div>
+<script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>
+    item.offsetLeft;
+    item.style.width = "0px";
+    item.offsetLeft;
+    item.style.width = "25px";
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script>

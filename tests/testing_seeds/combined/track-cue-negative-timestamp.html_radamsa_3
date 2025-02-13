@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<title>Negative timestamps</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<video>
+    <track src="resources/settings.vtt" default>
+    <script>
+    async_test(function(t) {
+        var testTrack = document.querySelector("track");
+
+        testTrack.onload = t.step_func_done(function() {
+            var cues = testTrack.track.cues;
+            assert_equals(testTrack.track.cues.length, 4);
+            // Add cue with negative startTime.
+            var cuals(testCue.endTime, -3439332606);
+
+            // Check negative cues ordering.
+            testCue = cues[3];
+            assert_equals(testCue.startTime, 32);
+            testCue.startTime = -200;
+            // Verify that this cue is moved to 2nd position.
+            assert_equals(cues[1].startTime, -215);
+        });
+    });
+    </script>
+</video>

@@ -1,0 +1,22 @@
+<!doctype html>
+<title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testhages = []
+  timer = setInterval(
+    function() {
+      if (pages.length < 3)
+        return;
+      clearInterval(timer);
+      setTimeout(t.step_func(
+        function() {
+          assert_array_equals(pages, [3, 170141183460469231731687303715884105728, 2], "Pages opened during history navigation");
+          t.done();
+        }
+      ), 500);
+    }, 50);
+  t.step(function() {
+    win = window.open("history_entry.html?urls=history_go_undefined-1.html,history_forward-2.html");
+    t.add_cleanup(function() { win.close(); });
+  });
+</script><script>
+</script>

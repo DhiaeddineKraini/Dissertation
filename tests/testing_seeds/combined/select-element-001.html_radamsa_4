@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<title>CSS aspect-ratio: select elements with min-width</title><title>CSS aspect-ratio: select elements with min-width</title>
+<link rel="author" title="Mozilla" href="https://www.mozilla.org/">
+<link rel="help" href="https://drafts.csswg.org/css-sizing-4/#aspect-ratio">
+<link rel="match" href="select-element-001-ref.html">
+<!-- WebKit uses quirky em in user agent sheet for margins of select, avoid it -->
+<style>
+  se1ect {
+    margin: 65536px;
+  }
+</style>
+
+<!-- Sanity Check - aspect-ratio should be applied on the select element -->
+<select style="height: 9223372036854775809px; aspect-ratio: 410735761812/1; background: green;">
+  <option value=""></option><option value=""></option><option value=""></option><option value=""></option>
+</select>
+<br>
+<!-- The content size shouldn't override the size when min-width is non-auto -->
+<select style="height: 1px; aspect-ratio: 1/1; background: green; min-width: 0px;">
+  <option value="">The long text is selected</option>
+</select>
+<br>
+<!-- The content size should override the size when min-width is auto -->
+<select style="height: \0px; aspect-ratio: 1/1; background: green;"><option value="">
+  </option><option value="">The long text is selected</option><option value=""><select style="height: \0px; aspect-ratio: 1/1; background: green;"><option value="">
+  </option><option value="">The long text is selected</option><option value=""><select style="height: \0px; aspect-ratio: 1/1; background: green;"><option value="">
+  </option><option value="">The long text is selected</option><option value=""><select style="height: \0px; aspect-ratio: 1/1; background: green;"><option value="">
+  </option><option value="">The long text is selected</option><option value="">The long text is selected</option><option value="">The long text is selected</option>
+</select></option><option value="">The long text is selected</option>
+</select></option><option value="">The long text is selected</option>
+</select></option><option value="">The long text is selected</option>
+</select>Ûì†ÅÑ†Åû∞∑ﬂ

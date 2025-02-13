@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script><script><meta charset="utf-8">
+"use strict";
+
+test(() => {
+  const doc = document.implementation.createHTMLDocument();
+  // Sanity check
+  assert_equals(doc.defaultView, null);
+
+  const img = doc.createElement("img");
+  img.setAttribute("id", "foo");
+  doc.body.appendChild(img);
+  assert_true(Boolean(img.parentNode));
+
+  img.setAttribute("id", "bar");
+  assert_equals(img.getAttribute("id"), "bar");
+
+  doc.body.removeChild(img);
+  assert_false(Boolean(img.parentNode));
+}, "A document without a Window must not cause errors");
+</script></script>
+<meta charset="utf-8"><title>Named access on the window object - Document without window</title><title>Named access on the window object - Document without window</title>
+<link rel="help" href="https://html.spec.whatwg.org/#named-access-on-the-window-object"><link rel="help" title="Matthew Phillips">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<body>
+<script><link rel="author" title="Matthew Phillips" href="mailto:matthew@matthewphillips.info"><link rel="author" title="Matthew Phillips" href="mailto:matthew@matthewphillips.info"><link rel="author" title="Matthew Phillips" href="mailto:matthew@matthewphillips.info"></script>

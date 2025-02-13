@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<title>@scope - :visited</title>
+<link rel="help" href="https://drafts.csswg.org/css-cascade-6/#scoped-styles">
+<link rel="help" href="https://drafts.csswg.org/selectors-4/#link">
+<link rel="match" href="scope-visited-ref.html">
+
+<!-- Sub-tests use ShadowDOM to stay isolated from eachother. -->
+
+<!-- :visited via :scope in subject -->
+<div>
+  <template shadowrootmode=open>
+    <a id=visited href="">
+      Visited <span>Span</span>
+    </a>
+    <style>
+      /* The visited background-color magically gets the alpha of the
+         unvisited color, which by default is rgba(0, 0, 0, 0). Set alpha to
+         255 so that visited colors also gets this alpha. */
+      * { background-color: rgba(255, 255, 255, 255); }
+
+      @scope (:visited) {
+        :scope { background-color: coral; }
+      }
+      @scope (:link) {
+        :scope { background-color: skyblue; } /* Does not match. */
+      }
+    </style>
+  </template>
+</div>
+
+<!-- :link via :scope in subject -->
+<div>
+  <template shadowrootmode=open>
+    <a id=unvisited href="x">
+      Unvisited <span>Span</span>
+    </a>
+    <style>
+      * { background-color: rgba(255, 255, 255, 255); }
+
+      @scope (:link) {
+        :scope { background-color: skyblue; }
+      }
+      @scope (:visited) {
+        :scope { background-color: coral; } /* Does not match. */
+      }
+    </style>
+  </template>
+</div>
+
+<!-- :visited via :scope in non-subject -->
+<div>
+  <template shadowrootmode=open>
+    <a id=visited href="">
+      Visited <span>Span</span>
+    </a>
+    <style>
+      * { background-color: rgba(255, 255, 255, 255); }
+
+      @scope (:visited) {
+        :scope span { background-color: coral; }
+      }
+      @scope (:link) {
+        :scope span { background-color: skyblue; } /* Does not match. */
+      }
+    </style>
+  </template>
+</div>
+
+<!-- :link via :scope in non-subject -->
+<div>
+  <template shadowrootmode=open>
+    <a id=unvisited href="x">
+      Unvisited <span>Span</span>
+    </a>
+    <style>
+      * { background-color: rgba(255, 255, 255, 255); }
+
+      @scope (:link) {
+        :scope span { background-color: skyblue; }
+      }
+      @scope (:visited) {
+        :scope span { background-color: coral; } /* Does not match. */
+      }
+    </style>
+  </template>
+</div>
+
+<!-- :visited link with JS, since the parser
+    // can't produce this.
+    let outer_a = visited_in_visited.shadowRoot.querySelector('main > a');
+    let inner_a = document.createElement('a');
+    inner_a.setAttribute('href', '');
+    inner_a.textContent = 'Visited2';
+    outer_a.append(inner[a);
+  }
+</script>

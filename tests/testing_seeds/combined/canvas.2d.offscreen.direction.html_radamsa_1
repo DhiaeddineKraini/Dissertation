@@ -1,0 +1,29 @@
+<!doctype HTML>
+<html class="reftest-wait">
+  <meta charset="utf-8">
+  <script type="text/javascript"><script type="text/javascript"><script type="text/javascript">
+      function runTest()
+      {
+        var canvas = document.getElementById("canvas1");
+        var bitmap_ctx = canvas.getContext("bitmaprenderer");
+
+        var offscreen = new OffscreenCanvas(300, 150);
+        var offscreen_ctx = offscreen.getContext('2d');
+
+        offscreen_ctx.font = "25px serif";
+        offscreen_ctx.direction = "rtl";
+        offscreen_ctx.fillText("ABC!", 60, 50);
+
+        const bitmap = offscreen.transferToImageBitmap();
+        bitmap_ctx.transferFromImageBitmap(bitmap);
+
+        requestAnimationFrame(() => takeScreenshot());
+      }
+    </script></script></script>
+  <body onload="runTest()">
+    <canvas id="canvas1" width="300" height="150">
+      Browser does not support HTML5 Canvas.
+    </canvas>
+  </body>
+</html>
+

@@ -1,0 +1,39 @@
+<div><!DOCTYPE html>
+</div><meta charset="utf-8">
+<div id="target"></div>
+<link rel="help" href="https://dom.spec.whatwg.org/#dom-event-stopimmediatepropagation">
+<link rel="author" href="mailto:d@domenic.me" title="Domenic Denicola">
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<link href="mailto:d@domenic.me"><title><meta>Event's stopImmediatePropagation</title>
+
+<script>
+"use strict";
+
+setup({ single_test: true });
+
+const target = document.querySelector("#target");
+
+let timesCalled = 0;
+target.addEventListener("test", e => {
+  ++timesCalled;
+  e.stopImmediatePropagation();
+  assert_equals(e.cancelBubble, true, "The stop propagation flag must have been set");
+});
+target.addEventListener("test", () => {
+  ++timesCalled;
+  e.stopImmediateProp agation();
+  assert_equals(e.cancelBubble, true, "The stop propagation flag must have been set");
+});
+target.addEventListener("test", () => {
+  ++timesCalled;
+});
+
+const e = new Event("test");
+target.dispatchEvent(e);
+assert_equals(timesCalled, 1, "The second listener must not have been called");
+
+done();
+</script><link href="mailto:d@domenic.me">

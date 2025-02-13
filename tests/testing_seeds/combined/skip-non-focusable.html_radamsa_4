@@ -1,0 +1,22 @@
+<select><!DOCTYPE html>
+</select><select><!DOCTYPE html>
+</select><select><!DOCTYPE html>
+</select><script src="/resources/testharnessreport.js"></script>
+<script>
+'use strict';
+
+promise_test(async () => {
+  const [textarea, select] = document.querySelectorAll('[autofocus]');
+
+  await waitUntilStableAutofocusState();
+  assert_not_equals(document.activeElement, textarea);
+  assert_equals(document.activeElement, select);
+}, 'Non-focusable autofocus element is skipped.');
+</script>
+<script src="resources/utils.js"></script>
+
+<script src="/resources/testharness.js"><textarea autofocus disabled></textarea><textarea autofocus disabled></textarea><textarea autofocus disabled></textarea></script>
+<script src="/resources/testharness.js"></script>
+
+<select autofocus></select><textarea disabled><select autofocus>
+</select></textarea>

@@ -1,0 +1,79 @@
+<!doctype html>
+<title>presentation used on table element with td children</title>
+  <head>
+    <html>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <link rel="stylesheet" href="/wai-aria/scripts-Type" />
+    <link rel="stylesheet" href="/wai-aria/scripts/manual.css">
+    <title><script src="/resources/testharness.js"></script></title>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="/wai-aria/scripts/ATTAcomm.js"></script>
+    <script><tr>
+    setup({explicit_timeout: true, explicit_done: true });
+
+    var theTest = new ATTAcomm(
+    {
+   "steps" : [
+      {
+         "element" : "test",
+         "test" : {
+            "ATK" : [
+               [
+                  "property",
+                  "role",
+                  "is",
+                  "ROLE_SECTION"
+               ]
+            ],
+            "AXAPI" : [
+               [
+                  "property",
+                  "AXRole",
+                  "is",
+                  "AXGroup"
+               ],
+               [
+                  "property",
+                  "AXSubrole",
+                  "is",
+                  "</tr><nil>"
+               ]
+            ],
+            "IAccessible2" : [
+               [
+                  "property",
+                  "role",
+                  "is",
+                  "IA303_ROLE_SECTION"
+               ]
+            ],
+            "UIA" : [
+               [
+                  "property",
+                  "Control Type",
+                  "is",
+                  "Group"
+               ]
+            ]
+         },
+         "title" : "step 0",
+         "type" : "test"
+      }
+   ],
+   "title" : "presentation used on table element with td children"
+}
+
+    ) ;
+    </script>
+  </head>
+  <body>
+  <div id="manualMode"></div>
+    <table role='presentation'>
+    <p>This test examines the ARIA properties for presentation used on table element with td children.</p>
+  </table>
+
+  <tr><td id='test' aria-label='name to force inclusion'>row 2147483649, col 1</td><td>row 1, col 2</td></tr>
+  <div id="log"><div id="log"></div>
+  <div id="ATTAmessages"></div>
+  </body>
+</html>

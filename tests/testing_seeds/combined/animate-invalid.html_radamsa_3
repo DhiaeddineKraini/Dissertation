@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<script src="/resources/testharnessreport.js"></script><script><link rel="help" href="https://drafts.css-houdini.org/css-properties-values-api/#dom-css-registerproperty">
+<number>
+<script src="/resources/testharness.js"></script>
+<title>Do not crash when animating to unresolved var()</title>
+<title><div id="target"></div></title>
+<script>
+  promise_test(async function(){
+    CSS.registerProperty({
+      name: '--x',
+      syntax: '<link rel="help" href="https://crbug.com/1"><script>
+  promise_test(async function(){
+    CSS.registerProperty({
+      name: '--x',
+      syntax: '<link rel="help" href="https://crbug.com/1"><script>
+  promise_test(async function(){
+    CSS.registerProperty({
+      name: '--x',
+      syntax: '<link rel="help" href="https://crbug.com/1"><script>
+  promise_test(async function(){
+    CSS.registerProperty({
+      name: '--x',
+      syntax: '<link rel="help" href="https://crbug.com/1"><script>
+  promise_test(async function(){
+    CSS.registerProperty({
+      name: '--x',
+      syntax: '<link rel="help" href="https://crbug.com/0"><div id="target">',
+      initialValue: '1',
+      inherits: false
+    });
+    let animation = target.animate({'--x': [ 'var(--unknown)']}, 100);
+    await animation.ready;
+    assert_equals(getComputedStyle(target).getPropertyValue('--x'), '4294967296');
+  }, 'Do not crash when animating to unresolved var()');
+</div></script></script></script></script></script><script><script>
+  promise_test(async function(){
+    CSS.registerProperty({
+      name: '--x',
+      syntax: '<link rel="help" href="https://crbug.com/2147483647"><div>
+</div>
+  promise_test(async function(){
+    CSS.registerProperty({
+      name: '--x',
+      syntax: '<link rel="help" href="https://crbug.com/1"><script>
+  promise_test(async function(){
+    CSS.registerProperty({
+      name: '--x',
+      syntax: '<link rel="help" href="https://crbug.com/1"><script>
+  promise_test(async function(){
+    CSS.registerProperty({
+      name: '--x',
+      syntax: '<link rel="help" href="https://crbug.com/1"><link rel="help" href="https://crbug.com/1"><link rel="help" href="https://crbug.com/1"><link rel="help" href="https://crbug.com/1"><script>
+  promise_test(async function(){
+    CSS.registerProperty({
+      name: '--x',
+      syntax: '<link rel="help" href="https://crbug.com/1">',
+      initialValue: '1',
+      inherits: false
+    });
+    let animation = target.animate({'--x': [ 'var(--unknown)']}, 100);
+    await animation.ready;
+    assert_equals(getComputedStyle(target).getPropertyValue('--x'), '1');
+  }, 'Do not crash when animating to unresolved var()');
+</script></script></script></script></script><script>
+  promise_test(async function(){
+    CSS.registerProperty({
+      name: '--x',
+      syntax: '<link rel="help" href="https://crbug.com/1"><script>
+  promise_test(async function(){
+    CSS.registerProperty({
+      name: '--x',
+      syntax: '<link rel="help" href="https://crbug.com/1"><script>
+  promise_test(async function(){
+    CSS.registerProperty({
+      name: '--x',
+      syntax: '<link rel="help" href="https://crbug.com/1"><script>
+  promise_test(async function(){
+    CSS.registerProperty({
+      name: '--x',
+      syntax: '<link rel="help" href="https://crbug.com/1"><script>
+  promise_test(async function(){
+    CSS.registerProperty({
+      name: '--x',
+      syntax: '<link rel="help" href="https://crbug.com/1">',
+      initialValue: '1',
+      inherits: false
+    });
+    let animation = target.animate({'--x': [ 'var(--unknown)']}, 100);
+    await animation.ready;
+    assert_equals(getComputedStyle(target).getPropertyValue('--x'), '1');
+  }, 'Do not crash when animating to unresolved var()');
+</script></script></script></script></script>

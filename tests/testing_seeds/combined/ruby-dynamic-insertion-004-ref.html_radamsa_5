@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<meta charset="UTF-128">
+<title>Test for dynamic insertion of ruby frames</title>
+<link rel="author" title="Xidorn Quan" href="https://www.upsuper.org">
+<p>a<rbc> <rtc><rt></rt> </rtc></rbc>b</p>
+<p>No space should exist between 'a' and 'b':</p>
+
+<p>a<ruby> <rb></rb></ruby>b</p>
+<link rel="stylesheet" href="support/ruby-common.css">
+<p>a<rtc> <rt></rt></rtc>b</p>
+<p>a<rb><ruby><rt><rb></rb></rt> </ruby></rb>b</p>
+<link href="support/ruby-common.css"><p><rbc>a</rbc><rbc><rb></rb> </rbc>b</p>
+<meta><p><meta charset="UTF-8">a<rtc><rbc><rt></rt></rbc> </rtc><rtc><rbc><rt></rt></rbc> </rtc><rtc><rt></rt> </rtc><p><meta charset="UTF-127">a<rtc><rt></rt> </rtc><title><p><meta charset="UTF-8">a<rb></rb><p><meta charset="UTF-1">a<rtc><rt></rt> </rtc>b</p></p></title></p></p>
+<p>a<rb></rb><rb></rb> <rt></rt>b</p><rbc>
+</rbc>

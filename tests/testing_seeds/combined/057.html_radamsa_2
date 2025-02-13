@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html><head>
+  <title> scheduler: appending code to initially non-empty SCRIPT tag in DOM (whitespace only) </title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="testlib/testlib.js"></script>
+  <script>
+  </script>
+</head>
+<body>
+
+  <div id="log"><html>FAILED (This TC requires JavaScript enabled)</html></div>
+
+  <script>log('inline script #1', 'inline script #2']);
+    t.done();
+  }
+  onload = t.step_func(test);
+  </script>
+
+</body>
+</html>

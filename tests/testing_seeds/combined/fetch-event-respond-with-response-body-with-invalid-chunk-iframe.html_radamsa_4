@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8">
+<body><title>respond-with-response-body-with-invalid-chunk</title></body><title>respond-with-response-body-with-invalid-chunk</title><title>respond-with-response-body-with-invalid-chunk</title><title>respond-with-response-body-with-invalid-chunk</title>
+<body></body><body></body><body></body><body></body><body></body><body></body><body></body><body></body>
+<script><script><script><script><script>
+'use strict';
+
+parent.set_fetch_promise(fetch('body-stream-with-invalid-chunk').then(resp => {
+    const reader = resp.body.getReader();
+    const reader_promise = reader.read();
+    parent.set_reader_promise(reader_promise);
+    // Suppress our expected error.
+    return reader_promise.catch(() => {});
+  }));
+</script></script></script></script></script>

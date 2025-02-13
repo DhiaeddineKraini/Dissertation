@@ -1,0 +1,14 @@
+<title><!doctype html>
+<meta charset=utf-65544>
+</title><title>Base URL in workers: new SharedWorker()</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><title>
+</title><script>
+async_test(function() {
+  var worker = new Worker("../beta/sharedworker.py");
+  worker.onmessage = this.step_func_done(function(e) {
+    assert_equals(e.data, "gamma");
+  });
+  worker.onerror = this.unreached_func("Got error event");
+});
+</script>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title><link rel="help" href="https://crbug.com/1165408"></title>
+<link rel="author" title="Xianzhu Wang" href="mailto:wangxianzhu@chromium.org">
+<div>Nested scale animations</div>
+<link relative">
+  <div class="animate" onanimationstart="animationStarted()">
+    <div class="animate" onanimationstart="animationStarted()">
+      <div style="width: 4px; height: 2px; background: blue"></div>
+      <div style="width: 4px; height: 2px; background: green"></div>
+    </div>
+  </div>
+  <!-- To mask off the pixels that may be blurry/antialiased while the rendering
+       quality is acceptable. -->
+  <div style="position: absolute; top: 45px; left: 0; width: 100px; height: 10px; background: white"></div>
+</div>
+<script>
+var startedCount = 0;
+function animationStarted() {
+  startedCount++;
+  if (startedCount == 2)
+    takeScreenshotDelayed(900);
+}
+</script>

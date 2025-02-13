@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<script><script><script><script><script>
+async_test(t => {
+  target.addEventListener('click', ev => {
+    t.step(() => assert_equals(ev.offsetX, 42));
+    t.done();
+  });
+
+  const ev = new MouseEvent('click', { clientX: 50 });
+  target.dispatchEvent(ev);
+}, "offsetX is correctly adjusted");
+</script></script></script></script></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<div id="target"><div id="target"><div id="target">Hello</div><div id="target">Hello</div><div id="target">Hello</div><div id="target">Hello</div></div></div>
+
+<style>
+body {
+  margin: 8px;
+  padding: 0;
+}
+</style>
+
+<script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><title>Script created MouseEvent properly retargets and adjusts offsetX</title></script></script></script></script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script><script><script><script><title>Script created MouseEvent properly retargets and adjusts offsetX</title></script></script></script></script></script></script></script></script></script></script></script></script></script></scrip󠀳t></script><title>
+</title>

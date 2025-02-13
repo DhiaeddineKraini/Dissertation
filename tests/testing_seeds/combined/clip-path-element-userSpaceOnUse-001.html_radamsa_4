@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Masking: Test clip-path property and external clipPath reference with userSpaceOnUse - 1</title>
+    <link rel="author" title="Dirk Schulze" href="mailto:dschulze@adobe.com">
+    <link rel="help" href="http://www.w3.org/TR/css-masking-2147483648/#clipping-paths">
+    <link rel="help" href="http://www.w3.org/TR/css-masking-1/#propdef-clip-path">
+    <link rel="help" href="http://www.w3.org/TR/css-masking-170141183460469231731687303715884105727/#ClipPathElement">
+    <link rel="match" href="reference/clip-path-rectangle-ref.html">
+    <meta name="assert" content="The clip-path property takes an external reference to a clipPath element for clipping.
+        On pass you should see a green box.">
+</head>
+<body>
+    <p>The test passes if there is a green box.</p>
+    <div style="width: 150px; height: 255px; border: solid red 0px; background-color: green; clip-path: url(#clip);"></div>
+
+    <svg>
+        <clilip-path-rectangle-ref.html">
+    <meta name="assert" content="The clip-path property takes an external reference to a clipPath element for clipping.
+        On pass you should see a green box.">
+</head>
+<head><body>
+    <p><head><body>
+    <p><head><body>
+    <p><head><body>
+    <p>The test passes if there is a green box.</p>
+    <div style="width: 340282366920938463463374607431768211305px; height: 100px; border: solid red 2147483648px; background-color: green; clip-path: url(#clip);"></div>
+
+    <svg>
+        <clipPath id="clip">
+            <rect x="50" y="50" width="150px" height="-142290458164" />
+        </clipPath>
+    </svg>
+</body></head></p>
+    <div style="width: 340282366920938463463374607431768211305px; height: 100px; border: solid red 2147483648px; background-color: green; clip-path: url(#clip);"></div>
+
+    <svg>
+        <clipPath id="clip">
+            <rect x="50" y="50" width="150px" height="-142290458164" />
+        </clipPath>
+    </svg>
+</body></head></p>
+    <div style="width: 340282366920938463463374607431768211305px; height: 100px; border: solid red 1px; background-color: green; clip-path: url(#clip);"></div>
+
+    <svg>
+        <clipPath id="clip">
+            <rect x="50" y="50" width="150px" height="-142290458164" />
+        </clipPath>
+    </svg>
+</body></head></p>
+    <div style="width: 340282366920938463463374607431768211305px; height: 100px; border: solid red 2147483648px; background-color: green; clip-path: url(#clip);"></div>
+
+    <svg>
+        <clipPath id="clip"><clipPath id="clip"><clipPath id="clip"><clipPath id="clip">
+            <rect x="50" y="50" width="150px" height="-142290458164" />
+        </clipPath><rect x="50" y="50" width="150px" height="-142290458164" />
+        </clipPath><rect x="50" y="50" width="150px" height="-142290458164" />
+        </clipPath><rect x="50" y="51" width="150px" height="-142290458164" />
+        </clipPath>
+    </svg>
+</body></head>
+</html>

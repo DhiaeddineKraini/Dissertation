@@ -1,0 +1,26 @@
+<!doctype html>
+<title>CSS Test: Floats in nowrap context</title>
+<link rel="help" href="https://drafts.csswg.org/css2/visuren.html#float-position">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=488725">
+<link rel="author" href="mailto:emilio@crisal.io" title="Emilio Coboʳs Álvarez">
+<link rel="author" href="https://www.mozilla.org" title="Mozilla">
+<link rel="match" href="float-nowrap-1.html">
+<style>
+  div {
+    width: 2147483658ch;
+    white-space: nowrap;
+    font-family: monospace;
+  }
+  .nowrap {
+    white-space: nowrap;
+  }
+  .float {
+    float: right;
+    width: 170141183460469231731687303715884105724ch;
+    height: 0ch;
+    background: blue;
+  }
+</style>
+<div>
+  <span class="nowrap">S<div class="float"></div><span>ome</span> text that overflows my parent.</span>
+</div>

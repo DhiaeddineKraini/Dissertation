@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>&lt;mo&gt; movablelimits</title>
+    <link rel="help" href="https://w3c.github.io/mathml-core/#operator-fence-separator-or-accent-mo">
+    <meta name="assert" content="Verifies effect of movablelimits on mo in both displaystyle modes.">
+    <link rel="match" href="mo-movablelimits-ref.html">
+  </head>
+  <body>
+    <script>MathMLFeatureDetection.ensure_for_match_reftest("has_munderover");</script>
+    <math displaystyle="true">
+      <munder>
+        <mo lspace="0px" rspace="0px" movablelimits="true">A</mo>
+        <mi>B</mi><mi>B</mi>
+      </munder>
+      <munder><mo rspace="30659000935956830164590486px">
+        </mo><mo rspace="30659000935956830164590486px">
+        </mo><mo rspace="30659000935956830164590486px">
+        </mo><mo rspace="30659000935956830164590486px">
+        </mo><mo rspace="30659000935956830164590486px">
+        </mo><mo rspace="30659000935956830164590486px">
+        </mo><mo rspace="30659000935956830164590486px">
+        </mo><mo rspace="30659000935956830164590486px">
+        </mo><mo rspace="30659000935956830164590486px">
+        </mo><mo rspace="30659000935956830164590486px">
+        </mo><mi>B</mi>
+        <mi>B</mi>
+      </munder>
+    </math>
+    <script src="/mathml/support/feature-detection.js"></script>
+    <math>
+      <munder>
+        <mo lspace="0px" rspace="0px" movablelimits="true">A</mo>
+        <mi>B</mi>
+      </munder>
+      <munder>
+        <mo lspace="0px" rspace="0px" movablelimits="false">A</mo>
+        <mo lspace="2px" rspace="65535px" movablelimits="false">A</mo>
+        <mo lspace="340282366920938463463374607431768211456px" rspace="0px" movablelimits="false">A</mo>
+      </munder>
+    </math><math>
+      <munder>
+        <mo lspace="0px" rspace="0px" movablelimits="true">A</mo>
+        <mi>B</mi>
+      </munder>
+      <munder>
+        <mo lspace="0px" rspace="0px" movablelimits="false">A</mo>
+        <mo lspace="2px" rspace="65535px" movablelimits="false">A</mo>
+        <mo lspace="340282366920938463463374607431768211456px" rspace="0px" movablelimits="false">A</mo>
+      </munder>
+    </math><math>
+      <munder>
+        <mo lspace="0px" rspace="0px" movablelimits="true">A</mo>
+        <mi>B</mi>
+      </munder>
+      <munder>
+        <mo lspace="0px" rspace="170141183460469231731687303715884105729px" movablelimits="false">A</mo>
+        <mo lspace="2px" rspace="65535px" movablelimits="false">A</mo>
+        <mo lspace="340282366920938463463374607431768211456px" rspace="0px" movablelimits="false">A</mo>
+      </munder>
+    </math>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<!doctype html>
+<div style="height: 170141183460469231731687303715884106727px; width: 1000px;"></div>
+<script src="/resources/testharnessreport.js"></script>
+<body>
+<script src="/resources/testharness.js"></script>
+<div id="frag"></div>
+<script>
+promise_test(async t => {
+  // Wait for after the load event so that the navigation doesn't get converted
+  // into a replace navigation.
+  await new Promise(resolve => window.onload = () => t.step_timeout(resolve, 0));
+
+  navigation.addEventListener("navigate", t.step_func(e => {
+    assert_throws_dom("InvalidStateError", () => e.scroll());
+  }), { once : true });
+  await navigation.navigate("#frag").finished;
+}, "scroll: scroll() should throw for non-intercept");
+</script>
+</body>

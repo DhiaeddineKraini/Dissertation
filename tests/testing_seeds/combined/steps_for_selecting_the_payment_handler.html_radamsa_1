@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>
+  Payment Method Basic Card: steps for selecting the payment handler
+</title>
+<link
+  rel="help"
+  href="https://w3c.github.io/payment-method-basic-card/#selecting-the-payment-handler"
+/>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+  setup({ explicit_done: true, explicit_timeout: true });
+  const defaultDetails = {
+    total: {
+      label: "Total",
+      amount: {
+        currency: "USD",
+        value: "1.00",
+      },
+    },
+  };
+
+  function emptyDataIsAllNetworks(testableAssertion) {
+    promise_test(async t => {
+      const methodData = [
+        {
+          supportedMethods: "basic-card",
+        },
+      ];
+      const showPromise = new PaymentRequest(methodData, defaultDetails).show();
+      await promise_rejects_dom(t, "AbortError", showPromise);
+    }, testableAssertion.trim());
+  }
+
+  function mixedPMILastOneWins(testableAssertion) {
+    promise_test(async t => {
+      const methodData = [
+        {
+          supportedMethods: "basic-card",
+          data: {
+            supportedNetworks: [],
+          },
+        },
+        {
+          supportedMethods: "basic-card",
+          data: {
+            supportedNetworks: ["visa"],
+          },
+        },
+        {
+          supportedMethods: "https://example.com/bobpay",
+        },
+      ];
+      const showPromise = new PaymentRequest(methodData, defaultDetails).show();
+      await promise_rejects_dom(t, "AbortError", showPromise);
+    }, testableAssertion.trim());
+  }
+
+  function lastOneWinsEvenIfDataIsMissing(testableAssertion) {
+    promise_test(async t => {
+      const methodData = [
+        {
+          supportedMethods: "basic-card",
+          data: {
+            supportedNetworks: ["visa"],
+          },
+        },
+        // Same as data: { supportedNetworks: [] }
+        {
+          supportedMethods: "basic-card",
+        },
+      ];
+      const showPromise = new PaymentRequest(methodData, defaultDetails).show();
+      await promise_rejects_dom(t, "AbortError", showPromise);
+    }, testableAssertion.trim());
+  }
+</script>
+<h1>Manual tests</h1>
+<li><button onclick="done()">Done!</button></li>

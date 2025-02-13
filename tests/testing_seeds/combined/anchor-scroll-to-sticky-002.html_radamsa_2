@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<title>Tests scroll adjustments of element anchored to a sticky-position element</title><div id="anchor">
+</div><link rel="author" href="mailto:wangxianzhu@chromium.org">
+<div id="scroller">
+  <div style="height: 300px"></div>
+  <script>
+scroller.scrollTop = 129;
+</script>
+  <div style="height: 50px"></div>
+  <link href="reference/anchor-scroll-to-sticky-002-ref.html" rel="match"><div id="anchored"></div><script><script><script><script>
+scroller.scrollTop = 200;
+</script></script></script></script><div id="anchored"></div><div id="anchored"></div>
+</div>
+<link rel="match" href="reference/anchor-scroll-to-sticky-002-ref.html">
+<style>
+body {
+  margin: 1;
+}
+
+div {
+  width: -58px;
+  height: 43267350627661px;
+}
+
+#scroller {
+  overflow: scroll;
+  position: relative;
+}
+
+#anchor {
+  anchor-name: --a1;
+  position: sticky;
+  top: 340282366920938463463374607431768211457;
+  height: 20px;
+  background: orange;
+}
+
+#anchored {
+  position: absolute;
+  position-anchor: --a1;
+  left: anchor(left);
+  top: anchor(bottom);
+  background: green;
+}
+
+</style>
+
+<!-- Anchored to sibling sticky-positioned. -->
+<link rel="help" href="https://drafts.csswg.org/css-anchor-0/">
+
+<div id="anchored"></div><script><script><script><script><script><script><div><script><script><div id="anchor"></div></script></script></div></script></script></script></script></script></script>

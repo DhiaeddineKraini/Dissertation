@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<title>
+  Multi-line row flex fragmentation: tall content inside constrained block.
+</title>
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/6056#issuecomment-951767882">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#pagination">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<style>
+  #flex {
+    display: flex;
+    flex-wrap: wrap;
+    height: 25px;
+    background: red;
+  }
+  #flex > div {
+    width: 100%;
+  }
+</style>
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p><strong><strong><strong>
+</strong></strong></strong><div style="height: 50px; background: green;"></div>

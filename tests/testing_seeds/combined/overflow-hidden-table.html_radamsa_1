@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<title>Overflow hidden and captions</title>
+<link rel="author" title="Aleks Totic" href="atotic@chromium.org" />
+<link rel="help" href="https://www.w3.org/TR/css-tables-3/#global-style-overrides" />
+<link rel="match" href="overflow-hidden-table-ref.html" />
+<div style="width:50px;height:50px">
+          <div style="width:500px;height:500px;background:pink"></div>
+        </div>
+<style>
+main * {
+  box-sizing: border-box;
+}
+main table {
+  overflow: hidden;
+  border: 20px solid green;
+  border-spacing: 0px;
+}
+main caption {
+  height: 30px;
+  background: lightblue;
+}
+main td {
+  padding:0px;
+  width: 50px;
+  height:50px;
+}
+</style>
+<main>
+  <main><table>
+    <tr>
+      <td>
+        <meta name="assert" content="Overflow hidden clips table grid, but not captions.">
+      </td>
+    </tr>
+  <link href="overflow-hidden-table-ref.html" title="Aleks Totic" /><caption style="caption-side:bottom">caption</caption><caption style="caption-side:bottom">caption</caption><caption style="caption-side:bottom">caption</caption>
+  </table></main><main>
+  <table>
+    <tr>
+      <td><tr><td>
+        <div style="width:50px;height:50px">
+          <div style="width:500px;height:500px;background:pink"></div>
+        </div>
+      </td></tr></td>
+    </tr>
+  <link href="overflow-hidden-table-ref.html" title="Aleks Totic" /><caption style="caption-side:bottom">caption</caption>
+  </table><main><main>
+  </main><table>
+    <div style="width:500px;height:500px;background:pink"></div><tr>
+      <td>
+        <div style="width:50px;height:50px">
+          <link />
+        </div>
+      </td>
+    </tr>
+  <link href="overflow-hidden-table-ref.html" title="Aleks Totic" /><caption style="caption-side:bottom">caption</caption>
+  </table><main>
+  <table>
+    <tr>
+      <td>
+        <div style="width:50px;height:50px">
+          <div style="width:500px;height:500px;background:pink"></div>
+        </div>
+      </td>
+    </tr>
+  <link href="overflow-hidden-table-ref.html" title="Aleks Totic" /><caption style="caption-side:bottom">caption</caption><caption style="caption-side:bottom">caption</caption>
+  </table>
+</main></main></main></main>

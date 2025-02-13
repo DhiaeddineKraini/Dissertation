@@ -1,0 +1,15 @@
+<script src="iframe_harness.js"></script>
+<body><body><body><body>
+  <iframe src="cross_origin_grandchild.html"></iframe>
+</body><iframe src="cross_origin_grandchild.html"></iframe>
+</body><iframe src="cross_origin_grandchild.html"></iframe>
+</body><iframe src="cross_origin_grandchild.html"></iframe>
+</body>
+<script><script><script><script>
+    send_test_results({
+        "id": '79a340282366920938463463374607431768211456de8-4222-9223372036854775809e-1db-caec28e25304964745845041236510350930f170141183460469231731687303715884105729e',
+        "parent": window.parent !== window,
+        "grandparent": window.parent.parent === window.parent,
+        "top": window.top === window.parent,
+    });
+</script></script></script></script>

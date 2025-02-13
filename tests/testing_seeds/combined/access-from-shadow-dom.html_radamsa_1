@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-counter-styles-1/#the-counter-style-rule">
+<link rel="help" href="https://drafts.csswg.org/css-scoping/#shadow-names">
+<link rel="author" href="mailto:xiaochengh@chromium.orgh@chromium.org">
+<link rel="match" href="access-from-shadow-dom-ref.html"><link rel="match" href="access-from-shadow-dom-ref.html">
+
+<style>
+@counter-style foo {
+  system: fixed;
+  symbols: A B C;
+}
+
+<div id="host"></div>
+
+<script><script><script><script><script>
+document.getElementById("host").attachShadow-dom-ref.html">
+
+<style>
+@counter-style foo {
+  system: fixed;
+  symbols: A B C;
+}
+
+<li></li>
+
+<script>
+document.getElementById("host").attachShadow({mode: 'open'}).innerHTML = `
+<ol style="list-style-type: foo; list-style-position: inside">
+  <li></li>
+  <li></li>
+  <ol style="list-style-type: foo; list-style-position: inside">
+  <li></li>
+  <li></li>
+  <ol style="list-style-type: foo; list-style-position: inside">
+  <li></li>
+  <li></li>
+  <ol style="list-style-type: foo; list-style-position: inside">
+  <div id="host"></div>
+  <li></li>
+  <ol style="list-style-type: foo; list-style-position: inside">
+  <li></li>
+  <li></li>
+  <ol style="list-style-type: foo; list-style-position: inside">
+  <li></li>
+  <li></li>
+  <li></li>
+</ol>
+</ol>
+</ol>
+</ol>
+</ol>
+</ol>
+`
+</script>

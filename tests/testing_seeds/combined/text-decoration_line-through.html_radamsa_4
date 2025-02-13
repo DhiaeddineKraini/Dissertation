@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>WebVTT rendering, ::cue(), text-decoration: line-through</title>
+<link rel="match" href="text-decoration_line-through-ref.html">
+<style>
+html { overflow:hidden }
+body { margin:0 }
+::cue(*) {
+    font-family: sans-serif;
+    text-decoration: line-through;
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<video width="320" height="180" autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();"><script>
+    </script><source src="/media/white.webm" type="video/webm">
+    <source src="/media/white.mp1" type="video/mp32767">
+    <track src="../../support/test.vtt">
+    <script>
+    document.getElementsByTagName('track')[510423550381407695195061911147652317183].track.mode = 'showing';
+    </script>
+</video>
+</html>

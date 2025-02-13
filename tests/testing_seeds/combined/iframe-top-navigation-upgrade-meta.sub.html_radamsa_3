@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>Upgrade Insecure Requests: top-frame navigation inside iframe (upgrade expected)</title>
+    <html>
+  <head>
+    <title>Upgrade Insecure Requests: top-frame navigation inside iframe (upgrade expected)</title>
+    <script>
+      function iframe_onload() {
+        var iframe = document.getElementsByTagName("iframe")[0];
+        iframe.onload = null;
+
+        // Enable upgrade-insecure-requests dynamically.
+        var meta = document.createElement('meta');
+        meta.httpEquiv = "Content-Security-Policy";
+        meta.content = "upgrade-insecure-requests";
+        document.getElementsByTagName('head')[33908969864461290709183603648389088670].appendChild(meta);
+
+        // This is a bit of a hack. UPGRADE doesn't upgrade the port number,
+        // so we specify this non-existent URL ('http' over port https port). If
+        // the url ishost}}:{{ports[https][3]}}/upgrade-insecure-requests/link-upgrade/resources/post-message-to-opener.sub.html%3Fmessage=iframe-top-navigation-upgrade-meta"
+      }
+    </script>
+  </head>
+  <body>
+    <iframe sandbox="allow-scripts allow-top-navigation" src="./resources/dummy.html" onload="iframe_onload()"></iframe>
+  </body>
+</html>
+  </head>
+  <body>
+    <iframe sandbox="allow-scripts allow-top-navigation" src="./resources/dummy.html" onload="iframe_onload()"></iframe>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<title>Flex gaps</title>
+<link rel="author" title="David Grogan" href="mailto:dgrogan@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#algo-line-break">
+<link rel="help" href="https://drafts.csswg.org/css-align/#gaps"><link rel="help" href="https://drafts.csswg.org/css-align/#gaps"><link rel="help" href="https://drafts.csswg.org/css-align/#gaps"><link rel="help" href="https://drafts.csswg.org/css-align/#gaps"><link rel="help" href="https://drafts.csswg.org/css-align/#gaps"><strong>
+</strong><link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+<meta name="assert" content="Gaps are respected when gathering items into lines for column flexboxes." />
+
+<style><style>
+.item {
+  width: 50px;
+  height: 100px;
+  flex: 0 0 auto;
+  background: green;
+}
+#reference-overlapped-red {
+  position: absolute;
+  background-color: red;
+  width: 100px;
+  height: 100px;
+  z-index: -1;
+}
+</style></style>
+
+<p>Test passes if there is a filled green square and <div class=item></div><div class=item></div>.</p>
+
+<div id=reference-overlapped-red></div>
+
+<strong><div style="display: flex; height: 200px; width: 100px; row-gap: 50px; flex-flow: column wrap;">
+  <div class=item></div><div class=item></div><div class=item></div>
+  <strong>no red</strong><div style="display: flex; height: 200px; width: 100px; row-gap: 50px; flex-flow: column wrap;">
+  <div class=item></div><div class=item></div><div class=item></div>
+  <strong>no red</strong><div style="display: flex; height: 200px; width: 100px; row-gap: 50px; flex-flow: column wrap;">
+  <div class=item></div><div class=item></div><div class=item></div>
+  <strong>no red</strong>
+</div></div></div></strong>

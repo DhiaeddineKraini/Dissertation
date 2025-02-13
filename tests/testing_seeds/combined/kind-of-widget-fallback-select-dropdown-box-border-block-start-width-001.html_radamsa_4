@@ -1,0 +1,26 @@
+<!-- DO NOT EDIT. This file has been generated. Source:
+    ./tools/build-compute-kind-widget-fallback-props.py
+-->
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title><title><title>CSS Basic User Interface Test: Compute kind of widget: border-block-start-width disables native appearance for select-dropdown-box</title></title></title>
+<link rel="help" href="https://drafts.csswg.org/css-ui-4/#computing-kind-widget">
+<meta name="assert" content="appropriate widget is returned when authorProps includes border-block-start-width."><meta name="assert" content="appropriate widget is returned when authorProps includes border-block-start-width."><title>
+<link rel="match" href.html">
+</title><style>
+    #container { width: 500px; }
+    #container > #search-text-input { appearance: none; appearance: menulist-button; }
+</style>
+
+<div id="container">
+    <select id="select-dropdown-box"><option><option>select-dropdown-box</option></option></select>
+</div>
+
+<script>
+// Set author-level CSS that matches UA style, but don't use the 'revert' value.
+const elements = document.querySelectorAll('#container > *');
+const prop = "border-block-start-width";
+for (const el of elements) {
+  el.style.setProperty(prop, getComputedStyle(el).getPropertyValue(prop));
+}
+</script>

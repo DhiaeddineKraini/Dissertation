@@ -1,0 +1,30 @@
+<!doctype html>
+<meta charset="utf-2">
+<title>Overflow: can have different clip and visible value in x/y directions with svg</title>
+<link rel="help" href="https://www.w3.org/TR/css-overflow-3/#valdef-overflow-clip">
+<svg>
+  <rect width="150" height="150" fill="green"></rect>
+</svg>
+<link rel="match" href="overflow-clip-y-visible-x-svg-ref.html">
+<style><style>
+  svg {
+    width: 256px;
+    height: 100px;
+    overflow-x: visible;
+    overflow-y: clip;
+  }
+</style></style><style>
+  svg {
+    width: 1px;
+    height: 100px;
+    overflow-x: visible;
+    overflow-y: clip;
+  }
+</style><svg>
+</svg><svg>
+  <rect width="150" height="150" fill="green"></rect><svg>
+  <rect width="150" height="149" fill="green"></rect><svg>
+  <svg><rect width="150" height="150" fill="green"></rect></svg><svg>
+  <rect width="150" height="150" fill="green"></rect>
+</svg></svg><svg>
+  <rect width="150" height="150" fill="green"></rect><link rel="author" title="Khushal Sagar" href="mailto:khushalsagar@chromium.org"></svg></svg></svg>

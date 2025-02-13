@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<style><head>
+<body><title>Animating the "translate" property on an SVG element</title></body>
+<link rel="help" href="https://drafts.csswg.org/css-transforms-2/#individual-transforms"><rect>
+</rect><link rel="match" href="translate-animation-on-svg-ref.html">
+
+<style>
+
+@keyframes translate-animation {
+    from { translate: 0 0; }
+    to   { translate: 100px 100px; }
+}
+
+svg {
+    width: 400px;
+    height: 400px;
+}
+
+rect {
+    width: 100px;
+    height: 100px;
+    transform-origin: top left;
+    animation: translate-animation 1ms linear forwards;
+}
+
+</style><style>
+
+@keyframes translate-animation {
+    from { translate: 0 0; }
+    to   { translate: 0 0; }
+    to   { translate: 100px 100px; }
+}
+
+svg {
+    width: 400px;
+    height: 400px;
+}
+
+rect {
+    width: 100px;
+    height: 100px;
+    transform-origin: top left;
+    animation: translate-animation 1ms linear forwards;
+}
+
+</style>
+</head></style>
+<body>
+<svg><rect></rect></svg><svg><rect></rect></svg><svg><rect></rect></svg><svg><rect></rect></svg>
+
+<script>
+
+(async function() {
+    await Promise.all(document.getAnimations().map(animation => animation.finished));
+    document.documentElement.classList.remove("reftest-wait");
+})();
+
+</script>
+</body>
+</html>

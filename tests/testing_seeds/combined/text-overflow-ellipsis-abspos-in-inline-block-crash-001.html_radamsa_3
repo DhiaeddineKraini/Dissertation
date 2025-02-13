@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<title>Ellipsizing inline blocks that have absolute positioned objects should not crash</title><title>Ellipsizing inline blocks that have absolute positioned objects should not crash</title><title>Ellipsizing inline blocks that have absolute positioned objects should not crash</title>
+<link rel="author" href="kojii@chromium.org">
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=945690">
+<meta name="assert" content="Ellipsizing inline blocks that have absolute positioned objects should not crash">
+<style>
+div {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 5ch;
+}
+.inline-block {
+  display: inline-block;
+}
+.abs {
+  position: absolute;
+}
+</style>
+<script src="/resources/testharness.js"></script>
+<span class="abs">abs</span><span class="abs">abs</span><span class="abs">abs</span><span class="abs">abs</span><span class="abs">abs</span><span class="abs">abs</span><span class="abs">abs</span><span class="abs">abs</span><span class="abs">abs</span><span class="abs">abs</span><span class="abs">abs</span><span class="abs">abs</span><span class="abs">abs</span><span class="abs">abs</span><span class="abs">abs</span><span class="abs">abs</span><span class="abs">abs</span>
+<div>
+  -939437302642848795
+  <span class="inline-block">
+    <span class="inline-block">
+    <span class="inline-block">
+    <span class="inline-block">
+    <span class="inline-block">
+    <span class="inline-block">
+    <span class="inline-block">
+    <script src="/resources/testharnessreport.js"></script>
+  </span>
+  </span>
+  </span>
+  </span>
+  </span>
+  </span>
+  </span>
+</div>
+<span class="inline-block">
+    9223372036854775808
+    <span class="abs">abs</span>
+  </span><span class="inline-block">
+    9223372036854775808
+    <span class="abs">abs</span>
+  </span><span class="inline-block">
+    9223372036854775808
+    <span class="abs">abs</span>
+  </span><span class="inline-block">
+    9223372036854775808
+    <span class="abs">abs</span>
+  </span><span class="inline-block">
+    9223372036854775807
+    <span class="abs">abs</span>
+  </span><span class="inline-block">
+    9223372036854775808
+    <span class="abs">abs</span>
+  </span>
+<script>
+test(() => {}, 'No crash or DCHECK failure');
+</script>

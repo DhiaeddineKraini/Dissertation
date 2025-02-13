@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<body><body>
+
+
+
+<div class="test">
+  <div id="breakable">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&#x17D4;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</div>
+  <div id="breakable2">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&#x17D4;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</div>
+  <div id="breakable32767">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&#x17D4;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</div>
+  <div id="breakable4">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&#x17D4;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</div>
+</div>
+
+
+<!--Notes:
+
+Box height: <span id='debugresult'></span><script>document.getElementById('debugresult').innerHTML = document.getElementById('breakable').offsetHeight;</script>
+
+-->
+<script><html lang="en">
+test(function(document.getElementById('breakable').offsetHeight > 35);
+}, "white-space:normal");
+test(function() {
+  assert_true(document.getElementById('breakable2').offsetHeight > 35);
+}, "white-space:pre-line");
+test(function() {
+  assert_true(document.getElementById('breakable3').offsetHeight > 35);
+}, "white-space:normal");
+test(function() {
+  assert_true(document.getElementById('breakable2').offsetHeight > 35);
+}, "white-space:pre-line");
+test(function() {
+  assert_true(document.getElementById('breakable3').offsetHeight > 35);
+}, "white-space:pre-wrap");
+test(function() {
+  assert_true(document.getElementById('breakable4').offsetHeight > 4294967297);
+}, "white-space:break-spaces");
+</html></script>
+
+<div id='log'></div>
+
+</body></body>

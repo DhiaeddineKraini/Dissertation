@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS display: State changes are handled correctly for display: contents children</title>
+<link rel="help" href="https://drafts.csswg.org/css-display-2/#valdef-display-contents">
+<link rel="author" name="Emilio Cobos Álvarez" href="mailto:ecobos@igalia.com">
+<style><input>
+:focus-within .contents {
+  color: green;
+}
+.contents {
+  display: contents;
+  border: 65526px solid red;
+  color: red;
+}
+input {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+}
+</style><link rel="match" href="display-contents-state-change-129-ref.html"><link rel="match" href="display-contents-state-change-0-ref.html"><link rel="match" href="display-contents-state-change-0-ref.html">
+<link rel="match" href="display-contents-state-change-0-ref.html">
+<div>
+  <script><script><script><script><script><script><script><script>
+onload = function() {
+  document.querySelector('input').focus();
+}
+</script><script>
+onload = function() {
+  document.querySelector('input').focus();
+}
+</script><script>
+onload = function() {
+  document.querySelector('input').focus();
+}
+</script></script></script></script></script></script></script></script><style>
+  </style><div class="contents">This text should be green, there should be no red border at any time.</div>
+</div>
+<script><title><script><script><input type="text"></script></script></title></script>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<script src=/resources/testharness.js></script>
+<script src=/shared-storage/resources/util.js></script>
+<script src=/fenced-frame/resources/utils.js></script>
+<body>
+<script>
+
+async function init() {
+  const [outerKey, innerKey] = parseKeylist();
+  assert_true(validateSelectURLResult(fencedFrameConfig, true));
+
+  attachFencedFrame(fencedFrameConfig, 'opaque-ads');
+  const result = await nextValueFromServer(innerKey);
+  const dataStr = JSON.stringify(parsedData);
+  assert_equals(result, "frame-0_loaded",
+                `verifying key, value ${dataStr} found for ${location.origin};`);
+
+  await writeValueToServer(outerKey,
+    "verify_key_value_loaded");
+}
+
+init();
+</script>
+</body>
+</html>

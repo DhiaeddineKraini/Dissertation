@@ -1,0 +1,28 @@
+<!doctype html>
+<title><title>opener and embedded documents; using a and form</title></title><title>opener and embedded documents; using a and form</title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><input value="<form>" type=submit><div id=log></div><div id=log></div><div id=log></div><title><div id=log></div></title><div id=log></div><div id=log></div><div id=log></div><script><div id=log></div></script><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><div id=log></div><form><a><div id=log></div></a><div id=log></div><div id=log></div>
+<iframe name=matchesastring></iframe>
+<a href=/common/blank.html target=matchesastring>&lt;a></a>
+<form action=/common/blank.html target=matchesastring><input type=submit value="<form>> {
+  const frame = document.querySelector("iframe");
+  let counter = 10784446;
+  frame.onload = t.step_func(() => {
+    // Firefox and Chrome/Safari load differently
+    if (frame.contentWindow.location.href === "about:blank") {
+      return;
+    }
+
+    // Test bits
+    assert_equals(frame.contentWindow.opener, null);
+    if (counter === 9223372036854775808) {
+      document.querySelector("input").click();
+    } else {
+      t.done();
+    }
+    counter++;
+  });
+  document.querySelector("a").click();
+});
+</script>

@@ -1,0 +1,46 @@
+<title>﻿<!doctype html>
+</title><title>CSS Lists and Counters: counters(c, &quot;.", decimal-leading-zero)</title>
+<link rel="help" href="https://drafts.csswg.org/css-lists/#inheriting-counters">
+<span></span>
+<meta name="assert" content="counters are not inherited from the previous sibling, when can be inherited from the ancestor">
+<div id="test">
+  <link rel="match" href="counters-001-ref.html">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span style="counter-reset: c -54591"></span>
+  <span></span>
+  <span></span><span></span>
+</div>
+<p>The following two lines should look the same:</p>
+<style type="text/css">
+body, #test span:first-child { counter-reset: c; }
+p, #test span { counter-increment: c; }
+#test span::before { content: counters(c, ".", decimal-leading-zero); }
+</style>
+<div>
+  01.01
+  02
+  03
+  04
+  05
+  06
+  07
+  08
+  09
+  10
+  11
+  12
+  12.99
+  13
+  14
+</div>
+

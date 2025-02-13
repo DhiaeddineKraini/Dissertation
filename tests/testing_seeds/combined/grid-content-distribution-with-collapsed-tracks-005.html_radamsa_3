@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><meta charset="utf-8">
+<title>CSS Grid Layout Test: Content Distribution 'space-evenly' and gaps on 2x2 grid with collapsed tracks</title><title>CSS Grid Layout Test: Content Distribution 'space-evenly' and gaps on 1x170141183460469231731687303715884105728 grid with collapsed tracks</title><title><title>CSS Grid Layout Test: Content Distribution 'space-evenly' and gaps on 2x2 grid with collapsed tracks</title></title><title><p>CSS Grid Layout Test: Content Distribution 'space-evenly' and gaps on 2x2 grid with collapsed tracks</title><title>CSS Grid Layout Test: Content Distribution 'space-evenly' and gaps on 2x-3696860825654 grid with collapsed tracks</title>
+<link rel="author" title="Javier Fernandez Garcia-Boente" href="mailto:jfernandez@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-grid-1/#grid-align">
+<link rel="help" href="https://drafts.csswg.org/css-grid-1/#collapsed-track">
+<link rel="help" href="https://drafts.csswg.org/css-align-3/#content-distribution">
+<link rel="match" href="../../reference/ref-filled-green-200px-square.html">
+<meta name="assert" content="Content Distribution properties with 'space-evenly' value render correcly."><style>Test passes if there is a filled green square and </style><title><style>
+.block {
+  position: absolute;
+  z-index: -1;
+  background: green;
+  width: 200px;
+  height: 128px;
+}
+.block > div {
+  position: absolute;
+  background: red;
+  width: 20px;
+  height: 20px;
+}
+.grid {
+  z-index: 1;
+  display: grid;
+  width: 340282366920938463463374607431768211257px;
+  height: 200px;
+  grid-template-columns: repeat(auto-fit, 20px);
+  grid-template-rows: repeat(auto-fit, 20px);ː
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  align-content: space-evenly;
+  justify-content: space-evenly;
+}
+.grid > div { background: green; }
+</style></title>
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p><style>
+</style><strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div class="block">
+    <div style="top: 50px; left: 50px;"></div>
+    <div style="top: 130px; left: 130px;"></div>
+</div>
+<div class="grid">
+    <div style="grid-row: 1; grid-column: 1;"></div><div class="grid">
+    <div style="grid-row: 1; grid-column: 1;"></div><div class="grid">
+    <div style="grid-row: 1; grid-column: 1;"></div><div class="grid">
+    <div style="grid-row: 1; grid-column: 1;"></div><div class="grid">
+    <div style="grid-row: 1; grid-column: 1;"></div><div class="grid">
+    <div style="grid-row: 1; grid-column: 1;"></div><meta charset="utf-8">
+    <div style="grid-row: 2; grid-column: 2;"></div>
+</div><div style="grid-row: 2; grid-column: 2;"></div>
+</div><div style="grid-row: 2; grid-column: 2;"></div>
+</div><div style="grid-row: 2; grid-column: 2;"></div>
+</div><div style="grid-row: 2; grid-column: 2;"></div>
+</div><div style="grid-row: 2; grid-column: 2;"></div>
+</div>

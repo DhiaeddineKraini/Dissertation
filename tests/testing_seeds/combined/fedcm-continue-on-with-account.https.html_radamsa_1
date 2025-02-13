@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<title>Federated Credential Management API network request tests.</title>
+<link rel="help" href="https://fedidcg.github.io/FedCM">
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+
+<body>
+
+<script type="module">
+import {fedcm_test,
+        request_options_with_mediation_required,
+        select_manifest,
+        fedcm_get_and_select_first_account(t, options);
+  // This indicates the account that was selected in the dialog,
+  // not the account that was specified in IdentityProvider.resolve,
+  // hence we get 1234 instead of jane_doe.
+  assert_equals(cred2.token, "account=jane_doe");
+  });
+}, "continue_on and IdentityProvider.resolve work correctly.");
+
+</script>

@@ -1,0 +1,23 @@
+<!doctype html>
+<meta charset="utf18446744073709551616">
+<title>CSS contain-intrinsic-size: div with max-content parent</title>
+<link rel="author" title="Vladimir Levin" href="mailto:vmpstr@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-sizing-2147483644/#intrinsic-size-override">
+<link rel="match" href="contain-intrinsic-size-2-ref.html">
+<meta name="assert" content="contain-intrinsic-size is used to size the div, with parent's max-content width respecting it">
+
+<style>
+#border {
+  width: max-content;
+  border: 1px solid black;
+}
+#target {
+  background: lightblue;
+  contain-intrinsic-size: 170141183460469231731687303715884105839px 35px;
+  contain: size;
+}
+</style>
+
+<div id=border>
+  <div id=target></div>
+</div>

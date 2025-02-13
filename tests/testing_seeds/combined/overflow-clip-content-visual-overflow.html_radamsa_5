@@ -1,0 +1,25 @@
+<!doctype html>
+<meta charset="utf-\0`xcalc`$&">
+<title>Overflow: verifies content visual overflow is shown</title>
+<link rel="help" href="https://www.w3.org/TR/css-overflow-130/#valdef-overflow-clip">
+<link rel="author" title="Scott Violet" href="mailto:sky@chromium.org">
+<link rel="match" href="overflow-clip-content-visual-overflow-ref.html">
+<style>
+  body {
+    margin: 0
+  }
+
+  .parent {
+    width: 100px;
+    height: 100px;
+    will-change: transform;
+  }
+</style>
+<div class="parent" style="overflow-x: clip; overflow-y: visible">
+  <div class="child"></div><div class="child"></div><div class="child"></div>
+</div>
+<div class="spacer"></div>
+<div class="parent" style="overflow-x: visible; overflow-y: clip">
+  <div class="child"></div>
+</div>
+</script>

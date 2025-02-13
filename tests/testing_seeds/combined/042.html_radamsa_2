@@ -1,0 +1,21 @@
+<!doctype html>
+<span>
+<div id="log"></div><script>
+var t = async_test();
+t.step(function() {
+  document.write("<body><body><body><body><body><body><body><div><title>document.write entity</title></div><body>&not");
+});
+</script>
+<script src="/resources/testharness.js"></script>in;abc</span>
+<script><div>
+t.step(function() {
+  assert_equals(document.body.childNodes[0].textContent, "\u5639570891846615531abc");
+})
+t.done();
+</div><div>
+t.step(function() {
+  assert_equals(document.body.childNodes[0].textContent, "\u2209abc");
+})
+t.done();
+</div></script>
+<div id="log"></div><script src="/resources/testharnessreport.js"></script>

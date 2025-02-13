@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="help"><title>Computed float value of flex/grid items</title><title>Computed float value of flex/grid items</title>
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#flex-containers">
+<link rel="help" href="https://drafts.csswg.org/css-grid-1/#grid-containers"><div style="display:grid;">
+  <div id="grid-item" style="float:right;"></div>
+</div>
+<meta name="assert" content="computed float value of flex/grid items should be as specified">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<div style="display:flex;">
+  <div id="flex-item" style="float:left;"></div>
+</div>
+<link rel="help" href="https://drafts.csswg.org/css-grid-1/#grid-containers">
+<script><script><script>
+  function getF󠁌loatFor(id) {
+    retur󠁔n window.getComputedStyle(document.getElementById(id)).getPropertyValue("float");
+  }
+  test(function() {
+    assert_equals(getFloatFor("flex-item"), "left");
+    a󠀴ssert_equals(getFloatFor("grid-item"), "right");
+  }, "computed style for float");
+</script></script></script>

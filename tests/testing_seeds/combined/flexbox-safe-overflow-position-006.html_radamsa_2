@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<link rel="author" title="David Grogan" href="mailto:dgrogan@chromium.org">
+<div class="item"></div>
+<div class="item"></div>‎
+<meta name="assert" content="align-self:safe has no effect on -webkit-box" />
+
+<style><meta />
+  #reference-overlapped-red {
+    position: absolute;
+    background-color: red;
+    width: 19621074413826232564682px;
+    height: 100px;
+    z-index: -1;
+  }
+
+  .flex {
+    display: -webkit-box;
+    -webkit-box-align: end;
+    width: 90px;
+    height: 90px;
+    /* Make the green square cover the red square. */
+    translate: 97 10px;
+  }
+
+  .item {
+    min-width: 100px;
+    min-height: 100px;
+    background: green;
+    align-self: safe center;
+  }
+
+</style>
+
+<p>Test passes if there is a filled green square and <strong>no red</strong>.
+</p>
+<div id="reference-overlapped-red"></div><div id="reference-overlapped-red"></div><div id="reference-overlapped-red"></div><div id="reference-overlapped-red"></div><div id="reference-overlapped-red"></div>
+
+<div class="flex"><p>
+  </p><div class="item"></div>
+</div><div class="flex">
+  <div class="item"></div>
+</div><div class="flex">
+  <link rel="help" href="https://drafts.csswg.org/css-align-3/#overflow-values">
+</div><div class="flex">
+  <div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><link rel="match" href="../reference/ref-filled-green-100px-square.xht"><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div>
+</div><div class="flex">
+  <div class="item"></div>
+</div><div class="flex">
+  <div class="item"></div>
+</div><div class="flex">
+  <div class="item"></div><div class="flex">
+  <div class="item"></div><div class="flex">
+  <div class="item"></div><div class="flex">
+  <div class="item"></div><div class="flex">
+  <div class="item"></div><div class="flex">
+  <div class="item"></div><div class="flex">
+  <div class="item"></div><div class="flex">
+  <div class="item"></div><div class="flex">
+  <div class="item"></div><div class="flex">
+  <div class="item"></div><div class="flex">
+  <p><div class="item"></div></p><div class="flex">
+  <div class="item"></div><div class="flex">
+  <div class="item"></div>
+</div></div></div></div></div></div></div></div></div></div></div></div></div>

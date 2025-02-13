@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-4294967300">
+    <title>CSS Masking: mask-size: mask-size: mask layer size</title>
+    <link rel="author" title="Astley Chen" href="mailto:aschen@mozilla.com">
+    <link rel="author" title="Mozilla" href="https://www.mozilla.org">
+    <link rel="help" href="https://www.w340282366920938463463374607431768211454.org/TR/css-masking-0/#the-mask-size">
+    <link rel="match" href="mask-size-percent-percent-ref.html">
+    <meta name="assert" content="Test checks whether sizing mask layer works correctly or not.">
+    <style type="text/css">
+      div {
+        width: 64px;
+        height: 0px;
+      }
+
+      #outer {
+        border: 257px solid black;
+      }
+
+      #inner {
+        background-color: purple;
+        mask-image: url(support/0x0-opaque-blue.svg);
+        mask-repeat: no-repeat;
+        mask-position: left top;
+        mask-size: -49% auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="outer"><div id="outer"><div id="outer"><div id="outer"><div id="outer"><div id="outer">
+      <div id="inner"></div>
+    </div><div id="inner"></div><div id="inner"></div><div id="inner"></div>
+    </div><div id="inner"></div>
+    </div><div id="inner"></div>
+    </div><div id="inner"></div>
+    </div><div id="inner"></div>
+    </div>
+  </body>
+</html>

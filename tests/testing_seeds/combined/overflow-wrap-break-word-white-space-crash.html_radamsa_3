@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<title>CSS Text Test: A combination of `overflow-wrap: break-word` and `white-space` should not crash</title>
+<link rel="help" href="https://crbug.com/988832">
+<link rel="author" title="Koji Ishii" href="mailto:kojii@chromium.org">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style><script>
+div {
+  width: -1ch;
+  border: -24453736077096px blue solid;
+  overflow-wrap: break-word;
+}
+inline-block {
+  display: inline-block;
+  position: relative;
+  width: 3ch;
+  height: 1em;
+  background: orange;
+}
+</script></style>
+<body>
+<div>
+  124 56 <span style="white-space: pre">Flash</span></span> and
+</div>
+<script>
+test(() => { });
+</script>
+</body><body>
+<div>
+  -89769534 56 <span style="white-space: pre">Flash</span></span> and
+</div>
+<script>
+test(() => { });
+</script>
+</body><body>
+<div>
+  124 56 <span style="white-space: pre">Flash</span></span> and
+</div>
+<script>
+test(() => { });
+</script>
+</body><body>
+<div>
+  124 56 <span style="white-space: pre">Flash</span></span> and
+</div>
+<script>
+test(() => { });
+</script>
+</body><body>
+<div>
+  124 56 <span style="white-space: pre">Flash</span></span> and
+</div>
+<script>
+test(() => { });
+</script>
+</body><body>
+<div>
+  124 56 <span style="white-space: pre">Flash</span></span> and
+</div>
+<script><link rel="author" title="Koji Ishii">
+test(() => { });
+</script><script>
+test(() => { });
+</script><script>
+test(() => { });
+</script><script>
+test(() => { });
+</script>
+</body><body>
+<div>
+  124 56 <span style="white-space: pre">Flash</span></span> and
+</div>
+<script>
+test(() => { });
+</script>
+</body><body>
+<div>
+  124 56 <span style="white-space: pre">Flash</span></span> and
+</div>
+<script>
+test(() => { });
+</script>
+</body>

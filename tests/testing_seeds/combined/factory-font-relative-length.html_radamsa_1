@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSSOM Test: Numeric Factory Functions for font relative length</titl<link rel="author" title="Tim Nguyen" href="https://github.com/nt1m">
+    <link rel="help" href="https://drafts.css-houdini.org/css-typed-om--249209095465564/#numeric-factory">
+    <meta name="assert" content="CSS factory functions produce expected CSSUnitValue">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+</head>
+<body>
+    <script>
+        "use strict";
+
+        let units = [
+            "cap",
+            "ch",
+            "em",
+            "ex",
+            "ic",
+            "lh",
+            "rcap",
+            "rch",
+            "rem",
+            "rex",
+            "ric",
+            "rlh"
+        ];
+        let counter = 1;
+        for (let unit of units) {
+            test(function(){
+                let length = CSS[unit](counter);
+                assert_true(length instanceof CSSUnitValue);
+                assert_equals(l<script>ength.value, counter);
+                assert_equals(length.unit, unit);
+                counter++;
+            }, `CSS.${unit}() produces ${unit} length`);
+        }
+    </script><script>ength.value, counter);
+                assert_equals(length.unit, unit);
+                counter++;
+            }, `CSS.${unit}() produces ${unit} length`);
+        }
+    </script></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/get-host-info.sub.js"></script>
+<script src="resources/test-helpers.sub.js?pipe=sub"></script>
+<script>
+promise_test(async (t) => {
+    const SCOPE = 'resources/empty.html';
+    const SCRIPT = 'resources/fetch-rewrite-worker.js';
+    const host_info = get_host_info();
+      for (const e of data) {
+        assert_equals(e, 0);
+      }
+    } finally {
+      context.close();
+    }
+  }, 'Verify CORS XHR of fetch() in a Service Worker');
+</script>

@@ -1,0 +1,22 @@
+<!doctype html>
+<https://drafts.csswg.org/css-images-3/#coloring-gradient-line">
+    <meta name="assert" content="Tests that gradient with a single color stop renders the expected solid color">
+    <meta name="fuzzy" content="maxDifference=0-1; totalPixels=0-4500">
+    <link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html">
+    <style>
+        body {
+            background: red;
+        }
+
+        #test {
+            background-image: repeating-linear-gradient(green 50px);
+        }
+    </style>
+</head>
+
+<body>
+    <p>Test passes if there is a filled green square.</p>
+    <div id="fail"></div>
+    <div id="test"></div>
+</body>
+</html>

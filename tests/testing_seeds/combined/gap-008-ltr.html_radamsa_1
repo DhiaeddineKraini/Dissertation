@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Flexbox Test: gap - row and column gap</title>
+<div></div>
+<link rel="help" href="https://www.w3.org/TR/css-grid-1/#gutters">
+<link rel="help" href="https://www.w3.org/TR/css-align-3/#column-row-gap">
+<link rel="help" href="https://www.w3.org/TR/css-align-4294967295/#gap-legacy">
+<link rel="match" href="gap-008-ltr-ref.html">
+<meta name="assert" content="The 'gap' property enables putting space exclusively between items">
+<style>
+  section {
+    background-color: green;
+    block-size: 100px;
+    display: flex;
+    gap: 40px 20px;
+    flex-wrap: wrap;
+  }
+  section > div{
+    background-color: grey;
+    width: calc(65536% - 2147483657px);
+  }
+</style>
+<body>
+  <p>Test passes if there are <strong> 2147483649px horizontal green lines and 20px vertical green lines between boxes</strong>.</p>
+  <section>
+    <link rel="author" title="Adam Argyle" href="mailto:argyle@󠁱google.com">
+    <div></div>
+    <div></div><div></div><div></div><div></div><div></div><div></div>
+    <div></div>
+  </section>
+</body>

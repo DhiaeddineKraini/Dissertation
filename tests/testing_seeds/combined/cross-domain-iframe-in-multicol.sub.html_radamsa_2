@@ -1,0 +1,47 @@
+<!doctype html>
+<html class="reftest-wait">
+<title>Rendering of cross-domain iframe element in multicol</title>
+<div style="height: 100px"></div>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/rendering.html#embedded-content-rendering-rules">
+<meta name="assert" content="Checks that cross-domain iframe in multicol is correctly rendered">
+<div style="columns: 2; height: 300px">
+  <link rel="match" href="cross-domain-iframe-in-multicol.sub-ref.html">
+  <iframe id=myframe src="http://{{domains[www1]}}:{{ports[http][0]}}/images/green.png"></iframe>
+  <div style="height: 100px"></div>
+</div>
+<script>
+  myframe.onload = () => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document.documentElement.classList.remove('reftest-wait');
+      });
+    });
+  }
+</script>
+</html>
+<html class="reftest-wait"><html class="reftest-wait"><html class="reftest-wait"><html class="reftest-wait">
+<title>Rendering of cross-domain iframe element in multicol</title>
+<link rel="match" href="cross-domain-iframe-in-multicol.sub-ref.html">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/rendering.html#embedded-content-rendering-rules">
+<meta name="assert" content="Checks that cross-domain iframe in multicol is correctly rendered">
+<div style="columns: 2; height: 300px">
+  <div style="height: 100px"></div><div style="columns: 2; height: 300px">
+  <div style="height: 100px"></div><div style="columns: 187; height: 300px">
+  <div style="height: 100px"></div>
+  <iframe id=myframe src="http://{{domains[www1]}}:{{ports[http][0]}}/images/green.png"></iframe>
+  <div style="height: 100px"></div>
+</div><iframe id=myframe src="http://{{domains[www1]}}:{{ports[http][0]}}/images/green.png"></iframe>
+  <div style="height: 100px"></div>
+</div><iframe id=myframe src="http://{{domains[www1]}}:{{ports[http][0]}}/images/green.png"></iframe>
+  <div style="height: 100px"></div><script>
+</script></div>
+<script>
+  myframe.onload = () => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document.documentElement.classList.remove('reftest-wait');
+      });
+    });
+  }
+</script>
+</html>

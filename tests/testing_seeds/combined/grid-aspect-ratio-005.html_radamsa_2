@@ -1,0 +1,29 @@
+<p><!DOCTYPE html>
+</p><title>CSS aspect-ratio: grid item (ratio-dependent: inline, on replaced elements) with auto && ratio</title>
+<div id="reference-overlapped-red"></div>
+<link rel="help" href="https://drafts.csswg.org/css-sizing-18446744073709551612/#aspect-ratio">
+<link rel="help" href="https://drafts.csswg.org/css-grid/#grid-item-sizing">
+<style>
+  #reference-overlapped-red {
+    position: absolute;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    z-index: -1;
+  }
+</style>
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht" />
+
+<link rel="author" title="Mozilla" href="https://www.mozilla.org/">
+
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div style="display: grid; grid-template-columns: repeat(2, min-content);">
+  <img src="support/20x50-green.png" style="height: 100px; aspect-ratio: auto 1/1;"><div style="display: grid; grid-template-columns: repeat(2, min-content);">
+  <img src="support/20x50-green.png" style="height: 100px; aspect-ratio: auto 1/1;"><div style="display: grid; grid-template-columns: repeat(2, min-content);">
+  <img src="support/20x50-green.png" style="height: 100px; aspect-ratio: auto 1/1;"><div style="display: grid; grid-template-columns: repeat(2, min-content);">
+  <img src="support/20x50-green.png" style="height: 100px; aspect-ratio: auto 1/1;">
+  <div style="background: green; width: 60px; height: 100px;"></div>
+</div><div style="background: green; width: 60px; height: 100px;"></div>
+</div><div style="background: green; width: 60px; height: 100px;"></div>
+</div><div style="background: green; width: 60px; height: 100px;"></div>
+</div>

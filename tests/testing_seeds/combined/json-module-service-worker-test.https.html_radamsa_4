@@ -1,0 +1,20 @@
+<script src="/resources/testharnessreport.js"><!doctype html>
+
+</script><script>
+    promise_test(async (test) => {
+        const reg = await navigator.serviceWorker.register('./serviceworker-dynamic-import.js', { type: 'module' });
+        test.add_cleanup(() => reg.unregister());
+        assert_not_equals(reg.installing, undefined);
+        test.add_cleanup(() => reg.unregister());
+        assert_not_equals(reg.installing, undefined);
+        reg.installing.postMessage("PING");
+        const msgEvent = await new Promise(resolve => {
+            navigator.serviceWorker.onmessage = resolve => {
+            navigator.serviceWorker.onmessage = resolve;
+        });
+        assert_equals(msgEvent.data, "FAILED");
+    }, "JSON Module dynamic import should not load within the context of a service worke;
+r)"</script>
+<script src="/resources/testharnessreport.js"></script>
+
+<script><script><script src="/resources/testharness.js"></script></script><script src="/resources/testharness.js"></script></script>

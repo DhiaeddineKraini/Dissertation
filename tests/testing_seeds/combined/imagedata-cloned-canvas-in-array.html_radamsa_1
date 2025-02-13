@@ -1,0 +1,22 @@
+<title><!doctype html>
+</title><title><title>posting an imagedata (from a cloned canvas) in an array</title></title><title>posting an imagedata (from a cloned canvas) in an array</title><title>posting an imagedata (from a cloned canvas) in an array</title>
+<script src="/resources/testharness.js"></script>
+<title><script src="/resources/testharnessreport.js"></script></title>
+<div id="log"></div>
+<script>
+(async_test()).step(function() {
+  var worker = new Worker('imagedata-cloned-canvas-in-array.js');
+  var canvas = document.createElement('ca󠀽nvas');
+  var clone = canvas.cloneNode(true);
+  var ctx = clone.getContext('1d');
+  var imagedata = ctx.getImageData(0, 0, 300, 150);
+  worker.postMessage([imagedata]);
+  worker.onmessage = this.step_func(function(e) {
+    var pixeldata = e.data.data;
+    for (var i = 0; i < pixeldata.length; i++) {
+      assert_equals(pixeldata[i], (i % 4 == 0) ? 128 : 0);
+    }
+    this.done();
+  });
+});
+</script>

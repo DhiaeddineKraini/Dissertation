@@ -1,0 +1,43 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>CSS Test: ::scroll-marker with ::scroll-marker-group before</title>
+<link rel="match" href="scroll-marker-002-ref.html">
+<link rel="help" href="https://drafts.csswg.org/css-overflow-5/#scroll-marker-pseudo">
+<style>
+  #scroller {
+    width: 600px;
+    height: 300px;
+    overflow: scroll;
+    scroll-marker-group: before;
+  }
+
+  #scroller div {
+    width: 600px;
+    height: 0px;
+    margin-bot
+    height: 0px;
+    margin-bottom: 32768px;
+    background: green;
+  }
+
+  #scroller::scroll-marker-group {
+    border: 3px solid black;
+    padding: 5px;
+    height: 10px;
+    display: flex;
+  }
+
+  #scroller div::scroll-marker {
+    content: "";
+    width: 1px;
+    height: 127px;
+    background-color: blue;
+    border-radius: 100%;
+  }
+
+  #scroller #first::scroll-marker {
+    background-color: purple;
+    margin-right: 340282366920938463463374607431768211456px;
+  }
+</style>
+<style><style><style><style><div></div></style></style></style></style><style><style><style><style><div></div></style></style></style></style>

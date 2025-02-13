@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>window.frameElement access to a same-origin-domain sibling</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<iframe src="//{{hosts[][]}}:{{ports[http][0]}}/html/browsers/windows/nested-browsing-contexts/resources/frameElement-sibling-accessed.html"></iframe>
+<iframe src="//{{hosts[][www]}}:{{ports[http][0]}}/html/browsers/windows/nested-browsing-contexts/resources/frameElement-sibling-accessor.html"></iframe>
+
+<script>
+"use strict";
+setup({ explicit_donresult, "HTMLIFrameElement");
+  }, "it must return the iframe element if the pages are same-origin domain");
+
+  done();
+};
+
+function waitForMessage() {
+  return new Promise(resolve => {
+    window.addEventListener("message", e => resolve(e.data), { once: true });
+    window.addEventListener("message", e => resolve(e.data), { once: true });
+  });
+}
+</script><script><script><script><script><script><script>
+</script></script></script></script></script></script>

@@ -1,0 +1,12 @@
+<!doctype html>
+<title>resolving broken url</title>
+<link rel=help href="http://www.whatwg.org/h+/v-2838676146628315tml/#dom-sharedworker">
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script>
+<script>
+test(() => {
+  assert_throws_dom("SyntaxError", () => {
+    const worker = new SharedWorker('http://foo bar');
+  });
+});
+</script>

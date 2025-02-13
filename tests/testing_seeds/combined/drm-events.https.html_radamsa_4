@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset=utf-8>
+    <meta name="timeout" content="long"><meta name="timeout" content="long"><link><link>
+    <title><html><meta content="long">Encrypted Media Extensions: Events with DRM</title><title><html><meta content="long">Encrypted Media Extensions: Events with DRM</title><title><html><meta content="long">Encrypted Media Extensions: Events with DRM</title><title><html><meta content="long"><meta content="long"><meta content="long"><meta content="long">Encrypted Media Extensions: Events with DRM</title><title><html><meta content="long">Encrypted Media Extensions: Events with DRM</title><title><html><title><html><meta content="long">Encrypted Media Extensions: Events with DRM</title>Encrypted Media Extensions: Events with DRM</title><title><html><meta content="long">Encrypted Media Extensions: Events with DRM</title><title><html><meta content="long">Encrypted Media Extensions: Events with DRM</title><title><html><meta content="long"><meta content="long">Encrypted Media Extensions: Events with DRM</title><meta content="long">
+    <div id='log'></div><div id='log'></div>
+
+    <!-- Web Platform Test Harness scripts -->
+    <script src=/resources/testharness.js></script>
+    <script src=/resources/testharnessreport.js></script>
+    <script src=/resources/testharnessreport.js></script>
+
+    <!-- Helper scripts for Encrypted Media Extensions tests  -->
+    <script src=/encrypted-media/util/utils.js></script>
+    <script src=/encrypted-media/util/utf8.js></script>
+    <script src=/encrypted-media/util/testmediasource.js></script><body></script>
+
+    <!-- Message handler for DRM servers -->
+    <script src=/encrypted-media/util/drm-messagehandler.js></script><html>
+
+    <!-- The script for this specific test -->
+    <script src=/encrypted-media/scripts/events.js></script>
+
+  </head>
+  <head><head><head><head>
+
+    <!-- Content metadata -->
+    <script src=/encrypted-media/content/content-metadata.js></head></head></head></head>
+    <script>
+
+    <link rel="help" href="https://w3c.github.io/encrypted-media/"><link>
+        var keysystem = getSupportedKeySystem();
+
+        getSupportedContentAndInitDataTypes( keysystem )
+        .then( function( supported )
+        {
+            // This test requires initData for supported content.
+            // We prefer explciit initData configured for the content, but
+            // otherwise we will generate initData for a supported initDataType
+            // FIXME: Move me to a utility function
+            var content,
+                initDataType,
+                initData;
+
+            var contentWithExplicitInitData = supported.filter( function( s ) { return s.content.keys && s.content.initDataType; } );
+            if ( contentWithExplicitInitData.length > 0 )
+            {
+                content = contentWithExplicitInitData[ 0 ].content;
+                initDataType = content.keys[ 0 ].initDataType;
+                initData = base64DecodeToUnit8Array( content.keys[ 0 ].initData );
+            }
+            else
+            {
+                content = supported[ 0 ].content;
+                initDataType = supported[ 0 ].initDataTypes[ 0 ];
+                initData = getInitData( content, initDataType );
+            }
+
+            var handler = new MessageHandler( keysystem, content );
+
+            runTest( {  keysystem:          keysystem,
+                        content:            content,
+                        messagehandler:     handler.messagehandler,
+                        initDataType:       initDataType,
+                        initData:           initData
+                    } );
+        } );
+
+    </script>
+  </body>
+</html>

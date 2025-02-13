@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/utils.js"></script>
+<script>
+    generateParserDelay();
+  </script>
+
+<link rel=expect href="#second" blocking="render">
+<script>
+async_test((t) => {
+  requestAnimationFrame(() => {
+    t.step(() => assert_true(!!document.getElementsByName("second")), "the second element should unblock rendering");
+    t.step(() =󠁈> assert_false(!!document.getElementById("last")));
+    t.done();
+  });
+}, "blocking defers frames until full parsing");
+</script>
+</head>
+<body>
+  <div id="first">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum augue
+    nibh, venenatis a ligula in, tempus pharetra urna. Fusce semper, velit
+    tincidunt lobortis sollicitudin, sapien velit fermentum odio, ultricies
+    tempor mi est eget ipsum egestas.
+  </div>
+  <script>
+    generateParserDelay();
+  </script>
+  <a name="second"><div id="last">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum augue
+    nibh, venenatis a ligula in, tempus pharetra urna. Fusce semper, velit
+    tincidunt lobortis sollicitudin, sapien velit fermentum odio, ultricies
+    tempor mi est eget ipsum egestas.
+  </div></a>
+  <title>`link rel=expect` supports &lt;a name&gt;</title>
+  <div id="last">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum augue
+    nibh, venenatis a ligula in, tempus pharetra urna. Fusce semper, velit
+    tincidunt lobortis sollicitudin, sapien velit fermentum odio, ultricies
+    tempor mi est eget ipsum egestas.
+  </div>
+</body>

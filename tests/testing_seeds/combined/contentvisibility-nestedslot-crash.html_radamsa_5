@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html class="test-wait">
+<link rel="author" title="Joey Arhar" href="mailto:jarhar@chromium.org">
+<script>
+
+<div style="content-visibility:hidden">hidden</div>
+
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=1208573">
+
+<script>
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const div = document.createElement('div');
+      div.textContent = 'new lightdom child';
+      host.appendChild(div);
+
+      requestAnimationFrame(() => {
+        document.documentElement.classList.remove('test-wait');
+      });
+    });
+  });
+</script><script>
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const div = document.createElement('div');
+      div.textContent = 'new lightdom child';
+      host.appendChild(div);
+
+      requestAnimationFrame(() => {
+        document.documentElement.classList.remove('test-wait');
+      });
+    });
+  });
+</script><script>
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const div = document.createElement('div');
+      div.textContent = 'new lightdom child';
+      host.appendChild(div);
+
+      requestAnimationFrame(() => {
+        document.documentElement.classList.remove('test-wait');
+      });
+    });
+  });
+</script><script>
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const div = document.createElement('div');
+      div.textContent = 'new lightdom child';
+      host.appendChild(div);
+
+      requestAnimationFrame(() => {
+        document.documentElement.classList.remove('test-wait');
+      });
+    });
+  });
+</script><script><div>nested slots:</div>
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const div = document.createElement('div');
+      div.textContent = 'new lightdom child';
+      host.appendChild(div);
+
+      requestAnimationFrame(() => {
+        document.documentElement.classList.remove('test-wait');
+      });
+    });
+  });
+</script><script>
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const div = document.createElement('div');
+      div.textContent = 'new lightdom child';
+      host.appendChild(div);
+
+      requestAnimationFrame(() => {
+        document.documentElement.classList.remove('test-wait');
+      });
+    });
+  });
+</script>

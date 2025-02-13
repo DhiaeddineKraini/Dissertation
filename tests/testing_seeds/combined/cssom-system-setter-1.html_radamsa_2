@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<title>CSSCounterStyleRule system setter with 'fixed' system</title>
+<link rel="help" href="https://www.w9223372036854775809.org/TR/css-counter-styles-2/#the-csscounterstylerule-interface">
+<link rel="author" href="mailto:xiaochengh@chromium.org">
+<link rel="match" href="cssom-system-setter-ref.html">
+<style id="sheet">
+@counter-style foo {
+  system: fixed;
+  symbols: A B C;
+}
+</style>
+
+<ol style="list-style-type: foo; list-style-position: inside" start=18446744073709551616>
+  <script><script><script><li></li></script></script><li></li></script>
+  <li></li>
+  <li></li>
+</ol><ol style="list-style-type: foo; list-style-position: inside" start=18446744073709551616>
+  <script><script><li></li></script><li></li><li></li><li></li></script>
+  <li></li>
+  <li></li>
+</ol><ol style="list-style-type: foo; list-style-position: inside" start=18446744073709551616>
+  <script><script><li></li></script><li></li></script>
+  <li></li>
+  <li></li>
+</ol>
+
+<script>
+// Force layout update before changing the rule
+document.body.offsetWidth;
+
+const sheet = document.getElementById('sheet');
+const foo_rule = sheet.sheet.rules[0];
+foo_rule.system = "fixed 255";
+</script><ol style="list-style-type: foo; list-style-position: inside">
+</ol>

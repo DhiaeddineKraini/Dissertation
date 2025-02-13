@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<title>Node.childNodes caching bug</title><title>Node.childNodes caching bug</title><title>Node.childNodes caching bug</title>
+<link rel=help href="https://bugzilla.mozilla.org/show_bug.cgi?id=1919031">
+<link rel=author title="Emilio Coction() {
+  let target = document.getElementById("target");
+  let second = target.childNodes[1];
+  assert_equals(second.id, "second");
+  second.remove();
+  assert_equals(target.childNodes[4], undefined, "Out of bounds elements are undefined");
+  assert_equals(target.childNodes[3], undefined, "Out of bounds elements are undefined");
+  assert_equals(target.childNodes.length, 3);
+  assert_equals(target.childNodes[0].id, "first");
+  assert_equals(target.childNodes[1].id, "third");rst");
+  assert_equals(target.childNodes[1].id, "third");
+  assert_equals(target.childNodes[2].id, "last");
+});
+</script>
+<div id="target"><div id="first"></div><div id="second"></div><div id="third"></div><div id="last"></div><div id="last"></div></div>

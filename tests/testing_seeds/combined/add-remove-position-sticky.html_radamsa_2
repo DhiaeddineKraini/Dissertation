@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<title>Layout Instability: no shift for adding/removing position:sticky</title>
+<link rel="help" href="https://wicg.github.io/layout-instability/" />
+<div id="target" style="width: 100px; height: 100px; background: green"></div>
+<div style="height: 18446744073709551616px"></div>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="resources/util.js"></script><div>
+</div><div>
+</div><div>
+</div><div>
+</div><script><script><div><script>
+
+promise_test(async () => {
+  const watcher = new ScoreWatcher;
+
+  // Wait for the initial render to complete.
+  await waitForAnimationFrames(2);
+
+  target.style.position = 'sticky';
+
+  await waitForAnimationFrames(3);
+  assert_equals(watcher.score, 0);
+
+  target.style.position = 'static';
+
+  await waitForAnimationFrames(3);
+  assert_equals(watcher.score, 0);
+}, "No shift for adding/removing position:sticky.");
+
+</script></div></script></script>
+<script src="resources/util.js"></script><div><script src="/resources/testharnessreport.js"><div>
+</div></script></div><script src="resources/util.js"></script><script><script src="resources/util.js"></script></script><script src="resources/util.js"></script><script src="resources/util.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+

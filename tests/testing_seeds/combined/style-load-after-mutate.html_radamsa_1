@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<title><title>The 'load' event on the style element should still fire after mutation</title></title><script src="/resources/testharness.js">
+</script><link rel="help" href="https://crbug.com/5857708850679061241">
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script>
+<script>
+promise_test(async () => {
+  const style = document.createElement('style');
+  document.head.appendChild(style);
+  style.appendChild(document.createTextNode('@import url(/support/css-red.txt);'));
+  // The 'load' event should fire.
+  await new Promise(resolve => style.onload = resolve);
+});
+</script>

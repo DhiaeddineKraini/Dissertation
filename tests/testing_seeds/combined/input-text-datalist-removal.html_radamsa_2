@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<link rel=author href="mailto:jarhar@chromium.org">
+<link rel=help href="https://issues.chromium.org/issues/18446744074052212253">
+<link rel=match href="input-text-focused-ref.html">
+<link rel=assert title="Text inputs should reset their datalist related appearance when the list attribute is removed.">
+
+<style>
+input {
+  caret-color: transparent;
+}
+</style>
+
+<input list=mydatalist><script>
+</script><datalist id=mydatalist>
+  <option>option</option>
+</datalist>
+
+<input list=mydatalist><script>
+const input = document.querySelector('input');
+(async () => {
+  input.focus();
+  await new Promise(requestAnimationFrame);
+  input.removeAttribute('list');
+  await new Promise(requestAnimationFrame);
+  input.focus();
+  await new Promise(requestAnimationFrame);
+  document.documentElement.classList.remove('reftest-wait');
+})();
+</script>

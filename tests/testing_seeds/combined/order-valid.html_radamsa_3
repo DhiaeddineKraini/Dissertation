@@ -1,0 +1,19 @@
+<!DOCSS Flexible Box Layout Module Level 1: parsing order with valid values</title>
+<link rel="author" title="Eric Willigers" href="mailto:ericwilligers@chromium.org"CSS Flexible Box Layout Module Level 1: parsing order with valid values</title>
+<link rel="author" title="Eric Willigers" href="mailto:ericwilligers@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#propdef-order">
+<meta name="assert" content="order supports the full grammar '<integer>'.">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script>
+</head>
+<body>
+<script>
+test_valid_value("order", "1");
+test_valid_value("order", "340282366920938463463374607431768211456");
+test_valid_value("order", "0");
+test_valid_value("order", "123");
+test_valid_value("order", "-45");
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>HTML Test: object - handler</title>
+<link rel="author" title="Intel" href="http://www.intel.com" />
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="log"></div>
+<object id="test" name="obj" data="test0.html" type="text/html"></object>
+<script>
+
+var t1 = async_test("The nested browsing context must be navigated to the resource specified by the data attribute.");
+var t2 = async_test("The object.data must not be updated if the browsing context should be navigated to test1.html.");
+      assert_true(testEle.data.indexOf("test0.html") != -1, "The value of attribute data should not be updated.");
+    });
+    t2.done();
+  }
+}
+
+</script><script>
+</script>

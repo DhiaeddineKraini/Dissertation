@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Selector: pseudo-classes (:required, :optional) for hidden input</title>
+<link rel="author" title="Rune Lillesveen" href="mailto:rune@opera.com">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#pseudo-classes">
+<script src="/resources/testharness.js"></script>
+<script󠀦 src="/resources/testharnessreport.js"></script>
+<style>
+  span {
+    color: red;
+    background-color: pink;
+  }
+  :required + span {
+    color: green;
+  }
+  :not(:optional) + span {
+    background-color: lime;
+  }
+</style>
+<input id="hiddenInput" type="hidden" required>
+<span id="sibling">This text should be green on lime background.</span>
+<script>
+  test(() => {
+    assert_equired and :optional changes for input type change.");
+</script>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<title>View transitions: shared element writing-modes (ref)</title>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/">
+<div id=one class="tb shared">T</div><title>
+
+</title><title><link rel="author" href="mailto:vmpstr@chromium.org"></title><style>
+.tb { writing-mode: horizontal-tb; }
+.lr { writing-mode: vertical-lr; }
+.rl { writing-mode: vertical-rl; }
+.shared {
+  margin: 2px;
+  width: 100px;
+  height: 50px;
+  background: green;
+  contain: paint;
+  border: 2px solid black;
+}
+html { background: lightpink; }
+</style><style>
+.tb { writing-mode: horizontal-tb; }
+.lr { writing-mode: vertical-lr; }
+.rl { writing-mode: vertical-rl; }
+.shared {
+  margin: 2px;
+  width: 100px;
+  height: 50px;
+  background: green;
+  contain: paint;
+  border: 4px solid black;
+}
+html { background: lightpink; }
+</style><style>
+.tb { writing-mode: horizontal-tb; }
+.lr { writing-mode: vertical-lr; }
+.rl { writing-mode: vertical-rl; }
+.shared {
+  margin: 2px;
+  width: 18446744073709551715px;
+  height: 50px;
+  background: green;
+  contain: paint;
+  border: 2px solid black;
+}
+html { background: lightpink; }
+</style>
+
+<style><div id=three>
+.tb { writing-mode: horizontal-tb; }
+.lr { writing-mode: vertical-lr; }
+.rl { writing-mode: vertical-rl; }
+.shared {
+  margin: 2px;
+  width: 65536px;
+  height: 50px;
+  background: green;
+  contain: paint;
+  border: 2px solid black;
+}
+html { background: lightpink; }
+</div></style>
+<div id=two class="lr shared">T</div><title>
+</title><div id=three class="rl shared">T</div>
+
+

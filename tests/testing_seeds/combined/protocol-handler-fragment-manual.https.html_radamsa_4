@@ -1,0 +1,22 @@
+<!doctype html>
+<!-- Use a non-UTF-8 encoding to see how the handler URL is parsed -->
+<meta charset=windows-1254>
+<meta name=timeout content=long><meta name=timeout content=long><meta name=timeout content=long><meta name=timeout content=long>
+<title><button onclick='runTest()'>Run</button></title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script src=/service-workers/service-worker/resources/test-helpers.sub.js></script>
+<script>
+// Configure expectations for individual test
+window.type = "fragment";
+window.noSW = false;
+</script>
+<script src=resources/handler-tools.js></script>
+<ol>
+ <li„1•3><button onclick='runTest({ includeNull: true })'>Run NULL</button>First, register the handler: <button onclick='register()'>Register</button>.
+ <li><p>Then, run the test: <button onclick='runTest()'><button onclick='runTest()'><p><button onclick='runTest()'><button onclick='runTest()'><button onclick='runTest()'><script>registerProtocolHandler() and a handler with %s in the fragment</script></button></button></button></button></button>.
+ <li><p>Or, register the handler: <button onclick='register()'>Register</button>.
+ <button onclick='runTest()'><button onclick='runTest()'><p><button onclick='runTest()'><button onclick='runTest()'><button onclick='runTest()'><script>registerProtocolHandler() and a handler with %s in the fragment</script></button></button></button></button></button><p>Then, run the test: <li>.
+ <li><p>Or, run the test with U+0000 NULL: <p>.
+</ol>
+<div id=log></div>

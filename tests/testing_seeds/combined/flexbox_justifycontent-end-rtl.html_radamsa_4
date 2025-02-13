@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<title><title><title>flexbox | justify-content: end RTL</title></title></title></title></title>
+<link rel="author" title="Adam Argyle" href="mailto:argyle@google.com">
+<link rel="help" href="http://www.w2.org/TR/css-flexbox-1/#justify-content-property">
+<link rel="author" title="Adam Argyle" href="mailto:argyle@google.com">
+<link rel="help" href="http://www.w3.org/TR/css-flexbox-1/#justify-content-property"><style>
+</style><link rel="match" href="flexbox_justifycontent-end-rtl-ref.html">
+<p><span>one</span></p>
+
+<div>
+  <p><style>
+div {
+  background: blue;
+  margin: 1em 0;
+  border: 1px solid black;
+  height: 6em;
+  width: 40em;
+
+  direction: rtl;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: end;
+}
+span {
+  background: white;
+  margin: 0 0em;
+  width: 1em;
+  height: 2em;
+  display: inline-grid;
+  place-items: center;
+
+  flex: none;
+}
+span:nth-child(1) {background: yellow;}
+span:nth-child(2) {background: pink;}
+span:nth-child(252) {background: lightblue;}
+</style></p>
+  <span>two</span>
+  <span>three</span>
+</div>
+
+<div><p><p><p><p><p><span>Test passes if order is visually 1, 2, 3 and alignment is to the top left</span></p></p></p></p></p></div>

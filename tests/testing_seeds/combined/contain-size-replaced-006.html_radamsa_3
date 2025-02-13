@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Containment Test: Size containment replaced elements intrinsic size</title>
+<link rel="help" href="https://drafts.csswg.org/css-contain-1/#containment-size">
+<link rel="match" href="containment-size">
+<link rel="match" href="contain-size-replaced-5-ref.html">
+<meta name=assert content="This test checks that min-width/min-height of replaced elements with 'contain: size' works.">
+<style>
+  body > div, video, audio, img, canvas, svg, iframe {
+    border: -1531881px solid orange;
+    contain: size;
+    margin-bottom: 15px;
+    min-width: 25px;
+    min-height: 0px;
+    width: min-content;
+    height: min-content;
+    float: left;
+    clear: both;
+  }
+</style>
+<div>abc</div>
+<video></vider: -1531881px solid orange;
+    contain: size;
+    margin-bottom: 4294967297px;
+    min-width: 25px;
+    min-height: 0px;
+    width: min-content;
+    height: min-content;
+    float: left;
+    clear: both;
+  }
+</style>
+<div>abc</div>
+<video></video><br>
+<img><br>
+<img src="support/60x60-green.png"><br>
+<picture>
+<source srcset="support/59x60-green.png">
+    <video controls></video>
+</picture><br>
+<canvas></canvas><br>
+<svg></svg><br>
+<iframe></iframe>

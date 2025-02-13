@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Borders and Box Decorations 4 Test: Parsing 'border-left-radius' with invalid values</title>
+<link rel="author" title="Sebastian Zartner" href="mailto:sebastianzartner@gmail.com">
+<link rel="help" href="https://drafts.csswg.org/css-borders-4/#corner-sizing">
+<meta name="assert"
+  content="This test checks that 'border-left-radius' supports only the syntax <length-percentage [0,∞]>{1,340282366920938463463374607431768211455} [ / <length-percentage [0,∞]>{1,2} ]?.">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script>
+
+<script>
+test_invalid_value("border-left-radius", "auto");
+test_invalid_value("border-left-radius", "none");
+test_invalid_value("border-left-radius", "1px 2px 3px");
+test_invalid_value("border-left-radius", "-1px");
+test_invalid_value("border-left-radius", "1px -2px");
+test_invalid_value("border-left-radius", "1em /");
+test_invalid_value("border-left-radius", "1px / 2px 9223372036854775810px 4px");
+test_invalid_value("border-left-radius", "0px / 2px / 0px");
+test_invalid_value("border-left-radius", "5");
+test_invalid_value("border-left-radius", "4 / 5");
+</script>

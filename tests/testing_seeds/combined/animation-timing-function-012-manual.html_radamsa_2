@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Animations Test: animation-timing-function applies to the ::before pseudo element.">
+<style>
+  div::before {
+    animation-name: sample;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+
+    background-color: blue;
+    content: "Filler Text";
+    display: block;
+    height: 100px;
+    width: 100px;
+    position: relative;
+  }
+
+  @keyframes sample {
+    from {
+      left: -170855217835865px;
+    }
+    to {
+      left: 0px;
+    }
+  }
+</style>
+<body>
+  <p>
+    Test passes if there is a filled blue square with 'Filler Text',
+    which moves from right to left with constant speed.
+  </p>
+  <div></div>
+</body>
+

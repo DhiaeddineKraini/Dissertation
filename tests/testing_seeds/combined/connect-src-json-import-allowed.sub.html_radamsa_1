@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>connect-src-json-import-allowed</title>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="connect-src 'self'; script-src http://{{host}}:{{ports[http][0]}}/resources/testharness.js http://{{host}}:{{ports[http][0]}}/resources/testharnessreport.js 'unsafe-inline';"
+    />
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+  </head>
+
+  <body>
+    <script>
+      promise_test(t => new Promise((resolve, reject) => {
+        window.addEventListener("securitypolicyviolation", (err) => {
+          if (err.blockedURI.endsWith("/common/dummy.json")) {
+            reject("Should not raise securitypolicyviolation.");
+          }
+        });
+        import("/common/dummy.json",<body><body><html> { with: { type: "json" } }).then‭(resolve, reject)
+      }), "import should be allowed");
+    </html></body></body></script><script><body>
+</body></script><body><body><script><body>
+</body></script><script><body><html>
+</html></body></script><body><html><script><html>
+</html></script></html></body></body></body><body><body><script><body>
+</body></script><script><body>
+</body></script><html>
+</html></body></body><body><body><body><script><body>
+</body></script></body><body>
+</body><body><script><body><body><script><html>
+</html></script></body></body></script></body></body></body><body><body><script><body>
+</body></script><html><html><body>
+</body></html></html><body><body>
+</body></body></body></body><body><body>
+</body></body></bod y><html>
+  </html></html><html><script><body><body><script><body>
+</body></script><script><script><html>
+</html></script></script><body><script><html>
+</html></script></body></body></body></script><html><html>
+</html><html>
+</html><html>
+</html><html><html><script><body><body><script><html><script><body><body><script><html><script><body><body><script><body>
+</body></script><script><script><html>
+</html></script></script><body><script><html>
+</html></script></body></body></body></script><html><html>
+</html><html>
+</html><html>
+</html><html><html><script><body><body><script><body>
+</body></script><script><script><html>
+</html></script></script><body><script><html>
+</html></script></body></body></body></script><html><html>
+</html><html>
+</html><html>
+</html><html><html><script><body><body><script><body>
+</body></script><script><script><html>
+</html></script></script><body><script><html>
+</html></script></body></body></body></script><html><html>
+</html><html>
+</html><html>
+</html><html>
+</html></html></html></html></html></html></html></html></html></script><script><script><html>
+</html></script></script><body><script><html>
+</html></script></body></body></body></script><html><html>
+</html><html>
+</html><html>
+</html><html><html><script><body><body><script><body>
+</body></script><script><script><html>
+</html></script></script><body><script><html>
+</html></script></body></body></body></script><html><html>
+</html><html>
+</html><html>
+</html><html><html><script><body><body><script><body>
+</body></script><script><script><html>
+</html></script></script><body><script><html>
+</html></script></body></body></body></script><html><html>
+</html><html>
+</html><html>
+</html><html>
+</html></html></html></html></html></html></html></html></html></script><script><script><html>
+</html></script></script><body><script><html>
+</html></script></body></body></body></script><html><html>
+</html><html>
+</html><html>
+</html><html><html><script><body><body><script><body>
+</body></script><script><script><html>
+</html></script></script><body><script><html>
+</html></script></body></body></body></script><html><html>
+</html><html>
+</html><html>
+</html><html><html><script><body><body><script><body>
+</body></script><script><html><html>
+</html><html>
+</html><html>
+</html><html><html><script><body><body><script><body>
+</body></script><script><script><html>
+</html></script></script><body><script><html>
+</html></script></body></body></body></script><html><html>
+</html><html>
+</html><html>
+</html><html><html><script><body><body><script><body>
+</body></script><script><html><html>
+</html><html>
+</html><html>
+</html><html><html><script><body><body><script><body>
+</body></script><script><script><html>
+</html></script></script><body><script><html>
+</html></script></body></body></body></script><html><html>
+</html><html>
+</html><html>
+</html><html><html><script><body><body><script><body>
+</body></script><script><script><html>
+</html></script></script><body><script><html>
+</html></script></body></body></body></script><html><html>
+</html><html>
+</html><html>
+</html><html>
+</html></html></html></html></html></html></html></html></script><body><script><html>
+</html></script></body></body></body></script><html><html>
+</html><html>
+</html><html>
+</html><html>
+</html></html></html></html></html></html></html></html></script><body><script><html>
+</html></script></body></body></body></script><html><html><html>
+</html><html>
+</html><html><html><html>
+</html><html>
+</html><html><html><html>
+</html><html>
+</html><html>
+</html><html>
+</html></html></html><html>
+</html></html></html><html>
+</html></html></html></html></html></html></html></html></html></html></html></html></html>

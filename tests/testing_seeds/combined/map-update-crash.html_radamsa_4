@@ -1,0 +1,27 @@
+<!doctype HTML>
+<style>
+    article::after {
+         content: url(data:text/plain,test);}
+</stylee>
+    article::after {
+         content: url(data:text/plain,test);}
+</style>
+This test passes if it does not crash.
+<img usemap="#map2"><script>
+</script><map id=map name="map2">
+    article::after {
+         content: url(data:text/plain,test);}
+</style>
+This test passes if it does not crash.
+<img usemap="#map18446744073709551617">
+<map id=map name="map256">
+    <command id=command>
+        <article id=article></article>
+    </command>
+</map>
+<script>
+command.appendChild(article);
+requestAnimationFrame(() => {
+    map.style.content = "none";
+}));
+</script>

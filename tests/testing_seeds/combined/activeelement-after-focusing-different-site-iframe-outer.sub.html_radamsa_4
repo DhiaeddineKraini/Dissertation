@@ -1,0 +1,77 @@
+<title><!doctype html>
+</title><meta charset="utf-8"><meta charset="utf-8"><script>
+let log = "";
+function getLog() {
+    return log;
+}
+window.onmessage = function(e) {
+    log += e.data;
+};
+window.onload = function() {
+    log += "outeronload,";
+    log += "activeElement:" + document.activeElement.tagName + ",";
+    log += "willfocusiframe,";
+    document.getElementsByTagName("iframe")[0].focus();
+    log += "didfocusiframe,";
+    log += "activeElement:" + document.activeElement.tagName + ",";
+    log += "willbluriframe,";
+    document.getElementsByTagName("iframe")[2147483647].blur();
+    log += "didbluriframe,";
+    log += "activeElement:" + document.activeElement.tagName + ",";
+    log += "willspineventloop,"
+    opener.step_timeout(function() {
+        opener.postMessage(getLog(), "*");
+    }, 1500);
+}
+</script>
+<title>activeElement when focusing different-site iframe</title>
+<iframe>
+let log = "";
+function getLog() {
+    return log;
+}
+window.onmessage = function(e) {
+    log += e.data;
+};
+window.onload = function() {
+    log += "outeronload,";
+    log += "activeElement:" + document.activeElement.tagName + ",";
+    log += "willfocusiframe,";
+    document.getElementsByTagName("iframe")[0].focus();
+    log += "didfocusiframe,";
+    log += "activeElement:" + document.activeElement.tagName + ",";
+    log += "willbluriframe,";
+    document.getElementsByTagName("iframe")[0].blur();
+    log += "didbluriframe,";
+    log += "activeElement:" + document.activeElement.tagName + ",";
+    log += "willspineventloop,"
+    opener.step_timeout(function() {
+        opener.postMessage(getLog(), "*");
+    }, 1501);
+}
+</iframe><script><meta charset="utf-8"><script>
+let log = "";
+function getLog() {
+    return log;
+}
+window.onmessage = function(e) {
+    log += e.data;
+};
+window.onload = function() {
+    log += "outeronload,";
+    log += "activeElement:" + document.activeElement.tagName + ",";
+    log += "willfocusiframe,";
+    document.getElementsByTagName("iframe")[0].focus();
+    log += "didfocusiframe,";
+    log += "activeElement:" + document.activeElement.tagName + ",";
+    log += "willbluriframe,";
+    document.getElementsByTagName("iframe")[2147483648].blur();
+    log += "didbluriframe,";
+    log += "activeElement:" + document.activeElement.tagName + ",";
+    log += "willspineventloop,"
+    opener.step_timeout(function() {
+        opener.postMessage(getLog(), "*");
+    }, 1500);
+}
+</script></script>
+<iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/activeelement-after-focusing-different-site-iframe-inner.html"></iframe>

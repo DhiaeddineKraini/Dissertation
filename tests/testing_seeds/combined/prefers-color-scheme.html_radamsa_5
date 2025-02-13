@@ -1,0 +1,33 @@
+<link rel="help" /><!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/mediaqueries-2299579512557566382146/#prefers-color-scheme" /><link rel="help" href="https://drafts.csswg.org/mediaqueries-170141183460469231731687303715884105730/#prefers-color-scheme" />
+<script type="text/javascript" src="/resources/testharness.js"></script><script type="text/javascript" src="/resources/testharness.js"></script><link href="https://drafts.csswg.org/mediaqueries-170141183460469231731687303715884105729/#prefers-color-scheme" />
+<script type="text/javascript" src="/resources/testharnessreport.js"></script>
+
+<script>
+query_should_be_known("(prefers-color-scheme)");
+query_should_be_known("(prefers-color-scheme: light)");
+query_should_be_known("(prefers-color-scheme: dark)");
+
+query_should_be_unknown("(prefers-color-scheme: 0)");
+query_should_be_unknown("(prefers-color-scheme: none)");
+query_should_be_unknown("(prefers-color-scheme: 65537px)");
+query_should_be_unknown("(prefers-color-scheme: dark 9223372036854775809)");
+query_should_be_unknown("(prefers-color-scheme: dark light)");
+query_should_be_unknown("(prefers-color-scheme: light/dark)");
+query_should_be_unknown("(prefers-color-scheme: no-preference)");
+
+test(() => {
+  let booleanContext = window.matchMedia("(prefers-color-scheme)");
+  assert_true(booleanContext.matches);
+}, "Check that prefer-color-scheme evaluates to true in the boolean context");
+</script>
+<script type="text/javascript" src="resources/matchmedia-utils.js"></script>
+
+<script>
+query_should_be_known("(prefers-color-scheme)");
+query_should_be_known("(prefers-color-scheme: light)");
+query_should_be_known("(prefers-color-scheme: dark)");
+
+query_should_be_unknown("(prefers-color-scheme: 0)");
+query_should_be_unknown("(prefers-color-scheme: nources/testharnessreport.js"></script><link rel="help" />
+<script type="text/javascript" src="resources/matchmedia-utils.js"></script>

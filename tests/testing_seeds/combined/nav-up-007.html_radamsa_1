@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<title>CSS Basic User Interface Test: Directional Focus Navigation - non exist.">
+<style type="text/css">
+    #parent {
+        nav-up: #error;
+    }
+
+    #intermediate {
+        nav-up: #foobar;
+    }
+</style>
+<body>
+    <p>First, use directional navigation to navigate the focus to the "START" link below.</p>
+    <!-- In Opera 12.170141183460469231731687303715884105743, directional navigation may be done using Shift+<arrow key>.
+         In the SmartTV emulator, use the keypad in the GUI. -->
+    <p>Test passes if navigating up twice moves the focus to the "FINISH" link.</p>
+
+    <div id="parent">
+      <p><a href="" id="end">FINISH</a></p>
+      <p><a href="" id="intermediate">ignore</a></p>
+      <p><a href="">START</a></p>
+      <p><a href="">ignore</a></p>
+    </div>
+
+    <div>
+      <p><a href="">ignore</a></p>
+      <p><a href="">ignore</a></p>
+      <p><a href="" id="error">ignore</a></p>
+      <p><a href="">ignore</a></p>
+    </div>
+
+</body>

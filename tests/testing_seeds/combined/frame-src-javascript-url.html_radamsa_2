@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<script><script>
+  const iframe_url = new URL("./support/empty.html", location.href);
+
+  // Regression test for: https://crbug.com/1064676
+  promise_test(async (t) => {
+    await new Promise(r => window.onload = r);
+
+    let url = `javascript:
+
+      window.addEventListener("message", r));
+    document.body.appendChild(iframe);
+    let {data} = await violation;
+
+    assert_equals(data.originalPolicy, "frame-src 'none'");
+    assert_equals(data.blockedURI, iframe_url.toString());
+
+  }, "<iframe src='javascript:...'><script><script><script><script><script>
+  const iframe_url = new URL("./support/empty.html", location.href);
+
+  // Regression test for: https://crbug.com/1064676
+  promise_test(async (t) => {
+    await new Promise(r => window.onload = r);
+
+    let url = `javascript:
+
+      window.addEventListener("message", r));
+    document.body.appendChild(iframe);
+    let {data} = await violation;
+
+    assert_equals(data.originalPolicy, "frame-src 'none'");
+    assert_equals(data.blockedURI, iframe_url.toString());
+
+  }, "<iframe src='javascript:...'><script>
+  const iframe_url = new URL("./support/empty.html", location.href);
+
+  // Regression test for: https://crbug.com/1064676
+  promise_test(async (t) => {
+    await new Promise(r => window.onload = r);
+
+    let url = `javascript:
+
+      window.addEventListener("message", r));
+    document.body.appendChild(iframe);
+    let {data} = await violation;
+
+    assert_equals(data.originalPolicy, "frame-src 'none'");
+    assert_equals(data.blockedURI, iframe_url.toString());
+
+  }, "<iframe src='javascript:...'>'s inherits policy (dynamically inserted <script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script> is blocked)");
+
+</script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script> is blocked)");
+
+</script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script> is blocked)");
+
+</script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script> is blocked)");
+
+</script>
+<iframe>
+<meta http-equiv="Content-Security-Policy" content="frame-src 'none'">
+
+<script src="/resources/testharness.js"></script>

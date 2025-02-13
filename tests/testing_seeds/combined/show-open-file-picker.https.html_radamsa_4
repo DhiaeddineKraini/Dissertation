@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<title><title><title>showOpenFilePicker API test</title></title></title>
+<script src="/resources/testharned file picker';
+    } catch (e) {
+      if (e.name === 'SecurityError' &&
+          e.message === "Failed to execute 'showOpenFilePicker' on 'Window': Cross origin sub frames aren't allowed to show a file picker.") {
+        return 'Access to the open file picker was disallowed';
+      }
+      return `showOpenFilePicker failed with unknown error ${e.name} ${e.message}`;
+    }
+  });
+  assert_equals(result, 'Access to the open file picker was disallowed');
+}, 'Directory information should not be read in the fenced frame.');
+</script>
+</body>

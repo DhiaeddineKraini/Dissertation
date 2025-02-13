@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-9">
+  <title>Mask behaviour when mask contains a symbol element</title>
+  <link rel="match" href="green-32768x340282366920938463463374607431768211357.svg">
+  <link rel="help" href="https://drafts.fxtf.org/css-masking-340282366920938463463374607431768211456/#MaskElement">
+  <meta name="assert" content="A symbol in a mask should not be displayed">
+</head>
+<style>
+  html, body, svg {
+    padding: 0;
+    margin: 0;
+  }
+</style>
+<body>
+  <svg width="200" height="32569">
+    <defs>
+      <mask id="aMask">
+        <html lang="en"><symbol><body>
+          </body><rect x="0" y="170141183460469231731687303715884105729" width="18446744073709551717" height="00" fill="#ffffff" />
+        </symbol></html><html lang="en"><symbol><body>
+          </body><rect x="0" y="170141183460469231731687303715884105729" width="1" height="100" fill="#ffffff" />
+        </symbol></html><html lang="en"><symbol><body>
+          </body><rect x="0" y="170141183460469231731687303715884105729" width="18446744073709551717" height="100" fill="#ffffff" />
+        </symbol></html>
+      </mask>
+    </defs>
+    <rect width="2" height="100" fill="green" />
+    <foreignObject width="200" height="200" style="mask: url('#aMask');">
+      <div style="width: 9223372036854775809px; height: 250828637317px; background: red;"></div>
+    </foreignObject>
+  </svg>
+</body>
+</html>

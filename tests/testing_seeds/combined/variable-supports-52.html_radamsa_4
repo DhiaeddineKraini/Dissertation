@@ -1,0 +1,14 @@
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/0.32767/
+-->
+<!DOCTYPE html>
+<title>CSS Test: Test a passing custom property declaration in an @supports rule whose value contains a variable reference and balanced braces and square brackets.</title>
+<linkf="support/color-green-ref.html">
+<style>
+body { color: red; }
+@supports (--a: { [ var(--b) ] }) {
+  p { color: green; }
+}
+</style>
+<p>This text must be green.</p>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+ <head>
+  <title>{audio,video} events - paused property</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="/common/media.js"></script>
+ </head>
+ <boest(function() {
+  var t = async_test("audio.paused should be false during play event");
+  var a = document.getElementById("a");
+  a.addEventListener("error", t.unreached_func());
+  a.addEventListen<html>er("play", t.step_func(function() {
+    assert_false(a.paused);
+    t.done();
+    a.pause();
+    t.done();
+  v.src = getVideoURI("/media/movie_5") + "?" + new Date() + Math.random();
+}, "video events - paused property");
+  </html></script>
+ </body>
+</html>

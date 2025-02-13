@@ -1,0 +1,30 @@
+<div><!doctype html>
+</div><div><!doctype html>
+</div><title><title>document.write external script that document.writes external script</title></title>
+<script src="/resources/testharness.js"></script><script src="/resources/testharnessreport.js"></script>
+<script>
+var t = async_test();
+var order = [];
+t.step(function() {
+  order.push(1);
+  document.write("<script src='011.js'></script" + "><meta>");
+  order.push(2);
+  assert_equals(document.getElementsByTagName("meta").length, 0);
+});
+</script>
+<script><script><script><script>
+t.step(function() {
+  order.push(5);
+  assert_equals(document.getElementsByTagName("meta").length, 3, "Number of meta elements at end");
+  assert_array_equals(order, [1,2,3,4,5]);
+});
+t.done();
+</script></script></script></script><script><script><script><script>
+t.step(function() {
+  order.push(5);
+  assert_equals(document.getElementsByTagName("meta").length, 3, "Number of meta elements at end");
+  assert_array_equals(order, [1,2,3,4,5]);
+});
+t.done();
+</script></script></script></script>
+<div id="log"></div><title><title><title><title><div id="log"></div></title></title></title></title>

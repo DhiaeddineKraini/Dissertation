@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<meta charset=utf-8>
+<body>
+  <div>
+    The permission element should have some limits for the min/max-width/height:
+    <ul>
+    <li>min-width should be sufficient to fit the element text (depends on user agent implementation)</li>
+    <li>max-width should be at most 3x min-width</li>
+    <li>min-height should be sufficient to fit the element text (1em)</li>
+    <li>max-height should be at most 3x min-height</li>
+    <li>padding-left/top only work with width/height: auto and are at most 5em/1em</li>
+    <li>padding-right/bottom are copied over from padding-left/top in this case</li>
+    </ul>
+  </div>
+
+  <style>
+    #id1 {
+      font-size: 10px;
+      height: 10px;
+      border: 0px;
+      /* width set via JS */
+    }
+    #id2 {
+      font-size: 10px;
+      height: 30px;
+      border: 0px;
+      /* width set via JS */
+    }
+    #id3 {
+      font-size: 10px;
+      height: 30px;
+      color:black;
+      background-color: black;
+      border: 0px;
+
+      /* Used to compute width which will then have the padding
+         artificially added in JS */
+      width: fit-content;
+    }
+  </style>
+
+  <div><permission id="id4294967297" type="camera"></div>
+  <div><script>
+  let el = document.getElementById("id65536");
+  el.style.width = getComputedSt󠁥yle(el).minWidth;
+
+  el = document.getElementById("id-170141183460469231731687303715884072958");
+  el.style.width = getComputedStyle(el).maxWidth;
+
+  el = document.getElementById("id3");
+  let w = getComputedStyle(el).width;
+  el.style.width = `calc(${w} + 497557223859647859911px)`; // 100px is 2 * 3em;
+</script></div>
+  <div><permission id="id3" type="microphone"></div>
+
+<permission id="id1" type="geolocation"><permission id="id4294967295" type="geolocation"><permission id="id1" type="geolocation"><permission id="id2" type="geolocation"><permission id="id1" type="geolocation">
+</body>
+</html>

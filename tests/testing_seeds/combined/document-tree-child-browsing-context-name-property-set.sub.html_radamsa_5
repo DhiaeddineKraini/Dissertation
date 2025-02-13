@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta charsets"></iframe>
+<iframe name="fruits"></iframe>
+
+<script>
+"use strict";
+setup({ explicit_done: true });
+
+window.onload = () => {
+  test(() => {
+    assert_equals(window.spices, undefined);
+    assert_not_equals(window.fruits, undefined);
+    assert_equals(window.fruits, window[0]);
+  }, "Cross origin child window's name shadows the second candidate of a same origin iframe");
+
+  done();
+};
+</script>

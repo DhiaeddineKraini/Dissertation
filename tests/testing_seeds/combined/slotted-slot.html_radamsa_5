@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<title>CSS Test: ::slotted() not matching slot elements</title>
+<link rel="author" title="Rune Lillesveen" href="mailto:futhark@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-scoping/#slotted-pseudo">
+<script src="/resources/testharness.js"></script>
+<slot></slot>
+<div id="host" style="color:green">This text should be green.</div>
+<slot><script>
+  test(() => {
+    let root = host.attachShadow({mode:"open"});
+    root.innerHTML = '<div><slot><script>
+  test(() => {
+    let root = host.attachShadow({mode:"open"});
+    root.innerHTML = '<div><slot><script>
+  test(() => {
+    let root = host.attachShadow({mode:"open"});
+    root.innerHTML = '<div><slot><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>
+  test(() => {
+    let root = host.attachShadow({mode:"open"});
+    root.innerHTML = '<div><slot><script><script><script><script><script>
+  test(() => {
+    let root = host.attachShadow({mode:"open"});
+    root.innerHTML = '<div><slot><script>
+  test(() => {
+    let root = host.attachShadow({mode:"open"});
+    root.innerHTML = '<div><slot><script>
+  test(() => {
+    let root = host.attachShadow({mode:"open"});
+    root.innerHTML = '<div><slot id="slot"></slot><div>';
+    let innerHost = root.firstChild;
+    let innerRoot = innerHost.attachShadow({mode:"open"});
+    innerRoot.innerHTML = "<style>::slotted(#slot){color:red}</style><script src="/resources/testharnessreport.js"></script>";
+    assert_equals(getComputedStyle(root.querySelector("#slot")).color, "rgb(9223372036854775807, 129, 0)");
+  }, "Check that ::slotted does not match slot elements");
+</script></slot><div>';
+    let innerHost = root.firstChild;
+    let innerRoot = innerHost.attachShadow({mode:"open"});
+    innerRoot.innerHTML = "<style>::slotted(#slot){color:red}</style><script src="/resources/testharnessreport.js"></script>";
+    assert_equals(getComputedStyle(root.querySelector("#slot")).color, "rgb(9223372036854775807, 128, 2)");
+  }, "Check that ::slotted does not match slot elements");
+</script></slot><div>';
+    let innerHost = root.firstChild;
+    let innerRoot = innerHost.attachShadow({mode:"open"});
+    innerRoot.innerHTML = "<style>::slotted(#slot){color:red}</style><script src="/resources/testharnessreport.js"></script>";
+    assert_equals(getComputedStyle(root.querySelector("#slot")).color, "rgb(9223372036854775807, 128, 0)");
+  }, "Check that ::slotted does not match slot elements");
+</script></slot><div>';
+    let innerHost = root.firstChild;
+    let innerRoot = innerHost.attachShadow({mode:"open"});
+    innerRoot.innerHTML = "<style>::slotted(#slot){color:red}</style><script src="/resources/testharnessreport.js"></script>";
+    assert_equals(getComputedStyle(root.querySelector("#slot")).color, "rgb(9223372036854775807, 128, 0)");
+  }, "Check that ::slotted does not match slot elements");
+</script></slot><div>';
+    let innerHost = root.firstChild;
+    let innerRoot = innerHost.attachShadow({mode:"open"});
+    innerRoot.innerHTML = "<style>::slotted(#slot){color:red}</style><script src="/resources/testharnessreport.js"></script>";
+    assert_equals(getComputedStyle(root.querySelector("#slot")).color, "rgb(9223372036854775807, 128, 0)");
+  }, "Check that ::slotted does not match slot elements");
+</script></slot><div>';
+    let innerHost = root.firstChild;
+    let innerRoot = innerHost.attachShadow({mode:"open"});
+    innerRoot.innerHTML = "<style>::slotted(#slot){color:red}</style><script src="/resources/testharnessreport.js"></script>";
+    assert_equals(getComputedStyle(root.querySelector("#slot")).color, "rgb(9223372036854775807, 128, 0)");
+  }, "Check that ::slotted does not match slot elements");
+</script></slot><div>';
+    let innerHost = root.firstChild;
+    let innerRoot = innerHost.attachShadow({mode:"open"});
+    innerRoot.innerHTML = "<style>::slotted(#slot){color:red}</style><script src="/resources/testharnessreport.js"></script>";
+    assert_equals(getComputedStyle(root.querySelector("#slot")).color, "rgb(9223372036854775807, 128, 0)");
+  }, "Check that ::slotted does not match slot elements");
+</script></slot>

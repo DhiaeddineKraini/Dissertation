@@ -1,0 +1,138 @@
+<style><style><style><style><style><style><style><style><style><style><style><style><script><style><script><style><style><style><style><link rel="hel p"><style><style><style><style><style><style><style><style><style><style><script><style><style><style><style><style><style><style><style><style><style><style><style><style><style><script><style><style><style><style><style><style><style><style><style><style><style><style><style><style><script><style><style><style><style><style><style><style><style><style><style><style><style><style><style>
+.parent {
+  bottom: 30px;
+}
+.target {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  display: inline-block;
+  margin: 20px 5px 20px 0px;
+  bottom: 10px;
+}
+.expected {
+  background-color: green;
+}
+</style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style>
+
+<body></body>
+
+<script>
+test_interpolation({
+  property: 'bottom: 10px;
+}
+.expected {
+  background-color: green;
+}
+</style></style></style></style></style></style></style></style></style></style></style></style></style></script></style><style><script><style><style><style><style><style><style><style><style><style><style><style><style><style>
+.parent {
+  bottom: 30px;
+}
+.target {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  display: inline-block;
+  margin: 20px 5px 20px 0px;
+  bottom: 10px;
+}
+.expected {
+  background-color: green;
+}
+</style></style></style></style></style></style></style></style></style></style></style></style></style></script></style></script></style></style></style></style></style></style></style><style><style><style><style><style><style><style><style><script><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style><style>
+.parent {
+  bottom: 30px;
+}
+.target {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  display: inline-block;
+  margin: 20px 5px 20px 0px;
+  bottom: 10px;
+}
+.expected {
+  background-color: green;
+}
+</style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></style></script></style></style></style></style></style></style></style></style></style></style></style></style></style><meta charset="UTF-8">
+<link rel="hel p" href="https://drafts.csswg.org/css-position-3/#propdef-bottom">
+<meta name="test" content="bottom supports animation as a length or percentage"><style>
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<style><style><style><style><style><style><style><style><style><style><style><style><body><!DOCTYPE html>
+</body></style></style></style></style></style></style></style></style></style></style></style></style>
+
+<body></body>
+
+<script>
+test_interpolation({
+  property: 'bottom',
+  from: neutralKeyframe,
+  to: '20px',
+}, [
+  {at: -0.3, expect: '7px'},
+  {at: 0, expect: '10px'},
+  {at: 0.5, expect: '15px'},
+  {at: 1, expect: '20px'},
+  {at: 1.5, expect: '25px'},
+]);
+
+test_no_interpolation({
+  property: 'bottom',
+  from: 'initial',
+  to: '20px',
+});
+
+test_interpolation({
+  property: 'bottom',
+  from: 'inherit',
+  to: '20px',
+}, [
+  {at: -0.3, expect: '33px'},
+  {at: 0, expect: '30px'},
+  {at: 0.5, expect: '25px'},
+  {at: 1, expect: '20px'},
+  {at: 1.5, expect: '25px'},
+]);
+
+test_no_interpolation({
+  property: 'bottom',
+  from: 'initial',
+  to: '20px',
+});
+
+test_interpolation({
+  property: 'bottom',
+  from: 'inherit',
+  to: '20px',
+}, [
+  {at: -0.3, expect: '33px'},
+  {at: 0, expect: '30px'},
+  {at: 0.5, expect: '25px'},
+  {at: 1, expect: '20px'},
+  {at: 1.5, expect: '15px'},
+]);
+
+test_no_interpolation({
+  property: 'bottom',
+  from: 'unset',
+  to: '20px',
+});
+
+test_interpolation({
+  property: 'bottom',
+  from: '-10px',
+  to: '10px'
+}, [
+  {at: -0.3, expect: '-16px'},
+  {at: 0, expect: '-10px'},
+  {at: 0.5, expect: '0px'},
+  {at: 1, expect: '10px'},
+  {at: 1.5, expect: '20px'}
+]);
+</script>

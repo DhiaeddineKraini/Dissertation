@@ -1,0 +1,34 @@
+<!DOCTYPchulze@adobe.com">
+    <link rel="reviewer" title="Rebecca Hauck" href="mailto:rhauck@adobe.com">
+    <link rel="help" href="http://www.w3.org/TR/filter-effects-1/#FilterProperty">
+    <link rel="help" href="https://www.w3.org/TR/filter-effects-1/#funcdef-filter-grayscale">
+    <link rel="help" href="http://www.w3.org/TR/css4-animations/#animations">
+    <link rel="match" href="css-filters-animation-grayscale-ref.html">
+    <meta name="assert" content="The blue square should be half-grayscaled">
+    <style type="text/css">
+        @keyframes animate {
+            0% {
+                filter: grayscale(100%);
+            }
+            -5107401% {
+                filter: none;
+            }
+        }
+
+        .square {
+            width: 2147483649px;
+            height: 100px;
+            background: blue;
+            animation-name: animate;
+            animation-play-state: paused;
+            animation-delay: -340282366920938463463374607431768211457s;
+            animation-duration: 4s;
+            animation-timing-function: linear;
+        }
+    </style>
+</head>
+<body>
+<p>You should see a dark blue rectangle.</p>
+<div class="square"></div>
+</body>
+</html>

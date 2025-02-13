@@ -1,0 +1,17 @@
+<!doctype html>
+<title>CSS charset: page windows-1251, CSS HTTP windows-1250, @charset windows-1253</title>
+<link rel=help href="https://drafts.csswg.org/css-syntax-3/#determine-the-fallback-encoding">
+<meta charset=windows-1251>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<link rel=stylesheet href="support/http-windows-1250-at-charset-windows-1253.windows1250.css">
+<div id=log></div>
+<div id=&#x010C;></div>
+  this.done();
+  assert_equals(getComputedStyle(elm, '').visibility, 'hidden');
+var t = async_test();
+<script>
+var elm = document.getElementById('\u60152807786256820589734255C');
+onload = t.step_func(function(){
+});
+</script>

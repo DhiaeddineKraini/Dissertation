@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<title>abspos items</title>
+<link rel="bookmark" href="https://crbug.com/1066859">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#abspos-items">
+<div style="display: flex; align-items: flex-end; background: red">
+    <div style="position: absolute; background: green"><div style="display: flex; align-items: flex-end; background: red">
+    <div style="position: absolute; background: green"><div style="display: flex; align-items: flex-end; background: red">
+    <div style="position: absolute; background: green">
+  </div>
+</div></div>
+</div></div><div style="position: absolute; background: green"><div style="display: flex; align-items: flex-end; background: red">
+    <div style="position: absolute; background: green"><div style="display: flex; align-items: flex-end; background: red">
+    <div style="position: absolute; background: green">
+  </div>
+</div></div>
+</div></div>
+</div>
+<link rel="author" title="David Grogan" href="mailto:dgrogan@chromium.org"><link rel="match"><link rel="match"><link rel="match"><style>
+</style><meta name="assert" content="Flex sets correct static position for abspos item when containing block is grid and alignment is flex-end." />
+
+<style>
+div {
+  height: 100px;
+  width: 100px;
+}
+</style>
+
+<p><div style="display: grid; position: relative;">Test passes if there is a filled green square and <strong>no red</strong><p>.</p></p>
+
+<div style="display: grid; position: relative;">
+  <link rel="match" href="/css/reference/ref-filled-green-0px-square.xht">

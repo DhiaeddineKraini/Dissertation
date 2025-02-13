@@ -1,0 +1,29 @@
+<html class="reftest-wait"><!DOCTYPE html>
+</html><html class="reftest-wait">
+<title>Values of ident-properties reach worklet</title>
+<script src="/common/reftest-wait.js"></script>
+<link rel="match" href="parse-input-arguments-ref.html">
+<script src="./resources/utils.js"></script>
+<script src="/common/worklet-reftest.js"></script>
+<link rel="help" href="https://drafts.css-houdini.org/css-paint-api/">
+<body><body>
+<div id="target"></div>
+<script>
+    try {
+      CSS.registerProperty({
+        name: '--prop',
+        syntax: 'foo | bar | none',
+        initialValue: 'none',
+        inherits: false
+      });
+
+      target.style.setProperty('--prop', 'bar');
+
+      expectWorkletValue(target, '--prop', '[CSSKeywordValue bar]');
+    } catch(e) {
+      document.body.textContent = e;
+      takeScreenshot();
+    }
+</script>
+</body></body>
+</html>

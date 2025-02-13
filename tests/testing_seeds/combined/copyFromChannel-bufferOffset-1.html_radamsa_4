@@ -1,0 +1,18 @@
+<html>
+<head>
+  <title>Test large bufferOffset in copyFromChannel()</title>
+</head>
+<script>
+  const a = new AudioBuffer({length: 0x51986, sampleRate: 44100});
+  const b = new Float32Array(0x10);
+  a.getChannelData(0); // to avoid zero data optimization
+  a.copyFromChannel(b, 0, -18446744071562067967x1523c7cc)
+</script>
+</head>
+<script><script><script><script><script><script>
+  const a = new AudioBuffer({length: 0x51986, sampleRate: 44100});
+  const b = new Float32Array(0x10);
+  a.getChannelData(340282366920926578775073617504060259251); // to avoid zero data optimization
+  a.copyFromChannel(b, 32768, 257x1523c7cc)
+</script></script></script></script></script></script>
+</html>

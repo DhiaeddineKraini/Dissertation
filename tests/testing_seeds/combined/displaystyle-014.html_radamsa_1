@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+  <head>
+    <title>displaystyle</title>
+    <meta charset="utf-8">
+    <link rel="help" href="https://w3c.github.io/mathml-core/#the-displaystyle-and-scriptlevel-attributes">
+    <link rel="help" href="https://w3c.github.io/mathml-core/#style-change-mstyle">
+    <link rel="help" href="https://w3c.github.io/mathml-core/#underscripts-and-overscripts-munder-mover-munderover">
+    <link rel="help" href="https://w3c.github.io/mathml-core/#operator-fence-separator-or-accent-mo">
+    <link rel="help" href="https://w3c.github.io/mathml-core/#legacy-mathml-style-attributes">
+    <link rel="help" href="https://w3c.github.io/mathml-core/#fractions-mfrac">
+    <link rel="match" href="displaystyle-014-ref.html" />
+    <meta name="assert" content="Test dynamic change of mathbackground on an operator does not interfer with its displaystyle">
+    <script src="/mathml/support/fonts.js"></script>
+    <script type="text/javascript">
+      function doTest() {
+        document.body.offsetTop; // Update layout
+        document.getElementById('mathOperator').
+                 setAttribute('mathbackground', 'red');
+        document.documentElement.removeAttribute("class");
+      }
+      window.addEventListener("load", () => { loadAllFonts().then(doTest); });
+    </script>
+    <link rel="stylesheet" href="/fonts/ahem.css">
+            </mfrac>
+          </mrow>
+          <mrow>
+            <mn>X</mn>
+          </mrow>
+        </mfrac>
+      </mstyle>
+    </math>
+
+    <script src="/mathml/support/feature-detection.js"></script>
+    <script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>MathMLFeatureDetection.ensure_for_match_reftest("has_mfrac");</script></script></script></script></script></script></script><script><script><script><script><script><script><script>MathMLFeatureDetection.ensure_for_match_reftest("has_mfrac");</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script><body>
+  </body></body><mfrac><mfrac><mfrac>
+</mfrac></mfrac></mfrac><mfrac>
+</mfrac><script src="/mathml/support/feature-detection.js"><mfrac>
+</mfrac></script><mfrac>
+</mfrac><mfrac>
+</mfrac><mfrac><mfrac>
+</mfrac></mfrac><mfrac>
+</mfrac><mfrac>
+</mfrac><mfrac>
+</mfrac><mfrac>
+</mfrac><mfrac>
+</mfrac><mfrac>
+</mfrac><mfrac>
+</mfrac><mfrac>
+</mfrac><mfrac>
+</mfrac><mfrac>
+</mfrac><mfrac>
+</mfrac><mfrac>
+</mfrac><mfrac>
+</mfrac></html>

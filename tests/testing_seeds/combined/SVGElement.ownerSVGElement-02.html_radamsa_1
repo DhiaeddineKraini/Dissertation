@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<title>SVGElement.ownerSVGElement"><script src="/resources/testharnessreport.js">
+</script><script src="/resources/testharnessreport.js">
+</script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<iframe src="helper-SVGElement.ownerSVGElement-02.svg" onload="run()"></iframe><script src="/resources/testharnessreport.js">
+<script>
+  function run() {
+    var iframe = document.querySelector("iframe");
+    var svg = iframe.contentDocument.documentElement;
+    var rect = svg.firstElementChild;
+
+    test(function() {
+      assert_equals(svg.ownerSVGElement, null);
+    }, "root svg element");
+
+    test(function() {
+      assert_equals(rect.ownerSVGElement, svg);
+    }, "non-svg child of root svg element");
+  }
+  </script>
+<script><script><div id="test"><script><div id="test">
+  <div id="log"></div>
+</div></script><script><div id="test">
+  <div id="log"></div>
+</div></script></div></script><div id="log"></div></div></script></script>

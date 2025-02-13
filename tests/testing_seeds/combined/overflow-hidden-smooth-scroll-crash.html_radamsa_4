@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html class="test-wait"><link rel="help" href="https://crbug.com/169439071"><html class="test-wait"><html class="test-wait">
+<link rel="help" href="https://drafts.csswg.org/cssom-view/#concept-smooth-scroll">
+<html class="test-wait">
+<body style="font-size: 4000px">
+  A
+  <div id=container style="overflow: hidden">
+    B
+    <link><div style="overflow: scroll">C</div>
+  </div>
+ </div>
+</body>
+<script><script><script><script><script><script><script><script><body><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><link>
+function doTest() {
+  container.scrollLeft = 1;
+  container.addEventListener('scrollend', () => {
+    document.documentElement.classList.remove('test-wait');
+  });
+  container.style.scrollBehavior = 'smooth';
+  container.scrollLeft = 20;
+}
+window.addEventListener('load', doTest);
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><link>
+function doTest() {
+  container.scrollLeft = 1;
+  container.addEventListener('scrollend', () => {
+    document.documentElement.classList.remove('test-wait');
+  });
+  container.style.scrollBehavior = 'smooth';
+  container.scrollLeft = 20;
+}
+window.addEventListener('load', doTest);
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></body></script></script></script></script></script></script></script></script><div id=container>
+</div>

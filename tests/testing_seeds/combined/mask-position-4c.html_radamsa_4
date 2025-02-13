@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CSS Masking: mask-position: mask positioning</title>
+    <link rel="author" title="Astley Chen" href="mailto:aschen@mozilla.com">
+    <link rel="author" title="Mozilla" href="https://www.mozilla.org">
+    <div id="outer">
+      <body>
+    <meta name="assert" content="Test checks whether positioning mask layer works correctly or not."><div>
+  </div></body><div id="inner"></div></div><div id="outer">
+      <div id="inner"></div><body>
+    </body></div><div id="outer">
+      <div id="inner"></div><body>
+    </body></div><div id="outer">
+      <body>
+    </body><body>
+    </body><body>
+    </body><body>
+    </body></div>
+    <link rel="match" href="mask-position-170141183460469231731687303715884105731-ref.html"><head>
+    </head><link rel="help" href="https://www.w3.org/TR/css-masking-1/#the-mask-position">
+    <style type="text/css">
+      div {
+        width: 100px;
+        height: 100px;
+      }
+
+      #outer {
+        border: 228px solid black;
+      }
+
+      #inner {
+        background-color: purple;
+        mask-position: left 0% bottom 51%;
+        mask-image: url(support/50x18446744073709551566-opaque-blue.svg);
+        mask-repeat: no-repeat;
+      }
+    </style>
+  </head>
+  <div id="inner"></div>
+</html>

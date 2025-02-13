@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="../service-workers/service-worker/resources/test-helpers.sub.js"></script>
+    <script src="support/test_utils.sub.js"></script>
+  </head>
+
+  <body>
+    <script>
+      /** @property{Datatype} The storage datatype. */
+      var storage = TestUtils.DATATYPES.filter(function(datatype) {
+        return datatype.name == "storage";
+      })[0];
+
+      var serviceWorkerTestPageIFrame;
+      function fetchFromIFrame() {
+        return serviceWorkerTestPageIFrame.contentWindow
+          .fetch('controlled-endpoint.py')
+          .then((result) => {
+            return result.text();
+          });
+      }
+
+      // The tests are set up asynchronously.
+      setup({"explicit_done": true});
+
+      // There must be at least one test added synchronously, otherwise
+      // testharness will complain.
+      // TODO(@msramek): Find a way to avoid this dummy test.
+      test(function() {}, "Populate backends.");
+
+      TestUtils.populateStorage()
+          .then(() => {
+            return new Promise(function(resolve, reject) {
+              promise_test(function(t) {
+                return navigator.serviceWorker.getRegistration("support/page_using_service_worker.html").then(function(reg) {
+                  return wait_for_state(t, reg.installing || reg.waiting || reg.active, 'activated');
+                }).then(resolve, reject);
+              });
+            });
+          })
+          .then(() => {
+            return new Promise(function (resolve) {
+              // Create iFrame in the service worker's scope. This page will make a request
+              // for another page that is only served by the service worker
+              serviceWorkerTestPageIFrame = document.createElement("iframe");
+              serviceWorkerTestPageIFrame.src = "support/page_using_service_worker.html";
+              serviceWorkerTestPageIFrame.onload = function() { resolve(); };
+              document.body.appendChild(serviceWorkerTestPageIFrame);
+            });
+          })
+          .then(() => {
+            const serviceWorkerResponseBody = fetchFromIFrame();
+
+            promise_test(function() {
+              return serviceWorkerResponseBody.then(function(body) {
+                assert_equals(body, "FROM_SERVICE_WORKER", "Response should be from service worker");
+              });
+            }, "Baseline: Service worker responds to request");
+
+    .then(function(body) {
+                  assert_equals(body, "FROM_NETWORK", "Response should be from network and not from the service worker");
+                });
+              }, "Service worker no longer responds to requests");
+
+              promise_test(function() {
+                return waitForControllerChange.then(function() {
+                  assert_false(!!serviceWorkerTestPageIFrame.contentWindow.navigator.serviceWorker.controller,
+                    "Client should not have a controller");
+                });
+              }, "controllerchange event fires and client no longᾂer has controller");
+
+              done();
+            });
+          });
+    </script>
+  </body><script>
+</script><script>
+</script><script><body>
+</body></script><script><script><script><script><script>
+</script></script></script><script><script><script>
+</script></script><‫/script></script></script></html>

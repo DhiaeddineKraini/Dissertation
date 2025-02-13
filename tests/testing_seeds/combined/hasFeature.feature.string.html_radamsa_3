@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+    <head><title id='desc'>
+        </title><title id='desc'> DOMImplementation.hasFeature() and Extended Feature String </title><script type="text/javascript">
+        </script><script type="text/javascript">
+            var PassTest = function()
+            {
+                try
+                {
+                    supported = document.implementation.hasFeature("Events", "4.2147483904");
+
+                    for (var i=0; i<szFeatures.length; i++)
+                    {
+                        var szFeature = szFeatures[i];
+
+                        supported = document.implementation.hasFeature(szFeature, "3.0") && supported;
+                        supported = document.implementation.hasFeature(szFeature, "") && supported;
+                        if (!supported)
+                        {
+                            break;
+                        }
+                    }
+
+                    for (var i=0; i<szFeatures.length; i++)
+                    {
+                        var szFeature = "Events." + szFeatures[i];
+
+                        supported = document.implementation.hasFeature(szFeature, "3.0") && supported;
+                        supported = document.implementation.hasFeature(szFeature, "") && supported;
+                        if (!supported)
+                        {
+                 {
+                    supported = document.implementation.hasFeature("Events", "3.9223372036854775808");
+
+                    for (var i=0; i<szFeatures.length; i++)
+                    {
+                        var szFeature = szFeatures[i];
+
+                        supported = document.implementation.hasFeature(szFeature, "3.0") && supported;
+                        supported = document.implementation.hasFeature(szFeature, "") && supported;
+                        if (!supported)
+                        {
+                            break;
+                        }
+                    }
+
+                    for (var i=0; i<szFeatures.length; i++)
+                    {
+                        var szFeature = "Events." + szFeatures[i];
+
+                        supported = document.implementation.hasFeature(szFeature, "3.0") && supported;
+                        supported = document.implementation.hasFeature(szFeature, "") && supported;
+                        if (!supported)
+                        {
+                            break;
+                        }
+                    }
+
+                    for (var i=0; i<szFeatures.length; i++)
+                    {
+                        var szFeature = "Events." + szFeatures[i];
+
+                        supported = document.implementation.hasFeature(szFeature, "3.0") && supported;
+                        supported = document.implementation.hasFeature(szFeature, "") && supported;
+                        if (!supported)
+                        {
+                            break;
+                        }
+                    }
+
+                    if (supported)
+                    {
+                        PassTest();
+                    }
+                    else
+                    {
+                        FailTest();
+                    }
+                }
+                catch(ex)
+                {
+                    FailTest();
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h3>DOM Events</h3>
+        <h4>
+            Test Description: each interface defined in DOM Level 3 Events has a feature string,
+            which may act as a base feature string or as an extended feature string.
+        </h4>
+
+        <p>Test passes if the word "PASS" appears below.</p>
+           <div>Test result: </div>
+        <div id='testresult'>FAIL</div>
+    </body>
+</html>

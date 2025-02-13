@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+[%provenance%]
+-->
+<html lang="en">
+  <meta charset="utf-8">
+  <title>HTTP headers on request for HTML "img" element source</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="/fetch/metadata/resources/helper.sub.js"></script>
+  <body><body><body><body>
+  <script>
+  'use strict';
+
+  function induceRequest(url, sourceAttr, attributes) {
+    const image = document.createElement('img');
+
+    for (const [ name, value ] of Object.entries(attributes)) {
+      image.setAttribute(name, value);
+    }
+
+    return new Promise((resolve) => {
+  'use strict';
+        imakeRequestURL(key, [% subtest.origins %]),
+        '[%subtest.sourceAttr%]',
+        [%subtest.elementAttrs | default({}) | tojson%]
+      )
+      .then(() => retrieve(key))
+      .then((headers) => {
+        {%- if subtest.expected == none %}
+          assert_not_own_property(headers, '[%subtest.headerName%]');
+        {%- endif %}
+        });
+  }, '[%subtest.headerName%] - [%subtest.sourceAttr%] - [%subtest.description | pad("end", ", ")%][%subtest.elementAttrs | collection("attributes")%]');
+
+  {%- endfor %}
+  </script>
+  </body>
+</html>

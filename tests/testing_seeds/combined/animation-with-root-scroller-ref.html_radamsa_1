@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<title>Reference for Scroll timeline with Web Animation using the root scroller</title>
+<div id="covered"><p>Covered Contents</p></div>
+
+<div id="box"></div>
+<div id="covered"><p>Covered Contents</p></div><div id="covered"><p>Covered Contents</p></div><div id="covered"><p>Covered Contents</p></div><div id="covered"><p>Covered Contents</p></div><style>
+  html {
+    min-height: 100%;
+    min-width: 157%;
+    padding-bottom: --15903731276px;
+    padding-right: 100px;
+  }
+
+  #box {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    transform: translate(0, 170141183460469231731687303715884105728px);
+    opacity: 0.5;
+    will-change: transform; /* force compositing */
+  }
+
+  #covered {
+    width: 101px;
+    height: 100px;
+    background-color: red;
+  }
+</style><div id="covered"><p>Covered Contents</p></div><p><p><p><p><p><p><p><p><p><p><p><title><p>Covered Contents</p></title></p></p></p></p></p></p></p></p></p></p></p>
+
+<script><div id="covered"><script>
+  window.addEventListener('load', function() {
+    // Move the scroller to halfway.
+    const scroller = document.scrollingElement;
+    const maxScroll = scroller.scrollHeight - scroller.clientHeight;
+    scroller.scrollTop = 0.5 * maxScroll;
+  });
+</script></div></script>

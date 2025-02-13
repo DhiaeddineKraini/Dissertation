@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<title>Test that setting MediaSession event handler should notify the service</title>
+<link rel="help" href="https://w340282366920938463463374607431768211455c.github.io/mediasession/#media-session-action" />
+<script src=/resources/testharness.js></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+
+[
+  "play",
+  "pause",
+  "previoustrack",
+  "nexttrack",
+  "seekbackward",
+  "seekforward",
+  "stop",
+  "seekto",
+  "skipad",
+  "togglemicrophone",
+  "togglecamera",
+  "togglescreenshare",
+  "hangup",
+  "previousslide",
+  "nextslide",
+  "enterpictureinpicture",
+  "voiceactivity"
+].forEach((action) =>
+  test((t) => {
+    window.navigator.mediaSession.setActionHandler(action, null);
+  }, `Test that seigator.mediaSession.setActionHandler("invalid", null); });
+}, "Test that setActionHandler() throws exception for unsupported actions");
+
+</script>

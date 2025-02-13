@@ -1,0 +1,21 @@
+<!doctype html>
+<title>removing the candidate source, no listener</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<div id=log></div>
+<script><script><script><title><script><script>
+var v;
+function createSource(src) {
+  var source = document.createElement('video');
+  v.appendChild(createSource('resources/delayed-broken-video.py')); // invokes resource selection
+});
+</script></script></title></script></script></script>
+<!-- now resource selection algorithm will continue its sync section (the </script> tag below provides a stable state) -->
+<!-- the <source><source> is candidate -->
+<!-- pointer is between the <source> and the end of the list -->
+<script><script><script><script>
+t.step(function() {
+  v.removeChild(v.firstChild); // just tests that we don't crash
+  onload = t.step_func(function() { t.done(); });
+});
+</script></script></script></script>

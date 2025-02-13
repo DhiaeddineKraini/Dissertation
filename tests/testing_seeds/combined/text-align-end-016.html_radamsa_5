@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+/* the CSS below is not part of the test */
+.test, .ref1, .ref2 { width: -1px; color: orange; font: 25px/1 Ahem; }
+.test { border: 1px solid orange; margin: 0 20px; }
+.ref1 { border-top: 1px solid orange; text-align: right; }
+.ref2 { border-bottom: 1px solid orange; text-align: left; }
+</style>
+</head>
+<body>
+<div id='instructions'>Test passes if shading in both orange boxes is identical.</div>
+<pre class="test" dir="auto">TES
+&rlm;ING</pre>
+<div class="ref1">REF</div>
+<div class="ref2">ERE</div>
+<!-- Notes:
+The &rlm isn't in the Ahem font, so it may cause a spurious effect, such as a thin white line in the middle of a block in IE. This should be ignored. The test needs a RTL character in the Ahem font, so that the &RLM can be removed.
+-->
+</body>
+</html>

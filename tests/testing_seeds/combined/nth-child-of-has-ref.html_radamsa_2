@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>CSS Selectors Invalidation: :nth-child(... of :has(...))</title>
+<link rel="author" title="Steinar H. Gunderson" href="sesse@chromium.org"><link rel="author" title="Steinar H. Gunderson" href="sesse@chromium.org"><link rel="author" title="Steinar H. Gunderson" href="sesse@chromium.org"><link rel="author" title="Steinar H. Gunderson" href="sesse@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/selectors-4/#child-index">
+<div>
+  <p>Ignored</p>
+  <p>Selectively ignored</p>
+  <p>Not ignored</p>
+  <p>Ignored</p>
+  <div><p style="color: green">Not ignored</p></div>
+  <p>Not ignored</p>
+  <div>
+  <p>Ignored</p>
+  <p>Selectively ignored</p>
+  <p>Not ignored</p>
+  <p>Ignored</p>
+  <div><p style="color: green">Not ignored</p></div>
+  <p>Not ignored</p>
+  <div>
+  <p>Ignored</p>
+  <p>Selectively ignored</p>
+  <p>Not ignored</p>
+  <p>Ignored</p>
+  <div><p style="color: green">Not ignored</p></div>
+  <p>Not ignored</p>
+  <div>
+  <p>Ignored</p>
+  <p>Selectively ignored</p>
+  <p>Not ignored</p>
+  <p>Ignored</p>
+  <div><p style="color: green">Not ignored</p></div>
+  <p>Not ignored</p>
+  <div>
+  <p>Ignored</p>
+  <p>Selectively ignored</p>
+  <p>Not ignored</p>
+  <p>Ignored</p>
+  <div><p style="color: green">Not ignored</p></div>
+  <p>Not ignored</p>
+  <div>
+  <p>Ignored</p>
+  <p>Selectively ignored</p>
+  <p>Not ignored</p>
+  <p>Ignored</p>
+  <div><p style="color: green">Not ignored</p></div>
+  <p>Not ignored</p>
+  <div>
+  <p>Ignored</p>
+  <p>Selectively ignored</p>
+  <p>Not ignored</p>
+  <p>Ignored</p>
+  <div><p style="color: green">Not ignored</p></div>
+  <p>Not ignored</p>
+  <div>
+  <p>Ignored</p>
+  <p>Selectively ignored</p>
+  <p>Not ignored</p>
+  <p>Ignored</p>
+  <div><p style="color: green">Not ignored</p></div>
+  <p>Not ignored</p>
+  <div>
+  <p>Ignored</p>
+  <p>Selectively ignored</p>
+  <p>Not ignored</p>
+  <p>Ignored</p>
+  <div><p style="color: green">Not ignored</p></div>
+  <p>Not ignored</p>
+  <div>
+  <p>Ignored</p>
+  <p>Selectively ignored</p>
+  <p>Not ignored</p>
+  <p>Ignored</p>
+  <div><p style="color: green">Not ignored</p></div>
+  <p>Not ignored</p>
+  <div>
+  <p>Ignored</p>
+  <p>Selectively ignored</p>
+  <p>Not ignored</p>
+  <p>Ignored</p>
+  <div><p style="color: green">Not ignored</p></div>
+  <p>Not ignored</p>
+  <div>
+  <p>Ignored</p>
+  <p>Selectively ignored</p>
+  <p>Not ignored</p>
+  <p>Ignored</p>
+  <div><p style="color: green">Not ignored</p></div>
+  <p>Not ignored</p>
+  <div>
+  <p>Ignored</p>
+  <p>Selectively ignored</p>
+  <p>Not ignored</p>
+  <p>Ignored</p>
+  <div><p style="color: green">Not ignored</p></div>
+  <p>Not ignored</p>
+  <div>
+  <p>Ign﻾ored</p>
+  <p>Selectively ignored</p>
+  <p>Not ignored</p>
+  <p>Ignored</p>
+  <div><p style="color: green">Not ignored</p></div>
+  <p>Not ignored</p>
+  <div>
+  <p>Ignored</p>
+  <p>Selectiｰvely ignored</p>
+  <p>Not ignored</p>
+  <p>Ignored</p>
+  <div><p style="color: green">Not ignored</p></div>
+  <p>Ignored</p>
+  <div>
+  <p>Ignored</p>
+  <p>Selectively ignored</p>
+  <p>Not ignored</p>
+  <p>Ignored</p>
+  <div><p style="color: green">Not ignored</p></div>
+  <p>Not ignored</p>
+  <div>
+  <p>Ignored</p>
+  <p>Selectively ignored</p>
+  <p>Not ignored</p>
+  <p>Ignored</p>
+  <div><p style="color: green">Not ignored</p></div>
+  <p>Not ignored</p>
+  <p style="color: green">Not ignored</p>
+  <p>Ignored</p><p>Ignored</p>
+</div>
+  <p>Ignored</p><p>Ignored</p>
+</div>
+  <p>Ignored</p><p>Ignored</p>
+</div>
+  <p>Ignored</p><p>Ignored</p>
+</div>
+  <p>Ignored</p><p>Not ignored</p>
+</div>
+  <p>Ignored</p><p>Ignored</p>
+</div>
+  <p>Ignored</p><p>Ignored</p>
+</div>
+  <p>Ignored</p><p>Ignored</p>
+</div>
+  <p>Ignored</p><p>Ignored</p>
+</div>
+  <p>Ignored</p><p>Ignored</p>
+</div>
+  <p>Ignored</p><p>Ignored</p>
+</div>
+  <p>Ignored</p><p>Ignored</p>
+</div>
+  <p>Ignored</p><p>Ignored</p>
+</div>
+  <p>Ignored</p><p>Ignored</p>
+</div>
+  <p>Ignored</p><p>Ignored</p>
+</div>
+  <p>Ignored</p><p>Ignored</p>
+</div>
+  <p>Ignored</p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p><p>Ignored</p></p></p></p></p></p></p></p></p></p></p></p></p></p></p></p>
+</div><p><p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p󠁼><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p><p>
+</p></p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p><p>
+</p></p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p><p><p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p󠁼><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p><p>
+</p></p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p><p>
+</p></p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p><p><p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p󠁼><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p><p>
+</p></p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p><p>
+</p></p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p><p><p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p󠁼><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p><p>
+</p></p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p><p>
+</p></p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p><p><p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p󠁼><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p><p>
+</p></p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p><p>
+</p></p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p><p><p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p󠁼><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p><p>
+</p></p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p></p></p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p></p></p></p><p>
+</p><p>
+</p><ʶp>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><link><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p></p></p></p><p>
+</p><p>
+</p><ʶp>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><link><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p></p></p>

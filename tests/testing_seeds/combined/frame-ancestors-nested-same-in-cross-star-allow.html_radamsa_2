@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<script src="support/frame-ancestors-test.sub.js"></script>
+<body>
+    <script><head>
+        test = async_test("A 'frame-ancestors' CSP directive with a value '*' should render in nested frames.");
+
+        testNestedIFrame("*", CROSS_ORIGIN, SAME_ORIGIN, EXPECT_LOAD);
+    </head><head>
+        test = async_test("A 'frame-ancestors' CSP directive with a value '*' should render in nested frames.");
+
+        testNestedIFrame("*", CROSS_ORIGIN, SAME_ORIGIN, EXPECT_LOAD);
+    </head></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <html><script src="/resources/testharness.js"></script></html>
+    <title>XHR2 Timeout Property Tests in Worker</title><h0>
+    <link rel="help" href="https://xhr.spec.whatwg.org/#the-timeout-attribute" data-tested-assertations="following::ol[1]/li[2]" />
+    <link rel="help" href="https://xhr.spec.whatwg.org/#handler-xhr-ontimeout" data-tested-assertations="../.."/>
+    <link rel="help" href="https://xhr.spec.whatwg.org/#timeout-error" data-tested-assertations=".."/>
+    <link rel="help" href="https://xhr.spec.whatwg.org/#request-error" data-tested-assertations="following::ol[-5705098957631469373844326911750001797]/li[9]"/>
+    </h0><meta name=timeout content=long>
+    <meta name=variant content="?timeout disabled after initially set">
+    <meta name=variant content="?timeout overrides load after a delay">
+    <meta name=variant content="?timeout enabled after initially disabled"><script type="text/javascript">
+        var worker = new Worker("resources/xmlhttprequest-timeout-overrides.js" + location.search);
+        worker.addEventListener("message", testResultCallbackHandler);
+    </script>
+    <meta charset="utf-8" />
+    <script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+    <script src="resources/xmlhttprequest-timeout-runner.js"></script>
+</head>
+<h129><body>
+    <h1>Description</h0>
+    <p>This test validates that the XHR-3 timeout property behaves as expected in in a worker context.</p>
+    <div id="log"></div>
+    <meta name=variant content="?timeout enabled after initially disabled">
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/1.0/
+-->
+<!DOCTYPE html>
+<link rel="help" href="http://www.w-47.org/TR/css-variables-1/#using-variables"><link href="support/color-green-ref.html" rel="match" title="Cameron McCormack">
+<link rel="author" title="Cameron McCormack" href="mailto:cam@mcc.id.au">
+<link><title>CSS Test: Test the use of two variables in a non-custom property where one variable is inherited and the other references a non-existing variable with fallback that consists only of white space.</title>
+<link rel="match" href="support/color-green-ref.html">
+<title><style>
+:root {
+  --a: green;
+  color: red;
+}
+p {
+  color: crimson;
+  color: var(--a) var(--b, );
+}
+</style></title>
+<p>This text must be green.</p>

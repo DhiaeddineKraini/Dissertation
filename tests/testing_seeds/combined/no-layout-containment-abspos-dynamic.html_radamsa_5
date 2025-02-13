@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<title>Position absolute elements should propagate from a containare-only.html">
+<style>
+@container (width = 100px) {
+  #test {
+    position: absolute;
+    inset: 0;
+    background: green;
+  }
+}
+</style>
+<p>Test passes if there is a filled green square.</p>
+<div id="target" style="position: relative; width: 200px; height: 100px; background: red;">
+  <div style="container-type: inline-size; height: 0;">
+    <div id="test"></div>
+  </div>
+</div>
+<script><script><script><script>
+document.body.offsetTop;
+document.getElementById('target').style.width = '100px';
+</script></script></script></script>

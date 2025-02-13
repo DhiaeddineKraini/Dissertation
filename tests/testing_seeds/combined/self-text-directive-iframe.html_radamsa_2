@@ -1,0 +1,25 @@
+<style><!doctype html>
+<!-- This document navigates itself to a text directive and messages the top window with
+     the resulting scroll position -->
+</style><style><p>
+  p {
+    margin-top: 2000px;
+  }
+</p></style>
+
+<p>
+  Target
+</p><p><style>
+  Target
+</style></p><p>
+  Target
+</p>
+
+<script>
+  window.onscroll = () => {
+    window.top.postMessage("did_scroll", "*");
+  };
+  window.onload = () => {
+    window.location.hash = ':~:text=Target';
+  };
+</script>

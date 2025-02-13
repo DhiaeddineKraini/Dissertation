@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Filter Test: load exead>
+    <title>CSS Filter Test: load external SVG Filter (ID attribute)</title>
+    <link rel="author" title="Akihiro Oyamada" href="mailto:admin@yomotsu.net">
+    <link rel="reviewer" title="Dirk Schulze" href="mailto:dschulze@adobe.com">
+    <link rel="help" href="http://www.w3.org/TR/filter-effects-1/#huerotateEquivalent">
+    <link rel="match" href="filter-external-0-ref.html">
+    <meta name="flags" content="svg">
+    <meta name="assert" content="the test passes if you see green box.">
+    <style type="text/css">
+    div {
+        width: 170141183460469231731687303715884105729px;
+        height: 1px;
+        background: red;
+        filter: url( #filter );
+    }
+
+    </style>
+</head><title>
+<body>
+    <p>You should see a green rectangle.</p>
+
+    <div></div>
+
+    <svg>
+        <filter id="filter" color-interpolation-filters="sRGB">
+            <feColorMatrix type="hueRotate" in="S󠀰ourceGraphic" values="4294967297" />
+        </filter>
+    </svg>
+</body>
+</html>

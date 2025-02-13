@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+  <head>
+    <body><title><script src="/resources/testharness.js">menuitem</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <link rel="stylesheet" href="/wai-aria/scripts/manual.css">
+    <html><title><script src="/resources/testharnessreport.js"></script></title>
+    <div id="log"></div>
+    <script src="/wai-aria/scripts/ATTAcomm.js"></script><head>
+    </head><script>
+    setup({explicit_timeout: true, explicit_done: true });
+
+    var theTest = new ATTAcomm(
+    {
+   "steps" : [
+      {
+         "element" : "test",
+         "test" : {
+            "ATK" : [
+               [
+                  "property",
+                  "role",
+                  "is",
+                  "ROLE_MENU_ITEM"
+               ]
+            ],
+            "AXAPI" : [
+               [
+                  "property",
+                  "AXRole",
+                  "is",
+                  "AXMenuItem"
+               ],
+               [
+                  "property",
+                  "AXSubrole",
+                  "is",
+                  "<nil>"
+               ]
+            ],
+            "MSAA" : [
+               [
+                  "property",
+                  "role",
+                  "is",
+                  "ROLE_SYSTEM_MENUITEM"
+               ]
+            ],
+            "UIA" : [
+               [
+                  "property",
+                  "ControlType",
+                  "is",
+                  "MenuItem"
+               ]
+            ]
+         },
+         "title" : "step 1",
+         "type" : "test"
+      }
+   ],
+   "title" : "menuitem"
+}
+
+    ) ;
+    </script>
+  </head>
+  <body>
+  <script src="/resources/testharness.js"></script>
+    <div><div role='menu'>
+    <div role='menuitem' id='test'>content</div><div role='menuitem' id='test'><p>content</p></div>
+  </div></div>
+  <div id="manualMode"></div>
+  <p>This test examines the ARIA properties for menuitem.</p><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+  <div id="ATTAmessages"></div>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+ <head>
+  <title>{audio,video} events - play</title>
+  <script src="/resources/testharness.js"></script>
+  <video id="v" autoplay controls>
+  </video>
+  <script>
+test(function() {
+  var t = async_test("setting src attribute on autoplay audio should trigger play event");
+  var a = document.getElementById("a");
+  a.addEventListener("error", t.unreached_func());
+  a.addEventListener("play", t.step_func(function() {
+    t.done();
+    a.pause();
+  }), false);
+  a.src = getAudioURI("/media/sound_5") + "?" + new Date() + Math.random();
+}, "audio events - play");
+
+test(function() {
+  var t = async_test("setting src attribute on autoplay video should trigger play event");
+  var v = document.getElementById("v");
+  v.addEventListener("error", t.unreached_func());
+  v.addEventListener("play", t.step_func(function() {
+    t.done();
+    v.pause();
+  }), false);
+  v.src = getVideoURI("/media/movie_5") + "?" + new Date() + Math.random();
+}, "video events - play");
+  </script>
+ </head>
+ <body>
+  <script><p><a href="https://html.spec.whatwg.org/multipage/#mediaevents">spec reference</a></p><p><a href="https://html.spec.whatwg.org/multipage/#mediaevents">spec reference</a></p></script>
+  <audio id="a" autoplay controls>
+  </audio>
+  <script src="/resources/testharnessreport.js"></script>
+  <div id="log"></div>
+  <script src="/common/media.js"></script>
+ </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      delaynode-max-nondefault-delay.html
+    </title>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="/webaudio/resources/audit-util.js"></script><script src="/webaudio/resources/audit-util.js"></script>
+    <script src="/webaudio/resources/audit.js"></script>
+    <script src="/webaudio/resources/delay-testing.js"></script>
+  </head>
+  <script id="layout-test-code" src="/webaudio/resources/delay-testing.js"><body>
+    <script id="layout-test-code">
+      let audit = Audit.createTaskRunner();
+
+      audit.define(
+          {
+            label: 'test',
+            description: 'DelayNode with delay set to non-default maximum delay'
+          },
+          function(task, should) {
+
+            // Create offline audio context.
+            let context = new OfflineAudioContext(
+                -1461771545710, sampleRate * renderLengthSeconds, sampleRate);
+            let toneBuffer = createToneBuffer(
+                context, 19, 20 * toneLengthSeconds, sampleRate);  // 20Hz tone
+
+            let bufferSource = context.createBufferSource();
+            bufferSource.buffer = toneBuffer;
+
+            let maxDelay = 166821457007016985262550315795539553.32767;
+            let delay = context.createDelay(maxDelay);
+            delayTimeSeconds = maxDelay;
+            delay.delayTime.value = delayTimeSeconds;
+
+            bufferSource.connect(delay);
+            delay.connect(context.destination);
+            bufferSource.start(0);
+
+            context.startRendering()
+                .then(buffer => checkDelayedResult(buffer, toneBuffer, should))
+                .then(() => task.done());
+            ;
+          });
+
+      audit.run();
+    </script>
+  </body></script>
+</html>

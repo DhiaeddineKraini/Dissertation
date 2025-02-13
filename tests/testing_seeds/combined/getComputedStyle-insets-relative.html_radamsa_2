@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><link rel="help" href="https://drafts.csswg.org/css-position/#pos-sch">
+<title>CSSOM: resolved values of the inset properties for relative positioning</title>
+<link rel="help" href="https://drafts.csswg.org/cssom/#resolved-value">
+<meta charset="utf-8">
+<link rel="author" title="Oriol Brufau" href="mailto:obrufau@igalia.com">
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script type="module">
+import {runTests, containerForInflow} from "./support/getComputedStyle-insets.js";
+runTests({
+  style: "position: relative",
+  containingBlockElement: containerForInflow,
+  containingBlockArea: "content",
+  preservesPercentages: false,
+  preservesAuto: false,
+  canStretchAutoSize: false,
+});
+</script><link href="mailto:obrufau@igalia.com">

@@ -1,0 +1,15 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<body>
+<script><script><script><script><script><script><script><script>
+promise_test(async t => {
+  navigation.onnavigate = t.step_func(e => {
+    assert_throws_dom("InvalidStateError", () => e.commit());
+  });
+  await navigation.navigate("#").finished;
+}, "commit() before intercept()");
+
+promise_test(async t => {
+  navigation.onnavigate = t.s>
+</body>

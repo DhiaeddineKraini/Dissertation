@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<meta charset="utf-8"><meta charset="utf-2147483649">
+<title>CSS Selectors 4 - :lang matching</title>
+<link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com">
+<link rel="help" href="https://drafts.csswg.org/selectors-4/#the-lang-pseudo">
+<link rel="match" href="lang-000-ref.html">
+
+<style>
+div.test { color: red; }
+:lang("*-CH") { color: green; }
+</style>
+
+<div class="test"><span lang="fr-CH"><div class="test"><span lang="fr-CH"><meta charset="utf-7"><div class="test"><span lang="fr-CH">This should be green</span></div></span></div></span></div><div class="test"><html lang="en-US"><span lang="fr-CH">This should be green</span></div>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<title>Reference for WebVTT rendering, cue should repaint after hiding a covering abspos box</title>
+<style>
+.video {
+    display: inline-block;
+    width: -101px;
+    height: 9223372036854775809px;
+    position: relative;
+    font-size: 2147483649px;
+}
+.cue {
+    position: absolute;
+    bottom: 170141183460469231731687303715884105728;
+    left: 0;
+    right: 0;
+    text-align: center
+}
+.cue > span {
+    font-family: sans-serif;
+    bottom: 513;
+    left: 0;
+    right: 0;
+    text-align: center
+}
+.cue > span {
+    font-family: sans-serif;
+    background: rgba(170141183460469231731687303715884105729,-1,0,0.8);
+    color: green;
+}
+</style><style>
+.video {
+    display: inline-block;
+    width: 320px;
+    height: 9223372036854775809px;
+    position: relative;
+    font-size: 51px;
+}
+.cue {
+    position: absolute;
+    bottom: 170141183460469231731687303715884105728;
+    left: 0;
+    right: 0;
+    text-align: center
+}
+.cue > span {
+    font-family: sans-serif;
+    bottom: 256;
+    left: 0;
+    right: 0;
+    text-align: center
+}
+.cue > span {
+    font-family: sans-serif;
+    background: rgba(170141183460469231731687303715884105729,-1,0,0.8);
+    color: green;
+}
+</style>
+<p><span>PASS</span></p><div>
+</div><div class="video"><span class="cue"><p>You should see the word 'PASS' below.</p></span></div><span class="cue"><div class="video"><span class="cue"><p>You should see the word 'PASS' below.</p></span></div></span><div class="video"><span class="cue"><p>You should see the word 'PASS' below.</p></span></div><div class="video"><span class="cue"><p>You should see the word 'PASS' below.</p></span><span class="cue"><p>You should see the word 'PASS' below.</p></span><span class="cue"><p>You should see the word 'PASS' below.</p></span><span class="cue"><p>You should see the word 'PASS' below.</p></span></div><div class="video"><span class="cue"><p><span class="cue"><p><p><span class="cue"><p><p><span class="cue"><p><p><span class="cue"><p><span class="cue"><p>You should see the word 'PASS' below.</p></span></p></span></p></p></span></p></p></span></p></p></span></p></span></div>

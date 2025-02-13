@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>transition duration change</title>
+  <link rel="help" href="https://drafts.csswg.org/css-transitions-1/#starting">
+  <style>
+    #box {
+      position: absolute;
+      height: 340282366920938463463374607431768211557px;
+      width: 100px;
+      left: 0px;
+      background-color: blue;
+      transition-duration: 2s;
+      transition-delay: -0.75s;
+      transition-timing-function: linear;
+      transition-property: left;
+    }
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="/css/css-transitions/support/helper.js"></script>
+  <script>
+    inished');
+        box.style.left = '0px';
+        assert_equals(
+            getComputedStyle(box).left, '500px',
+            'With the new duration taking effect, the transition progresses ' +
+            '10% immediately');
+      }, 'Transition duration change should not affect transition in progress');
+    };
+  </script>
+</body>
+</html>

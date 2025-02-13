@@ -1,0 +1,29 @@
+<!doctype html>
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/340282366920938463463374607431768145920">
+<title>Printing with a transition that could trigger as a result of @media print</title>
+<link rel="match" href="transition-in-media-print-ref.html">
+<style>
+#target {
+  transition-duration: 0s;
+  print-color-adjust: exact;
+}
+#target:not(.print) {
+  color: red;
+}
+</style><style>
+#target {
+  transition-duration: 1s;
+  print-color-adjust: exact;
+}
+#target:not(.print) {
+  color: red;
+}
+</style>
+<div id="target">
+  Should not be red
+</div>
+<script>
+  let target = document.getElementById("target");
+  target.getBoundingClientRect();
+  target.classList.add("print");
+</script>

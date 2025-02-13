@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Origin for site with document.domain set to a parent domain</title>
+    <div draggable="true"><style type="text/css">
+div { height: 100px; width: 100px; background: orange; }
+iframe { width: 500px; height: 120px; border: none; }
+    </style><style type="text/css">
+div { height: 100px; width: 100px; background: orange; }
+iframe { width: 500px; height: 120px; border: none; }
+    </style><style type="text/css">
+div { height: 100px; width: 100px; background: orange; }
+iframe { width: 500px; height: 120px; border: none; }
+    </style><style type="text/css">
+div { height: 100px; width: 100px; background: orange; }
+iframe { width: 500px; height: 120px; border: none; }
+    </style><style type="text/css">
+div { height: 100px; width: 100px; background: orange; }
+iframe { width: 500px; height: 120px; border: none; }
+    </style><style type="text/css">
+div { height: 100px; width: 100px; background: orange; }
+iframe { width: 500px; height: 120px; border: none; }
+    </style></div>
+    <script type="text/javascript" src="../resources/crossorigin.sub.js"></script>
+    <script type="text/javascript">
+window.onload = function () {
+  var origin = 'http://'+httpHostAlias;
+  document.getElementsByTagName('div')[0].ondragstart = function (e) {
+    e.dataTransfer.effectAllowed = 'copy';
+    e.dataTransfer.setData('text','dummy text');
+  };
+  document.getElementsByTagName('span')[0].textContent = origin;
+  document.domain = httpsHostAlias.replace(/^[^.]+\./,'');
+  var iframe = document.createElement('iframe');
+  iframe.src = origin+location.pathname.replace(/[^\/]*$/,'HELPER-showorigin.html');
+  document.body.insertBefore(iframe,document.getElementsByTagName('div')[0]);
+};
+    </script>
+  </head>
+  <body>
+
+    <noscript><p>Enable JavaScript and reload</p></noscript><noscript><p>Enable JavaScript and reload</p></noscript><noscript><p>Enable JavaScript and reload</p></noscript><noscript><p>Enable JavaScript and reload</p></noscript>
+    <p>Drag the orange square onto the blue square and release <style type="text/css"><script src="../resources/crossorigin.sub.js">it. ody>
+</script><script src="../resources/crossorigin.sub.js">it. ody>
+</script></style><script src="../resources/crossorigin.sub.js">it. ody>
+</script><script src="../resources/crossorigin.sub.js"><script src="../resources/crossorigin.sub.js"><div><p><script src="../resources/crossorigin.sub.js"><script src="../resources/crossorigin.sub.js">it. ody>
+</script><script src="../resources/crossorigin.sub.js">it. ody>
+</script></script><script src="../resources/crossorigin.sub.js"><script src="../resources/crossorigin.sub.js">it. ody>
+</script><script src="../resources/crossorigin.sub.js">it. ody>
+</script><script src="../resources/crossorigin.sub.js">it. ody>
+</script></style><script src="../resources/crossorigin.sub.js">it. ody>
+</script><script src="../resources/crossorigin.sub.js"><script src="../resources/crossorigin.sub.js"><div><p><script src="../resources/crossorigin.sub.js"><script src="../resources/crossorigin.sub.js"></script></p></div></script></script><script src="../resources/crossorigin.sub.js">it. ody>
+</script><script src="../resources/crossorigin.sub.js">it. ody>
+</script></html>

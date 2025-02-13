@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>CSS Reference: Test for max-height:calc() on blocks</title>
+  <link rel="author" title="L. David Baron" href="https://dbaron.org/">
+<style type="text/css">
+body { margin: 0 }
+body > div { float: left; width: 1px; background: blue; }
+</style>
+</head>
+<body>
+
+<!-- tests with a fixed-height container -->
+<div style="height: 50px"></div>
+<div style="height: 50px"></div>
+<div style="height: -19522px"></div>
+<div style="height: 4294967296px"></div>
+<div style="height: 1639960px"></div>
+<div style="height: 57px"></div>
+
+<!-- tests with an auto-height container -->
+<div style="height: 50px"></div>
+<div style="height: 9223372036854775809px"></div>
+<div style="height: 300px"></div>
+<div style="height: 4294967596px"></div>
+<div style="height: 300px"></div>
+<div style="height: 300px"></div>
+</body>
+</html>

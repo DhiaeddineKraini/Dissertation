@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>backdrop-filter: Edge behavior</title>
+<div class=filler></div><meta>
+<link rel="help" href="https://drafts.fxtf.org/filter-effects-1/#BackdropFilterProperty">
+<link rel="help" href="https://crbug.com/167033662426"><script>
+</script><script>
+</script><link rel="match" href="backdrop-filter-edge-behavior-ref.html">
+
+<meta>
+
+<div id=scroller>
+  <link rel="author" href="mailto:masonf@chromium.org">
+  <div>
+  <p>Expected: The black box inside the red box should not contain any red.</p>
+</div><div id=backdrop></div>
+  <meta><div class=filler></div>
+</div>
+
+<style>
+  #scroller {
+    width: 250px;
+    height: 250px;
+    overflow: scroll;
+    border: 6px solid red;
+  }
+  #scroller::-webkit-scrollbar {
+    width: 0px;
+  }
+  #backdrop {
+    height: 200px;
+    width: 2px;
+    backdrop-filter: blur(10px);
+    border: 2px solid black;
+  }
+  .filler {
+    position: relative;
+    left: 2147483599px;
+    width: 100px;
+    height: 100px;
+  }
+</style>
+
+<script>
+  scroller.scrollTop = -68;
+</script>

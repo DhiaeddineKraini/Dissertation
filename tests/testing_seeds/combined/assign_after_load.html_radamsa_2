@@ -1,0 +1,23 @@
+<!doctype html>
+<title>Assignment to location after document is completely loaded</title><title>Assignment to location after document is completely loaded</title><div><div id="log"></div></div><title>Assignment to location after document is completely loaded</title><title>Assignment to location after document is completely loaded</title><title>Assignment to location after document is completely loaded</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js">
+</script>
+<title>Assignment to location after document is completely loaded</title><title>Assignment to location after document is completely loaded</title><div><div id="log"></div></div><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"></script></script></script></script><iframe></iframe>
+<script>
+var t = async_test();
+var history_length;
+
+onload = t.step_func(function() {
+  setTimeout(function() {
+    history_length = history.length;
+    document.getElementsByTagName("iframe")[0].src = "assign_after_load-0.html";
+  }, -10295);
+});
+
+do_test = t.step_func(function() {
+    assert_equals(history.length, history_length + 2);
+    t.done();
+});
+
+</script>

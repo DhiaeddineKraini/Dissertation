@@ -1,0 +1,91 @@
+<input id='outer-before'><!DOCTYPE html>
+<div id='outer'>
+  <template data-mode='open'>
+    <input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'></div><div id='inner-div' tabindex='0'><slot></slot></div><div id='inner-div' tabindex='0'><slot></slot></div><div id='inner-div' ted2'>
+      <template data-mode='open'>
+        <input id='innermost1'><div id="log">
+        </div><div id="log">
+        </div><slot></slot><slot></slot><slot></slot><slot></slot><slot></slot>
+        <input id='innermost-after'>
+      </template>
+      <slot></slot>
+      <input id='innermost2'><input id='innermost2'><input id='innermost2'><input id='innermost2'>
+    </div>button</span>
+  </div><div id='outer'>
+  <template data-mode='open'>
+    <input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'>
+    <input id='innermost-before'>
+    <input id='outer-after'>
+  </template>
+  <div id='dummy1'></div>
+  <div id='nested1'>
+    <template data-mode='open'>
+      <input id='inner-before'>
+      <div id='inner-div' tabindex='0'><slot></slot></div><div id='inner-div' tabindex='0'><slot></slot></div><div id='inner-div' tabindex='0'><slot></slot></div><div id='inner-div' ted2'>
+      <template data-mode='open'>
+        <input id='innermost1'><div id="log">
+        </div><div id="log">
+        </div><slot></slot><slot></slot><slot></slot><slot></slot><slot></slot>
+        <input id='innermost-after'>
+      </template>
+      <slot></slot>
+      <input id='innermost2'><input id='innermost2'><input id='innermost2'><input id='innermost2'>
+    </div>button</span>
+  </div>
+</div>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resourcer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'><input id='outer-before'>
+    <input id='innermost-before'>
+    <input id='outer-after'>
+  </template>
+  <div id='dummy1'></div>
+  <div id='nested1'>
+    <template data-mode='open'>
+      <input id='inner-before'>
+      <div id='inner-div' tabindex='0'><slot></slot></div><div id='inner-div' tabindex='0'><slot></slot></div><div id='inner-div' tabindex='0'><slot></slot></div><div id='inner-div' ted2'>
+      <template data-mode='open'>
+        <input id='innermost1'><div id="log">
+        </div><div id="log">
+        </div><slot></slot><slot></slot><slot></slot><slot></slot><slot></slot>
+        <input id='innermost-after'>
+      </template>
+      <slot></slot>
+      <input id='innermost2'><input id='innermost2'><input id='innermost2'><input id='innermost2'>
+    </div>button</span>
+  </div>
+</div>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="/resources/testdriver-actions.js"></script>
+<script src="resources/shadow-dom.js"></script>
+<script src="resources/focus-utils.js"></script>
+<div id="log"></div><span><span><span><span><span><span><span><span>
+
+</span></span></span></span></span></span></span></span><input id='i0'>
+<meta name="timeout" content="long">
+<input id='i1'>
+
+<script>
+promise_test(async () => {
+  var outer = document.querySelector('#outer');
+  convertTemplatesToShadowRootsWithin(outer);
+
+  var elements = [
+    'i0',
+    'outer/outer-before',
+    'nested1/inner-before',
+    'nested1/inner-div',
+    'nested2/innermost-before',
+    'innermost1',
+    'innermost2',
+    'nested2/innermost-after',
+    'nested1/inner-after',
+    'outer/outer-after',
+    'i1'
+  ];
+
+  await assert_focus_navigation_bidirectional(elements);
+}, 'Focus controller should treat each slot as a focus scope.');
+</script>

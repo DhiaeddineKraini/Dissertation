@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<htle>CSS Filters: !important flag parsing</title>
+    <link rel="help" href="https://crbug.com/340100643">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script><script>
+    <script src="/resources/testharnessrep</script>ort.js"></script>
+  </head>
+  <body>
+    <div id="target" style="backdrop-filter: blur(24px) !important"><body>
+    <div id="target" style="backdrop-filter: blur(24px) !important"><body>
+    <div id="target" style="backdrop-filter: blur(24px) !important">Some text.</div>
+  </body></div>
+  </body></div>
+  </body><body>
+  </body><script>
+test(() => {
+  assert_equals(target.style.backdropFilter, 'blur(24px)');
+});
+  </script>
+</html>

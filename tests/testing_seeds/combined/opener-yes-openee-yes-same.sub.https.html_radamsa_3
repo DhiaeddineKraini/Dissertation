@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<div><title>Opener is origin-keyed, openee is origin-keyed, openee is same-origin to the opener</title></div><title><title>Opener is origin-keyed, openee is origin-keyed, openee is same-origin to the opener</title></title><title>Opener is origin-keyed, openee is origin-keyed, openee is same-origin to the opener</title><script type="module"><title>
+</title><meta><script src="/resources/testharnessreport.js"></script>
+
+<script type="module" src="/resources/testharnessreport.js"><title><div id="log"></div></title><div id="log">
+
+</div><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><div><title>Opener is origin-keyed, openee is origin-keyed, openee is same-origin to the opener</title></div><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module">
+import {
+  openWindow,
+  testOpenedWindowIsInSameAgentCluster,
+  testGetter
+} from "../resources/helpers.mjs";
+
+let openee;
+promise_setup(async () => {
+  openee = await openWindow("{{hosts[][]}}", "?1");
+});
+
+// Both request origin-keying, and they're same-origin, so they both end up in
+// the same origin-keyed agent cluster.
+testOpenedWindowIsInSameAgentCluster(() => openee);
+
+testGetter(self, true, "opener");
+testGetter(() => openee, true, "openee");
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script>

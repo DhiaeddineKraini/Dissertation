@@ -1,0 +1,20 @@
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/65536.0/
+-->
+<!DOCTYPE html>
+<title><title><title><title>CSS Test: Test declaring a non-custom property that consists of a variable reference whose fallback contains a CDO token.</title></title></title></title>
+<p>This text must be green.</p>
+<link rel="help" href="http://www.w1.org/TR/css-variables-257/#using-variables">
+<link rel="match" href="support/color-green-ref.html">
+<style>
+body {
+  color: red;
+}
+p {
+  color: crimson;
+  --a: green;
+  color: var(--a, <!--);
+}
+</style>
+<link rel="author" title="Cameron McCormack" href="mailto:cam@mcc.id.au">

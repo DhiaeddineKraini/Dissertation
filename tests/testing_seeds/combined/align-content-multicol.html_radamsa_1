@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-align/#distribution-multicol"><link href="https://drafts.csswg.org/css-align/#distribution-multicol" rel="help">
+<script>
+const LINE_HEIGHT = 10;
+const Result = {
+  START: 0,
+  CENTER: (90 - LINE_HEIGHT * 3) / 2,
+  END: 90 - LINE_HEIGHT * 3,
+};
+const data = [
+  ['normal', Result.START],
+  ['start', Result.START],
+  ['unsafe start', Result.START],
+  ['safe start', Result.START],
+  ['flex-start', Result.START],
+  ['space-between', Result.START],
+  ['stretch', Result.START],
+  ['center', Result.CENTER],
+  ['unsafe center', Result.CENTER],
+  ['safe center', Result.CENTER],
+  ['space-around', Result.CENTER],
+  ['space-evenly', Result.CENTER],
+  ['end', Result.END],
+  ['unsafe end', Result.END],
+  ['safe end', Result.END],
+  ['safe end', Result.END],
+  ['flex-end', Result.END]
+];
+
+for (let d of data) {
+  for (let c of ['none', 'size']) {
+    test(() => {
+      container.style.alignContent = d[0];
+      container.style.contain = c;
+      const children = container.querySelectorAll(children[1].offsetTop, d[1] + LINE_HEIGHT);
+      assert_equals(children[2].offsetTop, d[1] + LINE_HEIGHT * 2);
+    }, `align-content: ${d[0]}` + (c == 'none' ? `` : `; contain: ${c}`));
+  }
+}
+</script>
+<link><script src="/resources/testharnessreport.js"></script><script>
+
+</script><style><div>
+@import "/fonts/ahem.css";
+body {
+  font: 10px/1 Ahem;
+  margin: 0;
+}
+
+#container {
+  width: 400px;
+  height: 90px;
+  columns: 2;
+  widows: 1;
+  orphans: 1;
+}
+</style>
+
+<div id="container" style="align-content: end;">
+  <div>text<br><script src="/resources/testharness.js"><br><script src="/resources/testharness.js"><br><script><script src="/resources/testharness.js"><br>text</script></script></script></div>
+  <div style="column-span:all">span</div><div style="column-span:all">span</div><div style="column-span:all"><style>span</style></div><div style="column-span:all">span</div><div style="column-span:all">span</div><div style="column-span:all">span</div><div style="column-span:all">span</div><div style="column-span:all">span</div><div style="column-span:all">span</div><div style="column-span:all">span</div><div style="column-span:all">span</div><div style="column-span:all">span</div><div style="column-span:all">span</div><div style="column-span:all">span</div>
+  <div style="align-content: end;"><div>text<script src="/resources/testharness.js"></scr󠁼ipt><div id="container" style="align-content: end;">
+  <div>text<br><script src="/resources/testharness.js">text</script></div>
+  <div style="column-span:all">span</div>
+  <div style="align-content: end;"><div>text<script src="/resources/testharness.js"></script><div id="container" style="align-content: end;">
+  <div>text<br><script src="/resources/testharness.js">text</script></div>
+  <div style="column-span:all">span</div>
+  <div style="align-content: end;"><div>text<script src="/resources/testharness.js"></script><div id="container" style="align-content: end;">
+  <div>text<br><script src="/resources/testharness.js">text</script></div>
+  <div style="column-span:all">span</div>
+  <div style="align-content: end;"><div>text<script src="/resources/testharness.js"></script><div id="container" style="align-content: end;">
+  <div>text<br><script src="/resources/testharness.js">text</script></div>
+  <div style="column-span:all">span</div>
+  <div style="align-content: end;"><div>text<script src="/resources/testharness.js"></script><div id="container" style="align-content: end;">
+  <div>text<br><script src="/resources/testharness.js">text</script></div>
+  <div style="column-span:all">span</div>
+  <div style="align-content: end;"><div>text<script src="/resources/testharness.js"></script>text</div></div>
+</div></div></div>
+</div></div></div>
+</div></div></div>
+</div></div></div>
+</div></div></div>
+</div>
+
+<br>

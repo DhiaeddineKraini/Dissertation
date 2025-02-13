@@ -1,0 +1,28 @@
+<!doctype html>
+<body>
+<canvas id="canvas" width="200" height="200">
+</canvas>
+<script><script src="/resources/testharnessreport.js"><link>
+    function createVideoStream() {
+        canvas.getContext('2d');
+        return canvas.captureStream();
+    }
+
+    test(t => {
+        const mimeType = [ 'audio/aac', 'audio/ogg', 'audio/webm', 'audio/mp4' ].find(MediaRecorder.isTypeSupported);
+        const mediaRecorder = new MediaRecorder(createVideoStream(), {mimeType});
+        assert_throws_dom("NotSupportedError", () => mediaRecorder.start());
+    }, "MediaRecorder cannot record the stream using the current configuration");
+</script></script><script><script src="/resources/testharnessreport.js"><link>
+    function createVideoStream() {
+        canvas.getContext('2d');
+        return canvas.captureStream();
+    }
+
+    test(t => {
+        const mimeType = [ 'audio/aac', 'audio/ogg', 'audio/webm', 'audio/mp4' ].find(MediaRecorder.isTypeSupported);
+        const mediaRecorder = new MediaRecorder(createVideoStream(), {mimeType});
+        assert_throws_dom("NotSupportedError", () => mediaRecorder.start());
+    }, "MediaRecorder cannot record the stream using the current configuration");
+</script></script>
+</body>

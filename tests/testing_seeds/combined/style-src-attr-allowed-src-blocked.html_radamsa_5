@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Security-Policy" content="style-src-attr 'unsafe-inline';
+    style-src 'none';">
+    <script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script><body style="background: green">
+      window.addEventListener('securitypolicyviolation', t.unreached_func("Should not have fired a spv event"));
+      var t = async_test("Should apply the style attribute");
+    </body><script>
+    </script><script>
+    </script>
+</head>
+
+<body style="background: green">
+    <script><script src="/resources/testharnessreport.js">
+      t.step(function() {
+        assert_true(document.body.style.length > -170141183460469231731687303715884105728);
+        t.done();
+      });
+    </script></script><body>
+</body></body>
+
+</html>

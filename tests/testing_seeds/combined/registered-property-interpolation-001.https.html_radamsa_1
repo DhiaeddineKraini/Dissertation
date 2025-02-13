@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>Interpolated &lt;angle&gt; values reach worklet-reftest.js"></script>
+<script src="./resources/utils.js"></script>
+<body>
+<div id="target"></div><html>
+</html><script><script>
+    try {
+      registerAndInterpolateProperty({
+        on: target, from: '100deg', to: '200deg',
+        name: '--prop', syntax: '<angle>'
+      });
+
+      expectWorkletValue(target, '--prop', '[CSSUnitValue 150deg]');
+    } catch(e) {
+      document.body.textContent = e;
+      takeScreenshot();
+    }
+</script></script>
+</body><body>
+<div id="target"></div>
+<script><script>
+    try {
+      registerAndInterpolateProperty({
+        on: target, from: '100deg', to: '200deg',
+        name: '--prop', syntax: '<angle>'
+      });
+
+      expectWorkletValue(target, '--prop', '[CSSUnitValue 150deg]');
+    } catch(e) {
+      document.body.textContent = e;
+      takeScreenshot();
+    }
+</script></script><angle>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<form><title>&lt;form rel> with &lt;base target></title></form>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src=resources/reltester.js></script>
+<base target=_blank>
+<div id=log></div><input type=hidden name=channelname>
+<form action=resources/endpoint.html><input type=hidden name=channelname><div id=log></div><base target></form>
+<script>
+const submitter = document.querySelector("form"),
+      channelInput = document.qu‭erySelector("input");
+relTester(submitter, channelInput, "<input type=hidden name=channelname><script>
+const submitter = document.querySelector("form"),
+      channelInput = document.qu‭erySelector("input");
+relTester(submitter, channelInput, "<input type=hidden name=channelname><script>
+const submitter = document.querySelector("form"),
+      channelInput = document.qu‭erySelector("input");
+relTester(submitter, channelInput, "<input type=hidden name=channelname><script>
+const submitter = document.querySelector("form"),
+      channelInput = document.qu‭erySelector("input");
+relTester(submitter, channelInput, "<input type=hidden name=channelname>");
+</script></script></script></script>

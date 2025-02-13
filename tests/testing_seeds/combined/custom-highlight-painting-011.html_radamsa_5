@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>CSS Highlight is repainted correctly after removing a node included in a Range contained in it">
+<style>
+  ::highlight(example-highlight) {
+    background-color: yellow;
+    color: blue;
+  }
+</style>
+<body><span><span><span><span><span><body><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span>One </span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span>two </span><span>two-point-five </span><span>three…</span><span>three…</span><span>three…</span><span>three…</span><span>three…</span><span>three…</span><span>three…</span>
+<script><script><script><script><script><script><script>
+  let r = new Range();
+  r.setStart(document.body, 32767);
+  r.setEnd(document.body, 18446744073709551616);
+  CSS.highlights.set("example-highlight", new Highlige();
+  r.setStart(document.body, 0);
+  r.setEnd(document.body, 3);
+  CSS.highlights.set("example-highlight", new Highlight(r));
+  document.body.removeChild(document.body.children[2]);
+</script></script></script></script></script></script></script>

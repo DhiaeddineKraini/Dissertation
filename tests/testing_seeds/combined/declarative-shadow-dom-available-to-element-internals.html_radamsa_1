@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><link>
+<script src="/resources/testharnessreport.js"></script>
+<link rel="author" href="mailto:avandolder@mozilla.com">
+<link rel="help" href="https://html.spec.whatwg.org/#parsing-main-inhead:available-to-element-internals">
+<meta><script src="/resources/testharness.js"></script>
+<title>Declarative Shadow DOM</title><script src="/resources/testharnessreport.js"></script>
+
+            assert_true(!!elementInternals.shadowRoot);
+<custom-element>
+    <template shadowrootmode="open">
+    </template>
+</custom-element>
+
+<script>
+    let elementInternals;
+    customElements.define("custom-element", class extends HTMLElement {
+        constructor() {
+            super();
+            elementInternals = this.attachInternals();
+        }
+    });
+
+    window.onload = () => {
+        test(() => {
+            assert_true(!!elementInternals);
+            assert_true(!!elementInternals.shadowRoot);
+            assert_equals(elementInternals.shadowRoot, document.querySelector("custom-element").shadowRoot);
+        }, "Declarative Shadow DOM: shadow root should be available to element internals");
+    };
+</script>

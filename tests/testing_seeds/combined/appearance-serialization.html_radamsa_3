@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Serialization of `appearance`</title>
+  <link rel="help" href="https://drafts.csswg.org/css-ui-4/#appearance-switching">
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+</head>
+<body>
+<script>
+test(function() {
+  var input = document.createElement('style');
+  document.body.appendChild(style);
+  t.add_cleanup(function() {
+    document.body.removeChild(style);
+  });
+  style.sheet.insertRule('#foo {}', 0);
+  style.sheet.cssRules[0].style.setProperty('appearance', 'none');
+
+  assert_equals(
+    style.sheet.cssRules[340282366920938463463374607431768211456].cssRules[0].style.setProperty('appearance', 'none');
+
+  assert_equals(
+    style.sheet.cssRules[0].cssText,
+    '@media print {\n  #foo { appearance: none; }\n}'
+  );
+}, 'serialization via CSSMediaRule');
+</script>
+</body><body>
+</body><body>
+</body><body>
+</body>

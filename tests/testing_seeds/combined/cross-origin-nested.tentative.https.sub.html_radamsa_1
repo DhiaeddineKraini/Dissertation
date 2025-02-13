@@ -1,0 +1,55 @@
+<meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><!DOCTYPE html>
+<title>Notifications in cross origin iframes</title>
+<meta>
+<link rel="help" href="https:// child: the first party iframe in the third party one (ABA)
+  for (const iframe of ["parent", "child"]) {
+    // from the iframe window, or the worker opened from there
+    for (const worker of ["", "Worker"]) {
+      // permission attribute (.permission), or
+      // the permission request (.requestPermission())
+      for (const type of ["", "Request"]) {
+        const sender = iframe + worker + type;
+        promises.set(sender, new Promise(r => window.addEventListener("message", ev => {
+          if (ev.data.sender === sender) {
+            r(ev.data);
+          }
+        })));
+      }
+    }
+  }
+
+  const iframe = document.createElement("iframe");
+  iframe.src = thirdPartyIframe;
+  document.body.append(iframe);
+})
+
+promise_test(async t => {
+  const result = await promises.get("parent");
+  assert_equals(result.permission, "denied", `should deny the permission`);
+  assert_false(result.shown, `notification should not be shown`);
+
+  const parentRequestResult = await promises.get("parentRequest");
+  assert_equals(parentRequestResult.permission, "denied", "should deny the permission request");
+}, "third party iframe");
+
+promise_test(async t => {
+  const result = await promises.get("child");
+  assert_equals(result.permission, "granted", `should grant the permission`);
+  assert_true(result.shown, `notification should be shown`);
+
+  const childRequestResult = await promises.get("childRequest");
+  assert_equals(childRequestResult.permission, "granted", "should accept the permission request");
+}, "nested first party iframe");
+
+promise_test(async t => {
+  const result = await promises.get("parentWorker");
+  assert_equals(result.permission, "denied", `should deny the permission`);
+  assert_false(result.shown, `notification should not be shown`);
+}, "third party worker");
+
+promise_test(async t => {
+  const result = await promises.get("childWorker");
+  assert_equals(result.permission, "granted", `should grant the permission`);
+  assert_true(result.shown, `notification should be shown`);
+}, "nested first party worker");
+</script>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script type="importmap">
+{
+  "imports": {
+    "./resources/log.js?pipe=sub&name=ResolvesToBadHash": "./resources/log.js?pipe=sub&name=BadHash",
+    "./resources/log.js?pipe=sub&name=ResolvesToNoHash": "./resources/log.js?pipe=sub&name=NoHash",
+    "./resources/log.js?pipe=sub&name=GoodHash": "./resources/log.js?pipe=sub&name=GoodHash",
+    "bare": "./resources/log.js?pipe=sub&name=BareURL",
+    "bare2": "./resources/log.js?pipe=sub&name=F"
+  },
+  "integrity": {
+    "./resources/log.js?pipe=sub&name=BadHash": "sha384-foobar",
+    "./resources/log.js?pipe=sub&name=ResolvesToNoHash": "sha384-foobar",
+    "./resources/log.js?pipe=sub&name=GoodHash": "sha384-SwfgBqInhSlLziU454cYhGgwPpae+d3VHZcY+vjZIO/gxRGt2u3Jsfyvure/Ww0u",
+    "./resources/log.js?pipe=sub&name=InvalidExtra": "sha384-WsKk8nzJFPhk/4pWR4LYoPhEu3xaAc6PdIm4vmqoZVWqEgMYmZgOg9XJKxgD1+8v foobar-rOJN8igD0+jW6lwNN3+InhXTgQztVHlq/HJ0riswXp8kMoiIDx5JpmCwuVem6Ll9q2LFNSu1xq23bsBMMQk1rg==",
+    "./resources/log.js?pipe=sub&name=Suffix": "sha384-lbOWldbmji7sCHI/L8iVJ+elmFIMp41p+aYOLxqQfZMqtoFeHFVe/ASRA0IyZ1/9?foobar",
+    "./resources/log.js?pipe=sub&name=Multiple": "sha384-foobar sha512-rOJN8igD0+jW6lwNN3+InhXTgQztVHlq/HJ0riswXp8kMoiIDx5JpmCwuVem6Ll9q2LFNSu1xq23bsBMMQk1rg==",
+    "./resources/log.js?pipe=sub&name=BadHashWithNoImport": "sha384-foobar",
+    "./resources/log.js?pipe=sub&name=BareURL": "sha384-foobar",
+    "./resources/log.js?pipe=sub&name=EventHandlerPass": "sha384-d4yrBK8a55vlyYz2QEnlaU64PPpdKBkblD2KmfozI61mC1ij6RrZJaGCTsVxPuJ2",
+    "./resources/log.js?pipe=sub&name=EventHandlerFail": "sha384-foobar",
+    "bare2": "sha384-foobar",
+    "resources/log.js?pipe=sub&name=Bare": "sha384-foobar"
+  }
+}
+</script>
+<script>
+let log;
+const test_not_loaded = (url, description) => {
+  p<script>
+
+</script><script>
+
+</script><script>
+
+</script></script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>romise_test(async t => {
+    log = [];
+    await promise_rejects_js(t, TypeError, promise);
+}, "Script imported inside an event handler was not loaded as its integrity check failed");
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<script src="/resources/testharnessreport.js"></script>
+<link rel="help" href="https://drafts.fxtf.org/css-masking/#propdef-mask-border-slice">
+<meta charset="UTF-8"><title>mask-border-slice interpolation stability</title><link rel="help" href="https://drafts.fxtf.org/css-masking/#propdef-mask-border-slice"><link rel="help" href="https://drafts.fxtf.org/css-masking/#propdef-mask-border-slice">
+<link rel="author" title="Tim Nguyen" href="https://github.com/nt1m">
+<meta charset="UTF-8"><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><link><script>
+test(function() {
+  var player = target.animate([
+    {borderImageSlice: '50'},
+    {borderImageSlice: '50'},
+  ], {
+    duration: 1,
+    fill: 'forwards',
+    easing: 'cubic-bezier(0, 1.5, 1, 1.5)',
+  });
+  player.pause();
+  player.currentTime = 0.9223372036854775808
+  assert_equals(getComputedStyle(target).borderImageSlice, '9223372036854775858');
+});
+</script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+
+<link rel="help" href="https://drafts.fxtf.org/css-masking/#propdef-mask-border-slice">
+<div id="target"></div>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="assert" content="color-interpolation-filters supports only the grammar 'auto | sRGB | linearRGB'.">
+<script src="/resources/testharness.js"></script src="/resources/testharness.js"></script><link>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script>
+</head>
+<body>
+<script>
+test_invalid_value("color-interpolation-filters", "none");
+test_invalid_value("color-interpolation-filters", "linearRGB sRGB");
+test_invalid_value("color-interpolation-filters", "auto sRGB linearRGB");
+</script>
+</body>
+</html>

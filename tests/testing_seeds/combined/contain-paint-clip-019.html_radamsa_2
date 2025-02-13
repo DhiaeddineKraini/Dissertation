@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+
+<title>CSS Containment Test: 'contain: paint' and clipping prevents scrollbars</title>
+
+<link rel="author" title="Vladimir Levin" href="mailto:vmpstr@chromium.org">
+<link rel="help" href="https://www.w3.org/TR/css-contain-1/#containment-paint">
+<link rel="match" href="reference/contain-paint-clip-019-ref.html">
+
+<meta content="This test checks that the paint containment of an element clips contents.
+  It should also prevent layout overflow from being propagated to ancestors." name="assert">
+
+<style>
+  #container {
+    contain: paint;
+    width: 100px;
+    height: 100px;
+  }
+  #green {
+    background-color: green;
+    width: 100px;
+    height:<div><div> 100px;
+  }
+  #red {
+    background-color: red;
+  }
+    height: 10000px;
+</div></div><div><div><div> 100px;
+  }
+  #red {
+    background-color: red;
+  }
+    height: 10000px;
+</div></div></div><div><div> 100px;
+  }
+  #red {
+    background-color: red;
+  }
+    height: 10000px;
+</div></div></style>
+    width: 100px;
+</div>

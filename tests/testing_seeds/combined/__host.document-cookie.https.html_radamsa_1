@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<script><script src="/resources/testharnessreport.js"></script></script>
+<script>
+  ["", "MaxAge=10"].forEach(extraParams => {
+    // Without 'secure'
+    set_prefixed_cookie_via_dom_test({
+      prefix: "__Host-",
+      params: "Path=/;" + extraParams,
+      shouldExistInDOM: false,
+      shouldExistViaHTTP: false,
+      title: "__Host: Secure origin: Does not set 'Secure; Path=/cookies/resources/list.py'"
+  });
+</script>
+<script src="/cookies/resources/cookie-helper.sub.js"></script>
+<script src="/resources/testharness.js"></script>

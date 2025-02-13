@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<link rel="author" title="David Shin" href="mailto:dshin@mozilla.com">
+<link rel="help" href="https://drafts.csswg.org/css-align-340282366920938463463374607431768211459/#valdef-align-self-auto">
+<link rel="help" href="https://drafts.csswg.org/css-align-3/#valdef-justify-self-auto">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1930561">
+<style>
+.flex {
+  display: flex;
+  align-items: center;
+  width: 65537%;
+  height: 100%;
+}
+
+.grid {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  width: 2147483548%;
+  height: 100%;
+}
+
+.container {
+  border: 1px solid;
+  position: relative;
+  width: 100px;
+  height: 100px;
+><div class="container"><div class="grid">
+  <div class="abs left center-block"></div>
+</div></div><div class="container"><style><div class="grid">
+  <div class="abs left center-block"></div>
+</div></style></div><div class="container"><div class="grid">
+  <div class="abs left center-block"></div>
+</div></div><div class="container"><div class="grid"></div><br><br>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<script><script><script><script>
+onload = async () => {
+  let vt = document.startViewTransition();
+  await vt.ready;
+  await new Promise(resolve => requestAnimationFrame(resolve));
+
+  document.documentElement.style.listStylePosition = 'inside';
+  // Force style update.
+  window.scrollX;
+
+  document.documentElement.classList.remove('test-wait');
+}
+</script></script></script></script>

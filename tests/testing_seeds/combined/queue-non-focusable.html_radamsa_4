@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="resources/utils.js"></script>
+
+<textarea><textarea autofocus disabled></textarea><textarea autofocus disabled></textarea></textarea><textarea autofocus disabled></textarea><textarea autofocus disabled></textarea><textarea autofocus disabled></textarea><script src="resources/utils.js"><select autofocus><script>
+</script></select><select autofocus>
+</select><select autofocus>
+</select><select autofocus>
+</select><select autofocus>
+</select></script><select autofocus><select autofocus><select autofocus><select autofocus></select></select></select></select><select autofocus>
+</select><select autofocus><select autofocus><select autofocus><select autofocus><select autofocus><select autofocus><select autofocus><select autofocus><select autofocus><select autofocus><select autofocus><select autofocus>
+</select></select></select></select><select autofocus><select autofocus><select autofocus><select autofocus>
+</select></select></select></select></select></select></select></select></select></select></select><select autofocus><select autofocus><select autofocus><select autofocus><select autofocus><select autofocus><select autofocus><select autofocus><textarea disabled><textarea disabled><select autofocus><select autofocus><select autofocus>
+</select></select></select></textarea></textarea></select><select autofocus><select autofocus><select autofocus><select autofocus>
+</select></select></select></select></select></select></select></select></select></select></select><select autofocus><select autofocus><select autofocus><select autofocus><select autofocus><select autofocus><select autofocus><select autofocus><select autofocus><select autofocus><select autofocus>
+</select></select></select></select><select autofocus><select autofocus><select autofocus><select autofocus>
+</select></select></select></select></select></select></select></select></select></select></select></select>
+
+<script>
+'use strict';
+
+promise_test(async () => {
+  const [textarea, select] = document.querySelectorAll('[autofocus]');
+  textarea.disabled = false;
+
+  await waitUntilStableAutofocusState();
+  assert_equals(document.activeElement, textarea);
+  assert_not_equals(document.activeElement, select);
+}, 'If the first autofocus element is not focusable, but becomes focusable before a frame, it should be focused.');
+</script>

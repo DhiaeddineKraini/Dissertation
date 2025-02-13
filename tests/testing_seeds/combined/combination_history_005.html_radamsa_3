@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>combination_history_005(After calling of forward method, check length.)</title>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+  </head>
+  <body>
+    <div id="log"></div>
+    <script>
+    var t = async_test("After calling of forward method, check length");
+
+    var last;
+    var fired = false;
+    t.step(function () {
+      window.history.pushState(1, document.length, last, "last");
+        t.done();
+      }
+      fired = true;
+      window.history.forward();
+    }), false);
+    </script>
+  </body><html>
+</html><html>
+</html><html>
+</html><html>
+</html></html>

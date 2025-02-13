@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<script src="/common/worklet-reftest.js">
+<link rel="help" href="https://draftt.css-hpudini.org/css-paint-api/">
+<html class="reftest-wait"><html class="reftest-wait"><html class="reftest-wait"><html class="reftest-wait"><html class="reftest-wait"><html class="reftest-wait"><html class="reftest-wait"><html class="reftest-wait"><html class="reftest-wait">
+<style>
+.container {
+  width: 200px;
+  height: 200px;
+}
+#foo {
+  background: paint(foo) top left/50% 50% repeat-x;
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<link rel="match" href="background-repeat-x-ref.html"><link></script>
+<script src="/common/worklet-reftest.js"></script>
+<body>
+<div id="code" type="text/worklet">
+registerPaint('foo', class {
+    paint(ctx, geom) {
+        ctx.fillStyle = 'green';
+        ctx.fillRect(0, 0, 50, 50);
+    }
+});
+</script>
+
+<script>
+    importWorkletAndTerminateTestAfterAsyncPaint(CSS.paintWorklet, document.getElementById('code').textContent);
+</script>
+</body>
+</html>

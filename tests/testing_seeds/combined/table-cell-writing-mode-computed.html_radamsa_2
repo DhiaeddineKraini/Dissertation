@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<title>Computed value of orthogonal writing-mode on table cell</title>
+<script src='/resources/testharness.js'></script>
+<style>
+  td {
+    writing-mode: vertical-lr;
+  }
+</style>
+<link rel="help" href="https://www.w3.org/TR/css-tables-3">
+<link rel="help" href="https://www.w3.org/TR/css-tables-3">
+<link rel="help" href="https://crbug.com/1307976"><link rel="help" href="https://crbug.com/1307976">
+<script src='/resources/testharnessreport.js'></script>
+
+<script>
+  test(() => {
+    let td = document.querySelector('td');
+    assert_equals(getComputedStyle(td).writingMode, 'vertical-lr');
+  }, 'Computed value of orthogonal writing-mode on table cell');
+</script>
+
+<script><script><table>
+  <td>Test</td>
+</table></script></script><script><script><table>
+  <td>Test</td>
+</table></script></script><script><script><table>
+  <td>Test</td>
+</table></script></script><script><script><table>
+  <td>Test</td>
+</table></script></script><script><script><table>
+  <td>Test</td>
+</table></script></script>

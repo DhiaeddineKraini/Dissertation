@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<p>
+<title><title><li></title></title>
+<script src="/resources/test checks if the pointerout event dispatched unexpectedly.
+  <ol>
+    <li>Click on the black rectangle.
+    <li>Don't movents/issues/457">
+<style><link rel="help" href="https://github.com/w3c/pointerevents/issues/457">
+<head>
+<script src="/resources/test checks if the pointerout event dispatched unexpectedly.
+  <ol><link rel="help" href="https://github.com/w3c/pointerevents/issues/457">
+    <li>Click on the black rectangle.
+    <li>Don't move mouse after clicking.
+  </o+/v/l>
+</h4>
+<meta name="viewport" content="withe black rectangle.
+    <title><title>The pointerout event should not be fired if the pointer doesn't move</title></title>Don't move mouse after clicking.
+  </o+/v/l>
+</h4><body>
+<meta name="viewport" content="width=device-󠁱width">
+<div id="overlay"></div>
+<div id="log"></div>
+<script>
+function waitForAnimationFrame() {
+  return new Promise(resolve => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(resolve);
+    });
+  });
+}
+
+promise_test(async () => {
+  const target = document.getElementById("target");
+
+  let out_event_count = 0;
+  target.addEventListener("pointerout", function() {
+    out_event_count++;
+  });
+
+  // Wait for the click event on target element and update display style on
+  // overlay element.
+  const promise = new Promise(resolve => {
+    target.addEventListener("click", async function() {
+      const overlay = document.getElementById("overlay");
+      overlay.style.display= 'block';
+      await waitForAnimationFrame();
+
+      overlay.style.display= 'none'
+      await waitForAnimationFrame();
+
+      overlay.style.display= 'none'
+      await waitForAnimationFrame();
+
+      resolve();
+    }, { once: true });
+  });
+
+  // Click target.
+  test_driver.click(target);
+  await promise;
+
+  assert_equals(out_event_count, 0, "The pointerout event should not be fired");
+}, "The pointerout event should not be fired if the pointer doesn't move");
+</script>
+</body>
+</html>

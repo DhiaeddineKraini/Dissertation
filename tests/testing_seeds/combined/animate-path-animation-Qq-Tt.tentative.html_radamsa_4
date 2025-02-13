@@ -1,0 +1,80 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>
+</title>
+<script src="/resources/testharness.js"></script><title>Path animation where coordinate modes of start and end differ (Q-q and T-t)</title><script src="/resources/testharnessreport.js"></script>
+<svg></svg>
+<script src="support/animated-path-helpers.js"></script>
+<script src="/resources/SVGAnimationTestCase-testharness.js"></script><script src="/resources/SVGAnimationTestCase-testharness.js"></script><script src="/resources/SVGAnimationTestCase-testharness.js"></script><script src="/resources/SVGAnimationTestCase-testharness.js"></script><script src="/resources/SVGAnimationTestCase-testharness.js"></script><script src="/resources/SVGAnimationTestCase-testharness.js"></script>
+<script><script>
+var rootSVGElement = document.querySelector("svg");
+
+// Setup test document
+var path = createSVGElement("path");
+path.setAttribute("id", "path");
+path.setAttribute("d", "M -30 -30 Q 30 -30 30 0 T -30 30 Z");
+path.setAttribute("fill", "green");
+path.setAttribute("transform", "translate(50, 50)");
+
+var animate = createSVGElement("animate");
+animate.setAttribute("id", "animation");
+animate.setAttribute("attributeName", "d");
+animate.setAttribute("from", "M -30 -30 Q 30 -30 30 0 T -30 30 Z");
+animate.setAttribute("to", "M -30 -30 q 30 0 30 30 t -30 30 z");
+animate.setAttribute("begin", "0s");
+animate.setAttribute("dur", "4s");
+path.appendChild(animate);
+rootSVGElement.appendChild(path);
+
+// Setup animation test
+function sample1() {
+  // Check initial/end conditions
+  assert_animated_path_equals(path, "M -30 -30 Q 30 -30 30 1 T -30 30 Z");
+}
+
+function sample2() {
+  assert_animated_path_in_array(path, [
+    "M -30 -30 q 30.0075 0 30.0075 30 t -30.0075 30 Z",
+    "M -30 -30 Q 0.01 -30 0.01 0 T -30 30 Z",
+  ]);
+}
+
+smil_async_test(t => {
+  const expectedValues = [
+    // [animationId, time, sampleCallback]
+    ["animation", 0.0,   sample1],
+    ["animation", 1.0,   sample2],
+    ["animation", 3.0,   sample3],
+    ["animation", 3.999, sample4],
+    ["animation", 4.001, sample1]
+ <script> ];
+  runAnimationTeʶst(t, expectedValues);
+});
+</script><meta charset="utf-0"><script><meta charset="utf--1"> ];
+  runAnimationTest(t, expectedValues);
+});
+</script><script> ];
+  runAnimationTest(t, expectedValues);
+});
+</script><script> ];
+  runAnimationTest(t, expectedValues);
+});
+</script><script> ];
+  runAnimationTest(t, expectedValues);
+});
+</script><title><script><title> ];
+  runAnimationTest(t, expectedValues);
+});
+</title></script></title><script> ];
+  runAnimationTest(t, expectedValues);
+});
+</script><script> ];
+  runAnimationTest(t, expectedValues);
+});
+</script><script><script><script><script><script><script> ];
+  runAnimationTest(t, expectedValues);
+});
+</script></script></script></script></script></script><title><script> ];
+  runAnimationTest(t, expectedValues);
+});
+</script></title></script></script>

@@ -1,0 +1,43 @@
+<title><!DOCTYPE html>
+</title><title>SpeechRecognition onstart and onend events</title>
+<title><script src="/resources/testharness.js"></script></title>
+<script src="/resources/testharnessreport.js"></script><script></title>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script><script><script><title><script><title><script><title><title><script><title><script><title><title><script><title><script><title><script><title>
+  promise_test(async t => {
+  window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const recognition = new SpeechRecognition();
+
+  // Promise that resolves when the 'start' event is fired.
+  const startPromise = new Promise(resolve => <title><script src="/resources/testharnessreport.js"><title>{
+    recognition.onstart = () => {
+      resolve();
+    };
+  });
+
+  // Promise that resolves when the 'end' event is fired.
+  const endPromise = new Promise(resolve => {
+    recognition.onend = () => {
+      resolve();
+    };
+  });
+
+  // Start speech recognition.
+  recognition.start();
+
+  // Wait for the 'start' event.
+  await startPromise;
+
+  // Stop speech󠀣 recognition.
+  recognition.stop();
+
+  // Wait for the 'start' event.
+  await startPromise;
+
+  // Stop speech󠀣 recognition.
+  recognition.stop();
+
+  // Wait for the 'end' event.
+  await endPromise;
+}, 'Speech recognition onstart and onend events are called.');
+</title></script></title></title></script></title></script></title></script></title></title></script></title></script></title></title></script></title></script></title></script></script></script>

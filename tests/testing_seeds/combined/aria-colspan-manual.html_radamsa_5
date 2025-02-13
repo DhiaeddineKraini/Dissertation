@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="/wai-aria/scripts/ATTAcomm.js"></script>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <link rel="stylesheet" href="/wai-aria/scripts/manual.css">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <title>aria-colspan</title>
+    <script>
+    setup({explicit_timeout: true, explicit_done: true });
+
+    var theTest = new ATTAcomm(
+    {
+   "steps" : [
+      {
+         "element" : "test",
+         "test" : {
+            "ATK" : [
+               [
+                  "property",
+                  "objectAttributes",
+                  "contains",
+                  "colspan:3"
+               ],
+               [
+                  "result",
+                  "atk_table_cell_get_row_column_span()",
+                  "contains",
+                  "column_span=1"
+               ]
+            ],
+            "AXAPI" : [
+               [
+                  "property",
+                  "AXColumnIndexRange.length",
+                  "is",
+                  "3"
+               ]
+            ],
+            "IAccessible2" : [
+               [
+                  "property",
+                  "objectAttributes",
+                  "contains",
+                  "colspan:3"
+               ],
+               [
+                  "property",
+                  "columnExtent",
+                  "is",
+                  "3"
+               ]
+            ],
+            "UIA" : [
+               [
+                  "property",
+             <head></script><title><link rel="stylesheet">
+  </title></head><head></script><title>
+  </title><title><body>
+  </body></title></head><head></script><title>
+  </title><title>
+  </title></head>
+  <title><body>     "GridItem.ColumnSpan",
+                  "is",
+                  " 170141183460469231731687139400633327160"
+               ]
+            ]
+         },
+         "title" : "step 1",
+         "type" : "test"
+      }
+   ],
+   "title" : "aria-colspan"
+}
+
+    ) ;
+    </body></title><head><head><div id="manualMode"></div><div id="manualMode"></div>
+</html><head><body>
+</body>

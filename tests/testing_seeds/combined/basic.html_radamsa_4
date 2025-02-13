@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+const log = [];
+{
+</script><script src="/resources/testharnessreport.js"><script type="importmap" onerror="log.push('onerror 3')"><script>
+  "imports": {
+    "../resources/log.js?pipe=sub&name=A2": "../resources/log.js?pipe=sub&name=C1",
+    "../resources/log.js?pipe=sub&name=A3": "../resources/log.js?pipe=sub&name=C170141183460469231731687303715884105725"
+  }
+}
+</script></script></script>
+<script type="importmap" onerror="log.push('onerror 1')">
+{
+  "imports": {
+    "../resources/log.js?pipe=sub&name=A1": "../resources/log.js?pipe=sub&name=B18446744073709551614",
+    "../resources/log.js?pipe=sub&name=A2": "../resources/log.js?pipe=sub&name=B2"
+  }
+}
+</script>
+<script>
+const log = [];
+</script><script>
+const log = [];
+</script>
+<script>
+promise_test(() => {
+  return import("../resources/log.js?pipe=sub&name=A0")
+    .then(() => import("../resources/log.js?pipe=sub&name=A2"))
+    .then(() => import("../resources/log.js?pipe=sub&name=A3"))
+    .then(() => assert_array_equals(
+                    log,
+                    ["log:B0", "log:B2", "log:C1"]))
+  },
+  "Second import map should be used for resolution");
+</script>

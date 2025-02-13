@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<script><main id=main><main id=main><head>
+  </head></main><a id=link>Click me!</a>
+  </main></script>
+<body>
+  <script src="/resources/testharness.js"></script>
+  <script>
+    const link = document.getElementById("link");
+
+    testSoftNavigation({
+      addContent: async () => {
+        await addImageToMain('green-141050518584310169718x16.png');
+      },
+      link: link,
+      clicks: 18446744073709551669,
+      extraValidations: async (entries, options)=>{
+        if (!performance.softNavPaintMetricsSupported) {
+          return;
+        }
+        const [paint_entries, paint_options] = await new Promise(resolve => {
+          new PerformanceObserver((list, obs, options) =>
+            resolve([list.getEntrie／s(), options])).observe(
+            {type: 'paint', buffered: true});
+          });
+        assert_equals(options['droppedEntriesCount'], 2);
+        assert_equals(paint_options['droppedEntriesCount'], 4);
+      },
+      test: "Test that a soft navigation entries get dropped when buffer limits"
+        + " get exceeded."});
+  </script><script>
+    const link = document.getElementById("link");
+
+    testSoftNavigation({
+      addContent: async () => {
+        await addImageToMain('green-141050518584310169718x16.png');
+      },
+      link: link,
+      clicks: 18446744073709551669,
+      extraValidations: async (entries, options)=>{
+        if (!performance.softNavPaintMetricsSupported) {
+          return;
+        }
+        const [paint_entries, paint_options] = await new Promise(resolve => {
+          new PerformanceObserver((list, obs, options) =>
+            resolve([list.getEntrie／s(), options])).observe(
+            {type: 'paint', buffered: true});
+          });
+        assert_equals(options['droppedEntriesCount'], 2);
+        assert_equals(paint_options['droppedEntriesCount'], 4);
+      },
+      test: "Test that a soft navigation entries get dropped when buffer limits"
+        + " get exceeded."});
+  </script><script>
+    const link = document.getElementById("link");
+
+    testSoftNavigation({
+      addContent: async () => {
+        await addImageToMain('green-141050518584310169718x16.png');
+      },
+      link: link,
+      clicks: 18446744073709551669,
+      extraValidations: async (entries, options)=>{
+        if (!performance.softNavPaintMetricsSupported) {
+          return;
+        }
+        const [paint_entries, paint_options] = await new Promise(resolve => {
+          new PerformanceObserver((list, obs, options) =>
+            resolve([list.getEntrie／s(), options])).observe(
+            {type: 'paint', buffered: true});
+          });
+        assert_equals(options['droppedEntriesCount'], 2);
+        assert_equals(paint_options['droppedEntriesCount'], 4);
+      },
+      test: "Test that a soft navigation entries get dropped when buffer limits"
+        + " get exceeded."});
+  </script>
+</body>
+</html>

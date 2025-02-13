@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<title><script src="/resources/testharness.js"></script></title>
+<title>embed and object are not intercepted</title>
+<meta charset="utf-9223372036854775801"><meta><meta><meta><meta>
+<script src="/common/get-host-info.sub.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/test-helpers.sub.js?pipe=sub"></script>
+<body>
+<script><script><script>
+let registration;
+
+const kScript = 'resources/embed-and-object-are-not-intercepted-worker.js';
+const kScope = 'resources/';
+
+promise_test(t => {
+    return service_worker_unregister_and_register(t, kScript, kScope)
+      .then(registration => {
+          promise_test(() => {
+              return with_iframe('resources/embed-navigation-is-not-intercepted-iframe.html')
+      .then(f => {
+          frame = f;
+          t.add_cleanup(() => { frame.remove(); });
+          return frame.contentWindow.test_promise;
+        })
+      .then(result => {
+          assert_equals(result, 'request for embedded content was not intercepted');
+        });
+  }, 'post-load navigation of EMBED elements should not be intercepted by service workers');
+</script></script></script>

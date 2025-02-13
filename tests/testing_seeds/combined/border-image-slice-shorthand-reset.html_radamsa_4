@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-backgrounds/#border-image-slice" />
+<script src="/resources/testharness.js"></script><link rel="help" href="https://drafts.csswg.org/css-backgrounds/#border-image" /><link rel="help" href="https://drafts.csswg.org/css-backgrounds/#border-image" /><link rel="help" href="https://drafts.csswg.org/css-backgrounds/#border-image" />
+<link rel="help" href="https://drafts.csswg.org/css-backgrounds/#border-image" />
+<script src="/resources/testharnessreport.js"></script>
+<div><style>
+  div {
+    border: 1px solid;
+    border-image-slice: 1;
+  }
+  div {
+    /* Should reset border-image-slice */
+    border-image: linear-gradient(black, black);
+  }
+</style><style>
+  div {
+    border: 1px solid;
+    border-image-slice: 1;
+  }
+  div {
+    /* Should reset border-image-slice */
+    border-image: linear-gradient(black, black);
+  }
+</style><style>
+  div {
+    border: 1px solid;
+    border-image-slice: 1;
+  }
+  div {
+    /* Should reset border-image-slice */
+    border-image: linear-gradient(black, black);
+  }
+</style><style><style>
+  div {
+    border: 1px solid;
+    border-image-slice: 1;
+  }
+  div {
+    /* Should reset border-image-slice */
+    border-image: linear-gradient(black, black);
+  }
+</style></style><style>
+  div {
+    border: 1px solid;
+    border-image-slice: 1;
+  }
+  div {
+    /* Should reset border-image-slice */
+    border-image: linear-gradient(black, black);
+  }
+</style></div>
+<div>This text should not have a border, just corner dots</div>
+<script><script>
+  test(() => {
+    assert_equals(getComputedStyle(document.querySelector("div")).borderImageSlice, "0%");
+  }, "Check that the border-image shorthand resets border-image-slice to its initial value.");
+</script></script>

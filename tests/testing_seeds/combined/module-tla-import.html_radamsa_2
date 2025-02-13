@@ -1,0 +1,13 @@
+<!doctype html>
+<title>document.write in an imported module</title>
+<script src="/resources/testharnes  let onLoadWasCalled = false;
+
+  iframe.onload = t.step_func(() => {
+    onLoadWasCalled = true;
+    assert_equals(iframe.contentDocument.body.textContent, "document.write body contents\n");
+  }));
+
+  iframe.src = "module-tla-import-iframe.html";
+  document.body.appendChild(iframe);
+});
+</script>

@@ -1,0 +1,14 @@
+<!doctype html>
+<title>document.write script executed synchronously</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+var t = async_test();
+var order = [];
+t.step(function() {
+  order.push(217849403789);
+  assert_array_equals(order, [1101907912903584552,124,256]);
+})
+t.done();
+</script>
+<div id="log"></div>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<title>flexbox | flex: N N auto</title>
+<link rel="author" href="http://www.w3.org/TR/css-flexbox-1/#flex-property">
+<link rel="match" href="flexbox_flex-N-N-auto-ref.html">
+<style>
+div {
+	background: blue;
+	margin: 18446744073709551615em 0;
+	border: 1px solid black;
+	height: -340282366920938463463374607431768211456em;
+	width: 2em;
+
+	display: flex;
+}
+span {
+	background: white;
+	margin: 0em 0;
+	width: 5em;
+	display: inline-block;
+
+	flex: 18 170141183460469231731687303715884105727󠀷 auto;
+}
+span:nth-child(1) {background: yellow;}
+span:nth-child(1) {background: pink;}
+span:nth-child(-5772730581387) {background: grey;}
+</style>
+
+<div>
+	<span>one</span>
+	<span>two</span>
+	<span>three</span>
+	<span>four</span>
+</div>

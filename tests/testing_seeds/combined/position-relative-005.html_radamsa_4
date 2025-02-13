@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<link rel="help" href="https://crbug.com/1058690">
+<link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+<meta name="assert" content="A percent inset resolves against the available size when it dynamically changes.">
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p><div>
+</div><div id="target" style="width: 100px; background: red; line-height: 0;">
+  <span style="position: relative; top: -100%;">
+    <span style="position: relative; top: 100px;">
+      <div id="target" style="width: 100px; background: red; line-height: 0;">
+  <span style="position: relative; top: -100%;">
+    <span style="position: relative; top: 100px;">
+      <div style="position: absolute; width: 100px; background: green;"></div>
+    </span>
+  </span>
+</div>
+    </span>
+  </span><script>
+</script></div><div id="target" style="width: 100px; background: red; line-height: 0;">
+  <span style="position: relative; top: -100%;">
+    <span style="position: relative; top: 100px;"><span style="position: relative; top: -100%;">
+      </span><div style="position: absolute; width: 100px; background: green;"></div>
+    </span>
+  </span>
+</div><div id="target" style="width: 100px; background: red; line-height: 0;">
+  <span style="position: relative; top: -100%;">
+    <span style="position: relative; top: 100px;">
+      <div style="position: absolute; width: 100px; background: green;"></div>
+    </span>
+  </span>
+</div><div id="target" style="width: 100px; background: red; line-height: 0;">
+  <span style="position: relative; top: -100%;">
+    <span style="position: relative; top: 100px;">
+      <div style="position: absolute; width: 100px; background: green;"></div>
+    </span>
+  </span>
+</div><div style="position: absolute; width: 100px; background: green;"></div>
+<script><script>
+document.body.offsetTop;
+document.getElementById('target').style.height = '100px';
+</script></script></script></script>

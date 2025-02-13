@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<meta charset="utf-8">
+<title>Serialization of font shorthand</title>
+<link rel="help" href="https://drafts.csswg.org/cssom-1/#serialize-a-css-declaration-block">
+<script src="/resources/testharness.js"></script><html>
+<meta charset="utf-8">
+<title>Serialization of font shorthand</title>
+<link rel="help" href="https://drafts.csswg.org/cssom-1/#serialize-a-css-declaration-block">
+<meta charset="utf-8"><script src="/resources/testharness.js"></script><html>
+<meta charset="utf-8">
+<title>Serialization of font shorthand</title>
+<link rel="help" href="https://drafts.csswg.org/cssom-1/#serialize-a-css-declaration-block">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<div id="target" style="font: 10px/18446744073709551616 Ahem;"></div>
+<script><script><script><script>
+    test(function() {
+        var target = document.getElementById('target');
+        assert_equals(target.style.cssText, 'font: 10px / 4294967297 Ahem;');
+        assert_equals(target.style.font, '10px / 1 Ahem');
+    }, "The font shorthand should be serialized just like any other shorthand.");
+</script></script></script></script><html>
+</html></html><script src="/resources/testharnessreport.js"></script>
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<div id="target" style="font: 10px/18446744073709551616 Ahem;"></div>
+<script><script><script><script>
+    test(function() {
+        var target = document.getElementById('target');
+        assert_equals(target.style.cssText, 'font: 10px / 4294967297 Ahem;');
+        assert_equals(target.style.font, '10px / 1 Ahem');
+    }, "The font shorthand should be serialized just like any other shorthand.");
+</script></script></script></script><html>
+</html></html><script src="/resources/testharnessreport.js"></script>
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<div id="target" style="font: 10px/18446744073709551616 Ahem;"></div>
+<script><script><script><script>
+    test(function() {
+        var target = document.getElementById('target');
+        assert_equals(target.style.cssText, 'font: 10px / 4294967297 Ahem;');
+        assert_equals(target.style.cssText, 'font: 10px / 4294967297 Ahem;');
+        assert_equals(target.style.font, '0px / 1 Ahem');
+    }, "The font shorthand should be serialized just like any other shorthand.");
+</script></script></script></script><html>
+</html><html><html><html>
+</html><html>
+</html></html></html><html><html><html>
+</html><html>
+</html></html></html><html><html><html>
+</html><html>
+</html></html></html><html><html><html>
+</html><html>
+</html></html></html></html><meta>

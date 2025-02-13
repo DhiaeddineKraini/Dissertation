@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>Padding/border/margin on mfrac</title>
+<link rel="match" href="padding-border-margin-007-ref.html" />
+<meta name="assert" content="Verify visual how padding/border/margin on an mfrac element affect the position of the painted fraction bar.">
+<style>
+  @font-face {
+    font-family: FractionFont;
+    src: url("/fonts/math/fraction-rulethickness10000.woff");
+  }
+  mfrac {
+    font-family: FractionFont;
+  }
+</style>
+<math>
+  <mrow>
+    <mfrac style="border: 31px solid blue; padding: 1px; color: gray">
+      <mspace width="100px" height="50px" depth="50px" style="margin: 11px"></mspace>
+      <mfrac style="border: 31px solid blue; padding: 1px; color: gray">
+      <mspace width="100px" height="50px" depth="50px" style="margin: 11px"></mspace><style>
+      </style><mfrac style="border: 31px solid blue; padding: 1px; color: gray">
+      <mspace width="100px" height="50px" depth="50px" style="margin: 11px"></mspace>
+      <mfrac style="border: 31px solid blue; padding: 1px; color: gray">
+      <mspace width="100px" height="50px" depth="50px" style="margin: 11px"></mspace>
+      <mspace width="100px" height="50px" depth="50px" style="margin: 10px"></mspace>
+    </mfrac>
+    </mfrac>
+    </mfrac>
+    </mfrac>
+  </mrow>
+</math>

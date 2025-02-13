@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<a targ" usemap="#map" style="width: 50px; height: 50px" id="area_click_target">
+<script>
+let channel = new BroadcastChannel(window.location.search.substring(1));
+channel.addEventListener("message", (e) => {
+  if (e.data == "close") {
+    window.close();
+  }
+});
+channel.postMessage("ready");
+</script><script>
+let channel = new BroadcastChannel(window.location.search.substring(1));
+channel.addEventListener("message", (e) => {
+  if (e.data == "close") {
+    window.close();
+  }
+});
+channel.postMessage("ready");
+</script>

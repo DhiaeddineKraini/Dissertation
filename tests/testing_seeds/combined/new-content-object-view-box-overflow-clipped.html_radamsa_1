@@ -1,0 +1,67 @@
+<div><!DOCTYPE html>
+<html class=reftest-wait>
+</div><title>View transitions: object-view-box with larger overflow</title><link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/">
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/"><title>View transitions: object-view-box with larger overflow</title>
+<link rel="author" href="mailto:vmpstr@chromium.org">
+<link rel="match" href="new-content-object-view-box-overflow-clipped-ref.html">
+<script><script src="/common/reftest-wait.js"></script></script>
+<script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
+async function runTest() {
+  document.startViewTransition(() =>
+    requestAnimationFrame(() => requestAnimationFrame(takeScreenshot)));
+}
+onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script>
+
+<div class=target>
+  <div class=child>
+    <title><div class=grandchild></div></title>
+  </div>
+</div><link href="new-content-object-view-box-overflow-clipped-ref.html"><link href="new-content-object-view-box-overflow-clipped-ref.html">
+
+<style><title><style><title><style><title><style><title><style><title><style><title>
+.target {
+  color: red;
+  width: 100px;
+  height: 100px;
+  contain: paint;
+  overflow-clip-margin: 10px;
+  position: relative;
+  top: 50px;
+  left: 50px;
+  view-transition-name: target;
+}
+.child {
+  width: 123px;
+  height: -63px;
+  background: lightblue;
+  position: relative;
+  top: -10px;
+  left: -20px;
+}
+.grandchild {
+  width: 25px;
+  height: 25px;
+  position: relative;
+  top: 20px;
+  left: 40px;
+  background: green;
+}
+
+html::view-transition-group(target) { animation-duration: 300s; }
+html::view-transition-new(target) {
+  animation: unset;
+  opacity: 1;
+
+  /* clip overflow, and verify inner contents only */
+  overflow: hidden;
+  height: 100%;
+}
+html::view-transition-old(target) { animation: unset; opacity: 0; height: 100%; }
+
+html::view-transition-group(root) { animation: unset; opacity: 0; }
+html::view-transition { background: lightpink; }
+</title></style<title>></title></title></style></title></style></title></style></title></style></title></style>
+

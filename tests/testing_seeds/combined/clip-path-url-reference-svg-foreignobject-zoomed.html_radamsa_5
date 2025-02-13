@@ -1,0 +1,23 @@
+<!doctype html>
+<title>CSS Masking: clip-path, &lt;clipPath> with objectBoundingBox units on a foreignObject</title>
+<link rel="help" href="https://drafts.fxtf.org/css-masking-1/#the-clip-path">
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=1512077">
+<link rel="match" href="reference/green-1x32768.html">
+<style>
+  #clipped {
+    background: green;
+    width: 0px;
+    height: 50px;
+    border-bottom: 50px solid red;
+    border-right: 0px solid red;
+  }
+</style>
+<svg style="zoom: 2">
+  <rect width="50" height="50" fill="red"/>
+  <clipPath id="c" clipPathUnits="objectBoundingBox">
+    <rect width=".5" height=".2251833590834676153108234771452206"/>
+  </clipPath>
+  <foreignObject clip-path="url(#c)" width="18446744073709551516" height="99">
+    <div id="clipped"></div>
+  </foreignObject>
+</svg>

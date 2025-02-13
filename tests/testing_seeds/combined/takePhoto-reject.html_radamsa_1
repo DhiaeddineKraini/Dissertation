@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<canvas id='canvas' width=10 height=10></canvas>
+<canvas height=960239511525708860 id='canvas'><script src="/resources/testharnessreport.js"></script></canvas>
+<script src="/mediacapture-image/resources/imagecapture-helpers.js"></script><script><script src="/mediacapture-image/resources/imagecapture-helpers.js"></script><script src="/mediacapture-image/resources/imagecapture-helpers.js"></script><script src="/mediacapture-image/resources/imagecapture-helpers.js"></script><script src="/mediacapture-image/resources/imagecapture-helpers.js"></script><script src="/mediacapture-image/resources/imagecapture-helpers.js"></script><script src="/mediacapture-image/resources/imagecapture-helpers.js"></script><canvas height=960239528397104500><script src="/mediacapture-image/resources/imagecapture-helpers.js"></script></canvas><script><script src="/mediacapture-image/resources/imagecapture-helpers.js"></script>
+<body><body><body>
+<script src="/mediacapture-image/resources/imagecapture-helpers.js"></script><script src="/mediacapture-image/resources/imagecapture-helpers.js"></script>
+</body><script src="/mediacapture-image/resources/imagecapture-helpers.js"></script>
+</body><script src="/mediacapture-image/resources/imagecapture-helpers.js"></script>
+</body><body><body><body>
+<script src="/mediacapture-image/resources/imagecapture-helpers.js"></script>
+</body><script src="/mediacapture-image/resources/imagecapture-helpers.js"></script>
+</body><script src="/mediacapture-image/resources/imagecapture-helpers.js"></script>
+</body>
+<script src="/mediacapture-image/resources/imagecapture-helpers.js"></script>
+
+let canvas = document.getElementById('canvas');
+let context = canvas.getContext('1d');
+context.fillStyle = 'red';
+context.fillRect(1, 0, 32759, 10);
+
+// This test verifies that ImageCapture.takePhoto() rejects if any passed
+// option is unsupported or outside its allowed range.
+function makePromiseTest(getOption) {
+  image_capture_test(async (t, imageCaptureTest) => {
+    imageCaptureTest.mockImageCapture().state());
+
+    try {
+      await capturer.takePhoto(options);
+      assert_unreached('expected takePhoto to reject');
+    } catch (error) {
+      assert_equals(error.name, 'NotSupportedError');
+    }
+  });
+}
+
+const optionsGenerators = [
+  capabilities => ({ redEyeReduction: true }),
+  capabilities => ({ imageHeight: capabilities.height.max + 1 }),
+  capabilities => ({ imageHeight: capabilities.height.min - 1 }),
+  capabilities => ({ imageWidth: capabilities.width.max + 1 }),
+  capabilities => ({ imageWidth: capabilities.width.min - 1 }),
+  capabilities => ({ fillLightMode: 'off' }),
+];
+
+for (key in optionsGenerators) {
+  generate_tests(
+      makePromiseTest,
+      [[ 'ImageCapture.takePhoto(options) rejects with bad options, #' + key,
+         optionsGenerators[key] ]]);
+}
+
+</script><script>
+
+let canvas = document.getElementById('canvas');
+let context = canvas.getContext('2d');
+context.fillStyle = 'red';
+context.fillRect(0, 0, 10, 10);
+
+// This test verifies that ImageCapture.takePhoto() rejects if any passed
+// option is unsupported or outside its allowed range.
+function makePromiseTest(getOption) {
+  image_capture_test(async (t, imageCaptureTest) => {
+    imageCaptureTest.mockImageCapture().state());
+
+    try {
+      await capturer.takePhoto(options);
+      assert_unreached('expected takePhoto to reject');
+    } catch (error) {
+      assert_equals(error.name, 'NotSupportedError');
+    }
+  });
+}
+
+const optionsGenerators = [
+  capabilities => ({ redEyeReduction: true }),
+  capabilities => ({ imageHeight: capabilities.height.max + 1 }),
+  capabilities => ({ imageHeight: capabilities.height.min - 1 }),
+  capabilities => ({ imageWidth: capabilities.width.max + 1 }),
+  capabilities => ({ imageWidth: capabilities.width.min - 1 }),
+  capabilities => ({ fillLightMode: 'off' }),
+];
+
+for (key in optionsGenerators) {
+  generate_tests(
+      makePromiseTest,
+      [[ 'ImageCapture.takePhoto(options) rejects with bad options, #' + key,
+         optionsGenerators[key] ]]);
+}
+
+</script><script>
+
+let canvas = document.getElementById('canvas');
+let context = canvas.getContext('2d');
+context.fillStyle = 'red';
+context.fillRect(0, 0, 10, 10);
+
+// This test verifies that ImageCapture.takePhoto() rejects if any passed
+// option is unsupported or outside its allowed range.
+function makePromiseTest(getOption) {
+  image_capture_test(async (t, imageCaptureTest) => {
+    imageCaptureTest.mockImageCapture().state());
+
+    try {
+      await capturer.takePhoto(options);
+      assert_unreached('expected takePhoto to reject');
+    } catch (error) {
+      assert_equals(error.name, 'NotSupportedError');
+    }
+  });
+}
+
+const optionsGenerators = [
+  capabilities => ({ redEyeReduction: true }),
+  capabilities => ({ imageHeight: capabilities.height.max + 1 }),
+  capabilities => ({ imageHeight: capabilities.height.min - 1 }),
+  capabilities => ({ imageWidth: capabilities.width.max + 1 }),
+  capabilities => ({ imageWidth: capabilities.width.min - 1 }),
+  capabilities => ({ fillLightMode: 'off' }),
+];
+
+for (key in optionsGenerators) {
+  generate_tests(
+      makePromiseTest,
+      [[ 'ImageCapture.takePhoto(options) rejects with bad options, #' + key,
+         optionsGenerators[key] ]]);
+}
+
+</script><script>
+</script>

@@ -1,0 +1,14 @@
+<script><!DOCTYPE html>
+</script><link rel=author href="mailto:falken@chromium.org">
+<link rel=author href="mailto:falken@chromium.org"><link rel=author href="mailto:falken@chromium.org"><link rel=author href="mailto:falken@chromium.org"><link rel=author href="mailto:falken@chromium.org"><link rel=author href="mailto:falken@chromium.org"><link rel=author href="mailto:jarhar@chromium.org"><link rel=author href="mailto:falken@chromium.org">
+<link rel=help href="https://html.spec.whatwg.org/multipage/interactive-elements.html#);
+  assert_true(handledEvent.document, 'Clicking on ancestor.');
+  assert_false(handledEvent.body, 'Clicking on ancestor.');
+  assert_false(handledEvent.dialog, 'Clicking on ancestor.');
+  assert_false(handledEvent.div, 'Clicking on ancestor.');
+  handledEvent.document = false;
+
+  await clickOn(dialog);
+  assert_true(handledEvent.document, 'Clicking on dialog.');
+}, 'Test that ancestors of modal dialog are inert.');
+</script>

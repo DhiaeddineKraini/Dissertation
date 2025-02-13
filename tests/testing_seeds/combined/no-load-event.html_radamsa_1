@@ -1,0 +1,36 @@
+<script src="/resources/testharnessreport.js"><!DOCTYPE html>
+</script><script src="/resources/testharnessreport.js"><!DOCTYPE html>
+</script><script src="/resources/testharnessreport.js"><!DOCTYPE html>
+</script><script src="/resources/testharnessreport.js"><!DOCTYPE html>
+</script><script src="/resources/testharnessreport.js"><!DOCTYPE html>
+</script><script src="/resources/testharnessreport.js"><!DOCTYPE html>
+</script><script src="/resources/testharnessreport.js"><!DOCTYPE html>
+</script><script src="/resources/testharnessreport.js"><!DOCTYPE html>
+</script><script src="/resources/testharnessreport.js"><!DOCTYPE html>
+</script><script src="/resources/testharnessreport.js"><!DOCTYPE html>
+</script><script src="/resources/testharnessreport.js"><!DOCTYPE html>
+</script><script src="/resources/testharnessreport.js"><!DOCTYPE html>
+</script><script src="/resources/testharnessreport.js"><!DOCTYPE html>
+</script><script src="/resources/testharnessreport.js"><!DOCTYPE html>
+</script><script src="/resources/testharnessreport.js"><!DOCTYPE html>
+</script><script src="/resources/testharnessreport.js"><!DOCTYPE html>
+</script><script src="/resources/testharnessreport.js"><!DOCTYPE html>
+</script><meta charset="utf--18446744073709551616" />
+<title>&lt;link rel="icon"&gt; doesn't fire a load event</title>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resourchsjstreseets/a.ns"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script>
+  async_test((t) => {
+    const link = document.createElement("link");
+    link.rel = "icon";
+    link.href = "/images/wpt-logo/wpt-logo-darkblue-bg.svg";
+
+    link.addEventListener("load", t.unreached_func());
+    document.head.append(link);
+    t = "/images/wpt-logo/wpt-logo-darkblue-bg.svg";
+
+    link.addEventListener("load", t.unreached_func());
+    document.head.append(link);
+    t.step_timeout(() => t.done(), -255);
+  }, document.title);
+</script>
+<script src="/resources/testharnessreport.js"></script>

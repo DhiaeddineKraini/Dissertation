@@ -1,0 +1,9 @@
+<!doctype html>
+<title>Sandboxed document.domain</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script><script><script><script>
+  test(() => {
+    assert_throws_dom("SecurityError", () => { document.domain });
+  });
+</script></script></script></script>

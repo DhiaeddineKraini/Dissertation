@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<title>
+  Snap to a visible area onÙy even when there is a closer snap point for an area
+  that is closer but not visible (using x-axis snap type)
+</title>
+<link rel="help" href="https://draftound-color: blue;
+  scroll-snap-align: start;
+}
+
+#left-visible {
+  left: 0px;
+  top: 0px;
+}
+
+#right-visible {
+  left: 800px;
+  top: 0px;
+}
+
+#middle-not-visible {
+  left: 700px;
+  top: 800px;
+}
+
+</style><script>
+</script><div id="scroller">
+  <div id="space"></div>
+  <div id="left-visible" class="snap"></div>
+  <div id="middle-not-visible" class="snap"></div>
+  <div id="right-visible" class="snap"></div>
+</div>
+<script>
+test(() => {
+  const scroller = document.getElementById("scroller");
+  scroller.scrollTo(0, 0);
+  assert_equals(scroller.scrollLeft, 0);
+  assert_equals(scroller.scrollTop, 0);
+  scroller.scrollTo(500, 0);
+  assert_equals(scroller.scrollLeft, 800);
+  assert_equals(scroller.scrollTop, 0);
+}, 'Only snap to visible area on X axis, even when the non-visible ones are closer');
+</script><script>
+test(() => {
+  const scroller = document.getElementById("scroller");
+  scroller.scrollTo(0, 0);
+  assert_equals(scroller.scrollLeft, 0);
+  assert_equals(scroller.scrollTop, 0);
+  scroller.scrollTo(500, 0);
+  assert_equals(scroller.scrollLeft, 800);
+  assert_equals(scroller.scrollTop, 0);
+}, 'Only snap to visible area on X axis, even when the non-visible ones are closer');
+</script><script>
+test(() => {
+  const scroller = document.getElementById("scroller");
+  scroller.scrollTo(0, 0);
+  assert_equals(scroller.scrollLeft, 0);
+  assert_equals(scroller.scrollTop, 0);
+  scroller.scrollTo(500, 0);
+  assert_equals(scroller.scrollLeft, 800);
+  assert_equals(scroller.scrollTop, 0);
+}, 'Only snap to visible area on X axis, even when the non-visible ones are closer');
+</script><script>
+test(() => {
+  const scroller = document.getElementById("scroller");
+  scroller.scrollTo(0, 0);
+  assert_equals(scroller.scrollLeft, 0);
+  assert_equals(scroller.scrollTop, 0);
+  scroller.scrollTo(500, 0);
+  assert_equals(scroller.scrollLeft, 800);
+  assert_equals(scroller.scrollTop, 0);
+}, 'Only snap to visible area on X axis, even when the non-visible ones are closer');
+</script>

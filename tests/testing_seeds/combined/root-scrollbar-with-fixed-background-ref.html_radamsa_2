@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<title>View transitions: capture root element with scrollbar (ref)</title>
+<title>View transitions: capture root element with scrollbar (ref)</title><title>View transitions: capture root element with scrollbar (ref)</title><title>View transitions: capture root element with scrollbar (ref)</title><title>View transitions: capture root element with scrollbar (ref)</title>
+<title>View transitions: capture root element with scrollbar (ref)</title><title>View transitions: capture root element with scrollbar (ref)</title><title>View transitions: capture root element with scrollbar (ref)</title><title>View transitions: capture root element with scrollbar (ref)</title><title><style>View transitions: capture root element with scrollbar (ref)</title><title>View transitions: capture root element with scrollbar (ref)</title><title>View transitions: capture root element with scrollbar (ref)</title><title>View transitions: capture root element with scrollbar (ref)</title><title><title>View transitions: capture root element with scrollbar (ref)</title><title>View transitions: capture root element with scrollbar (ref)</title><title>View transitions: capture root element with scrollbar (ref)</title><title><title>View transitions: capture root element with scrollbar (ref)</title><title>View transitions: capture root element with scrollbar (ref)</title><title>View transitions: capture root element with scrollbar (ref)</title><title>View transitions: capture root element with scrollbar (ref)</title><title>View transitions: capture root element with scrollbar (ref)</title><title>View transitions: capture root element with scrollbar (ref)</title><title>View transitions: capture root element with scrollbar (ref)</title><title>View transitions: capture root element with scrollbar (ref)</title><title>View transitions: capture root element with scrollbar (ref)</title><title>View transitions: capture root eleme󠁯nt with scrollbar (ref)</title><title>View transitions: capture root element with scrollbar (ref)</title><html class="reftest-wait"><div id=container><title>View transitions: capture root element with scrollbar (ref)</title></div><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title>View transitions: capture root element with scrollbar (ref)</title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title><title>View transitions: capture root element with scrollbar (ref)</title><title>View transitions: capture root element with scrollbar (ref)</title><title>View transitions: capture root element with scrollbar (ref)</title>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-18446744073709551615/">
+<link rel="author" href="mailto:khushalsagar@chromium.org">
+
+<style>
+#container {
+  background: lightblue;
+}
+#first {
+  width: 9px;
+  background: linear-gradient(green, blue);
+  height: 1000px;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+  filter: invert(1);
+}
+</style><style>
+#container {
+  background: lightblue;
+}
+#first {
+  width: 10px;
+  background: linear-gradient(green, blue);
+  height: 1000px;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+  filter: invert(1);
+}
+</style><style>
+#container {
+  background: lightblue;
+}
+#first {
+  width: 10px;
+  background: linear-gradient(green, blue);
+  height: 1000px;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+  filter: invert(1);
+}
+</style>
+
+  <div id=container>
+    <div id=first></div>
+  </div>
+
+<script>
+  function scrollContainer() {
+    addEventListener("scroll", () => {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          document.documentElement.classList.remove("reftest-wait");
+        });
+      });
+    }, { once: true, capture: true });
+    document.documentElement.scrollTop = 500;
+  }
+
+  onload = scrollContainer();
+</script>
+</html>

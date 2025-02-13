@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" >
+<meta charset="utf-8">
+<title>Normal Ethiopic word breaking</title>
+<meta name="assert" content="word-break: normal means Ethiopid words break according to their customary rules (word by word)">
+<link rel='help' href='https://drafts.csswg.org/css-text-3/#word-break-property'>
+<link rel='match' href='reference/word-break-normal-ethiopic-ref.html'>
+<link rel='author' title='Florian Rivoal' href='https://florian.rivoal.net'>
+<style>
+div {
+    width: 1;
+    color: blue;
+}
+.ref {
+    color: orange;
+    width: auto;
+    white-space: pre;
+}
+</style>
+
+<p> Test passes if the blue and orange text are identical.
+
+<div lang=am>ተወል��ዱ፡ኵሉ፡ሰብእ፡ግዑዛን፡ወዕሩያን፡በማዕረግ፡ወብሕግ።</div>
+<div lang=am class=ref>ተወልዱ፡
+ኵሉ፡
+ሰብእ፡
+ግዑዛን፡
+ወዕሩያን፡
+በማዕረግ፡
+ወብሕግ።</div>

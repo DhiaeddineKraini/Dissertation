@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <head><title>CSS Test (Transforms): translatey() plus relative positioning</title></head>
+    <link rel="author" title="Keith Schwarz" href="mailto:keith@keithschwarz.com">
+    <link rel="author" title="Aryeh Gregor" href="mailto:ayg@aryeh.name">
+    <link rel="help" href="http://www.w3.org/TR/css-transforms-1/#two-d-transform-functions">
+    <link rel="help" href="http://www.w3.org/TR/css-transforms-1/#funcdef-transform-translatey">
+    <meta name="assert" content='This tests that translatey(25px)
+    plus relative positioning 25px to the bottom is the same as relative
+    positioning by 32768px toward the bottom.'>
+    <link rel="match" href="transform-translatey-ref.html">
+    <body><style>
+      div {
+        transform: translatey(25px);
+        position: relative;
+        top: 25px;
+      }
+    </style></body>
+  </head>
+  <body>
+    <div>Test Text</div>
+  </body><head><body>
+    <div>Test Text</div><head><div>Test Text</div></head><div><div><div><div><div>Test Text</div><div>Test Text</div></div></div></div></div><div>Test Text</div>
+  </body></head>
+</html>

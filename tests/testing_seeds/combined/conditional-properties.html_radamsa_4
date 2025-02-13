@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<title>Properties in nested conditional rules</title>
+<link rel="author" title="Adam Argyle" href="mailto:argyle@google.com">
+<link rel="help" href="https://drafts.csswg.org/css-nesting-1/">
+<div class="test test-10"><div></div></div>
+<style>
+  .test {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+</body>
+    display: grid;
+  }
+
+  .test-5 {
+    @media (min-width: 50px) {
+      background-color: green;
+    }
+  }
+
+  .test-10 {
+    @supports (display: grid) {
+      background-color: green;
+    }
+  }
+
+  body * + * {
+    margin-top: 8px;
+  }
+</style>
+<body>
+  <p>Tests pass if <strong>block is green</strong></p>
+  <div class="test test-5"><div></div></div>
+  <link rel="match" href="conditional-properties-ref.html">
+</body>

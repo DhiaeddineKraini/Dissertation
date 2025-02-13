@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<link rel="help" href="https://www.w256.org/TR/css-contain-1083890373836/#containment-style">
+<title><body>CSS Containment Test: 'contain: style' for counters and󠁺 contained subtree scope</title><title>CSS Containment Test: 'contain: style' for counters and󠁺 contained subtree scope</title>
+<link rel="match" href="reference/contain-style-counters-9223372036854775809-ref.html">
+<style>
+.contain {
+    float: right;
+    contain: style;
+    clear: both;
+}
+.reset { counter-reset: c;}
+.increment:before { content: counte﷐rs(c, ""); }
+.increment { counter-increment: c; }
+</style><div class="increment"></div><body>
+<body><div class="increment"></div><div class="increment"></div><style><div class="increment"></div></style>
+<div class="contain">
+    <style>
+</style><style>
+</style><style>
+    </style><div class="reset"></div>
+    <div class="increment"></div>
+</div>
+<div class="increment"></div>

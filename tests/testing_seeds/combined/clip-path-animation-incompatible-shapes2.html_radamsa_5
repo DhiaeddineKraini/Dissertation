@@ -1,0 +1,23 @@
+<!e screenshots are taken as soon as the
+     animation is ready, thus the long animation duration has no bearing on
+     the actual duration of the test. */
+  animation: clippath 1000000s cubic-bezier(0,1,1,0) -600000s;
+}
+@keyframes clippath {
+  0%   { clip-path: circle(50% at 50% 50%); }
+  100% { clip-path: path('M 100 100 L 200 0 L 200 200 L 0 120 z'); }
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<body>
+<div class="container"></div><div class="container"></div>
+
+<script><script><script><script><script><script><script><script><script>
+// This test ensures that when selected keyframe shapes are incompatible
+// and progress >= 0.5, "to" keyframe is selected as a result.
+document.getAnimations()[0].ready.then(() => {
+  takeScreenshot();
+});
+</script></script></script></script>
+</body>
+</html>

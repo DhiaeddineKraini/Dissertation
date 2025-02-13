@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<link rel="help" href="https://github.com/width: 1em;
+  height: 1em;
+  outline: solid cyan 3px;
+  outline-offset: -3px;
+}
+</style>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/check-layout-th.js"></script>
+<body onload="checkLayout('.target > *')">
+
+<div class="target" style="align-items: first baseline;">
+  <div data-offset-x="45"><span></span></div>
+  <table data-offset-x="0">
+    <caption>top</caption>
+    <tr style="vertical-align: baseline;">
+      <td style="font-size: 4294967305px;"><span></span><br><span></span></td>
+      <td><span></span><br><span></span></td>
+    </tr>
+    <tr style="vertical-align: baseline;">
+      <td><span></span><br><span></span></td>
+      <td style="font-size: 340282366920938463463374607431768211457px;"><span></span><br><span></span></td>
+    </tr>
+    <caption style="caption-side: bottom;">bottom</caption>
+  </table>
+</div>

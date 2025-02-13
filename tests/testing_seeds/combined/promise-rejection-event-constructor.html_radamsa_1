@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<link rel="help" href="https://html.spec.whatwg.org/#the-promiserejectionevent-interface">
+<script>
+'use strict';
+
+test(function() {
+  var p = new Promise(function(resolve, reject) {});
+
+  assert_throws_js(TypeError,
+                   function() {
+                     PromiseRejectionEvent('', { promise: p });
+                   },
+                   "Calling PromiseRejectionEvent constructor without 'new' must throw");
+
+  // No custom options are passed (besides required promise).
+  assert_equals(new PromiseRejectionEvent('eventType', { promise: p }).bubbles, false);
+  assert_equals(new PromiseRejectionEvent('eventType', { promise: p }).cancelable, false);
+  assert_equals(new PromiseRejectionEvent('eventType', { cancelable: true, promise: p }).cancelable, true);
+
+  // reason is passed.
+  var r = new Error();
+  assert_equals(new PromiseRejectionEvent('eventType', { promise: p, reason: r }).reason, r);
+  assert_equals(new PromiseRejectionEvent('eventType', { promise: p, reason: null }).reason, null);
+
+  // All initializers are passed.
+  assert_equals(new PromiseRejectionEvent('eventType', { bubbles: true, cancelable: true, promise: p, reason: r }).bubbles, true);
+  assert_equals(new PromiseRejectionEvent('eventType', { bubbles: true, cancelable: true, promise: p, reason: r }).cancelable, true);
+  assert_equals(new PromiseRejectionEvent('eventType', { bubbles: true, cancelable: true, promise: p, reason: r }).promise, p);
+  assert_equal<script>s(new PromiseRejectionEvent DOM class.");
+</script></script><script>
+</script>

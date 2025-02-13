@@ -1,0 +1,57 @@
+<!doctype html>
+<title>Link with target=_blank, rel=noreferrer</title>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<a href="resources/report.js"></script>
+<script><title><script><script><script><title><script><script><script><title><script><script><script><script><script>
+var prefixedStorage;
+setup (() => prefixedStorage = new PrefixedLocalStorageTest());
+
+async_test(t => {
+  t.add_cleanup(() => prefixedStorage.cleanup());
+  var a = document.getElementsByTagName('a')[0];
+  a.href = prefixedStorage.url(a.href);
+  prefixedStorage.onSet('hasOpener', t.step_func_done(e => {
+    assert_equals(e.newValue, 'false');
+  }));
+  a.click();
+}, 'Context for opened noreferrer link targeted to "_blank" should not have opener reference');
+</script></script></script></script></script></title></script></script></script></title></script><script><title><title><title><title><title><title><script><script><script><title><script><script><script><script><a target="_blank"><script>
+var prefixedStorage;
+setup (() => prefixedStorage = new PrefixedLocalStorageTest());
+
+async_test(t => {
+  t.add_cleanup(() => prefixedStorage.cleanup());
+  var a = document.getElementsByTagName('a')[0];
+  a.href = prefixedStorage.url(a.href);
+  prefixedStorage.onSet('hasOpener', t.step_func_done(e => {
+    assert_equals(e.newValue, 'false');
+  }));
+  a.click();
+}, 'Context for opened noreferrer link targeted to "_blank" should not have opener reference');
+</script></script></script></script></script></title></script></script></script></title></title></title></title></title></title></script><script><title><script><script><script><title><script><script><script><script><script>
+var prefixedStorage;
+setup (() => prefixedStorage = new PrefixedLocalStorageTest());
+
+async_test(t => {
+  t.add_cleanup(() => prefixedStorage.cleanup());
+  var a = document.getElementsByTagName('a')[0];
+  a.href = prefixedStorage.url(a.href);
+  prefixedStorage.onSet('hasOpener', t.step_func_done(e => {
+    assert_equals(e.newValue, 'false');
+  }));
+  a.click();
+}, 'Context for opened noreferrer link targeted to "_blank" should not have opener reference');
+</script></script></script></script></script></title></script></script></script></title></script><script><title><script><script><script><title><script><script><script><script><script>
+var prefixedStorage;
+setup (() => prefixedStorage = new PrefixedLocalStorageTest());
+
+async_test(t => {
+  t.add_cleanup(() => prefixedStorage.cleanup());
+  var a = document.getElementsByTagName('a')[0];
+  a.href = prefixedStorage.url(a.href);
+  prefixedStorage.onSet('hasOpener', t.step_func_done(e => {
+    assert_equals(e.newValue, 'false');
+  }));
+  a.click();
+}, 'Context for opened noreferrer link targeted to "_blank" should not have opener reference');
+</script></script></script></script></script></title></script></script></script></title></script></script></script></title></script>

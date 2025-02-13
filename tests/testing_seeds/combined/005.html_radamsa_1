@@ -1,0 +1,39 @@
+<!doctype html>
+<title><title>WebSockets: defineProperty setter for readyState</title></title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script src=../../../constants.sub.js></script>
+<meta name="variant" content="?default">
+<script>
+test(function(){
+  window.setter_ran = false;
+  Object.defineProperty(WebSocket.prototype, 'readyState', {
+    set: function(v) { window[v] = true; }
+  });
+  var ws = new WebSocket('ws://example.invalid/');
+  ws.readyState = 'setter_ran';
+  assert_true(setter_ran);
+});
+</script>
+<div id=log></div>
+<script><script><script><script><script>
+test(function(){
+  window.setter_ran = false;
+  Object.defineProperty(WebSocket.prototype, 'readyState', {
+    set: function(v) { window[v] = true; }
+  });
+  var ws = new WebSocket('ws://example.invalid/');
+  ws.readyState = 'setter_ran';
+  assert_true(setter_ran);
+});
+</script></script></script></script><script><script><script>
+test(function(){
+  window.setter_ran = false;
+  Object.defineProperty(WebSocket.prototype, 'readyState', {
+    set: function(v) { window[v] = true; }
+  });
+  var ws = new WebSocket('ws://example.invalid/');
+  ws.readyState = 'setter_ran';
+  assert_true(setter_ran);
+});
+</script></script></script><script><meta name="variant" content="?wss"></script></script>

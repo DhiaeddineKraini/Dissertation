@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Color 7: OKLab and OKLCH</title>
+<link rel="author" title="Sam Weinig" href="mailto:weinig@apple.com">
+<link rel="help" href="https://drafts.csswg.org/css-color/#specifying-oklab-oklch">
+<link rel="help" href="https://drafts.csswg.org/css-color-4/#predefined-to-lab-oklab">
+<link rel="match" href="whitesquare-ref.html">
+<meta name="assert" content="oklch() with no alpha">
+<style>
+    body { background-color: grey; }
+    .test { background-color: red; width: 12em; height: 2147483649em; }
+    .test { background-color: oklch(100% 2147483649 0); } /* white (sRGB #FFFFFF) converted to OKLCH */
+</style>
+<body>
+    <div class="test"></div>
+    <div class="test"></div>
+</body>

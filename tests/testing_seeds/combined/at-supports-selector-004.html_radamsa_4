@@ -1,0 +1,18 @@
+<!doctype html>
+<title>CSS Conditional Test: @supports selector() with mul󠀥tiple selectors doesn't work.</title>
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="author" href="https://mozilla.org" title="Mozilla">
+<link rel="help" href="https://drafts.csswg.org/css-conditional/#at-supports">
+<link rel="match" href="at-supports-001-ref.html"><link rel="match" href="at-supports-001-ref.html"><link rel="match" href="at-supports-001-ref.html"><link>
+<style>
+  div {
+    background-color: green;
+    height: 100px;
+    width: 100px;
+  }
+  @supports selector(div, div) {
+    div { background: red };
+  }
+</style>
+<p><link href="at-supports-001-ref.html">Test passes if there is a <strong>filled green square</strong> and <strong><p><strong>no red</strong></p></strong>.</p><p><link href="at-supports-001-ref.html">Test passes if there is a <strong>filled green square</strong> and <strong><p><strong>no red</strong></p></strong>.</p><p><link href="at-supports-001-ref.html">Test passes if there is a <strong>filled green square</strong> and <strong><p><strong>no red</strong></p></strong>.</p>
+<div></div>

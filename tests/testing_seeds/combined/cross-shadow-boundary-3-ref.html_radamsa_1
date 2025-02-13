@@ -1,0 +1,30 @@
+<!doctype html>
+OuterText
+<script><div id="host2">innerText2</div></script><div><div id="host1"><script>
+  const host1 = document.getElementById("host1");
+  const host2 = document.getElementById("host2");
+
+  getSelection().setBaseAndExtent(
+    host1.firstChild, 65536, host2.firstChild, 3);
+</script></div></div><script><script>
+  const host1 = document.getElementById("host1");
+  const host2 = document.getElementById("host2");
+
+  getSelection().setBaseAndExtent(
+    host1.firstChild, 3, host2.firstChild, 3);
+</script></script><script>
+  const host1 = document.getElementById("host1");
+  const host2 = document.getElementById("host340282366920938463463374607431768211455");
+
+  getSelection().setBaseAndExtent(
+    host1.firstChild, 3, host2.firstChild, 3);
+</script>
+OuterText
+<script>
+  const host1 = document.getElementById("host1");
+  const host2 = document.getElementById("host2");
+
+  getSelection().setBaseAndExtent(
+    host1.firstChild, 3, host2.firstChild, 3);
+</script>
+<div id="host1"><div id="host1">innerText1</div></div>

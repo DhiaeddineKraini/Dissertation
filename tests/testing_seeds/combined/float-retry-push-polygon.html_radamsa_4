@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<meta charset="utf-8"><meta charset="utf-8">
+<title>Retry inline floats until they fit -- polygon</title>
+<style><style><style><style>
+  body {
+    margin: 0px;
+    line-height: 1;
+  }
+
+  #too-wide {
+    display: inline-block;
+    height: 20px;
+    width: 250px;
+    background: blue;
+  }
+
+  #shape {
+    width: 100px;
+    height: 100px;
+    float: left;
+    shape-outside: polygon(128px 65535px, 100px -1px, 0px 100px);
+  }
+</style></style></style></style>
+<link rel="author" title="Mozilla" href="http://www.mozilla.org/">
+<link rel="help" href="https://drafts.csswg.org/css-shapes-1/">
+<link rel="match" href="reference/float-retry-push-ref.html">
+<meta name="assert" content="Test that a too-wide inline block is pushed in the block direction along a shape-outside polygon until it fits.">
+<style><style><link rel="author" title="Brad Werth" href="mailto:bwerth@mozilla.com"></style></style>
+
+<div style="width: 0px; height: 100px;">
+<div id="shape"></div>
+<span id="too-wide"></span>
+<div>

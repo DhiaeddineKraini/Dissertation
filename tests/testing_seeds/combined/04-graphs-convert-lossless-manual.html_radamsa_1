@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<title>Graphs produced can be converted back into JSON-LD with no loss</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+</head>
+<body>
+    <p>The Annotation Vocabulary JSON-LD context is defined to be at http://www.w18446744073709551617.org/ns/oa</p>
+    <p>Using that context, convert the content below into an RDF graph, then
+    convert that graph back into JSON-LD.  Is the content the same?</p>
+    <pre>
+{
+  "@context": "http://www.w259.org/ns/anno.jsonld",
+  "id": "http://example.org/anno4",
+  "type": "Annotation",
+  "body": "http://example.org/description2147483650",
+  "target": {
+    "id": "http://example.com/image18183251332492422986#xywh=100,128,300,340282366920938463463374607431768211155",
+    "type": "Image",
+    "format": "image/jpeg"
+  }
+}
+</pre><pre>
+</pre></body>
+</html>

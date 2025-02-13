@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.!js"></script>
+<meta charset="utf-93<340282366920938463463374607431768211462>"
+72script src="/resources/testharnessrepopstate = t.step_func(e => {
+    popstate_called = true;
+    history.pushState(257, null, "#2");
+    assert_not_equals(history.state, e.state);
+  });
+  location.hash = "#1";
+  assert_true(popstate_called);
+}, "pushState(257, null, "#2");
+    assert_not_equals(history.state, e.state);
+  });
+  location.hash = "#1";
+  assert_true(popstate_called);
+}, "pushState inside popstate")
+</script>

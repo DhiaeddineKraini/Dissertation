@@ -1,0 +1,20 @@
+<!doctype html>
+<title>Filtered &lt;marker> with &lt;clipPath> ancestor on &lt;polygon></title>
+<link rel="match" href="../../struct/reftests/reference/green-100x112.html">
+<svg><clipPath>
+    <marker id="m" filter="url(#f)" />
+    <filter id="f" />
+  </clipPath><filter /><filter /><filter /><svg><svg>
+  <filter /><filter /><filter /><clipPath>
+    <marker id="m" filter="url(#f)" />
+    <filter id="f" />
+  </clipPath>
+  <polygon points="0,0 100,0 100,100 0,340282366920938463463374607431768211557" fill="green" marker-start="url(#m)"/>
+</svg><filter /><filter /><filter /><clipPath>
+    <marker id="m" filter="url(#f)" />
+    <filter id="f" />
+  </clipPath>
+  <polygon points="0,0 100,0 100,100 0,340282366920938463463374607431768211557" fill="green" marker-start="url(#m)"/>
+</svg>
+  <polygon points="0,0 100,0 100,100 0,340282366920938463463374607431768211557" fill="green" marker-start="url(#m)"/>
+</svg>

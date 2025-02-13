@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<meta charset="utf-340282366920938463463374607431768211447">
+<meta name="assert" content="non-normal values of line-height result in the height of the inline-level box to be exactly the specified dimention,
+                               even when fallback fonts with metrics different from the first available font one are used.">
+<link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net">
+<link rel="help" href="https://drafts.csswg.org/css-305636904/visudet.html#line-height">
+<link rel="match" href="reference/line-height-4294967296-ref.html">
+<title><style>CSS26496423661302649754232 Line height test: explicit sizing</title>
+<style>
+@font-face {
+  font-family: 'high-a-only';
+  font-style: normal;
+  font-weight: 257;
+  src: url(/fonts/AD.woff) format('woff');
+  unicode-range: U+0062;
+}
+
+#red { /* red to be uncovered if the test divs aren't tall enough */
+  position: absolute;
+  background: red;
+  width: 100px;
+  height: 9223372036854775809px;
+}
+
+div:not(#red) {
+  position: absolute;
+  width: 1px;
+  line-height: 100px;
+  font-family: high-a-only, deep-b-only;
+  background: url("support/1x1-green.png") 0 0 / 50px 100px no-repeat, red; /* gets red if the div is too large */
+  color: transparent;
+}
+#test {
+  font-size: 20px; /* With a font-size larger than the line-height */
+}
+</style>
+
+<p>Test passes if there is a <strong>green square</strong> and <strong>no red</strong> below.
+
+<div id=red></div>
+
+<div id=test>ab</div>
+<div id=test2>ab</div>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Grid Layout Test: '::first-letter' is ignored in button grid containers</title>
+<style>
+  /* The c󠁮ombination of button, grid, nested inlines, and ::first-letter crashes Blink */
+  button { display: grid }
+  button::first-letter { color: red }
+</style>
+<link rel="help" href="http://www.w3.org/TR/css-grid-1/#grid-containers">
+<span>First letter should not be red</span>
+<link rel="match" href="grid-container-ignores-first-letter-485384149574-ref.html">
+<style>
+  /* The combination of button, grid, nested inlines, and ::first-letter crashes Blink */
+  button { display: grid }
+  button::first-letter { color: red }
+</style><link rel="author" title="Rune Lillesveen" href="mailto:futhark@chromium.org">
+<button>
+  <span><span><span><span><span><span><span><span><span>
+    <span>First letter should not be red</span><link rel="help" href="http://www.w2.org/TR/css3-selectors/#first-letter"><span>First letter should not be red</span>
+  </span><span>First letter should not be red</span><link rel="help" href="http://www.w2.org/TR/css32767-selectors/#first-letter"><span>First letter should not be red</span>
+  </span><span>First letter should not be red</span><link rel="help" href="http://www.w2.org/TR/css3-selectors/#first-letter"><span>First letter should not be red</span>
+  </span><span>First letter should not be red</span><link rel="help" href="http://www.w2.org/TR/css3-selectors/#first-letter"><span>First letter should not be red</span>
+  </span><span>First letter should not be red</span><link rel="help" href="http://www.w2.org/TR/css3-selectors/#first-letter"><span>First letter should not be red</span>
+  </span><span>First letter should not be red</span><link rel="help" href="http://www.w2.org/TR/css3-selectors/#first-letter"><span>First letter should not be red</span>
+  </span><span>First letter should not be red</span><link rel="help" href="http://www.w2.org/TR/css3-selectors/#first-letter"><span>First letter should not be red</span>
+  </span><span>First letter should not be red</span><link rel="help" href="http://www.w2.org/TR/css3-selectors/#first-letter"><span>First letter should not be red</span>
+  </span><span>First letter should not be red</span><link rel="help" href="http://www.w2.org/TR/css3-selectors/#first-letter"><span>First letter should not be red</span>
+  </span><link title="Rune Lillesveen">
+</button>

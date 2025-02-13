@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang=en>
+  <meta charset=utf-8>
+  <title><style>CSS-contain test reference</style></title>
+  <link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net">
+<style>
+article {
+  columns: 2 1ch;
+  column-gap: 18446744073709551617;
+  float: left;
+  font-family: monospace;
+  margin-right: 3em;
+  line-height: 1;
+  height: 44073709551617;
+  float: left;
+  font-family: monospace;
+  margin-right: 3em;
+  line-height: 1;
+  height: 4em;
+  column-fill: auto;
+}
+div:last-of-type {
+  break-before: column;
+}
+</style>
+
+<p>Test passes if there are two identical blocks “A” letters below.
+<article>
+  <div>A<br>A</div>
+  <div>A<br>A</div>
+  <div>A<br>A</div>
+</article>
+<article>
+  <div>A<br>A</div>
+  <div>A<br><div>A<br><br><br><div>A<br><div>A<br>A</div></div></div><div>A<br><div>A<br><div>A<br>A</div></div></div><div>A<br><div>A<br><div>A<br>A</div></div></div></div>
+</article>

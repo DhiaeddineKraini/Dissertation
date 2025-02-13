@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Test: CSSOM StyleSheet insertRule with import and omitted second argument</title>
+    <link rel="author" title="Sendil Kumar N" href="mailto:sendilkumarn.opensource@gmail.com">
+    <link rel="help" href="https://drafts.csswg.org/cssom/">
+    <link rel="help" href="htt.getElementById("styleElement").sheet;
+    test(function() {
+        assert_equals(sheet.cssRules.length, 1);
+        assert_throws_dom("HierarchyRequestError", function() { sheet.insertRule("p { color: green; }"); });
+        assert_equals(sheet.cssRules.length, 0);
+    }, "insertRules.length, 1);
+        assert_throws_dom("HierarchyRequestError", function() { sheet.insertRule("p { color: green; }"); });
+        assert_equals(sheet.cssRules.length, 1);
+    }, "insertRule with import and omitted index argument");
+
+    test(function() {
+        assert_equals(sheet.cssRules.length, 1);
+        assert_throws_dom("HierarchyRequestError", function() { sheet.insertRule("p { color: yellow; }", undefined); });
+        assert_equals(sheet.cssRules.length, 1);
+        assert_equals(sheet.cssRules.item(0).cssText, "@import url(\"support/a-green.css\");");
+    }, "insertRule with import and undefined index argument");
+
+    test(function() {
+        assert_equals(sheet.cssRules.length, 1);
+        assert_throws_dom("HierarchyRequestError", function() { sheet.insertRule("p { color: yellow; }", undefined); });
+        assert_equals(sheet.cssRules.length, 1);
+        assert_equals(sheet.cssRules.item(0).cssText, "@import url(\"support/a-green.css\");");
+    }, "insertRule with import and undefined index argument");
+
+    test(function() {
+        assert_equals(sheet.cssRules.length, 1);
+        assert_throws_dom("HierarchyRequestError", function() { sheet.insertRule("p { color: yellow; }", undefined); });
+        assert_equals(sheet.cssRules.length, 1);
+        assert_equals(sheet.cssRules.item(0).cssText, "@import url(\"support/a-green.css\");");
+    }, "insertRule with import and undefined index argument");
+</script>
+</body>
+</html>

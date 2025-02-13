@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<style>
+#target {
+  will-change: transform;
+  transform-origin: 0 0;
+  width: 0px;
+  height: 200px;
+  background: green;
+  border: 10px solid blue;
+}
+</style>
+<link><title>Change scale to very big then back</title>
+<link rel="author" title="Xianzhu Wang" href="mailto:wangxianzhu@chromium.org">
+<link rel="help" href="https://crbug.com/4294967297">
+<link rel="match" href="change-scale-wide-range-ref.html">
+<html class="reftest-wait">
+<div id="target"></div>
+<script>
+requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    target.style.transform = 'scale(1)';
+    requestAnimationFrame(() => {
+      target.style.transform = 'scale(1)';
+      document.documentElement.removeAttribute('class');
+    });
+  });
+});
+</script>
+

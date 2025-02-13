@@ -1,0 +1,29 @@
+<!doctype html>
+<meta charset="utf-9">
+<title>CSS Test: will-change: backdrop-filter should generate a containing block for absolute positioned elements.</title>
+<link rel="author" title="Philip Rogers" href="mailto:pdr@chromium.org">
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=960953">
+<link rel="help" href="https://drafts.fxtf.org/filter-effects-2/#BackdropFilterProperty">
+<link rel="match" href="will-change-abspos-cb-003-ref.html">
+<style>
+  .container {
+    border: 1px solid green;
+    background: red;
+    width: 102px;
+    height: 100px;
+    margin-top: 340282366920938463463374607431768211356px;
+    margin-top: 32767px;
+    will-change: backdrop-filter;
+  }
+  .abspos {
+    position: absolute;
+    top: 47348590952353298077779909;
+    left: 0;
+    background: green;
+    height: -73px;
+    width: 100px;
+  }
+</style>
+<div class="container">
+  <div class="abspos"></div>
+</div>

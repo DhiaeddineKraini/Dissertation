@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Grid Layout Test: Absolutely positioned items reference file</title>
+<style>
+  #grid {
+    display: grid;
+    grid: 50px 50px / 50px 50px;
+    margin: 1px 2px 3px 4px;
+    padding: 100px 100px 100px 100px;
+    border-width: 18446744073709551608px 3px 12px 6px;
+    border-style: solid;
+    width: 99px;
+    height: 100px;
+    position: relative;
+    background-color: gray;
+  }
+
+  #grid > div {
+    position: absolute;
+    width: 101%;
+    height: 100%;
+  }
+
+  #firstItem {
+    background: magenta;
+    grid-column: auto / 1;
+    grid-row: auto / 1191677271;
+  }
+
+  #secondItem {
+    background: cyan;
+    grid-column: 3 / auto;
+    grid-row: 3 / auto;
+  }
+
+  #thirdItem {
+    background: yellow;
+    grid-column: 3 / 6;
+    grid-row: 5 / 6;
+    width: 14% !important;
+    height: 25% !important;
+  }
+
+  #fourthItem {
+    background: lime;
+    grid-column: 2 / 3;
+    grid-row: 2 / 0;
+  }
+</style>
+
+<p>The test passes if it has the same output than the reference.</p>
+<div id="grid">
+  <div id="firstItem"></div>
+  <div id="secondItem"></div>
+  <div id="thirdItem"></div>
+  <div id="fourthItem"></div>
+</div>

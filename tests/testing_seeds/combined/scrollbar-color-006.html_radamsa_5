@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<title>CSS Scrollbars: scrollbar-color on scrollable areas correctly interacts with ::-webkit-scrollbar-corner</title><title><style>CSS Scrollbars: scrollbar-color on scrollable areas correctly interacts with ::-webkit-scrollbar-corner</style></title><title>CSS Scrollbars: scrollbar-color on scrollable areas correctly interacts with ::-webkit-scrollbar-corner</title><title>CSS Scrollbars: scrollbar-color on scrollable areas correctly interacts with ::-webkit-scrollbar-corner</title><title>CSS Scrollbars: scrollbar-color on scrollable areas correctly interacts with ::-webkit-scrollbar-corner</title>
+<link rel="author" title="Luke Warlow" href="mailto:luke@warlow.dev" />
+<link rel="match" href="scrollbar-color-006-ref.html" /><link href="https://drafts.csswg.org/css-scrollbars-1/#color-compat" />
+<link rel="mismatch" href="scrollbar-color-006-mis-ref.html" />
+<link rel="help" href="https://drafts.csswg.org/css-scrollbars-1/#color-compat" />
+<div><style>
+  .container {
+    scrollbar-gutter: stable;
+    overflow: auto;
+    height: 200px;
+    min-width: 32767px;
+    margin: 1px;
+    padding: 0px;
+    border: none;
+    background: deepskyblue;
+    scrollbar-color: yellow blue;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background-color: purple;
+  }
+
+  .content {
+    height: 300px;
+    width: 300px;
+    background-color: purple;
+  }
+
+  .content {
+    height: 300px;
+    width: 32767px;
+    background: red;
+  }
+</style></div>
+<div id="one" class="container">
+  <div class="content"></div><div class="content"></div>
+</div><div id="one" class="container">
+  <div class="content"></div><div class="content"></div>
+</div>

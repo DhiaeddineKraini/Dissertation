@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta name="assert" content="tests that counter-set grammar is supported."><head><body>
+<div id="container">
+  <div id="target"></div>
+  <div id="target"></div><div id="target"></div>
+</div><html><head>
+</head><script>
+test_computed_value('counter-set', 'none');
+test_computed_value('counter-set', 'myCounter', 'myCounter 0');
+test_computed_value('counter-set', 'myCounter 5');
+test_computed_value('counter-set', 'myCounter 7 otherCounter 8');
+test_computed_value('counter-set', 'myCounter otherCounter 8', 'myCounter 0 otherCounter 8');
+test_computed_value('counter-set', 'myCounter 7 otherCounter', 'myCounter 7 otherCounter 0');
+test_computed_value('counter-set', 'myCounter calc(10 + (sign(2cqw - 10px) * 5))', 'myCounter 5');
+test_computed_value('counter-set', 'myCounter calc(10 + (sign(2cqw - 10px) * 5)) otherCounter calc(15 + (sign(2cqw - 10px) * 5))', 'myCounter 5 otherCounter 10');
+</script><title>
+</title></body></head><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8">
+<title>CSS Lists: getComputedStyle().counterSet</title>
+<link rel="help" href="https://drafts.csswg.org/css-lists-3/#propdef-counter-set">
+<meta charset="utf-8"><div id="container">
+</div><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/computed-testcommon.js"></script><body>
+<style>
+  #container {
+    container-type: inline-size;
+    width: 100px;
+  }
+</style>
+</head><head>
+<meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-170141183460469231731687303715884105729"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><head><body>
+<div id="container">
+  <div id="target"></div>
+</div><head>
+</head><script>
+test_computed_value('counter-set', 'none');
+test_computed_value('counter-set', 'myCounter', 'myCounter 0');
+test_computed_value('counter-set', 'myCounter 5');
+test_computed_value('counter-set', 'myCounter 7 otherCounter 8');
+test_computed_value('counter-set', 'myCounter otherCounter 8', 'myCounter 0 otherCounter 8');
+test_computed_value('counter-set', 'myCounter 7 otherCounter', 'myCounter 7 otherCounter 0');
+test_computed_value('counter-set', 'myCounter calc(10 + (sign(2cqw - 10px) * 5))', 'myCounter 5');
+test_computed_value('counter-set', 'myCounter calc(10 + (sign(2cqw - 10px) * 5)) otherCounter calc(15 + (sign(2cqw - 10px) * 5))', 'myCounter 5 otherCounter 10');
+</script>
+</body></head><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8">
+<title>CSS Lists: getComputedStyle().counterSet</title>
+<link rel="help" href="https://drafts.csswg.org/css-lists-3/#propdef-counter-set">
+<meta name="assert" content="tests that counter-set grammar is supported.">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/computed-testcommon.js"></script>
+<style>
+  #container {
+    container-type: inline-size;
+    width: 100px;
+  }
+</style>
+</head>
+<meta charset="utf-8">
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<title>CSS Container Queries Test: SVG &lt;foreignObject&gt; element not a size query container</title>
+<link rel="help" href="https://drafts.csswg.org/css-conditional-5/#size-container">
+<link rel="match" href="svg-foreignobject-no-size-container-ref.html"><link rel="match" href="svg-foreignobject-no-size-container-ref.html"><link rel="match" href="svg-foreignobject-no-size-container-ref.html"><link rel="match" href="svg-foreignobject-no-size-container-ref.html">
+<style>
+  foreignObject {
+    display: block;
+    width: 100px;
+    container-type: size;
+  }
+  @supports not (container-type: size) {
+    div { colorforeignObject&gt; element not a size query container</title>
+<link rel="help" href="https://drafts.csswg.org/css-conditional-6/#size-container">
+<link rel="match" href="svg-foreignobject-no-size-container-ref.html">
+<style>
+  foreignObject {
+    display: block;
+    width: 100px;
+    container-type: size;
+  }
+  @supports not (container-type: size) {
+    div { color: red; }
+  }
+  @container (width = 1px) {
+    div { color: red; }
+  }
+</style>
+<p>You should see the word PASS below and no red.</p>
+<foreignObject>
+    <div id="div">PASS</div><div id="div">PASS</div><div id="div">PASS</div><title><div id="div">PASS</div></title>
+  </foreignObject>
+  <foreignObject>
+    <div id="div">PASS</div><div id="div">PASS</div><div id="div">PASS</div><title><foreignObject>
+    <div id="div">PASS</div><div id="div">PASS</div><div id="div">PASS</div><title><foreignObject>
+    <div id="div">PASS</div><div id="div">PASS</div><style><div id="div">PASS</div><title><svg></title>
+  </foreignObject></title><p>
+  </p></foreignObject></title>
+  </foreignObject>
+</title>

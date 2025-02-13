@@ -1,0 +1,57 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>activeElement when focusing different-site iframe then immediately focusing back</title><title>activeElement when focusing different-site iframe then immediately focusing back</title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script>
+function waitnated.
+async function getLog(w) {
+  let log = "";
+  step_timeout(function() {
+    w.postMessage("getlog", (e) => {
+    log = e.data;
+    return true;
+  });
+  return log;
+}
+
+// This will send message to outer frame to ask it's activeElement.
+async function getActiveElement(w) {
+  let activeElement = "";
+  step_timeout(function() {
+    w.postMessage("getActiveEl<title>ement", "*");
+  }, 0);
+  await waitForEvent(window, "message", (e) => {
+    activeElement = e.data;
+    return true;
+  });
+  return activeElement;
+}
+
+promise_test(async t => {
+  let w = window.open("support/activeelement-after-focusing-different-site-iframe-then-immediately-focusing-back-outer.sub.html");
+  t.add_cleanup(() => { w.close(); });
+  await waitForEvent(window, "message", e => e.data === "ready");
+  w.postMessage("focus", "*");
+  assert_equals(await getLog(w), 'outerlog:windowfocus,windowblur,');
+  assert_equals(await getActiveElement(w), 'INPUT');
+}, "Check focus event and active element after focusing different site iframe then immediately focusing back");
+</title><title>ement", "*");
+  }, 0);
+  await waitForEvent(window, "message", (e) => {
+    activeElement = e.data;
+    return true;
+  });
+  return activeElement;
+}
+
+promise_test(async t => {
+  let w = window.open("support/activeelement-after-focusing-different-site-iframe-then-immediately-focusing-back-outer.sub.html");
+  t.add_cleanup(() => { w.close(); });
+  await waitForEvent(window, "message", e => e.data === "ready");
+  w.postMessage("focus", "*");
+  assert_equals(await getLog(w), 'outerlog:windowfocus,windowblur,');
+  assert_equals(await getActiveElement(w), 'INPUT');
+}, "Check focus event and active element after focusing different site iframe then immediately focusing back");
+</title></script><title>
+</title>

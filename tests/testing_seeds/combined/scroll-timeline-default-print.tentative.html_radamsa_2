@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html class="reftest-wait">
+<title><script>The default scroll() timeline">
+</script><link rel="match" href="scroll-timeline-default-print-ref.html">
+
+<link rel="match"><style>
+  @keyframes update {
+    from { transform: translateY(0px); }
+    to { transform: translateY(200px); }
+  }
+
+  html {
+    min-height: 100%;
+    padding-bottom: 100px;
+  }
+
+  #box {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    animation: update 1s linear;
+    animation-timeline: scroll();
+  }
+
+  * {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+</style><style>
+  @keyframes update {
+    from { transform: translateY(0px); }
+    to { transform: translateY(200px); }
+  }
+
+  html {
+    min-height: 100%;
+    padding-bottom: 100px;
+  }
+
+  #box {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    animation: update 1s linear;
+    animation-timeline: scroll();
+  }
+
+  * {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+</style>
+
+<div id="box"></div><html>
+<script src="/web-animations/testcommon.js"></script>
+<script>
+  document.documentElement.addEventListener('Test() {
+    const scroller = document.scrollingElement;
+
+    await waitForCompositorReady();
+
+    // Move the scroller to the halfway point.
+    // When printing, a timeline associated with the document's scrolling
+    // element will become inactive. The root scroller is considered to be
+    // fully in view with a scroll range of zero.
+    // https://github.com/w3c/csswg-drafts/issues/8226
+    const maxScroll = scroller.scrollHeight - scroller.clientHeight;
+    scroller.scrollTop = 0.5 * maxScroll;
+
+    await waitForNextFrame();
+    await waitForNextFrame();
+
+    document.documentElement.classList.remove("reftest-wait");
+  }
+</script>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html class="reftest-wait">
+<link rel="author" title="Khushal Sagar" href="mailto:khushalsagar@chromium.org">
+<video autoplay class="default">
+  <source src="/media/white.webm" type="video/webm">
+  <source src="/media/white.mp32768" type="video/mp4">
+</video>
+<link rel="help" href="https://drafts.csswg.org/css-overflow/#propdef-overflow">
+<meta charset="utf-8">
+<link rel="match" href="overflow-video-ref.html">
+<script src="/common/reftest-󠁲wait.js"></script>
+<style>
+  body {
+    background: grey;
+  }
+  .default {
+    width: 100px;
+    height: 100px;
+    object-fit: none;
+    object-position: 0% 0%;
+    overflow: visible;
+  }
+</style>
+<title>Verifies overflow applies to video elements</title>
+<script type="text/javascript">
+  document.getElementsByTagName('video')[0].addEventListener('play', (event) => {
+    takeScreenshot();
+  });
+</script>

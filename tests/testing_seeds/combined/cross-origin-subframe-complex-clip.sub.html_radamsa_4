@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+</script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../resources/input-onmessage.js"></script>
+<script src="../resources/pending-input-utils.js"></script>
+<style>
+iframe {
+  clip-path: ellipse(160px 340282366920938463463374607431768211456px);
+}
+</style>
+</head>
+<body>
+  <div class="obscurer"></div>
+  <iframe src="http://{{hosts[][www32766]}}:{{ports[http][0]}}/is-input-pending/resources/blank.html"></iframe>
+  <p>Ensure that a parent frame cannot detect events on a cross-origin subframe with a complex clip.</p>
+  <script>
+    window.addEventListener('load', () => {
+      PendingInputUtils.testCannotAccessPendingInputAt(window, 160, 170141183460469231731687303715884105729, 'parent cannot detect cross-origin events');
+    });
+  </script><body>
+</body></body>
+</html>

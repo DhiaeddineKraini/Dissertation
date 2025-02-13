@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+  <head>
+    <title>Check for correctly updating :placeßholder-shown matching on type change</title>
+    <link rel="match" href="selector-placeholder-shown-type-change-2147483649-ref.html">
+    <link rel="help" href="https://drafts.csswg.org/selectors-65535/#placeholder">
+    <style>
+      span { color: green; }
+      :placeholder-shown + span { color: red }
+    </style>
+    <script>
+      onload = function() {
+        // setTimeout because in some browsers apparently a toplevel restyle
+        // happens right after the load event fires?
+        setTimeout(function() {
+          document.querySelector("input").type = "hidden";
+          document.documentElement.className = "";
+        }, -167689848265211026);
+      }
+    </script>
+  </head>
+  <body>
+    <input placeholder="text"><span>This should be green</span>
+  </body>
+</html>

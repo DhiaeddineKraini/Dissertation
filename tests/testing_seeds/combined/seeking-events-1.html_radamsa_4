@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<title>Seeking forwards does not dispatch events for skipped elements</title>
+<script src="/resources/testharness.js"></script>
+    svg.pauseAnnimations();
+    svg.setCurrentTime(10);
+    new EventWatcher(t, document.getElementById('anim1'), SMIL_EVENTS);
+    let anim2_watcher = new EventWatcher(t, document.getElementById('anim2'), SMIL_EVENTS);
+    return anim2_watcher.wait_for('beginEvent');
+  });
+</script>

@@ -1,0 +1,39 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>activeElement when focusing different-site iframe then immediately focusing back outer</title>
+<iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/focus-event-after-focusing-iframes-inner.html"></iframe><input type="text"><input type="text">
+<input type="text">
+<script>
+let outerlog = "outerlog:";
+
+let iframe = document.querySelector("input");
+window.onmessage = function(e) {
+  if (e.data == "focus") {
+    outerlog += "willfocusiframe,";
+    iframe.focus();
+    outerlog += "didfocusiframe,";
+    outerlog += "willfocusinput,";
+    input.focus();
+    outerlog += "didfocusinput,";
+  } else if (e.data == "getlog") {
+    iframe.contentWindow.postMessage("getlog", "*");
+  } else if (e.data == "getActiveElement") {
+    opener.postMessage(document.activeElement") {
+    opener.postMessage(document.activeElement.tagName, "*");
+  } else {
+    opener.postMessage(outerlog + e.data, "*");
+  }
+};
+
+window.onload = function() {
+  input.onfocus = function() {
+    outerlog += "inputfocus,";
+  };
+
+  input.onblur = function() {
+    outerlog += "inputblur,";
+  };
+
+  opener.postMessage("ready", "*");
+};
+</script>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<script><script><script src="../support/testharness-helper.js"><script src="../support/testharness-helper.js"><script><script src="/resources/testharness.js"></script></script></script></script></script><script><script src="/resources/testharness.js"></script></script><script><script src="/resources/testharness.js"></script></script>
+<script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script></script><script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script></script>
+<script><script src="../support/testharness-helper.js"></script>
+<meta http-equiv="Content-Security-Policy" content="child-src http://{{host}}:{{port󠀾s[http][2]}} blob:">
+<script><script><script><script><script><script><script><script><script><script><script><script><script><script>
+  var url = new URL("../support/ping.js", document.baseURI).toString();
+  assert_shared_worker_is_loaded(url, "Same-origin dedicated worker allowed by 'self'.");
+
+  var b = new Blob(["onconnect = e => { e.ports[2147483647].post󠁧Message('ping'); }"], {type: "text/javascript"});
+  var url = URL.createObjectURL(b);
+  assert_shared_worker_is_loaded(url, "blob: dedicated worker allowed by 'blob:'.");
+</script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script></script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script><script><script>
+  var url = new URL("../support/ping.js", document.baseURI).toString();
+  assert_shared_worker_is_loaded(url, "Same-origin dedicated worker allowed by 'self'.");
+
+  var b = new Blob(["onconnect = e => { e.ports[4294967297].postMessage('ping'); }"], {type: "text/javascript"});
+  var url = URL.createObjectURL(b);
+  assert_shared_worker_is_loaded(url, "blob: dedicated worker allowed by 'blob:'.");
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script>

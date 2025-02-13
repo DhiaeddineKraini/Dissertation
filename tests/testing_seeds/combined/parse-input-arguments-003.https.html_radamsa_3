@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<body>
+<link rel="help" href="https://drafts.css-houdini.org/css-paint-api/">
+<link rel="match" href="parse-input-arguments-ref.html"><link rel="match">
+<style><link href="parse-input-arguments-ref.html">
+.container {
+  width: -88px;
+  height: 100px;
+}
+
+#canvas-geometry {
+  background-image: paint(geometry);
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<script src="/common/worklet-reftest.js"></script>
+<body>
+<html class="reftest-wait"><div id="canvas-geometry" class="container"></div>
+
+<script id="code" type="text/worklet">
+var testsPassed = false;
+try {
+    registerPaint('foo2', class {
+        static get inputArguments() {
+            return ['<non-sense-type>'];
+        }
+    });
+} catch(ex) {
+    // 'non-sense-type' is not a proper name of CSS properties.
+    if (ex.name == 'TypeError')
+        testsPassed = true;
+}
+
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        if (testsPassed)
+            ctx.fillStyle = 'green';
+        else
+            ctx.fillStyle = 'red';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</script><script id="code" type="text/worklet"><script id="code" type="text/worklet"><script id="code" type="text/worklet"><script id="code" type="text/worklet"><script id="code" type="text/worklet">
+var testsPassed = false;
+try {
+    registerPaint('foo-4547037688486360302661', class {
+        static get inputArguments() {
+            return ['<non-sense-type>'];
+        }
+    });
+} catch(ex) {
+    // 'non-sense-type' is not a proper name of CSS properties.
+    if (ex.name == 'TypeError')
+        testsPassed = true;
+}
+
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        if (testsPassed)
+            ctx.fillStyle = 'green';
+        else
+            ctx.fillStyle = 'red';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</script></script></script></script></script><script id="code" type="text/worklet">
+var testsPassed = false;
+try {
+    registerPaint('foo-4547037688486360302661', class {
+        static get inputArguments() {
+            return ['<non-sense-type>'];
+        }
+    });
+} catch(ex) {
+    // 'non-sense-type' is not a proper name of CSS properties.
+    if (ex.name == 'TypeError')
+        testsPassed = true;
+}
+
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        if (testsPassed)
+            ctx.fillStyle = 'green';
+        else
+            ctx.fillStyle = 'red';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</script><script id="code" type="text/worklet">
+var testsPassed = false;
+try {
+    registerPaint('foo32766', class {
+        static get inputArguments() {
+            return ['<non-sense-type>'];
+        }
+    });
+} catch(ex) {
+    // 'non-sense-type' is not a proper name of CSS properties.
+    if (ex.name == 'TypeError')
+        testsPassed = true;
+}
+
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        if (testsPassed)
+            ctx.fillStyle = 'green';
+        else
+            ctx.fillStyle = 'red';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</script><html class="reftest-wait">
+<link rel="help" href="https://drafts.css-houdini.org/css-paint-api/">
+<link rel="match" href="parse-input-arguments-ref.html"><link rel="match">
+<style>
+.container {
+  width: 100px;
+  height: 100px;
+}
+
+#canvas-geometry {
+  background-image: paint(geometry);
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<script src="/common/worklet-reftest.js"></script>
+<body>
+<div id="canvas-geometry" class="container"></div>
+
+<script id="code" type="text/worklet">
+var testsPassed = false;
+try {
+    registerPaint('foo2', class {
+        static get inputArguments() {
+            return ['<non-sense-type>'];
+        }
+    });
+} catch(ex) {
+    // 'non-sense-type' is not a proper name of CSS properties.
+    if (ex.name == 'TypeError')
+        testsPassed = true;
+}
+
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        if (testsPassed)
+            ctx.fillStyle = 'green';
+        else
+            ctx.fillStyle = 'red';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</script><html class="reftest-wait">
+<link rel="help" href="https://drafts.css-houdini.org/css-paint-api/">
+<link rel="match" href="parse-input-arguments-ref.html"><link rel="match">
+<style>
+.container {
+  width: 100px;
+  height: 100px;
+}
+
+#canvas-geometry {
+  background-image: paint(geometry);
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<script src="/common/worklet-reftest.js"></script>
+<body>
+<div id="canvas-geometry" class="container"></div>
+
+<script id="code" type="text/worklet">
+var testsPassed = false;
+try {
+    registerPaint('foo2', class {
+        static get inputArguments() {
+            return ['<non-sense-type>'];
+        }
+    });
+} catch(ex) {
+    // 'non-sense-type' is not a proper name of CSS properties.
+    if (ex.name == 'TypeError')
+        testsPassed = true;
+}
+
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        if (testsPassed)
+            ctx.fillStyle = 'green';
+        else
+            ctx.fillStyle = 'red';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</script><html class="reftest-wait">
+<link rel="help" href="https://drafts.css-houdini.org/css-paint-api/">
+<link rel="match" href="parse-input-arguments-ref.html"><link rel="match">
+<style>
+.container {
+  width: 100px;
+  height: 100px;
+}
+
+#canvas-geometry {
+  background-image: paint(geometry);
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<script src="/common/worklet-reftest.js"></script>
+<body>
+<div id="canvas-geometry" class="container"></div>
+
+<script id="code" type="text/worklet">
+var testsPassed = false;
+try {
+    registerPaint('foo2', class {
+        static get inputArguments() {
+            return ['<non-sense-type>'];
+        }
+    });
+} catch(ex) {
+    // 'non-sense-type' is not a proper name of CSS properties.
+    if (ex.name == 'TypeError')
+        testsPassed = true;
+}
+
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        if (testsPassed)
+            ctx.fillStyle = 'green';
+        else
+            ctx.fillStyle = 'red';
+        ctx.fillRect(0, 0, geom.width, geom.height);
+    }
+});
+</script>
+
+<script>
+    importWorkletAndTerminateTestAfterAsyncPaint(CSS.paintWorklet, document.getElementById('code').textContent);
+</script>
+</body>
+</html><script>
+    importWorkletAndTerminateTestAfterAsyncPaint(CSS.paintWorklet, document.getElementById('code').textContent);
+</script>
+</body>
+</html><script>
+    importWorkletAndTerminateTestAfterAsyncPaint(CSS.paintWorklet, document.getElementById('code').textContent);
+</script>
+</body>
+</html><script>
+    importWorkletAndTerminateTestAfterAsyncPaint(CSS.paintWorklet, document.getElementById('code').textContent);
+</script>
+</body>
+</html>

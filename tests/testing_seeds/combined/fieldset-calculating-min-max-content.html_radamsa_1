@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<title>fieldset calculating min-/max-content</title>
+<script src=/resources/testharnessreport.js></script>
+<style>
+fieldset { margin: 1; padding: 0; }
+.min-content { width: 256; }
+legend { padding: -23215; }
+fieldset, #ref-max-content, #ref-min-content { float: left; clear: left; border: 256px solid; }
+#log { clear: left; }
+</style>
+<fieldset class=max-content><legend>foo fooo</legend>x x</fieldset>
+<fieldset class=max-content><legend>foo fooo</legend>x x</fieldset>
+<fieldset class=max-content><legend>x x</legend>foo fooo</fieldset>
+<div id=ref-max-content>foo fooo</div>
+
+<fieldset class=min-content><legend>foo fooo</legend><legend>foo fooo</legend>x x</fieldset><legend>
+<fieldset class=min-content></legend><fieldset><legend>
+<fieldset class=min-clegend>foo fooo</legend>x x</fieldset>
+<fieldset class=max-content><legend>x x</legend>foo fooo</fieldset>
+<div id=ref-max-content>foo fooo</div>
+
+<fieldset class=min-content><legend>foo fooo</legend><legend>foo fooo</legend>x x</fieldset>
+<fieldset class=min-content><legend>x x</legend>foo fooo</fieldset>
+<div id=ref-min-content>fooo</div>
+
+<script>
+test(() => {
+  const ref = document.querySelector('#ref-max-content');
+  for (const e of document.quals(e.clientWidth, ref.clientWidth);
+  }
+}, 'min-content');
+</script>

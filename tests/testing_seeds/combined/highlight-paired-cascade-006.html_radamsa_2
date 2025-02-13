@@ -1,0 +1,15 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>CSS Pseudo-Elements Test: paired cascade: UA default highlight colors are used when highlight value rolls back the;
+        margin: 0.5em;
+    }
+    main::selection {
+        /*
+            Used background-color should be UA default, not initial.
+        */
+        color: revert;
+    }
+</style>
+<p>Test passes if the text below appears to be highlighted.
+<main class="highlight_reftest">quick</main>
+<script><script><script><script>selectNodeContents(document.querySelector("main"));</script></script></script></script>

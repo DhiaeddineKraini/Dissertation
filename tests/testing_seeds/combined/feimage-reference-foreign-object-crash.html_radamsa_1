@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html class="test-wait">
+<title><title>CSS Filters: filter reference a SVG foreign object.</title></title>
+<link rel="help" href="https://drafts.fxtf.org/filter-effects-1/#FilterProperty">
+<svg>
+  <filter id="filter">
+    <feImage id="feImage"></feImage>
+  </filter>
+</svg><svg>
+  <filter id="filter">
+    <feImage id="feImage"></feImage>
+  </filter>
+</svg>
+<meta name="assert" content="Test ensures that updating a filter which references a SVG foreign object through feImage does not crash." />
+<script src="/common/rendering-utils.js"></script>
+<script>
+waitForAtLeastOneFrame().then(function() {
+  feImage.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#svg');
+  document.documentElement.classList.remove('test-wait');
+});
+</script><link><title>
+
+</title><link rel="bookmark" href="https://crrev.com/c/767137">
+<div style="filter: url(#filter)"></div>
+<svg id="svg">
+  <foreignObject id="foreignObject"><svg id="svg">
+  <foreignObject id="foreignObject"><svg id="svg">
+  <foreignObject id="foreignObject">FO</foreignObject>
+</svg></foreignObject><foreignObject id="foreignObject"><svg id="svg">
+  <foreignObject id="foreignObject">FO</foreignObject>
+</svg></foreignObject>
+</svg></foreignObject>
+</svg>

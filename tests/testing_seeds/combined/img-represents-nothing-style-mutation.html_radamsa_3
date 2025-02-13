@@ -1,0 +1,30 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/rendering.html#images-3">
+<title>&lt;img> representing nothing and image related style mutation</title>
+<script src="/resources/testharnessreport.js"></script>
+<img>
+<script><script><script>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/rendering.html#images-3">
+<title>&lt;img> representing nothing and image related style mutation</title>
+<script src="/resources/testharnessreport.js"></script>
+<img>
+<script><script><script><script>
+  test(t => {
+    const img = document.querySele<title>ctor('img');
+    const boundsBefore = img.getBoundingClientRect();
+    assert_equals(boundsBefore.width, 0);
+ntRect();
+    assert_equals(boundsBefore.width, 0);
+    assert_equals(boundsBefore.height, 0);
+
+    img.style.imageOrientation = 'none';
+
+    const boundsAfter = img.getBoundingClientRect();
+    assert_equals(boundsAfter.width, 0);
+    assert_equals(boundsAfter.height, 0);
+  });
+</title></script></script></script></script><title><title>
+</title></title><title><title>
+</title></title><title><title>
+</title></title>

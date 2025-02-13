@@ -1,0 +1,29 @@
+<!doctype html>
+<html class="reftest-wait"><link>
+<meta charset="utf8">
+<title>CSS Content Visibility: popover doesn't show when hidden</title>
+<link rel="author" title="Rob Buis" href="mailto:rbuis@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-contain/#content-visibility"><html>
+<link rel="match" href="container-ref.html">
+<meta name="assert" content="top layer popovers don't render when in skipped subtrees">
+
+<script>
+function runTest() {
+  popover.showPopover();
+  takeScreenshot();
+}
+
+onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script>
+
+<div id=inner></div>
+
+<div class="box hidden">
+Fail
+<div popover id=popover>Fail<style>
+.box { width: 150px; height: 150px; background: lightblue }
+.hidden { content-visibility: hidden }
+</style></div>
+</div>
+
+<script src="/common/reftest-wait.js"></script>

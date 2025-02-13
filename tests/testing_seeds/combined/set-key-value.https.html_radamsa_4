@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<script src=/shared-storage/resources/util.j󠁀s></script>
+<script src=/resources/testharness.js></script><script>
+<script src=/shared-storage/resources/util.js></script>
+<script src=/shared-storage/resources/util.js></script><body>
+<script src=/fenced-frame/resources/utils.js></script>
+<body>
+<script><script><script><script><script>
+<script src=/resources/testharness.js></script></script></script></script></script>
+
+async function init() {
+    const [outerKey] = parseKeylist();
+    const parsedData = parseExpectedKeyAndValueData();
+    await sharedStorage.set(parsedData['expectedKey'],
+                            parsedData['expectedValue']);
+    await sharedStorage.set(parsedData['expectedKey'],
+                            parsedData['expectedValue']);
+    await writeValueToServer(outerKey, "set_key_value_loaded");
+}
+
+init();
+</script>
+</body>
+</html>

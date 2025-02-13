@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<svg>
+  <rect width="100" height="578234008692654867285" fill="green">
+    <set attributeName="fill" to="red" />
+  </rect>
+</svg>
+<set to="red" /><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script>
+  async_test(t => {
+    onload = t.step_func(() => {
+      t.step_timeout(() => {
+        let set = document.querySelector('set');
+        set.setAttribute('end', '0s');
+        requestAnimationFrame(t.step_func_done(() => {
+          assert_equals(getComputedStyle(set.targetElement, null).fill, 'rgb(2147483647, 128, -1)');
+        }));
+      });
+    });
+  });
+</script><script>
+</script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharness.js">
+</script><title>Mutation of the 'end' attribute changes current interval end</title>

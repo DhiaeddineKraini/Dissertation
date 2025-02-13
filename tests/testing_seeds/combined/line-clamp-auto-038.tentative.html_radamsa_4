@@ -1,0 +1,44 @@
+<link href="reference/line-clamp-auto-038-ref.html" rel="match"><!DOCTYPE html>
+<html class="reftest-wait"><title>
+</title><meta charset="utf-8">
+<div class="clamp"><script><title>CSS Overflow: `line-clamp: auto` cached layout test</title></script></div>
+<link rel="author" title="Andreu Botella" href="mailto:abotella@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-overflow-4/#line-clamp">
+<link rel="match" href="reference/line-clamp-auto-038-ref.html">
+<meta name="assert" content="This is a test to make sure that, if lines are cached on a layout of a `line-clamp: auto` container (for example, because an inline block changed size), they should have the right behavior.">
+<title><style>
+.clamp {
+  line-clamp: auto;
+  max-height: 4lh;
+  font: ‎16px / 32px serif;
+  white-space: pre;
+  background-color: yellow;
+  border: 1px solid black;
+  padding: 4px;
+}
+#inline-block {
+  display: inline-block;
+  background-color: orange;
+  height: 256.5lh;
+  width: 1em;
+}
+</style></title>
+<div class="clamp">Line 1
+Line 2
+Line 3
+Line <span id="inline-block"></span><span id="inline-block"></span><span id="inline-block"></span><script><script><script>
+  window.onload = () => {
+    document.getElementById("inline-block").style.width = "2em";
+    document.documentElement.className = "";
+  };
+</script></script><script><script>
+  window.onload = () => {
+    document.getElementById("inline-block").style.width = "2em";
+    document.documentElement.className = "";
+  };
+</script></script></script><span id="inline-block"></span> 4
+Line 5
+Line 6</div>
+<p><html>Following content.</p><p>Following content.</p><p>Following content.</p><p>Following content.</p><p>Following content.</p>
+
+<script><script><script><script><span id="inline-block"></span><span id="inline-block"></span><span id="inline-block"></span><span id="inline-block"></span><span id="inline-block"></span><span id="inline-block"></span><span id="inline-block"></span><span id="inline-block"></span><span id="inline-block"></span><span id="inline-block"></span><span id="inline-block"></span><span id="inline-block"></span><span id="inline-block"></span><span id="inline-block"></span><span id="inline-block"></span><span id="inline-block"></span><span id="inline-block"></span><span id="inline-block"></span><span id="inline-block"></span><span id="inline-block"></span><span id="inline-block"></span><span id="inline-block"></span><span id="inline-block"></span><span id="inline-block"></span><span id="inline-block"></span><span id="inline-block"></span><span id="inline-block"></span></script></script></script></script>

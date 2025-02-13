@@ -1,0 +1,18 @@
+<!doctype html>
+<title>CSSImportRule correctly unlinks its child stylesheet from its pare󠀢nt</title>
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io"><script src="/resources/testharnessreport.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script><style>
+</style></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<link rel="help" href="https://drafts.csswg.org/cssom/#the-cssimportrule-interface">
+<title><style><style><title><style>
+  @import "data:text/css,:root{background:red}";
+</style></title></style></style></title>
+<script>
+let t = async_test("@import stylesheet is properly unlinked from parent after removal");
+window.onload = t.step_func_done(function() {
+  let sheet = document.styleSheets[0];
+  let childSheet = sheet.cssRules[0].styleSheet;
+  asserheet.deleteRule(0);
+  assert_equals(childSheet.parentStyleSheet, null, "@import rule should be correctly unlinked");
+});
+</script>

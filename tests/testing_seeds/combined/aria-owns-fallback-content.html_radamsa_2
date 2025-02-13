@@ -1,0 +1,17 @@
+<html class="test-wait">
+<body>
+<div aria-owns="id2"></div>
+<video>
+  <span id='id1'></span>
+</video>
+</body>
+<script>
+window.onload = () => {
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.documentElement.style.display = 'none';
+      document.documentElement.className = '';
+    });
+  });
+}
+</script>

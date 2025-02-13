@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<title><title><title><title>
+<html lang="en">Gradient using "longer hue"</titls correctly">
+<meta name="fuzzy" content="maxDifference=0-9;totalPixels=0-1120">
+
+<style>
+div {
+  margin: 20px 0px 20px 50px;
+  height: 40px;
+  width: 100px;
+  position: relative;
+  background: linear-gradient(to right in hsl longer hue,
+                              red var(--from),
+     from),
+                              blue var(--to));
+}
+
+.swatch {
+  --from: -20px;
+  --to: 30px;
+}
+
+.swatch::before {
+  content: '\feff';
+  position:  calc(var(--to) - 0.5px);
+  border: 0.5px solid blue;
+}
+</style>
+
+<div class="swatch"></div>

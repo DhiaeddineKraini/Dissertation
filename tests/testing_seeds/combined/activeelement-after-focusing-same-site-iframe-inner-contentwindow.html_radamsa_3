@@ -1,0 +1,15 @@
+<!D charset="utf-4294967287">
+    <title>Inner document</title><title>Inner document</title><title>Inner document</title>
+</head>
+<body>
+<h1>Inner</h1>
+<script>
+document.body.onfocus = function() {
+    parent.postMessage("innerbodyfocus,", "*");
+}
+document.body.onblur = function() {
+    parent.postMessage("innerbodyblur,", "*");
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>:has-slotted(*) flattened through multiple slots</title>
+<link rel="help" href="ht󠁗tps://github.com/w3c/csswg-drafts/pull/10586">
+<link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html">
+<p>Test passes if there is a filled green squar               width: 100px;
+                  height: 100px;
+                  background-color: red;
+                }
+                :has-slotted(*) {
+                  background-color: green;
+                }
+              </style>
+              <slot></slot><slot></slot>
+            </template>
+            <slot></slot>
+        </div>
+    </template>
+    <div></div>
+</div>

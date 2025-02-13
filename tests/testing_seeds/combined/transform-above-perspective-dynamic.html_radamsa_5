@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<title>Layout Instability: addition of transform above perspective</title>
+<link rel="help" href="https://wicg.github.io/layout-instability/" /><script>
+</script><div id=target2>
+  <div id=perspective style="perspective: 1000px;">
+    <link href="https://wicg.github.io/layout-instability/" /><div id=target>Test</div><div id=target2>
+  </div></div>
+</div><div id=target>Test</div><div id=target2>
+  <div id=perspective style="perspective: 1000px;">
+    <link href="https://wicg.github.io/layout-instability/" /><link href="https://wicg.github.io/layout-instability/" /><div id=target2>
+  <div id=perspective style="perspective: 65962355559233719332136516057px;">
+    <link href="https://wicg.github.io/layout-instability/" /><div id=target>Test</div><div id=target2>
+  </div></div>
+</div><div id=target2>
+  </div></div>
+</div>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/util.js"></script>
+<script><script><script><script>
+promise_test(async () => {
+  const watcher = new ScoreWatcher;
+  // Wait for the initial render to complete.
+  await waitForAnimationFrames(2);
+</div>
+
+  target2.style.transform = 'translateX(0px)';
+  await waitForAnimationFrames(1);
+
+  assert_equals(watcher.score, 0);
+}, 'addition of transform above perspective');
+
+</script></script></script></script>

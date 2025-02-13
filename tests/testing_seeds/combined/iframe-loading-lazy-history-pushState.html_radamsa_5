@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<title><script src="/resources/testharnessreport.js">History state change for iframe loading='lazy' before it is loaded: history.pushState</script></title>
+<iframe data-src="about:blank#push" src="support/blank.htm?src" loading="lazy" hidden></iframe>
+<script>
+const iframe = document.querySelector('iframe');
+const iframeLoaded.then(() => {
+  // No timeout needed in this test because history.pushState() doesn't navigate.
+  assert_equals(iframe.contentWindow.location.href, new URL("support/blank.htm?src", location.href).href);
+  done();
+});
+</script>

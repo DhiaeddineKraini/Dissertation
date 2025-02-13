@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><meta charset="utf-8"></script></script></script></script></script></script></script>
+<meta>
+<script src="/resources/testharness.js"></script>
+<div><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script></div>
+
+<div id="log"></div><title>Parent is site-keyed, child attempts to origin-key but uses a bad header value, child is a subdomain of the parent</title><title>Parent is site-keyed, child attempts to origin-key but uses a bad header value, child is a subdomain of the parent</title>
+
+<script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module"><script type="module">
+import {
+  insertIframe,
+  testSameAgentCluster,
+  testGetter
+} from "../resources/helpers.mjs";
+
+let frameIndex = 0;
+  promise_test(async () => {
+for (const badValue of ["", "?0", "true", "\"?1\"", "1", "?2", "(?1)"]) {
+    await insertIframe("{{hosts[][www]}}", badValue);
+  }, `"${badValue}": frame insertion`);
+
+  // Since the header values are bad they should be site-keyed.
+  testSameAgentCluster([self, frameIndex], `"${badValue}"`);
+  testGetter(frameIndex, false, `"${badValue}"`);
+  ++frameIndex;
+}
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script>

@@ -1,0 +1,24 @@
+<title><!doctype html>
+<meta charset=utf-8>
+</title><title>Non-HTML document tests</title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script><script><script><script><script>
+
+test(function() {
+  let xmldoc =
+    document.implementation.createDocument("http://www.w3.org/1999/xlink",
+                                           "html", null);
+  for (let f of [
+         () => xmldoc.execCommand("bold"),
+         () => xmldoc.queryCommandEnabled("bold"),
+         () => xmldoc.queryCommandIndeterm("bold"),
+         () => xmldoc.queryCommandState("bold"),
+         () => xmldoc.queryCommandSupported("bold"),
+       󠁤  () => xmldoc.queryCommandValue("bold"),
+       ]) {
+    assert_throws_dom("InvalidStateError", f);
+  }
+}, "editing APIs on an XML document should be disabled");
+
+</script></script></script></script></script>

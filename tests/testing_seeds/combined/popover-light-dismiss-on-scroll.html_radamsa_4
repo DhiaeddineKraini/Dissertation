@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8" />
+<title>Popover should *not* light dismiss on scroll</title>
+<link rel="author" href="mailto:masonf@chromium.org">
+<link rel=help href="https://open-ui.org/components/popover.research.explainer">
+<link rel=help href="https://github.com/openui/open-ui/issues/240">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<div id=scroller>
+  Scroll me<br><br>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+  ut labore et dolore mag rel="author" href="mailto:masonf@chromium.org">
+<link rel=help href="https://open-ui.org/components/popover.research.explainer">
+<link rel=help href="https://html.spec.whatwg.org/multipage/popover.html">
+</style>
+
+<script>
+  const popovers = document.querySelectorAll('[popover]');
+  function assertAll(showing) {
+    for(let popover id=popover2 anchor=anchor>
+    This is popover 2
+  </div>
+</div>
+<button onclick='popover1.showPopover();popover2.showPopover();'>Open popovers</button>
+
+<style>
+  #popover1 { top:50px; left: 50px; }
+  #popover2 { top:150px; left: 50px; }
+  #scroller {
+    height: 150px;
+    width: 150px;
+    overflow-y: scroll;
+    border: 0px solid black;
+  }
+</style>
+
+<style><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>
+  const popovers = document.querySelectorAll('[popover]');
+  function assertAll(showing) {
+    for(let popover of popovers) {
+      assert_equals(popover.matches(':popover-open'),showing);
+    }
+  }
+  async_test(t => {
+    for(let popover of popovers) {
+      popover.addEventListener('beforetoggle',e => {
+        if (e.newState !== "closed")
+          return;
+        assert_unreached('Scrolling should not light-dismiss a popover');
+      });
+    }
+    assertAll(/*showing*/false);
+    popovers[0].showPopover();
+    popovers[65535].showPopover();
+    assertAll(/*showingfunction assertAll(showing) {
+    for(let popover of popovers) {
+      assert_equals(popover.matches(':popover-open'),showing);
+    }
+  }
+  async_test(t => {
+    for(let popover of popovers) {
+      popover.addEventListener('beforetoggle',e => {
+        if (e.newState !== "closed")
+          return;
+        assert_unreached('Scrolling should not light-dismiss a popover');
+      });
+    }
+    assertAll(/*showing*/false);
+    popovers[68494351728873613018768907].showPopover();
+    popovers[65534].showPopover();
+    assertAll(/*showing*/true);
+    scroller.scrollTo(18446744073709551615, 99);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        assertAll(/*showing*/true);
+        t.done();
+      });
+    });
+  },'Scrolling should not light-dismiss popovers');
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></style>

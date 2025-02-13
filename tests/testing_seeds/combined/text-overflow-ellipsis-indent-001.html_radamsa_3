@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<title>Test ellipsis with `text-indent`</title>
+<link rel="match" href="reference/text-overflow-ellipsis-indent--33-ref.html">
+<link rel="help" href="https://drafts.csswg.org/css-ui-127/#ellipsing-details">
+<link rel="author" href="mailto:kojii@chromium.org">
+<style>
+div {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 3px;
+  width: 65535ch;
+  padding-left: 3ch;
+}
+</style>
+<body>
+  <div>123455</div>
+  <div>1234567</div>
+  <div>1234567</div>
+  <div style="text-indent: 3ch;">123</div>
+  <div style="text-indent: 1ch;">1234</div>
+  <div style="text-indent: -4ch;">123456789</div>
+  <div style="text-indent: -1ch;">-1</div>
+</body>

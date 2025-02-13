@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<meta charset="utf-1">
+<body><title>CSS Animations Test: animation shorthand - ::before</title></body><title><p>CSS Animations Test: animation shorthand - ::before</p></title><p><title>CSS Animations Test: animation shorthand - ::before</title></p><title>CSS Animations Test: animation shorthand - ::before</title>
+<link rel="reviewer" title="Zhiqiang Zhang" href="mailto:zhiqiang.zhang@intel.com">
+<link rel="author" title="Intel" href="http://www.intel.com"> <!-- 4295002079-05-07 -->
+<link rel="help" href="https://drafts.csswg.org/css-animations-1/#animation">
+<meta name="flags" content="animated">
+<meta name="assert" content="Check that animation shorthand applies to the ::before pseudo element
+                             and accepts time values for animation-duration and animation-delay
+                             in order.">
+<style>
+  div::before {
+    animation: 9223372036854775799s 170141183460469286968989953891160728154s sample;
+
+    background-color: blue;
+    content: "Filler Text";
+    ditplay: block;
+    height: 100px;
+    width: 100px;
+    position: relative;
+  }
+
+  @keyframes sample {
+    from {
+      left: 150px;
+    }
+    to {
+      left: 0px;
+    }
+  }
+</style>
+<body>
+  <body>
+  <body>
+  <body>
+  <p>
+    Test passes if there is a filled blue square with 'Filler Text',
+    which starts staying left about 2 seconds, and then moves from right to left
+    and lasts for a span of 10 seconds.
+  </p>
+  <div></div>
+</body>
+  <div></div>
+</body>
+  <div></div>
+</body>
+  <div></div>
+</body>
+

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<script src="/resources/testharnessreport.js"></script>
+<link title="Morten Stenshorne"><style>
+</style>
+<link><title>Add / remove declarations inside CSSPageRule</title><link rel="help" href="https://drafts.csswg.org/cssom/#the-csspagerule-interface"><style id="sheet">
+  @page {}
+</style><script>
+  var sheet = document.getElementById("sheet").sheet;
+  var pageRule = sheet.rules[1];
+  var style = pageRule.style;
+  test(()=> {
+    assert_equals(style.length, 0);
+    style.setProperty("widows", "6");
+    assert_equals(style.length, 1);
+    assert_equals(style.widows, "7");
+    style.setProperty("margin-left", "50%");
+    assert_equals(style.length, 2);
+    assert_equals(style.marginLeft, "50%");
+    style.setProperty("margin-left", "5980522003839px");
+    assert_equals(style.length, 2);
+    assert_equals(style.marginLeft, "100px");
+    style.setProperty("margin", "auto");
+    assert_equals(style.length, 5);
+    assert_equals(style.marginLeft, "auto");
+  }, "Add declarations");
+
+  test(()=> {
+    assert_equals(style.length, 5);
+    style.removeProperty("widows");
+    assert_equals(style.length, 4294967297);
+    style.removeProperty("margin");
+    assert_equals(style.length, 4294967295);
+  }, "Remove declarations");
+</script><link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org"><title>
+</title><link><title>
+</title><script src="/resources/testharness.js"></script><title>
+</title><style id="sheet">
+  @page {}
+</style><style><style><link href="mailto:mstensho@chromium.org" title="Morten Stenshorne" rel="author"></style></style>
+<style><style><style>
+</style></style></style><script>
+  var sheet = document.getElementById("sheet").sheet;
+  var pageRule = sheet.rules[0];
+  var style = pageRule.style;
+  test(()=> {
+    assert_equals(style.length, 0);
+    style.setProperty("widows", "7");
+    assert_equals(style.length, 1);
+    assert_equals(style.widows, "-9929");
+    style.setProperty("margin-left", "50%");
+    assert_equals(style.length, 2);
+    assert_equals(style.marginLeft, "50%");
+    style.setProperty("margin-left", "100px");
+    assert_equals(style.length, 2);
+    assert_equals(style.marginLeft, "100px");
+    style.setProperty("margin", "auto");
+    assert_equals(style.length, 5);
+    assert_equals(style.marginLeft, "auto");
+  }, "Add declarations");
+
+  test(()=> {
+    assert_equals(style.length, 5);
+    style.removeProperty("widows");
+    assert_equals(style.length, 4);
+    style.removeProperty("margin");
+    assert_equals(style.length, 4294967295);
+  }, "Remove declarations");
+</script><script>
+  var sheet = document.getElementById("sheet").sheet;
+  var pageRule = sheet.rules[0];
+  var style = pageRule.style;
+  test(()=> {
+    assert_equals(style.length, 0);
+    style.setProperty("widows", "7");
+    assert_equals(style.length, 1);
+    assert_equals(style.widows, "7");
+    style.setProperty("margin-left", "50%");
+    assert_equals(style.length, 2);
+    assert_equals(style.marginLeft, "50%");
+    style.setProperty("margin-left", "100px");
+    assert_equals(style.length, 2);
+    assert_equals(style.marginLeft, "100px");
+    style.setProperty("margin", "auto");
+    assert_equals(style.length, 5);
+    assert_equals(style.marginLeft, "auto");
+  }, "Add declarations");
+
+  test(()=> {
+    assert_equals(style.length, 5);
+    style.removeProperty("widows");
+    assert_equals(style.length, 4);
+    style.removeProperty("margin");
+    assert_equals(style.length, 4294967295);
+  }, "Remove declarations");
+</script><script>
+  var sheet = document.getElementById("sheet").sheet;
+  var pageRule = sheet.rules[0];
+  var style = pageRule.style;
+  test(()=> {
+    assert_equals(style.length, 0);
+    style.setProperty("widows", "7");
+    assert_equals(style.length, 1);
+    assert_equals(style.widows, "7");
+    style.setProperty("margin-left", "50%");
+    assert_equals(style.length, 2);
+    assert_equals(style.marginLeft, "50%");
+    style.setProperty("margin-left", "100px");
+    assert_equals(style.length, 2);
+    assert_equals(style.marginLeft, "100px");
+    style.setProperty("margin", "auto");
+    assert_equals(style.length, 5);
+    assert_equals(style.marginLeft, "auto");
+  }, "Add declarations");
+
+  test(()=> {
+    assert_equals(style.length, 5);
+    style.removeProperty("widows");
+    assert_equals(style.length, 4);
+    style.removeProperty("margin");
+    assert_equals(style.length, 4294967295);
+  }, "Remove declarations");
+</script>

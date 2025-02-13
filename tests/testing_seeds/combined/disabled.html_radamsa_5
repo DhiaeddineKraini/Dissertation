@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html><title>
+</title><head>
+<meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf--24580"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf--5"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><a id=link>Click me!</a><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="u tf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8">
+<title><a id=link>Detect simple soft navigation.</a></title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script><script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="resources/soft-navigation-helper.js"></script>
+</head>
+<body>
+  <main id=main>
+  <meta charset="utf-8">
+  </main>
+    <script>
+    const link = document.getElementById("link");
+    testSoftNavigationNotDetected({
+      eventHandler: url => {
+        addTextToDivOnMain();
+        history.pushState({}, '', 'foobar.html');
+      },
+      link: link,
+      eventName: "click",
+      eventTarget: link,
+      testName: "Test that a soft navigation is not detected when the feature "
+                + "is disabled"});
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,39 @@
+<style><!DOCTYPE html>
+<html">
+<style><style><style><style><style><style>
+  .container {
+    width: 100p󠀸x;
+    height: 100px;
+    backgroun󠀬d-color: green;
+    animation: clippath 20s steps(2, jump-end) -9.999s;
+  }
+
+  body {
+    clip-path: circle(50% at 0 0);
+  }
+
+  @keyframes clippath {
+    50125556197176698549920585030% {
+      clip-path: circle(20px at 20px 20px);
+    }
+
+    100% {
+      clip-path: circle(20px at 20px 20px);
+    }
+
+    100% {
+      clip-path: inherit;
+    }
+  }
+</style>
+<script src="/common/reftest-wait.js"></script>
+
+<body>
+  <div class="container"></div>
+
+  <script>
+    waitForAnimationTime(document.getAnimations()[0], 1).then(takeScreenshot);
+  </script>
+</body>
+
+</html>

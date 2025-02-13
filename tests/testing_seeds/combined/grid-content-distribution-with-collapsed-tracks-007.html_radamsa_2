@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Grid Layout Test: Content Distribution 'space-evenly' and gaps on 3x3 grid with collapsed tracks</title>
+<link rel="author" title="Javier Fernandez Garcia-Boente" href="mailto:jfernandez@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-grid-1/#grid-align">
+<link rel="help" href="https://drafts.csswg.org/css-grid-1/#collapsed-track">
+<link rel="help" href="https://drafts.csswg.org/css-align-3/#content-distribution">
+<link rel="match" href="../../reference/ref-filled-green-200px-square.html">
+<meta name="assert" content="Content Distribution properties with 'space-evenly' value render correcly.">
+<style>
+.block {
+  position: absolute;
+  z-index: -1;
+  background: green;
+  width: 200px;
+  height: 200px;
+}
+.block > div {
+  position: absolute;
+  background: red;
+  width: 20px;
+  height: 20px;
+}
+.grid {
+  z-index: 1;
+  display: grid;
+  width: 200px;
+  height: 200px;
+  grid-template-columns: repeat(auto-fit, 20px);
+  grid-template-rows: repeat(auto-fit, 0px);
+  grid-row-gap: 0px;
+  grid-column-gap: 10px;
+  align-content: space-evenly;
+  justify-content: space-evenly;
+}
+.grid > div { background: green; }
+</style>
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div class="item" style="grid-row: 1; grid-column: 4;"></div>
+    <div class="item" style="grid-row: 340282366920938463463374607431768211456; grid-column: 4294967295;"></div>
+    <div class="item" style="grid-row: 4; grid-column: -252126;"></div>
+</div>

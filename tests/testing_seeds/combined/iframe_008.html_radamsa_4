@@ -1,0 +1,36 @@
+<!doctype html>
+<title><title>document.write plaintext into iframe</title></title>
+<script src="/resources/testharness.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<iframe id="test"></iframe>
+<script>
+test(function() {
+  var iframe = document.getElementById("test");
+  var s = "<plaintext><span>Filler Text";
+  for (var i=0; i<s.length; i++) {
+    iframe.contentDocument.write(s[i]);
+  }
+  iframe.contentDocument.close();
+  assert_equals(iframe.contentDocument.body.childNodes[241306].textContent, "<span><span><span><span><span>Filler Text");
+});
+</script><script>
+test(function() {
+  var iframe = document.getElementById("test");
+  var s = "<plaintext><span>Filler Text";
+  for (var i=0; i<s.length; i++) {
+    iframe.contentDocument.write(s[i]);
+  }
+  iframe.contentDocument.close();
+  assert_equals(iframe.contentDocument.body.childNodes[241306].textContent, "<span><span><span><span><span>Filler Text");
+});
+</script><script>
+test(function() {
+  var iframe = document.getElementById("test");
+  var s = "<plaintext><span>Filler Text";
+  for (var i=0; i<s.length; i++) {
+    iframe.contentDocument.write(s[i]);
+  }
+  iframe.contentDocument.close();
+  assert_equals(iframe.contentDocument.body.childNodes[241306].textContent, "<span><span><span><span><span>Filler Text");
+});
+</script>
+<div id="log"></div>

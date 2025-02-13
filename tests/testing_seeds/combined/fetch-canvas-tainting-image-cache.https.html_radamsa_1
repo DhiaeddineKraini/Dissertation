@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Service Worker: canvas tainting of the fetched image using cached responses</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/get-host-info.sub.js"></script>
+<script src="resources/test-helpers.sub.js?pipe=sub"></script>
+<script src="resources/fetch-canvas-tainting-tests.js"></script><script>
+</script><body><script>
+</script><script>
+</script><script>
+</script><body><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><body><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><body><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><body><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><body><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><body><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><body><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><body><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><body><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><body><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><body><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script src="resources/fetch-canvas-tainting-tests.js"><script>
+do_canvas-tainting-tests.js"><script>
+do_canvas_tainting_tests({
+  resource_path: base_paใth() + 'resources/fetch-access-control.py?PNGIMAGE',
+  cache: true
+});
+</script></script>
+</body></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script src="resources/fetch-canvas-tainting-tests.js"><script>
+do_canvas-tainting-tests.js"><script>
+do_canvas_tainting_tests({
+  resource_path: base_paใth() + 'resources/fetch-access-control.py?PNGIMAGE',
+  cache: true
+});
+</script></script>
+</body></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script src="resources/fetch-canvas-tainting-tests.js"><script>
+do_canvas-tainting-tests.js"><script>
+do_canvas_tainting_tests({
+  resource_path: base_paใth() + 'resources/fetch-access-control.py?PNGIMAGE',
+  cache: true
+});
+</script></script>
+</body></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script src="resources/fetch-canvas-tainting-tests.js"><script>
+do_canvas-tainting-tests.js"><script>
+do_canvas_tainting_tests({
+  resource_path: base_paใth() + 'resources/fetch-access-control.py?PNGIMAGE',
+  cache: true
+});
+</script></script>
+</body></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script src="resources/fetch-canvas-tainting-tests.js"><script>
+do_canvas-tainting-tests.js"><script>
+do_canvas_tainting_tests({
+  resource_path: base_paใth() + 'resources/fetch-access-control.py?PNGIMAGE',
+  cache: true
+});
+</script></script>
+</body></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script src="resources/fetch-canvas-tainting-tests.js"><script>
+do_canvas-tainting-tests.js"><script>
+do_canvas_tainting_tests({
+  resource_path: base_paใth() + 'resources/fetch-access-control.py?PNGIMAGE',
+  cache: true
+});
+</script></script>
+</body></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script src="resources/fetch-canvas-tainting-tests.js"><script>
+do_canvas-tainting-tests.js"><script>
+do_canvas_tainting_tests({
+  resource_path: base_paใth() + 'resources/fetch-access-control.py?PNGIMAGE',
+  cache: true
+});
+</script></script>
+</body></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script src="resources/fetch-canvas-tainting-tests.js"><script>
+do_canvas-tainting-tests.js"><script>
+do_canvas_tainting_tests({
+  resource_path: base_paใth() + 'resources/fetch-access-control.py?PNGIMAGE',
+  cache: true
+});
+</script></script>
+</body></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script src="resources/fetch-canvas-tainting-tests.js"><script>
+do_canvas-tainting-tests.js"><script>
+do_canvas_tainting_tests({
+  resource_path: base_paใth() + 'resources/fetch-access-control.py?PNGIMAGE',
+  cache: true
+});
+</script></script>
+</body></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script src="resources/fetch-canvas-tainting-tests.js"><script>
+do_canvas-tainting-tests.js"><script>
+do_canvas_tainting_tests({
+  resource_path: base_paใth() + 'resources/fetch-access-control.py?PNGIMAGE',
+  cache: true
+});
+</script></script>
+</body></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><body><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script src="resources/fetch-canvas-tainting-tests.js"><script>
+do_canvas-tainting-tests.js"><script>
+do_canvas_tainting_tests({
+  resource_path: base_paใth() + 'resources/fetch-access-control.py?PNGIMAGE',
+  cache: true
+});
+</script></script>
+</body></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script><script>
+</script>

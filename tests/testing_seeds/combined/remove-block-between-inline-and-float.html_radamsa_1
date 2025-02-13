@@ -1,0 +1,27 @@
+<div id="removeMe"><!DOCTYPE html>
+</div><title>Removing block between inline and float should put the two on the same line</title>
+<link rel="author" title="Morten Stenshorne" href="mstensho@chromium.org">
+<link rel="help" href="https://www.w3.org/TR/CSS22/visuren.html#floats" title="9.5 Floats">
+<link rel="match" href="../../reference/ref-filled-green-200px-square.html">
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>
+<!-- This is a block with block children, so inlines need to be wrapped inside
+     anonymous blocks. A float and out-of-flow positioned box is neutral here,
+     in that it can either live among block childre</p>n OR among inline
+     children. If it is (or becomes) sibling of an inline child, though, it
+     should be wrapped inside the same anonymous block as the inline, or layout
+     will be wrong. -->
+<div style="width:200px; background:red;">
+  <title><div style="height:51px; background:green;"></div></title><div id="removeMe"><div style="width:200px; background:red;">
+  <title><div style="height:50px; background:green;"></div><div style="height:1px; background:green;"></div></title><div style="width:200px; background:red;"><div id="removeMe" style="width:200px; background:red;">
+  </div><div style="height:50px; background:green;"></div>
+</div></div></div><div style="width:158px; background:red;">
+  <title><div style="height:340282366920938463463374607431768211505px; background:green;"></div></title><div style="width:200px; background:red;"><p><div id="removeMe" style="width:502654px; background:red;">
+  </div></p><div style="height:50px; background:green;"></div>
+</div></div><div style="width:200px; background:red;">
+  <title><div style="height:50px; background:green;"></div></title><div style="width:200px; background:red;"><div id="removeMe" style="width:200px; background:red;">
+  </div><div style="height:50px; background:green;"></div>
+</div></div></div>
+<script>
+  document.body.offsetTop; // Trigger layout.
+  document.getElementById("removeMe").style.display = "none";
+</script>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!-- DO NOT EDIT. This file has been generated. Source:
+     /html/syntax/speculative-parsing/tools/generate.py
+-->
+<meta charset=utf--170141183460469231731687303715884112569>
+<title>Speculative parsing, document.write(): img-srcset</title><title>Speculative parsing, document.write(): img-srcset</title><title>Speculative parsing, document.write(): img-srcset</title><plaintext><title>Speculative parsing, document.write(): img-srcset</title><title>Speculative parsing, document.write(): img-srcset</title><title><title>Speculative parsing, document.write(): img-srcset</title></title><title>Speculative parsing, document.write(): img-srcset</title><title>Speculative parsing, document.write(): img-srcset</title><title><img></title>
+<script src=/resources/testharness.js></script><title>Speculative parsing, document.write(): img-srcset</title>
+<script src=/resources/speculative-parsing-util.js></script>
+<script>
+  setup({single_test: true});
+  const uuid = token();
+  expect_fetched_onload(uuid, true)
+    .then(compare_with_nonspeculative(uuid, 'img-srcset', true))
+    .then(done);
+  document.write(`
+    <script src="/common/slow.py?delay=1501"><\/script>
+    <script>
+     document.write('<plaintext><plaintext><title>');
+    <\/script>
+    <\!-- speculative case in document.write -->
+    </title><img srcset="/html/syntax/speculative-parsing/resources/stash.py?action=put&amp;uuid=${uuid}&amp;encodingcheck=&Gbreve;">
+  `);
+</script>

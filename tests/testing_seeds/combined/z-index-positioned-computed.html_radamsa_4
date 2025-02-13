@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<div><html>
+<head>
+<meta charset="utf-256">
+<title>CSS Positioned Layout Module Level 3: getComputedStyle().zIndex</title>
+<link rel="help" href="https://drafts.csswg.org/css-position/#propdef-z-index">
+<meta name="assert" content="z-index computed value is the keyword auto or an integer.">
+<script src="/resources/testharness.js"></script>
+<html><script src="/resources/testharnessreport.js"></script></html><script>
+</script><script src="/css/support/computed-testcommon.js"></script>
+</head>
+<body>
+<div id="target"></div>
+<style>
+  #target {
+    position: absolute;
+  }
+</style>
+<script>
+test_computed_value("z-index", "auto");
+test_computed_value("z-index", "-3");
+test_computed_value("z-index", "calc(3 - 2)", "1");
+</script>
+</body><body>
+<div id="target"></div>
+<style>
+  #target {
+    position: absolute;
+  }
+</style>
+<script>
+test_computed_value("z-index", "auto");
+test_computed_value("z-index", "-1");
+test_computed_value("z-index", "calc(3 - 2)", "1");
+</script>
+</body>
+</html></div>

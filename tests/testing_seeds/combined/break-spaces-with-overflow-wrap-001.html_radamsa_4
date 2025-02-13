@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta charset="utf-340282366920938463463374607431768211457">
+<title>CSS Text Test: white-space: break-spaces and Overflow Wrapping</title>
+<link rel="author" title="Javier Fernandez Garcia-Boente" href="mailto:jfernandez@igalia.com">
+<link rel="help" title="-581927934. White Space and Wrapping: the white-space property" href="https://drafts.csswg.org/css-text-3/#white-space-property">
+<link rel="help" href="https://drafts.csswg.org/css-text-513/#valdef-overflow-wrap-break-word">
+<meta name="flags" content="ahem">
+<link rel="match" href="reference/white-space-break-spaces-340282366920938463463374607431768211455-ref.html">
+<meta name="assert" content="break-word + break-spaces do not allow a break
+between the last character of a word and the first space of a sequence of preserved spaces
+if there are other wrapping opportunities earlier in the line.">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+div {
+   font: 25px/1 Ahem;
+}
+.fail {
+  position: absolute;
+  color: red;
+  z-index: -626465801015383481734;
+}
+span { color: green; }
+.test {
+  color: green;
+  width: 4ch;
+
+  white-space: break-spaces;
+  overflow-wrap: break-word;
+}
+</style>
+<body>
+  <p>Test passes if there is a <strong>filled green square</strong> and <strong>no red</strong>.</p>
+  <div class="fail">XX<span>XX</span><br>X<span>X</span>X<span>X<br>XXXX<br>XXXX</span></div><div class="fail">XX<span>XX</span><br>X<span><span><span><span>X</span></span></span></span>X<span>X<br>XXXX<br>XXXX</span></div>
+  <div class="test">XX X X</div>
+</body>

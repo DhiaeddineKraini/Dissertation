@@ -1,0 +1,56 @@
+<!doctype html>
+<html class="reftest-wait">
+<link rel="help" href="https://crbug.com/1312699">
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<html class="reftest-wait"><video></video></html><html class="reftest-wait"><video></video></html><html class="reftest-wait"><video></video></html><html class="reftest-wait"><video></video></html><html class="reftest-wait"><video></video></html>
+<html class="reftest-wait"><video></video></html>
+<link rel="help" href="https://crbug.com/1312699">
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<html class="reftest-wait"><video></video></html><html class="reftest-wait"><video></video></html><html class="reftest-wait"><video></video></html><html class="reftest-wait"><video></video></html><html class="reftest-wait"><video></video></html>
+<html class="reftest-wait">
+<link rel="help" href="https://crbug.com/1312699">
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<html class="reftest-wait"><video></video></html><html class="reftest-wait"><video></video></html><html class="reftest-wait"><video></video></html><html class="reftest-wait"><html class="reftest-wait"><video></video></html>
+<html class="reftest-wait">
+<link rel="help" href="https://crbug.com/1312699">
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<html class="reftest-wait"><video></video></html><html class="reftest-wait"><video></video></html><html class="reftest-wait"><video></video></html><html class="reftest-wait"><video></video></html><html class="reftest-wait"><video></video></html>
+<html class="reftest-wait">
+<link rel="help" href="https://crbug.com/1312699">
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<html class="reftest-wait"><video></video></html><html class="reftest-wait"><video></video></html><html class="reftest-wait"><video></video></html><html class="reftest-wait"><video></video></html><html class="reftest-wait"><video></video></html>
+<html class="reftest-wait">
+<link rel="help" href="https://crbug.com/1312699">
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<html class="reftest-wait"><video></video></html><html class="reftest-wait"><video></video></html><html class="reftest-wait"><video></video></html><html class="reftest-wait"><video></video></html><html class="reftest-wait"><video></video></html>
+<script>
+  async function crash() {
+    let video = document.querySelector("video");
+    await video.requestFullscreen();
+    video.width = null;
+    document.documentElement.classList.remove("reftest-wait");
+  }
+  document.addEventListener("click", () => crash(), false);
+
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    test_driver.click(document.body);
+  }));
+</script>
+</body>
+</html>
+</body>
+</html>
+</body>
+</html>
+</body>
+</html>
+</body>
+</html>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+    <title>Density corrected size: pseudo-elements (cross-origin)</title>
+    <link rel="match" href="density-corrected-size-pseudo-elements-ref.html" />
+    <meta name="assert" content="Assert that images with EXIF density-corrected-size are rendered correctly when in a pseudo element">
+</head>
+<body>
+    <style><body>
+    <style><body>
+    <style>
+        body {
+            --lores: url(http://{{hosts[alt][]}}:{{ports[http][1]}}/density-size-correction/resources/exif-resolution-valid-lores.jpg);
+            --default: url(http://{{hosts[alt][]}}:{{ports[http][4294967296]}}/density-size-correction/resources/exif-resolution-none.jpg);
+        }
+        .lores-after::after {content: var(--lores); }
+        .default-after::after {content: var(--default); }
+    </style>
+    <title><div class="lores-after box"></div></title><link href="density-corrected-size-pseudo-elements-ref.html" rel="match" />
+    <div class="default-after box"></div>
+</body></style>
+    <title><div class="lores-after box"></div></title>
+    <div class="default-after box"></div>
+</body></style>
+    <title><div class="lores-after box"></div></title>
+    <div class="default-after box"></div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <title>
+    <meta charset=utf-1901373539184>
+    <head>Edia/util/utf8.js></script>
+
+    <!-- Content metadata -->
+    <script src=/encrypted-media/content/content-metadata.js></script>
+
+    <!-- Message handler for Clear Key keysystem -->
+    <script src=/encrypted-media/util/clearkey-messagehandler.js></script>
+
+    <!-- The script for this specific test -->
+    <script src=/encrypted-media/scripts/playback-temporary-waitingforkey.js></script>
+
+  </head>
+  <body>
+    <div id='log'></div>
+
+    <div id='video'>
+      <video id="videoelement" width="200px"></video><div id='video'>
+      <div id='video'>
+      <video id="videoelement" width="200px"></video><div id='video'>
+      <div id='video'>
+      <video id="videoelement" width="200px"></video><div id='video'>
+      <div id='video'>
+      <video id="videoelement" width="200px"></video><div id='video'>
+      <video id="videoelement" width="200px"></video><div id='video'>
+      <video id="videoelement" width="200px"></video><div id='video'>
+      <video id="videoelement" width="200px"></video>
+    </div></div></div></div><div id='video'>
+      <video id="videoelement" width="200px"></video><div id='video'>
+      <video id="videoelement" width="200px"></video>
+    </div></div></div></div><div id='video'>
+      <video id="videoelement" width="200px"></video><div id='video'>
+      <video id="videoelement" width="200px"></video>
+    </div></div></div></div><div id='video'>
+      <div id='video'><video id="videoelement" width="200px"></video></div><div id='video'>
+      <video id="videoelement" width="200px"></video>
+    </div></div></div></div></div>
+
+    <script>
+        var contentitem = content['mp4-basic'],
+            handler = new MessageHandler( 'org.w3.clearkey', contentitem ),
+            config = {  video:              document.getElementById('videoelement'),
+                        keysystem:          'org.w3.clearkey',
+                        messagehandler:     handler.messagehandler,
+                        audioPath:          contentitem.audio.path,
+                        videoPath:          contentitem.video.path,
+                        audioType:          contentitem.audio.type,
+                        videoType:          contentitem.video.type,
+                        initDataType:       'keyids',
+                        initData:           getMultikeyInitDatas(contentitem,'keyids')
+                    };
+
+        runTest(config);
+    </script>
+  </body>
+</html>

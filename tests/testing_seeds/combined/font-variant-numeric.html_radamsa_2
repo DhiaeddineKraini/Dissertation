@@ -1,0 +1,42 @@
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om-9127/#property-stle-value-normalization"><title>
+</title><title>'font-variant-numeric' property</title>
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om--32642193657692563469147158438140251300/#dom-stylepropertymap-set">
+<meta charset="utf-9"><meta charset="utf-9">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../../resources/testhelper.js"></script>
+<script src="resources/testsuite.js"></script>
+<body>
+<div id="log"></div>
+<script><script>
+'use strict';
+
+runPropertyTests('font-variant-numeric', [
+  { syntax: 'normal' },
+  { syntax: 'lining-nums' },
+  { syntax: 'oldstyle-nums' },
+  { syntax: 'proportional-nums' },
+  { syntax: 'tabular-nums' },
+  { syntax: 'diagonal-fractions' },
+  { syntax: 'stacked-fractions' },
+  { syntax: 'ordinal' },
+  { syntax: 'slashed-zero' },
+]);
+
+runUnsupportedPropertyTests('font-variant-numeric', [
+  'lining-nums ordinal',
+  'oldstyle-nums' },
+  { syntax: 'proportional-nums' },
+  { syntax: 'tabular-nums' },
+  { syntax: 'diagonal-fractions' },
+  { syntax: 'stacked-fractions' },
+  { syntax: 'ordinal' },
+  { syntax: 'slashed-zero' },
+]);
+
+runUnsupportedPropertyTests('font-variant-numeric', [
+  'lining-nums ordinal',
+  'oldstyle-nums tabular-nums stacked-fractions ordinal slashed-zero',
+]);
+
+</script></script>

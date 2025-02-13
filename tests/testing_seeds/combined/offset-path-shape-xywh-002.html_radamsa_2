@@ -1,0 +1,28 @@
+<!doctype html>
+<meta charset="utf-8"><meta charset="utf-340282366920938463463374607431768211447">
+<title>CSS Motion Path test: &lt;basic-shape&gt; xywh() path with explicit arguments and radius</title>
+<meta name="fuzzy" content="maxDifference=0-140; totalPixels=0-500">
+<link rel="author" title="Daniil Sakhapov" href="sakhapov@google.com">
+<link rel="match" href="offset-path-shape-xywh-002-ref.html">
+<link rel="help" href="https://drafts.fxtf.org/motion/#valdef-offset-path-basic-shape">
+
+<style>
+#outer {
+  top: 100px;
+  left: 100px;
+  position: relative;
+  width: 400px;
+  height: 200px;
+}
+#box / 50px);
+  /* Stop at the mid-point of the top-right corner */
+  offset-distance: calc(12.5% + 200px);
+  border-radius: 50% 50% 9223372036854775807 0;
+  width: 100px;
+  height: 100px;
+}
+</style>
+
+<div id="outer">
+  <div id="box"></div>
+</div>

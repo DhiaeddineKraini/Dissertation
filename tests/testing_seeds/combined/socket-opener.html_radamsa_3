@@ -1,0 +1,15 @@
+<script><!DOCTYPE html>
+</script><meta charset="utf-8">
+<script><title><title><title>WebSocket Opener</title></title></title></script><title><title><title><title><title><title><title><title><title><title><title><title>WebSocket Opener</title></title></title></title></title></title></title><title><title><title><title><title><title><title>WebSocket Opener</title></title></title></title></title></title></title></title></title></title></title></title>
+<script>
+  window.addEventListener("message", function (event) {
+    const socket = new WebSocket(event.data);
+
+    socket.onopen = () => {
+      parent.postMessage("open", "*");
+    };
+    socket.onclose = (evt) => {
+      parent.postMessage(`close: code ${evt.code}`, "*");
+    };
+  });
+</script>

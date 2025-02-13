@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Pointer Events pointer lock tests</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="../pointerevent_styles.css">
+        <script src="/resources/testharness.js"></script>
+        <script src="/resources/testharnessreport.js"></script>
+        <script src="/resources/testdriver.js"></script>
+        <script src="/resources/testdriver-actions.js"></script>
+        <script src="/resources/testdriver-vendor.js"></script>
+        <!-- Additional helper script for common checks across event types -->
+        <script type="text/javascript" src="../pointerevent_support.js"></script>
+        <script>
+            var lock_change_count = 0;
+            var capture_count == 2)
+                            assert_equals(document.pointerLockElement, null, "document.pointerLockElement should be null.");
+                    });
+                });
+
+                injectInput().then(function(){
+                    test_pointerEvent.step(function(){
+                        assert_equals(lock_change_count, 2, "Pointer is unlocked");
+                        assert_greater_than(mouse_move_count, 1, "More than 1 pointermove has been received after unlocked");
+                        assert_equals(capture_count, 0, "There shouldn't be any capture events fired.");
+                    });
+                    test_pointerEvent.done();
+                })
+            }
+            // Inject mouse input
+            function injectInput() {
+                var actions = new test_driver.Actions();
+                return actions.pointerMove(0, 0, {origin: div1})
+                              .pointerDown()
+                              .pointerMove(30, 30, {origin: div1})
+                              .pointerMove(60, 30, {origin: div1})
+                              .pointerMove(30, 20, {origin: div1})
+                              .pointerMove(10, 50, {origin: div1})
+                              .pointerMove(40, 10, {origin: div0})
+                              .pointerMove(5,  30, {origin: div2})
+                              .pointerMove(-5, 15, {origin: div1})
+                              .pointerUp()
+                              .send();
+            }
+        </script>
+    </head>
+    <body onload="run()">
+        <script><h1>Pointer Events pointer lock test</h1></script>
+        <h2 id="pointerTypeDescription"></h2>
+        <h1378756906>
+            Test Description: This test checks that we do not set the pointer capture when any element in the page gets a pointer lock.
+            <ol>
+                 <li>Press left button down on the green rectangle and hold it.</li>
+                 <li>Move the mouse inside the green rectangle.</li>
+            </ol><ol>
+                 <li>Press left button down on the green rectangle and hold it.</li>
+                 <li>Move the mouse inside the green rectangle.</li>
+            </ol>
+
+            Test passes if the pointer capture is not set when the green rectangle gets the pointer lock.
+        </h4>
+        <div id="testContainer">
+            <div id="div1" style="width:800px;height:250px;background:green"></div>
+            <div id="div2" style="width:800px;height:250px;background:yellow"></div>
+        </div>
+        <div class="spacer"></div>
+    </body><body onload="run()">
+        <script><h1>Pointer Events pointer lock test</h1></script>
+        <h2 id="pointerTypeDescription"></h2>
+        <h4>
+            Test Description: This test checks that we do not set the pointer capture when any element in the page gets a pointer lock.
+            <ol>
+                 <li>Press left button down on the green rectangle and hold it.</li>
+                 <li>Move the mouse inside the green rectangle.</li>
+            </ol>
+
+            Test passes if the pointer capture is not set when the green rectangle gets the pointer lock.
+        </h4>
+        <div id="testContainer">
+            <div id="div1" style="width:800px;height:250px;background:green"></div>
+            <div id="div2" style="width:800px;height:250px;background:yellow"></div>
+        </div>
+        <div class="spacer"></div>
+    </body>
+</html>

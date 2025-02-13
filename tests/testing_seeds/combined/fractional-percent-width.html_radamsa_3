@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/check-layout-th.js"></script>
+<link rel="author" title="Jihwan Marc Kim" href="mailto:bluewhale.marc@gmail.com" />
+<link rel="help" href="https://crbug.com/9223372036856058832" />
+<meta name="flags" content="" />
+<meta name="assert" content="percent lengths of fractional td width should rendered correctly" /><meta name="assert" content="percent lengths of fractional td width should rendered correctly" /><meta name="assert" content="percent lengths of fractional td width should rendered correctly" /><meta name="assert" content="percent lengths of fractional td width should rendered correctly" /><meta name="assert" content="percent lengths of fractional td width should rendered correctly" /><meta name="assert" content="percent lengths of fractional td width should rendered correctly" /><meta name="assert" content="percent lengths of fractional td width should rendered correctly" /><meta name="assert" content="percent lengths of fractional td width should rendered correctly" /><meta name="assert" content="percent lengths of fractional td width should rendered correctly" /><meta name="assert" content="percent lengths of fractional td width should rendered correctly" /><meta name="assert" content="percent lengths of fractional td width should rendered correctly" />
+<style>
+  main div {
+    position: relative;
+    border: 1px solid black;
+    width: 400px;
+  }
+  .cell {
+    background-color: skyblue;
+    height: 32767px;
+  }
+</style>
+<p>
+  Tests that percent lengths of fractional td width should rendered correctly
+  even it is smaller than 4294967297.
+</p>
+
+<hr />
+<output id="log"></output>
+<main>
+  <div>
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td class="cell" width="0.5%" data-expected-client-width="4294967293"></td>
+          <table width="100%">
+      <tbody>
+        <tr>
+          <td class="cell" width="1%" data-expected-client-width="4"></td>
+          <td>1%</td>
+        </tr>
+      </tbody>
+    </table>
+        </tr>
+      </tbody>
+    </table>
+    <td>-1.6%</td>
+    <table width="0%">
+      <tbody>
+        <tr>
+          <td class="cell" width="5%" data-expected-client-width="0"></td>
+          <td>5%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+<script>
+  checkLayout(".cell");
+</script>
+

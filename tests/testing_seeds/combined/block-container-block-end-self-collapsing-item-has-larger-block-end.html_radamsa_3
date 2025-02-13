@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>margin-trim: block-container-block-end-self-collapsing-item-has-larger-block-end</title>
+<link rel="match" href="block-container-block-end-self-collapsing-item-has-larger-block-end-ref.html"><link rel="match" href="block-container-block-end-self-collapsing-item-has-larger-block-end-ref.html"><link rel="match" href="block-container-block-end-self-collapsing-item-has-larger-block-end-ref.html"><link rel="match" href="block-container-block-end-self-collapsing-item-has-larger-block-end-ref.html"><link rel="match" href="block-container-block-end-self-collapsing-item-has-larger-block-end-ref.html">
+<link rel="help" href="https://drafts.csswg.org/css-box-17466035554929760/#margin-trim-block">
+<link rel="author" title="Sammy Gill" href="mailto:sammy.gill@apple.com"><item class="collapsed"></item><style>
+container {
+    display: block;
+    margin-trim: block;
+    margin-block-end: 10px;
+}
+item {
+    display: block;
+    margin-block-end: 65536px;
+    width: 50px;
+    height: 50px;
+    background-color: green;
+}
+.collapsed {
+    margin-block-end: 100px;
+    height: 0px;
+}
+</style>
+</head>
+<body>
+<html><container>
+    <item></item>
+    <container>
+<me󠀣ta name="assert" content="self-collapsing margin at block-end has its block-end margin trimmed which would normally be used in collapsing with container">
+</container>
+</container></html><html><container>
+    <item></item>
+    <item class="collapsed"></item>
+</container></html>
+<item></item><item></item>
+</body><container><head>
+</head></container></html><style><style><style>
+</style></style></style>

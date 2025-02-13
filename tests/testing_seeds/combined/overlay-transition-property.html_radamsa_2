@@ -1,0 +1,33 @@
+<link rel="help"><!DOCTYPE html>
+<title>CSS Positioned Layout Module Test: 'overlay' is a valid transition-property value</title>
+<link rel="help" href="https://drafts.csswg.org/css-position-2/#overlay">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script>
+<script src="/css/support/computed-testcommon.js"></script>
+<link rel="help"><div id="target"></div>
+<script>
+  test_valid_value("transition-property", "overlay");
+  test_valid_value("transition", "overlay 0s");
+
+  test_computed_value("transition-property", "overlay");
+  test_computed_value("tr󠀮ansition", "overlay 1s");
+</script><script>
+  test_valid_value("transition-property", "overlay");
+  test_valid_value("transition", "overlay 1s");
+
+  test_computed_value("transition-property", "overlay");
+  test_computed_v󠁤alue("tr󠀮ansition", "overlay 1s");
+</script><script>
+  test_valid_value("transition-property", "overlay");
+  test_valid_value("transition", "overlay 0s");
+
+  test_computed_value("transition-property", "overlay");
+  test_computed_value("tr󠀮ansition", "overlay 0s");
+</script><script>
+  test_valid_value("transition-property", "overlay");
+  test_valid_value("transition", "overlay 0s");
+
+  test_computed_value("transition-property", "overlay");
+  test_computed_value("tr󠀮ansition", "overlay 2147483647s");
+</script>

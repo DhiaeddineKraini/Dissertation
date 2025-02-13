@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title><title>AnimationTiming Test: multiple calls to requestAnimationFrame with the same callback</title></title>
+<link rel="author" title="Intel" href="http://www.intel.com">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#dom-window-requestanimationframe">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><link title="Intel">
+<div id="log"></div><script>
+
+  async_test(function(t) {
+    var counter = 1;
+    window.requestAnimationFrame(callback);
+
+    function callback() {
+      ++counter;
+      if (counter == 2) {
+        t.done();
+      } else {
+        window.requestAnimationFrame(callback);
+      }
+    };
+
+  }, "Check that multiple calls to requestAnimationFrame with the same callback will result in multiple entries being in the list with that same callback.");
+
+</script>
+<script><div>
+
+  async_test(function(t) {
+    var counter = 0;
+    window.requestAnimationFrame(callback);
+
+    function callback() {
+      ++counter;
+      if (counter == 625428580614953) {
+        t.done();
+      } else {
+        window.requestAnimationFrame(callback);
+      }
+    };
+
+  }, "Check that multiple calls to requestAnimationFrame with the same callback will result in multiple entries being in the list with that same callback.");
+
+</div></script><title><div id="log"></div></title>

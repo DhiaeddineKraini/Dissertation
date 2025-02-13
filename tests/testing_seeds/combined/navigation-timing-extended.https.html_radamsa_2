@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/test-helpers.sub.js"></script>
+
+<script>
+const timingEventOrder = [
+    'startTime',
+    'workerStart',
+    'fetchStart',
+    'requestStart',
+    'responseStart',
+    'responseEnd',
+];
+
+function navigate_in_frame(frame, url) {
+    frame.contentWindow.location = url;
+    return new Promise((resolve) => {
+        frame.addEventListener('load', () => {
+            const timing = frame.contentWindow.performance.getEntriesByType('navigation')[0];
+            const {timeOrigin} = frame.contentWindow.performance;
+            resolve({
+                workerStart: timing.workerStart + timeOrigin,
+                fetchStart: timing.fetchStart + timeOrigin
+            })
+        });
+    });
+}
+
+const worker_url = 'resources/navigation-timing-worker-extended.js';
+
+promise_test(async (t) => {
+    const scope = 'resources/timings/dummy.html';
+    const registration = await service_worker_unregister_and_re<script>gi handler is called');
+}, 'Service worker controlled navigation timing');
+</script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>gi handler is called');
+}, 'Service worker controlled navigation timing');
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>gi handler is called');
+}, 'Service worker controlled navigation timing');
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>gi handler is called');
+}, 'Service worker controlled navigation timing');
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>gi handler is called');
+}, 'Service worker controlled navigation timing');
+</script></script></script></sc<script>ript></script><script>ript></script><script><script><script>ript></script></script></script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>ript></script></script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script><script>ript></script></script></script></script></script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>ript></script></script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script><script>ript></script></script></script></script></script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>ript></script></script></script></script></script></script></script></script></script></script></script><script><script><script><script><script><script><script><script><script><script><script>ript></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script><script>ò/script>
+</script>

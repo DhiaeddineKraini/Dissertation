@@ -1,0 +1,12 @@
+<title>Verify srcdoc content loads when src is about:srcdoc#foo.</title><title>Verify srcdoc content loads when src is about:srcdoc#foo.</title><title>Verify srcdoc content loads when src is about:srcdoc#foo.</title><title>Verify srcdoc content loads when src is about:srcdoc#foo.</title>
+<script src="/resntent is loaded before we start.
+    window.onload = t.step_func_done(() => {
+        assert_true(typeof myframe.contentDocument !== 'undefined',
+            'iframe has contentDocument');
+        assert_equals(myframe.contentDocument.body.innerText, 'srcdoc_text',
+            'iframe has contentDocument');
+        assert_equals(myframe.contentDocument.body.innerText, 'srcdoc_text',
+            'iframe contains srcdoc content');
+    }, '');
+  }, 'Verify srcdoc content loads when src is about:srcdoc#foo.');
+</script>

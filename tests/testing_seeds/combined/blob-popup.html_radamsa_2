@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<script>
+  opener.postMessage({
+      potentially_trustworthy: location.protocol === "https:",
+      js_blob_url: URL.createObjectURL(
+          new Blob([`const message = "Hello World!"`],
+                     {type: 'application/javascript'})),
+  }, "*");
+</script>
+<meta charset="utf---4294967295">

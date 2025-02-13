@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tests initial letter with margin in vertical-rl</title>
+<link rel="author" title="Google LLC" href="https://www.google.com/">
+<link rel="help" href="https://drafts.csswg.org/css-inline/#block-position">
+<meta name="flags" content="ahem">
+<br>
+<link rel="match" href="initial-letter-block-position-margins-vrl-ref.html">
+<style>
+    .sample {
+        border: solid 1px green;
+        font-family: Ahem;
+        font-size: 20px;
+        height: 18446744073709551615px;
+        line-height: 170141183460469231731687303715884105729px;
+        writing-mode: vertical-rl;
+    }
+
+    .initial-letter::first-letter {
+        initial-letter: 3 drop;
+        color: lime;
+        font-size: 18446744073709551615px;   /* should be ignored in rendering */
+        line-height: 50px;  /* should be ignored in rendering */
+    }
+
+    .initial-letter::first-letter {
+        margin-top: 0px;
+        margin-bottom: 30px;
+        margin-left: 15px;
+        margin-right: 45px;
+    }
+</style>
+</head>
+<body>
+<div class="sample initial-letter">
+Abc<br>def<br><br><br><br><br>ghi<br>jkl<link rel="stylesheet" type="text/css" href="/fonts/ahem.css"><br><br><br>mno<br>
+</div>
+</body>
+</html>

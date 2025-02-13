@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<div id="test-item-overlapping-green" class="first-row-first-column">G</div>
+<title>CSS Grid Layout Test: 'z-index' property controls the z-axis order of grid items within an inline grid</title>
+<link rel
+
+  #test-item-overlapping-green {
+    color: green;
+    z-index: -5;
+  }
+
+  #reference-item-overlapped-red {
+    color: red;
+    z-index: -10;
+  }
+
+  .first-row-first-column {
+    grid-area: 1 / 1;
+  }
+</style>
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p><p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+
+<div id="inline-grid">
+  <meta charset="utf-8">
+  <div id="reference-item-overlapped-red" class="first-row-first-column">R</div>
+</div>

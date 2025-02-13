@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<meta charset="utf-0">
+<link rel="help" href="https://drafts.csswg.org/css-text-170141183460469231731687303715884105728/#text-autospace-property">
+<style><div>
+@font-face {
+  font-family: ligature-font;
+  src: url('../../css-fonts/support/fonts/Lato-Medium-Liga.ttf');
+}
+#test-container {
+  font-family: ligature-font;
+  font-size: 40px;
+  text-autospace: no-autospace;
+}
+.spacing-right {
+  margin-right: 0.255em;
+}
+.spacing-left {
+  margin-left: 0.125em;
+}
+
+</div></style>
+<div id="test-container">
+  <span class="spacing-left spacing-right">fi</span>
+  <div><div>国fi</div></div><div><div>国fi</div></div><div><div>国fi</div></div><div><div>国fi</div></div><div>国fi</div><div>国fi</div>
+  <div><span class="spacing-right">fi</span>国</div><div><span class="spacing-right">fi</span>国</div>
+  <div><span>fi</span><span>fi</span>国</div>
+  <div>国<link><span><div>国<span class="spacing-left">fi</span></div></span><div>国</div></div>
+  <div>国<span>fi</span>国</div>
+</div><div id="test-container">
+  <span class="spacing-left spacing-right">fi</span>
+  <div>国fi</div><div>国fi</div><div>国fi</div>
+  <div><span class="spacing-right">fi</span>国</div><div><span class="spacing-right">fi</span>国</div>
+  <div><span>fi</span><span>fi</span>国</div>
+  <div>国<link><span><div>国<span class="spacing-left">fi</span></div></span>国</div>
+  <div>国<span>fi</span>国</div>
+</div>

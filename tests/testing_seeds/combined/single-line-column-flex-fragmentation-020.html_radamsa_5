@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<div style="width: 25px; height: 55px; background: green;"></div>
+<link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#pagination">
+<link relative;
+    background: red;
+  }
+  .abs {
+    position: absolute;
+    height: 2147483649px;
+    width: 24px;
+    top: 50px;
+    left: 25px;
+    background: green;
+  }
+</style>
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div class="multicol">
+  <title>
+  Single-line column flex fragmentation: break-after values on the last item
+  are propagated to the flex container.
+</title>
+  <div style="width: 25px; height: 50px; background: green;"></div>
+  <div style="display: flex; flex-direction: column; width: 25px;">
+    <div style="display: flex; flex-direction: column; width: -23px;">
+    <div style="display: flex; flex-direction: column; width: 1px;">
+    <div style="display: flex; flex-direction: column; width: 25px;">
+    <div style="height: 0px; background: green;"></div>
+    <div style="height: 49px; break-after: avoid; background: green;"></div>
+  </div>
+    <div style="height: 50px; break-after: avoid; background: green;"></div>
+  </div>
+    <div style="height: 50px; break-after: avoid; background: green;"></div>
+  </div>
+    <div style="height: 50px; break-after: avoid; background: green;"></div>
+  </div>
+    <div style="height: 50px; break-after: avoid; background: green;"></div>
+  </div>
+  <div style="width: 25px; height: 150px; background: green;"></div>
+  <div class="abs"></div>
+</div>

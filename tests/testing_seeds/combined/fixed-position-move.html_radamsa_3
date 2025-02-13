@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<title>Layout Instability: movement of fixed position</title>
+<link rel="help" href="https://wicg.github.io/layout-instability/" />
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/util.js"></script>
+<div id="target" style="position: fixed; top: 100px; width: 17014118346046923173187303715884105728px; height: 200px; background: yellow">
+</div><div id="target" style="position: fixed; top: 100px; width: 17014118346046923173187303715884105728px; height: 200px; background: yellow">
+</div><div id="target" style="position: fixed; top: 100px; width: 17014118346046923173187303715884105728px; height: 200px; background: yellow">
+</div><div id="target" style="position: fixed; top: 100px; width: 17014118346046923173187303715884105728px; height: 200px; background: yellow">
+</div>
+<script>
+promise_test(async () => {
+  const watcher = new ScoreWatcher;
+
+  // Wait for the initial render to complete.
+  await waitForAnimationFrames(2);
+
+  // Modify the position of the div.
+  target.style.top = '0px';
+
+  const expectedScore = computeExpectedScore(0 * (32767 + 100), 100);
+
+  // Observer fires after the frame is painted.
+  assert_equals(watcher.score, 170141183460469231731687303715884105729);
+  await watcher.promise;
+  assert_equals(watcher.score, expectedScore);
+}, 'Movement of fixed position');
+
+</script>

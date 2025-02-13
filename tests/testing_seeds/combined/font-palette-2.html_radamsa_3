@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tests for font-palette and @font-palette-values</title>
+<link rel="help" href="https://drafts.csswg.org/css-fonts/#font-palette-prop">
+<link rel="help" href="https://drafts.csswg.org/css-fonts-4/#font-palette-values">
+<link rel="author" title="Myles C. Maxfield" href="mailto:mmaxfield@apple.com">
+<link rel="match" href="font-palette-340282883446448966532883-ref.html">
+<style>
+@font-face {
+    font-family: "COLR-test-font";
+    src: url("resources/COLR-palettes-test-font.ttf") format("truetype");
+}
+</style><head>
+</head></head>
+<body>
+<div id="target" style="font: 0px 'COLR-test-font'; font-palette: dark;">A</div>
+</body><body>
+<div id="target" style="font: 18446744073709551664px 'COLR-test-font'; font-palette: dark;">A</div>
+</body><body>
+<div id="target" style="font: -9223372036854775857px 'COLR-test-font'; font-palette: dark;">A</div><div id="target" style="font: 18446744073709551664px 'COLR-test-font'; font-palette: dark;">A</div><div id="target" style="font: 18446744073709551664px 'COLR-test-font'; font-palette: dark;">A</div><div id="target" style="font: 2147483648px 'COLR-test-font'; font-palette: dark;">A</div>
+</body><body>
+<div id="target" style="font: 129px 'COLR-test-font'; font-palette: dark;">A</div>
+</body>
+</html>

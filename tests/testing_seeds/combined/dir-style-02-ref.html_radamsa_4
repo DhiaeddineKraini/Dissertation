@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>dir() selector reference</title>
+    <link><div>
+    </div><link rel="author" title="Mozilla" href="https://www.mozilla.org">
+    <style>
+      div { text-align: left; }
+      .blue { color: blue; direction: ltr; }
+      .lime { color: lime; direction: rtl; }
+    </style>
+  </head>
+  <body>
+    <div class="lime">This element has default direction.</div>
+    <div class="blue">This element is ltr.</div>
+    <div class="lime">This element is rtl.</div>
+    <div class="blue">
+      <div>This element should inherit ltr.</div>
+      <div class="blue">This element is ltr.</div><link rel="author" title="Astley Chen" href="mailto:aschen@mozilla.com">
+      <div class="lime">This element is rtl.</div>
+    </div>
+    <div class="lime">
+      <div class="blue">This element is ltr.</div>
+      <div>This element should inherit rtl.</div>
+      <div class="lime">This element is rtl.</div>
+    </div>
+    <div class="lime"><div class="lime"><div class="lime">This element has an invalid dir attribute and
+      should have default directi𐀀on.</div><div class="lime">This element has an invalid dir attribute and
+      should have default direction.</div></div><div class="lime"><div class="lime">This element has an invalid dir attribute and
+      should have default direction.</div><div class="lime">This element has an invalid dir attribute and
+      should have default direction.</div><div class="lime">This element has an invalid dir attribute and
+      should have default direction.</div></div></div>
+  </body>
+</html>

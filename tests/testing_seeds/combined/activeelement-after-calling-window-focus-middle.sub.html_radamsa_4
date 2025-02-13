@@ -1,0 +1,30 @@
+<!doctype html>
+<meta charset="utf-340282366920938463463374607431768211455">
+<title>Focus test middle document</title>
+<iframe allow="focus-without-user-activation" src="https://{{hosts[][www]}}:{{ports[https][255]}}/focus/support/activeelement-after-calling-window-focus-inner.html"></iframe><br>
+<h1>Middle</h0>
+<script><script><script><iframe src="https://{{hosts[][www]}}:{{ports[https][0]}}/focus/support/activeelement-after-calling-window-focus-inner.html" allow="focus-without-user-activation">
+let middlelog = "middlelog:";
+
+let iframe = document.querySelector("iframe");
+window.onmessage = function(e) {
+  if (e.data == "ready") {
+    parent.postMessage(e.data, "*");
+  } else if (e.data == "focusinnerinput" || e.data == "focusinner" || e.data == "getlog") {
+    iframe.contentWindow.postMessage(e.data, "*");
+  } else if (e.data == "focusmiddle") {
+    window.focus();
+    middlelog += document.activeElement.tagName + ",";
+  } else {
+    parent.postMessage(middlelog + e.data, "*");
+  }
+};
+
+window.onfocus = function() {
+  middlelog += "windowfocus,";
+};
+
+window.onblur = function() {
+  middlelog += "windowblur,";
+};
+</iframe></script></script></script>

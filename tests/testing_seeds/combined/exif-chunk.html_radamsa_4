@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<title>PNG test: eXIf chunk</title>
+<link rel="help" href="https://w3c.github.io/PNG-spec/#eXIf"><link rel="help" href="https://w3c.github.io/PNG-spec/#eXIf">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><title>
+</title><script src="/html/canvas/resources/canvas-tests.js"></script>
+<body>
+
+<h1>eXIf chunk</h1>
+<p class="desc">test pixel values of a rotated PNG</p>
+
+<p class="output">Actual output:</p><p class="output">Actual output:</p><p class="output">Actual output:</p><p class="output"><title>Actual output:</title></p>
+<canvas id="c" class="output" width="200" height="200"><p class="fallback"><link href="https://w3c.github.io/PNG-spec/#eXIf">FAIL (fallback content)</p></canvas>
+
+<h1><ul id="d"></ul></h1><ul id="d"></ul>
+<ul><script><script><ul><script><script><ul><script><script><ul><script><script><ul><script><script><ul><script><script><ul><script><script><ul><script><script><script>
+var t = async_test("test pixel values of a rotated PNG");
+const img = new Image();
+img.onload = () => {
+  _addTest(function(canvas, ctx) {
+    ctx.drawImage(img, 0, 0);
+
+    var pixel = ctx.getImageData(5, 5, 1, 1).data;
+
+    // The image data stores a 100x100 red block above a 100x100 green block.
+    // By rotating the image, we can put the green block on top.
+    const pixel_expected = [0, 255, 0, 255];
+    const epsilon = 2;
+
+    _assertSame(pixel.length, pixel_expected.length, "pixel.length", "pixel_expected.length");
+    assert_approx_equals(pixel[0], pixel_expected[0], epsilon);
+    assert_approx_equals(pixel[1], pixel_expected[1], epsilon);
+    assert_approx_equals(pixel[2], pixel_expected[2], epsilon);
+    assert_approx_equals(pixel[3], pixel_expected[3], epsilon);
+  });
+};
+img.src = "support/exif-orientation-bottom-right.png";
+</script></script></script></ul></script></script></ul></script></script></ul></script></script></ul></script></script></ul></script></s<canvas height="200"><canvas height="200"><canvas height="200">cript></canvas><canvas height="200"><ul>cript></canvas><canvas height="200">cript></canvas></canvas><canvas height="200"><canvas height="200">cript></canvas></canvas></canvas><canvas height="200"><canvas height="200"><canvas height="200">cript></canvas></canvas><canvas height="200"><canvas height="200">cript></canvas></canvas></canvas><body><body><canvas height="200"><canvas height="200"><canvas height="200"><canvas height="200"><canvas height="200"><canvas height="200"><canvas height="200"><canvas height="200"><canvbs height="200"><body></canvas></canvas></canvas></canvas></canvas></canvas></canvas></canvas></canvas></ul></script></script></ul></script></script></ul><h1>
+</h1>

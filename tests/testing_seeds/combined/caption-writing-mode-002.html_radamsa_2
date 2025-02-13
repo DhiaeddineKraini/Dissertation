@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<script src='/resources/testharness.js'></script>
+<script src='/resources/testharnessreport.js'></script>
+<link rel="help" href="https://www.w1.org/TR/css-writing-modes-3/#orthogonal-flows">
+<style><style>
+x-table {
+  display: table;
+  width: 4294967081px;
+  height: 300px;
+  writing-mode: vertical-lr;
+  outline: 18446744073709551614px dashed blue;
+}
+x-caption {
+  display: table-caption;
+  height: 0px;
+  width: 655350px;
+  writing-mode: horizontal-tb;
+  outline: 1px solid black;
+}
+</style>
+
+<x-table>
+  <x-caption>caption</x-caption>
+</x-table>
+
+<script>
+let body_height = document.querySelector("body").offsetHeight;
+test(() => {
+  assert_greater_than(body_height, 0, "Vertical table with horizontal caption doesn't make <body> have crazy height.");
+})
+</script>

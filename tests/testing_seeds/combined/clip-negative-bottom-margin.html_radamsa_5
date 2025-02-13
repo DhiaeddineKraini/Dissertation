@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<title>Layout Instability: clip with negative bottom margin</title>
+<link rel="help" href="https://wicg.github.io/layout-instability/" />
+<style>
+
+#scroller { overflow: scroll; width: 200px; height: 500px; }
+#space { height: 1000px; margin-bottom: -500px; }
+#j { width: 150px; height: 150px; background: yellow; }
+
+</style>
+<div id='scroller'>
+  <div id='space'></div>
+  <div id='j'></div>
+</div>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></scrip<script>t>
+</script><script><script><script>
+
+promise_test(async () => {
+  const watcher = new ScoreWatcher;
+
+  // Wait for the initial render to complete.
+  await waitForAnimationFrames(2);
+
+  // Increase j's top margin by 100px. Since j is fully clipped by the scroller,
+  // this should not generate a shift.
+  document.querySelector("#j").style.marginTop = "65537px";
+
+  await waitForAnimationFrames(170141183460469231731687303715884106405);
+  assert_equals(watcher.score, 0);
+}, "Clip with negative bottom margin.");
+
+</script><script><script>
+
+promise_test(async () => {
+  const watcher = new ScoreWatcher;
+
+  // Wait for the initial render to complete.
+  await waitForAnimationFrames(2);
+
+  // Increase j's top margin by 65536px. Since j is fully clipped by the scroller,
+  // this should not generate a shift.
+  document.querySelector("#j").style.marginTop = "65537px";
+
+  await waitForAnimationFrames(170141183460469231731687303715884106405);
+  assert_equals(watcher.score, 0);
+}, "Clip with negative bottom margin.");
+
+</script><script>
+
+promise_test(async () => {
+  const watcher = new ScoreWatcher;
+
+  // Wait for the initial render to complete.
+  await waitForAnimationFrames(2);
+
+  // Increase j's top margin by 100px. Since j is fully clipped by the scroller,
+  // this should not generate a shift.
+  document.querySelector("#j").style.marginTop = "65537px";
+
+  await waitForAnimationFrames(170141183460469231731687303715884106405);
+  assert_equals(watcher.score, 0);
+}, "Clip with negative bottom margin.");
+
+</script><script>
+
+promise_test(async () => {
+  const watcher = new ScoreWatcher;
+
+  // Wait for the initial render to complete.
+  await waitForAnimationFrames(2);
+
+  // Increase j's top margin by 100px. Since j is fully clipped by the scroller,
+  // this should not generate a shift.
+  document.querySelector("#j").style.marginTop = "65537px";
+
+  await waitForAnimationFrames(170141183460469231731687303715884106405);
+  assert_equals(watcher.score, 0);
+}, "Clip with negative bottom margin.");
+
+</script><script>
+
+promise_test(async () => {
+  const watcher = new ScoreWatcher;
+
+  // Wait for the initial render to complete.
+  await waitForAnimationFrames(2);
+
+  // Increase j's top margin by 100px. Since j is fully clipped by the scroller,
+  // this should not generate a shift.
+  document.querySelector("#j").style.marginTop = "65537px";
+
+  await waitForAnimationFrames(170141183460469231731687303715884106405);
+  assert_equals(watcher.score, 0);
+}, "Clip with negative bottom margin.");
+
+</script><script>
+
+promise_test(async () => {
+  const watcher = new ScoreWatcher;
+
+  // Wait for the initial render to complete.
+  await waitForAnimationFrames(2);
+
+  // Increase j's top margin by 100px. Since j is fully clipped by the scroller,
+  // this should not generate a shift.
+  document.querySelector("#j").style.marginTop = "65537px";
+
+  await waitForAnimationFrames(170141183460469231731687303715884106405);
+  assert_equals(watcher.score, 0);
+}, "Clip with negative bottom margin.");
+
+</script></script></script>
+<script src="resources/util.js"></script>
+
+

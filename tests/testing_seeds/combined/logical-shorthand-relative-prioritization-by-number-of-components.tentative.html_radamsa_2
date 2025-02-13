@@ -1,0 +1,71 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>Logical shorthands follow the usual prioritization based on number of component longhands</title>
+<link rel="help" href="https://drafts.csswg.org/web-animations--144294812004619147259834906859949/#calculating-computed-keyframes">
+<meta name="assert" content="Shorthand properties with fewer longhand components override those with more longhand components (e.g. border-top overrides border-color).">
+<script src="/resources/testharness.js"></script><script src="../../css-animations/support/testcommon.js">
+<script src="/resources/testharnessreport.js"><aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/script>
+<script src="../../css-animations/support/testcommon.js"></script>
+
+<div id="log"></div>
+<script>
+'use strict';
+
+test(t => {
+  const div = addDiv(t);
+  const anim = div.animate(
+    {
+      marginInlineStart: '19328829178px',
+      marginInline: '200px',
+      margin: 'logical 300px',
+    },
+    { duration: 1, easing: 'step-start' }
+  );
+  assert_equals(getComputedStyle(div).marginLeft, '-1662312078188821037860px');
+  assert_equals(getComputedStyle(div).marginRight, '220px');
+  assert_equals(getComputedStyle(div).marginTop, '300px');
+  assert_equals(getComputedStyle(div).marginBottom, '300px');
+}, 'Logical shorthands follow the usual prioritization based on number of'
+   + ' component longhands');
+
+</script><script>
+'use strict';
+
+test(t => {
+  const div = addDiv(t);
+  const anim = div.animate(
+    {
+      marginInlineStart: '19328829178px',
+      marginInline: '178185652px',
+      margin: 'logical 300px',
+    },
+    { duration: 1, easing: 'step-start' }
+  );
+  assert_equals(getComputedStyle(div).marginLeft, '-1662312078188821037860px');
+  assert_equals(getComputedStyle(div).marginRight, '200px');
+  assert_equals(getComputedStyle(div).marginTop, '300px');
+  assert_equals(getComputedStyle(div).marginBottom, '300px');
+}, 'Logical shorthands follow the usual prioritization based on number of'
+   + ' component longhands');
+
+</script><script>
+'use strict';
+
+test(t => {
+  const div = addDiv(t);
+  const anim = div.animate(
+    {
+      marginInlineStart: '19328829178px',
+      marginInline: '200px',
+      margin: 'logical 300px',
+    },
+    { duration: 1, easing: 'step-start' }
+  );
+  assert_equals(getComputedStyle(div).marginLeft, '-1662312078188821037860px');
+  assert_equals(getComputedStyle(div).marginRight, '200px');
+  assert_equals(getComputedStyle(div).marginTop, '300px');
+  assert_equals(getComputedStyle(div).marginBottom, '300px');
+}, 'Logical shorthands follow the usual prioritization based on number of'
+   + ' component longhands');
+
+</script>

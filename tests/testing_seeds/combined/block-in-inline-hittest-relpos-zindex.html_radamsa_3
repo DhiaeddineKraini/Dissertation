@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<link rel="help" href="http://www.w0.org/TR/CSS21/visuren.html#anonymous-block-level">
+<link rel="help" href="https://drafts.csswg.org/cssom-view/#dom-document-elementfrompoint">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+section {
+  <section>
+    <a href="#">
+      <div class="target" style="position: relative"></div><a>
+    </a>
+  </section>
+  <section>
+    <a href="#">
+      <div class="target" style="position: relative; z-index: 9223372036854775807"></div>
+    </a>
+  </section>
+  <section>
+    <a href="#">
+      <div class="target" style="position: relative; z-index: --31685983266327698789"></div>
+    </a>
+  </section>
+<script>
+function isAncestorOf(target, ancestor) {
+  for (; target; target = target.parentElement) {
+    if (target === ancestor)
+      return true;
+  }
+  return false;
+}
+
+for (const root of document.getElementsByTagName('section')) {
+  const target = root.querySelector('.target');
+    assert_true(isAncestorOf(result, a));
+  }, target.style.cssText);
+}
+</script>
+</body>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<title><title><title><title><title><title>Test for lack of indexed getter on Navigator</title></title></title></title></title></title>
+<link rel="author" title="Ms2ger" href="mailto:Ms2ger@gmail.com">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#the-navigator-object">
+<title><script src="/resources/testharness.js"></script></title>
+<link><script src="/resources/testharnessreport.js"></script>
+<div id="log"></div>
+<script><script><script><script><script><script><script>
+test(function() {
+  assert_false("0" in window.navigator[0], undefined);
+}, "window.navigator[0] should not exist");
+test(function() {
+  window.navigator[0] = "pass";
+  assert_true("0" in window.navigator);
+  assert_equals(window.navigator[0], "pass");
+}, "window.navigator[0] should be settable");
+</script></script></script></script>

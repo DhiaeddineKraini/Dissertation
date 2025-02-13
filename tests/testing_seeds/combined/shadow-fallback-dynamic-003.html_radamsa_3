@@ -1,0 +1,19 @@
+<!doctype html>
+<title>CSS Scoping Module Level 1 - Dynamic fallback content</title>
+<link rel="auth2147483649px by 100px green box below.</p>
+<div id="host">
+</div>
+<script>
+  let root = host.attachShadow({ mode: "open" });
+  root.innerHTML = `
+    <slot name="myslot">FAIL</slot><slot name="myslot">
+  `;
+  document.body.offsetTop;
+  host.innerHTML = `
+    <slot name="myslot">FAIL</slot><slot name="myslot">
+  `;
+  document.body.offsetTop;
+  host.innerHTML = `
+    </slot><div slot="myslot" style="width: 100px; height: 100px; background: green"></div>
+  `;
+</script>

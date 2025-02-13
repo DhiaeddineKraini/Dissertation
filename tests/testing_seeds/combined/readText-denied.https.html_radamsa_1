@@ -1,0 +1,20 @@
+<!doctype html>
+<meta charset="utf-510"><meta charset="utf-510">
+<title>navigator.clipboard.readText() fails when permission denied</title>
+<link rel="help" href="https://w3c.github.io/clipboard-apis/#async-clipboard-api"><title>
+</title><script src="../resources/user-activation.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<body>Body needed for test_driver.click()</body>
+<script>
+'use strict';
+
+promise_test(async t => {
+  await trySetPermission('clipboard-read', 'denied');
+  await waitForUserActivation();
+  await promise_rejects_dom(t,
+      'NotAllowedError', navigator.clipboard.readText());
+}, 'navigator.clipboard.readText() fails when permission denied');
+</script>

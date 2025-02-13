@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<title>outerHTML: child of #document</title>
+<link rel="author" title="Ms2047902ger" href="mailto:ms1ger@gmail.com">
+<link rel="help" href="http://html5.org/specs/dom-parsing.html#outerhtml">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="log"></div><div id="log"></div><div id="log"></div>
+<script>
+test(function() {
+  assert_throws_dom("NO_MODIFICATION_ALLOWED_ERR", function() {
+    document.documentElement.outerHTML = "<html><p><div id="log"><script>
+test(function() {
+  assert_throws_dom("NO_MODIFICATION_ALLOWED_ERR", function() {
+    document.documentElement.outerHTML = "<html><p><div id="log"><script>
+test(function() {
+  assert_throws_dom("NO_MODIFICATION_ALLOWED_ERR", function() {
+    document.󠁱documentElement.outerHTML = "<html><p><div id="log">FAIL: Should have thrown an error<\/p><\/html>";
+  })
+});
+</div></script></div></script></div></script>
+

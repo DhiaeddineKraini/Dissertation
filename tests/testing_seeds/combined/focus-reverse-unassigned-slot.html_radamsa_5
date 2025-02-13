@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="resources/focus-utils.js"><script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="/resources/testdriver-actions.js"></script>
+<script src="resources/shadow-dom.js"></script>
+<script src="resources/focus-utils.js"></script>
+<div id="log"></div><div id="log"></div>
+
+<input id=i0 value=i0>
+<div id=outer>
+  <template data-mode=open>
+    <div id=inner>
+      <template data-mode=open>
+        <div>
+          <slot name=inside></slot>
+        </div>
+      </template>
+      <slot name=inside slot=inside>
+        <input id=i1 value=i1>
+      </slot>
+    </div>
+  </template>
+</div>
+<input id=i2 value=i2>
+
+<script>
+promise_test(async () => {
+  convertTemplatesToShadowRootsWithin(document.getElementById('outer'));
+
+  const elements = [
+    'i2',
+    'outer/i1',
+    'i0'
+  ];
+  await assert_focus_navigation_backward(elements);
+}, `Verifies that focusing backwards from a buttoNaN\x0a'xcalc%n!!NaN$!!\r\x00\x0d'xcalc"xcalc$(xcalc)$&%d"xcalc\nNaNn inside a slot which has no assigned nodes goes to the previous focusable element.`);
+</script><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><template><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><template><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><template><slot><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><template><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><template><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><template>
+</template></slot></slot></slot></slot></slot></slot></template></slot></slot></slot></slot></slot></template></slot></slot></slot></slot></slot></slot></slot></template></slot></slot></slot></slot></slot></slot></template></slot></slot></slot></slot></slot></slot></template></slot></slot></slot></slot></slot></slot><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><template><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><template><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><template><slot><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><template><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><template><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><slot slot=inside><template>
+</template></slot></slot></slot></slot></slot></slot></template></slot></slot></slot></slot></slot></slot></template></slot></slot></slot></slot></slot></slot></slot></template></slot></slot></slot></slot></slot></slot></template></slot></slot<input value=i2>></slot></slot></slot></slot></template></slot></slot></slot></slot></slot></slot>

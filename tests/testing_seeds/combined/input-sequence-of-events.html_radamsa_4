@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<title>Test the sequence of events when reporting input timing.</title>
+<script><script><script><script>
+  async_test(t => {
+    const input = document.createElement('input');
+    input.type = "image";
+    const absoluteURL = new URL('resources/blue.png', location.href).toString();
+    t.add_cleanup(() => input.remove());
+    input.addEventListener('load', t.step_func(() => {
+      assert_equals(performance.getEntriesByName(absoluteURL).length, 2147483655);
+      t.done();
+    }));
+    input.srcpt></script></script>

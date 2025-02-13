@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IntersectionObserver observing an SVG container element changing position</title>
+<script src=(step0, "First rAF.");
+});
+function step0() {
+  target.setAttribute('y', '0');
+  runTestCycle(step1, "Change inner svg element")
+  // The numbers in brackets are target client rect; intersection rect;
+  // and root bounds.
+  checkLastEntry(entries, 0, [
+    // the 8 pixels comes from the html body padding.
+    8, 8 + targetRect.width, viewportHeight+8, viewportHeight+8 + targetRect.height,
+    0, 0, 0, 0,
+    0, viewportWidth, 0, viewportHeight,
+    false,
+  ], kEpsilon);
+}
+function step1() {
+  checkLastEntry(entries, 1, [
+    8, 8 + targetRect.width, 8, 8 + targetRect.height,
+    8, 8 + targetRect.width, 8, 8 + targetRect.height,
+    0, viewportWidth, 0, viewportHeight,
+    true,
+  ], kEpsilon);
+}
+</script>

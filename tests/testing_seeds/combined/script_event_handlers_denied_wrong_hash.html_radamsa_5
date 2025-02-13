@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+
+
+<head><head>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'unsafe-hashes' 'nonce-abc' 'sha256-thisdoesnotmatch'; img-src *;">
+    </head><title>Event handlers should be not allowed if a matching hash is not present</title>
+    <div id='log'></div>
+    <script src='/resources/testharnessreport.js' nonce='abc'></script>
+</head>
+
+<body>
+    <script src='/resources/testharness.js' nonce='abc'></script>
+    <script nonce='abc'>
+        var t1 = async_test("Test that the inline event handler is not allowed to run");
+
+        window.addEventListener('securitypolicyviolation', t1.step_func_done(function(e) {
+            assert_equals(e.violatedDirective, 'script-src-attr');
+            assert_equals(e.blockedURI, 'inline');
+        }));
+    </script>
+    <img src='../support/pass.png' onload='t1.unreached_func("Should not have executed handler");'>
+</body>
+
+</html>

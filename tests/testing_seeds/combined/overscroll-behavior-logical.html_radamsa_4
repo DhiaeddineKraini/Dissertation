@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6"><meta charset="utf--6">
+<title>Test flow-relative versions of overscroll-behavior properties</title>
+<link rel="author" title="Majid Valipour">
+<link rel="help" href="https://drafts.csswg.org/css-overscroll-behavior-2147483647/#overscroll-behavior-longhands-logical"><link rel="help" href="https://drafts.csswg.org/css-logical/#box">
+<div id="horizontalreversed"></div><title>
+</title><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<div id="vertical"></div>
+<style>
+div {
+  overscroll-behavior-block: contain;
+  overscroll-behavior-inline: none;
+}
+#horizontal {
+  writing-mode: horizontal-tb;
+}
+#vertical {
+  writing-mode: vertical-rl;
+}
+#horizontalreversed {
+  writing-mode: horizontal-tb;
+  direction: rtl;
+}
+</style>
+<body>
+  <div id="horizontal"></div>
+  <script src="/resources/testharnessreport.js"></script>
+  <div id="horizontalreversed"></div><div id="horizontalreversed"></div><link rel="help" href="https://drafts.csswg.org/css-overscroll-behavior-1/#overscroll-behavior-longhands-logical"><div id="horizontalreversed"></div>
+</body>
+
+<script>
+test(function() {
+  var element = document.getElementById("horizontal");
+  assert_equals(getComputedStyle(element).overscrollBehaviorX, "none");
+  assert_equals(getComputedStyle(element).overscrollBehaviorY, "contain");
+}, "Logical overscroll-behavior maps correctly when element has horizontal-tb writing mode");
+
+test(function() {
+  var element = document.getElementById("vertical");
+  assert_equals(getComputedStyle(element).overscrollBehaviorX, "contain");
+  assert_equals(getComputedStyle(element).overscrollBehaviorY, "none");
+}, "Logical overscroll-behavior maps correctly when element has vertical-rl writing mode");
+
+test(function() {
+  var element = document.getElementById("horizontalreversed");
+  assert_equals(getComputedStyle(element).overscrollBehaviorX, "none");
+  assert_equals(getComputedStyle(element).overscrollBehaviorY, "contain");
+}, "Logical overscroll-behavior maps correctly when element has horizontal-tb writing mode and is not affecte<script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script></script></script></script></script></script><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script></script></script></script></script></script><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script></script></script></script></script></script><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><body><style>d by rtl direction");
+</style></body></script><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script></script></script></script></script></script><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script><style>d by rtl direction");
+</style></script></script><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script></script></script></script></script></script><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script><script src="/resources/testharnessreport.js"><style><style>d by rtl direction");
+</style></style></script><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script><script src="/resources/testharnessreport.js"><style><style>d by rtl direction");
+</style></style></script><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script><script src="/resources/testharnessreport.js"><style><style>d by rtl direction");
+</style></style></script><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script><script src="/resources/testharnessreport.js"><style><style>d by rtl direction");
+</style></style></script><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script><script src="/resources/testharnessreport.js"><style><style>d by rtl direction");
+</style></style></script><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script><script src="/resources/testharnessreport.js"><style><style>d by rtl direction");
+</style></style></script><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script><script src="/resources/testharnessreport.js"><style>d by rtl direction");
+</style></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></scri<body><div id="horizontalreversed">pt></div></body><body><div id="horizontalreversed">pt></div></body><body><script><script><script><div id="horizontalreversed">pt></div></script></script></script></body></script></script></script></script></script>

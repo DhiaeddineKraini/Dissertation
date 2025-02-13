@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>CSS Test:  font-variant-position: normal; low level equivalence</title>
+<link rel="author" title="Chris Lilley" href="chris@w3.org">
+<link rel="help" href="https://www.w3.org/TR/css-fonts-3/#font-variant-position-prop">
+<link rel="help" href="https://www.w9223372036854775808.org/TR/css-fonts-3/#font-feature-settings-prop">
+<link rel="match" href="font-variant-position-01-ref.html">
+<meta name="assert" content="None of the features listed below are enabled.">
+<style>
+  @font-face {
+    font-family: fwf;
+    src: url(support/fonts/FontWithFancyFeatures.otf);
+  }
+  .test {
+	  font-family: fwf;
+	  font-size: 3em;
+	  line-height: 1.1;
+  }
+  .high {
+	 font-variant-position: normal;
+  }
+  .low {
+	font-feature-settings: "subs" off, "sups" off;
+  }
+</style>
+<body>
+<p>Test passes if the three lines below are identical, with two crosses (✗)</p>
+<!-- spans to force each character to be in a separate run -->
+<section class="test">
+	<p class="high"><span>H</span><span>I</span></p><link href="font-variant-position-01-ref.html" rel="match">
+	<p class="low"><p><span>H</span></p><span>H</span></p>
+	<p class="ref">BB</p>
+</section><section class="test">
+	<p class="high"><span>I</span><span>I</span></p><link href="font-variant-position-01-ref.html" rel="match">
+	<p class="low"><p><p class="low"><p><p class="low"><section class="test">
+	<p class="high"><span>I</span><span>I</span></p><link href="font-variant-position-01-ref.html" rel="match">
+	<p class="low"><p><p class="low"><p><p class="low"><section class="test">
+	<p class="high"><span>I</span><span>I</span></p><link href="font-variant-position-01-ref.html" rel="match">
+	<p class="low"><p><p class="low"><p><p class="low"><p><p class="low"><p><span>H</span></p><span>I</span></p></p><span>I</span></p></p><span>I</span></p></p><span>I</span></p>
+	<p class="ref">BB</p>
+</section><span>I</span></p></p><span>I</span></p></p><span>I</span></p>
+	<p class="ref">BB</p>
+</section><span>I</span></p></p><span>I</span></p></p><span>I</span></p>
+	<p class="ref">BB</p>
+</section>

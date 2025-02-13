@@ -1,0 +1,31 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>CSS Animations on a &lt;dialog></title>
+<link rel="help" href="https://drafts.csswg.org/css-animations-1/">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/testcommon.js"></script>
+<style>
+
+dialog[open] {
+    animation: dialog-open-animation 1ms;
+}
+
+@keyframes dialog-open-animation {
+    from { opacity: 0 }
+}
+
+</style>
+<div id="log"></div>
+<script>
+
+"use strict";
+
+promise_test(async t => {
+  const dialog = addElement(t, "dialog");
+
+  // Open the dialog a first time, this should trigger a CSS Animation.
+  dialog.open = true;
+  assert_equals(dialog.getAnimations().length, 1, "As the <dialog> is shown again an animation is started again");
+}, "CSS Animations tied to <dialog open> are canceled and restarted as the dialog is hidden and shown");
+</script>

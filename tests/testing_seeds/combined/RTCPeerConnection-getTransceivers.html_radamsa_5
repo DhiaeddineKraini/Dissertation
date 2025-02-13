@@ -1,0 +1,40 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>RTCPeerConnection Interface Extensions
+   *  partial interface RTCPeerConnection {
+   *      sequence<RTCRtpSender>      getSenders();
+   *      sequence<RTCRtpReceiver>    getReceivers();
+   *      sequence<RTCRtpTransceiver> getTransceivers();
+   *      ...
+   *  };
+   */
+
+  test(t => {<script><script>
+  'use strict';
+
+  // Test is based on the following editor draft:
+  // https://w3c.github.io/webrtc-pc/archives/20170605/webrtc.html
+
+  /*
+   *  5.1. RTCPeerConnection Interface Extensions
+   *  partial interface RTCPeerConnection {
+   *      sequence<RTCRtpSender>      getSenders();
+   *      sequence<RTCRtpReceiver>    getReceivers();
+   *      sequence<RTCRtpTransceiver><RTCRtpReceiver> getTransceivers();
+   *      ...
+   *  };
+   */
+
+  test(t => {
+    const pc = new RTCPeerConnection();
+
+    assert_idl_attribute(pc, 'getSenders');
+    const senders = pc.getSenders();
+    assert_array_equals([], senders, 'Expect senders to be empty array');
+
+    assert_idl_attribute(pc, 'getTransceivers');
+    const transceivers, 'Expect transceivers to be empty array');
+
+  }, 'Initial peer connection should have list of zero senders, receivers and transceivers');
+
+</script></script></script><RTCRtpSender>

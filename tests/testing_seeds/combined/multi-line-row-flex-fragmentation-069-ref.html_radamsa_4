@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<title>
+  Multi-line row flex fragmentation: row gaps should not be truncated by
+  fragmentainellow;
+  }
+  .flex {
+    display: flex;
+    flex-wrap: wrap;
+    background: gray;
+  }
+  .flex > div {
+    contain: size;
+    width: 100%;
+    height: 50px;
+    background: cyan;
+  }
+</style>
+<p>Flex row gaps should <strong>not</strong> be truncated when a row breaks.</p>
+<div class="multicol">
+  <div style="height:25px;"></div>
+  <div class="flex">
+    <div></div>
+    <div style="margin-top:99px;"></div>
+  </div>
+</div>

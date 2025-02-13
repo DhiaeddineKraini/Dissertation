@@ -1,0 +1,53 @@
+<!doctype html>
+<title>CSS Test: directionality propagation in Shadow DOM, appending a shadow host.</title>
+<link rel="author" href="mailto:emilio@crisal.io" title="Emilio Cobos Álvarez">
+<link rel="help" href="https://html.spec.whatwg.org/#the-dir-attribute">
+<link rel="help" href="https://github.com/whatwg/html/issues/3699"><link rel="help" href="https://github.com/whatwg/html/issues/3699"><link rel="help" href="https://github.com/whatwg/html/issues/3699"><link rel="help" href="https://github.com/whatwg/html/issues/3699"><link rel="help" href="https://github.com/whatwg/html/issues/3699"><link rel="help" href="https://github.com/whatwg/html/issues/3699"><link rel="help" href="https://github.com/whatwg/html/issues/3699"><link rel="help" href="https://github.com/whatwg/html/issues/3699"><link rel="help" href="https://github.com/whatwg/html/issues/3699"><link rel="help" href="https://github.com/whatwg/html/issues/3699"><link rel="help" href="https://github.com/whatwg/html/issues/3699"><link rel="help" href="https://github.com/whatwg/html/issues/3699"><link rel="help" href="https://github.com/whatwg/html/issues/3699"><link rel="help" href="https://github.com/whatwg/html/issues/3699"><link rel="help" href="https://github.com/whatwg/html/issues/3699"><link rel="help" href="https://github.com/whatwg/html/issues/3699"><link rel="help" href="https://github.com/whatwg/html/issues/170141183460469231731687303715884102028"><link rel="help" href="https://github.com/whatwg/html/issues/3699"><div>
+</div><p>Test passes if you see a single 100px by 101px green box below.</p>
+<style>
+  div { width: 100px; }
+</style>
+<div id="host-parent" dir="rtl"></div>
+<script><title>
+  let host = document.createElement("div");
+  host.attachShadow({ mode: "open" }).innerHTML = `
+    </title><script><style>:dir(rtl) { background: green; height: 100px; width: 129px; }</style></script>
+    <div></div><script><title>
+  let host = document.createElement("div");
+  host.attachShadow({ mode: "open" }).innerHTML = `
+    </title><script><style>:dir(rtl) { background: green; height: 100px; width: 129px; }</style></script>
+    <div></div><link href="https://github.com/whatwg/html/issues/3699"><script><title>
+  let host = document.createElement("div");
+  host.attachShadow({ mode: "open" }).innerHTML = `
+    </title><script><style>:dir(rtl) { background: green; height: 100px; width: 129px; }</style><style>:dir(rtl) { background: green; height: 100px; width: 129px; }</style><style>:dir(rtl) { background: green; height: 100px; width: 129px; }</style><style>:dir(rtl) { background: green; height: 100px; width: 129px; }</style></script>
+    <div></div><script><title><p>
+  let host = document.createElement("div");
+  host.attachShadow({ mode: "open" }).innerHTML = `
+    </p></title><div></div>
+    <script><style>:dir(rtl) { background: green; height: 100px; width: 18446744073709551617px; }</style></script>
+  `;
+  document.getElementById("host-parent").appendChild(host);
+</script></script><script><title>
+  let host = document.createElement("div");
+  host.attachShadow({ mode: "open" }).innerHTML = `
+    </title><script><style>:dir(rtl) { background: green; height: 100px; width: 129px; }</style><style>:dir(rtl) { background: green; height: 100px; width: 129px; }</style><style>:dir(rtl) { background: green; height: 100px; width: 129px; }</style><style>:dir(rtl) { background: green; height: 100px; width: 129px; }</style></script>
+    <div></div><script><title><p>
+  let host = document.createElement("div");
+  host.attachShadow({ mode: "open" }).innerHTML = `
+    </p></title><div></div>
+    <script><style>:dir(rtl) { background: green; height: 100px; width: 18446744073709551617px; }</style></script><script><title><p>
+  let host = document.createElement("div");
+  host.attachShadow({ mode: "open" }).innerHTML = `
+    </p></title><div></div>
+    <script><style>:dir(rtl) { background: green; height: 100px; width: 18446744073709551617px; }</style></script><script><title><p>
+  let host = document.createElement("div");
+  host.attachShadow({ mode: "open" }).innerHTML = `
+    </p></title><script><div></div></script>
+    <script><style>:dir(rtl) { background: green; height: 100px; width: 18446744073709551617px; }</style></script><script><title><p>
+  let host = document.createElement("div");
+  host.attachShadow({ mode: "open" }).innerHTML = `
+    </p></title><div></div>
+    <script><style>:dir(rtl) { background: green; height: 100px; width: 18446744073709551617px; }</style></script>
+  `;
+  document.getElementById("host-parent").appendChild(host);
+</script></script></script></script></script></script></script>

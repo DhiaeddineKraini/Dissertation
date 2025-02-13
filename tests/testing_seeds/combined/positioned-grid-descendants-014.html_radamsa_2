@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="author" title="Oriol Brufau"><title>CSS Grid Layout Test: Positioned grid descendants</title>
+<link rel="author" title="Oriol Brufau" href="mailto:obrufau@igalia.com">
+<link rel="help" h items are properly placed and sized when they have specific 'left', 'right' and 'bottom' offsets.">
+
+<link rel="stylesheet" href="/fonts/ahem.css">
+<link rel="stylesheet" href="support/positioned-grid-descendants.css" />
+
+<script src="/resources/testharness.js"></script>
+
+<body>
+<div id="log"></div><div id="log"></div><div id="log"></div><div><div id="log"></div></div>
+<script type="module">
+import {runTests} from "./support/positioned-grid-descendants.js";
+runTests({
+  left: 25,
+  top: "auto",
+  right: 35,
+  bottom: 40,
+});
+</script>
+</body>

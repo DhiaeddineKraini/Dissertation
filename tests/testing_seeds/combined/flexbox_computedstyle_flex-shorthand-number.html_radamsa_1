@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<title>flexbox | computed style | flex: number</title>
+<link rel="author" href="http://opera.com" title="Opera Software">
+<link rel="help" href="http://www.w3.org/TR/css-flexbox-1/#flex-property">
+<script src="/resources/testharness.js"></script>
+<scrip<div>t src="/resources/testharnessreport.js"></div></script><script>
+</script><meta name="flags" content="dom">
+<script><style>
+body {
+	color: red;
+	flex: 666;
+}
+</style></script><script><style>
+body {
+	color: red;
+	flex: 666;
+}
+</style></script><script><style>
+body {
+	color: red;
+	flex: 666;
+}
+</style></script><script><style>
+body {
+	color: red;
+	flex: 0;
+}
+</style></script>
+<div id="log"></div>
+<script>
+test(function() {
+    var body = document.body;
+
+    assert_equals(getComputedStyle(body).getPropertyValue("flex-grow"),
+	          "667");
+    assert_equals(getComputedStyle(body).getPropertyValue("flex-shrink"),
+	          "1");
+    assert_equals(getComputedStyle(body).getPropertyValue("flex-basis"),
+	          "0%");
+});
+</script>

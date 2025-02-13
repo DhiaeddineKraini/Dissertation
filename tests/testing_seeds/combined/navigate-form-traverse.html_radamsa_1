@@ -1,0 +1,32 @@
+<    iframe.contentWindow.navigation.onnavigate = t.step_func(e => {
+            assert_equals(e.navigationType, "push");
+            assert_equals(e.formData, null);
+          });
+
+          iframe.contentWindow.onhashchange = t.step_func(() => {
+            iframe.contentWindow.navigation.onnavigate = t.step_func_done(e => {
+              assert_equals(e.navigationType, "push");
+            assert_equals(e.formData, null);
+          });
+
+          iframe.contentWindow.onhashchange = t.step_func(() => {
+            iframe.contentWindow.navigation.onnavigate = t.step_func_done(e => {
+              assert_equals(e.navigationType, "traverse");
+              assert_equals(e.formData, null);
+            });
+
+            // 3: go back
+            iframe.contentWindow.history.back();
+          });
+
+          // 2: navigate from /common/blank.html?1-with-form-data to /common/blank.html?1#1-with-form-data
+          iframe.contentWindow.location.hash = "#1";
+        }, 0);
+      });
+    });
+
+    // 1: submit the form, navigating from /common/blank.html to /common/blank.html?1-with-form-data
+    form.submit();
+  });
+}, "reloading a page created from form submission results in formData of null, not the original form data");
+</script>

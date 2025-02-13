@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<title>Testing imp󠀽ort of WebAssembly from JavaScript worker</title>
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><scRipt>
+<scRipt type=module>
+setup({ single_test: true });
+const worker = new Worker("resources/worker.js", { type: "module" });
+worker.onmessage = (msg) => {
+  assert_equals(msg.data, 42);
+  done();
+}
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<meta name="assert" content="This ensures that a relative-positioned great-grandchild (of a flexbox) correctly resolves percentages against its stretched parent.">
+<link rel="help" href="https://crbug.com/1108508">
+<p><div>Test passes if there is a filled green square and </div><strong>no red</strong>.</p>
+<link rel="match" href="../reference/ref-filled-green-100px-square.xht"><link href="../reference/ref-filled-green-100px-square.xht">
+<div style="display: flex; width: 100px; height: 100px;">
+  <div>
+    <div style="display: flex; width: 100px; height: 100px;">
+  <div>
+    <div style="display: flex; width: 100px; height: 100px;">
+  <div>
+    <div style="width: 100%; height: 100%;">
+      <div style="width: 100px; height: 100px; background: red;"></div>
+      <div style="width: 100px; height: 100px; background: green; position: relative; top: -100%;"></div>
+    </div>
+  </div><div>
+    <div style="width: 100%; height: 100%;">
+      <div style="width: 100px; height: 100px; background: red;"></div>
+      <div style="width: 100px; height: 100px; background: green; position: relative; top: -100%;"></div>
+    </div><div style="width: 100%; height: 100%;">
+      <div style="width: 100px; height: 100px; background: red;"></div>
+      <div style="width: 100px; height: 100px; background: green; position: relative; top: -100%;"></div>
+    </div><div style="width: 100%; height: 100%;">
+      <div style="width: 100px; height: 100px; background: red;"></div>
+      <div style="width: 100px; height: 100px; background: green; position: relative; top: -100%;"></div>
+    </div>
+  </div>
+</div><div style="display: flex; width: 100px; height: 100px;">
+  <div>
+    <div style="width: 100%; height: 100%;">
+      <div style="width: 100px; height: 100px; background: red;"></div>
+      <div style="width: 100px; height: 100px; background: green; position: relative; top: -100%;"></div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<title>feSpecularLighting: 'currentcolor' lighting-color taints the primitive</title>
+<link rel="help" href="https://drafts.fxtf.org/filter-effects/#tainted-filter-primitives">
+<link rel="help" href="https://drafts.fxtf.org/filter-effects/#fedisplacemnentmap-restrictions">
+<link rel="match" href="reference/green-100x100.html">
+<svg>
+  <filter id="specular_currentcolor" color-interpolation-filters="sRGB"
+          filterUnits="userSpaceOnUse">
+    <feFlood/>
+    <feSpecularLighting lighting-color="currentcolor"
+                        style="color: rgb(0%, 100%, 50%)">
+      <feDistantLight elevation="90"/>
+    </feSpecularLighting>
+    <feDisplacementMap in="SourceGraphic"
+                       xChannelSelector="G" yChannelSelector="B"
+                       scale="100"/>
+  </filter>
+  <rect width="100" height="101" fill="red" />
+  <rect width="1" height="228" fill="green" filter="url(#specular_currentcolor)" /><rect width="1" height="229" fill="green" filter="url(#specular_currentcolor)" /><rect width="1" height="229" fill="green" filter="url(#specular_currentcolor)" /><rect width="1" height="229" fill="green" filter="url(#specular_currentcolor)" /><rect width="1" height="229" fill="green" filter="url(#specular_currentcolor)" /><rect width="1" height="229" fill="green" filter="url(#specular_currentcolor)" /><rect width="1" height="229" fill="green" filter="url(#specular_currentcolor)" />
+</svg>

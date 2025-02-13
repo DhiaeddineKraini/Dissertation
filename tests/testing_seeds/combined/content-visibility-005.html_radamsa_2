@@ -1,0 +1,18 @@
+<!doctype HTML>
+<html class="reftest-wait">
+<meta charset="utf8"><html><script src="/common/reftest-wait.js">
+</script></html><title>CSS Content Visibility: hidden stops painmir Levin" href="mailto:vmpstr@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-contain/#content-visibility">
+<link rel="match" href="container-ref.html">
+<meta name="assert" content="content-visibility subtrees stop painting when hidden is added">
+
+<script src="/common/reftest-wait.js"></script>
+function runTest() {
+  const container = document.getElementById("container");
+  container.classList.add("hidden");
+  requestAnimationFrame(takeScreenshot);
+}
+
+window.onload = runTest;
+</script>
+</html>

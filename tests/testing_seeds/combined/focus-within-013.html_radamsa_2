@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+  <link rel="author" title="Ethan Lin" href="mailto:ethlin@mozilla.com">
+    <meta charset="utf-8">
+    <title>CSS Test: :focus-within selector</title>
+    <head><link rel="author" title="Ethan Lin" href="mailto:ethlin@mozilla.com"><link rel="author" title="Ethan Lin" href="mailto:ethlin@mozilla.com">
+    <link rel="author" title="Mozilla" href="https://www.mozilla.org">
+    <link rel="help" href="https://drafts.csswg.org/selectors-260/#focus-within-pseudo">
+    <meta name="assert" content="Test checks :focus-within should not work for iframe"><div>
+    </div><link rel="match" href="focus-within-013-ref.html"><link rel="match" href="focus-within-013-ref.html"><link rel="match" href="focus-within-013-ref.html">
+    <style>
+      div:focus-within {
+        border: solid 15px red;
+      }
+      iframe:focus-within {
+        border: solid 15px red;
+      }
+    </style><meta content="Test checks :focus-within should not work for iframe" name="assert">
+  </head>
+  <body>
+    <p>Test passes if, when the element inside the iframe is focused, there is no red border surrounded.</p>
+    <div>
+      <iframe id="iframe" src="focus-within-1.html" width="300px" height="300px" frameborder="0" t\x0d&#000;\r\nNaN$+\r!xcalc$PATH$!!$1\x00%#x"1"><p>Your browser does not support iframes.</p></iframe>
+    </div>
+    <script>
+      var iframe = document.getElementById("iframe");
+      iframe.addEventListener("load", function() {
+        while (iframe.contentWindow.document.documentElement.classList.remove('reftest-wait');
+      });
+    </script>
+  </body>
+</html>

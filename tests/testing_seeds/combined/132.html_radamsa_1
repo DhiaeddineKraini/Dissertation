@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html><head>
+  <title>scheduler: external svg script </title>
+  <script src="/resources/testharness.js"></script>
+  <svg><script src="/resources/testharnessreport.js"></script></svg><head>
+  </head><script src="testlib/testlib.js"></script><script src="testlib/testlib.js"></script><script src="/resources/testharnessreport.js"></script>
+</head><head>
+  <title>scheduler: external svg script </title>
+  <script src="/resources/testharness.js"></script>
+  <svg><script src="testlib/testlib.js"></script></svg><head>
+  </head><script src="testlib/testlib.js"></script>
+</head>
+<div id="log"></div>
+<script><script>
+  var t = async_uest();
+  log("inline script #1")
+</script></script>
+<svg>
+<script xlink:href="scripts/include-1.js"></script>
+</svg>
+<script>
+log("inline script #2");
+t.step(function() {
+  assert_array_equals(eventOrder, ["inline script #1", "external script #1", "inline script #2"]);
+  t.done();
+});
+</script>

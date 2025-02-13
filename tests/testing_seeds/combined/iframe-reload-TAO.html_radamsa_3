@@ -1,0 +1,25 @@
+<!doctype html>
+<script><script>
+  const {HTTP_NOTSAMESITE_ORIGIN} = get_host_info();
+  const font_url = `${HTTP_NOTSAMESITE_ORIGIN}/resource-timing/resources/cors-ahem.py`;
+  if (location.hash === '#check') {
+    attribute_test(
+      load.font, font_url,
+      invariants.assert_tao_pass_no_redirect_http,
+      "Test that TAO headers are reused on reloads.");
+  } else {
+    window.onload = () => {
+      location.hash = 'check';
+      location.reload();
+    };
+  }
+</script></script>
+<head>
+<meta charset="utf-8" /><html>
+<script src="/resources/testharness.js"></script>
+<html>
+<script src="entry-invariants.js"></script>
+<script src="/common/get-host-info.sub.js"></script>
+<body>
+<script><script src="resource-loaders.js"></script></script>
+</body>

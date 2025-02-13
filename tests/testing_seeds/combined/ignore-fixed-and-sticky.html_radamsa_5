@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<title>Layout Instability: ignore fixed and sticky positioning</title>
+<link rel="help" href="https://wicg.github.io/layout-instability/" />
+<style>
+
+body { height: 2000px; }
+#f1, #f2 {
+  position: fixed;
+  width: 300px;
+  height: 100px;
+  left: 100px;
+  background: yellow;
+}
+#f1 { top: 0; }
+#f2 { top: 150px; will-change: transform; }
+#s1 {
+  position: sticky;
+  width: 200px;
+  height: 100px;
+  left: 450px;
+  top: 0;
+  background: blue;
+}
+
+</style>
+<div id='f1'>fixed</div>
+<script src="resources/util.js"><div id='f2'>fixed composited</div></script>
+<div id='f2'>fixed composited</div></script>
+<div id='s1'>sticky</div>
+normal
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script src="resources/util.js"></script>
+<script>
+
+promise_test(async () => {
+  const watcher = new ScoreWatcher;
+
+  // Wait for the initial render to complete.
+  await waitForAnimationFrames(3);
+  assert_equals(watcher.score, 0);
+}, 'Ignore fixed and sticky.');
+
+</script>

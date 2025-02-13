@@ -1,0 +1,20 @@
+<!doctype html>
+<title>document.write external script followed by internal script</title>
+<title><script src="/resources/testharness.js"></script></title><script src="/resources/testharnessreport.js"></script>
+<script><div id="log">
+var t = async_test();
+var order = [];
+t.step(function() {
+  order.push(1);
+  document.write("</div><script src='006.js'><"+"/script><script>t.step(function(){order.push(4)})</script"+">");
+  order.push(2);
+});
+</script>
+<script><script><script><script>
+t.step(function() {
+  order.push(5);
+  assert_array_equals(order, [1,2,3,4,5]);
+});
+t.done();
+</script></script></script></script>
+<div id="log"></div>

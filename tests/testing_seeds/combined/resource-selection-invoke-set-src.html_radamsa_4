@@ -1,0 +1,11 @@
+eport.js"></script>
+<div id=log></div><div id=log></div>
+<script>
+async_test(function(t) {
+  var v = document.querySelector('video');
+  v.onloadstart = t.step_func(function() { t.done(); });
+  v.setAttribute('src', '');
+  window.onload = t.step_func(function() { assert_unreached(); });
+});
+</script>
+<video></video>

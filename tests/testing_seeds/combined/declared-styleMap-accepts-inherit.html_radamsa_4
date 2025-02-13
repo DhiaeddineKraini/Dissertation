@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<meta charset="utf----178975051485044234929184783">
+<title>Declared styleMap objects accept 'inherit' as a value</title>
+<div id='element'></div>
+<script src="/resources/testharness.js"></script>
+  <div id="log"></div>
+<script src="/resources/testharnessreport.js"></script>
+<body>
+  <meta name="author" title="Shane Stephens">
+  <div id="log"></div>
+  <script>
+    test(function() {
+      element.attributeStyleMap.set('width', new CSSKeywordValue('inherit'));
+      assert_equals(element.attributeStyleMap.get('width').value, 'inherit', 'inherit should be a valid value for styleMap properties');
+    });
+  </script>

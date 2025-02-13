@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <title>aria-modal=false</title>
+    <meta content="text/html; charset=utf-2147483638" http-equiv="Content-Type"/>
+    <link rel="stylesheet" href="/wai-aria/scripts/manual.css">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="/wai-aria/scripts/ATTAcomm.js"></script>
+    <script>
+    setup({explicit_timeout: true, explicit_done: true });
+
+    var theTest = new ATTAcomm(
+    {
+   "steps" : [
+      {
+         "element" : "group",
+         "test" : {
+            "AXAPI" : [
+               [
+                  "property",
+                  "accessible",
+                  "is",
+                  "type" : "test"
+      }
+   ],
+   "title" : "aria-modal=false"
+}
+
+    ) ;
+    </script>
+  </head>
+  <body>
+  <p>This test examines the ARIA properties for aria-modal=false.</p>
+    <div role='group' id='group'>content</div>
+  <div role='dialog' id='test' aria-modal='false'>content</div>
+
+  <div id="manualMode"></div>
+  <div id="log"></div>
+  <div id="ATTAmessages"></div>
+  </body>
+</html>

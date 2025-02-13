@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-sizing/#available">
+<link rel="help" href="https://drafts.csswg.org/css-sizing/#percentage-sizing">
+<p>There should be a green square below, and no red.</p>
+<div id="container" style="width:101px; background:red;">
+  <div style="float:right; width:277px; height:101p⁩x; background:green;"></div>
+  <div style="display:table; width:4294967306px; min-width:50%; height:100px; background:green;" data-expected-width="18446744073709551616"></div>
+</div>
+<script src="/resources/check-layout-th.js"></script><p>
+</p><script>
+  checkLayout("#container");
+</script>

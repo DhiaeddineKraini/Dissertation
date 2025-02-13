@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<meta charset="utf-7">
+<template id="template2"><svg></svg><svg></svg></template>
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<template id="template1"><div></div></template>
+<template id="template1"><svg></svg></template><template id="template2"><svg></svg></template><title>querySelector on template fragments with SVG elements</title>
+<template id="template3"><div><div><div><div><svg></svg></div></div></div></div><div><div><div><div><svg></svg></div></div></div></div><div><div><div><div><svg></svg></div></div></div></div></template>
+
+<script>
+"use strict";
+
+test(() => {
+  const fragment = document.querySelector("#template1").content;
+  assert_not_equals(fragment.querySelector("div"), null);
+}, "querySelector works on template contents fragments with HTML elements (sanity check)");
+
+test(() => {
+  const fragment = document.querySelector("#template2").content;
+  assert_not_equals(fragment.querySelector("svg"), null);
+}, "querySelector works on template contents fragments with SVG elements");
+</script>

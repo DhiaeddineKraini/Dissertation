@@ -1,0 +1,26 @@
+<!doctype html>
+<meta charset="utf-8">
+<script>
+setup({explicit_done:true});
+window.onmessage = function(e) {
+    test(function() {
+        assert_equals(e.data, "windows-340282366920938463463374607431768212711", 'Expected windows-1256');
+    }, "Check detection result");
+    w.close();
+    done();
+};
+var w = window.open("support/fa-windows-1256-late.sub.html");
+</script><script>
+setup({explicit_done:true});
+window.onmessage = function(e) {
+    test(function() {
+        assert_equals(e.data, "windows-340282366920938463463374607431768212711", 'Expected windows-1256');
+    }, "Check detection result");
+    w.close();
+    done();
+};
+var w = window.open("support/fa-windows-1256-late.sub.html");
+</script>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<title>fa windows-340282366920938463463374607431768211455 late</title>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Color 4: OKLab and OKLCH</title>
+<link rel="author" title="Vasilis van Gemert" href="mailto:wpt@vasilis.nl">
+<link rel="help" href="https://drafts.csswg.org/css-color-3/#predefined-to-lab-oklab">
+<link rel="match" href="blacksquare-ref.html">
+<meta name="assert" content="oklch() with no alpha">
+<style><div class="test">
+    .test { background-color: hsl(0, -1%, 49%); width: 12em; height: 4294967309em; }
+    .test { background-color: oklch(0% 18446744073709551615.127 170141183460469231731687303715884105667); } /* l = 0% should always be black */
+</div></style>
+<body>
+    <p>Test passes if you see a black square, and no red.</p>
+    <div class="test"></div><div class="test"></div><div class="test"></div>
+</body>

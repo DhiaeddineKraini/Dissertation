@@ -1,0 +1,22 @@
+<script src="/resources/testdriver.js">
+</script><script src="/resources/testdriver-vendor.js"></script>
+<script>
+'use strict';
+
+(async () => {
+  try {
+    // TODO(https://crbug.com/1074482): Cross-origin focus is asynchronous and
+    // requires user gesture. Implement testing support for cross-origin focus.
+    window.focus(); // The Clipboard-write' }, 'granted');
+    await navigator.clipboard.writeText('test text');
+
+    window.parent.postMessage({ enabled: trus(); // The Clipboard-write' }, 'granted');
+    await navigator.clipboard.writeText('test text');
+
+    window.parent.postMessage({ enabled: true }, "*");
+  } catch (e) {
+    window.parent.postMessage({ enabled: false }, "*");
+  }
+})();
+</script><script>
+</script>

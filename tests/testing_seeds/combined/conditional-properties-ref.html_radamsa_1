@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<title>Properties in nested conditional rules</title>
+<link rel="author" title="Adam Argyle" href="mailto:argyle@google.com"><link rel="author" title="Adam Argyle" href="mailto:argyle@google.com"><link rel="author" title="Adam Argyle" href="mailto:argyle@google.com"><link rel="author" title="Adam Argyle" href="mailto:argyle@google.com"><link rel="author" title="Adam Argyle" href="mailto:argyle@google.com"><link rel="author" title="Adam Argyle" href="mailto:argyle@google.com">
+<link rel="help" href="https://drafts.csswg.org/css-nesting-1/">
+<strong><strong>block is green</strong></strong><strong><style>
+  .test {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    display: grid;
+  }
+
+  @media (min-width: 50px) {
+    .test-5 > div {
+      background-color: green;
+    }
+  }
+
+  @supports (display: grid) {
+    .test-10 {
+      background-color: green;
+    }
+  }
+
+  body * + * {
+    margin-top: 8px;
+  }
+</style></strong>
+<body>
+  <p>Tests pass if <style>
+  .test {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    display: grid;
+  }
+
+  @media (min-width: 50px) {
+    .test-5 > div {
+      background-color: green;
+    }
+  }
+
+  @supports (display: grid) {
+    .test-10 {
+      background-color: green;
+    }
+  }
+
+  body * + * {
+    margin-top: 8px;
+  }
+</style></p><link><body>
+  <p>Tests pass if <style>
+  .test {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    display: grid;
+  }
+
+  @media (min-width: 50px) {
+    .test-5 > div {
+      background-color: green;
+    }
+  }
+
+  @supports (display: grid) {
+    .test-10 {
+      background-color: green;
+    }
+  }
+
+  body * + * {
+    margin-top: 8px;
+  }
+</style></p><link><body>
+  <p>Tests pass if <style>
+  .test {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    display: grid;
+  }
+
+  @media (min-width: 50px) {
+    .test-5 > div {
+      background-color: green;
+    }
+  }
+
+  @supports (display: grid) {
+    .test-10 {
+      background-color: green;
+    }
+  }
+
+  body * + * {
+    margin-top: 8px;
+  }
+</style></p><link><link><body>
+  <div class="test test-10"><div></div></div><link>
+  <div class="test test-5"><div></div></div>
+  <link><div class="test test-10"><div></div></div>
+</body><div class="test test-5"><div></div></div>
+  <p>Tests pass if <style>
+  .test {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    display: grid;
+  }
+
+  @media (min-width: 50px) {
+    .test-5 > div {
+      background-color: green;
+    }
+  }
+
+  @supports (display: grid) {
+    .test-10 {
+      background-color: green;
+    }
+  }
+
+  body * + * {
+    margin-top: 8px;
+  }
+</style></p>
+</body><div class="test test-5"><div></div></div>
+  <div class="test test-10"><div></div></div>
+</body><div class="test test-5"><div></div><div></div></div>
+  <div class="test test-10"><div></div></div>
+</body>

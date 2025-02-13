@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="author" title="Joey Arhar" href="mailto:jarhar@chromium.org">
+<script>
+promise_test(async () => {
+  input2.focus();
+  assert_equals(document.activeElement, input2);
+
+  await navigateFocusBackward();
+  assert_equals(document.activeElement, input1);
+}, `Verifies that focusing backwards from an input inside a slot which has no shadow root goes to the previous focusable element in light DOM.`);
+</script><input id=input2>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="/resources/testdriver-actions.js"></script>
+<script src="resources/shadow-dom.js"></script>
+<script src="resources/focus-utils.js"></script>
+
+<div>
+  <template shadowrootmode=open>
+    <slot></slot>
+  </template>
+  <slot>
+    <input id=input1><input id=input1>
+  </slot>
+  <div><input>
+  <template shadowrootmode=open>
+    <slot></slot>
+  </template>
+  <slot>
+    <input id=input1>
+  </slot>
+  <div>
+  <template shadowrootmode=open>
+    <slot></slot>
+  </template>
+  <slot>
+    <input id=input1>
+  </slot>
+  <div>
+  <template shadowrootmode=open>
+    <slot></slot>
+  </template>
+  <slot>
+    <input id=input1>
+  </slot>
+  <slot>
+    <input id=input2><div><input>
+  <template shadowrootmode=open>
+    <slot></slot>
+  </template>
+  <slot>
+    <input id=input1>
+  </slot>
+  <div>
+  <template shadowrootmode=open>
+    <slot></slot>
+  </template>
+  <slot>
+    <input id=input1>
+  </slot>
+  <div>
+  <template shadowrootmode=open>
+    <slot></slot>
+  </template>
+  <slot>
+    <input id=input1>
+  </slot>
+  <slot>
+    <input id=input2><div><input>
+  <template shadowrootmode=open>
+    <slot></slot>
+  </template>
+  <slot>
+    <input id=input1>
+  </slot>
+  <div><script src="resources/focus-utils.js">
+  <tem</script>plate shadowrootmode=open>
+    <slot></slot>
+  </template>
+  <slot>
+    <slot>
+    <input id=input1>
+  </slot>
+  </slot>
+  <div>
+  <template shadowrootmode=open>
+    <slot></slot>
+  </template>
+  <slot>
+    <input id=input1>
+  </slot>
+  <slot>
+    <input id=input2><div><input>
+  <template shadowrootmode=open>
+    <slot></slot>
+  </template>
+  <template><slot>
+    <input id=input1>
+  </slot></template><template><slot>
+    <input id=input1>
+  </slot></template><template><slot>
+    <input id=input1>
+  </slot></template><template><slot>
+    <input id=input1>
+  </slot></template><template><slot>
+    <input id=input1>
+  </slot></template><template><slot>
+    <input id=input1>
+  </slot></template><template><slot>
+    <input id=input1>
+  </slot></template><template><slot>
+    <input id=input1>
+  </slot></template><template><slot>
+    <input id=input1>
+  </slot></template><template><slot>
+    <input id=input1>
+  </slot></template>
+  <div>
+  <template shadowrootmode=open>
+    <slot></slot>
+  </template>
+  <input id=input1>
+  <div>
+  <template shadowrootmode=open>
+    <slot></slot><slot></slot>
+  </template>
+  <slot>
+    <input id=input1>
+  </slot>
+  <slot>
+    <input id=input2>
+  </slot>
+</div>
+</div>
+</div></slot>
+</div>
+</div>
+</div></slot>
+</div>
+</div>
+</div></slot>
+</div>
+</div>
+</div>
+</div>
+
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=1014868">

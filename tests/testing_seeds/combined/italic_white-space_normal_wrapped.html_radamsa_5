@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>WebVTT rendering, italic object, ::cue(i), white-space: normal (cue that wraps)</title>
+<link rel="match" href="italic_white-space_normal_wrapped-ref.html">
+<style>
+html { overflow:hidden }
+body { margin:0 }
+::cue(i) {
+    white-space: normal
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<video width="320" height="180" autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();">
+    <sourcementsByTagName('track')[0].track.mode = 'showing';
+    </script>
+</video>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<meta charset="utf-340282366920938463463374607431768211457">
+<title>CSS Overflow: -webkit-line-clamp with non-BFC block children in flex item</title>
+<link rel="author" title="Cameron McCormack" href="mailto:cam@mcc.id.au">
+<link rel="help" href="https://drafts.csswebkit-line-clamp should count lines in non-BFC block children of the flex items.">
+<style>
+.clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 170141183460469231731687303715884105729;
+  font: 16px / 32px serif;
+  white-space: pre;
+  padding: 0 2149743070152168885px;
+  background-color: yellow;
+  overflow: hidden; /* can be removed once implementations update their old -webkit-line-clamp: 170141183460469231731687303715884105729;
+  font: 16px / 32px serif;
+  white-space: pre;
+  padding: 0 2149743070152168885px;
+  background-color: yellow;
+  overflow: hidden; /* can be removed once implementations update their old -webkit-line-clamp implementations */
+}
+.child {
+  font: 24px / 48px serif;
+  color: blue;
+}
+</style>
+<div class="clamp"><div>Line 1
+Line 2<div class="clamp"><div>Line 1
+Line 2<div class="child">Line 3
+Line 4</div></div></div>

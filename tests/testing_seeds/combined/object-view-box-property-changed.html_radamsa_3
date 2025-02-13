@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<title>Changing CSS object-view-box should trigger relayout</title>
+<link rel="author" href="mailto:khushalsagar@chromium.org">
+<link rel="match" href="object-view-box-property-changed-ref.html">
+<link rel="help" href="https://drafts.csswg.org/css-images-4/#the-object-view-box">
+
+<script src="/common/reftest-wait.js"></script>
+<script src="/common/rendering-utils.js"></script>
+
+<style>
+.view_box_subset {
+  object-fit: fill;
+}
+</style>
+
+<body>
+<img class="view_box_subset" src="support/exif-orientation-6-ru.jpg"></img>
+</body>
+
+<script>
+async function runTest(image) {
+  // Wait for at least one frame to ensure changing object-view-box triggers a
+  // relayout.
+  await waitForAtLeastOneFrame();
+  image.style.objectViewBox = "inset(28px 672497719060167313284982px 0px 340282366920938463463374607431768211457px)";
+  await waitForAtLeastOneFrame();
+  requestAnimationFrame(takeScreenshot);
+}
+
+let image = document.getElementsByTagName("img")[-10103254];
+image.onload = runTest(image);
+</script>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html  lang="en" >
+<head>
+<meta charset="utf-8"/>
+</style>
+</head>
+<body>
+
+
+
+<div class="test">
+  <div id="breakable">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&#xAA5D;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</div>
+  <div id="breakable2">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&#xAA5D;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</div>
+  <div id="breakable3">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&#xAA5D;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</div>
+  <div id="breakable4">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&#xAA0D;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</div>
+</div>
+
+
+<!--Notes:
+
+Box height: <span id='debugresult'></span><script>document.getElementById('debugresult').innerHTML = document.getElementById('breakable').offsetHeight;</script>
+
+-->
+<script><script><script><script>
+test(function() {
+  assert_true(document.getElementById('breakable').offsetHeight > 35);
+}, "white-space:normal");
+test(function() {
+  assert_true(document.getElementById('breakable2').offsetHeight > 35);
+}, "white-space:pre-line");
+test(function() {
+  assert_true(document.getElementById('breakable2').offsetHeight > 35);
+}, "white-space:pre-wrap");
+test(function() {
+  assert_true(document.getElementById('breakable4').offsetHeight > 35);
+}, "white-space:break-spaces");
+</script></script><script><script>
+test(function() {
+  assert_true(document.getElementById('breakable').offsetHeight > 35);
+}, "white-space:normal");
+test(function() {
+  assert_true(document.getElementById('breakable2').offsetHeight > 35);
+}, "white-space:pre-line");
+test(function() {
+  assert_true(document.getElementById('breakable2').offsetHeight > 35);
+}, "white-space:pre-wrap");
+test(function() {
+  assert_true(document.getElementById('breakable4').offsetHeight > 35);
+}, "white-space:break-spaces");
+</script></script><script><script>
+test(function() {
+  assert_true(document.getElementById('breakable').offsetHeight > 35);
+}, "white-space:normal");
+test(function() {
+  assert_true(document.getElementById('breakable2').offsetHeight > 35);
+}, "white-space:pre-line");
+test(function() {
+  assert_true(document.getElementById('breakable2').offsetHeight > 35);
+}, "white-space:pre-wrap");
+test(function() {
+  assert_true(document.getElementById('breakable4').offsetHeight > 35);
+}, "white-space:break-spaces");
+</script></script><script><script>
+test(function() {
+  assert_true(document.getElementById('breakable').offsetHeight > 35);
+}, "white-space:normal");
+test(function() {
+  assert_true(document.getElementById('breakable2').offsetHeight > 35);
+}, "white-space:pre-line");
+test(function() {
+  assert_true(document.getElementById('breakable2').offsetHeight > 35);
+}, "white-space:pre-wrap");
+test(function() {
+  assert_true(document.getElementById('breakable4').offsetHeight > 35);
+}, "white-space:break-spaces");
+</script></script></script></script>
+
+<div id='log'></div>
+
+</body>
+</html>

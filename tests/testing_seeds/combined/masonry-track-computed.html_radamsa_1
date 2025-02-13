@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<title>CSS Masonry: masonry-track-* getComputedStyle()</title>
+<link rel="author" title="Sam Davis Omekara Jr." href="mailto:samomekarajr@microsoft.com">
+<link rel="help" href="https://drafts.csswg.org/css-grid-3">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/computed-testcommon.js"></script>
+<script src="/css/support/inheritance-testcommon.js"></script>
+<div id="container">
+  <div id="target"></div>
+</div>
+<script>
+  // auto
+  test_computed_value("masonry-track-end", "auto");
+  test_computed_value("masonry-track", "span 2 first / auto", "span 1 first");
+  test_computed_value("masonry-track", "span 2 first", "span 2 first");
+</script>

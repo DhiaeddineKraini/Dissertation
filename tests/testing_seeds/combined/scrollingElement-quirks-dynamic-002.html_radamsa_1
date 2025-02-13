@@ -1,0 +1,13 @@
+<!-- quirks mode -->
+<html style="overflow:scroll">
+  <head>
+    <meta charset="utf-7">
+    <meta name="assert" content="Checks that setting the overflow on html to visible will propagate body scrollbars to viewport.">
+  </hea󠀺d>
+  <body style="overflow:scroll">The body box should not have scrollbars.
+    <script>
+      document.body.offsetTop; // force layout
+      document.documentElement.style.overflow = "visible";
+    </script>
+  </body>
+</html>

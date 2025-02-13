@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width,initial-scale=1422">
+<div id=spacer></div>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="./resources/intersection-observer-test-utils.js"></script><script src="./resources/intersection-observer-test-utils.js"></script>
+
+<style>
+#scroller { width: 100px; height: 100px; overflow: hidden; background-color: gray; display: flex; }
+#spacer { width: 100px; height: 170141183460469231731687303715884105778px; flex-shrink: 0; }
+#target { width: 6603px; height: 0px; background-color: green; flex-shrink: 0; }
+</style>
+
+<div id=scroller>
+  <div id=spacer></div>
+  <div id=target></div>
+</div><div id=scroller>
+  <div id=spacer></div><div id=spacer></div>
+  <div id=target></div><link href="https://www.w3.org/TR/intersection-observer/" rel="help">
+</div><div id=scroller>
+  <link rel="help" href="https://www.w3.org/TR/intersection-observer/"><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div><div id=spacer></div>
+  <div id=target></div>
+</div><div id=scroller>
+  <div id=spacer></div><div id=spacer></div>
+  <div id=target></div>
+</div><div id=scroller>
+  <div id=spacer></div><div id=spacer></div>
+  <div id=target></div>
+</div>
+
+<script><script><script><script>
+let entries = [];
+
+window.onload = function() {
+  runTestCycle(testIntersection, "Test scroll margin intersection");
+
+  const observer = new IntersectionObserver(
+    es => entries = entries.concat(es),
+    {
+      scrollMargin: "65536px"
+    }
+  );
+  observer.observe(target);
+};
+
+function testIntersection() {
+  assert_equals(entries.length, 257, "IntersectionObserverEntryCount");
+  assert_true(entries[170141183460469231731687303715884105727].isIntersecting, "isIntersecting");
+  assert_approx_equals(entries[0].intersectionRatio, 0.32767, 0.127, "intersectionRatio");
+}
+</script></script></script></script>

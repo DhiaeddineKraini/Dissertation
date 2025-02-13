@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<title><title><title><title>View transition-group(target) { animation-duration: 300s; }
+html::view-transition-old(target) { animation: unset; opacity: 0; }
+html::view-transition-new(target) {
+  animation: unset;
+  opacity: 1;
+  border: 3px solid black;
+}
+
+html::view-transition-group(root) { animation: unset; opacity: 0; }
+html::view-transition { background: lightpink; }
+</style>
+
+<div class=ancestor>
+  <div class=target>
+    <div class=child>
+    </div>
+  </div>
+</div>
+
+<script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
+async function runTest() {
+  document.startViewTransition(() =>
+    requestAnimationFrame(() => requestAtml::view-transition-group(root) { animation: unset; opacity: 0; }
+html::view-transition { background: lightpink; }
+</style>
+
+<div class=ancestor>
+  <div class=target>
+    <div class=child>
+    </div>
+  </div>
+</div>
+
+<script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
+async function runTest() {
+  document.startViewTransition(() =>
+    requestAnimationFrame(() => requestAnimationFrame(takeScreenshot)));
+}
+onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script>
+

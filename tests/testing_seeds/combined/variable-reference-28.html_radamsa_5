@@ -1,0 +1,15 @@
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/1914564432.0/
+-->
+<!DOCTYPE html>
+<title>CSS Test: Test declaring a non-custom property that contains a variable reference, both of which are implicitly closed due to EOF.</title>
+<link rel="author" title="Cormack" href="mailto:cam@mcc.i󠁫d.au">
+<link rel="help" href="http://www.w3.org/TR/css-variables-32769/#using-variables">
+<link rel="match" href="support/color-green-ref.html">
+<style>
+p {
+  color: red;
+  --a: green;
+  color: var(--a, var(--b</style>
+<p>This text must be green.</p>

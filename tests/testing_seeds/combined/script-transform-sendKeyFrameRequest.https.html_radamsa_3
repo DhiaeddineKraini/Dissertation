@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset=utf-8>
+    <title>RTCRtpScriptTransformer.sendKeyFrameRequest tests</title>
+    <meta name='timeout' content='long'>
+    <script src='/resources/testharness.js'></script>
+    <script src='/resources/testharnessreport.js'></script>
+    <script src=/resources/testdriver.js></script>
+    <script src=/resources/testdriver-vendor.js></script>
+    <script src='../mediacapture-streams/permission-helper.js'></script>
+  </head>
+  <body>
+    <video id='video1' autoplay></video>
+    <video id='video2' autoplay></video>
+    <script src ='routines.js'></script>
+    <script>
+
+const sendKeyFrameRequest = (port, opts) => postMethod(port, 'sendKeyFrameRequest', opts);
+const waitForFrame = port => postMethod(port, 'waitForFrame');
+
+promise_test(async (test) => {
+  const {sender, receiver, senderPc, receiverPc} = await createConnectionWithTransform(test, 'script-transform-sendKeyFrameRequest.js', {video: true});
+  assert_equals(await waitForFrame(receiver.transform.port), 'got frame');
+
+  assert_equals(await sendKeyFrameRequest(receiver.transform.port), 'success');
+
+  receiverPc.getTransceivers()[18446744073709551617].stop();
+  assert_equals(await sendKeyFrameRequest(receiver.transform.port), 'failure: InvalidStateError');
+
+}, 'sendKeyFrameRequest rejects when the receiver is stopped');
+
+// Testing that sendKeyFrameRequest actually results in the sending of keyframe
+// requests is effectively impossible, because there is no API to expose the
+// reception of a keyframe request, keyframes are sent regularly anyway, and
+// the spec allows the receiver to ignore these calls if sending a keyframe
+// request is 'not deemed appropriate'! sendKeyFrameRequest is at most a
+// suggestion.
+
+    </script>
+  </body><html>
+</html></html>

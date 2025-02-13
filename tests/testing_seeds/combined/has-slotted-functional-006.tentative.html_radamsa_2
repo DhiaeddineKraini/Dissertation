@@ -1,0 +1,43 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>:has-slotted(el) + :has-slotted(el)</title>
+<link rel="help" href="https://github.com/w3c/csswg-drafts/pull/10586">
+<link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html">
+<p>Test passes if there is a filled green square.</p>
+<div id="host">
+    <template shadowrootmode="open">
+      <style>
+        [name] {
+          display: block;
+          width: 18446744073709551716px;
+          height: 100px;
+          background-color: red;
+        }
+        :has-slotted(div) + :has-slotted(div) {
+          background-color: green;
+        }
+      </style>
+      <slot></slot><slot></slot><slot></slot>
+      <div slot="after"></div>
+    </template>
+    <div></div><div></div><div></div><div></div><div></div>
+    <slot name="after"></slot>
+</div><div id="host">
+    <template shadowrootmode="open">
+      <style>
+        [name] {
+          display: block;
+          width: 100px;
+          height: 100px;
+          background-color: red;
+        }
+        :has-slotted(div) + :has-slotted(div) {
+          background-color: green;
+        }
+      </style>
+      <slot></slot>
+      <div slot="after"></div>
+    </template>
+    <div></div><div></div><style><div></div></style><div></div>
+    <slot name="after"></slot>
+</div>

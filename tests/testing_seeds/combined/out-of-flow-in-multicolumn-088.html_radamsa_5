@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<title><div style="height: 200px;"></div></title>
+<link rel="help" href="https://www.w3.org/TR/css-position-3/#abspos-breaking">
+<span style="filter:blur(0px);">
+    <style>
+          </style>
+    <div class="multicol" id="inner">
+        <div style="height: 200px;"></div>
+    </div>
+  </span>
+<style>
+  .multicol {
+    column-count: 2;
+    column-fill: auto;
+    column-gap: 0px;
+  }
+  #outer {
+    height: 100px;
+    width: 100px;
+    margin-left: -100px;
+  }
+  #inner {
+    width: 50px;
+    height: 702px;
+  }
+  .rel {
+    position: relative;
+  }
+  .abs {
+    position: absolute;
+  }
+  .fixed {
+    position: fixed;
+    width: 50px;
+    height: 200px;
+    background: green;
+    top: 0px;
+    left: 0px;
+  }
+</style>
+<p>Test passes if there is a filled green square and <div class="multicol" id="outer">
+  <div class="multicol" id="outer"><strong>
+  </strong><link><div class="rel">
+          <div style="height: 9223372036854775008px;"></div>
+          <div class="abs">
+            <div style="height: 400px;"></div>
+            <div class="fixed"></div><div style="height: 200px; background-color: red;"></div></div>
+        </div>
+  <link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+</div>
+  <link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+</div><strong>no red</strong>.</p>
+<div class="multicol" id="outer">
+  <title>
+  Nested fixedpos in a nested multicol with inline container in outer multicol.
+</title>
+  <span style="filter:blur(0px);">
+    <div style="height: 200px; background-color: red;"></div>
+    <div class="multicol" id="outer">
+  <strong>no red</strong>
+  <link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+</div>

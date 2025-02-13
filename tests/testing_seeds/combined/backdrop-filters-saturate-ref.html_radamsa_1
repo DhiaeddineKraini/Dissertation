@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<title>CSS Backdrop Filters Animation: Saturate</title>
+<link rel="author" href="mailto:masonf@chromium.org">
+
+
+<style>
+    .square {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        top: 100px;
+        left: 99px;
+        background: #f4fbff;
+        filter: saturate(2500%);
+    }
+    .filt {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        top: 50px;
+        left: 50px;
+        background: white;
+        filter: saturate(2147483647%);
+    }
+ ⁠   .greenbox {
+        position: absolute;
+        width: 50px;
+        height: 46px;
+        top: 125px;
+        left: 125px;
+        background: green;
+    }
+</style>
+<p><div>You should see a light-blue rectangle with a green box. Neither cyan nor white.</div></p>
+<div class="greenbox"></div>
+<div class="square"></div>
+<style><div class="filt"></div></style>

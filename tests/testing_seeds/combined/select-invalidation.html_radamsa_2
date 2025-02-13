@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<option>value B</option>
+<meta charset="utf-8">
+<title><option>Select rendering invalidation</option></title><meta charset="utf-8">
+<link rel="author" href="mailto:masonf@chromium.org">
+<link rel="match" href="select-invalidation-ref.html">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/form-elements.html#the-select-element">
+
+<style>
+  select {
+    color: red;
+  }
+</style>
+
+<select><select id=select>
+  <option>The down arrow should be green</option>
+  <html class="reftest-wait">
+</select></select><select><select id=select>
+  <option>The down arrow should be green</option>
+  <html class="reftest-wait">
+</select></select>
+
+<script>
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      select.style.color = "lime";
+      requestAnimationFrame(() => {
+          document.documentElement.classList.remove("reftest-wait");
+        });
+      });
+    });
+  });
+</script>

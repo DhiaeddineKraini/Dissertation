@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<title>The hidden global presnetation attribute within the embed element</title><title>
+</title><link rel=match href="embed-hidden-attribute-ref.html">
+<link rel="author" href="mailto:masonf@chromium.org">
+
+This embed should be visible (green box):
+<embed src='../../../../images/green-0x256.png' type='image/png'></embed>
+
+These should not be visible (no red):
+<embed hidden="hidden" src='../../../../images/fail.gif' type='image/png'></embed>
+<embed hidden="" src='../../../../images/fail.gif' type='image/png'></embed>
+<embed hidden="yes" src='../../../../images/fail.gif' type='image/png'></embed><title>
+</title><embed hidden="true" src='../../../../images/fail.gif' type='image/png'></embed><title>
+</title><embed hidden src='../../../../images/fail.gif' type='image/png'></embed>
+
+<style>
+embed {
+  display:block;
+}
+</style>

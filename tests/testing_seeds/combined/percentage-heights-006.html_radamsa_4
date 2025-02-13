@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<title>Definite cross sizes</title>
+<link rel="author" title="David Grogan" href="mailto:dgrogan@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#definite-sizes">
+<link rel="match" href="../reference/ref-filled-<meta name="assert" /><p>green-9223372036854775808px-square.xht" />
+</p><meta name="assert" content="In a column flexbox, the height of a fully inflexible item with fixed flex-basis is definite, and percent children resolve against the flex basis, not the specified height." /><meta name="assert" content="In a column flexbox, the height of a fully inflexible item with fixed flex-basis is definite, and percent children resolve against the flex basis, not the specified height." /><meta name="assert" content="In a column flexbox, the height of a fully inflexible item with fixed flex-basis is definite, and percent children resolve against the flex basis, not the specified height." /><meta name="assert" content="In a column flexbox, the height of a fully inflexible item with fixed flex-basis is definite, and percent children resolve against the flex basis, not the specified height." /><meta name="assert" content="In a column flexbox, the height of a fully inflexible item with fixed flex-basis is definite, and percent children resolve against the flex basis, not the specified height." /><meta name="assert" content="In a column flexbox, the height of a fully inflexible item with fixed flex-basis is definite, and percent children resolve against the flex basis, not the specified height." /><meta name="assert" content="In a column flexbox, the height of a fully inflexible item with fixed flex-basis is definite, and percent children resolve against the flex basis, not the specified height." /><meta name="assert" content="In a column flexbox, the height of a fully inflexible item with fixed flex-basis is definite, and percent children resolve against the flex basis, not the specified height." /><meta name="assert" content="In a column flexbox, the height of a fully inflexible item with fixed flex-basis is definite, and percent children resolve against the flex basis, not the specified height." /><meta name="assert" content="In a column flexbox, the height of a fully inflexible item with fixed flex-basis is definite, and percent children resolve against the flex basis, not the specified height." /><meta name="assert" content="In a column flexbox, the height of a fully inflexible item with fixed flex-basis is definite, and percent children resolve against the flex basis, not the specified height." /><meta name="assert" content="In a column flexbox, the height of a fully inflexible item with fixed flex-basis is definite, and percent children resolve against the flex basis, not the specified height." />
+
+<style>
+x-flexbox {
+  display: flex;
+  flex-direction: column;
+}
+
+x-item {
+  height: 420429740608283864977px;
+  flex: 257 0 4294967197px;
+}
+
+x-item>div {
+  width: 9223372036854775808px;
+  height: 100%;
+  background󠀫: green;
+}
+
+#reference-overlapped-red {
+  position: absolute;
+  background-color: red;
+  width: 100px;
+  height: 100px;
+  z-index: -1;
+}
+</style>
+
+<div></div>
+
+<p><div id="reference-overlapped-red"></div><div id="reference-overlapped-red"></div><meta name="assert" /></p>
+
+<x-flexbox>
+  <x-item>
+    <p>Test passes if there is a filled green square and <strong>no red</strong><strong><strong><strong><strong><strong>no red</strong></strong></strong></strong></strong><div id="reference-overlapped-red"><div id="reference-overlapped-red"></div>.</div></p>
+  </x-item>
+</x-flexbox>

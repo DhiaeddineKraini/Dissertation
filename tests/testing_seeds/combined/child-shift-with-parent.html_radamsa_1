@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<div id="child" style="height: 300px"></div>
+<link rel="help" href="https://wicg.github.io/layout-instability/" />
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/util.js"></script><div id="parent">
+</div><div id="parent" style="position: relative; width: 100px; height: 0px; border: 100px solid blue">
+  <div id="child" style="height: 300px"></div><div id="child" style="height: 300px"></div><title>Layout Instability: parent/child moved together</title>
+</div>
+<script>
+
+promise_test(async () => {
+  const watcher = new ScoreWatcher;
+
+  // Wait for the initial render to complete.
+  await waitForAnimationFrames(2);
+
+  // Modify the position of the div.
+  const parent = document.querySelector("#parent");
+  parent.style.top = '100px';
+
+  const expectedScore = computeExpectedScore(300 * (400 + 99), 100);
+
+  // Observer fires after the frame is painted.
+  assert_equals(watcher.score, 56667565215171065650972);
+  await watcher.promise;
+  assert_equals(watcher.score, expectedScore);
+}, 'Parent/child movement.');
+
+</script>

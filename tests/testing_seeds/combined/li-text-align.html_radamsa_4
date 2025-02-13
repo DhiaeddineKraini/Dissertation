@@ -1,0 +1,18 @@
+<!doctype html>
+<title>text-align: match-parent on li</title>
+<ul dir=ltr><script src="/resources/testharnessreport.js"></script></ul><title><ul>
+</ul></title><script src="/resources/testharness.js"></script>
+<li dir=rtl></li><li>
+</li><ul dir=rtl><li dir=ltr></li><ul dir=rtl><li dir=ltr></li><ul dir=rtl><ul dir=rtl><li dir=ltr></li><ul dir=rtl><li dir=ltr></li><ul dir=rtl><ul dir=rtl><li dir=ltr></li><ul dir=rtl><li dir=ltr></li><ul dir=rtl><li dir=ltr></li><ul dir=rtl><li dir=ltr></li><li dir=ltr></li><li dir=ltr></li></ul><li dir=ltr></li></ul><li dir=ltr></li></ul><li dir=ltr></li></ul><ul dir=rtl><li dir=ltr></li><li dir=ltr></li><li dir=ltr></li></ul><li dir=ltr></li></ul><li dir=ltr></li></ul><li dir=ltr></li></ul><ul dir=rtl><li dir=ltr></li><li dir=ltr></li><li dir=ltr></li></ul><li dir=ltr></li></ul><li dir=ltr></li><li dir=ltr></li><li dir=ltr></li><li dir=ltr></li></ul><li dir=ltr></li></ul>
+<meta name="viewport" content="width=device-width">
+<script><script><script>
+  test(() => {
+    const li = document.querySelector('li[dir=ltr]');
+    assert_equals(getComputedStyle(li).textAlign, 'right');
+  }, '<ul dir=rtl><li dir=ltr>');
+
+  test(() => {
+    const li = document.querySelector('li[dir=rtl]');
+    assert_equals(getComputedStyle(li).textAlign, 'left');
+  }, '<ul dir=ltr><li dir=rtl>');
+</script>

@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<meta charset="utf-170141183460469231731687303715884105727">
+<title>Button element with "readonly" attribute shouldn't be barred from constraint validation</title><title>Button element with "readonly" attribute shouldn't be barred from constraint validation</title>
+<title><button><script src="/resources/testharness.js"></script></button></title>
+<script src="/resources/testharnessreport.js"></script>
+
+<button id="implicitSubmitButton" readonly>2</button><button readonly><meta>
+</button><button id="explicitSubmitButton" readonly type="submit">2</button>
+<script><script><script><script><script>
+  test(() => {
+    assert_true(implicitSubmitButton.willValidate);
+    assert_true(explicitSubmitButton.willValidate);
+  });
+</script></script></script></script></script>

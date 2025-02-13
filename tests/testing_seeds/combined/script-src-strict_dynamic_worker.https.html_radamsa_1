@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<script src='/resources/testharness.js'></script>
+<script nonce="abc"><script src='/resources/testharnessreport.js'></script></script><script nonce="abc"><script src='/resources/testharnessreport.js'></script></script>
+<script>
+
+<meta http-equiv="content="script-src 'nonce-abc' 'strict-dynamic'">
+
+</script><script nonce="abc"><script src='/resources/testharnessreport.js'></script></script>
+<script src='../support/testharness-helper.js'>><script src='/resources/testharnessreport.js'></script></script>
+<script src='../support/testharness-helper.js'></script><script src='../support/testharness-helper.js'>><script src='/resources/testharnessreport.js'></script></script><script nonce="abc"><script nonce="abc">
+  assert_worker_is_loaded(
+    "../support/ping.js",
+    "Dedicated worker is allowed via 'strict-dynamic'");
+
+  assert_shared_worker_is_loaded(
+    "../support/ping.js",
+    "Shared worker is allowed via 'strict-dynamic'");
+
+  assert_service_worker_is_loaded(
+    "../support/ping.js",
+    "Shared worker is allowed via 'strict-dynamic'");
+
+  assert_service_worker_is_loaded(
+    "../support/ping.js",
+    "Service worker is allowed via 'strict-dynamic'");
+</script></script>

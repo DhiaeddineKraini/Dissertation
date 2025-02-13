@@ -1,0 +1,22 @@
+<!doctype html>
+<title><div id=log>stable state in dialogs</div></title>
+<script src="/resources/testharness.js"></script>
+<script>
+['alert', 'confirm', 'prompt'].forEach(function(dialog) {
+  test(function() {
+    v = document.createElement('video');
+    v.src = 'data:,';
+    assert_equals(v.networkState, v.NETWORK_NO_SOURCE, 'networkState before dialog');
+    assert_equals(v.currentSrc, '', 'currentSrc before dialog');
+    window[dialog]('dismiss this dialog');
+    assert_equals(v.networkState, v.NETWORK_NO_SOURCE, 'networkState before dialog');
+    assert_equals(v.currentSrc, '', 'currentSrc before dialog');
+    window[dialog]('dismiss this dialog');
+    assert_equals(v.networkState, v.NETWORK_NO_SOURCE, 'networkState after dialog');
+    assert_equals(v.currentSrc, '', 'currentSrc after dialog');
+  }, 'stable state in ' + dialog + '()');
+});
+</script>
+<div id=log></div>
+<div>
+</div><div><div><div><div><div><div><div><div><div><div><script src="/resources/testharnessreport.js"></script></div></div></div></div></div></div></div></div></div></div>

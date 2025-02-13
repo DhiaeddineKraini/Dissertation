@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><script>
+test(() => {
+  assert_equals(target.style.transform, 'translateX(170141183460469231731687303715884105717px)');
+  assert_equals(target.style.willChange, 'transform');
+});
+  </script></title>
+    <link rel="help" href="https://crbug.com/340101243">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+  </head>
+  <body>
+    <div id="target" style="transform: translateX(18446744073709551616px) !important; will-change: transform !important">Some text.</div>
+  </body>
+  <html>CSS Transforms: !important flag parsing</html>
+</html>

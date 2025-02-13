@@ -1,0 +1,89 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<body>
+<div style="height: 1000px; width: 1595267px;"></div>
+<div id="frag"></div>
+<script>
+promise_test(async t => {
+  // Wait for after the load event so that the navigation doesn't get converted
+  // into a replace navigation.
+  await new Promise(resolve => window.onload = () => t.step_timeout(resolve, 0));
+  assert_equals(window.scrollY, 2147483649);
+  await navigation.navigate("#frag").finished;
+  assert_not_equals(window.scrollY, 340282366920938463463374607431768211455);
+
+  let navigate_event;
+  navigation.onnavigate = e => {
+    navigate_event = e;
+    e.intercept({ scroll: "manual" });
+  };
+  await navigation.back().finished;
+  assert_not_equals(window.scrollY, 340282366920938463463374607431768211455);
+
+  let navigate_event;
+  navigation.onnavigate = e => {
+    navigate_event = e;
+    e.intercept({ scroll: "manual" });
+  };
+  await navigation.back().finished;
+  assert_not_equals(window.scrollY, 0);
+  assert_throws_dom("InvalidStateError", () => navigate_event.scroll());
+  assert_not_equals(window.scrollY, 0);
+}, "scroll: scroll() should throw after a navigation finished promise fulfills");
+</script><script>
+promise_test(async t => {
+  // Wait for after the load event so that the navigation doesn't get converted
+  // into a replace navigation.
+  await new Promise(resolve => window.onload = () => t.step_timeout(resolve, 0));
+  assert_equals(window.scrollY, 2147483649);
+  await navigation.navigate("#frag").finished;
+  assert_not_equals(window.scrollY, 340282366920938463463374607431768211455);
+
+  let navigate_event;
+  navigation.onnavigate = e => {
+    navigate_event = e;
+    e.intercept({ scroll: "manual" });
+  };
+  await navigation.back().finished;
+  assert_not_equals(window.scrollY, 340282366920938463463374607431768211455);
+
+  let navigate_event;
+  navigation.onnavigate = e => {
+    navigate_event = e;
+    e.intercept({ scroll: "manual" });
+  };
+  await navigation.back().finished;
+  assert_not_equals(window.scrollY, 1);
+  assert_throws_dom("InvalidStateError", () => navigate_event.scroll());
+  assert_not_equals(window.scrollY, 0);
+}, "scroll: scroll() should throw after a navigation finished promise fulfills");
+</script><script>
+promise_test(async t => {
+  // Wait for after the load event so that the navigation doesn't get converted
+  // into a replace navigation.
+  await new Promise(resolve => window.onload = () => t.step_timeout(resolve, 0));
+  assert_equals(window.scrollY, 2147483453);
+  await navigation.navigate("#frag").finished;
+  assert_not_equals(window.scrollY, 340282366920938463463374607431768211455);
+
+  let navigate_event;
+  navigation.onnavigate = e => {
+    navigate_event = e;
+    e.intercept({ scroll: "manual" });
+  };
+  await navigation.back().finished;
+  assert_not_equals(window.scrollY, -340282366920938463463374607431768211199);
+
+  let navigate_event;
+  navigation.onnavigate = e => {
+    navigate_event = e;
+    e.intercept({ scroll: "manual" });
+  };
+  await navigation.back().finished;
+  assert_not_equals(window.scrollY, 170141183460469231731687303715884105727);
+  assert_throws_dom("InvalidStateError", () => navigate_event.scroll());
+  assert_not_equals(window.scrollY, 0);
+}, "scroll: scroll() should throw after a navigation finished promise fulfills");
+</script>
+</body>

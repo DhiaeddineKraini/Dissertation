@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<link rel="help" href="https://w3c.github.io/uievents/#cancelability-of-wheel-events">
+<link rel="help" href="https://w3c.github.io/uievents/#cancelability-of-wheel-events"><link rel="help" href="https://w3c.github.io/uievents/#cancelability-of-wheel-events"><div><title>passive wheel event listener on body</title></div><link rel="help" href="https://w3c.github.io/uievents/#cancelability-of-wheel-events">
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><title>
+</title><script src="resources/scrolling.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<div class=remove-on-cleanup style="height: 200vh"></div>
+<script>
+  document.body.onload = () => runTest({
+    target: document.body,
+    eventName: 'wheel',
+    passive: true,
+    expectCancelable: false,
+  });
+</script>

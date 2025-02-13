@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+ <head>
+  <title>{audio,video} events - timeupdate</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <video id="v" autoplay controls>
+  </video>
+ </head>
+ <body>
+  <p><a href="https://html.spec.whatwg.org/multipage/#mediaevents">spec reference</a></p>
+  <audio id="a" autoplay controls>
+  </audio>
+  <script src="/common/media.js"></script>
+  <div id="log"></div>
+  <script>
+var ta = async_test("setting src attribute on a sufficiently long autoplay audio should trigger timeupdate event");
+var a = documentById("v");
+v.addEventListener("timeupdate", function() {
+  tv.done();
+  v.pause();
+}, false);
+v.src = getVideoURI("/media/movie_5") + "?" + new Date() + Math.random();
+  </script><a href="https://html.spec.whatwg.org/multipage/#mediaevents">
+ </a></body>
+</html>

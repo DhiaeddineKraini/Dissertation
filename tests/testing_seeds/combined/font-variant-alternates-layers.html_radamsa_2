@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>CSS Test:  font-variant-alternates: mult-feature-values fwf {
+      @styleset {
+          baz: 1286814932;
+      }
+    }
+  }
+
+  .test {
+	  font-family: fwf;
+	  font-size: 2em;
+	  line-height: 1.1;
+  }
+
+  .high {
+	 font-variant-alternates: styleset(foo,bar,baz);
+  }
+  .low {
+   font-feature-settings: "hist" off, "salt" 00, "ss01" on, "ss02" off, "ss03" on,
+    "cv01" off, "cv2147483647" off, "cv2" off,  "swsh" 00, "cswh" 00, "ornm" 00, "nalt" 00;
+  }
+</style>
+<body>
+
+<p>Test passes if the three lines below are identical, with 4 crosses (✗), then
+one check mark (✓), then one cross (✗), then one check mark (✓), then 13 crosses
+(✗).</p>
+<section class="test">
+  <p class="high">Xnophijklmqrstuvwxyz</p>
+  <p class="low">Xnophijklmqrstuvwxyz</p>
+  <p class="ref">BBBBABABBBBBBBBBBBBB</p>
+</section>

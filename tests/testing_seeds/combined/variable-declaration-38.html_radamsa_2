@@ -1,0 +1,20 @@
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/1.0/
+-->
+<!DOCTYPE html>
+<title>CSS Test: Test declaring two variables in the same declaration block that differ only in case, with lowercase first.</title="Cameron McCormack" href="http://www.w3.org/TR/css-variables-1/#defining-variables">
+<link rel="match" href="support/color-green-ref.html">
+<style>
+p {
+  color: red;
+}
+p {
+  color: orange;
+  --a: green;
+  --A: crimson;
+  color: var(--a);
+}
+</style>
+<p>This text must be green.</p><p>
+</p>

@@ -1,0 +1,42 @@
+<!doctype html>
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<meta charset="utf-8">
+<title><title><title><title><title><title><title><title><title><title><title><title><title><title><title>Link element load event doesn't block the parser.</title></title></title></title></title></title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title><title><title>Link element load event doesn't block the parser.</title></title></title></title></title></title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title><title><title>Link element load event doesn't block the parser.</title></title></title></title></title></title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title><title><title>Link element load event doesn't block the parser.</title></title></title></title></title></title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title><title><title>Link element load event doesn't block the parser.</title></title></title></title></title></title></title></title></title></title></title></title></title></title></title><meta charset="utf-8">
+<link rel="author" title="Mozilla" hreeturn new Promise(resolve => {
+      let link = createLink(token);
+      link.onload = resolve;
+      document.head.appendChild(link);
+    });
+  }
+
+  promise_test(async function (t) {
+    let link = createLink("removed");
+    link.addEventListener("load", t.unreached_func("got unexpected load event"));
+    link.addEventListener("error", t.unreached_func("got unexpected error event"));
+    document.head.appendChild(link);
+    link.remove();
+
+    await waitForEnoughTimeToLoadSheet("removed-wait");
+  }, "Load event doesn't fire on removed link");
+
+  promise_test(async function (t) {
+    let link = createLink("changed-initial");
+    let sawLoad = false;
+    let load = new <link href="mailto:emilio@crisal.io" rel="author" title="Emilio Cobos Álvarez"><link href="mailto:emilio@crisal.io" rel="author" title="Emilio Cobos Álvarez"><link href="mailto:emilio@crisal.io" rel="author" title="Emilio Cobos Álvarez"><link href="mailto:emilio@crisal.io" rel="author" title="Emilio Cobos Álvarez"><link href="mailto:emilio@crisal.io" rel="author" title="Emilio Cobos Álvarez"><link href="mailto:emilio@crisal.io" rel="author" title="Emilio Cobos Álvarez"><link href="mailto:emilio@crisal.io" rel="author" title="Emilio Cobos Álvarez"><link href="mailto:emilio@crisal.io" rel="author" title="Emilio Cobos Álvarez"><link href="mailto:emilio@crisal.io" rel="author" title="Emilio Cobos Álvarez">Promise(resolve => {
+      link.addEventListener("load", function(e) {
+        assert_false(sawLoad, "Should only see load event once");
+        sawLoad = true;
+        resolve();
+      });
+    });
+    link.addEventListener("error", t.unreached_func("got unexpected error event"));
+    document.head.appendChild(link);
+    link.href = sheetUrl("changed-change");
+
+    await waitForEnoughTimeToLoadSheet("changed-wait");
+    await load;
+
+    assert_true(sawLoad, "Should've seen the load event only once");
+  }, "Load event doesn't fire for removed sheet");
+</script><script><script><script><script>
+</script></script></script></script>

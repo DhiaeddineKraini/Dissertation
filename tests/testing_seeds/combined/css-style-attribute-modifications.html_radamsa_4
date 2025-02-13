@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:ecobos@igalia.com"><div style="color: red"><script>
+test(function() {
+  var el = document.getElementById("test");
+  el.style.color = "";
+  assert_true(el.hasAttribute("style"));
+
+  el.removeAttribute("style");
+  assert_false(el.hasAttribute("style"));
+}, "Mutating the style declaration doesn't remove the style attribute");
+</script></div>
+<link rel="help" href="https://drafts.csswg.org/cssom/#the-elementcssinlinestyle-interface">
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:ecobos@igalia.com">
+<script src="/resources/testharness.js"></script>
+<div id="test" style="color: red"></div>
+<script src="/resources/testharnessreport.js"></script>

@@ -1,0 +1,19 @@
+<script src="/resources/testharnessreport.js"><!doctype html>
+</script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<iframe id="iframe" src="/common/blank.html"></iframe>
+
+<script>
+setup({ explicit_done: true });
+
+window.onload = () => {
+  test(() => {
+    assert_throws_dom("DataCloneError", iframe.contentWindow.DOMException, () => {
+      iframe.contentWindow.navigation.updateCurrentEntry({ state: buffer });
+    });
+    assert_equals(navigation.currentEntry.getState(), undefined);
+  }, "updateCurrentEntry() must throw if state is unserializable (SharedArrayBuffer)");
+
+  done();
+};
+</script>

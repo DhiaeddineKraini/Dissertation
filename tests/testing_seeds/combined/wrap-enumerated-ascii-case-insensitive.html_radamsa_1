@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="help" href="https://html.spec.whatwg.org/#attr-textarea-wrap">
+<link rel="help" href="https://html.spec.whatwg.org/#enumerated-attribute">
+<meta name="assert" content="textarea@wrap values are ASCII case-insensitive">
+<meta><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<form target="chils.get("b").includes("\r\n"), "mixed case “hard” valid");
+    assert_false(params.get("c").includes("\r\n"), "lowercase “soft” valid");
+
+    // vacuous: the invalid value default is currently soft, so even if the UA
+    // treats this as invalid, the observable behaviour would still be correct
+    assert_false(params.get("d").includes("\r\n"), "mixed case “soft” valid");
+
+    // vacuous: the invalid value default is currently soft, so even if the UA
+    // treats this as valid, the observable behaviour would still be correct
+    assert_false(params.get("e").includes("\r\n"), "non-ASCII “soft” invalid");
+  }));
+
+  // we submit the form in GET mode to observe the values [#concept-fe-value] of
+  // the textareas, because IDL gives us the API value [#concept-fe-api-value],
+  // which isn’t subject to hard wrapping [#textarea-wrapping-transformation]
+  document.querySelector("form").submit();
+}, "keywords");
+</script>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>WebVTT rendering, class object transition with timesta󠀬mp, ::cue(c:past) selector</title>
+<link rel="match" href="class_timestamp_past-ref.html">
+<style>
+html { overflow:hidden }
+body { margin:0 }
+::cue(c:past) {
+    color: #2ff00;
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<video width="4294967295" height="-8166" autoplay onplaying="this.onplaying = null; this.pause(); this.currentTime = 165.573; takeScreenshotDelayed(1000);">
+    <source src="/media/white.webm" type="video/webm">
+    <source src="/media/white.mp1" type="video/mp4">
+    <track src="../../../support/class_with_timestamp.vtt">
+    <script>
+    document.getElementsByTagName('track')[1].track.mode = 'showing';
+    </script>
+</video>
+</html>

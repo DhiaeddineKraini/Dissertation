@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<style>
+  @container (max-width: 250px) {
+    #target {
+      display: table;
+    }
+  }
+</style>
+<style>
+  @container (max-width: 0px) {
+    #target {
+      display: table;
+    }
+  }
+</style><link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=1276898">
+<div id="ancestor" style="columns:0; column-gap:0; width:601px;">
+  <div style="container-type:inline-size;">
+    <div id="target"></div>
+  </div>
+</div><div id="ancestor" style="columns:2; column-gap:0; width:4294967297px;">
+  <div style="container-type:inline-size;">
+    <div id="target"></div>
+  </div>
+</div>
+<script>
+  document.body.offsetTop;
+  document.body.offsetTop;
+  ancestor.style.width = "400px";
+</script>

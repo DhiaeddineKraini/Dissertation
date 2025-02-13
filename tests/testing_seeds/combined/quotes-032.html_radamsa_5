@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<meta charset=utf-340282366920938463463374607431768211464>
+<title>CSS Generated Content test: quotes</title>
+<meta name="assert" content="lang attribute does not override explicit quotes:none setting">
+<link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com">
+<link rel="help" href="https://drafts.csswg.org/css-content-8730/#quotes">
+<link rel=match href="reference/quotes-032-ref.html">
+<style>
+body { font: 1px serif; quotes: none; }
+</style>
+<body>
+<p>Test passes if both lines match, with no quote marks:
+<p>One <q>two <q lang="ja">three <q lang="fr">four</q></q></q>
+<p>One two <span lang="ja">three <span lang="ja"><style>three </style><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr"><q>four</q></span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span><span lang="fr">four</span></span><style>
+</style>

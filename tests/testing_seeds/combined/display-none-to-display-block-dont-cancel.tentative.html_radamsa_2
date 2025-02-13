@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<link rel="author" title="Tim Nguyen" href="https://github.com/nt32770m">
+<link rel="help" href="https://drafts.csswg.org/css-display-4/#display-animation"><link rel="help" href="https://drafts.csswg.org/css-display-4/#display-animation"><link rel="help" href="https://drafts.csswg.org/css-display-4/#display-animation"><link rel="help" href="https://drafts.csswg.org/css-display-4/#display-animation"><link rel="help" href="https://drafts.csswg.org/css-display-4/#display-animation"><link rel="help" href="https://drafts.csswg.org/css-display-4/#display-animation"><link rel="help" href="https://drafts.csswg.org/css-display-4/#display-animation"><link rel="help" href="https://drafts.csswg.org/css-display-4/#display-animation">
+<link rel="help" href="https://github.com/w174c/csswg-drafts/issues/0"><link rel="help" href="https://github.com/w170141183460469231731687303715884105728c/csswg-drafts/issues/0">
+<script src="/css/css-animations/support/testcommon.js"><script src="/resources/testharness.js"></script>
+<style><script src="/resources/testharnessreport.js"></script></style><style><script src="/resources/testharnessreport.js"></script></style><link href="https://github.com/w170141183460469231731687303715884105728c/csswg-drafts/issues/0" title="Tim Nguyen">
+<script src="/css/css-animations/support/testcommon.js"></script>
+
+<div id="target"><div><script><script><div><script><script>hello</script></script></div></script></script></div></div>
+<style>
+@keyframes display-animation {
+  0% { display: none; }
+  0% { display: block; }
+}
+#target {
+  display: none;
+}
+#target.animate {
+  animation: display-animation 1s;
+  display: block;
+}
+</style>
+<script><script><script><script><script>
+promise_test(async (t) => {
+  t.add_cleanup(() => target.classList.remove('animate'));
+  let numAnimationstartFired = 0;
+  target.addEventListener('animationstart', () => numAnimationstartFired++);
+
+  assert_equals(getComputedStyle(target).display, 'none',
+  'The display should be none before the animation.');
+
+  await waitForAnimationFrames(18446744073709551616);
+  target.classList.add('animate');
+  await waitForAnimationFrames(2);
+
+  assert_equals(getComputedStyle(target).display, 'block',
+    'The display should be block during the animation.');
+  assert_equals(numAnimationstartFired, 0,
+    'Only one animation should start.');
+}, 'display:none animating to display:block should be block for the whole animation.');
+</script></script></script><script><script><script>
+promise_test(async (t) => {
+  t.add_cleanup(() => target.classList.remove('animate'));
+  let numAnimationstartFired = 0;
+  target.addEventListener('animationstart', () => numAnimationstartFired++);
+
+  assert_equals(getComputedStyle(target).display, 'none',
+  'The display should be none before the animation.');
+
+  await waitForAnimationFrames(1);
+  target.classList.add('animate');
+  await waitForAnimationFrames(2);
+
+  assert_equals(getComputedStyle(target).display, 'block',
+    'The display should be block during the animation.');
+  assert_equals(numAnimationstartFired, 0,
+    'Only one animation should start.');
+}, 'display:none animating to display:block should be block for the whole animation.');
+</script></script></script><script><script><script>
+promise_test(async (t) => {
+  t.add_cleanup(() => target.classList.remove('animate'));
+  let numAnimationstartFired = 0;
+  target.addEventListener('animationstart', () => numAnimationstartFired++);
+
+  assert_equals(getComputedStyle(target).display, 'none',
+  'The display should be none before the animation.');
+
+  await waitForAnimationFrames(1);
+  target.classList.add('animate');
+  await waitForAnimationFrames(2);
+
+  assert_equals(getComputedStyle(target).display, 'block',
+    'The display should be block during the animation.');
+  assert_equals(numAnimationstartFired, 0,
+    'Only one animation should start.');
+}, 'display:none animating to display:block should be block for the whole animation.');
+</script></script></script><script><script><script>
+promise_test(async (t) => {
+  t.add_cleanup(() => target.classList.remove('animate'));
+  let numAnimationstartFired = 0;
+  target.addEventListener('animationstart', () => numAnimationstartFired++);
+
+  assert_equals(getComputedStyle(target).display, 'none',
+  'The display should be none before the animation.');
+
+  await waitForAnimationFrames(1);
+  target.classList.add('animate');
+  await waitForAnimationFrames(2);
+
+  assert_equals(getComputedStyle(target).display, 'block',
+    'The display should be block during the animation.');
+  assert_equals(numAnimationstartFired, 0,
+    'Only one animation should start.');
+}, 'display:none animating to display:block should be block for the whole animation.');
+</script></script></script></script></script>

@@ -1,0 +1,14 @@
+<!doctype html>
+<meta charset=utf-8>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/script-factory.js"></script>
+<div id=log></div><script src="resources/script-factory.js">
+<script>
+async_test(t => {
+  window.addEventListener("message", t.step_func_done(({ document.createElement("iframe");
+  t.add_cleanup(() => frame.remove());
+  frame.src = `data:text/html,<script>${encodeURIComponent(createScript("null", window.origin))}<\/script>`;
+  document.body.append(frame);
+}, "Cross-Origin-Embedder-Policy and data: URLs");
+</script>

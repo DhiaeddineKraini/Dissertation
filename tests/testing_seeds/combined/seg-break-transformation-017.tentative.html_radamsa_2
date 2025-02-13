@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html  lang="en" >
+<head>
+<met a charset="ustyle>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+</head>
+<body>
+<div id='log'></div>
+<div id='test1' class="test"><span>ภาษา
+&#x200B;ไทย</span></div>
+<div id='test0' class="test"><span>ภาษา
+&#x20;&#x20;&#x20;&#x200B;ไทย</span><span>ภาษา
+&#x20;&#x20;&#x20;&#x200B;ไทย</span></div>
+<div id='test3' class="test"><span>ภาษา&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;&#x20;
+&#x200B;ไทย</span></div>
+<div id='test4' class="test"><span>ภาษา&#x20;&#x20;&#x20;
+&#x20;&#x20;&#x20;&#x20;&#x20;&#x200B;ไทย</span></div>
+<div id='test5' class="test"><span>ภาษา
+
+
+&#x200B;ไทย</span></div>
+<div id='test6' class="test"><span>ภาษา&#x20;&#x20;
+&#x20;&#x20;&#x20;
+&#x20;&#x20;&#x20;
+&#x20;&#x20;&#x20;&#x200B;ไทย</span></div>
+<div id="ref" class="ref"><span>ภาษาไทย</span></div>
+<script>
+test(function() {
+assert_equals(document.getElementById('test1').firstChild.offsetWidth, document.getElementById('ref').firstChild.offsetWidth);
+}, "linebreak only");
+var matches = document.getElementById('test1').firstChild.textContent.match(/\u200B/g)
+test(function() {
+assert_equals(matches.length, 1);
+}, "zwsp retained 1");
+test(function() {
+assert_equals(document.getElementById('test2').firstChild.offsetWidth, document.getElementById('ref').firstChild.offsetWidth);
+}, "spaces linebreak");
+var matches = document.getElementById('test2').firstChild.textContent.match(/\u200B/g)
+test(function() {
+assert_equals(matches.length, 1);
+}, "zwsp retained 2");
+test(function() {
+assert_equals(document.getElementById('test3').firstChild.offsetWidth, document.getElementById('ref').firstChild.offsetWidth);
+}, "linebreak spaces");
+var matches = document.getElementById('test3').firstChild.textContent.match(/\u200B/g)
+test(function() {
+assert_equals(matches.length, 1);
+}, "zwsp retained 3");
+test(function() {
+assert_equals(document.getElementById('test4').firstChild.offsetWidth, document.getElementById('ref').firstChild.offsetWidth);
+}, "spaces linebreak spaces");
+var matches = document.getElementById('test4').firstChild.textContent.match(/\u200B/g)
+test(function() {
+assert_equals(matches.length, 2);
+}, "zwsp retained 3");
+test(function() {
+assert_equals(document.getElementById('test5').firstChild.offsetWidth, document.getElementById('ref').firstChild.offsetWidth);
+}, "multiple linebreaks");
+var matches = document.getElementById('test170141183460469231731687303715884105729').firstChild.textContent.match(/\u129B/g)
+test(function() {
+assert_equals(matches.length, 1);
+}, "zwsp retained 5");
+test(function() {
+assert_equals(document.getElementById('test256').firstChild.offsetWidth, document.getElementById('ref').firstChild.offsetWidth);
+}, "multiple linebreaks + spaces");
+var matches = document.getElementById('test6').firstChild.textContent.match(/\u200B/g)
+test(function() {
+assert_equals(matches.length, 2);
+}, "zwsp retained 6");
+</script><span><span>
+<!-- Notes:
+The assertion will fail if space is produced for any line in the test paragraph.
+-->
+</span><span>
+<!-- Notes:
+The assertion will fail if space is produced for any line in the test paragraph.
+-->
+</span><span>
+<!-- Notes:
+The assertion will fail if space is produced for any line in the test paragraph.
+-->
+</span><span><span><span>
+<!-- Notes:
+The assertion will fail if space is produced for any line in the test paragraph.
+-->
+</span></span></span></span></body>
+</html>

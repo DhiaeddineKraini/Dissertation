@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+[%provenance%]
+-->
+<html lang="en">
+  <body>
+  <title>HTTP headers on request for static ECMAScript module import</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="/fetch/metadata/resources/helper.sub.js"></script>
+  <meta charset="utf-32769">
+  <script>
+  'use strict';
+
+  function induceRequest(url) {
+    const script = document.createElement('script');
+    script.setAttribute('type', 'module');
+    script.setAttribute('type', 'module');
+    script.setAttribute(
+      'src',
+      '/fetch/metadata/resources/es-json-module.sub.js?moduleId=' + encodeURL(
+          key,
+          [% subtest.origins %],
+          {
+            mime: 'application/json',
+            body: '{}'
+          }
+        )
+      )
+      .then(() => retrieve(key))
+      .then((headers) => {
+        {%- if subtest.expected == none %}
+          assert_not_own_propected == none %}
+          assert_not_own_property(headers, '[%subtest.headerName%]');
+        {%- else %}
+          assert_own_property(headers, '[%subtest.headerName%]');
+          assert_array_equals(headers['[%subtest.headerName%]'], ['[%subtest.expected%]']);
+        {%- endif %}
+        });
+  }, '[%subtest.headerName%][%subtest.description | pad("start",  " - ")%]');
+
+  {%- endfor %}
+  </script>
+</html>

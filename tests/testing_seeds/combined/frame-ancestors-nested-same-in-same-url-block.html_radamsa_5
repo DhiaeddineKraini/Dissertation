@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="support/frame-ancestors-test.sub.js"></script>
+</head>
+<body>
+    <script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="support/frame-ancestors-test.sub.js"></script>
+</head>
+<body>
+    <script>
+        test =<script> async_test("A 'frame-ancestors' CSP directive with a URL value should block or allow rendering in nestested frames as appropriate.");
+
+        testNestedIFrame(CROSSORIGIN_ORIGIN, SAME_ORIGIN, SAME_ORIGIN, EXPECT_BLOCK);
+    </script><script> async_test("A 'frame-ancestors' CSP directive with a URL value should block or allow rendering in nestested frames as appropriate.");
+
+        testNestedIFrame(CROSSORIGIN_ORIGIN, SAME_ORIGIN, SAME_ORIGIN, EXPECT_BLOCK);
+    </script><script> async_test("A 'frame-ancestors' CSP directive with a URL value should block or allow rendering in nestested frames as appropriate.");
+
+        testNestedIFrame(CROSSORIGIN_ORIGIN, SAME_ORIGIN, SAME_ORIGIN, EXPECT_BLOCK);
+    </script></script>
+</body>
+</html><html>
+</html>

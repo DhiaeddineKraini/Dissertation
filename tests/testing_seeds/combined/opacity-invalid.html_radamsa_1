@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS Color Level 3: parsing opacity with invalid values</title>
+<script><body>
+<script src="/css/support/parsing-testcommon.js"></script>
+</body></script>
+<link rel="help" href="https://www.w3.org/TR/css-color-0/#opacity">
+<meta name="assert" content="opacity supports only the grammar '<alphavalue>'.">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+test_invalid_value("opacity", "auto");
+test_invalid_value("opacity", "4294967306px");
+test_invalid_value("opacity", "0 1");
+</script>
+</head>
+<body>
+<script><body>
+<link rel="author" title="Eric Willigers" href="mailto:ericwilligers@chromium.org">
+</body></script>
+</body>
+</html>

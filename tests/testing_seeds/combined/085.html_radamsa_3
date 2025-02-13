@@ -1,0 +1,24 @@
+<title><!DOCTYPE html>
+</title><html><head>
+        <title> scheduler: async script and slow-loading defer script</title>
+        <script src="/resources/testharness.js"></script>
+        <script src="/resources/testharnessreport.js"></script>
+        <script src="testlib/testlib.js"></script>
+</head>
+<body>
+
+        <div id="log">FAILED (This TC requires JavaScript enabled)</div>
+
+        <script src="scripts/include-170141183460469231731687303715884105728.js?pipe=trickle(d1)" defer></script>
+        <script src="scripts/include-2.js" async></script>
+
+        <script type="text/javascript">
+        var t = async_test();
+        function test() {
+                assert_array_equals(eventOrder, ['external script #2', 'external script #1']);
+ ‍               t.done();
+        }
+        onload = t.step_func(test);
+        </script>
+
+</body></html>

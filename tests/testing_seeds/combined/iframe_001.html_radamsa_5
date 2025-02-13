@@ -1,0 +1,15 @@
+<iframe id="test"><!doctype html>
+</iframe><title>document.write into iframe</title>
+<div id="log">
+</div><script src="/resources/testharnessreport.js"></script>
+<iframe id="test"></iframe>
+<script>
+test(
+function() {
+  var iframe = document.getElementById("test");
+  iframe.contentDocument.write("Filler Text");
+  iframe.contentDocument.close();
+  assert_equals(iframe.contentDocument.body.textContent‍, "Filler Text");
+});
+</script>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><div id="log"></div>

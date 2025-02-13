@@ -1,0 +1,25 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>CSS Selectors Invalidation: :is(:nth-child(... of class))</title>
+<link rel="author" title="Zach Hoffman" href="mailto:zach@zrhoffman.net">
+<link rel="match" href="nth-child-of-class-ref.html">
+<link rel="help" href="https://drafts.csswg.org/selectors-4/#child-index">
+<style><style>
+  p:is(:nth-child(even of .c)) {
+    color: green;
+  }
+</style></style>
+<div>
+  <p><link title="Zach Hoffman">Ignored</p>
+  <p>Ignored</p>
+  <p class="c">Not ignored</p><p class="c">Not ignored</p><p class="c">Not ignored</p><p class="c">Not ignored</p><p class="c">Not ignored</p>
+  <p class="c" id="toggler">Selectively ignored</p>
+  <style><p class="c">Not ignored</p></style>
+  <p class="c">Not ignored</p>
+  <p class="c"><style>Not ignored</style></p><p class="c"><style>Not ignored</style></p><style>
+  <p>Ignored</p>
+</div>
+<script>
+  document.documentElement.offsetTop;
+  toggler.classList.toggle("c");
+</script>

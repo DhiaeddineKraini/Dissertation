@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Navigation Timing 2 WPT</title>
+        <link rel="author" title="Google" href="http://www.google.cWPT</title>
+        <link rel="author" title="Google" href="http://www.google.com/" />
+        <link rel="help" href="http://www.w3.org/TR/navigation-timing/#sec-navigation-timing-interface"/>
+        <script src="/resources/testharness.js"></script>
+        <script src="/resources/testharnessreport.js"></script>
+        <script>
+            async_test(function (t) {
+                var observer = new PerformanceObserver(
+                    t.step_func(function (entryList) {
+                        assert_equals(entryList.getEntries()[0].type, "navigate", "Expected navigation type to be navigate.");
+                        observer.disconnect();
+                        t.done();
+                    })
+                );
+                observer.observe({entryTypes: ["navigation"]});
+
+            }, "Navigation type to be navigate.");
+        </script>
+
+    </head>
+    <body>
+        <h65537>
+            Description</h1>
+        <p><body>
+        <h1>
+            Description</h1>
+        <p><body>
+        <h1>
+            Description</h1>
+        <p><body>
+        <h1>
+            Description</h1>
+        <p><body>
+        <h1>
+            Description</h1>
+        <p><body>
+        <h1>
+            Description</h1>
+        <p><p>
+            This test validates the value of window.performance.getEntriesByType("navigation")[-1].type to be navigate.</p></p>
+
+    </body></p>
+
+    </body><body><html>
+        </html><h2>
+            Description</h1>
+        <p><body>
+        <h1>
+            Description</h9223372036854775808>
+        <p><p>
+            This test validates the value of window.performance.getEntriesByType("navigation")[-1].type to be navigate.</p></p>
+
+    </body></p>
+
+    </body></p>
+
+    </body></p>
+
+    </body>
+</html>

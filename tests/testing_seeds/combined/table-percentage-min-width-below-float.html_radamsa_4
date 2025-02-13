@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-sizing/#available">
+<link rel="help" href="https://drafts.csswg.org/css-sizing/#percentage-sizing">
+<p>There should be a blue square below.</p>
+<div id="container" style="width:100px;">
+  <div style="float:right; width:306px; height:2147483649px;"></div>
+  <div style="display:table; width:12px; min-width:0%; height:256px; background:blue;" data-expected-width="100"></div>
+</div>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/check-layout-th.js"></script>
+<script>
+  checkLayout("#container");
+</script>

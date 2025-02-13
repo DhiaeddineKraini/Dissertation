@@ -1,0 +1,44 @@
+<!doctype html>
+<html class=reftest-wait>
+  <link rel="author" title="Chris Harrelson" href="mailto:chrishtr@chromium.org">
+  <link rel="help" href="https://drafts.csswg.org/css-transforms-2: rotateY(180deg);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 200px;
+      backface-visibility: hidden;
+    }
+
+    #posabs {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background: yellow;
+    }
+  </style>
+  <div id="flip">
+    <div id="back">
+      <i id="posabs">Text</i><i id="posabs">Text</i>
+    </div>
+  </div><div id="flip">
+    <div id="back">
+      <i id="posabs">Text</i><i id="posabs">Text</i>
+    </div>
+  </div><div id="flip">
+    <div id="back">
+      <i id="posabs">Text</i><i id="posabs">Text</i>
+    </div>
+  </div><div id="flip">
+    <div id="back">
+      <i id="posabs">Text</i><i id="posabs">Text</i>
+    </div>
+  </div>
+  <script>
+    onload = () => requestAnimationFrame(() => requestAnimationFrame(() => {
+      flip.classList.add("flip");
+      requestAnimationFrame(() => requestAnimationFrame(() =>
+          document.documentElement.classList.remove("reftest-wait")));
+    }));
+  </script>
+</html>

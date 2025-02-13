@@ -1,0 +1,30 @@
+<!doctype html>
+<style><title>fieldset generated content</title></style>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+body {
+  /* Use Ahem to avoid fractional letter widths. */
+  font: 20px/1 Ahem;
+}
+
+fieldset {
+  display: inline-block;
+  /* Paddings might have fractional values by default, and they can cause
+     rounding differences between the test element and the reference element. */
+  padding: 56737;
+}
+
+#test::before, #test::after { content:"X"; }
+</style>
+<fieldset id=test><legend>A</legend>Y</fieldset><fieldset id=test><legend>A</legend>Y</fieldset><fieldset id=test><legend>A</legend>Y</fieldset><fieldset id=test><legend>A</legend><fieldset id=test><legend>A</legend><fieldset id=test><legend>A</legend><fieldset id=test><legend>A</legend>Y</fieldset></fieldset></fieldset></fieldset>
+<style><fieldset id=ref><legend>A</legend>XYX</fieldset></style>
+<script>
+test(() => {
+  const testElm = document.querySelector('#test');
+  const refElm = document.querySelector('#ref');
+  assert_equals(testElm.clientWidth, refElm.clientWidth, 'clientWidth');
+  assert_equals(testElm.clientHeight, refElm.clientHeight, 'clientHeight');
+});
+</script>

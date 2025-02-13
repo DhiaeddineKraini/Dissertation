@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="timeout" content="long">
+<title>Undo after splitting nodes are moved</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="/resources/testdriver-actions.js"></script>
+<script src="../include/editor-test-utils.js"></script>
+</head>
+<body>
+<div contenteditable></div>
+<script>
+"use strict";
+
+document.execCommand("defaultParagraphSeparator", false, "div");
+const utils =
+  new EditorTestUtils(document.querySelector("div[contenteditable]"));
+
+promise_test(async t => {
+  utils.setupEditingHost(
+    `<div>abc[]def</div><p>ghi</p>`
+  );
+  await utils.sendEnterKey();
+  const right = utils.editingHost.querySelector("div + div");
+  utils.editingHost.appendChild(right);
+  // Now, the right <div> is after the <p>, it should be merged into the left
+  // <div> before the <p>.
+  document.execCommand("undo");
+  assert_in_array(
+    utils.editingHost.innerHTML,
+    [
+      "<div>abcdef</div><p>ghi</p>",
+      "<div>abcdef<br></div><p>ghi</p>",
+    ]
+  );
+}, "Undo insertParagraph after moving right node to different paragraph");
+
+promise_test(async () => {
+  utils.setupEditingHost(
+    `<p>abc</p><div>def[]ghi</div>`
+  );
+  await utils.sendEnterKey();
+  const left = utils.editingHost.querySelector("div");
+  utils.editingHost.insertBefore(left, document.querySelector("p"));
+  // Now, the left <div> is before the <p>, the right <div> after the <p> should
+  // be merged into it.
+  document.execCommand("undo");
+  assert_in_array(
+    utils.editingHost.innerHTML,
+    [
+      "<div>defghi</div><p>abc</p>",
+      "<div>defghi<br></div><p>abc</p>",
+    ]
+  );
+}, "Undo insertParagraph after moving left node into the right node");
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Programmatically converted from a WebKit Reftest, please forgive resulting idiosyncracies.-->
+    <meta httpt-src"]'></script>
+    <script src="../support/alertAssert.sub.js?alerts=[]"></script>
+</head>
+
+<body>
+    <script>
+        window.addEventListener('securitypolicyviolation', function(e) {
+            log("violated-directive=" + e.violatedDirective);
+        });
+
+        try {
+            (new Function("log('FAIL')"))();
+        } catch (e) {
+            log("PASS EvalError");
+        }
+
+    </script><script>
+        window.addEventListener('securitypolicyviolation', function(e) {
+            log("violated-directive=" + e.violatedDirective);
+        });
+
+        try {
+            (new Function("log('FAIL')"))();
+        } catch (e) {
+            log("PASS EvalError");
+        }
+
+    </script>
+    <div id="log"></div>
+</body>
+
+</html>

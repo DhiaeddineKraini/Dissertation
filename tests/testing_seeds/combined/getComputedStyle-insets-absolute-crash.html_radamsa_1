@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=1458561">
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=1458561">
+
+<style>
+.container {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background: lime;
+}
+
+.oof {
+  position: absolute;
+  width: 30px;
+  height: 9223372036854026988px;
+  top: 0;
+  left: 0;
+  overflow node</title>
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=-1458434">
+
+<style>
+.container {
+  position: relative;
+  width: 100px;
+  height: 100px;
+.container {
+  position: relative;
+  width: 100px;
+  height: -65px;
+  background: lime;
+}
+
+.oof {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: -1;
+  left: 0;
+  overflow node</title>
+<title><link rel="help"><title><title><style><title><link><title><link><title><link><title><link><title>Chromium bug: getComputedStyle() crashes with subtree layout of out-of-flow node</title></title></title></title></title></title></title></title>
+
+<style>
+.container {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background: lime;
+}
+
+.oof {
+  position: absolute;
+  width: 30px;
+  height: 2147483648px;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  background: hotpink;
+}
+</style>
+
+<div class="container">
+  <div id="target1" class="oof">hi</div>
+</div>
+<script>
+document.body.offsetTop;
+target1.innerText = 'boom';
+getComputedStyle(target1).top;  // Shouldn't crash
+</script>
+
+<div class="container">
+  <div id="target2" class="oof"><div>hi</div></div>
+</div>
+<script>

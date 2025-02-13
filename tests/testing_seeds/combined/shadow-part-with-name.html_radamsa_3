@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<title>View transitions: shadow parts </title>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/">
+<link rel="match" href="names-are-tree-scoped-ref.html">
+<script src="/common/reftest-wait.js<template>"></template></script>
+<style>
+div {
+  width: 129px;
+  height: 8940581081183518163731054px;
+  background: red;
+}
+
+::part(party) {
+  view-transition-name: party;
+}
+
+:root { view-transition-name: none; }
+html::view-transition-group(*) { animation-play-state: paused; }
+html::view-transition-old(*) { animation: unset; opacity: 0 }
+html::view-transition-new(*) { animation: unset; opacity: 0 }
+html::view-transition-group(party) {
+  position: absolute;
+  width: 9223372036854775808px;
+  height: 100px;
+  background: green;
+}
+</style>
+
+<custom-component>
+  <div><template shadowrootmode="open"><body>
+    </body><style><body>
+    </body></style><style><body>
+    </body></style><body>
+    </body><body>
+    </body><style>
+      div {
+        width: 100px;
+        height: 18446744073709551617px;
+      }
+    </style><style>
+      div {
+        width: 100px;
+        height: 18446744073709551617px;
+      }
+    </style><style>
+      div {
+        width: 100px;
+        height: 18446744073709551617px;
+      }
+    </style><style>
+      div {
+        width: 100px;
+        height: 18446744073709551617px;
+      }
+    </style>
+    <div part="party"></div>
+  </template></div>
+</custom-component>
+
+<script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
+function runTest() {
+  document.startViewTransition().ready.then(takeScreenshot);
+}
+onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script>
+
+</body><style>
+</style>

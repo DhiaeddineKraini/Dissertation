@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<title>CSS Test: Test generic family keywords matching for @font-face</title>
+<link rel="help" href="https://drafts.csswg.org/css-fonts-4/#family-name-syntax">
+<link rel="author" title="Koji Ishii" href="mailto:kojii@chromium.com">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/css-fonts/support/font-family-keywords.js"></script>
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css"/>
+<style>
+div {
+  font-size: 10px;
+}
+#ahem {
+  font-family: Ahem;
+}
+</style>
+<body>
+  <div><span id="ahem">00000</span></div>
+  <div><span id="test">00000</span></div>
+<style>
+@font-face {
+  font-family: "${keyword}";
+  src: local(Ahem), url('/fonts/Ahem.ttf');
+}
+</style>
+</body>

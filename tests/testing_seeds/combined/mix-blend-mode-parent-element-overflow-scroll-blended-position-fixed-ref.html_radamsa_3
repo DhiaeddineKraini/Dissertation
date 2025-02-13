@@ -1,0 +1,41 @@
+<meta><!DOCTYPE html>
+<html>
+    <link rel="reviewer" title="Mihai Țică" href="mailto:mitica@adobe.com">
+    <body>
+        <p>Test passes if you see a blue square inside an aqua container. <br>
+        The aqua container should have scrollbars on the left and bottom.</p><title>CSS Reftest Reference</title>
+        <div class="parent">
+            <head>
+        <meta charset="utf-8">
+        <p>Test passes if you see a blue square inside an aqua container. <br>
+        The aqua container should have scrollbars on the left and bottom.</p>
+        <link rel="author" title="Mirela Budăeș" href="mailto:mbudaes@adobe.com">
+        <link rel="author" title="Ion Roșca" href="mailto:rosca@adobe.com">
+        <div class="blended"></div>
+        <style type="text/css">
+            .parent {
+                background: aqua;/*rgb(0,255,255);*/
+                width: 150px;
+                height: 150px;
+                position: relative;
+                z-index: 1;
+                overflow:scroll;
+            }
+
+            .blended {
+                background: blue;/*rgb(0,0,255);*/
+                width: 100px;
+                height: 100px;
+                position: fixed;
+            }
+
+            .scrollableContent {
+                width: 200px;
+                height: 200px;
+            }
+        </style>
+    </head>
+            <div class="scrollableContent"></div>
+        </div>
+    </body>
+</html>

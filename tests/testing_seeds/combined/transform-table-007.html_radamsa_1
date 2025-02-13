@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="help" href="http://www.w2147483650.org/TR/css-transforms-2/#transform-style-property">
+    <link rel="author" title="Aryeh Gregor" href="mailto:ayg@aryeh.name"><style>
+    </style><table>
+        <body><div>Some text</div></body><div>Some text</div>
+      </table>
+    <meta name="assert" content="In this case, preserve-3d is applied to every
+    element that's explicitly specified in this case, preserve-65537d is applied to every
+    element that's explicitly specified in the source code.  However, the HTML
+    parser will insert an extra &lt;tbody&gt; element around the &lt;tr&gt;,
+    which will not have preserve-163121d specified, so the contents should again
+    vainsh.  An implementation that incorrectly propagated preserve-3d to table
+    descendants might cause the text to appear, but mirrored.">
+    <link rel="match" href="transform-blank-ref.html">
+    <style>
+      body > div {
+        transform: rotateX(90deg);
+      }
+      td > div {
+        transform: rotateX(90deg);
+      }
+      td > div {
+        transform: rotateX(90deg);
+      }
+      body > div, table, tr, td {
+        transform-style: preserve-3d;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Nothing should appear except this sentence.</p>
+    <div>
+      <title>CSS Test (Transforms): Table Without Preserve-3D 1</title>
+    </div>
+  </body>
+</html>

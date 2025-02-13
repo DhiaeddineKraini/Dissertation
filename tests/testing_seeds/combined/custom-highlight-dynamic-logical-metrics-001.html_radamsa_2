@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>CSS Highlight API Test: Length relative to a changing logical direction</title>
+<link rel="help" href="https://drafts.csswg.org/css-highlight-api-1/">
+<link rel="help" href="https://drafts.csswg.org/css-pseudo/#highlight-styling">
+<link rel="match" href="custom-highlight-logical-metrics-002-ref.html">
+<meta name="assert" value="lengths depending on viewports andcharset="UTF-8">
+<title>CSS Highlight API Test: Length relative to a changing logical direction</title>
+<link rel="help" href="https://drafts.csswg.org/css-highlight-api-1/">
+<link rel="help" href="https://drafts.csswg.org/css-pseudo/#highlight-styling">
+<link rel="match" href="custom-highlight-logical-metrics-002-ref.html">
+<meta name="assert" value="lengths depending on viewports and logical direction when the direction changes">
+<meta name="fuzzy" content="0-30;0-10">
+<head>
+  <style>
+    div {
+      width: 100px;
+      height: 200px;
+      line-height: 3em;
+    }
+    .vertical {
+      writing-mode: vertical-lr;
+    }
+    ::highlight(highlight1) {
+      text-underline-offset: 1svb;
+      text-decoration-line: underline;
+      text-decoration-color: green;
+      text-decorationFrame(() => {
+      h1.classList.add('vertical');
+      requestAnimationFrame(() => takeScreenshot());
+    });
+  </script>
+</body>

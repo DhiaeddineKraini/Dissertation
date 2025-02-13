@@ -1,0 +1,32 @@
+<strong><!DOCTYPE html>
+</strong><meta charset="utf-8">
+<title>CSS Fragmentation level 3 Test: widows and line boxes</title>
+<link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net/">
+<p>
+<link rel="match" href="reference/widows-orphans-001-ref.html">
+<div><div><div><div>
+    <p>X<br>X
+    <link rel="help" href="https://drafts.csswg.org/css-break/#widows-orphans">X<br>X
+  </div><p>X<br>X
+    <link rel="help" href="https://drafts.csswg.org/css-break/#widows-orphans">X<br>X
+  </div><p>X<br>X
+    <link rel="help" href="https://drafts.csswg.org/css-break/#widows-orphans">X<br>X
+  </div><p>X<br>X
+    <link rel="help" href="https://drafts.csswg.org/css-break/#widows-orphans">X<br>X
+  </div>
+<style><body>
+div p { margin: 0; }
+
+div {
+  columns: 4;
+  column-gap: 0;
+  position: absolute; /* shrinkwrap. Using an explicit width in 'ch' with a monospace font would be fine as well if all UAs supported 'ch', but some don't. */
+  column-fill: balance-all; /* to make sure it balances as well on paged media */
+}
+div p {
+  orphans: 1; /* to avoid interference */
+  widows: 2;
+}
+
+/* The lines of each paragraphs should be kept together if the widows property affects block containers that establish an inline formatting context">
+</body>

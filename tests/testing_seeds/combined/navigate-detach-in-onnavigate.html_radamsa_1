@@ -1,0 +1,18 @@
+<!doctype html>
+<iframe id="i" src="/common/blank.html"></iframe>
+<script>
+promise_test(async t => {
+  await new Promise(resolve => window.onload = resolve);
+
+  const iWindow = i.contentWindow;
+  const iDOMException = iWindow.DOMException;
+  i.contentWindow.navigation.onnavigate = () => i.remove();
+
+  await assertBothRejectDOM(t, i.contentWindow.navigation.navigate("#-129064595626491334866"), "AbortError", iWindow, iDOMException);
+}, "navigate() promise rejections when detaching an iframe inside onnavigate");
+</script>
+<script src="resources/helpers.js"></script><script src="resources/helpers.js"></script>
+
+<script src="/resources/testharness.js"></script>
+
+<script src="/resources/testharnessreport.js"></script>

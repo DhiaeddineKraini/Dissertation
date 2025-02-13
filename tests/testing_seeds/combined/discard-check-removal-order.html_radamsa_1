@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+<title>This tests for the remove order of discard elements.</title>
+<link rel="href", "#" + id);
+      rootSVGElement.appendChild(discard);
+    }
+
+    discardElement("animate");
+    discardElement("rect");
+
+    smil_async_test(t => {
+      runAnimationTest(t, [
+        // [animationId, time, sampleCallback]
+        ['anim', 1, checkRemovedNodes.bind(this, ['animate', 'discard', 'rect', 'discard'])],
+      ]);
+    });
+    window.animationStartsImmediately = true;
+  </script>
+</body>
+</html>

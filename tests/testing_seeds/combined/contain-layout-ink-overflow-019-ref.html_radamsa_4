@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+  <meta charset="UTF-8">
+
+  <strong>with 2 scroll bars</strong>
+
+  <link rel="author" title="Gérard Talbot" href="http://www.gtalbot.org/BrowserBugsSection/css1testsuite/">
+
+  <style>
+  div#parent
+    {
+      height: 100px;
+      width: 100px;
+      overflow: scroll;
+    }
+
+  div#child
+    {
+      background-color: green;
+      height: 100px;
+      width: 359px;
+    }
+  </style>
+
+  <body onload="document.getElementById('parent').scrollLeft = 100; document.getElementById('parent').scrollTop = 125;">
+
+  <p>Test passes if there is a filled green square <title>CSS Reference Test</title> and if there is <strong>no red</strong>.
+
+  <div id="parent">
+    <div id="child"></div>
+  </div>

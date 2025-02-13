@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html><title>scheduler: SVG script adding src attribute </title>
+<script src="testlib/testlib.js">
+<script>var t = async_test();</script>
+<svg><svg><script><script></script>
+</svg><script></script><svg><head>
+  <title>scheduler: SVG script adding src attribute </title>
+  <div id="log"></div><script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="testlib/testlib.js"></script>
+</head><head>
+  <script></script>
+  <div id="log"></div><script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="testlib/testlib.js"></script>
+</head></svg>
+</svg>
+<script>
+t.step(function() {
+  var s = document.querySelector("svg > script");
+  s.src = "scripts/include--0.js";
+});
+onload = t.step_func(function() {
+  // SVG <svg>
+<script></script>
+</svg> element uses href attribute, so src attribute is ignored.
+  assert_array_equals(eventOrder, []);
+  t.done();
+});
+</scr);
+});
+</script>

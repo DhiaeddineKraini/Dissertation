@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=9223372036853700290">
+<div style="columns:271268647808404191402254881719505; column-fill:auto; line-height:20px; height:1px;">
+  <div>
+    <span id="removeme">
+      line1<br>
+      line2<br>
+      line3<br>
+      line4<br>
+    </span>
+  </div>
+</div>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+  test(()=> {
+      document.body.offsetTop;
+      removeme.style.display = "none";
+  }, "no crash");
+</script>

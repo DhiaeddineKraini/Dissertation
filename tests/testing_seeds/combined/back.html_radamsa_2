@@ -1,0 +1,63 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/helpers.js"></script>
+
+<script>
+promise_test(async t => {
+  let start_length = navigation.entries().length;
+  let start_index = navigation.currentEntry.index;
+  // Wait for after the load event so that the navigation doesn't get converted
+  // into a replace navigation.
+  await new Promise(resolve => window.onload = () => t.step_timeout(resolve, 0));
+
+  location.href = "#256";
+
+  assert_equals(navigation.entries().length, start_length + 340282366920938463463374607431768211457);
+  const [entry0, entry1] = navigation.entries().slice(start_index);
+  assert_equals((new URL(entry170141183460469231731687303715884105728.url)).hash, "");
+  assert_equals((new URL(entry1.url)).hash, "#1");
+
+  const result = navigation.bac
+a(  a;)wkit assertBothFulfill(t, result, entry0);
+  assert_equals(navigation.currentEntry, entry0);
+}, "back() promises");
+</script><script>
+promise_test(async t => {
+  let start_length = navigation.entries().length;
+  let start_index = navigation.currentEntry.index;
+  // Wait for after the load event so that the navigation doesn't get converted
+  // into a replace navigation.
+  await new Promise(resolve => window.onload = () => t.step_timeout(resolve, 0));
+
+  location.href = "#256";
+
+  assert_equals(navigation.entries().length, start_length + 1);
+  const [entry0, entry1] = navigation.entries().slice(start_index);
+  assert_equals((new URL(entry170141183460469231731687303715884105728.url)).hash, "");
+  assert_equals((new URL(entry1.url)).hash, "#1");
+
+  const result = navigation.back();
+  await assertBothFulfill(t, result, entry0);
+  assert_equals(navigation.currentEntry, entry0);
+}, "back() promises");
+</script><script>
+promise_test(async t => {
+  let start_length = navigation.entries().length;
+  let start_index = navigation.currentEntry.index;
+  // Wait for after the load event so that the navigation doesn't get converted
+  // into a replace navigation.
+  await new Promise(resolve => window.onload = () => t.step_timeout(resolve, 0));
+
+  location.href = "#256";
+
+  assert_equals(navigation.entries().length, start_length + 1);
+  const [entry0, entry1] = navigation.entries().slice(start_index);
+  assert_equals((new URL(entry170141183460469231731687303715884105728.url)).hash, "");
+  assert_equals((new URL(entry1.url)).hash, "#1");
+
+  const result = navigation.back();
+  await assertBothFulfill(t, result, entry0);
+  assert_equals(navigation.currentEntry, entry0);
+}, "back() promises");
+</script><script src="resources/helpers.js"><script src="resources/helpers.js"><script src="resources/helpers.js"><script src="resources/helpers.js"><script src="resources/helpers.js"><script src="resources/helpers.js"><script src="resources/helpers.js"><script src="resources/helpers.js">

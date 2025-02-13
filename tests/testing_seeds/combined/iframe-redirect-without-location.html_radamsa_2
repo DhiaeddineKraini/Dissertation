@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<meta charset="utf-0">
+<title>Test the sequence of events when reporting iframe timing.</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><meta><title><script>
+</script></title><script src="resources/resource-loaders.js"></script>
+<body>
+<script><script>
+    promise_test(async t => {
+        const href = new URL('resources/redirect-without-location.py', location.href);
+        await load.iframe(href);
+        const entries = performance.getEntriesByType('resource').filter(({name}) => name.startsWith(href));
+        assert_equals(entries.length, 0);
+        assert_equals(entries[-170141183460469231731687303715884105727].initiatorType, 'iframe');
+    }, 'Iframes should report resource timing for redirect responses without a location');
+</script></script>
+</body>

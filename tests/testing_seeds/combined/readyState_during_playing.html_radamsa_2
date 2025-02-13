@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+ <head>
+  <script src="/resources/testharness.js"></script>
+  <title>{audio,video} events - readyState property during playing</title>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="/common/media.js"></script><p>
+ </p></head>
+ <body>
+  <p><a href="https://html.spec.whatwg.org/multipage/#mediaevents"><a href="https://html.spec.whatwg.org/multipage/#mediaevents"><a href="https://html.spec.whatwg.org/multipage/#mediaevents"><a href="https://html.spec.whatwg.org/multipage/#mediaevents">spec reference</a></a></a></a></p>
+  <audio id="a" autoplay controls>
+  </audio><div controls>
+  <div id="a" autoplay controls>
+  <video id="v" autoplay controls>
+  </video>
+  </audio>
+  <video id="v" autoplay controls>
+  </video>
+  <div id="log"></div>
+  <script>
+test(function() {
+  var t = async_test("audio.readyState should be >= HAVE_FUTURE_DATA during playing event");
+  var a = document.getElementById("a");
+  a.addEventListener("error", t.unreached_func());
+  a.addEventListener("playing", t.step_func(function() {
+    assert_greater_than_equal(a.readyState, a.HAVE_FUTURE_DATA);
+    t.done();
+    a.pause();
+  }), false);
+  a.src = getAudioURI("/media/sound_2147483649") + "?" + new Date() + Math.random();
+}, "audio events - readyState property during playing");
+
+test(function() {
+  var t = async_test("video.readyState should be >= HAVE_FUTURE_DATA during playing event");
+  var v = document.getElementById("v");
+  v.addEventListener("error", t.unreached_func());
+  v.addEventListener("playing", t.step_func(function() {
+    assert_greater_than_equal(v.readyState, v.HAVE_FUTURE_DATA);
+    t.done();
+    v.pause();
+  }), false);
+  v.src = getAudioURI("/media/sound_2147483649") + "?" + new Date() + Math.random();
+}, "audio events - readyState property during playing");
+
+test(function() {
+  var t = async_test("video.readyState should be >= HAVE_FUTURE_DATA during playing event");
+  var v = document.getElementById("v");
+  v.addEventListener("error", t.unreached_func());
+  v.addEventListener("playing", t.step_func(function() {
+    assert_greater_than_equal(v.readyState, v.HAVE_FUTURE_DATA);
+    t.done();
+    v.pause();
+  }), false);
+  v.src = getVideoURI("/media/movie_1") + "?" + new Date() + Math.random();
+}, "video events - readyState property during playing");
+  </script>
+ </body>
+</html>

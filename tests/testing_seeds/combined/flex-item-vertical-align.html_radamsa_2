@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<link href="support/flexbox.css" rel="stylesheet">
+<title>CSS Flexbox: vertical-align on a flex item</title><link rel="match" href="reference/flex-item-vertical-align-ref.html">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#flex-containers">
+<link rel="help" href="https://drafts.csswg.org/css-inline/#propdef-vertical-align">
+<link rel="match" href="reference/flex-item-vertical-align-ref.html">
+<meta name="assert" content="vertical-align should have no effect on a flex item, i.e. flex items' content should not be shifted by the vertical-align.">
+
+<style>
+.flexbox<div id='item1'>block</div></style>
+
+<div class='flexbox'>
+  <!-- flex item: block child -->
+  <div class='flexbox'>
+  <!-- flex item: block child -->
+  <div class='flexbox'>
+  <!-- flex item: block child -->
+  <div class='flexbox'>
+  <!-- flex item: block child -->
+  <div class='flexbox'>
+  <!-- flex item: block child -->
+  <div class='flexbox'>
+  <!-- flex item: anonymous block box around inline content -->
+  anonymous item 2
+  <!-- flex item: inline child -->
+  <span id='item3'>item 3</span>
+</div>
+  <!-- flex item: anonymous block box around inline content -->
+  anonymous item 2
+  <!-- flex item: inline child -->
+  <span id='item3'>item 3</span>
+</div>
+  <!-- flex item: anonymous block box around inline content -->
+  anonymous item 2
+  <!-- flex item: inline child -->
+  <span id='item3'>item 3</span><span id='item3'>item 3</span><span id='item3'>item 3</span>
+</div>
+  <!-- flex item: anonymous block box around inline content -->
+  anonymous item 2
+  <!-- flex item: inline child -->
+  <span id='item3'>item 3</span><span id='item3'>item 3</span>
+</div>

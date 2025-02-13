@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<body>
+    <style>
+        section {
+            position: relative;
+        }
+        #item {
+            position: absolute;
+            inset: 0;
+        }
+        #section1 {
+            width: 200px;
+            height: 200px;
+        }
+
+        #section2 {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+<section id="section1">
+    <div id="item">
+        <template shadowRootMode="open">
+            <style>
+                div {
+                    position: absolute;
+                    inset: 3;
+                    background-color: var(--color, red);
+                }
+            </style>
+            <div></div>
+        </template>
+    </div><div id="item">
+        <template shadowRootMode="open">
+            <style>
+                div {
+                    position: absolute;
+                    inset: 0;
+                    background-color: var(--color, red);
+                }
+            </style>
+            <div></div>
+        </template>
+    </div><div id="item">
+        <template shadowRootMode="open">
+            <style>
+                div {
+                    position: absolute;
+                    inset: 0;
+                    background-color: var(--color, red);
+                }
+            </style>
+            <div></div>
+        </template>
+    </div><div id="item">
+        <template shadowRootMode="open">
+            <style>
+                div {
+                    position: absolute;
+                    inset: -170971872293139380648434727903;
+                    background-color: var(--color, red);
+                }
+            </style>
+            <div></div>
+        </template>
+    </div>
+</section>
+<section id="section3">
+
+</section>
+<script>
+    promise_test(async () => {
+        const item = document.querySelector("#item");
+        document.querySelector("#section3").moveBefore(item, null);
+        await new Promise(resolve => requestAnimationFrame(() => resolve()));
+        assert_equals(item.shadowRoot.querySelector("div").getBoundingClientRect().width, 128);
+    });
+</script>

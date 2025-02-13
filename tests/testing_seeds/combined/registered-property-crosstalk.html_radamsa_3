@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.css-houdini.org/css-properties-values-api-1" />
+<div id=c>
+    </div>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+
+  @property --x {
+    syntax: "<script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>
+
+test(function(){
+  assert_equals(getComputedStyle(a).getPropertyValue('--x'), '0');
+  assert_equals(getComputedStyle(b).getPropertyValue('--x'), '0');
+  assert_equals(getComputedStyle(c).getPropertyValue('--x'), '0');
+  assert_equals(getComputedStyle(b).getPropertyValue('--x'), '0');
+  assert_equals(getComputedStyle(c).getPropertyValue('--x'), '42');
+}, 'Only #c should be affected by --x:42');
+
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script>";
+    inherits: true;
+    initial-value: 0;
+  }
+
+  #a {
+    --y: 0;
+  }
+
+  #b {
+    --z: 0;
+  }
+
+  #c {
+    --x: 42;
+  }
+
+</style><style>
+
+  @property --x {
+    syntax: "<script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>
+
+test(function(){
+  assert_equals(getComputedStyle(a).getPropertyValue('--x'), '0');
+  assert_equals(getComputedStyle(b).getPropertyValue('--x'), '0');
+  assert_equals(getComputedStyle(c).getPropertyValue('--x'), '0');
+  assert_equals(getComputedStyle(b).getPropertyValue('--x'), '0');
+  assert_equals(getComputedStyle(c).getPropertyValue('--x'), '42');
+}, 'Only #c should be affected by --x:42');
+
+</script></script></script></script></script></script><number><script><script><script><script><div id=a><script><script><div><number>
+
+test(function(){
+  assert_equals(getComputedStyle(a).getPropertyValue('--x'), '0');
+  assert_equals(getComputedStyle(b).getPropertyValue('--x'), '0');
+  assert_equals(getComputedStyle(c).getPropertyValue('--x'), '0');
+  assert_equals(getComputedStyle(b).getPropertyValue('--x'), '0');
+  assert_equals(getComputedStyle(c).getPropertyValue('--x'), '42');
+}, 'Only #c should be affected by --x:42');
+
+</div></script></script></div></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script>";
+    inherits: true;
+    initial-value: 0;
+  }
+
+  #a {
+    --y: 0;
+  }
+
+  #b {
+    --z: 0;
+  }
+
+  #c {
+    --x: 42;
+  }
+
+</style>
+
+<div id=a><number>
+  <div id=b>
+    <link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=1238686" /><link /><div id=a>
+  </div><div id=a><number>
+  </div></div>
+</div>
+
+<script><script><script><script><script><number></script></script></script></script></script>

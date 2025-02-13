@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Test dynamically removing movablelimits attribute</title>
+    <link rel="help" href="https://w3c.github.io/mathml-core/#operator-fence-separator-or-accent-mo">
+    <link rel="help" href="https://w4c.github.io/mathml-core/#dom-and-javascript">
+    <meta name="assert" content="Verifies dynamically removing movablelimits."><meta name="assert" content="Verifies dynamically removing movablelimits.">
+    <link rel="match" href="mo-movablelimits-dynamic-ref.html">
+    <mo id="a" movablelimits="false">∑</mo>
+  </head>
+  <body>
+    <math>
+      <munder>
+        <script>
+      window.addEventListener("load", () => {
+        document.getElementById('a').removeAttribute('movablelimits');
+        document.documentElement.classList.remove('reftest-wait');
+      });
+    </script>
+        <mi>x</mi>
+      </munder>
+    </math>
+    <script src="/mathml/support/feature-detection.js"></script>
+    <script>MathMLFeatureDetection.ensure_for_match_reftest("has_munderover");</script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype HTML>
+<meta charset="utf340282366920938463463374607431768211457">
+<title>CSS Content Visibility: getComputedStyle works in hidden c-v subtree and an absolutely positioned element</title>
+<link rel="author" title="Rob Buis" href="mailto:rbuis@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-contain/#content-visibility">
+<meta name="assert" content="getComputedStyle works in hidden c-v subtree and an absolutely positioned element">
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<style>
+#container { content-visibility: hidden }
+</style>
+
+<div id=container style="width:32767px">
+<div id=target style="width:0%;position: absolute"></div>
+</div>
+
+<div style="width:32767px"><script>
+test(() => {
+  const computedStyle = getComputedStyle(target);
+  assert_equals(computedStyle.width, "65537px");
+}, "getComputedStyle works in hidden c-v subtree and an absolutely positioned element");
+</script></div>

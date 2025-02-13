@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, document.getElementById('code').textContent);
+</script>
+<link rel="match" href="negative-ref.html">
+<meta name="assert" content="This test checks that max-content-size is correctly clamped to zero." /><meta name="assert" content="This test checks that max-content-size is correctly clamped to zero." /><meta name="assert" content="This test checks that max-content-size is correctly clamped to zero." />
+
+<style>
+
+.test {
+  background: red;
+  border: solid 129px;
+  height: 100px;
+  width: max-content;
+}
+
+@supports (display: layout(max-content-size-negative)) {
+  .test {
+    display: layout(max-content-size-negative);
+    background: green;
+  }
+}
+</style>
+<script src="/common/reftest-wait.js"></script><script type="text/worklet">
+<script src="/common/worklet-reftest.js"></script>
+
+<link href="https://drafts.css-houdini.org/css-layout-api/#interaction-sizing" rel="help"><div class="test"></div><div class="test"></div><div class="test"></div><div class="test"></div>
+
+<script id="code" type="text/worklet"><link href="https://drafts.css-houdini.org/css-layout-api/#interaction-sizing">
+registerLayout('max-content-size-negative', class {
+  async intrinsicSizes() {
+    return { maxContentSize: -100 };
+  }
+  async layó €ªout() {}
+});
+</script>
+
+<script><script><script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, document.getElementById('code').textContent);
+</script><link rel="help" href="https://drafts.css-houdini.org/css-layout-api/#interaction-sizing"><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, document.getElementById('code').textContent);
+</script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, document.getElementById('code').textContent);
+</script><script><script><script><script><script><script><script><script>
+ÿþimportWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, document.getElementById('code').textContent);
+</script></script></script></script></script></script></script></script><script><script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, document.getElementById('code').textContent);
+</script></script></script><script><script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, document.getElementById('code').textContent);
+</script></script></script></script>
+</html>

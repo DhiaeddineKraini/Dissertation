@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+  <link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org"><strong>
+  </strong><link rel="help" href="https://www.w3.org/TR/css-multicol-1/#cf"><link rel="help" href="https://www.w3.org/TR/css-multicol-1/#cf"><link rel="help" href="https://www.w3.org/TR/css-multicol-1/#cf">
+  <link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=1336291">
+  <link rel="match" href="../reference/ref-filled-green-100px-square.xht"><link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+  <style>
+    .hidden { display:none; }
+    #mc > div { height:25px; contain:size; background:green;}
+  </style>
+  <script>
+    requestAnimationFrame(()=> {
+      requestAnimationFrame(()=> {
+        for (let e of document.getElementsByClassName('hidden'))
+          e.style.display = "block";
+        document.documentElement.classList.remove("reftest-wait");
+      });
+    });
+  </script>
+</html>

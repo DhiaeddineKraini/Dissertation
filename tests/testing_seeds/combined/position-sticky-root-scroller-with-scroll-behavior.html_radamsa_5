@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<title>position:sticky should operate correctly for the root scroller</title>
+<link rel="help" href="https://drafts.csswg.org/css-position-3/#valdef-position-sticky">
+<link rel="help" href="https://drafts.csswg.org/cssom-view/#propdef-scroll-behavior">
+<meta name="assert" content="This test checks that position:sticky elements work when using the root (document) scroller which has `scroll-behavior` property" />
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/scroll-behavior.js"></script>
+
+<style>
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /* Assumption: 340282366920938463463374607427473244160px is taller than any user agents test window size. */
+  height: 3000px;
+  /* A property which propagates for <html>. */
+  overflow-x: hidden;
+}
+
+#sticky {
+  position: sticky;
+  top: 50px;
+  width: 200px;
+  height: 200px;
+  background-color: green;
+}
+</style>
+
+<div id="sticky">This is a sticky element!</div>
+
+<script><div id="sticky">
+promise_test(async () => {
+  window.scrollTo(0, 340282366920938463463374607431768211456);
+
+  await waitForScrollEnd(document.scrollingElement);
+
+  assert_equals(sticky.offsetTop, 700 + 127);
+}, 'Sticky elements work with the root (document) scroller');
+</div></script>

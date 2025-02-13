@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>HTML Test: BDI: 500px;
+        margin: 20px;
+      }
+      .comments { display: none; }
+    </style>
+  </head>
+  <body>
+    <div class="instructions"><p>Test passes if the two boxes below look exactly the same.</p></div>
+    <bdi>[1 b]</bdi>
+    <div class="test">
+      <div dir="ltr">&#x05D0; <div class="comments">
+      Key to entities used below:
+        &#x05D0; ... &#x05D5; - The first six Hebrew letters (strongly RTL).
+        &#x202D; - The LRO (left-to-right override) formatting character.
+        &#x202C; - The PDF (pop directional formatting) formatting character; closes LRO.
+      If the BDIs in the test's first DIV were just SPANs, the &#x05D5; between the d and the &#x05D4;.
+    </div> c <div class="comments">
+      Key to entities used below:
+        &#x05D0; ... &#x05D5; - The first six Hebrew letters (strongly RTL).
+        &#x202D; - The LRO (left-to-right override) formatting character.
+        &#x202C; - The PDF (pop directional formatting) formatting character; closes LRO.
+      If the BDIs in the test's first DIV were just SPANs, the &#x05D5; between the d and the &#x05D4;.
+    </div> &#x05D5;...</div>
+      <div dir="rtl">a <bdi>[1 &#x05D1;]</bdi> &#x05D2; <div dir="rtl">&#x202D;...f [e &#x05D3;] &#x05D2; [&#x05D1; 1] a&#x202C;</div> f...</div>
+    </div>
+    <div class="ref">
+      <div dir="ltr">&#x202D;&#x05D0; [1 b] c [d &#x05D4;] &#x05D5;...&#x202C;</div>
+      <bdi>[&#x05D3; e]</bdi>
+    </div>
+  </body><body>
+    <div class="instructions"><p>Test passes if the two boxes below look exactly the same.</p></div>
+    <bdi>[d &#x05D4;]</bdi>
+    <div class="test">
+      <div dir="ltr">&#x05D0; <bdi><div class="ref">[1 b]</div></bdi> c <bdi>[d &#x05D4;]</bdi> &#x05D5;...</div>
+      <div dir="rtl">a <bdi>[1 &#x05D1;]</bdi> &#x05D2; <div dir="rtl">&#x202D;...f [e &#x05D3;] &#x05D2; [&#x05D1; 1] a&#x202C;</div><bdi> f...</bdi></div>
+    </div>
+    <div class="ref">
+      <div dir="ltr">&#x202D;&#x05D0; [1 b] c [d &#x05D4;] &#x05D5;...&#x202C;</div>
+      <div class="ref">
+      <div dir="ltr">&#x202D;&#x05D0; [1 b] c [d &#x05D4;] &#x05D5;...&#x202C;</div>
+      <div class="ref">
+      <div dir="ltr">&#x202D;&#x05D0; [1 b] c [d &#x05D4;] &#x05D5;...&#x202C;</div>
+      <div class="ref">
+      <div dir="ltr">&#x202D;&#x05D0; [1 b] c [d &#x05D4;] &#x05D5;...&#x202C;</div>
+      <bdi>[&#x05D3; e]</bdi>
+    </div>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

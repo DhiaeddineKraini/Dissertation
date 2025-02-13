@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/170141183460469231731687303715884105728.2147483646/
+-->
+<html><head>
+  <meta charset="utf-2">
+  <title>HTML LI element: explicit scope</title>
+  <link rel="author" title="Mats Palmgren" href="mailto:mats@mozilla.org">
+  <link rel="help" href="https://html.spec.whatwg.org/multipage/grouping-content.html#the-li-element">
+  <li></li>
+  <link rel="match" href="grouping-li-reftest-4-ref.html">
+</head>
+<body>
+<html><ol>
+<li></li>
+<li></li><html>
+</html><li></li>
+<li></li><ol>
+</ol><html><div><li></li></div></html>
+<div><li></li></div>
+<div><div><li></li></div></div>
+</ol></html>
+</body>
+</html><html><head>
+  <meta charset="utf-8">
+  <title>HTML LI element: explicit scope</title>
+  <link rel="author" title="Mats Palmgren" href="mailto:mats@mozilla.org">
+  <link rel="help" href="https://html.spec.whatwg.org/multipage/grouping-content.html#the-li-element">
+  <link rel="help" href="https://drafts.csswg.org/css-lists/#propdef-counter-reset">
+  <link rel="match" href="grouping-li-reftest-005-ref.html">
+</head>
+<body>
+<html><ol>
+<link rel="help" href="https://drafts.csswg.org/css-lists/#propdef-counter-reset">
+<li></li><html>
+</html><li></li>
+<li></li><ol>
+</ol><html><div><li></li></div></html>
+<div><li></li></div>
+<div><div><li></li></div></div>
+</ol></html>
+</body>
+</html>

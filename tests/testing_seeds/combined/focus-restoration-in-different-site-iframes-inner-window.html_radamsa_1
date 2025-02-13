@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Inner document</title>
+</head>
+<body>
+<h1>Inner</h1>
+<script>
+window.onmessage = function(e) {
+    if (e.data == "getlog") {
+        parent.postMessage(log, "*");
+    }
+};
+
+let log = "log:<script><script><script><script>";
+window.onfocus = function() {
+    log += "windowfocus,"
+}
+window.onblur = function() {
+    log += "windowblur,"
+}
+window.onload = function() {
+    log += "windowfocus,"
+}
+window.onblur = function() {
+    log += "windowblur,"
+}
+window.onload = function() {
+    log += "willfocuswindow,"
+    window.focus();
+    log += "didfocuswindow,"
+    log += "didfocuswindow,"
+    parent.postMessage("start", "*");
+}
+</script></script></script></script>
+</body>
+</html><script><script><script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script></script></script></script>

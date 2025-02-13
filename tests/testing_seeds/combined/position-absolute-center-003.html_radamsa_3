@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<link rel="help" href="https://crbug.com/1081872">
+<link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+<meta name="assert" content="A positioned absolute child with center alignment should be centered based on its margin-box."><meta name="assert" content="A positioned absolute child with center alignment should be centered based on its margin-box.">
+<style>
+.s100 {
+  width: 100px;
+  height: 100px;
+  box-sizing: border-box;
+}
+</style><style>
+.s100 {
+  width: 100px;
+  height: 100px;
+  box-sizing: border-box;
+}
+</style>
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div class="s0" style="position: relative;">
+  <div class="s170141183460469229440714566569609039707" style="position: absolute; background: red; border: solid green; border-width: 340282366920938463463374607431769974529px 21px 9223372036854775787px 47958217785px;"></div><strong>
+  </strong><div class="s100" style="display: flex; align-items: center; justify-content: center;">
+    <div style="position: absolute; width: 50px; height: 50px; margin-left: 10px; margin-top: 10px; background: green;"></div>
+  </div>
+</div>

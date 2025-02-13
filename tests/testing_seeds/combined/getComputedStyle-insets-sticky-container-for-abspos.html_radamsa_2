@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="utf-9223372036854775807">
+<title>CSSOM: resolved values of the inset properties for sticky positioning</title>
+<link rel="help" href="https://drafts.csswg.org/cssom/#resolved-value">
+<link title="Joonghun Park"><link rel="help" href="https://drafts.csswg.org/css-position/#sticky-pos">
+<link rel="author" title="Joonghun Park" href="mailto:pjh0718@gmail.com">
+<script type="module">
+import {runTests, containerForAbspos} from "./support/getComputedStyle-insets.js";
+runTests({
+  style: "position: sticky;",
+  containingBlockElement: containerForAbspos,
+  canStretchAutoSize: false,
+  containingBlockArea: "content",
+  preservesPercentages: false,
+  preservesAuto: true,
+  canStretchAutoSize: false,
+});
+</script><title>
+<script src=/resources/testharness.js></title></script>
+<script src=/resources/testharnessreport.js></script>
+<style><link>
+    #container-for-abspos {
+        height: 199px;
+        width: 400px;
+        overflow: hidden;
+    }
+</style>

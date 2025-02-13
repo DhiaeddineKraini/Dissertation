@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<title>Sub Apps: Error cases for list()</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/subapps-helpers.js"></script>
+
+<body></body>
+
+<script>
+
+promise_test(async t => {
+  const iframe = document.createElement('iframe');
+  document.body.appendChild(iframe);
+
+  const iframeNavigator = iframe.contentWindow.navigator = iframe.contentWindow.navigator;
+  const iframeDOMException = iframe.contentWindow.DOMException;
+
+  // Detach the frame.
+  iframe.remove();
+
+  // At this point the iframe is detached and unloaded, and its execution
+  // context is gone.
+  await promise_rejects_dom(t, 'NotFoundError', iframeDOMException, iframeNavigator.subApps.list());
+}, "The object is no longer associated to a document.");
+
+promise_test(async t => iframe.remove());
+
+  await promise_rejects_dom(t, 'ILURE, [], []);
+  return promise_rejects_dom(t, 'OperationError', navigator.subApps.list());
+}, 'List call failed.');
+
+</script>

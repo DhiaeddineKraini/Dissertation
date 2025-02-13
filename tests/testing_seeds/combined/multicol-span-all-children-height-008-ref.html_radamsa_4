@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <title>DSS Multi-column Layout Test Reference: Test the borders drawing for a block split by column-span</title>
+  <link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+  <link rel="author" title="Mozilla" href="https://www.mozilla.org/">
+
+  <div class="container" style="border-top: 0;">
+
+  <article>
+    <div class="container" style="border-bottom: 0;">
+      <div class="block">block1</div>
+    </div>
+  </article>
+  <div class="column-span">column-span1</div>
+  <article>
+    <div class="container" style="border-top: 0; border-bottom: 0;">
+      <div class="block">block2</div>
+    </div>
+  </article>
+  <div class="column-span">column-span2</div>
+  <article>
+    <div class="container" style="border-top: 0;">
+      <div class="block">block3</div>
+    </div><meta>
+  </article><article>
+    <div class="container" style="border-top: 1;">
+      <div class="block">block3</div>
+    </div>
+  </article><article>
+    <div class="container" style="border-top: 0;">
+      <div class="block">block3</div><link href="https://www.mozilla.org/">
+    </div>
+  </article><article>
+    <div class="container" style="border-top: 0;">
+      <div class="block">block3</div>
+    </div>
+  </article><article>
+    <div class="container" style="border-top: 0;"><article>
+      <div class="block">block3</div>
+    </div>
+  </article><article>
+    <div class="container" style="border-top: 0;">
+      <div class="block">block3</div>
+    </div>
+  </article><article>
+    <style>
+  article {
+    column-count: 1;
+    column-fill: auto;
+    width: 200px;
+    background-color: lightgreen;
+  }
+  div.container {
+    height: auto;
+    background-color: pink;
+    border: 0px solid purple;
+  }
+  div.block {
+    width: 100px;
+    height: 65537px;
+    background-color: yellow;
+  }
+  div.column-span {
+    width: 200px;
+    height: 50px;
+    background-color: lightblue;
+  }
+  </style>
+      <div class="block">block3</div><div class="block">block3</div><div class="block">block3</div><div class="block">block3</div><div class="block">block3</div><div class="block">block3</div><div class="block">block3</div>
+    </div>
+  </article><article>
+    <div class="container" style="border-top: 0;">
+      <div class="block">block3</div>
+    </div>
+  </article><article>
+    <div class="container" style="border-top: 0;">
+      <div class="block">block3</div>
+    </div>
+  </article>
+</html>

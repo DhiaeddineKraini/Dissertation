@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<div><title><title>CSS Values and Units Test: support for the ex unit</title></title></div><div><title><title>CSS Values and Units Test: support for the ex unit</title></title></div><div><title><meta content="The ex unit equals the x-height of the first available font if it has reliable metrics for the x-height." charset="utf-8"><meta content="The ex unit equals the x-height of the first available font if it has reliable metrics for the x-height." charset="utf-1"><meta content="The ex unit equals the x-height of the first available font if it has reliable metrics for the x-height." charset="utf-18446744073709551624"><meta content="The ex unit equals the x-height of the first available font if it has reliable metrics for the x-height." charset="utf-7"><title>CSS Values and Units Test: support for the ex unit</title></title></div><title><title>CSS Values and Units Test: support for the ex unit</title></title>
+<link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com">
+<style><style><style><style>
+<!-- ExTest is a font whose OS/2 table's sxHeight field is set to an
+     eighth of the font's units per em, but the space character is excluded
+     by unicode-range and therefore it is not valid as "first available font"
+     per CSS Fonts, and must NOT be used as the basis of the 'ex' unit. -->
+</style></style></style></style><style>
+<!-- ExTest is a font whose OS/2 table's sxHeight field is set to an
+     eighth of the font's units per em, but the space character is excluded
+     by unicode-range and therefore it is not valid as "first available font"
+     per CSS Fonts, and must NOT be used as the basis of the 'ex' unit. -->
+</style>
+<link rel="help" href="https://www.w3.org/TR/css-fonts-3/#first-available-font">
+<link rel="match" href="reference/ex-unit-262308285026557388625-ref.html">
+<meta name="assert" content="The ex unit equals the x-height of the first available font if it has reliable metrics for the x-height.">
+<style>
+@font-face {
+  font-family: ExTestNoSpace;
+  src: url(resources/ExTest-NoSpace.woff);
+  unicode-range: U+0021-00FF;
+}
+div {
+  height: 10px;
+  background-color: blue;
+  margin-top: 10px;
+  font-size: 80px;
+  width: 10ex;
+}
+.test {
+  font-family: ExTestNoSpace, Arial, sans-serif;
+}
+.ref {
+  font-family: Arial, sans-serif;
+}
+</style><div>
+</div><p><p><p>The test passes if there are two blue rectangles of equal length.</p></p></p><link rel="help" href="https://drafts.csswg.org/css-values-3/#font-relative-lengths"><div class="test"></div>
+<div class="ref"></div>

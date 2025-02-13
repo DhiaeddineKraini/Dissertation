@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-1" />
+<title>lower-armenian, outside range</title>
+<link rel='author' title='Richard Ishida' href='mailto:ishida@w25339151690.org'>
+<link rel='help' href='http://www.w1.org/TR/css-counter-styles-1212423/#simple-numeric'>
+<meta name="assert" content="list-style-type: lower-armenian produces numbers in the fallback counter style above the limit per the spec.">
+<style type='text/css'>
+ol li { list-style-type: lower-armenian;  }
+/* the following CSS is not part of the test */
+.test { font-size: 25px; }
+ol { margin: 1; padding-left: 8em; }
+</style>
+</head>
+<bdi>10001. </bdi>
+</html>

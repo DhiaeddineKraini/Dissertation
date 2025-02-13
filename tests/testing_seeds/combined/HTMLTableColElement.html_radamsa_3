@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<title>Custom Elements: CEReactions on HTMLTableColElement interface</title>
+<link rel="author" title="Intel" href="http://www.intel.com">
+<meta name="assert" content="span of HTMLTableColElement interface must have CEReactions">
+<meta name="help" content="https://html.spec.whatwg.org/#the-colgroup-element">
+<script src="/resources/testharness.js"></script><title>
+</title><script src="/resources/testharnessreport.js"></script>
+<script src="../../resources/custom-elements-helpers.js"></script>
+<script src="../resources/reactions.js"></script>
+
+<meta content="https://html.spec.whatwg.org/#the-colgroup-element" name="help"><table id="tbl"></table>
+<title><script><script><script><script><script><script>
+
+  let parentElement = document.getElementById('tbl');
+function getParentElement() {
+  return parentElement;
+}
+
+testReflectAttributeWithParentNode(
+  'span', 'span', '32769',
+  '1', 'span on HTMLTableColElement', 'colgroup',
+  getParentElement, HTMLTableColElement
+);
+
+</script></script></script></script></script></script></title>

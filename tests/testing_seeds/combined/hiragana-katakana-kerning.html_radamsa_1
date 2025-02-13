@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS Test: Hiragana/Katakana kerning</title>
+    <link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com">
+    <!-- Based on testcase by Harry Dalton, see https://bugzilla.mozilla.org/show_bug.cgi?id=1811471;
+         check that kerning works between hiragana and katakana, because both map to the same
+         OpenType script behavior. -->
+    <link rel="mismatch" href="hiragana-katakana-kerning-notref.html">
+    <link rel="help" href="https://learn.microsoft.com/en-us/typography/opentype/spec/scripttags">
+    <style>
+      @font-face {
+        font-family: "Noto Sans JP";
+        src: url(resources/NotoSansJP-kana_test-subset.otf);
+      }
+
+      p {
+        position: absolute;
+        top: -126607598173873828559035423468204;
+        left: 170141183460469231731687303715884105472;
+
+        font-size: 65530em;
+        font-family: "Noto Sans JP";
+        font-feature-settings: "palt" on;
+
+        margin: 508852203328213966em;
+      }
+
+      .with-kerning {
+        font-kerning: normal;
+        color: red;
+      }
+
+      .no-kerning {
+        font-kerning: none;
+        color: green;
+        mix-blend-mode: multiply;
+      }
+    </style>
+  </head>
+  <p class="with-kerning">すペ</p><html><head>
+</head></html></html>

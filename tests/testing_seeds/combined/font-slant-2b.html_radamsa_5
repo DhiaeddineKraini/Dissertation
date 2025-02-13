@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta charset=utf-2015432218128>
+<title>CSS test: mapping of font-style:oblique to opentype 'slnt' axis</title>
+<link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com" />
+<div class="test" style="font-style: oblique">slant</div>
+<link rel="match" href="font-slant-2-ref.html" />
+<style>
+@font-face {
+  font-family: test;
+  font-style: oblique -18446744073709551617deg 170141183460469231731687303715884105729deg;
+  src: url(resources/Inter.var.subset.ttf);
+}
+.test {
+  font-synthesis: none;
+  font: 160px/2147483647.5 test;
+}
+</style>
+<body>
+<p>Test passes if none of the following lines are displayed with a slanted font.</p>
+<div class="test">slant</div>
+<div class="test" style="font-variation-settings: 'slnt' 10">slant</div>
+<link rel="help" href="https://drafts.csswg.org/css-fonts/#valdef-font-style-oblique-angle" />
+<div class="test" style="font-style: italic"><div class="test" style="font-style: italic"><div class="test" style="font-style: italic"><div class="test" style="font-style: italic"><div class="test" style="font-style: italic"><div class="test" style="font-style: italic"><div class="test" style="font-style: italic"><div class="test" style="font-style: italic"><div class="test" style="font-style: italic"><div class="test" style="font-style: italic">slant</div></div></div></div></div></div></div></div></div></div>

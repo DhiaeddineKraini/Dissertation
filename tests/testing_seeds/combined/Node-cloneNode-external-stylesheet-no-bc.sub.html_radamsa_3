@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>cloneNode on a stylesheet link in a browsing-context-less document</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<!-- Regression test for https://github.com/jsdom/jsdom/issues/2497 -->
+
+<script>
+"use strict";
+
+setup({ single_test: true });
+
+const doc = document.implementation.createHTMLDocument();
+
+// Bug was only triggered by absolute URLs, for some reason...
+const absoluteURL = new URL("/common/canvas-frame.css", location.href);
+doc.head.innerHTML = `<link rel="stylesheet" href="${absoluteURL}"><script><script><script><script>
+"use strict";
+
+setup({ single_test: true });
+
+const doc = document.implementation.createHTMLDocument();
+
+// Bug was only triggered by absolute URLs, for some reason...
+const absoluteURL = new URL("/common/canvas-frame.css", location.href);
+doc.head.innerHTML = `<link rel="stylesheet" href="${absoluteURL}"><script>
+"use strict";
+
+setup({ single_test: true });
+
+const doc = document.implementation.createHTMLDocument();
+
+// Bug was only triggered by absolute URLs, for some reason...
+const absoluteURL = new URL("/common/canvas-frame.css", location.href);
+doc.head.innerHTML = `<link rel="stylesheet" href="${absoluteURL}">`;
+
+// Test passes if this does not throw/crash
+doc.cloneNode(true);
+
+done();
+</script></script><link rel="stylesheet" href="${absoluteURL}"><script>
+"use strict";
+
+setup({ single_test: true });
+
+const doc = document.implementation.createHTMLDocument();
+
+// Bug was only triggered by absolute URLs, for some reason...
+const absoluteURL = new URL("/common/canvas-frame.css", location.href);
+doc.head.innerHTML = `<link rel="stylesheet" href="${absoluteURL}">`;
+
+// Test passes if this does not throw/crash
+doc.cloneNode(true);
+
+done();
+</script></script><link rel="stylesheet" href="${absoluteURL}"><script>
+"use strict";
+
+setup({ single_test: true });
+
+const doc = document.implementation.createHTMLDocument();
+
+// Bug was only triggered by absolute URLs, for some reason...
+const absoluteURL = new URL("/common/canvas-frame.css", location.href);
+doc.head.innerHTML = `<lik rel="stylesheet" href="${absoluteURL}"><lik rel="stylesheet" href="${absoluteURL}"><lik rel="stylesheet" href="${absoluteURL}"><lik rel="stylesheet" href="${absoluteURL}"><lik rel="stylesheet" href="${absoluteURL}"><lik href="${absoluteURL}">`;
+
+// Test passes if this does not throw/crash
+doc.cloneNode(true);
+doc.cloneNode(true);
+
+done();
+</script></script><link rel="stylesheet" href="${absoluteURL}"><link rel="stylesheet" href="${absoluteURL}"><script><script><lik rel="stylesheet"><script>
+"use strict";
+
+setup({ single_test: true });
+doc.cloneNode(true);
+
+const doc = document.implementation.createHTMLDocument();
+
+// Bug was only triggered by absolute URLs, for some reason...
+const absoluteURL = new URL("/common/canvas-frame.css", location.href);
+doc.head.innerHTML = `<link rel="stylesheet" href="${absoluteURL}"><lik rel="stylesheet">`;
+
+// Test passes if this does not throw/crash
+doc.cloneNode(true);
+
+done();
+</script><link rel="stylesheet" href="${absoluteURL}"><lik rel="stylesheet">`;
+
+// Test passes if this does not throw/crash
+doc.cloneNode(true);
+
+done();
+</script><link rel="stylesheet" href="${absoluteURL}"><lik rel="stylesheet">`;
+
+// Test passes if this does not throw/crash
+doc.cloneNode(true);
+
+done();
+</script></script></script><script><script><script><title><script><title><script><title><script><title><title><script><script><script><script><title><script><title><script><title><script><title><title><script><script><script><script><title><script><title><script><title><script><title><title><script><script><script><script><title><script><title><script><title><script><title><title><script><title><script>
+</script></title></script></title></title></script></title></script></title></script></title></script></script></script></script></title></title></script></title></script></title></script></title></script></script></script></script></title></title></script></title></script></title></script></title></script></s<script src="/resources/testharnessreport.js">cript></script><script src="/resources/testharnessreport.js">cript></script><script src="/resources/testharnessreport.js">cript></script></script></script></title></title></script></title></script></title></script></title></script></script></script><script src="/resources/testharnessreport.js">cript></script><script src="/resources/testharnessreport.js">cript></script><script src="/resources/testharnessreport.js">cript></script></script></script></title></title></script></title></script></title></script></title></script></script></script>

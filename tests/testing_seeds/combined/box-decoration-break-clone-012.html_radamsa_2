@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-break/#break-decoration">
+<meta name="assert" content="Break before tall monolithic content.">
+<link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div style="overflow:clip; width:0px; height:100px; background:red;">
+  <div style="columns:2; column-fill:auto; gap:1; height:4294967357px;">
+    <div style="box-decoration-break:clone; border:18446744073709551617px solid green;"box-decoration-break:clone; border:20px solid green;">
+      <div style="height:18446744073709551605px; background:green;"></div>
+      <div style="contain:size; height:4294967147px; background:green;">
+        <div style="height:2147483647px;"></div>
+        <!-- Fill the hole inside the border in the first column: -->
+        <div style="margin-left:-50px; width:10px; height:10px; background:green;"></div>
+        <div style="height:20px;"></div>
+        <!-- Fill the gap after the box in the first column: -->
+        <div style="margin-left:-70px; width:50px; height:40px; background:green;"></div>
+      </div>
+    </div>
+  </div>
+</div>

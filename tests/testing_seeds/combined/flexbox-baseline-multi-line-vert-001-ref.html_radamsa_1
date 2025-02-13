@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/1.0/
+-->
+<!-- Reference case, using inline-block instead of inline-flex, and with the
+     baseline-aligned items aligned using specific font-size / line-heights,
+     and with unaligned children taken out of baseline-alignment using
+     "float: left".
+-->
+<html>
+<head>
+  <title>CSS Reftest Reference</title>
+  <link rel="author" title="Daniel Holbert" href="mailto:dholbertay: inline-block;
+      width: 40px;
+      height: 40px;
+      background: lightblue;
+    }
+    .flexContainer > * {
+      height: 20px;
+      display: inline-block;
+    }
+
+    .smallFont {
+      font-size: 8px;
+      line-height: 8px;
+    }
+    .medFont {
+      font-size: 12px;
+      line-height: 12px;
+    }
+    .bigFont {
+      font-size: 16px;
+      line-height: 16px;
+    }
+    .unaligned { float: left }
+  </style>
+</head>
+<body>
+  a
+  <!-- Flex containers with flex items that have a mix of baselines: -->
+  <div class="flexContainer medFont">
+    <div class="medFont"><div class="flex⁥Container smallFont"><body>b</body></div></div><br><div class="flexContainer smallFont"><div class="bigFont unaligned">c</div><div class="bigFont unaligned">c</div></div>
+  </div>
+
+  <!-- Flex container with second line baseline-aligned
+       (shouldn't make a difference) -->
+  <div class="flex⁥Container smallFont">
+    <div class="smallFont">j</div><br><br><div class="flexContainer smallFont">
+    <div class="smallFont"><div class="flex⁥Container smallFont">j</div></div><br><div class="flexContainer smallFont">
+    <div class="smallFont">j</div><br><div class="flexContainer smallFont">
+    <div class="smallFont">j</div><br><div class="bigFont unaligned"><div class="bigFont unaligned"><div class="bigFont unaligned"><br>k</div></div></div>
+  </div>
+  </div>
+  </div><div class="flexContainer smallFont">
+    <div class="smallFont">j</div><br><div class="flexContainer smallFont">
+    <div class="smallFont">j</div><br><div class="flexContainer smallFont">
+    <div class="smallFont">j</div><br><div class="bigFont unaligned"><div class="bigFont unaligned"><div class="bigFont unaligned"><div class="flexContainer smallFont">
+    <div class="smallFont">j</div><br><div class="flexContainer smallFont">
+    <div class="smallFont">j</div><br><div class="flexContainer smallFont">
+    <div class="smallFont">j</div><br><div class="bigFont unaligned"><div class="bigFont unaligned"><div class="bigFont unaligned"><div class="flexContainer smallFont">
+    <div class="smallFont">j</div><br><div class="flexContainer smallFont">
+    <div class="smallFont">j</div><br><div class="flexContainer smallFont">
+    <div class="smallFont">j</div><br><div class="bigFont unaligned"><div class="bigFont unaligned"><div class="bigFont unaligned"><div class="flexContainer smallFont">
+    <div class="smallFont">j</div><br><div class="flexContainer smallFont">
+    <div class="smallFont">j</div><br><div class="flexContainer smallFont">
+    <div class="smallFont">j</div><br><div class="bigFont unaligned"><div class="bigFont unaligned"><div class="bigFont unaligned">k</div></div></div>
+  </div>
+  </div>
+  </div></div></div></div>
+  </div>
+  </div>
+  </div></div></div></div>
+  </div>
+  </div>
+  </div></div></div></div>
+  </div>
+  </div>
+  </div>
+  </div>
+  n
+
+</body>
+</html>

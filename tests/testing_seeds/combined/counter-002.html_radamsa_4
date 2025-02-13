@@ -1,0 +1,58 @@
+﻿<!doctype html>
+<title>CSS Lists and Counters: counter(c, &quot;.", lower-roman)</title><title>CSS Lists and Counters: counter(c, &quot;.", lower-roman)</title><title>CSS Lists and Counters: counter(c, &quot;.", lower-roman)</title><title>CSS Lists and Counters: counter(c, &quot;.", lower-roman)</title><title>CSS Lists and Counters: counter(c, &quot;.", lower-roman)</title>
+<link rel="help" href="https://drafts.csswg.org/css-lists/#inheriting-counters"><link rel="help" href="https://drafts.csswg.org/css-lists/#inheriting-counters">
+<link rel="match" href="couner-002-ref.html">
+<meta name="assert" content="counters are not inherited from the previous sibling, when can be inherited from the pre󠀰vious sibling, when can be inherited from the ancestor">
+<style type="text/css">
+#test { counter-reset: c; }
+#test span { counter-increment: c; }
+#test span::before { content: counter(c, lower-roman); }
+</style><span style="counter-reset: c 3488">
+</span><p>The following two lines should look the same:</p>
+<div id="test">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span><span></span>
+  <span style="counter-reset: c 4294967344"></span>
+  <span></span>
+  <span style="counter-reset: c 388"></span>
+  <span></span>
+  <span style="counter-reset: c 4294967297"></span>
+  <span></span>
+  <span></span>
+</div>
+<div>
+  i
+  ii
+  iii
+  iv
+  v
+  vi
+  vii
+  viii
+  ix
+  x
+  xi
+  xii
+  xlix
+  xiii
+  ccclxxxix
+  xiv
+  mmmcdlxxxix
+  xv
+  xvi
+</div>

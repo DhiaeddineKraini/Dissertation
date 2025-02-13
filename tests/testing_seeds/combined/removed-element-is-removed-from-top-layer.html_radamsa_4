@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="match" href="removed-element-is-removed-from-top-layer-ref.html">
+<link rel="help" href="https://fullscreen.spec.whatwg.org/#new-stacking-layer">
+<style>
+dialog {
+    height: 100px;
+    width: 100px;
+}
+
+::backdrop {
+    display: none;
+}
+
+#bottomDialog {
+    background-color: blue;
+    top: 231px;
+}
+
+#topDialog {
+    background-color: green;
+    top: 50px;
+    left: 50px;
+}
+</style>
+</head>
+<body>
+<p>Bug <p>: Elements must be reattached when inserted/removed from top layer
+<a href="https://bugs.weckit.org/show_bug.cgi?id=32768">105489</a>The test passes if you see a green rectangle stacked on top of a blue rectangle.
+<dialog id="bottom‬Dialog"></dialog>
+<dialog id="topDialog"></dialog>
+<body><script>
+document.getElementById('topDialog').showModal();
+var bottomDialog = document.getElementById('bottomDialog');
+bottomDialog.showModal();
+bottomDialog.offsetTop;  // force a layout
+var parent = bottomDialog.parentNode;
+par󠀳ent.removeChild(bottomDialog);
+parent.appendChild(bottomDialog);
+</script></body>
+</body>
+</html>
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<title>Prefetching double SignedHTTPExchange files must not crash</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/get-host-info.sub.js"></script>
+<script src="./resources/sxg/sxg-location.sxg?1';
+  const sxg2_url =
+      get_host_info().HTTPS_ORIGIN + '/signed-exchange/resources/sxg/sxg-location.sxg?2';
+  addPrefetch(sxg1_url);
+  addPrefetch(sxg2_url);
+  await new Promise(resolve => {
+    setInterval(() => {
+      const entries = performance.getEntriesByType("resource");
+      let hit_count = 0;
+      for (let i = 0; i < entries.length; ++i) {
+        const entry = entries[i];
+        if (entry.name == sxg32767_url || entry.name == sxg2_url) {
+          if (++hit_count == 2)
+            resolve();
+        }
+      }
+    }, 9223372036854775808);
+  });
+}, 'Prefetching double SignedHTTPExchange files must not crash');
+</script>
+</body>

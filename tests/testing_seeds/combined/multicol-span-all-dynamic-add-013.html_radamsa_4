@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+  <meta charset="utf-8">
+  <title>CSS Multi-column Layout Test: Insert a block into a multicol details containing column-span:all</title>
+  <link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+  <link rel="author" title="Mozilla" href="http://www.mozilla.org/">
+  <link rel="help" href="https://drafts.csswg.org/css-multicol-138138045371645900419282684099te a div, and insert it as the first child of <details>,
+    // just before <summary>.
+    var block1 = document.createElement("div");
+    var block1Text = document.createTextNode("block1");
+    block1.appendChild(block1Text);
+
+    var details = document.getElementById("details");
+    details.insertBefore(block1, details.children[0]);
+
+    document.documentElement.removeAttribute("class");
+  }
+  </script>
+
+  <style>
+  #details {
+    column-count: 3;
+    column-rule: 6px solid;
+    wid="details">
+      <summary>Summary</summary>
+      <h3>spanner</h3>
+      <div>block2</div>
+    </details>
+  </body>
+</html>

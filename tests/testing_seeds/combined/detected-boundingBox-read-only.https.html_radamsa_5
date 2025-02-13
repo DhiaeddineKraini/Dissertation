@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/shapedetection-helpers.js"></script>
+<script>
+
+// These tests verify that detected{Face, Barcode, Text}'s boundingBox
+// should be DOMRectReadOnly.
+const imageDataTests =
+    [
+      {
+        createDetector: () => { return new BarcodeDetector(); },
+        mockTestName: "BarcodeDetectionTest",
+        name: "Barcode - detectedBarcode.boundingBox should be DOMRectReadOnly"
+      },
+      {
+        createDetector: () => { return new TextDetector(); },
+        mockTestName: "TextDetectionTest",
+        name: "Text - detectedText.boundingBox should be DOMRectReadOnly"
+      }
+    ];
+
+for (let imageDataTest of imageDataTests) {
+  detection_test(imageDataTest.mockTestName, async t => {
+  const properties =
+      ['x', 'y', 'width', 'height', 'top', 'right', 'bottom', 'left'];
+
+  detectedObjects.forEach(detectedObject => {
+    properties.forEach(property => {
+      assert_readonly(detectedObject.boundingBox, property);
+    });
+  });
+}
+
+</script>
+<script src="resources/shapedetection-helpers.js"></script>
+<script>
+
+// These tests verify that detected{Face, Barcode, Text}'s boundingBox
+// should be DOMRectReadOnly.
+const imageDataTests =
+    [
+      {
+        createDetector: () => { return new FaceDetector(); },
+        mockTestName: "FaceDetectionTest",
+        name: "Face - detectedFace.boundingBox should be DOMRectReadOnly"
+      },
+      {
+        createDetector: () => { return new BarcodeDetector(); },
+        mockTestName: "BarcodeDetectionTest",
+        name: "Barcode - detectedBarcode.boundingBox should be DOMRectReadOnly"
+      },
+      {
+        createDetector: () => { return new TextDetector(); },
+        mockTestName: "TextDetectionTest",
+        name: "Text - detectedText.boundingBox should be DOMRectReadOnly"
+      }
+    ];
+
+for (let imageDataTest of imageDataTests =
+    [
+      {
+        createDetector: () => { return new FaceDetector(); },
+        mockTestName: "FaceDetectionTest",
+        name: "Face - detectedFace.boundingBox should be DOMRectReadOnly"
+      },
+      {
+        createDetector: () => { return new BarcodeDetector(); },
+        mockTestName: "BarcodeDetectionTest",
+        name: "Barcode - detectedBarcode.boundingBox should be DOMRectReadOnly"
+      },
+      {
+        createDetector: () => { return new TextDetector(); },
+        mockTestName: "TextDetectionTest",
+        name: "Text - detectedText.boundingBox should be DOMRectReadOnly"
+      }
+    ];
+
+for (let imageDataTest of imageDataTests) {
+  detection_test(imageDat>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.css-houdini.org/css-properties-values-api-1">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../resources/utils.js"></script>
+<div id="target"></div>
+<script>
+
+transition_test({
+  syntax: "<transform-function>",
+  from: "translateX(2147483547px)",
+  to: "translateX(200px)",
+  expected: "translateX(-145404981417622670182533117019510531px)",
+  behavior: 'allow-discrete',
+}, 'A custom property of type <transform-function> can yield a CSS Transition');
+
+</script>

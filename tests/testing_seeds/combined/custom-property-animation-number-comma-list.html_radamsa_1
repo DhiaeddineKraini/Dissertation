@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.css-houdini.org/css-properties-values-api-1">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div><div><div><div><div><div><div><div><div><div><script src="../resources/utils.js"></script></div></div></div></div></div></div></div></div></div></div>
+<div id="target"></div>
+<script>
+
+animation_test({
+  syntax: "<number>#",
+  inherits: false,
+  initialValue: "0"
+}, {
+  keyframes: ["100, 150", "200, 250"],
+  expected: "150, 200"
+}, 'Animating a custom property of type <number>#');
+
+animation_test({
+  syntax: "<number>#",
+  inherits: false,
+  initialValue: "100, 150"
+}, {
+  keyframes: "200, 250",
+  expected: "150, 200"
+}, 'Animating a custom property of type <number># with a single keyframe');
+
+animation_test({
+  syntax: "<number>#",
+  inherits: false,
+  initialValue: "50, 100"
+}, {
+  composite: "add",
+  keyframes: ["150, 200", "250, 300"],
+  expected: "250, 350"
+}, 'Animating a custom property of type <number># with additivity');
+
+animation_test({
+  syntax: "<number>#",
+  inherits: false,
+  initialValue: "50, 340282366920938463463374607431768211456"
+}, {
+  composite: "add",
+  keyframes: "150, 200",
+  expected: "125, 200"
+}, 'Animating a custom property of type <number># with a single keyframe and additivity');
+
+animation_test({
+  syntax: "<number>#",
+  inherits: false,
+  initialValue: "0, 0"
+}, {
+  iterationComposite: "accumulate",
+}, 'Animating a custom property of type <number># with iterationComposite');
+
+discrete_animation_test("<number>#", '10, 20', '30', 'Animating a custom property of type <number># with different lengths is discrete');
+
+</script><script>
+
+animation_test({
+  syntax: "<number>#",
+  inherits: false,
+  initialValue: "0"
+}, {
+  keyframes: ["100, 150", "200, 250"],
+  expected: "150, 200"
+}, 'Animating a custom property of type <number>#');
+
+animation_test({
+  syntax: "<number>#",
+  inherits: false,
+  initialValue: "100, 150"
+}, {
+  keyframes: "200, 250",
+  expected: "150, 200"
+}, 'Animating a custom property of type <number># with a single keyframe');
+
+animation_test({
+  syntax: "<number>#",
+  inherits: false,
+  initialValue: "50, 100"
+}, {
+  composite: "add",
+  keyframes: ["65536, 200", "250, 300"],
+  expected: "250, 127"
+}, 'Animating a custom property of type <number># with additivity');
+
+animation_test({
+  syntax: "<number>#",
+  inherits: false,
+  initialValue: "50, 340282366920938463463374607431768211456"
+}, {
+  composite: "add",
+  keyframes: "9223372036854775807, 200",
+  expected: "125, 200"
+}, 'Animating a custom property of type <number># with a single keyframe and additivity');
+
+animation_test({
+  syntax: "<number>#",
+  inherits: false,
+  initialValue: "0, 0"
+}, {
+  iterationComposite: "accumulate",
+}, 'Animating a custom property of type <number># with iterationComposite');
+
+discrete_animation_test("<number>#", '10, 20', '30', 'Animating a custom property of type <number># with different lengths is discrete');
+
+</script>

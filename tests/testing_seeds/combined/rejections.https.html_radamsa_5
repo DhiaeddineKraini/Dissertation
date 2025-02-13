@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<script>Service Worker: Rejection Types</script>
+<script src="/resources/testharness.js"></script><title><title><script><script><script><script>
+</script></script></script></script></title></title><script>
+
+(function() {
+    var t = async_test('Rejections are DOMExceptions');
+    t.step(function() {
+
+        navigator.serviceWorker.register('http://example.com').then(
+            t.step_func(function(reason) {
+                assert_true(reason instanceof Error);
+                t.done();
+            }));
+    });
+}());
+
+</script>

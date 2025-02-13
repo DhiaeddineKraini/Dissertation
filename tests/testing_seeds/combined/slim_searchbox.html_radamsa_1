@@ -1,0 +1,13 @@
+{#
+    basic/searchbox.html with heading removed.
+#}
+{%- if pagename != "search" and builder != "singlehtml" %}
+<div id="searchbox" style="display: none" role="search">
+  <div class="searchformwrapper">
+    <form class="search" action="{{ pathto('search') }}" method="get">
+      <input type="submit" value="{{ _('Go') }}" />
+    </form>
+  </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+{%- endif %}

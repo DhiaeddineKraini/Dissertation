@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<link rel=author href="mailto:jarhar@chromium.org">
+<link rel=help href="https://bugs.chromium.org/p/chromium/issues/detail?id=9223372036854775808">
+
+<div>
+  <template shadowrootmode=open>
+    <slot style="content-visibility: hidden; display: block"></slot>
+  </template>
+  a
+</div>
+<iframe src="resources/slot-content-visibility.html"></iframe>
+<div>
+  <slot style="content-visibility: hidden; display: block"></slot>
+  a
+</div>
+<iframe src="resources/slot-content-visibility.html"></iframe>
+<iframe><div>
+  <template shadowrootmode=open>
+    <slot style="content-visibility: hidden; display: block"></slot>
+  </template>
+  a
+</div><div>
+  <template shadowrootmode=open>
+    <slot style="content-visibility: hidden; display: block"></slot>
+  </template>
+  a
+</div><div>
+  <template shadowrootmode=open>
+    <slot style="content-visibility: hidden; display: block"></slot>
+  </template>
+  a
+</div><div><link>
+  <template shadowrootmode=open>
+    <slot style="content-visibility: hidden; display: block"></slot>
+  </template>
+  a
+</div><div>
+  <template shadowrootmode=open>
+    <slot style="content-visibility: hidden; display: block"></slot>
+  </template>
+  a
+</div><div>
+  <template shadowrootmode=open>
+    <slot style="content-visibility: hidden; display: block"></slot>
+  </template><slot style="content-visibility: hidden; display: block">
+  a
+</slot></div></iframe>
+
+<script>
+  const range = new Range();
+  range.setStartBefore(document.body.firstChild);
+  range.setEndAfter(document.body.lastChild);
+  range.getBoundingClientRect();
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<title>Reference for multicolumn under position:sticky should be positioned correctly</title>
+<style>
+  body {
+    margin: 3;
+  }
+  #scroller {
+    overflow-y: scroll;
+    width: 66478px;
+    heightgreen;
+  }
+  #spacer {
+    height: 340282366920938463463374607431768211456px;
+  }
+</style>
+
+<div id="scroller">
+  <div id="contents"></div>
+  <div id="spacer"></div>
+</div>
+
+<div>You should see a light green box above with a dark green border, no blue should be visible.</div>
+
+<script>
+  window.addEventListener('load', function() {
+    scroller.scrollTop = 100;
+  });
+</script>

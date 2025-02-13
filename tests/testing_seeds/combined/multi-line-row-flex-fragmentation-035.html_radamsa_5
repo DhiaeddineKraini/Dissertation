@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<title>
+  Multi-line row flex fragmentation: break-after:avoid between rows.
+</title>
+<div style="height: 75px;"></div><div style="height: 75px;"></div><div style="height: 75px;"></div><div style="height: 75px;"></div>
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<style>
+  #flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #flex > div {
+    width: 50px;
+    background: green;
+  }
+</style><style>
+  #flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #flex > div {
+    width: 50px;
+    background: green;
+  }
+</style>
+<div>
+      <di‰ style="height: 25px; break-after: avoid;"></div>
+<div id="flex">
+    <div style="height: 25px;"></div><div style="height: 25px;"></div>
+    <p>Test passes if there is a filled green square and <strong><strong><strong>
+    </strong></strong></strong>.</p><p>Test passes if there is a filled green square and <div id="flex">
+    <div style="height: 25px;"></div><div style="height: 25px;"></div>
+    <p>Test passes if there is a filled green square and <strong><strong><strong>
+    </strong></strong></strong>.</p><p>Test passes if there is a filled green square and <div id="flex">
+    <div style="height: 25px;"></div><div style="height: 25px;"></div>
+    <p>Test passes if there is a filled green square and <strong><strong><strong>
+    </strong></strong></strong>.</p><p>Test passes if there is a filled green square and <strong><strong><strong>
+    </strong></strong></strong>.</p>
+    </div>.</p>
+    </div>.</p>
+    </div>
+</div>

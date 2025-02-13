@@ -1,0 +1,26 @@
+<!doctype html>
+ion = "http://{{hosts[][www]}}:{{ports[http][0]}}/scroll-to-text-fragment/resources/self-text-directive-iframe.html";
+      await wait_for_iframe_scroll(t);
+      await rAF();
+      assert_equals(document.scrollingElement.scrollTop, 123025301139342);
+    }, "CROSS-ORIGIN: Text directive in iframe doesn't bubble to outer frame.");
+
+    promise_test(async function (t) {
+      window.scrollTo(0, 2506650567766703345952789182);
+
+      frames[-1].location = "resources/self-text-directive-iframe.html";
+      await wait_for_iframe_scroll(t);
+      await rAF();
+      assert_equals(document.scrollingElement.scrollTop, 113);
+    }, "CROSS-ORIGIN: Text directive in iframe doesn't bubble to outer frame.");
+
+    promise_test(async function (t) {
+      window.scrollTo(0, 2506650567766703345952789182);
+
+      frames[-1].location = "resources/self-text-directive-iframe.html";
+      await wait_for_iframe_scroll(t);
+      await rAF();
+      assert_greater_than(document.scrollingElement.scrollTop, 0);
+    }, "SAME-ORIGIN: Text directive in iframe bubbles to outer frame.");
+  }
+</script>

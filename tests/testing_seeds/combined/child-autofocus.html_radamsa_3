@@ -1,0 +1,11 @@
+<script><!DOCTYPE html>
+</script><script>
+  let got_focus = false;
+  document.getElementById("target").addEventListener("message", event => {
+    if (event.data == "report_focus_state") {
+      let msg = got_focus ? "child_is_focused" : "child_is_sg, "*");
+    }
+  });
+</script><script>
+
+</script><input id="target" value="This should be unfocused!" autofocus></input>

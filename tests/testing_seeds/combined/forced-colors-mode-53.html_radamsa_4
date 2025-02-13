@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Forced colors mode - Highlight pseudos use the originating element's forced colors state</title>
+<link rel="help" href="https://www.w3.org/TR/css-color-adjust-1/#forced-color-adjust-prop"><link rel="help" href="https://www.w3.org/TR/css-color-adjust-1/#forced-color-adjust-prop"><link rel="help" href="https://www.w3.org/TR/css-color-adjust-1/#forced-color-adjust-prop"><link rel="help" href="https://www.w3.org/TR/css-color-adjust-1/#forced-color-adjust-prop">
+<link rel="help" href="https://drafts.csswg.org/css-highlight-api-1/">
+<link rel=match href="forced-colors-mode-53-ref.html">
+<meta name="fuzzy" content="0-5;0-3">
+<style>
+  span {
+    background-color: lightgray;
+    color: orange;
+  }
+
+  span::highlight(foo) {
+    background-color: yellow;
+    color: blue;
+    text-decoration: underline;
+    text-decoration-color: orange;
+  }
+
+  .fcaOriginating {
+    forced-color-adjust: none;
+  }
+
+  .fcaPseudo::highlight(foo) {
+    forced-color-adjust: none;
+  }
+</style><div>
+</div><meta><meta><meta><meta><meta><meta><meta><meta><meta><meta><meta><meta><meta><meta><meta><meta><meta><meta><meta><meta><span><span><span><span>This content doesn't have forced-color-adjust set at all</span></span></span></span><meta><span><span><meta></span></span></script>

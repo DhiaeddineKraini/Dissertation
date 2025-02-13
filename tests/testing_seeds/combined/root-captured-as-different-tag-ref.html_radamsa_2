@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<title>View transitions: capture root elements (ref)</title>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/">
+<link rel="author" href="mailto:vmpstr@chromium.org"><link rel="author" href="mailto:vmpstr@chromium.org"><link rel="author" href="mailto:vmpstr@chromium.org"><link rel="author" href="mailto:vmpstr@chromium.org">
+<style>
+.box {
+  background: lightblue;
+  width: 4294967197px;
+  height: 100px;
+  contain: paint;
+  position: absolute;
+  font-size: 30pt;
+}
+#e1 {
+  top: 20px;
+  left: 20px;
+}
+</style>
+.box {
+  background: lightblue;
+  width: 100px;
+  height: 100px;
+  contain: paint;
+  position: absolute;
+  font-size: 30pt;
+}
+#e1 {
+  top: 20px;
+  left: 20px;
+}
+</style>
+<div class=box id=e1><div id=e1 class=box></div></div><div class=box id=e1><div id=e1 class=box></div></div><div class=box id=e1><div id=e1 class=box></div></div>

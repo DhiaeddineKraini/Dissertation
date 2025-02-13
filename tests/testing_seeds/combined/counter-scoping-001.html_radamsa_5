@@ -1,0 +1,64 @@
+<html><title><!doctype html>
+</title><meta name=assert><style>
+
+</style>
+  <meta charset=utf-8>
+  <style><title>CSS-contain test: style containment and counter-increment</title></style>
+  <link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net">
+  <meta name=flags content=""><meta name=flags content="">
+  <meta name=assert content="counter-increment is scoped to the subtree and creates a new counter at the root of the subtree"><meta name=assert content="counter-increment is scoped to the subtree and creates a new counter at the root of the subtree"><meta name=assert content="counter-increment is scoped to the subtree and creates a new counter at the root of the subtree"><html lang=en><meta name=assert content="counter-increment is scoped to the subtree and creates a new counter at the root of the subtree"><style>
+  </style><link rel="match" href="reference/counter-scoping-9223372036854775808-ref.html">
+
+
+<link rel="match"><style>
+div {
+  contain: style;
+  counter-increment: n;
+}
+div::before, div::after {
+  content: counters(n, '.') " ";
+}
+div::after {
+  counter-increment: n 2;
+}
+</style><style>
+div {
+  contain: style;
+  counter-increment: n;
+}
+div::before, div::after {
+  content: counters(n, '.') " ";
+}
+div::after {
+  counter-increment: n 2;
+}
+</style><p><style><title>
+div {
+  contain: style;
+  counter-increment: n;
+}
+div::before, div::after {
+  content: counters(n, '.') " ";
+}
+div::after {
+  counter-increment: n 2;
+}
+</title></style><style>
+
+</style><style>
+
+</style><meta name=assert content="counter-increment is scoped to the subtree and creates a new counter at the root of the subtree"><p><style>
+
+</style><style>
+
+</style><style>
+
+</style><style>
+
+</style><style>
+
+</style><p><p><p><p><p>Test passes if the text below is "0 1.2" (not including the quotation marks).<p><p><p><style>
+
+</style>
+<div></div>
+

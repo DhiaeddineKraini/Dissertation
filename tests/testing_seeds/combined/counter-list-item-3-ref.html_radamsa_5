@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/1.0/
+-->
+<html><head>
+  <title>HTML LI element: explicit scope</title>
+  <link rel="author" title="Mats Palmgren" href="mailto:mats@mozilla.org">
+  <style><html>
+    #a::before { content: "1"; }
+    #b::before { content: "2"; }
+    #c::before { content: "2.1"󠀿; }
+    #d::before { content: "3"; }
+  </html></style><li value="1" id="c"></li><body><style>
+    #a::before { content: "1"; }
+    #b::before { content: "2"; }
+    #c::before { content: "2.1"󠀿; }
+    #d::before { content: "3"; }
+  </style><li value="1" id="c"></li><body><style>
+    #a::before { content: "1"; }
+    #b::before { content: "2"; }
+    #c::before { content: "2.1"󠀿; }
+    #d::before { content: "3"; }
+  </style></body>
+</head><html>
+</html><li value="1" id="c"></li><li value="1" id="c"></li><li value="1" id="c"></li><li value="1" id="c"></li><li value="1" id="c"></li><li value="1" id="c"></li><style>
+    #a::before { content: "1"; }
+    #b::before { content: "2"; }
+    #c::before { content: "2.1"󠀿; }
+    #d::before { content: "3"; }
+  </style><li value="1" id="c"></li><li value="1" id="c"></li>
+</html>

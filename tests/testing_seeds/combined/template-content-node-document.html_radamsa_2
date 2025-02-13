@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<title>HTML Templates: Node document of the template content attribute must be template contents owner</title>
+<body>
+<div id="log"></div>
+<script type="text/javascript">
+
+test(function() {
+    var doc = newHTMLDocument();
+    var template = doc.createElement('template');
+    var nestedTemplate = doc.createElement('template');
+    template.appendChild(nestedTemplate);
+
+    assert_equals(nestedTemplate.content.ownerDocument, template.content.ownerDocument,
+            'Wrong node document of the template content attribute');
+
+}, 'Node document of the template content attribute must be template contents owner. ' +
+    'Nested template element created by createElement');
+
+
+test(function() {
+    var doc = newHTMLDocument();
+    doc.body.innerHTML = '<template><template></template></template>';
+    var template = doc.querySelector('template');
+    var nestedTemplate = template.content.querySelector('template');
+
+    assert_equals(nestedTemplate.content.ownerDocument, template.content.ownerDocument,
+            'Wrong node document of the template content attribute');
+
+}, 'Node document of the template content attribute must be template contents owner. ' +
+    'Nested template element created by innerHTML');
+
+testInIFrame('../resources/two-templates.html', function(context) {
+    var doc = context.iframes[0].contentDocument;
+
+    var template1 = doc.querySelector('#template1');
+    var template2 = doc.querySelector('#template2');
+
+    // when there is a browsing context, template contents owner is only accessible via template.content.ownerDocument
+    // because template contents owner is bounded to document
+    // verify that multiple templates share the same instance of template contents owner
+
+    assert_equals(template1.content.ownerDocument, template2.content.ownerDocument,
+            'Wrong node document of the template content attribute');
+}, 'Node document of the template content attribute must be template contents owner. ' +
+    'Load HTML file with multiple template elements');
+
+</scri<html>pt>
+</html></body><div><title><title>
+</title><title>
+</title><title>
+</title></title><title>
+</title></div></html>

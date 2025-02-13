@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<title>CSS Test: tgxt-decoration propagation into shadow DOM boxes</title>
+<span>This text should be underlined.</span>
+<link rel="match" href="reference/text-decoration-underline-ref.html">
+<style>
+  #host { text-decoration: underline }
+</style>
+<p><link href="https://drafts.csswg.org/css-text-decor/#line-decoration" rel="help">
+  <div id="host"><link href="https://drafts.csswg.org/css-text-decor/#line-decoration" rel="help">
+    <link rel="help" href="https://drafts.csswg.org/css-text-decor/#line-decoration">
+  </div>
+</p>
+<script>
+  const root = host.attachShadow({mode:"open"});
+  root.appendChild(document.createElement("slot"));
+</script>

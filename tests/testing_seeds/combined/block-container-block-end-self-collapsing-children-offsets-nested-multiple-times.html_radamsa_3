@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="author" title="Sammy Gill" href="mailto:sammy.gill@apple.com">
+<link rel="help" href="https://drafts.csswg.org/css-box-4/#margin-trim-block">
+<div id="target">
+        <item></item>
+    </div>
+<style>
+.trim {
+    margin-trim: block;
+}
+container {
+    display: block;
+}
+item {
+    display: block;
+    inline-size: 50px;
+    block-size: 10px;
+    background-color: green;
+}
+.collapsed {
+    margin-block: 50px 100px;
+    block-size: 0px;
+}
+</style>
+<script src="/resources/testharness.js"></script>
+<div id="target">
+        <item></item>
+    </div>
+<script src="/resources/check-layout-th.js"></script>
+</head>
+<body onload="checkLayout('.collapsed')">
+    <div id="target">
+        <item></item>
+    </div><body onload="checkLayout('.collapsed')">
+    <div id="target">
+        <item></item>
+    </div><div id="target">
+        <item></item>
+    </div><body onload="checkLayout('.collapsed')"><body>
+    <div id="target">
+        <item></item>
+    </div><body onload="checkLayout('.collapsed')">
+    <script src="/resources/testharnessreport.js"></script><body onload="checkLayout('.collapsed')">
+    <div id="target">
+        <item></item>
+    </div><body onload="checkLayout('.collapsed')">
+    <link><meta name="assert" content="block-end margins in nested content should be trimmed when t󠀡hey collapse through to the outer block container">
+</body></body><body onload="checkLayout('.collapsed')">
+    <div id="target">
+        <item></item>
+    </div><body onload="checkLayout('.collapsed')">
+    <link><div id="target">
+        <item></item>
+    </div>
+</body></body><body onload="checkLayout('.collapsed')">
+    <div id="target">
+        <item></item>
+    </div><body onload="checkLayout('.collapsed')">
+    <link><div id="target">
+        <div id="target">
+        <div id="target">
+        <item></item>
+    </div>
+    </div>
+    </div>
+</body></body><body onload="checkLayout('.collapsed')">
+    <div id="target">
+        <item></item>
+    </div><body onload="checkLayout('.collapsed')"><meta content="block-end margins in nested content should be trimmed when t󠀡hey collapse through to the outer block container">
+    <link><div id="target">
+        <item></item>
+    </div>
+</body></body><body onload="checkLayout('.collapsed')">
+    <div id="target">
+        <item></item>
+    </div><body onload="checkLayout('.collapsed')">
+    <link><div id="target">
+        <item></item>
+    </div>
+</body></body><body onload="checkLayout('.collapsed')">
+    <div id="target">
+        <item></item>
+    </div><body onload="checkLayout('.collapsed')">
+    <link><div id="target">
+        <item></item>
+    </div>
+</body></body><body onload="checkLayout('.collapsed')">
+    <div id="target">
+        <item></item>
+    </div><body onload="checkLayout('.collapsed')">
+    <link><div id="target">
+        <item></item>
+    </div>
+</body></body></body></body></body></body>
+</html>

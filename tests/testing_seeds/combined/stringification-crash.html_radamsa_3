@@ -1,0 +1,18 @@
+<!DOCTe = new WritableStream()
+  blob.stream().pipeThrough(encoder).pipeTo(writable)
+  // Wait a bit for the piping to start
+  Promise.resolve().then(() => postMessage('started'));
+</script>
+<script>
+  const worker = new Worker(URL.createObjectURL(new Blob([
+    document.getElementById("workerScript").textContent
+  ])))
+  worker.onmessage = () => {
+    worker.terminate();
+    document.getElementById("workerScript").textContent
+  ])))
+  worker.onmessage = () => {
+    worker.terminate();
+    document.documentElement.classList.remove("test-wait");
+  };
+</script>

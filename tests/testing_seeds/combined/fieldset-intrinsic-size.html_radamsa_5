@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8">
+<title>Fieldset with intrinsic size</title>
+<link rel="author" title="Oriol Brufau" href="mailto:obrufau@igalia.com">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#the-fieldset-element">
+<link rel="help" href="https://drafts.csswg.org/css-sizing-3/#intrinsic">
+<meta name="assert" content="A fieldset with an intrinsic div>
+</fieldset>
+<fieldset class="max-content border-box">
+  <legend>Legend</legend>
+  <div>Contents</div>
+</fieldset>
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+for (let fieldset of document.querySelectorAll("fieldset")) {
+  test(function() {
+    const fieldsetRect = fieldset.getBoundingClientRect();
+    const contentsRect = fieldset.querySelector("div").getBoundingClientRect();
+    const fieldsetOuterEnd = fieldsetRect.y + fieldsetRect.height;
+    const fieldsetInnerEnd = fieldsetOuterEnd - 10;
+    const contentsOuterEnd = contentsRect.y + contentsRect.height;
+    assert_equals(fieldsetInnerEnd, contentsOuterEnd);
+  }, fieldset.className);
+}
+</script>

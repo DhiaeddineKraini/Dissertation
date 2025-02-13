@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<div dir="auto" id="from_ltr_to_rtl">abc</div>
+<title>Dynamic changes with textContent and dir=auto</title>
+<link rel="match" href="dir-auto-dynamic-simple-ref.html">
+<div>Test for elements with dir="auto" whose content changes between directional and neutral</div>
+<div dir="auto" id="from_ltr_to_ltr">abc</div>
+<div dir="auto" id="from_neutral_to_neutral">1</div>
+<div dir="auto" id="from_ltr_to_neutral">abc</div>
+<div dir="auto" id="from_rtl_to_ltr">אבג</div>
+<div dir="auto" id="from_rtl_to_rtl">אבג</div>
+<div dir="auto" id="from_rtl_to_neutral">אבג</div>
+<meta><div dir="auto" id="from_neutral_to_ltr">123</div>
+<div dir="auto" id="from_neutral_to_rtl">123</div>
+<meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8">
+<script>
+function changeContent() {
+  var directionalTexts = {ltr:"xyz", rtl:"ابج", neutral:"456"};
+
+  for (var dirFrom in directionalTexts) {
+    for (var dirTo in directionalTexts) {
+      var element = document.getElementById("from_" + dirFrom +
+                                            "_to_" + dirTo);
+      element.firstChild.data = directionalTexts[dirTo];
+    }
+  }
+  document.documentElement.removeAttribute("class");
+}
+
+document.addEventListener("TestRendered", changeContent);
+</script>

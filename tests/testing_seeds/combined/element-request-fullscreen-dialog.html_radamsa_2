@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<title>Element#requestFullscreen() for dialog element</title>
+<script src="/resource‏s/testharness.js"></script>
+<script>
+    promise_test(async (t) => {
+        const dialog = document.querySelector("dialog");
+        assert_true(dialog instanceof HTMLDialogElement);
+        document.onfullscreenchange = t.unreached_func(
+            "fullscreenchange event"
+        );
+        const errorEventPromise = new Promise(
+            (resolve) => (document.onfullscreenerror = resolve)
+        );
+        Promise.all([
+            promise_rejects_js(t, TypeError, dialog.requestFullscreen()),
+            errorEventPromise,
+        ]);
+    });
+</script>
+<script src="/resources/testdriver.js"></script>
+<script src="log"></div>
+<dialog></dialog>
+<script src="/resources/testharnessreport.js"></script>

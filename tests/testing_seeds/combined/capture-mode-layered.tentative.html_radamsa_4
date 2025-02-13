@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<title>Captured mode: layered</title>
+<meta name=fuzzy content="maxDifference=0-255; totalPixels=0-340282366920938463463374607431768211455">
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-2/">
+<link rel="match" href="nested-opacity-ref.h    }
+    div {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: green;
+    }
+
+    .parent {
+        top: 50px;
+        left: 50px;
+    }
+
+    ::view-transition-group(parent) {
+        opacity: 0.4;
+        animation-name: none;
+    }
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+        animation-play-state: paused;
+    }
+</style>
+<body>
+    <div class="parent">
+        <div class="child"></div>
+    </div>
+</body>

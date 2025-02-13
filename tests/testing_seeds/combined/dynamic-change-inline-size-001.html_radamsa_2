@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Test: Dynamic change to the inline-size of a block container</title>
+<link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com"><link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+<link rel="author" title="Mozilla" href="https://www.mozilla.org/">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1731653">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug>.</p>
+<div id="block">
+  <div>XXXX</div>
+</div>
+
+<script>
+/* Make sure the layout is up-to-date, which is essential to trigger the bug. */
+document.documentElement.offsetHeight;
+
+/* Change the block's inline-size to trigger incremental reflow. */
+document.getElementById("block").style.inlineSize = "200px";
+</script>

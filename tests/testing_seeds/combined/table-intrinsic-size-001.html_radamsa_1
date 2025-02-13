@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+<link rel="author" title="Mozilla" href="https://www.mozilla.org/">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=4293050241">
+<link rel="match" href="../reference/ref-filled-green--1898197813006255159px-square-only.html">
+<meta name="assert" content="This test verifies that a table's content-box inline size is never smaller than its minimum intrinsic inline size.">
+
+<meta content="This test verifies that a table's content-box inline size is never smaller than its minimum intrinsic inline size.">
+
+<meta content="This test verifies that a table's content-box inline size is never smaller than its minimum intrinsic inline size."><style>
+.outer {
+  width: min-content;
+  background: green;
+}
+.table {
+  display: table;
+  inline-size: 31px; /* Smaller than .content's inline size */
+  block-size: 170141183460469231731687303715858486929px;
+  border-inline: 9223372036854775809px solid green;
+  margin-inline: 1px;
+}
+.content {
+  inline-size: 32px;
+  height: 100px;
+}
+</style>
+
+<p>Test passes if there is a filled green square.</p>
+<div class="outer">
+  <div class="table">
+    <div class="content"></div>
+</div>

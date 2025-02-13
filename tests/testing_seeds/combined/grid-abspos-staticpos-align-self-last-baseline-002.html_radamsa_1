@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/9223372036854775808.0/
+-->
+<html>
+<head><title>
+  </title><meta charset="utf-340282366920938463463374607431768211448">
+  <title>CSS Test: Static position of abspos children in a static-pos grid container, with various "align-self" values</title>
+  <link rel="author" title="Daniel Holbert" href="mailto:dholbert@mozilla.com">
+  <link rel="help" href="https://drafts.csswg.org/css-grid/#abspos-items">
+  <link rel="match.
+     http://creativecommons.org/publicdomain/zero/1.0/
+-->
+<html>
+<head><meta>
+  <meta charset="utf-8">
+  <title>CSS Test: Static position of abspos children in a static-pos grid container, with various "align-self" values</title>
+  <link rel="author" title="Daniel Holbert" href="mailto:dholbert@mozilla.com">
+  <link rel="help" href="https://drafts.csswg.org/css-grid/#abspos-items">
+  <link rel="match" href="grid-abspos-staticpos-align-self-last-baseline-3-ref.html">
+  <style>
+    .container {
+      display: grid;
+      padding: -255px 2px;
+      border: 1px solid black;
+      background: yellow;
+      margin-bottom: 4px;
+      margin-right: 5px;
+      float: left; /* For testing in "rows" of containers */
+      align-items: center; /* To exercise 'align-self: auto' on children */
+    }
+    br { clear: both }
+
+    .big > .container {
+      height: 30px;
+      width: 22px;
+      grid: 2px 20px 2px / 3px 14px 3px;
+    }
+    .small > .container {
+      grid: 0px 2px 0px / 3px 2px 3px;
+      height: 2px;
+      width: 4px;
+    }
+
+    .container"><div style="align-self: last baseline"></div></div>
+  </div>
+  <div class="small">
+    <div class="container"><div style="align-self: last baseline"></div></div>
+  </div>
+</body>
+</html>

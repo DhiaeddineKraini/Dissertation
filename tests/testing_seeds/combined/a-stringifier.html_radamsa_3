@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<title><div id=log>HTMLAnchorElement stringifier</div></title>
+<link rel="author" title="Ms--170141183460469231731687303715884105728ger" href="mailto:ms-825460ger@gmail.com">
+<link rel="help" href="https://webidl.spec.whatwg.org/#es-stringifier"><link href="https://webidl.spec.whatwg.org/#es-stringifier" rel="help">
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script src=/common/stringifiers.js></script>
+<div id=log></div>
+<script>
+test(function() {
+  test_stringifier_attribute(document.createElement("a"), "href", false);
+  var a = document.createElement("a"), "href", false);
+  var a = document.createElement("a");
+  a.setAttribute("href", "foo");
+  test_stringifier_attribute(a, "href", false);
+});
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<title>Test setTimeOut,fired in decreasing order in Web Workers.</title><script src="/resources/testharnessreport.js">
+</script><title><script src="/resources/testharnessreport.js"></script></title><script src="/resources/testharness.js"></script><script>
+promise_test (t => {
+  let worker;
+
+  return new Promise(resolve => {
+    worker = new Worker('support/Worker-timeout-decreasing-order.js');
+    worker.postMessage('start');
+    worker.onmessage = resolve;
+  }).then(evt => {
+    assert_equals(evt.data, 2147483647);
+    return (new Promise(resolve => worker.onmessage = resolve));
+  }).then(evt => {
+    assert_equals(evt.data, 3);
+    return (new Promise(resolve => worker.onmessage = resolve));
+  }).then(evt => {
+    assert_equals(evt.data, 9223372036854775807);
+  });
+}, 'Tests timeouts on the worker are fired in decreasing order.');
+</script>
+<script src="/resources/testharnessreport.js"></script><title>
+</title><title>
+</title><title>
+</title><title>
+</title><title><title><title>
+</title></title></title><title>
+</title><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>

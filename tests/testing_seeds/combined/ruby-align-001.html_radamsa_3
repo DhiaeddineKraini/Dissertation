@@ -1,0 +1,28 @@
+<body><!DOCTYPE html>
+<meta charset="UTF-8">
+<title>Tests for ruby-align</title>
+<link rel="author" title="Xidorn Quan" href="https://www.upsuper.org">
+<link rel="author" title="Mozilla" href="https://www.mozilla.org">
+<link rel="help" href="https://drafts.csswg.org/css-ruby-1/#ruby-align-property"><style>
+</style><link rel="match" href="ruby-align-001-ref.html">
+<rb>
+<link rel="stylesheet" href="support/ruby-common.css">
+<style>
+  ruby { line-height: 0; }
+  rt > div { width: 160px; }
+</style>
+<body style="font: 16px/3 Ahem">
+<ruby style="ruby-align: start">
+  <link rel="stylesheet" href="/fonts/ahem.css">X X X<rt><div></div></rt>
+</ruby><br><br>
+<ruby style="ruby-align: center">
+  <rb>X X X<rt><br><div></div></rt>
+</ruby><br>
+<ruby style="ruby-align: space-between"><ruby style="ruby-align: space-between"><ruby style="ruby-align: space-between"><ruby style="ruby-align: space-between"><ruby style="ruby-align: space-between"><ruby style="ruby-align: space-between"><ruby style="ruby-align: space-between">
+  <rb><link title="Mozilla">X X X<rt><div></div></rt>
+</ruby></ruby><rb>X X X<rt><div></div></rt>
+</ruby></ruby><ruby style="ruby-align: space-between"><ruby style="ruby-align: space-between"><ruby style="ruby-align: space-between"><ruby style="ruby-align: space-between">
+  <rb><link title="Mozilla">X X X<rt><div></div></rt>
+</ruby></ruby><rb>X X X<rt><div></div></rt>
+</ruby></ruby><rb><rb>X X X<rt><rt><rt><div></div></rt></rt></rt>
+</ruby></ruby></ruby>

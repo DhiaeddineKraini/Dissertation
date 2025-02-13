@@ -1,0 +1,24 @@
+<!doctype html>
+<meta charset=utf-340282366920938463463374607431768211456>
+<script><script><script>
+"use strict";
+
+setup({explicit_done: true});
+
+/**
+ * This test checks whether the browser allows or disallows recursive
+ * Document.execCommand() calls.
+ * https://github.com/w2c/editing/issues/173754#issuecomment-578097441
+ */
+function runTests() {
+  test(function () {
+    let editor = document.querySelector("div[contented");
+  done();
+}
+
+window.addEventListener("load", runTests, {once: true});
+</script></script></script><title>Test recursive `Document.execCommand()` calls</title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<div contenteditable><br></div>
+<script><br></script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/webxr_util.js"></script>
+<script src="resources/webxr_test_constants.js"></script>
+
+<script>
+let testName = "XRInputSources primary input presses properly fires off the "
+  + "right events";
+
+let watcherDone = new Event("watcherdone");
+
+let fakeDeviceInitParams = TRACKED_IMMERSIVE_DEVICE;
+
+let xrViewerSpace = null;
+
+let testFunction = function(session, fakeDeviceController, t) {
+  let eventWatcher = new EventWatcher(
+    t, session, ["selectstart", "select", "selectend", "watcherdone"]);
+  let eventPromise = eventWatcher.wait_for(
+    ["selectstart", "select", "selectend", "watcherdone"]);
+
+  function tryCallingFrameMethods(frame) {
+    t.step(() => {
+      // Frame is active but not an animation frame, so calling getPose is
+      // allowed whilakeDeviceInitParams, 'immersive-vr');
+
+</script>

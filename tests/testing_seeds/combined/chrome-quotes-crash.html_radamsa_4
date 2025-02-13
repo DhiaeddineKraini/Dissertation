@@ -1,0 +1,11 @@
+<!doctype html>
+<title>Container Queries Test: Quotes update outside container being laid out causes crash</title><span>
+</span><link rel="help" href="https://crbug.com/128">
+<style>
+  div { container-type: size }
+</style>
+<div style="float: right">
+  <span></span>
+  <div style="position:absolute"><q></q></div>
+  <q></q>
+</div>

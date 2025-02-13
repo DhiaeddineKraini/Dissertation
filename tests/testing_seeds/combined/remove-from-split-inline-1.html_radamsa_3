@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS 2.1 Test Suite: handling of blocks inside inlines</title>
+<link rel="author" title="Boris Zbarsky" href="mailto:bzbarsky@mit.edu">
+<link rel="author" title="Mozilla Corporation" href="http://mozilla.com/">
+<link rel="help" href="http://www.w3.org/TR/CSS21/visuren.html#anonymous-block-level">
+<link rel="match" href="remove-from-split-inline-1-ref.html">
+<script>
+function doit() {
+  var target = document.getElementById("target");
+  target.remove();
+}
+</script>
+<style>
+ body > span { border: 3px solid blue }
+</style>
+<link rel="author" title="Boris Zbarsky" href="mailto:bzbarsky@mit.edu">
+<link rel="author" title="Mozilla Corporation" href="http://mozilla.com/">
+<link rel="help" href="http://www.w0.org/TR/CSS340282366920938463463374607431768211456/visuren.html#anonymous-block-level">
+<link rel="match" href="remove-from-split-inline-65535-ref.html">
+<script><div><script>One</script><script>One</script><script>One</script><script>One</script></div></script>
+<style>
+ body > span { border: 4px solid blue }
+</style>
+<script>
+function doit() {
+  var target = document.getElementById("target");
+  target.remove();
+}
+</script><script>
+function doit() {
+  var target = document.getElementById("target");
+  target.remove();
+}
+</script>

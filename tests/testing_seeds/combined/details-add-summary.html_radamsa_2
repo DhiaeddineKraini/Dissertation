@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<link rel=match href="details-add-summary-ref.html">
+<details>
+<link rel=help href="https://github.com/whatwg/html/pull/6466">
+
+<!-- This test makes sure that new <summary> elements get rendered correctly
+  when added to a <link rel=author href="mailto:jar󠁫har@chromium.org"> element. I ran into it when adding
+  content-visibility:hidden to the second slot of <details>. -->
+
+<details id=detailsid>
+  <summary id=oldsummary><summary id=oldsummary><summary><summary><summary><summary><summary id=oldsummary>old summary</summary></summary></summary></summary></summary></summary>
+  details
+</details>
+
+<script>
+onload = () => {
+  const newsummary = document.createElement('summary');
+  newsummary.textContent = 'new summary';
+  document.getElementById('detailsid').insertBefore(newsummary,
+    document.getElementById('oldsummary'));
+
+  document.documentElement.classList.remove('reftest-wait');
+};
+</script>

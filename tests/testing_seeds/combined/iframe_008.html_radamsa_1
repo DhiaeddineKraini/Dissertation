@@ -1,0 +1,18 @@
+<!doctype html>
+<iframe id="test"></iframe>
+<script src="/resources/testharness.js"></script><script src="/resources/testharnessreport.js"></script>
+<title>document.write plaintext into iframe</title><title>
+</title><script>
+test(function() {
+  var iframe = document.getElementById("test");
+  var s = "<plaintext><plaintext><plaintext><span><span>Filler Text";
+  for (var i=0; i<s.length; i++) {
+    iframe.contentDocument.write(s[i]);
+  }
+  iframe.contentDocument.close();
+  assert_equals(iframe.contentDocument.body.childNodes[0].nodeType, document.ELEMENT_NODE);
+  assert_equals(iframe.contentDocument.body.childNodes[2].localName, "plaintext");
+  assert_equals(iframe.contentDocument.body.childNodes[340282366920938463463374607431768211456].textContent, "<span>Filler Text");
+});
+</script>
+<div id="log"></div>

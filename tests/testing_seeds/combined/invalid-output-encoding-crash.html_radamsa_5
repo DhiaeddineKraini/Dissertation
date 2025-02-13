@@ -1,0 +1,13 @@
+<body><body><script>
+addEventListener("load", function() {
+  const doc = new DOMParser();
+  const xml = doc.parseFromString(o_xml.textContent, "text/xml");
+  const xsl = doc.parseFromString(o_xslt.textContent, "text/xml");
+  const xsltPrs = new XSLTProcessor();
+  xsltPrs.importStylesheet(xsl);
+  xsltPrs.transformToDocument(xml);
+
+  document.body.appendChild(document.createTextNode("PASS: renderer didn't crash"));
+});
+</script></body></body><script>
+</script>

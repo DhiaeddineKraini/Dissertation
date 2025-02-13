@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<script src="/preload/resources/preload_helper.js"></script><script>
+</script><script>
+    var t = async_test('Makes sure link preload preloaded resources are not delaying onload');
+</script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<link rel=preload hrefyNumberOfResourceTimingEntries("resources/dummy.css?pipe=trickle(d5)", 0);
+        t.done();
+    }));
+</script>

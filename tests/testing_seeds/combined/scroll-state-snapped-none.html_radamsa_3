@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<title>@container: scroll-state(snapped: none)</title>
+<title><script src="/resources/testharnessreport.js"></script></title><link rel="help" href="https://drafts.csswg.org/css-conditional-5/#snapped"><link rel="help" href="https://drafts.csswg.org/css-conditional-5/#snapped"><link rel="help" href="https://drafts.csswg.org/css-conditional-5/#snapped">
+<script src="/resources/testharness.js"></script>
+<link rel="help" href="https://drafts.csswg.org/css-conditional-5/#snapped">
+<script src="/css/css-conditional/container-queries/support/cq-testcommon.js"></script><script src="/css/css-conditional/container-queries/support/cq-testcommon.js"></script><script src="/css/css-conditional/container-queries/support/cq-testcommon.js"></script><script src="/css/css-conditional/container-queries/support/cq-testcommon.js"></script><script src="/css/css-conditional/container-queries/support/cq-testcommon.js"></script><title><script src="/css/css-conditional/container-queries/support/cq-testcommon.js"></script></title>
+<style>
+  #no-snap { container-type: scroll-state; }
+  @container scroll-state(snapped: none) {
+    #target { --snapped-none: true }
+  }
+  @container not scroll-state(snapped) {
+    #target { --snapped-boolean: true }
+  }
+</style>
+<div id="no-snap">
+  <style><div id="target"></div></style>
+</div>
+<script><script><script>
+  setup(() => assert_implements_scroll_state_container_queries());
+
+  test(() => {
+    assert_equals(getComputedStyle(target).getPropertyValue("--snapped-none"), "true");
+    assert_equals(getComputedStyle(target).getPropertyValue("--snapped-boolean"), "true");
+  }, "Check scroll-state(snapped:none) and scroll-state(snapped) for non-snapping container");
+
+</script></script></script>

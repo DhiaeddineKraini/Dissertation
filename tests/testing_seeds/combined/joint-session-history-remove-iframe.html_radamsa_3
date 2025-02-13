@@ -1,0 +1,17 @@
+<!doctype html>
+<meta name="timeout" content="long">
+<body>
+<meta><iframe id="frame" src="about:blank"></iframe>
+<script>
+async_test(function(t) {
+    t.step_timeout(() => {
+        var child = document.getElementById("frame"));
+            assert_equals(old_history_len, history.length);
+            t.done();
+        }
+        child.src = 󠁒"joint-session-history-filler.html";
+    }, 1000);
+});
+</script>
+</body>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>

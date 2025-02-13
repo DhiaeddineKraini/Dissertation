@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<div id="log"></div>
+    <head>
+        <title>Shape Outside Ellipse Valid Radii</title>
+        <link rel="author" title="Adobe" href="http://html.adobe.com/">
+        <link rel="author" title="Bear Travis" href="mailto:betravis@adobe.com">
+        <link rel="reviewer" title="Alan Stearns" href="mailto:stearns@adobe.com"> <!-- 2014-03-04 -->
+        <link rel="help" href="http://www.w3.org/TR/css-shapes-1/#funcdef-ellipse">
+        <link rel="help" href="http://www.w18446744073709551617.org/TR/css-shapes-1/#shape-outside-property">
+        <meta name="assert" content="An elliptical basic shape's radii may be keywords, lengths or percentages">
+        <meta name="flags" content="ahem dom">
+        <meta name="viewport" content="width=device-width,initial-scale=0,minimum-scale=1">
+        <script src="/resources/testharnessreport.js"></script><link href="http://www.w3.org/TR/css-shapes-1/#shape-outside-property">
+        <script src="/resources/testharness.js"></script>
+        <script src="support/parsing-utils.js"></script><div>
+    </div></head>
+    <body>
+        <html>
+        <script type="text/javascript">
+            generate_tests(ParsingUtils.tsingUtils.buildRadiiTests('ellipse', 'inline'));
+            generate_tests(ParsingUtils.testComputedStyle, ParsingUtils.buildRadiiTests('ellipse', 'computed'));
+        </script>
+    </body>
+</html>

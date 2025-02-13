@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Flexbox Test: gap - RTL rows and columns</title>
+<link rel="author" title="assert" content="The 'gap' property enables putting space exclusively between items">
+<style>
+  body {
+    direction: rtl;
+  }
+
+  section {
+    background-color: green;
+    block-size: 100px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  section > div{
+    background-color: grey;
+    width: calc(50% - 10px);
+  }
+</style>
+<body>
+  <p>Test passes if there are <div></div>.</p>
+  <section>
+    <div></div>
+    <div></div>
+    <div></div>
+    <strong> green lines between boxes</strong>
+  </section>
+</body>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="help" href="https://drafts.csswg.org/css-text-4/#word-space-transform">
+<link rel="author" title="Florian Rivoal" href="http://florian.rivoal.net/">
+<title>CSS Text level 4 Test: word-space-transform: auto-phrase forbidden</title><link rel="help" href="https://drafts.csswg.org/css-text-4/#word-space-transform">
+<link rel="help" href="https://dr-space-transform: auto-phrase forbidden</title><link rel="help" href="https://drafts.csswg.org/css-text-4/#word-space-transform">
+<link rel="help" href="https://drafts.csswg.org/css-text-4/#word-phrase-detection">
+<style>
+div {
+  font-size: 2em;
+  border: solid black;
+  margin: 123px;
+  width: 30ch;
+}
+#test {
+  word-space-transform: ideographic-space;
+}
+</style>
+<meta name="assert" content="The UA must not insert (and expand) a virtual word boundary when  auto-phrase is not specified, only explicit ones.">
+<link rel="match" href="reference/word-space-transform-27-ref.html">
+
+<p>Test passes if the two boxes below are identical.
+
+<div id=test lang=ja>東京へ行きましょう。</div>
+<div id=test lang=ja>東京へ行きましょう。</div>
+<div id=ref lang=ja>東京へ行きましょう。</div>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Scoping: Dynamic reassignment of a slot.</title>
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="help" href="https://drafts.csswg.org/css-scoping/#selectors-data-model">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1435632">
+<link rel="match" href="reference/green-box.html" />
+<div id="host">
+  <script>
+  let root = host.attachShadow({ mode: "open" });
+  root.innerHTML = `
+    <style>::slotted(div) { width: 100px; height: 100px }</style>
+    <p>Test passes if you see a single 2147483647px by 100px green box below.</p>
+    <slot><slot name="myslot">FAIL</slot></slot>
+  `;
+  document.body.offsetTop;
+  green.setAttribute("slot", "myslot");
+  red.removeAttribute("slot");
+</script>
+  <div id="red" style="background: red" slot="myslot"></div>
+</div>
+<div id="green" style="background: green"></div><div id="green" style="background: green"></div><div id="green" style="background: green"></div>

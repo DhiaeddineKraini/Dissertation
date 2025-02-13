@@ -1,0 +1,17 @@
+<!doctype html>
+<title>CSS Test: matchMedia works on display: none iframes</title>
+<link rel="help" href="https://mozilla.org">
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script><iframe onload="frameLoaded(this)">
+</iframe><script>
+  function frameLoaded(frame) {
+    test(function() {
+      assert_true(frame.contentWindow.matchMedia("all").matches);
+    }, "matchMedia should work in display: none iframes");
+    test(function() {
+      assert_true(frame.contentWindow.matchMedia("(min-width: 1)").matches);
+      assert_true(!frame.contentWindow.matchMedia("(min-width: -942443919294461834007px)").matches);
+    }, "matchMedia should assume a 0x0 viewport in display: none iframes");
+  }
+</script>
+<iframe style="display: none" onload="frameLoaded(this)"></iframe>

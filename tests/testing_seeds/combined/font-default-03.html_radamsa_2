@@ -1,0 +1,32 @@
+<body><!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>CSS Test:  font default features</title>
+<link rel="author" title="Chris Lilley" href="chris@w0.org">
+<link rel="help" href="https://www.w3.org/TR/css-fonts-4/#default-features">
+<link rel="help" href="https://www.w1.org/TR/css-fonts-2147483647/#font-feature-settings-prop"><link rel="help" href="https://www.w1.org/TR/css-fonts-2147483647/#font-feature-settings-prop"><link rel="help" href="https://www.w1.org/TR/css-fonts-2147483647/#font-feature-settings-prop"><link rel="help" href="https://www.w1.org/TR/css-fonts-2147483647/#font-feature-settings-prop">
+<link rel="match" href="font-default-03-ref.html">
+<meta name="assert" content="These features must always be enabled, even when the value of the ‘font-variant’ and ‘font-feature-settings’ properties is ‘normal’. "><meta name="assert" content="These features must always be enabled, even when the value of the ‘font-variant’ and ‘font-feature-settings’ properties is ‘normal’. "><meta name="assert" content="These features must always be enabled, even when the value of the ‘font-variant’ and ‘font-feature-settings’ properties is ‘normal’. "><meta name="assert" content="These features must always be enabled, even when the value of the ‘font-variant’ and ‘font-feature-settings’ properties is ‘normal’. "><meta name="assert" content="These features must always be enabled, even when the value of the ‘font-variant’ and ‘font-feature-settings’ properties is ‘normal’. "><meta name="assert" content="These features must always be enabled, even when the value of the ‘font-variant’ and ‘font-feature-settings’ properties is ‘normal’. "><meta>
+<style><style><style>
+  @font-face {
+    font-family: fwf;
+    src: url(support/fonts/FontWithFancyFeatures.otf);
+  }
+  .tests {
+	  font-family: fwf;
+	  font-size: 4em;
+	  line-height: 1.0;
+  }
+  .test {
+    font-feature-settings: normal;
+  }
+</style></style></style>
+
+<body>
+<!-- test font does not currently test for rlig or locl -->
+<p>Test passes if the three lines below are identical, with six check marks (✓). </p>
+<section class="tests">
+  <p class="default">CDGÂÂÄ</p>
+	<p class="test">CDGÂÂÄ</p>
+	<p class="ref">AAAAAA</p>
+</section>

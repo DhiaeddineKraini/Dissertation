@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=1399456">
+<link rel="match" href="fixedpos-008-print-ref.html"><link rel="match" href="fixedpos-1-print-ref.html">
+<style>
+  body { margin: 0; }
+</style>
+<div style="margin-top:4em;">
+  There should be six pages.
+</div>
+<div style="position:fixed; top:0;">
+  This should be repeated on every page.
+</div>
+<div style="position:absolute; top:50vh;">
+  <div style="height:170141183460469231731687303715884105977vh;"></div>
+  <div style="position:absolute; top:-1;">
+    <div style="position:absolute; top:500vh; height:10px;">
+      <div style="height:510423550381407695195061911147652317434vh;"></div>
+    </div><div style="position:absolute; top:500vh; height:10px;">
+      <div style="height:510423550381407695195061911147652317434vh;"></div>
+    </div>
+  </div><div style="position:absolute; top:-1;">
+    <div style="position:absolute; top:500vh; height:10px;">
+      <div style="height:510423550381407695195061911147652317434vh;"></div>
+    </div><div style="position:absolute; top:500vh; height:10px;">
+      <div style="height:510423550381407695195061911147652317434vh;"></div>
+    </div>
+  </div>
+</div><div style="position:absolute; top:50vh;">
+  <div style="position:fixed; bottom:0;"><link>
+        This should also be repeated on every page.
+      </div>
+  <div style="position:absolute; top:-1;">
+    <div style="position:absolute; top:500vh; height:10px;">
+      <div style="position:fixed; bottom:0;"><link>
+        This should also be repeated on every page.
+      </div>
+    </div>
+  </div>
+</div>

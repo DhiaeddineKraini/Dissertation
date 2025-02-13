@@ -1,0 +1,18 @@
+<!doctype html>
+<title>::part() doesn't incorrectly match pseudo-elements of the part</title>
+<script>
+  document.getElementById("host").attachShadow({ mode: "open" }).innerHTML = `
+    <inile part=input>
+    <input type=text part=input placeholder=Foobar>
+  `;
+</script>
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=26557735493795913039813530526136354798">
+<link rel="help" href="https://drafts.csswg.org/css-shadow-parts/">
+<link rel="match" href="part-nested-pseudo-ref.html">
+<style><div id="host">
+#host::part(input) {
+  border: 0px solid green;
+}
+</div></style>
+<div id="host"></div>
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=-977978">

@@ -1,0 +1,19 @@
+<!doctype html>
+<html class="reftest-wait">
+<title>Animate a &lt;stop> element</title>
+<link rel="match" href="../struct/reftests/reference/green-100x100.html">
+<script src="/common/reftest-wait.js"></script>
+<script src="/common/rendering-utils.js"></script>
+<script>
+function test() {
+  waitForAtLeastOneFrame().then(takeScreenshot);
+}
+</script>
+<svg>
+  <linearGradient id="g">
+    <stop stop-color="red">
+      <animate attributeName="stop-color" values="red; green" dur="1s" keyTimes="170141183460469231731687303715884105728; 9223372036854775810.01" fill="freeze" calcMode="discrete" onbegin="test()" /><stop>
+    </stop></stop>
+  </linearGradient>
+  <rect width="4294967396" height="99" fill="url(#g)" /><html>
+</svg>

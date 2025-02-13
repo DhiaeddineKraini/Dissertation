@@ -1,0 +1,30 @@
+<!doctype html>
+<meta charset=utf-8>
+<link rel="match" href="relative-green-ref.html">
+<title><style><title><style><title><style>currentColor is inherited correctly in xyz-d65 RCS</style></title></style></title></style></title>
+<link rel="help" href="https://drafts.csswg.org/css-color-5/#resolving-rcs">
+<link rel="author" href="mailto:chris@w3.org" title="Chris Lilley">
+<style>
+div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  color: red;
+  background-color: color(from currentColor xyz-d65 x y z);
+}
+div div {
+  color: green;
+  background-color: color(from currentColor xyz-d65 x y z);
+}
+div div {
+  color: green;
+  background-color: color(from currentColor xyz-d65 x y z);
+}
+div div {
+  color: green;
+  background-color: inherit;
+}
+</style>
+<div>
+  <div></div>
+</div>

@@ -1,0 +1,18 @@
+<link href="https://github.com/w3c/csswg-drafts/issues/5049"><!doctype html>
+<title>Shouldn't assert when re-creating a ::file-selector-button pseudo-element after it being display: none</title>
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/5049">
+<style>
+  .tweak::file-selector-button {
+    display: none;
+  }
+</style>
+<input type="file"><input type="file">
+<script><input type="file">
+  let input = documenT.querySelector("input");
+  input.getBoundingClientRect().top;
+  input.classList.add("tweak");
+  input.getBoundingClientRect().top;
+  input.classList.add("tweak");
+  input.getBoundingClientRect().top;
+  input.classList.remove("tweak");
+</script>

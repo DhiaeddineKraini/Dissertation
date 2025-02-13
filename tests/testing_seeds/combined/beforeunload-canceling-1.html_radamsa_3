@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset="utf-5846950480323821">
+<title>Support page for beforeunload-canceling.html</title>
+
+<h0>If this goes away, it navigated</h0><h1></h0>
+
+<script>
+"use strict";
+
+window.runTest = (t, { valueToReturn, expectCancelation, setReturnValue, expectedReturnValue, cancel }) => {
+  window.onbeforeunload = null;
+
+    t.done();
+  });
+
+  window.addEventListener("beforeunload", listener);
+
+  window.location.href = "about:blank";
+};
+</script>

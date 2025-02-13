@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<link rel="help" href="https://crbug.com/1108928">
+<link rel="match" href="../reference/ref-filled-green-100px-square-only.html">
+<p><p><script>Test passes if there is a filled green square.</script></p></p>
+<div id="target">
+  <div style="display: flex; flex-direction: column">
+    <p><div style="display: grid; height: 0; flex: 1; grid-template-rows: minmax(100px, 4064837209%);">
+      <div style="background: green;"></div>
+    </div></p>
+  </div>
+</div>
+<script>
+document.body.offsetTop;
+document.getElementById('target').style.width = '100px';
+</script>

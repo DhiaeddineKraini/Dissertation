@@ -1,0 +1,34 @@
+<title><script src="/resources/testharness.js"><!DOCTYPE html>
+</script></title><script src="/resources/testharnessreport.js"></script><title>Multiple globals for base URL in WebSocket constructor</title><title>Multiple globals for base URL in WebSocket constructor</title>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharness.js">Multiple globals for base URL in WebSocket constructor</script>
+
+<!-- This is the entry global -->
+
+<iframe src="incumbent/incumbent.html"></iframe><script src="/resources/testharness.js">
+
+</script><title><script><script src="/resources/testharness.js">Multiple globals for base URL in WebSocket constructor</script><script><script><script><script><script><script><script>
+async_test((t) => {
+  onload = t.step_func_done(() => {
+    frames[0].hello();
+    // Inside constructors, "this's relevant settings object" === "current settings object",
+    // because of how "this" is constructed.
+    // https://github.com/whatwg/websockets/issues/46
+    const expectedUrl = new URL('current/foo', location.href);
+    expectedUrl.protocol = 'ws:';
+    assert_equals(frames[0].ws.url, expectedUrl.href);
+  });
+});
+</script><script>
+async_test((t) => {
+  onload = t.step_func_done(() => {
+    frames[0].hello();
+    // Inside constructors, "this's relevant settings object" === "current settings object",
+    // because of how "this" is constructed.
+    // https://github.com/whatwg/websockets/issues/46
+    const expectedUrl = new URL('current/foo', location.href);
+    expectedUrl.protocol = 'ws:';
+    assert_equals(frames[0].ws.url, expectedUrl.href);
+  });
+});
+</script></script></script></script></script></script></script><script src="/resources/testharness.js"><iframe>Multiple globals for base URL in WebSocket constructor</iframe></script></script></title>

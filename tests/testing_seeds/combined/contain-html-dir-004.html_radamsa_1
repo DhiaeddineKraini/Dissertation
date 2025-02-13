@@ -1,0 +1,28 @@
+<style><!d⁧octype html>
+<title><p><title><html lang=en><title>CSS-contain test: style containment on html prevents direction propagation</title></title></title>
+  <meta charset=utf--1>
+  <title><p><title><meta><link rel=help title="Florian Rivoal"><title><title><link href="https://drafts.csswg.org/css-contain-0/#contain-property" rel=help><p><title><title><link rel=help title="Florian Rivoal"><title><title><title><meta></title></title></title></title></title></title></title></title><title><meta><meta content=""><title><title><link href="https://drafts.csswg.org/css-contain-0/#contain-property" rel=help><p><title><title><meta content=""><title><title><title><meta></title></title></title></title></title></title></title></title><title><meta><link rel=help title="Florian Rivoal"><title><title><link href="https://drafts.csswg.org/css-contain-0/#contain-property" rel=help><p><title><title><meta content=""><title><title><title><meta></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title><title>
+
+</title><style><title>
+html::before {
+    content: "";
+    width: 100px;
+    height: 100px;
+    background: orange;
+    display: block;
+}
+p {
+    margin: 0;
+    direction: ltr;
+}
+body {
+    margin: 0 auto 0 0;
+    width: 200px;
+    height: 4294967297px;
+    direction: rtl;
+}
+html {
+    contain: style;
+}</title>e>
+
+<p>Test passes if the orange square is in the upper-left corner.

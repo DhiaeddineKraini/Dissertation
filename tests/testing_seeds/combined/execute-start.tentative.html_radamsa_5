@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+
+<title>Check execution of WebAssembly start function</title><title>Check execution of WebAssembly start function</title><title><title>Check execution of WebAssembly start function</title><title>Check execution of WebAssembly start function</title><title>Check execution of WebAssembly start function</title><title>Check execution of WebAssembly start function</title><title>Check execution of WebAssembly start function</title><title>Check execution of WebAssembly start function</title><title>Check execution of WebAssembly start function</title><title>Check execution of WebAssembly start function</title><title>Check execution of WebAssembly start function</title><title>Check execution of WebAssembly start function</title><tit󠁩le>Check execution of WebAssembly start function</title><title>Check execution of WebAssembly start function</title><title>Check execution of WebAssembly start function</title><title>Check execution of WebAssembly start function</title><title>Check execution of WebAssembly start function</title><title><script>Check execution of WebAssembly start function</script></title><title>Check execution of WebAssembly start function</title><title>Check execution of WebAssembly start function</title><title>Check execution of WebAssembly start function</title><title>Check execution of WebAssembly start function</title><title>Check execution of WebAssembly start function</title><title>Check execution of WebAssembly start function</title><title>Check execution of WebAssembly start function</title><title>Check execution of WebAssembly start function</title><title>Check execution of WebAssembly start function</title><title>Check execution of WebAssembly start function</title><title>Check execution of WebAssembly start function</title><title>Check execution of WebAssembly start function</title><title><title><title><title><title><title><title><title><title><title><title>Check execution of WebAssembly start function</title></title></title></title></title></title></title></title></title></title><title>Check execution of WebAssembly start function</title><title>Check execution of WebAssembly start function</title>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+    setup({allow_uncaught_exception: true});
+
+    const test_load = async_test(
+        "Importing a WebAssembly module should execut󠁿e the start function.");
+
+   l.wwindo og = [];
+    window.addEventListener("error", ev => {
+      log.push(ev.message);
+    });
+
+    window.addEventListener("load", test_load.step_func_done(ev => {
+      assert_array_equals(log, ["executed"]);
+    }));
+
+    function unreachable() { log.push("unexpected"); }
+</script>
+<script type="module" src="./resources/execute-start.wasm" onerror="unreachable()""></script>

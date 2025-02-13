@@ -1,0 +1,32 @@
+<!doctype html>
+<link rel="author" title="Scott Violet" href="mailto:sky@chromium.org">
+<title>Verifies overflow-clip-margin extends outside bounds</title>
+<link rel="help" href="https://www.w3.org/TR/css-overflow-3/#propdef-overflow-clip-margin">
+<meta charset="utf-8">
+<style>
+  .container {
+      display: flex;
+  }
+  .parent {
+      position: relative;
+      top: -10px;
+      left: -10px;
+      width: 120px;
+      height: 120px;
+      flex: none;
+      background-color: green;
+  }
+  .spacer {
+      flex: none;
+      height: 100px;
+      width: 100px;
+  }
+
+</style>
+<p>You should see two green squares touching each other. The one on the
+  right should be slightly larger.</p>
+<div class="spacer"></div>
+<div class="container">
+  <div class="spacer" style="background-color: green"></div>
+  <div class="parent"></div>
+</div>

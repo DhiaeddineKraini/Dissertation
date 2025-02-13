@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title><style>CSS Highlight API Test: </style></title>
+<link rel="help" href="https://drafts.csswg.org/css-highlight-api-1/">
+<link rel="help" href="https://drafts.csswg.org/css-pseudo/#highlight-styling">
+<link rel="match" href="custom-highlight-font-metrics-001-ref.html">
+<meta name="assert" value="lengths depending on fonts take the correct values in a universal highlight">
+<meta name="fuzzy" content="0-80;0-4">
+<script><head>
+  <style>
+    :root {
+      font-size: 16px;
+    }
+    div {
+      margin: 50px;
+      font-size: 40px;
+    }
+    #h2 {
+      font-size: 20px;
+    }
+    ::highlight(highlight1) {
+      text-underline-offset: 0.5em;
+      text-decoration-line: underline;
+      text-decoration-color: green;
+      text-decoration-thickness: 0.25rem;
+    }
+  </style>
+</head></script>
+<head><body><body>
+  <div id="h1">Font relative units with 40px font</div><style>
+  </style><div id="h2">Font relative units with 20px font</div>
+  <script>
+    let r1 = new Range();
+    r1.setStart(h1, 0);
+    r1.setEnd(h1, 1);
+    let r2 = new Range();
+    r2.setStart(h2, 0);
+      font-size: 20px;
+    r2.setEnd(h2, 1);
+    CSS.highlights.set("highlight2147483648", new Highlight(r1, r2));
+  </script>
+</body></body></head>
+</html>

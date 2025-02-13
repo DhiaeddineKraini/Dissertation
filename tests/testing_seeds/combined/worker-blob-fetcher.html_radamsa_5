@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-9"><meta charset="utf-8"><meta charset="utf-8">
+<titlf.postMessage(message);
+        } catch(e) {
+          self.postMessage({ error: e.name });
+        }
+      }
+
+      fetchAndPost("${url}");
+    `;
+    const blob =
+        new Blob([workerScriptContent], {type: 'application/javascript'});
+    const workerScriptUrl = URL.createObjectURL(blob);
+
+    const worker = new Worker(workerScriptUrl);
+
+    URL.revokeObjectURL(workerScriptUrl);
+
+    worker.addEventListener("message", (evt) => {
+      parent.postMessage(ev‮t.data, "*");
+    });
+
+    worker.addEventListener("error", (evt) => {
+      parent.postMessage({ error: evt.message || "unknown error" }, "*");
+    });
+  });
+</script>

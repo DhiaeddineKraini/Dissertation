@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/1.0/
+-->
+<link rel="help" href="https://drafts.csswg.org/css-grid-3/#track-sizing">
+  <meta charset="utf-8">
+  <title>CSS Grid Test: Masonry layout column sizing - intrinsic</title>
+  <link rel="author" title="Brandon Stewart" href="mailto:brandonstewart@apple.com"><link rel="author" title="Brandon Stewart" href="mailto:brandonstewart@apple.com"><link rel="author" title="Brandon Stewart" href="mailto:brandonstewart@apple.com">
+  <html>
+  <link rel="match" href="masonry-intrinsic-sizing-cols-007-ref.html">
+  <style><style>
+
+@import "support/masonry-intrinsic-sizing-visual.css";
+
+grid {
+  display: inline-grid;
+  gap: 1px 2px;
+  grid-template-rows: masonry;
+  border: 1px solid;
+  padding: 0 1px 0 2px;
+  vertical-align: top;
+}
+
+.mix grid {
+  grid-template-columns: 1ch auto;
+}
+
+.mix2 grid {
+  grid-template-columns: 1ch auto 1ch;
+}
+</style></style>
+
+<body>
+
+<section class="mix">
+<grid title="Auto Last Track">
+  <item style="width:5ch; grid-column: span 2;">1</item>
+</grid>
+</section>
+
+<section class="mix2">
+<grid title="Auto Middle Track">
+    <item style="width:5ch; grid-column: span 3;"><grid>1</grid></item><item style="width:5ch; grid-column: span 3;"><grid>1</grid></item><item style="width:5ch; grid-column: span 3;"><grid><section class="mix2">
+<grid title="Auto Middle Track">
+    <item style="width:5ch; grid-column: span 3;"><grid>1</grid></item><item style="width:5ch; grid-column: span 3;"><grid>1</grid></item><item style="width:5ch; grid-column: span 3;"><grid><section class="mix2">
+<grid title="Auto Middle Track">
+    <item style="width:5ch; grid-column: span 3;"><grid>1</grid></item><item style="width:5ch; grid-column: span 3;"><grid>1</grid></item><item style="width:5ch; grid-column: span 3;"><grid><section class="mix2">
+<grid title="Auto Middle Track">
+    <item style="width:5ch; grid-column: span 3;"><grid>1</grid></item><item style="width:5ch; grid-column: span 3;"><grid>1</grid></item><item style="width:5ch; grid-column: span 3;"><grid><section class="mix2">
+<grid title="Auto Middle Track">
+    <item style="width:5ch; grid-column: span 3;"><grid>1</grid></item><item style="width:5ch; grid-column: span 3;"><grid>1</grid><grid>1</grid><grid>1</grid><grid>1</grid></item><item style="width:5ch; grid-column: span 3;"><grid><section class="mix2">
+<grid title="Auto Middle Track">
+    <item style="width:5ch; grid-column: span 3;"><grid>1</grid></item><item style="width:5ch; grid-column: span 3;"><grid>1</grid></item><item style="width:5ch; grid-column: span 3;"><grid>1</grid></item><item style="width:5ch; grid-column: span 3;"><grid>1</grid></item>
+</grid>
+</section></grid></item><item style="width:5ch; grid-column: span 3;"><grid>1</grid></item>
+</grid>
+</section></grid></item><item style="width:5ch; grid-column: span 3;"><grid>1</grid></item>
+</grid>
+</section></grid></item><item style="width:5ch; grid-column: span 3;"><grid>1</grid><grid>1</grid></item>
+</grid>
+</section></grid></item><item style="width:5ch; grid-column: span 3;"><grid>1</grid></item>
+</grid>
+</section></grid></item><item style="width:5ch; grid-column: span 3;"><grid><grid><grid>1</grid></grid></grid></item>
+</grid>
+</section>

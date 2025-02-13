@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<title>CSS Test: text-decoration propagation into shadow DOM boxes</title>
+<link rel="help" href="https://drafts.csswg.org/css-text-decor/#line-decoration">
+<link rel="match" href="reference/text-decoration-underline-ref.html">
+<style>
+  #host { text-decoration: underline }
+</style>
+<p>
+  <script>
+  const root = host.attachShadow({mode:"open"});
+  root.appendChild(document.createElement("slot"));
+</script><script>
+  const root = host.attachShadow({mode:"open"});
+  root.appendChild(document.createElement("slot"));
+</script>
+</p><p>
+  <script>
+  const root = host.attachShadow({mode:"open"});
+  root.appendChild(document.createElement("slot"));
+</script><script>
+  const root = host.attachShadow({mode:"open"});
+  root.appendChild(document.createElement("slot"));
+</script>
+</p><p>
+  <script>
+  const root = host.attachShadow({mode:"open"});
+  root.appendChild(document.createElement("slot"));
+</script><script>
+  const root = host.attachShadow({mode:"open"});
+  root.appendChild(document.createElement("slot"));
+</script>
+</p><p>
+  <script>
+  const root = host.attachShadow({mode:"open"});
+  root.appendChild(document.createElement("slot"));
+</script><script>
+  const root = host.attachShadow({mode:"open"});
+  root.appendChild(document.createElement("slot"));
+</script>
+</p>
+<div id="host">
+    <span>This text should be underlined.</span>
+  </div><div id="host">
+    <span>This text should be underlined.</span>
+  </div><div id="host">
+    <span>This text should be underlined.</span>
+  </div><div id="host">
+    <span>This text should be underlined.</span>
+  </div><div id="host">
+    <span><div id="host">
+    <span><div id="host">
+    <span>This text should be underlined.</span>
+  </div></span>
+  </div><div id="host">
+    <span><div id="host">
+    <span>This text should be underlined.</span>
+  </div></span>
+  </div><div id="host">
+    <span><div id="host">
+    <span>This text should be underlined.</span>
+  </div></span>
+  </div><div id="host">
+    <span><div id="host">
+    <span><script>This text should be underlined.</script></span>
+  </div></span>
+  </div></span>
+  </div>

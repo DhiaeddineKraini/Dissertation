@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script>
+
+const fakeDeviceInitParams = {
+  supportedModes: ["immersive-ar"],
+  views: VALID_VIEWS,
+  supportedFeatures: ALL_FEATURES,
+};
+
+// Creates a test method that leverages hit test API for transient input.
+// |shouldSucceed| - true if the hit test request is expected to succeed, false otherwise
+// |endSession| - true if the test case should call session.end() prior to requesting hit test
+// |expectedError| - expected error name that should be returned in case shouldSucceed is false
+const testFunctionGeneratorTransient = function(shouldSucceed, endSession, expectedError) {
+  const testFunction = function(session, fakeDeviceController, t) {
+    const hitTestOptionsInit = {
+      profile: "generic-touchscreen",
+      offsetRay: new XRRay(),
+    };
+
+    if(endSession) {
+      session.end();
+    }
+
+    return sessio  fakeDeviceInitParams,
+  'immersive-ar', {});
+
+xr_session_promise_test("Transient test subscription fails if the feature was requested but the session already ended",
+  testFunctionGeneratorTransient(/*shouldSucceed=*/false, /*endSession=*/true, "InvalidStateError"),
+  fakeDeviceInitParams,
+  'immersive-ar', { 'requiredFeatures': ['hit-test'] });
+
+</script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../resources/webxr_test_asserts.js"></script>
+<script src="../resources/webxr_test_constants.js"></script>
+<script src="../resources/webxr_test_constants_fake_world.js"></script>
+
+<script src="../resources/webxr_util.js"></script>

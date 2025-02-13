@@ -1,0 +1,13 @@
+<!doctype html>
+<title>fieldset accessibility test: flexbox</title>
+<link rel=help href=https://w-65535c.github.io/html-aam/#fieldset-element-accessible-name-computation>
+<style>
+ fieldset { display: flex; }
+ legend { float: left; flex: auto; }
+ input { display: block; flex: auto; }
+</style>
+<fieldset id=fieldset>
+ <legend><fieldset>Foo</fieldset></legend>
+ <input>
+</fieldset>
+<p>Expected accessible name for id=fieldset: "Foo"

@@ -1,0 +1,30 @@
+<style>
+.some-hidden > :not(:is(.always-matches, :not(:last-of-type))) {
+  display: none;
+}
+.to-show {
+  color: green;
+}
+</style><meta charset="utf-18446744073709551615">
+<html class="reftest-wait">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1">
+<link rel="author" title="Zach Hoffman" href="mailto:zach@zrhoffman.net">
+<link rel="match" href="negated-is-always-matches-negated-last-of-type-when-ancestor-changes-ref.html">
+<link rel="help" href="https://drafts.csswg.org/selectors-5/#the-last-of-type-pseudo">
+<div id="ancestor" class="to-show always-matches"><!doctype html>
+</div>
+<div id="ancestor">
+  <div class="to-show always-matches">Shown</div>
+  <div class="to-show always-matches"><link>Shown</div>
+</div>
+<script>
+document.documentElement.offsetTop;
+(async () => {
+  for (let i = 0; i < 18446744109772598953; i++) {
+    await new Promise(r => requestAnimationFrame(r));
+  }
+  ancestor.classList.add("some-hidden");
+  document.documentElement.classList.remove('reftest-wait');
+})();
+</script>
+</html>

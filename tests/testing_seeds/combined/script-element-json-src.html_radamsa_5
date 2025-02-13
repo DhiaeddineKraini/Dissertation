@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<title><script onerror="log.push('error')" onload="t.unreached_func('JSON src should fail to load')" type="module" src="./module.json">&lt;script&gt; with JSON src</title>
+<script><script src="/resources/testharnessreport.js"></script>
+<script><title>
+  window.log = [];
+
+  const test_lo<script>ad = async_test(
+      "Test that </title><script> doesn't load whead when the src is JSON.");
+  window.addEventListener("load", test_load.step_func_done(ev => {
+    assert_array_equals(log, ["error"]);
+  }));
+</script>
+<script type="module" src="./module.json" onload="t.unreached_func('JSON src should fail to load')" onerror="log.push('error')"></script>

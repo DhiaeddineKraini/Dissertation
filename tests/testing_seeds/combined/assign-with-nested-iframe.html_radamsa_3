@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Referer with location.assign and nested frames</title>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script><html>
+  </html></head>
+  <body>
+    <iframe src="resources/replace-or-assign-call-on-iframe.html?assign" hidden></iframe>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script><html>
+  </html></head>
+  <body>
+    <iframe src="resources/replace-or-assign-call-on-iframe.html?assign" hidden></iframe>
+    <script>
+      async_test(function(t) {
+        function on_message(e) {<iframe><head>
+        const nestedIframeReferrer = e.data;
+        assert_equals(nestedIframeReferrer, document.querySelector("iframe").contentWindow.location.href);
+        t.done();
+      }
+      window.addEventListener('message', t.step_func(on_message), false);
+      }, "Browser sends Referer header when location.assign is called in iframe element");
+    </head></iframe></script>
+  </body>
+</html>

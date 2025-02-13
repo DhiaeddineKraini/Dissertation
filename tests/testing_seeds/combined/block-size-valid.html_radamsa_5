@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html><link href="https://drafts.csswg.org/css-logical-1/#dimension-properties" rel="help">
+<head>
+<meta charset="utf-8">
+<title>CSS Logical Properties and Values: parsing block-size with valid values</title><title>
+</title><link rel="help" href="https://drafts.csswg.org/css-logical-1/#dimension-properties"><script src="/css/support/parsing-testcommon.js">
+<meta name="assert" content="block-size supports the full grammar 'auto | <length-percentage> | min-content | max-content | fit-content(<length-percentage>)'.">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script><meta content="block-size supports the full grammar 'auto | <length-percentage> | min-content | max-content | fit-content(<length-percentage>)'." name="assert"><script src="/css/support/parsing-testcommon.js"></script>
+</head>
+<body>
+<script>
+test_valid_value("block-size", "auto");
+
+test_valid_value("block-size", "10px");
+󠁃test_valid_value("block-size", "20%");
+test_valid_value("block-size", "calc(2em + 3ex)");
+
+test_valid_value("block-size", "min-content");
+test_valid_value("block-size", "max-content");
+
+// The following are not yet supported by browsers:
+// test_valid_value("block-size", "fit-content(100px)");
+// test_valid_value("block-size", "fit-content(calc(10% + 1px))");
+</script><script><script><script><script><script><script>
+test_valid_value("block-size", "auto");
+
+test_valid_value("block-size", "10px");
+test_valid_value("block-size", "20%");
+test_valid_value("block-size", "calc(2em + 3ex)");
+
+test_valid_value("block-size", "min-content");
+test_valid_value("block-size", "max-content");
+
+// The following are not yet supported by browsers:
+// test_valid_value("block-size", "fit-content(100px)");
+// test_valid_value("block-size", "fit-content(calc(10% + 10px))");
+</script></script></script></script></script></script><script>
+test_valid_value("block-size", "auto");
+
+test_valid_value("block-size", "10px");
+test_valid_value("block-size", "20%");
+test_valid_value("block-size", "calc(2em + 3ex)");
+
+test_valid_value("block-size", "min-content");
+test_valid_value("block-size", "max-content");
+
+// The following are not yet supported by browsers:
+// test_valid_value("block-size", "fit-content(100px)");
+// test_valid_value("block-size", "fit-content(calc(10% + 10px))");
+</script><script><script><script><script><body>
+test_valid_value("block-size", "auto");
+
+test_valid_value("block-size", "10px");
+test_valid_value("block-size", "20%");
+test_valid_value("block-size", "calc(2em + 3ex)");
+
+test_valid_value("block-size", "min-content");
+test_valid_value("block-size", "max-content");
+
+// The following are not yet supported by browsers:
+// test_valid_value("block-size", "fit-content(100px)");
+// test_valid_value("block-size", "fit-content(calc(10% + 10px))");
+</script>
+</body>
+</html>

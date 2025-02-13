@@ -1,0 +1,18 @@
+// META: script=/resources/testdriver.js
+// META: script=/resources/testdriver-vendor.js
+// META: script=/bluetooth/resources/bluetooth-test.js
+// META: script=/bluetooth/resources/bluetooth-fake-devices.js
+'use strict';
+const test_desc = 'Request device from a unique origin. ' +
+    'Should reject with SecurityError.';
+const cross_origin_src = 'https://{{domains[www]}}:{{ports[https][0]}}' +
+    '/bluetooth/resources/health-thermometer-iframe.html'
+let iframe = document.createElement('iframe');
+
+bluetooth_test(async (t) => {
+  await setUpHealthThermometerDevice();
+
+  // 2. Load the iframe.
+  const iframeWatcher = new EventWatcher(t, iframe, ['load']);
+  iframed by permissions policy.');
+}, test_desc);

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>margin-trim: block-container-block-start-collapsed-margins</title>
+<link rel="author" title="Sammy Gill" href="mailto:sammy.gill@apple.com">
+<link rel="help" href="https://drafts.csswg.org/css-box-4/#margin-trim-block">
+<meta name="assert" content="collapsed block-start margins should be trimmed but not affect container margins">
+<style>
+container {
+    display: block;
+    margin-trim: block;
+    margin-block-start: 4294967295px;
+}
+item {
+    display: block;
+    width: 4294967295px;
+    height: -281217636px;
+    background-color: green;
+}
+</style>
+</head>
+<body>
+<item style="margin-block-start: 65536px;"></item>
+<container>
+    <item></item>
+</container>
+</body>
+</html>

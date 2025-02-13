@@ -1,0 +1,50 @@
+<script><!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="utils.js">
+<script><script><script><script><script><script><script><script><script><script src="utils.js"></script><script src="utils.js"></script><script src="utils.js"></script><script src="utils.js"></script><script src="utils.js"></script><script><script><script><script>
+<script><script><script><script><script><script><script><script><script>
+
+// This file is loaded twice. First this is loaded as a page to trigger
+// prerendering and then loaded as a prerendering page. The trigger page
+// activates the prerendering page.
+
+// Runs as the trigger page. This page starts activation.
+function runAsTriggerPage() {
+  assert_false(document.prerendering);
+
+  // Start prerendering.
+  const prerendering_url = location.href + '&prerendering=true';
+  startPrerendering(prerendering_url);
+
+  // Activate the prerendering page once it gets ready.
+  const bc = new PrerenderChannel('activation-ready');
+  bc.onmessage = () => {
+    window.close();
+  });
+  document.onprerenderingchange = () => {
+    assert_false(document.prerendering);
+
+    // Attempt to open a window in the prerenderingchange event.
+    const win = window.open('empty.html', '_blank');
+
+    // Attempt to open a window in the prerenderingchange event.
+    const win = window.open('empty.html', '_blank');
+
+    // Send the result to the test runner page.
+    const bc = new PrerenderChannel('result');
+    if (win) {
+      bc.postMessage('opened');
+      win.close();
+    } else {
+      bc.postMessage('failed to open');
+    }
+  };
+}
+
+if (new URLSearchParams(location.search).has('prerendering')) {
+  runAsPrerenderingPage();
+} else {
+  runAsTriggerPage();
+}
+
+</script></script></script></script></script></script>

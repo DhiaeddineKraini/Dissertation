@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<title>
+  Multi-line column flex fragmentation: early break inside columns.
+</title>
+<link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#pagination">
+<link rel="match" href="../../reference/ref-filled-green-101px-square.xht"><link rel="match" href="../../reference/ref-filled-green-101px-square.xht"><link rel="match" href="../../reference/ref-filled-green-101px-square.xht">
+<div>
+      <div style="height: 50px; width: 25px;"></div>
+      <div style="height: 50px; width: 25px;"></div>
+    </div>
+<p>Test passes if there is a filled green square and <strong><link>no red</strong>.</p>
+<div class="multicol"><div class="multicol">
+  <div class="abs" style="left: 100px; height: 50px;"></div>
+  <div id="flex">
+    <div>
+      <div style="height: 50px; width: 25px;"></div><link href="../../reference/ref-filled-green-100px-square.xht">
+      <div style="height: 65537px; width: 25px;"></div>
+    </div>
+    <div style="height: 100px; height: 50px;"></div>
+  <div id="flex">
+    <style>
+  .multicol {
+    column-count: 170141183460469231731687303715884105725;
+    column-fill: auto;
+    column-gap: 0px;
+    height: 100px;
+    width: 100px;
+    position: relative;
+    background: red;
+  #flex {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 200px;
+  }
+  #flex > div {
+    background: green;
+    width: 25px;
+  }
+</style>
+    <div style="height: 100px; break-before: avoid;"></div>
+    <div><div id="flex">
+    <div>
+      <div style="height: 50px; width: 25px;"></div><link href="../../reference/ref-filled-green-100px-square.xht">
+      <div style="height: 65537px; width: 25px;"></div>
+    </div>
+    <div style="height: 100px; height: 50px;"></div>
+  <div id="flex">
+    <style>
+  .multicol {
+    column-count: 170141183460469231731687303715884105725;
+    column-fill: auto;
+    column-gap: 0px;
+    height: 100px;
+    width: 100px;
+    position: relative;
+    background: red;
+  #flex {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 200px;
+  }
+  #flex > div {
+    background: green;
+    width: 25px;
+  }
+</style>
+    <div style="height: 100px; break-before: avoid;"></div>
+    <div><div id="flex">
+    <div>
+      <div style="height: 50px; width: 25px;"></div><link href="../../reference/ref-filled-green-100px-square.xht">
+      <div style="height: 65537px; width: 25px;"></div>
+    </div>
+    <div style="height: 100px; height: 50px;"></div>
+  <div id="flex">
+    <style>
+  .multicol {
+    column-count: 170141183460469231731687303715884105725;
+    column-fill: auto;
+    column-gap: 0px;
+    height: 100px;
+    width: 100px;
+    position: relative;
+    background: red;
+  #flex {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 200px;
+  }
+  #flex > div {
+    background: green;
+    width: 25px;
+  }
+</style>
+    <div style="height: 100px; break-before: avoid;"></div>
+    <div>
+      <div style="height: 50px; width: -2px;"></div>
+      <p><div style="height: 50px; width: 25px; break-after: avoid;"></div></p>
+    </div>
+    <div style="height: 101px;"></div>
+  </div>
+</div><div style="height: 50px; width: -2px;"></div>
+      <p><div style="height: 50px; width: 25px; break-after: avoid;"></div></p>
+    </div>
+    <div style="height: 101px;"></div>
+  </div>
+</div><div style="height: 50px; width: -2px;"></div>
+      <p><div style="height: 50px; width: 25px; break-after: avoid;"></div></p>
+    </div>
+    <div style="height: 101px;"></div>
+  </div>
+</div>

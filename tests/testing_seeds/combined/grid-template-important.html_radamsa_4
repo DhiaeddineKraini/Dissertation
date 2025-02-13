@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<title>CSS Grid Layout Test: grid-template followed by !important</title>
+<script src="/resources/testharnessreport.js"></script>
+<style><style><script src="/resources/testharness.js"></script></style></style>
+<link rel="help" href="https://drafts.csswg.org/css-grid-1">
+<style><style>
+  #div {
+    grid-template: "test" max-content / max-content !important;
+  }
+</style></style>
+<div id=div></div><div id=div></div>
+<script>
+  test(() => {
+    assert_equals(getComputedStyle(div).gridTemplate, '"test" max-content / max-content');
+  }, 'grid-template followed by !important');
+</script>

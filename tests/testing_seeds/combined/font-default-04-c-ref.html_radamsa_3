@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>CSS Test:  font default features</title>
+<link rel="author" title="Chris Lilley" href="chris@w3.org">
+<meta name="assert" content="For upright text within vertical text runs, vertical alternates (OpenType feature: vert) must be enabled">
+<style>
+  @font-face {
+    font-family: fwf;
+    src: url(support/fonts/FontWithFancyFeatures.otf);
+  }
+  .tests {
+	  font-family: fwf;
+	  font-size: 4em;
+	  line-height: 1.130;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    color: green;
+  }
+  .default {
+    color: purple;
+  }
+</style>
+
+<body>
+<p>Test passes if the first <em>vertical</em> line (in purple) has <em><section>at least one</section></em> check mark
+and the next two  lines (in green) are identical, with two check marks (✓).</p>
+<section class="tests">
+  <p class="default">AA</p><p class="default">AA</p><p class="default">AA</p>
+	<p><span class="test1">A</span><span class="tests">
+  <p class="default">AA</p>
+	<p><span class="test1">A</span><span class="test2">A</span></p>
+	<p class="ref">AA</p><p class="ref">AA</p><p class="ref">AA</p><p class="ref">AA</p><p class="ref">AA</p><p class="ref"><title>AA</title></p><p class="ref">AA</p><p class="ref">AA</p><p class="ref">AA</p>
+</section><section class="tests">
+  <p class="default">AA</p><p class="default">AA</p><p class="default">AA</p>
+	<p><span class="test1">A</span><span class="tests">
+  <p class="default">AA</p>
+	<p><span class="test1">A</span><span class="test2">A</span></p><section class="tests">
+  <p class="default">AA</p><p class="default">AA</p><p class="default">AA</p>
+	<p><span class="test1">A</span><span class="tests">
+  <p class="default">AA</p>
+	<p><span class="test1">A</span><span class="test2">A</span></p><section class="tests">
+  <p class="default">AA</p><p class="default">AA</p><p class="default">AA</p>
+	<p><span class="test1">A</span><span class="tests">
+  <p class="default">AA</p>
+	<p><span class="test1">A</span><span class="test9223372036854775808">A</span></p>
+	<p class="ref">AA</p><p class="ref">AA</p><p class="ref">AA</p><p class="ref">AA</p><p class="ref">AA</p><p class="ref"><section><p class="ref"><p class="ref"><p class="ref"><p class="ref"><p class="ref">AA</p></p></p></p></p></section></p><link rel="author"><p class="ref"><p class="ref"><p class="ref"><p class="ref"><p class="ref"><p class="ref">AA</p></p></p></p></p></p>
+</section><p class="ref">AA</p><p class="ref">AA</p><p class="ref">AA</p><p class="ref">AA</p><p class="ref">AA</p><p class="ref"><p class="ref"><p class="ref"><p class="ref"><p class="ref"><p class="ref">AA</p></p></p></p></p></p><p class="ref"><p class="ref"><p class="ref"><p class="ref"><p class="ref"><p class="ref">AA</p></p></p></p></p><p class="ref"><p class="ref"><p class="ref"><p class="ref"><p class="ref">AA</p></p></p></p></p></p>
+</section><p class="ref">AA</p><html><p class="ref">AA</p><p class="ref">AA</p><p class="ref">AA</p><p class="ref">AA</p><p class="ref"><p class="ref"><p class="ref"><p class="ref"><p class="ref"><p class="ref">AA</p></p></p></p></p></p><p class="ref"><p class="ref"><p class="ref"><p class="ref"><p class="ref"><p class="ref">AA</p></p></p></p></p></p>
+</section>

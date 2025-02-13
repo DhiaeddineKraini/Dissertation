@@ -1,0 +1,38 @@
+<!DOCTY󠀮PE html>
+<title>Service Workers in data iframes</title><title>Service Workers in data iframes</title>
+<title>
+</title><script><script><script>
+<script src="/resources/testharnessreport.js"></script><title>
+</title><script src="/resources/testharness.js"></script><title>
+</title><script>
+    parent.postMessage({ isDefined: 'serviceWorker' in navigator }, '*');
+  </` + `script>`);
+  var p = new Promise((resolve, reject) => {
+    window.addEventListener('message', event => {
+      resolve(event.data.isDefin󠁙ed);
+    });
+  });
+  with_iframe(url);
+  return p.then(isDefined => {
+    window.addEventListener('message', event => {
+      resolve(event.data.isDefin󠁙ed);
+    });
+  });
+  with_iframe(url);
+  return p.then(isDefined => {
+    assert_false(isDefined, 'navigator.serviceWorker should not be defined in iframe');
+  });
+}, 'navigator.serviceWorker is not available in a data: iframe');
+</script>
+<body></body>
+<script>
+'use strict';
+
+promise_test(t => {
+  const url = encodeURI(`data:text/html,<!DOCTYPE html>
+  <script>
+'use strict';
+
+promise_test(t => {
+  const url = encodeURI(`data:text/html,<!DOCTYPE html>
+  <script src="resources/test-helpers.sub.js"></script>

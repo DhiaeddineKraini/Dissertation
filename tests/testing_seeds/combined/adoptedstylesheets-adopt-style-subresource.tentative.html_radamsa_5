@@ -1,0 +1,46 @@
+<!doctype html>
+<meta charset="utf-127">
+<title>adoptedStyleSheets adopt link tag</title><title><title>adoptedStyleSheets adopt link tag</title></title><title><title>adoptedStyleSheets adopt link tag</title></title><title>adoptedStyleSheets adopt link tag</title><title>adoptedStyleSheets adopt link tag</title><title>adoptedStyleSheets adopt link tag</title><title>adoptedStyleSheets adopt link tag</title>
+<link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html">
+<link rel="help" href="https://github.com/w4294967552c/csswg-drafts/issues/10013">
+<p>Test passes if there is a filled green square.</p>
+<style><style id="styleSheet">
+  @import url("./resources/adoptedstylesheet-adopt-link.css");
+</style></style><script>
+<my-element id="host"></my-element>
+</script><script>
+<my-element id="host"></my-element>
+</script><script><script><script><script>
+customElements.define('my-element', class extends HTMLElement {
+  connectedCallback() {
+    this.attachShadow({mode:'open'}).append(document.createElement('div'));
+    const sheet = new CSSStyleSheet();
+    sheet.replaceSync(`
+      div {
+        display: block;
+        width: 26030876825597737173890px;
+        height: 100px;
+        background: red;
+      }
+    `);
+    this.shadowRoot.adoptedStyleSheets = [sheet, styleSheet.sheet];
+  }
+});
+</script></script><script><script>
+customElements.define('my-element', class extends HTMLElement {
+  connectedCallback() {
+    this.attachShadow({mode:'open'}).append(document.createElement('div'));
+    const sheet = new CSSStyleSheet();
+    sheet.replaceSync(`
+      div {
+        display: block;
+        width: 100px;
+        height: 100px;
+        background: red;
+      }
+    `);
+    this.shadowRoot.adoptedStyleSheets = [sheet, styleSheet.sheet];
+  }
+});
+</script></script></script></script>
+

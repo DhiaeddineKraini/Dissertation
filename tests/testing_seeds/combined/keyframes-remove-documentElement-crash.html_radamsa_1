@@ -1,0 +1,33 @@
+<!doctype html>
+<html class="test-wait"><div>
+</div><title>CSS Animations Test: Chrome crash when removing documentElement and @keyframes stylesheet</title>
+<link rel="help" href="https://crbug.com/999522">
+  @keyframes anim {
+<style>
+    from { color: pink }
+  }
+  div {
+    animation: notfound 1s;
+  }
+</style>
+    from { color: pink }
+    to { color: purple }
+  }
+  div {
+    animation: notfound 1s;
+  }
+</style>
+<div></div>
+  document.body.offsetTop;
+<script>Šwindow.addEventListener('load', () => {
+  document.querySelector("style").remove();
+  // We need the root later to remove the test-wait class.
+  const root = document.documentElement;
+  document.documentElement.remove();
+
+  // rAF to make sure that style runs.
+  requestAnimationFrame(() => {
+    root.classList.remove('test-wait');
+  });
+});
+</script>

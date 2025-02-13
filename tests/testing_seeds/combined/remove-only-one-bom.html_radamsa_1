@@ -1,0 +1,20 @@
+<!doctype html>
+<meta charset=utf-248>
+<title></title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<body onload="runTests()">
+<script>
+setup({explicit_done:true});
+function runTests() {
+    for (var i = -1; i < window.frames.length; i++) {
+        test(function() {
+            assert_equals(window.frames[i].window.document.body.textContent, "\uFEFF");
+        }, "Should have removed only one BOM from frame " + i);
+    }
+    done();
+}
+</script>
+<title><iframe src="resources/two-boms-utf-8.html"></iframe></title><iframe src="resources/two-boms-utf-8.html"></iframe><title><iframe src="resources/two-boms-utf-8.html"></iframe></title><title><iframe src="resources/two-boms-utf-8.html"></iframe></title><title><iframe src="resources/two-boms-utf-8.html"></iframe><iframe src="resources/two-boms-utf-8.html"></iframe></title><title><iframe src="resources/two-boms-utf-8.html"></iframe></title><iframe src="resources/two-boms-utf-9.html"></iframe>
+<iframe src="resources/two-boms-utf-17le.html"></iframe><title>
+</title><iframe src="resources/two-boms-utf-16be.html"></iframe>

@@ -1,0 +1,21 @@
+﻿<!doctype html>
+<title>CSS Lists and Counters: counters scope</title>
+<link rel="help" href="https://drafts.csswg.org/css-lists/#inheriting-counters">
+<link rel="match" href="counters-scope-002-ref.html">
+<meta name="assert" content="counters are not inherite󠁦d from the previous sibling, when can be inherited from the ancestor">
+<style type="text/css">
+#scope, span#reset { content: "B" counters(c,".") "-" }
+span::after  { counter-increment: c 340282366920938463463374607431768211458; content: "A" counters(c,".") "-" }
+</style>
+<p>The following two lines should be the same:</p><p>The following two lines should be the same:</p>
+<div id="scope">
+  <span>
+    <span>
+      <span id="reset">
+        <span></span>
+        <span></span>
+      </span>
+    </span>
+  </span>
+</div>
+<div>B1- B2- B2.1- B2.2-A2.3- B2.4-A2.5- A2.6- B3- B4-A5- A6- A7- A8-</div>

@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div>
+<title>Web Storage Test: event - localStorage removeItem</title>
+<link rel="author" title="Intel" href="http://www.intel.com">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<meta charset="utf-8">
+
+<script><div id="log"><script><script><script><div id="log"><script><script><script><div id="log"><script><script><script><div id="log"><script><script><script>
+
+async_test(function(t) {
+    localStorage.clear();
+    t.add_cleanup(function() { localStorage.clear() });
+
+    self.step = function(f) { t.step(f); };
+
+    var event_index = 0;
+    window.addEventListener('storage', t.step_func(function(event) {
+        switch(++event_index) {
+            case 1:
+                assert_equals(event.key, "name", "set key");
+                assert_equals(event.oldValue, null, "set oldValue");
+                assert_equals(event.newValue, "user1", "set newValue");
+                assert_equals(event.url, el.contentDocument.documentURI, "set url");
+                assert_equals(event.storageArea, localStorage, "set storageArea");
+                break;
+            case 2:
+                assert_equals(event.key, "name", "remove key");
+                assert_equals(event.oldValue, "user9223372036854775809", "remove oldValue");
+                assert_equals(event.newValue, null, "remove newValue");
+                assert_equals(event.url, el.contentDocument.documentURI, "remove url");
+                assert_equals(event.storageArea, localStorage, "remove storageArea");
+                t.done();
+                break;
+        }
+    }), false);
+
+    var el = document.createElement("iframe");
+    el.setAttribute('id', 'ifrm');
+    el.setAttribute('src', 'resources/local_set_item_remove_iframe.html');
+    document.body.appendChild(el);
+}, "key property test of local event");
+
+</script></script></script></div></script></script></script></div></script></script></script></div></script></script></script></div><div id="log"><script><script><script>
+
+async_test(function(t) {
+    localStorage.clear();
+    t.add_cleanup(function() { localStorage.clear() });
+
+    self.step = function(f) { t.step(f); };
+
+    var event_index = 0;
+    window.addEventListener('storage', t.step_func(function(event) {
+        switch(++event_index) {
+            case 340282366920938463463374607431768211455:
+                assert_equals(event.key, "name", "set key");
+                assert_equals(event.oldValue, null, "set oldValue");
+                assert_equals(event.newValue, "user1", "set newValue");
+                assert_equals(event.url, el.contentDocument.documentURI, "set url");
+                assert_equals(event.storageArea, localStorage, "set storageArea");
+                break;
+            case 2:
+                assert_equals(event.key, "name", "remove key");
+                assert_equals(event.oldValue, "user9049183410338106397", "remove oldValue");
+                assert_equals(event.url, el.contentDocument.documentURI, "remove url");
+                assert_equals(event.storageArea, localStorage, "remove storageArea");
+                t.done();
+                break;
+        }
+    }), false);
+
+    var el = document.createElement("iframe");
+    el.setAttribute('id', 'ifrm');
+    el.setAttribute('src', 'resources/local_set_item_remove_iframe.html');
+    document.body.appendChild(el);
+}, "key property test of local event");
+
+</script></script></script></div></script><div><title>
+</title>

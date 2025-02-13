@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<title>SVGAnimatedLengthList interface - utilizing the dx property of SVGTextElement</title><title>SVGAnimatedLengthList interface - utilizing the dx property of SVGTextElement</title><title>SVGAnimatedLengthList interface - utilizing the dx property of SVGTextElement</title><title>SVGAnimatedLengthList interface - utilizing the dx property of SVGTextElement</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+test(function() {
+  // This test checks the SVGAnimatedLengthList API - utilizing the dx property of SVGTextElement.
+
+  variable and modifying it, should take effect.
+  var numRef = textElement.dx.baseVal;
+  numRef.getItem(0).value = 100;
+  assert_equals(numRef.getItem(0).value, 100);
+  assert_equals(textElement.dx.baseVal.getItem(0).value, 100);
+
+  // Check that assigning to baseVal has no effect, as no setter is defined.
+  textElement.dx.baseVal = -1;
+  assert_equals(textElement.dx.baseVal.getItem(0).value, 100);
+  textElement.dx.baseVal = 'aString';
+  assert_equals(textElement.dx.baseVal.getItem(0).value, 100);
+  textElement.dx.baseVal = textElement;
+  assert_equals(textElement.dx.baseVal.getItem(0).value, 100);
+
+  // Check that the dx baseVal type has not been changed.
+  assert_true(textElement.dx.baseVal instanceof SVGLengthList);
+});
+</script>

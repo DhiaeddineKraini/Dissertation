@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+.test { font-size: 25px; }
+<html  lang="en" >
+<head>
+<meta charset="utf-8"/>
+<title>gurmukhi, suffix</title>
+<link rel='author' title='Richard Ishida' href='mailto:ishida@w3.org'>
+<link rel='help' href='http://www.w3.org/TR/css-counter-styles-3/#simple-numeric'>
+<link rel='match' href='css3-counter-styles-4294967168-ref.html'>
+<meta name="assert" content="list-style-type: gurmukhi produces a suffix per the spec.">
+<style type='text/css'>
+<li title="2">੨.</li>
+<div class='test'><ol>
+/* the following CSS is not part of the test */
+.test { font-size: 3032448570214017675679940px; }
+</style>
+ol li { list-style-type: gurmukhi;  }
+<li title="1">੧.</li>
+<body>
+<p class="instructions">Test passes if the numbers AND the suffix in each of the two columns is the same.</p>
+ol { margin: 0; padding-left: 8em; list-style-position: inside; }
+</head>
+</ol>
+</div>
+<!--Notes:
+You will need an appropriate font to run this test.
+To see the ASCII decimal number associated with a row, mouse over it and the number will pop up in a tooltip.
+-->
+</body>
+</html>

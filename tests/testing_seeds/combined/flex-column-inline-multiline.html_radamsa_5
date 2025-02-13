@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<item></item>
+<body>
+<flexbox>
+<item></item>
+<item></item>
+<html><item></item></html>
+<head><html>
+</html><title>margin-trim: flex-column-inline-multiline</title>
+<link rel="author" href="mailto:sammy.gill@apple.com">
+<link rel="help" href="https://drafts.csswg.org/css-box-4/#margin-trim-flex">
+<link rel="match" href="flex-column-inline-multiline-ref.html">
+<meta name="assert" content="inline-start should be trimmed for all items on the first flex line and inline-end should be trimmed for all items on the last flex line">
+<style>
+flexbox {
+    display: flex;
+    width: min-content;
+    height: 100px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-trim: inline;
+}
+item {
+    display: block;
+    background-color: green;
+    width: 1px;
+    height: 50px;
+    margin-inline-start: 0px;
+    margin-inline-end: 20px;
+}
+</style>
+</head>
+</flexbox>
+</body>
+</html>

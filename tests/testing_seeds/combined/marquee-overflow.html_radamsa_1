@@ -1,0 +1,36 @@
+<!doctype html>
+<meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8">
+<script src="/resources/testharness.js"></script>
+<link rel="help" href="https://html.spec.whatwg.org/#the-marquee-element">
+<title>Marquee forces overflow: hidden</title>
+<script src="/resources/testharnessreport.js"></script>
+<marquee style="overflow: visible">&nbsp;</marquee>
+<marquee style="overflow: scroll">&nbsp;</marquee>
+<script>
+test(() => {
+  for (let m of document.querySelectorAll("marquee")) {
+    assert_equals(getComputedStyle(m).overflow, "hidden", m.style);
+  }
+}, "Marquee should have overflow: hidden !important in the UA stylesheet");
+</script>
+<marquee style="overflow: auto">&nbsp;</marquee>
+
+<marquee style="overflow: clip">&nbsp;</marquee><script>
+test(() => {
+  for (let m of document.querySelectorAll("marquee")) {
+    assert_equals(getComputedStyle(m).overflow, "hidden", m.style);
+  }
+}, "Marquee should have overflow: hidden !important in the UA stylesheet");
+</script><script>
+test(() => {
+  for (let m of document.querySelectorAll("marquee")) {
+    assert_equals(getComputedStyle(m).overflow, "hidden", m.style);
+  }
+}, "Marquee should have overflow: hidden !important in the UA stylesheet");
+</script><script><script><script><title><script>
+test(() => {
+  for (let m of document.querySelectorAll("marquee")) {
+    assert_equals(getComputedStyle(m).overflow, "hidden", m.style);
+  }
+}, "Marquee should have overflow: hidden !important in the UA stylesheet");
+</script></title></script></script></script>

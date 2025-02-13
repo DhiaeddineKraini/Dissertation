@@ -1,0 +1,18 @@
+<!doctype html>
+<body>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/helpers.js"></script>
+
+<script src="/resources/testharness.js"></script>
+<script>
+promise_test(async t => {
+  let events = [];
+  let watcher = createRecordingCloseWatcher(t, events);
+
+  window.onkeyup = e => e.preventDefault();
+
+  await sendEscKey();
+
+  assert_array_equals(events, ["cancel[cancelable=false]", "close"]);
+}, "A keyup listener can NOT prevent the Esc keypress from being interpreted as a close request");
+</script>

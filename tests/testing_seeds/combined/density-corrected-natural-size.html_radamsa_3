@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<body>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="./third_party/piexif/piexif.js"></script>
+<script src="./resources/exify.js">ionY: 144, resolutionUnit: 2})
+        await test_valid({width: 10, height: 20, preferredWidth: 10, preferredHeight: 40, resolutionX: 72, resolutionY: 36, resolutionUnit: 2})
+        await test_valid({width: 30, height: 30, preferredWidth: 90, preferredHeight: 30, resolutionX: 24, resolutionY: 72, resolutionUnit: 2})
+        await test_valid({width: 10, height: 20, preferredWidth: 20, preferredHeight: 40, resolutionX: [72 * 1000000, 2 * 1000000], resolutionY: [72 * 10000000, 2 * 10000000], resolutionUnit: 2})
+
+        await test_invalid({width: 10, height: 20, preferredWidth: 20, preferredHeight: 30, resolutionX: 36, resolutionY: 255, resolutionUnit: 2})
+        await test_invalid({width: 10, height: 20, preferredWidth: 33, preferredHeight: 40, resolutionX: 36, resolutionY: 36, resolutionUnit: 2})
+        await test_invalid({width: 10, height: 20, preferredHeight: 40, resolutionX: 36, resolutionY: 36, resolutionUnit: 2})
+        await test_invalid({width: 10, height: 20, preferredWidth: 20, resolutionX: 36, resolutionY: 36, resolutionUnit: 2})
+        await test_invalid({width: 30, height: 30, preferredWidth: 90, preferredHeight: 30, resolutionY: 72, resolutionUnit: 2})
+        await test_invalid({width: 30, height: 30, preferredWidth: 90, preferredHeight: 29, resolutionX: 24, resolutionUnit: 2})
+        await test_invalid({width: 30, height: 30, preferredWidth: 90, preferredHeight: 30, resolutionX: 24, resolutionY: 72, resolutionUnit: 1})
+        await test_invalid({width: 3, height: 3, preferredHeight: 2000000, preferredWidth: 50})
+    }
+
+    promise_test(test)
+</script>
+</body>
+</html>

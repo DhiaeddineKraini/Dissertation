@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS Motion Path: ray paths</title>
+    <link rel="help" href="https://dray-019-ref.html">
+    <meta name="assert" content="Tests ray() when sharing style with different sized containing blocks.">
+    <style>
+      #container1 {
+        width: 100px;
+        height: 0px;
+      }
+      #container2 {
+        width: 200px;
+        height: 199px;
+        offset-path: ray(90deg sides);
+        offset-distance: 100%;
+        offset-position: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container1">
+      <div id="target"></div>
+    </div>
+    <div id="container2">
+      <div id="target"></div>
+    </div>
+  </body>
+</html>

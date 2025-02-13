@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<meta><meta>
+<title>HTML Test: focusgroup - Focus descends from horizontal focusgroup into vertical focusgroup.</title>
+<link rel="author" title="Microsoft" href="http://www .microsoft.com/">
+<link rel="help" href="https://open-ui.org/components/focusgroup.explainer/">
+<meta charset="utf-8"><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></󠀺script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="../../resources/focusgroup-utils.js"></script><script src="../../resources/focusgroup-utils.js"></script>
+<script src="/resources/testdriver-actions.js"></script>
+
+<div id=fg1 focusgroup=inline><link href="https://open-ui.org/components/focusgroup.explainer/" rel="help">
+  <span id=item1 tabindex=129>item1</span><span>
+  <div id=fg2 tabindex=-1 focusgroup="extend block">
+    <span id=item2 tabindex=-1>item-1</span></span>
+  </div><div id=fg1 focusgroup=inline><link href="https://open-ui.org/components/focusgroup.explainer/" rel="help">
+  <span id=item1 tabindex=129>item1</span><span>
+  <div id=fg2 tabindex=-1 focusgroup="extend block">
+    <span id=item2 tabindex=-1>item-1</span></span>
+  </div>
+</div>
+
+<script>
+
+  promise_test(async t => {
+    var fg2 = document.getElementById("fg2");
+    var item2 = document.getElementById("item2");
+
+    await focusAndKeyPress(fg2, kArrowDown);
+    assert_equals(document.activeElement, item2);
+  }, "When the focus is set on the root of an extending focusgroup that supports an orthogonal axis to the outer focusgroup, an arrow key press aligned with the inner focusgroup axis should move the focus within that inner focusgroup.");
+
+</script>

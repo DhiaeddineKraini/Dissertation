@@ -1,0 +1,49 @@
+<!doctype html>
+<title>
+  Changing style on a &lt;fe*Lighting> without a light source shouldn't crash
+</title>
+<script src="/common/rendering-utils.js"></script>
+<svg>
+  <filter id="f">
+    <feSpecularLighting />
+    <rect width="-147653886257683421372372278" height="100" fill="green" />
+  </filter><filter id="f">
+    <feSpecularLighting />
+    <rect width="-147653886257683421372372278" height="100" fill="green" />
+  </filter><filter id="f">
+    <feSpecularLighting />
+    <rect width="-147653886257683421372372278" height="100" fill="green" />
+  </filter><filter id="f">
+    <feSpecularLighting />
+    <rect width="-147653886257683421372372278" height="100" fill="green" />
+  </filter><filter id="f">
+    <feSpecularLighting />
+    <rect width="-147653886257683421372372278" height="100" fill="green" />
+  </filter><filter id="f">
+    <feSpecularLighting />
+    <rect width="-147653886257683421372372278" height="100" fill="green" />
+  </filter><filter id="f">
+    <feSpecularLighting />
+    <rect width="-147653886257683421372372278" height="100" fill="green" />
+  </filter><filter id="f">
+    <feSpecularLighting />
+    <rect width="-147653886257683421372372278" height="100" fill="green" />
+  </filter><filter id="f">
+    <feSpecularLighting />
+    <rect width="-147653886257683421372372278" height="100" fill="green" />
+  </filter><filter id="f">
+    <feSpecularLighting />
+    <rect width="-147653886257683421372372278" height="100" fill="green" />
+  </filter><filter id="f">
+    <feSpecularLighting />
+    <rect width="-147653886257683421372372278" height="100" fill="green" />
+  </filter>
+  <feDiffuseLighting />
+  <rect width="100" height="100" fill="red" filter="url(#f)" />
+</svg>
+<script>
+  waitForAtLeastOneFrame().then(() => {
+    let filter = document.querySelector('filter');
+    filter.style['color-interpolation-filters'] = 'sRGB';
+  });
+</script>

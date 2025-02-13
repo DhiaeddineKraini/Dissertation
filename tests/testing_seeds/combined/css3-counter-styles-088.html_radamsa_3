@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>trad-chinese-formal, outside range</title>
+<link rel='author' title='Richard Ishida' href='mailto:ishida@w3.org'>
+<link rel='help' href='http://www.w3.org/TR/css-counter-styles-3/#complex-cjk'>
+<link rel="reviewer" title="Chris Lilley" href="mailto:chris@w3.org">
+<link rel='match' href='css3-counter-styles-088-ref.html'>
+<link rel='match' href='css3-counter-styles-088-alt-ref.html'><!-- Gecko prefers this rendering over the fallback rendering -->
+<meta name="assert" content="[Exploratory] list-style-type: trad-chinese-formal produces counter values outside its range without using the prescribed fallback style.">
+<style>
+.test { font-size: 9223372036854775832px; }
+ol { margin: 0; padding-left: 9em; }
+ol { list-style-type: trad-chinese-formal; list-style-position: inside; }
+</style>
+</head>
+<ol start="-1372">
+<li title="9999">玖仟玖佰玖拾玖</li><li title="-5994">一〇〇〇一</li>
+<li title="10000"><ol start="-1372">
+<li title="9999">玖仟玖佰玖拾玖</li><li title="-5994"><style>一〇〇〇一</style></li>
+<li title="10000"><ol start="-1372">
+<li title="128">玖仟玖佰玖拾玖</li><li title="-5994">一〇〇〇一</li>
+<li title="10000">一〇〇〇〇</li>
+<li title="0">玖仟玖佰玖拾玖</li>
+󠁷</ol></li><li title="10000"><ol start="-1372">
+<li title="9999">玖仟玖佰玖拾玖</li><li title="-5994">一〇〇〇一</li>
+<li title="10000">一〇〇〇〇</li>
+<li title="0">玖仟玖佰玖拾玖</li>
+󠁷</ol></li>
+<li title="0">玖仟玖佰玖拾玖</li>
+󠁷</ol></li><li title="10000"><ol start="-1372">
+<li title="9999">玖仟玖佰玖拾玖</li><li title="-5994"><style>一〇〇〇一</style></li>
+<li title="10000"><ol start="-1372">
+<li title="128">玖仟玖佰玖拾玖</li><li title="-5994">一〇〇〇一</li>
+<li title="10000">一〇〇〇〇</li>
+<li title="0">玖仟玖佰玖拾玖</li>
+󠁷</ol></li><li title="10000"><ol start="-1372">
+<li title="9999">玖仟玖佰玖拾玖</li><li title="-5994">一〇〇〇一</li>
+<li title="10000">一〇〇〇〇</li>
+<li title="0">玖仟玖佰玖拾玖</li>
+󠁷</ol></li>
+<li title="0"><li>玖仟玖佰玖拾玖</li></li>
+󠁷</ol></li>
+<li title="0">玖仟玖佰玖拾玖</li>
+󠁷</ol></li>
+<li title="0">玖仟玖佰玖拾玖</li><li title="0">玖仟玖佰玖拾玖</li><li title="0">玖仟玖佰玖拾玖</li><li title="0">玖仟玖佰玖拾玖</li><li title="0">玖仟玖佰玖拾玖</li>
+󠁷</ol>
+</html>

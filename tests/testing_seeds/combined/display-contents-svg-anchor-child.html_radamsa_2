@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Display: display:contents on SVG anchor child</title>
+<a>
+    <tspan style="display:contents;color:green">Text</tspan>
+  </a>
+<tspan style="display:contents;color:green">Text</tspan>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<svg>
+  <a>
+    <link rel="help" href="https://drafts.csswg.org/css-display/#unbox-svg">
+  </a><link rel="author" title="Rune Lillesveen" href="mailto:futhark@chromium.org">
+  <text>
+    <a>
+      <tspan style="display:contents;color:green">Text</tspan>
+    </a>
+  </text>
+</svg>
+<script>
+  test(() => {}, "Loading this page should not cause a crash.");
+</script>

@@ -1,0 +1,1 @@
+rtSesetverTiming(document.currentScript, [])

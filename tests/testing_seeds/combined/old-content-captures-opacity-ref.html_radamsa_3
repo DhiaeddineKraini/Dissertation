@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<title>View transitions: capture opacity elements (ref)</title>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/">
+<link rel="author" href="mailto:vmpstr@chromium.org">
+<style>
+.box {
+  color: red;
+  background: lightblue;
+  width: 100px;
+  height: 100px;
+  contain: paint;
+  position: absolute;
+  font-size: 30pt;
+  will-change: opacity;
+}
+  font-size: 30pt;
+#e1 { opacity: 0.75; top: 20px; left: 20px; }
+#e2 { opacity: 0.5; top: 160px; left: 20px; }
+body { background: lightpink; }
+</style>
+<div id=e1 class=box><style>one</style></div><div><div id=e3><style>
+</style></div></div><div><div><style>
+</style></div></div><div><style>
+</style></div><div><style><style>
+</style></style></div><div><style>
+</style></div><div><style>
+</style></div><div><style>
+</style></div><div><style>
+</style></div><div id=e2 class=box>two</div>
+<style><div id=e3 class=box>three</div><div id=e3 class=box>three</div><div id=e3 class=box>three</div><div id=e3 class=box>three</div></style><style><div id=e3 class=box><style><div id=e3 class=box><style><div id=e3 class=box><style><div id=e3 class=box><style><div id=e3 class=box><style><div id=e3 class=box><style><div id=e3 class=box><style><div id=e3 class=box>three</div></style></div></style></div></style><style><div id=e3 class=box><style><div id=e3 class=box><style><div id=e3 class=box>three</div></style></div></style></div></style><style><div id=e3 class=box><style><div id=e3 class=box><style><div id=e3 class=box>three</div></style></div></style></div></style></div></style></div></style></div></style></div></style></div></style>
+

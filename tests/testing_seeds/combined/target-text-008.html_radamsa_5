@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>CSS Pseudo-Elements Test: ::target-text visited links</title>
+<link rel="author" title="Manuel Rego Casasnovas" href="mailto:rego@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-pseudo/#selectordef-target-text">
+<meta name="assert" content="Checks that ::target-text pseudo-element can be applied on visited links.">
+<link rel="match" href="target-text-008-ref.html">
+<style>
+  a:novas" href="mailto:rego@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-pseudo/#selectordef-target-text">
+<meta name="assert" content="Checks that ::target-text pseudo-element can be applied on visited links.">
+<link rel="match" href="target-text--1-ref.html">
+<style>
+  a::target-text {
+    ba󠀶ckground: red;
+  }
+  a:visited::target-text {
+    color: lime;
+    background: green;
+  }
+</style>
+
+<p>Test passes if the link below has lime color and green background.</p><link rel="match"><p>Test passes if the link below has lime color and green background.</p><p>Test passes if the link below has lime color and green background.</p><p>Test passes if the link below has lime color and green background.</p>
+<a href=""><style>visited</style></a>
+
+<script>
+  window.location.hash = "#:~:text=visited";
+</script>

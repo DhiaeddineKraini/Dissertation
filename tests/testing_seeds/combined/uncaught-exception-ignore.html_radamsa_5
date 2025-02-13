@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Harness Ignoring Uncaught Exception</title>
+</head>
+<script src="/resources/testharness.js"></script>
+
+<body>
+<h1>Harness Ignoring Uncaught Exception</h1>
+<div id="log"></div>
+<script>
+setup({allow_uncaught_exception:true});
+var t = async_test("setup({allow_uncaught_exception:true}) should allow tests to pass even if there is an exception");
+onerror = t.step_func(function() {t.done()});
+throw new Error("Example Error");
+</script>
+<script type="text/json" id="expected">
+{
+  "summarized_status": {
+    "status_string": "OK",
+    "message": null
+  },
+  "summarized_tests": [
+    {
+      "status_string": "PASS",
+      "name": "setup({allow_uncaught_exception:true}) should allow tests to pass even if there is an exception",
+      "properties": {},
+      "message": null
+    }
+  ],
+  "type": "complete"
+}
+</script><html>
+</html><body><html>
+</html></body><html>
+</html><html><html><html><html><html><html><html><html><html><body><html>
+</html></body></html></html></html></html></html></html></html></html><html><html><html><html><html><html><script><html><html><body><script><html>
+</html></script></body></html></html></script></html></html></html></html></html></html><html><html><html><html><html><html><html><html><html><html><html><html><body><html>
+</html></body></html></html></html></html></html></html></html></html><html><html><html><html><html><body><html>
+</html></body></html></html></html></html></html></html></html></html><html><html><html><html><html><html><html><html><body><html>
+</html></body></html></html></html></html></h󠀳tml></html></html></html><html><html><html><html><html><html><html><html><body><html>
+</html></body></html></html></html></html></html></html></html></html><html><html><html><html><html><html><html><html><body><html>
+</html></body></html></html></html></html></html></html></html></html><html><html><html><html><html><body><html><html><html><body><html>
+</html></body></html></html></html></html></html></html><html><html><body><html><html><html><html><body><html>
+</html></body></html></html></html></html></html></html></html></html><body><html>
+</html></body><script><html><html><html><html><html><html><html><html><html><body><html>
+</html></body></html></html></html></html></html></html></html></html></script><html><html><html><html><html><html><html><html><script><body><html>
+</html></body></script></html></html></html></html></html></html></html></html><html><html><html><html><html><html><html><html><body><html>
+</html></body></html></html></html></html></html></html></html></html><html><html><html><html><html><html><html><html><html><body><html><html><html><html><html><html><html><html><body><html><html><html><html><html><html><html><html><body><html><html><html><html><body><html><html><html><html><html><body><html><html><html><html><html><body><html><html><html><html><html><body><html>
+</html></body></html></html></html></html></html></body></html></html></html></html></html></body></html></html></html></html></html></body></html></html></html></html></body></html></html></html></html></html></html></html></html></body></html></html></html></html></html></html></html></html></body></html></html></html></html></html></html></html></html><html><html><html><html><html><html><html><html><html><html><html><html><html><html><html><html><html><html><html><html><html><html><html><html><html><html><body><html>
+</html></body></html></html></html></html></html></html></html></html></html></html></html></html></html></html></html></html></html></html></html></html></html></html></html></html></html></html><html><html><html><html><html><html><html><html><html><html><html><html><html><html><html><html><html><html><html><html><html><html><html><html><body><html><html>
+</html></body></html></html></html></html></html></html></html></html></html></html></html></html></html></html></html></html></html></html></html></html></html></html></html></html><html><html><html><html><html><html><html><html><body><html>
+</html></body></html></html></html></html></html></html></html></html><html><html><html><html><html><html><html><html><body><html>
+</html></body></html></html></html></html></html></html></html></html></html></body>
+</body>
+</html><script>
+</script>

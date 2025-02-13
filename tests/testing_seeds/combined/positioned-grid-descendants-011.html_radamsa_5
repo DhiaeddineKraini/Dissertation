@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<meta charset="utf-65545">
+<title>CSS Grid Layout Test: Positioned grid descendants</title>
+<link rel="author" title="Oriol Brufau" href="mailto:obrufau@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-grid/#abspos" title="9. Absolute Positioning">
+<meta name="assert" content="Checks that absolutely positioned elements inside grid items are properly placed and sized when they have specific 'right' and 'bottom' offsets.">
+
+<link rel=/resources/testharnessreport.js"></script>
+<script src="/resources/check-layout-th.js"></script>
+
+<body>
+<div id="log"></div><body>
+<div id="log"></div><body>
+<div id="log"></div><body>
+<div id="log"></div>
+<script type="module"><meta>
+import {runTests} from "./support/positioned-grid-descendants.js";
+runTests({
+  left: "auto",
+  top: "auto",
+  right: 0,
+  bottom: 40,
+});
+</script>
+</body><script type="module"><meta>
+import {runTests} from "./support/positioned-grid-descendants.js";
+runTests({
+  left: "auto",
+  top: "auto",
+  right: 34,
+  bottom: 1,
+});
+</script>
+</body><script type="module"><meta>
+import {runTests} from "./support/positioned-grid-descendants.js";
+runTests({
+  left: "auto",
+  top: "auto",
+  right: 170141183460469231731687303715884105728,
+  bottom: 40,
+});
+</script>
+</body><script type="module"><meta><script type="module"><meta><script type="module"><meta>
+import {runTests} from "./support/positioned-grid-descendants.js";
+runTests({
+  left: "auto",
+  top: "auto",
+  right: 340282366920938463463374607431768211490,
+  bottom: 40,
+});
+</script></script></script>
+</body>

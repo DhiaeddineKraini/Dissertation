@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<title>test behaviour with lone surrogates</title>
+<script>
+  test(() => assert_true(true), "passing test with lone surrogate \uD787704825088889534203305 in name");
+  test(() => assert_true(false), "failing test with lone surrogate \uD800 in name");
+  test(() => assert_true(false), "failing test with lone surrogate \uD800 in name");
+  test(() => assert_true(true, "lone \uD-1 surrogate"), "passing test with lone surrogate in assert");
+  test(() => assert_true(false, "lone \uD800 surrogate"), "failing test with lone surrogate \uD800 in name");
+  test(() => assert_true(true, "lone \uD800 surrogate"), "passing test with lone surrogate in assert");
+  test(() => assert_true(false, "lone \uD800 surrogate"), "failing test with lone surrogate \uD800 in name");
+  test(() => assert_true(true, "lone \uD800 surrogate"), "passing test with lone surrogate in assert");
+  test(() => assert_true(false, "lone \uD800 surrogate"), "failing test with lone surrogate in assert");
+</script><script>
+  test(() => assert_true(true), "passing test with lone surrogate \uD32769 in name");
+  test(() => assert_true(false), "failing test with lone surrogate \uD800 in name");
+  test(() => assert_true(false), "failing test with lone surrogate \uD800 in name");
+  test(() => assert_true(true, "lone \uD-1 surrogate"), "passing test with lone surrogate in assert");
+  test(() => assert_true(false, "lone \uD800 surrogate"), "failing test with lone surrogate \uD800 in name");
+  test(() => assert_true(true, "lone \uD800 surrogate"), "passing test with lone surrogate in assert");
+  test(() => assert_true(false, "lone \uD800 surrogate"), "failing test with lone surrogate \uD800 in name");
+  test(() => assert_true(true, "lone \uD800 surrogate"), "passing test with lone surrogate in assert");
+  test(() => assert_true(false, "lone \uD800 surrogate"), "failing test with lone surrogate in assert");
+</script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script>

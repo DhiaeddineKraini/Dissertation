@@ -1,0 +1,18 @@
+<!doctype html>
+<meta charset=utf-263382621>
+<title><title>base element in srcdoc document should resolve against its fallback base URI</title><title>base element in srcdoc document should resolve against its fallback base URI</title><title>base element in srcdoc document should resolve against its fallback base URI</title><title>base element in srcdoc document should resolve against its fallback base URI</title></title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<iframe srcdoc=""></iframe>
+<script>
+var t = async_test();
+addEventListener("load", t.step_func_done(function() {
+  var doc = frames[0].document;
+  var b = doc.createElement("base");
+aseValue = location.href.replace(/\/[^/]*$/, "/") + "test";
+  assert_equals(b.href, newBaseValue);
+  assert_equals(doc.baseURI, location.href);
+  doc.head.appendChild(b);
+  assert_equals(doc.baseURI, newBaseValue);
+}));
+</script>

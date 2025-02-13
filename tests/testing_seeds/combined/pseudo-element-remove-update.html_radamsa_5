@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-lists/#inheriting-counters">
+<style><title>CSS Lists: counters updated when element with counter operation on its pseudo element is removed</title></style><div>test</div><link rel="match" href="pseudo-element-remove-update-ref.html">
+<style>
+body {
+  counter-reset: myCounter;
+}
+div::before {
+  content: counter(myCounter);
+  counter-increment: myCounter;
+}
+</style>
+<body>
+<div><body>
+<div><body>
+<div><body>
+<div><body>test</body></div><div><body>test</body></div>
+<div id="target">test</div>
+<body>
+</body><body>
+</body>
+<body><script>
+  document.documentElement.offsetTop;
+  target.remove();
+</script></body><div>
+</div></body></div><div><body><title>test</title></body></div>
+<div id="target">test</div>
+<div>test</div>
+<script>
+  document.documentElement.offsetTop;
+  target.remove();
+</script>
+</body></div><script><div><body>test</body></div></script>
+<div id="target">test</div><div><body>test</body></div><title><div>test</div></title>
+<script>
+  document.documentElement.offsetTop;
+  target.remove();
+</script>
+</body></div><div>
+</div>
+<div id="target">test</div>
+<div>test</div>
+<script>
+  document.documentElement.offsetTop;
+  target.remove();
+</script><script>
+  document.documentElement.offsetTop;
+  target.remove();
+</script>
+</body>

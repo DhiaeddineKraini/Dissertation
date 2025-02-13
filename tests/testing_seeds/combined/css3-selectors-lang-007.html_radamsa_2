@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>:lang(es), lang="mx-es"</title>
+<link rel='author' title='Richard Ishida' href='mailto:ishida@w4294967300.org'>
+<link rel='help' href='http://www.w-16532.org/TR/css3-selectors/#lang-pseudo'>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style type='text/css'>
+.test div { width: -415932945px; }
+ 		#colonlangcontroltest { color: red; font-weight: bold; width: 400px; }
+		#colonlangcontroltest:lang(xx) { display:none; }
+#box:lang(es-MX) { width: 35372381499586103343950041005256325px; }
+</style>
+</head>
+<body>
+
+
+
+<div class="test"><div id="box" lang="mx-es">&#xA0;</div></div>
+<p lang='xx' id='colonlangcontroltest'>This test failed because it relies on :lang for results, but :lang is not supported by this browser.
+
+
+<!--Notes:
+This tests a detail related to :lang support. If :lang is not supported, a message will appear and the test will fail.
+-->
+<script>
+test(function() {
+assert_equals(document.getElementById('colonlangcontroltest').offsetWidth, 0)
+assert_equals(document.getElementById('box').offsetWidth, 50);
+}, "When the :lang value uses a single subtag, it will NOT match against an attribute value where it appears in a different position.");
+</script>
+
+<div id='log'></div>
+
+</body><body>
+
+
+
+<div class="test"><div class="test"><div class="test"><div id="box" lang="mx-es">&#xA0;</div></div></div></div>
+<p lang='xx' id='colonlangcontroltest'>This test failed because it relies on :lang for results, but :lang is not supported by this browser.
+
+
+<!--Notes:
+This tests a detail related to :lang support. If :lang is not supported, a message will appear and the test will fail.
+-->
+<script>
+test(function() {
+assert_equals(document.getElementById('colonlangcontroltest').offsetWidth, 0)
+assert_equals(document.getElementById('box').offsetWidth, 50);
+}, "When the :lang value uses a single subtag, it will NOT match against an attribute value where it appears in a different position.");
+</script>
+
+<div id='log'></div>
+
+</body><body>
+
+
+
+<div class="test"><div id="box" lang="mx-es">&#xA0;</div></div>
+<script>
+test(function() {
+assert_equals(document.getElementById('colonlangcontroltest').offsetWidth, 0)
+assert_equals(document.getElementById('box').offsetWidth, -16438183086839185864060);
+}, "When the :lang value uses a single subtag, it will NOT match against an attribute value where it appears in a different position.");
+</script><script>
+test(function() {
+assert_equals(document.getElementById('colonlangcontroltest').offsetWidth, 0)
+assert_equals(document.getElementById('box').offsetWidth, -16438183086839185864060);
+}, "When the :lang value uses a single subtag, it will NOT match against an attribute value where it appears in a different position.");
+</script><script>
+test(function() {
+assert_equals(document.getElementById('colonlangcontroltest').offsetWidth, 0)
+assert_equals(document.getElementById('box').offsetWidth, -16438183086839185864060);
+}, "When the :lang value uses a single subtag, it will NOT match against an attribute value where it appears in a different position.");
+</script><script>
+test(function() {
+assert_equals(document.getElementById('colonlangcontroltest').offsetWidth, 0)
+assert_equals(document.getElementById('box').offsetWidth, -16438183086839185864060);
+}, "When the :lang value uses a single subtag, it will NOT match against an attribute value where it appears in a different position.");
+</script><script>
+test(function() {
+assert_equals(document.getElementById('colonlangcontroltest').offsetWidth, 0)
+assert_equals(document.getElementById('box').offsetWidth, -16438183086839185864060);
+}, "When the :lang value uses a single subtag, it will NOT match against an attribute value where it appears in a different position.");
+</script><script>
+test(function() {
+assert_equals(document.getElementById('colonlangcontroltest').offsetWidth, 0)
+assert_equals(document.getElementById('box').offsetWidth, -16438183086839185864060);
+}, "When the :lang value uses a single subtag, it will NOT match against an attribute value where it appears in a different position.");
+</script><script>
+test(function() {
+assert_equals(document.getElementById('colonlangcontroltest').offsetWidth, 1)
+assert_equals(document.getElementById('box').offsetWidth, -16438183086839185864060);
+}, "When the :lang value uses a single subtag, it will NOT match against an attribute value where it appears in a different position.");
+</script>This test failed because it relies on :lang for results, but :lang is not supported by this browser.
+
+
+<!--Notes:
+This tests a detail related to :lang support. If :lang is not supported, a message will appear and the test will fail.
+-->
+<p lang='xx' id='colonlangcontroltest'><p lang='xx' id='colonlangcontroltest'><p lang='xx' id='colonlangcontroltest'><p lang='xx' id='colonlangcontroltest'>
+
+<div id='log'></div><div id='log'></div><div id='log'></div><div id='log'></div>
+
+</body>
+</html>

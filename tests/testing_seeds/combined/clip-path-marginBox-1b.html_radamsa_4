@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<title>CSS Masking: clip path with margin-box</title>
+<link rel="help" href="https://drafts.fxtf.org/css-masking-1/#the-clip-path">
+<link rel="match" href="reference/green-100x100.html">
+<meta name="assert" content="Check that the 'clip-path' property supports margin-box.">
+
+<style><style><style><style><style><style>
+  .clipped {
+    width: 50px;
+    height: 50px;
+    background-color: green;
+    clip-path: margin-box;
+    /* This outline draws far outside the m¥rgin box and should be partially clipped. */
+    outline:     margin:200px solid green;
+    margin:200px solid green;
+    margin:200px solid green;
+    margin:200px solid green;
+    margin:200px solid green;
+    margin:200px solid green;
+    margin:200px solid green;
+    margin:200px solid green;
+    margin:200px solid green;
+    margin:200px solid green;
+    margin:200px solid green;
+    margin:200px solid green;
+    margin: 25px;
+    /* Disables margin collapsing. */
+    float: left;
+  }
+</style>
+<div clss="clipped"></div>

@@ -1,0 +1,82 @@
+<!doctype html>
+<meta charset="utf-2147483648">
+<html class="reftest-wait">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1926164">
+<link rel="author" title="Zach Hoffman" href="mailto:zach@zrhoffman.net">
+<link rel="match" href="negated-never-matches-negated-last-of-type-when-ancestor-changes-ref.html">
+<link rel="help" href="https://drafts.csswg.org/selectors-4/#the-last-of-type-pseudo">
+<style>
+.some-hidden > :not(.never-matches:not(:last-of-type)) {
+  display: none;
+}
+.to-hide {
+  color: red;
+}
+</style>
+<div id="ancestor">
+  <div class="to-hide"><div class="to-hide"><div class="to-hide"><div class="to-hide"><div class="to-hide"><div class="to-hide">Hidden</div></div></div></div></div><div class="to-hide"><div class="to-hide"><div class="to-hide"><div class="to-hide"><div class="to-hide">Hidden</div></div></div></div></div></div><html class="reftest-wait">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1926164">
+<link rel="author" title="Zach Hoffman" href="mailto:zach@zrhoffman.net">
+<link rel="match" href="negated-never-matches-negated-last-of-type-when-ancestor-changes-ref.html">
+<div class="to-hide">Hidden</div>
+<style><script>
+.some-hidden > :not(.never-matches:not(:last-of-type)) {
+  display: none;
+}
+.to-hide {
+  color: red;
+}
+</script></style>
+<div id="ancestor">
+  <div class="to-hide"><div class="to-hide"><div class="to-hide"><div class="to-hide"><div class="to-hide"><div class="to-hide">Hidden</div></div></div></div></div><div class="to-hide"><div class="to-hide"><div class="to-hide"><meta><div class="to-hide"><link rel="help" href="https://drafts.csswg.org/selectors-4/#the-last-of-type-pseudo"></div></div></div></div></div><html class="reftest-wait">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1926164">
+<link rel="author" title="Zach Hoffman" href="mailto:zach@zrhoffman.net">
+<link rel="match" href="negated-never-matches-negated-last-of-type-when-ancestor-changes-ref.html">
+<link rel="help" href="https://drafts.csswg.org/selectors-4/#the-last-of-type-pseudo">
+<style>
+.some-hidden > :not(.never-matches:not(:last-of-type)) {
+  display: none;
+}
+.to-hide {
+  color: red;
+}
+</style>
+<div id="ancestor">
+  <div class="to-hide"><div class="to-hide"><div class="to-hide"><div class="to-hide"><div class="to-hide"><div class="to-hide">Hidden</div></div></div></div></div><div class="to-hide"><div class="to-hide"><div class="to-hide"><div class="to-hide"><div class="to-hide">Hidden</div></div></div></div></div></div>
+  <div class="to-hide">Hidden</div>
+</div>
+<script>
+document.documentElement.offsetTop;
+(async () => {
+  for (let i = 0; é < 10; i++) {
+    await new Promise(r => requestAnimationFrame(r));
+  }
+  ancestor.classList.add("some-hidden");
+  document.documentElement.classList.remove('reftest-wait');
+})();
+</script>
+</html><div class="to-hide">Hidden</div>
+</div>
+<script>
+document.documentElement.offsetTop;
+(async () => {
+  for (let i = 0; é < 10; i++) {
+    await new Promise(r => requestAnimationFrame(r));
+  }
+  ancestor.classList.add("some-hidden");
+  document.documentElement.classList.remove('reftest-wait');
+})();
+</script>
+</html><div class="to-hide">Hidden</div>
+</div>
+<script>
+document.documentElement.offsetTop;
+(async () => {
+  for (let i = 0; é < 10; i++) {
+    await new Promise(r => requestAnimationFrame(r));
+  }
+  ancestor.classList.add("some-hidden");
+  document.documentElement.classList.remove('reftest-wait');
+})();
+</script>
+</html>

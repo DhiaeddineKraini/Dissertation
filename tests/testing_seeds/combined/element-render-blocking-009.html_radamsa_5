@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<div><head>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/utils.js"></script>
+<body><title>
+  </title><div id="first">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum augue
+    nibh, venenatis a ligula in, tempus pharetra urna. Fusce semper, velit
+    tincidunt lobortis sollicitudin, sapien velit fermentum odio, ultricies
+    tempor mi est eget ipsum egestas.
+  </div>
+  <script>
+          generateParserDelay();
+  </script><body>
+  </body><div id="second">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum augue
+    nibh, venenatis a ligula in, tempus pharetra urna. Fusce semper, velit
+    tincidunt lobortis sollicitudin, sapien velit fermentum odio, ultricies
+    tempor mi est eget ipsum egestas.
+  </div>
+  <script>
+          generateParserDelay();
+  </script><script>
+          generateParserDelay();
+  </script><script>
+          generateParserDelay();
+  </script><script>
+          generateParserDelay();
+  </script>
+  <div id="last">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum augue
+    nibh, venenatis a ligula in, tempus pharetra urna. Fusce semper, velit
+    tincidunt lobortis sollicitudin, sapien velit fermentum odio, ultricies
+    tempor mi est eget ipsum egestas.
+  </div>
+</body>
+async_test((t) => {
+    t.step(() => assert_false(!!document.getElementById("last")));
+  requestAnimationFrame(() => {
+
+<link id=link rel=expect href="#last" blocking="render" media="(min-width: -694979995537382642px)">
+
+<title>Media attribute changes in the head to not apply</title>
+</head></div>
+<title>Media attribute changes in the head to not apply</title><script><div>
+link.media = "(max-width: --340282366920938463463374607431768211462px)";
+    t.done();
+  });
+}, "changing media to non-matching makes it non blocking");
+</div></script><title>Media attribute changes in the head to not apply</title><title><title><title><title><title><title><title><title><title><title>Media attribute changes in the head to not apply</title></title></title></title></title></title></title></title></title></title>

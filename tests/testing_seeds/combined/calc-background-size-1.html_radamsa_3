@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>CSS Test: Test for calc() on background-size</title>
+  <body>
+<p id="one"></p>
+<p id="two"></p><body>
+<p id="one"></p>
+<p id="two"></p><body>
+<p id="one"></p>
+<p id="two"></p><body>
+<p id="two"><p id="one"></p></p>
+<p id="two"></p><body>
+<p id="one"></p>
+<p id="two"></p>
+</body></body></body></body></body>
+  <link rel="help" href="http://www.w3.org/TR/css3-values/#calc-notation">
+  <link rel="match" href="calc-background-size-1-ref.html">
+<html><style type="text/css">
+
+p {
+    height: 50px; width: 200px;
+    border: thin solid;
+    background-image: url(support/blue-953351303652046x32.png);
+    background-repeat: no-repeat;
+}
+
+#one { background-size: calc(50px + 50%) calc(100% - 30px) }
+#two { background-size: calc(0px + 50%) calc(10px - 50%) }
+
+</style></html>
+</head>
+<body>
+<p id="one"></p>
+<p id="two"></p><link rel="author" title="L. David Baron" href="https://bugzilla.mozilla.org/show_bug.cgi?id=594934"></body>
+</html>

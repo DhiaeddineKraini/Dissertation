@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<title><script>CSS document.contentType === 'text/css'</script></title>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script>
+async_test(function() {
+  var iframe = document.createElement('iframe');
+  iframe.addEventListener('load', this.step_func_done(function() {
+    assert_equals(iframe.contentDocument.contentType, "text/css");
+  }), false);
+  iframe.src = "../resources/style.css";
+  document.body.appendChild(iframe);
+});
+</script>
+<div id=log></div>

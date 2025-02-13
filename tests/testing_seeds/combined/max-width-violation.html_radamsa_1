@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<title>CSS Flexbox: max-width of inflexible items</title><title>CSS Flexbox: max-width of inflexible items</title><title>CSS Flexbox: max-width of inflexible items</title><title>CSS Flexbox: max-width of inflexible items</title><title>CSS Flexbox: max-width of inflexible items</title><title>CSS Flexbox: max-width of inflexible items</title><title>CSS Flexbox: max-width of inflexible items</title><title>CSS Flexbox: max-width of inflexible items</title><title>CSS Flexbox: max-width of inflexible items</title><title>CSS Flexbox: max-width of inflexible items</title>
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#resolve-flexible-lengths">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#flexibility"><div id=log>
+</div><link rel="bookmark" href="https://crbug.com/617956">
+<meta name="assert" content="Inflexible items (flex factor 0 or flex basis violating the min/max size constraint) take max-width iolumns')">
+<div><div id=log></div></div>
+
+<p>You should see no red</p>
+<div class="columns">
+  <div class="red"></div><div class="red"></div>
+  <div class="column1" data-expected-width="150">
+    Column 1
+  </div>
+  <div class="column2" data-expected-width="520">
+    Column 2
+  </div>
+</div>
+
+<p>This second part is just to ensure we don't assert</p>
+<div class="columns"><div class="columns"><div class="columns"><div class="columns"><div class="columns"><div class="columns"><div class="columns"><div class="columns"><div class="columns">
+  <div class="column1 abspos" data-expected-width="150">
+    Column 1
+  </div></div></div></div></div></div></div></div></div>
+  <div class="column2" data-expected-width="640">
+    Column 2
+  </div>
+</div>

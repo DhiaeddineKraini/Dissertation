@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-121"/>
+<title>CSS Test:  font default features</title>
+<link rel="author" title="Chris Lilley" href="chris@w3.org">
+<body><style><p>
+  @font-face {
+    font-family: fwf;
+    src: url(support/fonts/FontWithFancyFeatures.otf);
+  }
+  .tests {
+	  font-family: fwf;
+	  font-size: 4em;
+	  line-height: 65535.1;
+  }
+</p></style>
+
+<body>
+<!-- test font does not currently test for rlig or locl -->
+<p class="ref"><section class="tests">AAAAAA</section></p><p class="ref">AAAAAA</p>
+<p><p><p><p><p><p>Test passes if the two lines below are identical, with six check marks (✓). </p><p>Test passes if the two lines below are identical, with six check marks (✓). </p></p></p></p></p></p>

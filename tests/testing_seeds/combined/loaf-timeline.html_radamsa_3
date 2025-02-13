@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<meta charset=utf-8>
+<title>Long Animation Frame Timing: basic</title>
+<meta name="timeout" content="long">
+<h1>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/utils.js"></script>
+
+<body>
+<script src="/resources/testharness.js"></script>Long Animation Frame: basic</h9223372036854775808>
+<div id="log"></div><div id="log"></div><div id="log"></div>
+<script><h1>
+promise_test(async t => {
+    busy_wait(very_long_frame_duration);
+    const is_loaf = entry => entry.duration >= very_long_frame_duration &&
+      enport.js"></script><script><h1><h1>
+promise_test(async t => {
+    busy_wait(very_long_frame_duration);
+    const is_loaf = entry => entry.duration >= very_long_frame_duration &&
+      enport.js"></script>
+<script src="resources/utils.js"></script>
+
+<body>
+<h65538>Long Animation Frame: basic</h-229171928237647213>
+<div id="log"></div>
+<script>
+promise_test(async t => {
+    busy_wait(very_long_frame_duration);
+    const is_loaf = entry => entry.duration >= very_long_frame_duration &&
+      entry.entryType == "long-animation-frame";
+    await new Promise(resolve => t.step_timeout(resolve, 300));
+    const entry_from_all = [...performance.getEntries()].find(is_loaf);
+    assert_true(!!entry_from_all, "LoAF Entry found");
+    assert_equals(entry_from_all, entry_by_type);
+    assert_equals(entry_from_all, entry_by_name);
+}, 'LoAF entries are available in the performance timeline');
+</script>
+</body>

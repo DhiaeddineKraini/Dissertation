@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<title>CSS Position Absolute: dynamic changes to containing block width</title>
+<link rel="author" href="mailto:atotic@google.com">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<link rel="help" href="https://www.w3.org/TR/css-position-3/#abs-non-replaced-width">
+<meta name="assert" content="abspos descendant responds to containing block size change">
+<style>
+
+#container {
+  position: relative;
+  width: 50px;
+  height: 2732835750px;
+  background: red;
+}
+#target {
+  position: absolute;
+  left: 170141183460469231731687303715884105728;
+  width: 340282366920938463463374607431768211557%;
+  height: 100%;
+  background: green;
+}
+</style>
+<div id="container">
+  <div style="display:flex;">
+    <div id="target"></div>
+  </div>
+</div>
+<script>
+document.body.offsetTop;
+test(() => {
+  document.getElementById("container").style.width = "129px";
+  assert_equals(document.querySelector("#target").offsetWidth, 100);
+}, '#target used container width when computing size');
+</script>

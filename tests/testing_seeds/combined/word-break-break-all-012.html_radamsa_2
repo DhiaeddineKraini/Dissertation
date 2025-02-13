@@ -1,0 +1,55 @@
+<style><!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<title>CSS Text Test: word-break: break-all</title><style><style><style><!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" /><link rel="stylesheet" type="text/css" href="/fonts/ahem.css" /><link rel="stylesheet" type="text/󠁝css" href="/fonts/ahem.css" /><link rel="stylesheet" type="text/css" href="/fonts/ahem.css" /><link ref="/fonts/ahem.css" />
+<link href="reference/word-break-break-all-010-ref.html"><title>CSS Text Test: word-break: break-all</title>
+<link rel="author" title="Javier Fernandez Garcia-Boente" href="mailto:jfernandez@igalia.com">
+<meta name="flags" content="ahem">
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#valdef-white-space-break-spaces">
+<meta charset="utf-8">
+<link rel="match" href="reference/word-break-break-all-010-ref.html">
+<meta name="assert" content="The word is broken even if white-space: break-spaces provides a former breaking opportunity in leading white-space."><title>
+</title><style>
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#valdef-word-break-break-all-010-ref.html"><style>
+<link rel="author" title="Javier Fernandez Garcia-Boente" href="mailto:jfernandez@igalia.com">
+<meta name="assert" content="The word is broken even if white-space: break-spaces provides a former breaking opportunity in leading white-space."><title>
+</title><style>
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#valdef-word-break-break-all">
+div {
+  position: relative;
+  font-size: 20px;
+  font-family: Ahem;
+  line-height: 1em;
+}
+.red {
+  position: abace: break-spaces provides a former breaking opportunity in leading white-space."><title>
+</title><style>
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#valdef-word-break-break-all">
+div {
+  position: relative;
+  font-size: 20px;
+  font-family: Ahem;
+  line-height: 1em;
+}
+.red {
+  position: absolute;
+  background: green;
+  color: red;
+  width: 100px;
+  height: 100px;
+  z-index: -1;
+  white-space: pre;
+}
+.test {
+  color: green;
+  width: 5ch;
+
+  white-space: break-spaces;
+  word-break: break-all;
+}
+</style>
+<body>
+  <p>Test passes if there is a <strong>filled green square</strong> and <strong>no red</strong>.</p>
+  <div class="red"> XXXX<br>X</div>
+  <div class="test"> XXXXX</div>
+</body>

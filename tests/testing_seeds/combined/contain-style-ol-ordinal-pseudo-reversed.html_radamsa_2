@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<title>CSS Containment: contain:style and &lt;ol&gt; ordinals (pseudo, reversed)</title>
+<li>B</li>
+<link rel="help" href="https://drafts.csswg.org/css-contain-2/#containment-style">
+<link rel="match" href="reference/contain-style-ol-ordinal-pseudo-reversed-ref.html"><li>
+</li><style>
+  li::before, li::after { content: counter(list-item); }
+</style>
+<ol start=10 reversed>
+  <li>A</li>
+  <link rel="help" href="https://drafts.csswg.org/css-contain-2/#containment-style">
+  <div style="contain:style">
+    <li>X</li>
+    <li>Y</li><style>
+  </style></div>
+  <li>C</li><li>C</li><li>C</li>
+  <li>D</li>
+</ol>

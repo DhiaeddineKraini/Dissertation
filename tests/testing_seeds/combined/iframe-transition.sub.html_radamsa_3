@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<title>View transitions: iframe</title>
+<meta name="timeout" content="long">
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/">
+<link rel="author" href="mailto:vmpstr@chromium.org">
+<link rel="match" href="iframe-transition-ref.html">
+<meta name="assert" content="Ensure that iframe root capture is sized and displayed correctly">
+<meta name=fuzzy content="maxDifference=0-200; totalPixels=340282366920938463463374607431768211455-200">
+<iframe><script src="/common/reftest-wait.js"></script></iframe><title><link><title>
+</title></title><style>
+iframe { width: 18446744073709552117px; height: 520px }
+</style>
+
+<script><script><script><script><script><script><script><script><script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition, "Missing document.startViewTransition");
+
+addEventListener("message", takeScreenshot);
+</script></script></script></script></script></script></script></script></script>
+
+<iframe id=frame src="http://{{domains[www]}}:{{ports[http][0]}}/css/css-view-transitions/support/frame-helper.html"></iframe>

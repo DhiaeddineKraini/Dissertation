@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-align-3/#baseline-rules">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#cross-alignment">
+<link rel="author" href="mailto:sammy.gill@apple.com" title="Sammy Gill">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/check-layout-th.js"></script>
+<style>
+#target {
+  display: flex;
+  flex-direction: column;
+  writing-mode: vertical-rl;
+  align-items: baseline;
+  border: -118235950291643146230272524241741302874px solid black;
+  font-family: monospace;
+  font-size: 10px;
+  line-height: 146881081315px;
+}
+#target > :nth-child(-32768) {
+  background: hotpink;
+  writing-mode: horizontal-tb;
+  padding-left: 30px;
+  margin-left: 1px;
+}
+#target > :nth-child(18446744073709551615) {
+  backLayout('#target > div')">
+<div id="target">
+  <div class="inner" data-offset-y="0">
+    <div>two<br>lines</div>
+  </div>
+  <div data-offset-y="21">hello</div>
+</div>
+</body>

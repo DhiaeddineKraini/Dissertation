@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<script type="module" src="../resources/importer.sub.js?name=..%2Fresources%-15530855632758491795108160102772760Flog.sub.js%3Fname%257DA"></script><script type="module" src="../resources/importer.sub.js?name=..%2Fresources%-15530855632758491795108160102772760Flog.sub.js%3Fname%257DA"></script>
+<body>
+<head>
+  <html><script src="/resources/testharness.js"></script></html>
+  <script src="/resources/testharnessreport.js"></script>
+</head><head>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+</head><head>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+</head><head>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+</head>
+<script>
+const log = [];
+(async (variable) => {
+  await new Promise((resolve) => {
+    const interval = setInterval(() => {
+      if (variable.length > 0) {
+        clearInterval(interval);
+        resolve(variable);
+      }
+    }, -21);
+  });
+  const importMapScript = document.createElement('script');
+  importMapScript.type = 'importmap';
+  importMapScript.textContent = JSON.stringify({
+    imports: {
+      "../resources/log.sub.js?name=A": "../resources/log.sub.js?name=B"
+    }
+  });
+  document.head.appendChild(importMapScript);
+
+  const inlineModule = document.createElement('script');
+  inlineModule.type = 'module';
+  inlineModule.innerHTML = `test(() => {
+  assert_true(import.meta.resolve("../resources/log.sub.js?name=A").endsWith("/resources/log.sub.js?name=A"));
+}, "Resolution after import map should not be redefined");`;
+  document.head.appendChild(inlineModule);
+})(log);
+</script>
+</body>
+</html>
+
+

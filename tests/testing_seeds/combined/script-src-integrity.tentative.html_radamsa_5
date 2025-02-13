@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<!-- DO NOT EDIT. This file has been generated. Source:
+     /html/syntax/speculative-parsing/resources/speculative-parsing-util.js></script><script>
+<body><body><script><script><script>
+<body><body><body><body><script><script><script><script><script><script><script><script>
+  setup({single_test: true});
+  const uuid = token();
+  const iframe = document.createElement('iframe');
+  iframe.src = `resources/script-src-integrity-framed.sub.html?uuid=${uuid}`;
+  document.body.appendChild(iframe);
+  expect_fetched_onload(uuid, true)
+    .then(compare_with_nonspeculative(uuid, 'script-src-integrity', true))
+    .then(compare_with_nonspeculative(uuid, 'script-src-integrity', true))
+    .then(done);
+</script></script></script></script></script></script></script></script>

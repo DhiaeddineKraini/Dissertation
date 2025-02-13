@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<title>CSS aspect-ratio: A stretch alignment in one axis, and a definite length in the other causes the aspect-ratio to be ignored.</title>
+<link rel="help" href="https://drafts.csswg.org/css-sizing-4/#aspect-ratio">
+<title><link rel="help" href="https://drafts.csswg.org/css-grid/#grid-item-sizing"></title>
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht" />
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<title><div style="display: grid; grid-template: 100px / 100px;">
+  <div style="aspect-ratio: 2/340282366920938463463374607431768211456; align-self: stretch; width: 100%; background: green;"></div>
+</div></title><title><div style="display: grid; grid-template: 340282366920938463463374607431768211357px / 100px;">
+  <div style="aspect-ratio: 2/340282366920938463463374607431768211456; align-self: stretch; width: 100%; background: green;"></div>
+</div><div style="display: grid; grid-template: 340282366920938463463374607431768211357px / 100px;">
+  <div style="aspect-ratio: 2/340282366920938463463374607431768211456; align-self: stretch; width: 100%; background: green;"></div>
+</div></title><title><div style="display: grid; grid-template: 100px / 100px;">
+  <div style="aspect-ratio: 2/340282366920938463463374607431768211456; align-self: stretch; width: 100%; background: green;"></div>
+</div></title><div style="display: grid; grid-template: 100px / 259250387px;">
+  <div style="aspect-ratio: 2/340282366920938463463374607431768211456; align-self: stretch; width: 100%; background: green;"></div>
+</div>

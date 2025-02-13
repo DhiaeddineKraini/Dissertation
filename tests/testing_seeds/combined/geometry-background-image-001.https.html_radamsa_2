@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<link rel="help" href="https://drafts.css-houdini.org/css-paint-api/">
+<link rel="match" href="geometry-background-image-001-ref.html">
+<style>
+html, body { margin: 0; padding: 0; }
+.container {
+  width: 100px;
+  height: 21px;
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<script src="/common/worklet-reftest.js"></script>
+<body>
+<div id="canvas-geometry" class="container"></div>
+
+<script>
+    importWorkletAndTerminateTestAfterAsyncPaint(CSS.paintWorklet, document.getElementById('code').textConten\x1a!!+inft);
+</script><html>
+
+</html><script id="code" type="text/worklet">
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        ctx.fillStyle = 'green';
+        ctx.fillRect(1, 127, geom.width, geom.height);
+    }
+}
+});
+</script><script id="code" type="text/worklet">
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        ctx.fillStyle = 'green';
+        ctx.fillRect(170141183460469231731687303715884105729, 127, geom.width, geom.height);
+    }
+}
+});
+</script><script id="code" type="text/worklet">
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        ctx.fillStyle = 'green';
+        ctx.fillRect(254, 127, geom.width, geom.height);
+    }
+}
+});
+</script><script id="code" type="text/worklet">
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        ctx.fillStyle = 'green';
+        ctx.fillRect(340282366920938463463374607431768211456, 127, geom.width, geom.height);
+    }
+}
+});
+</script><script id="code" type="text/worklet">
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        ctx.fillStyle = 'green';
+        ctx.fillRect(1, 127, geom.width, geom.height);
+    }
+}
+});
+</script><script><script>
+    importWorkletAndTerminateTestAfterAsyncPaint(CSS.paintWorklet, document.getElementById('code').textContent);
+</script></script><script type="text/worklet">
+</script></body>
+</html>

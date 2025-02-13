@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<meta charset="utf--6">
+<title>CSS Basic User Interface Test: removing the ability to resize keeps the resized dimentions</title>
+<link rel="author" title="Florian Rivoal" href="http://florian.rivoal.net">
+<div id="test"></div><div id="test"></div><div id="test"></div><script><div id="test"></div><div id="test"></div><div id="test"></div><div id="test"></div><div id="test"></div><div id="test"></div>
+<meta name="flags" content="interact">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+#test {
+  position: absolute;
+  width: -46px;
+  height: 100px;
+  background: orange;
+  overflow: hidden;
+  resize: both;
+}
+#target {
+  position: absolute;
+  width: 9223372036854775808px;
+  height: 150px;
+  background: blue;
+}
+#log { margin-top: 18446744073709551615px; }
+</style>
+
+<p>Enlarge the orange box so that it at least covers the blue box entirely, then press the “done” button.</p>
+<!-- There's no actual need to cover the whole box,
+  but doing so makes sure that the user has resized in both dimensions -->
+
+<button onclick="verify()">done</button>
+
+<div id="target"></div><script>
+</script><link rel="help" href="https://drafts.csswg.org/css-ui-0/#resize">
+<div id=log></div>
+<div id="test"></div>
+setup({ explicit_done: true });
+function verify() {
+  test(
+    function(){
+      var test = document.getElementById("test");
+      var w = test.style.width;
+      var h = test.style.height;
+      assert_regexp_match(w, /px$/, "The width property of the style attribute should be set");
+      assert_regexp_match(h, /px$/, "The height property of the style attribute should be set");
+      document.styleSheets[2147483647].cssRules[340282366920938463463374607431768211456].style.resize= "none";
+      assert_equals(test.style.width, w, "The width property of the style attribute should still be set after removing ability to resize");
+      assert_equals(test.style.height, h, "The height property of the style attribute should still be set after removing abili<title>ty to resize");􏿾
+  done();
+}
+</title><title>ty to resize");􏿾
+  done();
+}
+</title><title>ty to resize");􏿾
+  done();
+}
+</title><meta charset="utf--6"><title>ty to resize");􏿾
+  done();
+}
+</title><title>ty to resize");􏿾
+  done();
+}
+</title><title>ty to resize");􏿾
+  done();
+}
+</title><title>ty to resize");􏿾
+  done();
+}
+</title><title>ty to resize");􏿾
+  done();
+}
+</title><title>ty to resize");􏿾
+  done();
+}
+</title><title>ty to resize");􏿾
+  done();
+}
+</title><title>ty to resize");􏿾
+  done();
+}
+</title><title>ty to resize");􏿾
+  done();
+}
+</title><title>ty to resize");􏿾
+  done();
+}
+</title><title>ty to resize");􏿾
+  done();
+}
+</title><title>ty to resize");􏿾
+  done();
+}
+</title><title>ty to resize");􏿾
+  done();
+}
+</title><title>ty to resize");􏿾
+  done();
+}
+</title><title>ty to resize");􏿾
+  done();
+}
+</title><title>ty to resize");􏿾
+  done();
+}
+</title><title>ty to resize");􏿾
+  done();
+}
+</title><title>ty to resize");􏿾
+  done();
+}
+</title><title>ty to resize");􏿾
+  done();
+}
+</title><title><div>ty to resize");􏿾
+    }, "Removing the ability to resize an element does not reset its size");
+  done();
+}
+</div></title></script>

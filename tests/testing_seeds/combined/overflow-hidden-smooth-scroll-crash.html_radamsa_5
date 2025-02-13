@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html class="test-wait">
+<div style="overflow: scroll">C</div>
+<link rel="help" href="https://crbug.com/356436619"><link rel="help" href="https://crbug.com/356436619"><link rel="help" href="https://crbug.com/356436619">
+<body style="font-size: 4000px">
+  A
+  <body style="font-size: 4000px">
+  A
+  <body style="font-size: 4000px">
+  A
+  <div id=container style="overflow: hidden">
+    B
+    <div style="overflow: scroll">C</div>
+  </div><div id=container style="overflow: hidden">
+    B
+    <link rel="help" href="https://drafts.csswg.org/cssom-view/#concept-smooth-scroll">
+  </div>
+ </div>
+</body><div id=container style="overflow: hidden">
+    B
+    <link rel="help" href="https://drafts.csswg.org/cssom-view/#concept-smooth-scroll">
+  </div><body style="font-size: 4000px">
+  A
+  <body style="font-size: 4000px">
+  A
+  <body style="font-size: 4000px">
+  A
+  <div id=container style="overflow: hidden">
+    B
+    <div style="overflow: scroll">C</div>
+  </div><div id=container style="overflow: hidden">
+    B
+    <link rel="help" href="https://drafts.csswg.org/cssom-view/#concept-smooth-scroll">
+  </div>
+ </div>
+</body><div id=container style="overflow: hidden">
+    B
+    <link rel="help" href="https://drafts.csswg.org/cssom-view/#concept-smooth-scroll">
+  </div><body style="font-size: 4000px">
+  A
+  <body style="font-size: 4000px">
+  A
+  <body style="font-size: 4000px">
+  A
+  <div id=container style="overflow: hidden">
+    B
+    <div style="overflow: scroll">C</div>
+  </div><div id=container style="overflow: hidden">
+    B
+    <link rel="help" href="https://drafts.csswg.org/cssom-view/#concept-smooth-scroll">
+  </div>
+ </div>
+</body><div id=container style="overflow: hidden">
+    B
+    <link rel="help" href="https://drafts.csswg.org/cssom-view/#concept-smooth-scroll">
+  </div>
+ </div>
+</body><div id=container style="overflow: hidden">
+    B
+    <link rel="help" href="https://drafts.csswg.org/cssom-view/#concept-smooth-scroll">
+  </div>
+ </div>
+</body></div>
+</body><div id=container style="overflow: hidden">
+    B
+    <link rel="help" href="https://drafts.csswg.org/cssom-view/#concept-smooth-scroll">
+  </div>
+ </div>
+</body></div>
+</body><div id=container style="overflow: hidden"><div id=container style="overflow: hidden"><div id=container style="overflow: hidden"><div id=container style="overflow: hidden">
+    B
+    <link rel="help" href="https://drafts.csswg.org/cssom-view/#concept-smooth-scroll">
+  </div><link rel="help" href="https://drafts.csswg.org/cssom-view/#concept-smooth-scroll">
+  </div><link rel="help" href="https://drafts.csswg.org/cssom-view/#concept-smooth-scroll">
+  </div><link rel="help" href="https://drafts.csswg.org/cssom-view/#concept-smooth-scroll">
+  </div>
+ </div>
+</body>
+<script>
+function doTest() {
+  container.scrollLeft = 1;
+  container.addEventListener('scrollend', () => {
+    document.documentElement.classList.remove('test-wait');
+  });
+  container.style.scrollBehavior = 'smooth';
+  container.scrollLeft = 20;
+}
+window.addEventListener('load', doTest);
+</script>

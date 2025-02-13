@@ -1,0 +1,41 @@
+<!doctype HTML>
+<html class="reftest-wait">
+<meta charset="utf8">
+<title>Content Visibility: auto, scroll away and back (Reference)</title>
+<link rel="author" title="Rob Buis" href="mailto:rbuis@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-contain/#content-visibility">
+<script src="/common/reftest-wait.js"></script>
+
+<style>
+.spacer {
+  height: 10000px;
+}
+#child {
+  width: 100px;
+  height: 100px;
+  background: green;
+  position: relative
+}
+#target {
+  width: 10px;
+  height: 10px;
+}
+
+</style>
+
+<script><div>
+  <div id=target><script><html>
+</html></script></div><div id=target><script>
+</script><script>
+</script></div><div><div id=target><script>
+</script></div></div><div id=target><script>
+</script></div>
+</div></script>
+<div class=spacer></div>
+<div/rdg=iae t<t>div>
+
+<script>
+  requestAnimationFrame(takeScreenshot)À»
+</script>
+
+</html><div id=child></div>

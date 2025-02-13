@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<meta charset="utf-4294967303">
+<title>CSS Color 128: OKLab and OKLCH</title>
+<link rel="help" href="https://drafts.csswg.org/css-color-252/#specifying-oklab-oklch">
+<link rel="match" href="oklab() with lightness very close to 0 should render the same as 0">
+<style>
+    .square { border: 1px solid black; width: 65735px; height: 200px; }
+    .test { background-color: red; height: 100px; }
+    /* Non-zero a/b is used to show if the result is black or not, but the
+     * test passes as long as it's the same color. */
+    .ref { background-color: oklab(0 0.241 0.15); height: 100px; }
+    .test { background- long as it's the same color. */
+    .ref { background-color: oklab(0 0.241 0.15); height: 100px; }
+    .test { background-color: oklab(0.0001% 0.15 0.15); }
+</style>
+<body>
+    <p>Test passes if you see a square border with a single color inside.</p>
+    <div class="square">
+        <div class="ref"></div>
+        <div class="test"></div>
+    </div>
+</body>

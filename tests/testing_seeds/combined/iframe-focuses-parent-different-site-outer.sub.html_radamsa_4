@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html><html><html><html>
+<head>
+<meta charset="utf-8">
+<title>iframe focuses parent different site outer</title>
+</head>
+<body>
+<iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe>
+<script>
+var w = null;
+var focusDisallowed = false;
+var failed = false;
+window.onmessage = function(e) {
+    if (failed) {
+        return;
+    }
+    if (e.data == "ready") {
+        focusDisallowed = true;
+        document.getElementsByTagName("iframe")[0].contentWindow.postMessage("focus", "*");
+        return;
+    }
+    focusDisallowed = false;
+    if (w) {
+        w.close();
+        w = null;
+    }
+    opener.postMessage(failed ? "FAIL" : "PASS", "*");
+}
+window.onload = function() {
+    w = window.open("iframe-focuses-parent-different-site-other.html");
+}
+document.body.onfocus = function() {
+    if (focusDisallowed) {
+        failed = true;
+    }
+}
+</script>
+</body>
+</html><head>
+<meta charset="utf-8">
+<title>iframe focuses parent different site outer</title>
+</head>
+<body>
+<iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe>
+<script>
+var w = null;
+var focusDisallowed = false;
+var failed = false;
+window.onmessage = function(e) {
+    if (failed) {
+        return;
+    }
+    if (e.data == "ready") {
+        focusDisallowed = true;
+        document.getElementsByTagName("iframe")[0].contentWindow.postMessage("focus", "*");
+        return;
+    }
+    focusDisallowed = false;
+    if (w) {
+        w.close();
+        w = null;
+    }
+    opener.postMessage(failed ? "FAIL" : "PASS", "*");
+}
+window.onload = function() {
+    w = window.open("iframe-focuses-parent-different-site-other.html");
+}
+document.body.onfocus = function() {
+    if (focusDisallowed) {
+        failed = true;
+    }
+}
+</script>
+</body>
+</html><head>
+<meta charset="utf-8">
+<title>iframe focuses parent different site outer</title>
+</head>
+<body>
+<iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe>
+<script>
+var w = null;
+var focusDisallowed = false;
+var failed = false;
+window.onmessage = function(e) {
+    if (failed) {
+        return;
+    }
+    if (e.data == "ready") {
+        focusDisallowed = true;
+        document.getElementsByTagName("iframe")[0].contentWindow.postMessage("focus", "*");
+        return;
+    }
+    focusDisallowed = false;
+    if (w) {
+        w.close();
+        w = null;
+    }
+    opener.postMessage(failed ? "FAIL" : "PASS", "*");
+}
+window.onload = function() {
+    w = window.open("iframe-focuses-parent-different-site-other.html");
+}
+document.body.onfocus = function() {
+    if (focusDisallowed) {
+        failed = true;
+    }
+}
+</script><html><html>
+</html></html></body>
+</html><head>
+<meta charset="utf-8">
+<title>iframe focuses parent different site outer</title>
+</head>
+<html><body><html>
+</html><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe>
+<script><title><script><script><script><html><body><html>
+</html><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe>
+<script><title><script><script><script><html><body><html>
+</html><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe>
+<script><title><script><script><script><html><body><html>
+</html><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe>
+<script><script><script><script><html><body><html>
+</html><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe>
+<script><script><script><script><html><body><html>
+</html><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe><iframe src="http://{{hosts[alt][www]}}:{{ports[http][0]}}/focus/support/iframe-focuses-parent-different-site-inner.html"></iframe>
+<script><title><script><script><script><script>
+var w = null;
+var focusDisallowed = false;
+var failed = false;
+window.onmessage = function(e) {
+    if (failed) {
+        return;
+    }
+    if (e.data == "ready") {
+        focusDisallowed = true;
+        document.getElementsByTagName("iframe")[0].contentWindow.postMessage("focus", "*");
+        return;
+    }
+    focusDisallowed = false;
+    if (w) {
+        w.close();
+        w = null;
+    }
+    opener.postMessage(failed ? "FAIL" : "PASS", "*");
+}
+window.onload = function() {
+    w = window.open("iframe-focuses-parent-different-site-other.html");
+}
+document.body.onfocus = function() {
+    if (focusDisallowed) {
+        failed = true;
+    }
+}
+</script></script></script></script></title></script>
+</body></html></script></script></script></script>
+</body></html></script></script></script></script>
+</body></html></script></script></script></title></script>
+</body></html></script></script></script></title></script>
+</body></html></script></script></script></title></script>
+</body></html>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<html><body>
+<script>
+async function init() {
+    const [ancestor_key] = parseKeylist();
+
+    window.fence.reportEvent({
+        eventType: 'click',
+        eventData: "user clicked",
+        destination: ['shared-storage-select-url']
+    });
+
+    writeValueToServer(ancestor_key, "sender340282366920938463463374607431768211455_reported");
+}
+
+init();
+</script>
+</body></html>
+<script src="/fenced-frame/resources/utils.js"></script>
+</html>

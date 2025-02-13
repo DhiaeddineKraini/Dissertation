@@ -1,0 +1,15 @@
+<!doctype html>
+<script>
+'use strict';
+promise_test(t => {
+  const p = navigator.mediaDevices.selectAudioOutput();
+  // Race a settled promise to check that the returned promise is already
+  // rejected.
+  return promise_rejects_dom(
+    t, 'InvalidStateError', Promise.race([p, Promise.resolve()]),
+    'selectAudioOutput should have returned an already-rejected promise.');
+}, `selectAudioOutput() before user activation`);
+</script>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<link rel="help" href="https://w3c.github.io/mediacapture-output/#dom-mediadevices-selectaudiooutput">

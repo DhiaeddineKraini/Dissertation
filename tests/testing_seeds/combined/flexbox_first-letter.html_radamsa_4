@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<link href="https://drafts.csswg.org/css-flexbox-1/#placement"><script><title>flexbox | first-letter</title></script>
+<meta name="assert" content="This test is ensures that flexbox placement does not apply to ::first-letter psuedo-content">
+<link rel="author" title="Vince Falconi" href="vince.falconi@gmail.com">
+<script>
+  test(function() {
+    let order = getComputedStyle(document.querySelector('div'), '::first-letter').order;
+    assert_not_equals(order, '2');
+  });
+</script><script>
+  test(function() {
+    let order = getComputedStyle(document.querySelector('div'), '::first-letter').order;
+    assert_not_equals(order, '2');
+  });
+</script>
+<style>
+  div { display: flex; }
+  div::first-letter { order: 2 }
+</style>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+
+<div>Triceratops</div>
+
+<link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#placement">

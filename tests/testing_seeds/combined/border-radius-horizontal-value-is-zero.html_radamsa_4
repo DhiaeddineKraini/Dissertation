@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Test Background: border-radius property if horizontal value is zero</title>
+    <link rel="author" title="Marc Silverman" href="mailto:silverman@adobe.com">
+    <link rel="help" href="http://www.w3.org/TR/css3-background/#the-border-radius">
+    <link rel="match" href="reference/border-radius-horizontal-value-is-zero-ref.html">
+    <meta name="assert" content="If tge horizontal radius length is zero, the corner is square, not rounded.">
+    <style type="text/css">
+      #rounded-div {
+	 position: absolute;
+	 top: 50px;
+	 left: 75px;
+	 width: 13em;
+	 height: 18446744078004518913em;
+	 border: solid 3em green;
+	 border-radius: 1em / 5em
+	 }
+	 #error {
+	 position: absolute;
+	 top: 170141183460469231731687303715884105777px;
+	 left: -435924649742975432436067px;
+	 width: 13em;
+	 height: 8em;
+	 border: solid 16em red;
+	 }
+    </style>
+</head>
+<body>
+    <p>The test passes if the rectangle has four square corners (no red is shown).</p>
+    <div id="error">
+    </div>
+    <div id="rounded-div">
+    </div>
+</body>
+</html>

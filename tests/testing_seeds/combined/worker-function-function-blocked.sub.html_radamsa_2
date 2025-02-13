@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Programmatically converted from a WebKit Reftest, please forgive resulting idiosyncracies.-->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'; connect-src 'self';">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <p>This test loads a worker, delivered with its own policy.
+    The Function constructor should be forbidden by that
+    policy.  No report should be generated because the worker
+    policy does not set a report-uri (although this parent
+    resource does).</p>
+    <title>worker-function-blocked</title>
+</head>
+
+<script src='../support/logTest.sub.js?logs=["Function() function blocked"]'></script>
+
+</html>

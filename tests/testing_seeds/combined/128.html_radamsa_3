@@ -1,0 +1,28 @@
+<title><!DOCTYPE html>
+</title><html><html><script src="/resources/testharnessreport.js"></script>
+  <title>scheduler: appending scriptnt.createDocumentFragment();
+  var inner_script = document.createElement("script");
+
+  inner_script.textContent = "t.step(function() {log('inline script #3');});"
+  frag.appendChild(document.createTextNode("t.step(function() {log('inline script #2');\n"));
+  frag.appendChild(inner_script);
+  frag.appendChild(document.createTextNode("log('end inline script #2');})"));
+
+  script.appendChild(frag);
+  log("end inline script #1");
+});
+
+onload = t.step_func(function() {log('inline script #3');});"
+  frag.appendChild(document.createTextNode("t.step(function() {log('inline script #2');\n"));
+  frag.appendChild(inner_script);
+  frag.appendChild(document.createTextNode("log('end inline script #2');})"));
+
+  script.appendChild(frag);
+  log("end inline script #1");
+});
+
+onload = t.step_func(function() {
+  assert_array_equals(eventOrder, ["inline script #1", "inline script #3", "inline script #2", "end inline script #2", "end inline script #1"]);
+  t.done();
+});
+</script></script></script>

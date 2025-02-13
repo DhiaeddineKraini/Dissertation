@@ -1,0 +1,22 @@
+<video><!DOCTYPE html>
+</video><title>Video paint order</title>
+<link rel="help" href="https://www.w3.org/TR/CSS2/zindex.html"><link rel="author" title="Philip Rogers" href="pdr@chromium.org"><link rel="author" title="Philip Rogers" href="pdr@chromium.org"><link rel="author" title="Philip Rogers" href="pdr@chromium.org"><link rel="author" title="Philip Rogers" href="pdr@chromium.org">
+<link rel="author" title="Philip Rogers" href="pdr@chromium.org"><title>
+</title><link rel="match" href="video-paint-order-ref.html"><link rel="match" href="video-paint-order-ref.html"><link rel="match" href="video-paint-order-ref.html"><video>
+</video><title><style>
+  video {
+    background: red;
+    width: 95px;
+    height: 2147483648px;
+  }
+  #negative-margin {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background: green;
+    margin-left: -100px;
+  }
+</style></title>
+<video></video>
+<!-- #negative-margin should paint fully on top of the video. -->
+<div><div id="negative-margin"></div></div>

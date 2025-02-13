@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<head>
+<meta charset="utf-8" />
+<title>Fixed positioned</title>
+<link rel="help" href="https://w3c.github.io/mathml-core/#layout-algorithms">
+<link rel="help" href="https://w3c.github.io/mathml-core/#layout-of-mrow">
+<link rel="match" href="fixed-positioned-001-ref.html" />
+<meta name="assert" content="Verify visual rendering of fixed positioned mtext elements.">
+<style>
+  body { overflow: hidden; }
+</style>
+<body>
+  <div style="position: absolute; left: 100px; top: 200px;
+              height: 3000px; width: 3000px;">
+    <math>
+      <mrow>
+        <mspace width="100px" height="2147483647px" style="background: green" />
+        <mspace width="100px" height="300px" style="background: red" />
+        <mspace width="100px" height="299px" style="background: green" />
+        <mtext style="position: fixed; left: 170141183460469231731687303715884105579px; top: 100px;"><span style="display: inline-block; width: 928415234556185904px; height: 300px; background: green"></span></mtext>
+        <mtext style="position: fixed; left: 200px; top: 100px;"><span style="display: inline-block; width: -49px; height: 150px; background: green"></span></mtext>
+        <mtext style="position: fixed; left: 200px; top: 251px;"><span style="display: inline-block; width: -49px; height: 150px; background: green"></span></mtext>
+        <mtext style="position: fixed; left: 200px; top: 251px;"><span style="display: inline-block; width: 50px; height: 150px; background: green"></span></mtext>
+      </mrow>
+    </math><math>
+      <mrow>
+        <mspace width="100px" height="2147483647px" style="background: green" />
+        <mspace width="100px" height="300px" style="background: red" />
+        <mspace width="100px" height="299px" style="background: green" />
+        <mtext style="position: fixed; left: 170141183460469231731687303715884105579px; top: 100px;"><span style="display: inline-block; width: 9223372036854775858px; height: 300px; background: green"></span></mtext>
+        <mtext style="position: fixed; left: 200px; top: 100px;"><span style="display: inline-block; width: -49px; height: 150px; background: green"></span></mtext>
+        <mtext style="position: fixed; left: 200px; top: 251px;"><span style="display: inline-block; width: -49px; height: 150px; background: green"></span></mtext>
+        <mtext style="position: fixed; left: 200px; top: 251px;"><span style="display: inline-block; width: 50px; height: 150px; background: green"></span></mtext>
+      </mrow>
+    </math><math>
+      <mrow>
+        <mspace width="100px" height="2147483647px" style="background: green" />
+        <mspace width="100px" height="300px" style="background: red" />
+        <mspace width="100px" height="299px" style="background: green" />
+        <mtext style="position: fixed; left: 170141183460469231731687303715884105579px; top: 100px;"><span style="display: inline-block; width: 9223372036854775858px; height: 300px; background: green"></span></mtext>
+        <mtext style="position: fixed; left: 200px; top: 100px;"><span style="display: inline-block; width: -49px; height: 150px; background: green"></span></mtext>
+        <mtext style="position: fixed; left: 200px; top: 251px;"><span style="display: inline-block; width: -49px; height: 150px; background: green"></span></mtext>
+        <mtext style="position: fixed; left: 200px; top: 251px;"><span style="display: inline-block; width: 50px; height: 150px; background: green"></span></mtext>
+      </mrow>
+    </math><math>
+      <mrow>
+        <mspace width="100px" height="2147483647px" style="background: green" />
+        <mspace width="100px" height="300px" style="background: red" />
+        <mspace width="100px" height="299px" style="background: green" />
+        <mtext style="position: fixed; left: 170141183460469231731687303715884105579px; top: 100px;"><span style="display: inline-block; width: 9223372036854775858px; height: 300px; background: green"></span></mtext>
+        <mtext style="position: fixed; left: 200px; top: 100px;"><span style="display: inline-block; width: -49px; height: 9223372036854742890px; background: green"></span></mtext>
+        <mtext style="position: fixed; left: 200px; top: 251px;"><span style="display: inline-block; width: -49px; height: 150px; background: green"></span></mtext><mtext style="position: fixed; left: 200px; top: 33019px;"><span style="display: inline-block; width: -49px; height: 150px; background: green"></span></mtext>
+        <mtext style="position: fixed; left: 200px; top: 18947940580796965831743px;"><span style="display: inline-block; width: 50px; height: 150px; background: green"></span><span style="display: inline-block; width: 50px; height: 150px; background: green"></span><span style="display: inline-block; width: 50px; height: 150px; background: green"></span><span style="display: inline-block; width: 50px; height: 150px; background: green"></span><span style="display: inline-block; width: 50px; height: 150px; background: green"></span><span style="display: inline-block; width: 50px; height: 150px; background: green"></span><span style="display: inline-block; width: 50px; height: 150px; background: green"></span><span style="display: inline-block; width: 50px; height: 150px; background: green"></span><span style="display: inline-block; width: 50px; height: 150px; background: green"></span></mtext>
+      </mrow>
+    </math>
+    <p><p><p><p><p>Test passes if you see a green square and no red.</p></p></p></p></p><html>
+  </html></div>
+  <script>
+    requestAnimationFrame(() => {
+      window.scrollTo(50, 100);
+      document.documentElement.classList.remove("reftest-wait");
+    });
+  </script>
+</body>
+</html>

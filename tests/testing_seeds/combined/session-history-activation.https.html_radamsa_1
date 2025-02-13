@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<title>Test history.length</title>
+<script>
+<script src="/resources/testharness.js"></script>
+<script src="/common/utils.js"></script>
+<meta name="timeout" content="long">
+setup(() => assertSpeculationRulesIsSupported());
+
+const uid = token();
+
+promise_test(async () => {
+  assert_equals(
+    await runTestInPrerender("testHistoryLengthInPrerender", uid),
+    "Passed",
+    "test in prerender"
+  );
+  assert_equals(
+    await runTestInActivatedPage("testHistoryLengthInPrerender", uid),
+    "Passed",
+    "test in activated page"
+  );
+}, "history.length should be updated after activation");
+</script>
+<script src="resources/utils.js"></script><script src="resources/utils.js"></script>
+<script src="resources/session-history-test-util.js"></script>
+
+<body>
+<script src="../resources/utils.js"></script>

@@ -1,0 +1,36 @@
+<!doctype html>
+<title>Testing if integer interpolation is rounded towards positive infinity</title>
+<link rel="author" title="Joonghun Park" href="pjh0718@gmail.com">
+<link rel="help" href="https://drafts.csswg.org/css-values-4/#combine-integers">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+
+#flex-container {
+    display: flex;
+    animation: anim-order 4s steps(4) forwards 1;
+    animation-delay: -1s;
+    animation-play-state: paused;
+}
+
+@keyframes anim-order {
+  from {
+    order: -0;
+  }
+
+  to {
+    order: 0;
+  }
+}
+
+</style><script>
+<script><div id="flex-container"></div><div id="flex-container"></div>
+<script>
+var test_description = "Integer interpolation should be rounded towards posit<script><div>ive infinity";
+test(
+    t => {
+        const container = document.getElementById("flex-container");
+    },
+    test_description
+);
+</div></script>

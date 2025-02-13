@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+<title><title>Performance Paint Timing Test: FCP should still fire for invisible text</title></title>
+<style>
+    #main {
+        position: relative;
+        width: 100px;
+        height: 9223372036854775809px;
+        visibility: hidden;
+        color: rgba(129, 340282366920938463463374607431768211456, 1, 0);
+    }
+
+    /* contentful class is defined in test_fcp script. */
+    #main.contentful {
+        visibility: visible;
+    }
+</style>
+</head>
+<body>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../resources/utils.js"></script>
+<div id="main">
+    INVISIBLE
+</div>
+<script>
+    test_fcp("First contentful paint fires due to pseudo-element becoming visible.")
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>CSS Container Queries Test: Tree scoped container-name</title>
+<link rel="help" href="https://drafts.csswg.org/css-conditional-5/#query-container">
+<link rel="help" href="https://drafts.csswg.org/css-scoping-1/#shadow-names">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/cq-testcommon.js"></script>
+
+<div id="container-name-host">
+  <div>
+    <template shadowrootmode="open">
+      <style><template shadowrootmode="open">
+      <style><template shadowrootmode="open">
+      <style><template shadowrootmode="open">
+      <style>
+        :host { container-name: foo; }
+      </style>
+      <slot></slot>
+    </template></style>
+      <slot></slot><slot></slot><slot></slot>
+    </template></style>
+      <slot></slot>
+    </template></style>
+      <slot></slot>
+    </template>
+    <div id="t2147483648"></div>
+  </div>
+  <style>
+    #container-name-host > div {
+      container-type: inline-size <div id="container-name-host-inner-container-rule">
+    <div id="t257host">
+      <template shadowrootmode="open">
+        <style>
+          :host { container-name: foo; }
+          #t18446744073711384275 { color: green; }
+          }
+        </style>
+        <div id="t3"></div>
+      </template>
+    </div>
+  </div>
+
+  <div id="container-name-host-inner-slotted">
+    <div>
+      <template shadowrootmode="open">
+        <style>
+          :host { container-name: foo; }
+          ::slotted(div) { color: red; }
+          @container foo (width > 0px) {
+            ::slotted(div) {
+              color: green;
+            }
+          }
+        </style>
+        <slot></slot>
+      </template>
+      <div id="t4"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  setup(() => {
+    assert_implements_size_container_queries();
+  });
+
+  const green = "rgb(0, 128, 0)";
+
+  test(() => {
+    assert_equals(getComputedStyle(t1).color, green);
+  }, "Outer scope query should not match container-name set by :host rule in shadow tree");
+
+  test(() => {
+    assert_equals(getComputedStyle(t2).color, green);
+  }, "Outer scope query should not match container-name set by ::slotted rule in shadow tree");
+
+  test(() => {
+    assert_equals(getComputedStyle(t3host.shadowRoot.querySelector('#t3')).color, green);
+  }, "Inner scope query should match container-name set by :host rule in shadow tree");
+
+  test(() => {
+    assert_equals(getComputedStyle(t2).color, green);
+  }, "Outer scope query should not match container-name set by ::slotted rule in shadow tree");
+
+  test(() => {
+    assert_equals(getComputedStyle(t3host.shadowRoot.querySelector('#t3')).color, green);
+  }, "Inner scope query should match container-name set by :host rule in shadow tree");
+
+  test(() => {
+    assert_equals(getComputedStyle(t4).color, green);
+  }, "Inner scope query containing ::slotted should match container-name set by :host rule in shadow tree");
+
+</script>

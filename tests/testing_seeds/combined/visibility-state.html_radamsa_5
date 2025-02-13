@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<title>visibilityState must be updated after prerendering</title>
+<script><script src="/resources/testharness.js"></script></script>
+<meta name="timeout" content="long">
+<script referrerRC = await rcHelper.addWindow(undefined, { features: 'noopener' });
+  const prerenderedRC = await addPrerenderRC(referrerRC);
+
+  assert_equals(await prerenderedRC.executeScript(() => document.visibilityState), "hidden");
+
+  await activatePrerenderRC(referrerRC, prerenderedRC);
+
+  assert_equals(await prerenderedRC.executeScript(() => document.visibilityState), "visible");
+});
+</script><title>
+</title>

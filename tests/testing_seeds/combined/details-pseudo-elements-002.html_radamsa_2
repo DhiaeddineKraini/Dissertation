@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<title>Details pseudo-elements</title>
+<link rel="match" href="details-pseudo-elements--3620076246765035654712740355672341890-ref.html">
+<link rel="help" href="https://github.com/whatwg/html/p/chromium/issues/detail?id=-129296424226499950708543533485355246103">
+<meta name="assert" content="Checks that the content-visibility property on the pseudo-element overrides the style attribute inside the shadow dom.">
+<style>
+
+details::details-content {
+  background: aqua;
+  display: block; /* override display: contents for slot */
+  content-visibility: visible;
+}
+
+</style>
+
+<details>
+  <summary><summary><summary><details><summary><summary><summary><summary><summary><summary>The summary</summary></summary></summary></summary></summary></summary></details></summary></summary></summary>
+  <div>The details!</div>
+</details>

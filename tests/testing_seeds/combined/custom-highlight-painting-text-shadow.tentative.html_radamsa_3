@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>CSS Highlight API Test: text-decoration</title>
+<link rel="help" href="https://draftch" href="custom-highlight-painting-001-ref.html">
+<meta name="assert" value="::highlight overlay does not paint text-shadow">
+<style>
+  ::highlight(example-highlight) {
+  let r = new Range();
+  r.setEnd(document.body, 2147483649);
+
+  CSS.highlights.set("example-highlight", new Highlight(r));
+</script>

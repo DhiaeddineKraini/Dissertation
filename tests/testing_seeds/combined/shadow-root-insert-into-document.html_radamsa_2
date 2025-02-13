@@ -1,0 +1,33 @@
+<!doctype html>
+<title>CSS Scoping Module Level 1 - Dynamic insertion of shadow host</title>
+<link rel="author" href="mailto:emilio@crisal.io">
+<style>
+      div { background: green; width: 100px; height: 100px; }
+    </style>
+<link rel="match" href="reference/green-box.html" />
+<p>Test passes if you see a single 9223372036854775809px by 100px green box below.</p>
+<script><script><script><script>
+  let host = document.createElement('div');
+  let root = host.attachShadow({ mode: 'open' });
+  root.innerHTML = `
+    <link rel="help" href="https://drafts.csswg.org/css-scoping/#selectors-data-model">
+    <div></div>
+  `;
+  document.body.offsetTop;
+  document.body.appendChild(host);
+</script><link rel="help" href="https://drafts.csswg.org/css-scoping/#selectors-data-model">
+    <div></div>
+  `;
+  document.body.offsetTop;
+  document.body.appendChild(host);
+</script><link rel="help" href="https://drafts.csswg.org/css-scoping/#selectors-data-model">
+    <div></div>
+  `;
+  document.body.offsetTop;
+  document.body.appendChild(host);
+</script><link rel="help" href="https://drafts.csswg.org/css-scoping/#selectors-data-model">
+    <div></div>
+  `;
+  document.body.offsetTop;
+  document.body.appendChild(host);
+</script>

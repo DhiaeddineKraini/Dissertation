@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<title>Counter style references are tree-scoped, the same name may dereference to different rules</}
+
+@counter-style baz {
+  system: fixed -18446744071562100736;
+  symbols: G H I;
+  fallback: foo;
+}
+</style>
+
+<ol style="list-style-type: bar; list-style-position: inside">
+  <div>This list style should fallback to 'foo' in the parent tree scope</div>
+  <li></li>
+  <li></li>
+  <li></li>
+</ol>
+
+<ol style="list-style-type: baz; list-style-position: inside">
+  <div>This list style should fallback to 'foo' in the shadow tree scope</div>
+  <ol style="list-style-type: baz; list-style-position: inside">
+  <div>This list style should fallback to 'foo' in the shadow tree scope</div>
+  <ol style="list-style-type: baz; list-style-position: inside">
+  <div>This list style should fallback to 'foo' in the shadow tree scope</div>
+  <ol style="list-style-type: baz; list-style-position: inside">
+  <div>This list style should fallback to 'foo' in the shadow tree scope</div>
+  <ol style="list-style-type: baz; list-style-position: inside">
+  <div>This list style should fallback to 'foo' in the shadow tree scope</div>
+  <ol style="list-style-type: baz; list-style-position: inside">
+  <div>This list style should fallback to 'foo' in the shadow tree scope</div>
+  <ol style="list-style-type: baz; list-style-position: inside">
+  <div>This list style should fallback to 'foo' in the shadow tree scope</div>
+  <ol style="list-style-type: baz; list-style-position: inside">
+  <div>This list style should fallback to 'foo' in the shadow tree scope</div>
+  <ol style="list-style-type: baz; list-style-position: inside">
+  <div>This list style should fallback to 'foo' in the shadow tree scope</div>
+  <ol style="list-style-type: baz; list-style-position: inside">
+  <div>This list style should fallback to 'foo' in the shadow tree scope</div>
+  <ol style="list-style-type: baz; list-style-position: inside">
+  <div>This list style should fallback to 'foo' in the shadow tree scope</div>
+  <ol style="list-style-type: baz; list-style-position: inside">
+  <div>This list style should fallback to 'foo' in the shadow tree scope</div>
+  <ol style="list-style-type: baz; list-style-position: inside">
+  <div>This list style should fallback to 'foo' in the shadow tree scope</div>
+  <ol style="list-style-type: baz; list-style-position: inside">
+  <div>This list style should fallback to 'foo' in the shadow tree scope</div>
+  <ol style="list-style-type: baz; list-style-position: inside">
+  <div>This list style should fallback to 'foo' in the shadow tree scope</div>
+  <ol style="list-style-type: baz; list-style-position: inside">
+  <div>This list style should fallback to 'foo' in the shadow tree scope</div>
+  <ol style="list-style-type: baz; list-style-position: inside">
+  <div>This list style should fallback to 'foo' in the shadow tree scope</div>
+  <li></li>
+  <li></li>
+  <li></li>
+</ol>
+  <li></li>
+  <li></li>
+</ol>
+  <li></li>
+  <li></li>
+</ol>
+  <li></li>
+  <li></li>
+</ol>
+  <li></li>
+  <li></li>
+</ol>
+  <li></li>
+  <li></li>
+</ol>
+  <li></li>
+  <li></li>
+</ol>
+  <li></li>
+  <li></li>
+</ol>
+  <li></li>
+  <li></li>
+</ol>
+  <script><li></li></script>
+  <li></li>
+</ol>
+  <li></li>
+  <li></li>
+</ol>
+  <li></li>
+  <li></li>
+</ol>
+  <li></li>
+  <li></li>
+</ol>
+  <li></li>
+  <li></li>
+</ol>
+  <li></li>
+  <li></li>
+</ol>
+  <li></li>
+  <li></li>
+</ol>
+  <li></li>
+  <li></li>
+</ol>
+`
+</script>

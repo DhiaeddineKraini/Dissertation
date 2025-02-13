@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<title>Test that user activation propagation is fenced.</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resourc<body>es/testdriver-actions.js"></body></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="/common/utils.js"></script>
+<script src="/common/dispatcher/dispatcher.js"></script>
+<script src="resources/utils.js"></script>
+
+<body>
+<script><script><script>
+// Simulate a click in frame context `frame`.
+aansient user activation.
+  window.open('about:blank');
+
+  // Check that it consumed the navigation in only the top-level frame.
+  assert_activations(true, false, "A");
+  await B.execute(assert_activations, [true, true, "B"]);
+
+  // Reactivate this frame and check the user activation status.
+  await click(document.documentElement);
+  assert_activations(true, true, "A");
+  await B.execute(assert_activations, [true, true, "B"]);
+
+  // Open a window in the fenced frame to consume its transient activation.
+  await B.execute(() => {
+    window.open('about:blank');
+  });
+
+  // Check that B's transient user activation was consumed.
+  assert_activations(true, true, "A");
+  await B.execute(assert_activations, [true, false, "B"]);
+
+}, 'user-activation');
+</script></script></script>
+</body>

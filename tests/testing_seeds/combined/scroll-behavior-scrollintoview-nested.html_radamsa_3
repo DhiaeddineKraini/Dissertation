@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<title>Testing scrollOptions' behavior with scrollIntoView for nested scrolling nodes</title>
+<meta name="timeout" content="long"/>
+<link rel="author" title="Frédéric Wang" href="mailto:fwang@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/cssom-view/#propdef-scroll-behavior">
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/3127
+  promise_test(() => {
+    return new Promise(function(resolve, reject) {
+      var divs = document.querySelectorAll(".scrollable");
+      divs.forEach((scrollableDiv) => {
+        resetScroll(scrollableDiv);
+      });
+      elementToReveal.scrollIntoView({inline: "start", block: "start", behavior: "auto"});
+      var scrollTop = new Map();
+      var isSmooth = new Map();
+      divs.forEach((scrollableDiv) => {
+        scrollTop.set(scrollableDiv, scrollableDiv.scrollTop);
+        isSmooth.set(scrollableDiv, scrollableDiv.classList.contains("smoothBehavior"));
+        // If scroll operations are not performed in parallel, scroll boxes with instant behavior might also need to wait for their predecessors.
+        if (isSmooth.get(scrollableDiv))
+          assert_less_than(scrollTop.get(scrollableDiv), 500, "Element with smooth behavior should not scroll immediately");
+      });
+
+      observeScrolling(Array.from(divs), function(done) {
+        try {
+          divs.forEach((scrollableDiv) => {
+            assert_less_than_equal(scrollTop.get(scrollableDiv), scrollableDiv.scrollTop, "ScrollTop keeps increasing");
+            if (!isSmooth.get(scrollableDiv))
+              assert_any(assert_equals, scrollableDiv.scrollTop, [0, 500], "Element with instant behavior should jump to the final position");
+            if (done)
+              assert_equals(scrollableDiv.scrollTop, 500, "Final value of scrollTop");
+            scrollTop.set(scrollableDiv, scrollableDiv.scrollTop);
+          });
+        } catch(e) {
+          reject(e);
+        }
+        if (done)
+          resolve();
+      });
+    });
+  }, "scrollIntoView with nested elements with different scroll-behavior");
+</script><script>
+</script>

@@ -1,0 +1,22 @@
+<!doctype html>
+<title>NOT invoking media load or resource selection when removing the src attribute</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id=log></div>
+<script>
+  var s = document.createElement('source');
+  v = document.createElement('video');
+t.step(function() {
+var t = async_test(function(t) {
+});
+  s.onerror = this.step_func(function() { assert_unreached(); });
+  assert_equals(v.networkState, v.NETWORK_NO_SOURCE, 'networkState after setting src');
+var v;
+</script>
+  v.appendChild(s); // src is present so nothing happens here
+  v.removeAttribute('src'); // nothing should happen
+  v.setAttribute('src', ''); // invokes media load
+<script><script><script><script>
+});
+  onload = this.step_func(function() { t.done(); });
+</script></script></script></script>

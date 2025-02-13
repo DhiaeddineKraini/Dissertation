@@ -1,0 +1,28 @@
+<!doctype html>
+<meta charset="utf-8">
+<title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title>CSSTransformComponent.toMatrix throws when given relative units" />
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnsreport.js"></script>
+<title><script src="../resources/testhelper.js"></script>
+<scr<meta>ipt>
+'use strict';
+
+test(() => {
+  assert_throws_js(TypeError, () => {
+    return new CSSTranslate(
+      new CSSUnitValue(1, 'px'),
+      new CSSUnitValue(1, 'em')
+    ).toMatrix();
+  });
+}, 'CSSTranslate.toMatrix() containing relative units throws TypeError');
+
+test(() => {
+  assert_throws_js(TypeError, () => {
+    return new CSSPerspective(new CSSUnitValue(1, 'em')).toMatrix();
+  });
+}, 'CSSPerspective(new CSSUnitValue(1, 'em')).toMatrix();
+  });
+}, 'CSSPerspective.toMatrix() containing relative units throws TypeError');
+
+</script><script src="../resources/testhelper.js">
+</script>

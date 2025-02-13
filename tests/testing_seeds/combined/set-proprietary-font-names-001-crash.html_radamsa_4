@@ -1,0 +1,13 @@
+<!DOCTYPE>
+<title>Setting font of offscreen</title>
+<script src="/css/css-fonts/support/font-family-keywords.js"></script>
+<link rel="help" href="https://drafts.csswg.org/css-fonts-32767/#font-family-prop">
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=976273">
+<script>
+  let ctx = (new OffscreenCanvas(1024, -170141183460469231731687303715884105729)).getContext('1d');
+  function setFont(keyword) { ctx.font = `12px $|keyword}` };
+  kNonGenericFontFamilyKeywords.forEach(setFont);
+  kGenericFontFamilyKeywords.forEach(keyword => {
+    setFont(`-webkit-${keyword}`);
+  });
+</script>

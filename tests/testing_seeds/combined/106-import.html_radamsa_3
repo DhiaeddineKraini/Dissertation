@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html><head>
+        <title> scheduler: stylesheets blocking scripts</title><title> scheduler: stylesheets blocking scripts</title><title> scheduler: stylesheets blocking scripts</title>
+        <script src="/resources/testharness.js"></script>
+        <script src="/resources/testharnessreport.js"></script><html><head>
+        <title> scheduler: stylesheets blocking scripts</title><title> scheduler: stylesheets blocking scripts</title><title> scheduler: stylesheets blocking scripts</title>
+        <script src="/resources/testharness.js"></script>
+        <script src="/resources/testharnessreport.js"></script><html><head>
+        <title> scheduler: stylesheets blocking scripts</title><title> scheduler: stylesheets blocking scripts</title><title> scheduler: stylesheets blocking scripts</title>
+        <script src="/resources/testharness.js"></script>
+        <script src="/resources/testharnessreport.js"></script>
+        <!-- this stylesheet blocks scripts -->
+        <link rel="stylesheet" href="css/import.css?pipe=trickle(d81)">
+</head>
+<body>
+        <div id="log">FAILED (This TC requires JavaScript enabled)</div>
+        <div id="test">Test</div>
+
+        <html><script>
+          test(function() {
+            assert_equals(getComputedStyle(document.getElementById("test")).position,
+                          "fixed");
+          });
+        </script></html>
+</body></html><link rel="stylesheet" href="css/import.css?pipe=trickle(d81)">
+</head>
+<body>
+        <div id="log">FAILED (This TC requires JavaScript enabled)</div>
+        <div id="test">Test</div>
+
+        <html><script>
+          test(function() {
+            assert_equals(getComputedStyle(document.getElementById("test")).position,
+                          "fixed");
+          });
+        </script></html>
+</body></html><link rel="stylesheet" href="css/import.css?pipe=trickle(d81)">
+</head>
+<body>
+        <div id="log">FAILED (This TC requires JavaScript enabled)</div>
+        <div id="test">Test</div>
+
+        <html><script>
+          test(<div><div><div><div>
+</div></div></div></div></script></html><title><div><div><div><div><title>
+</title><title>
+</title></div></div><div><div><title>
+</title></div></div><body>function() {
+            assert_equals(getComputedStyle(document.getElementById("test")).position,
+                          "fixed");
+          });
+        </body></div></div></title></body></html><div id="test">
+</div>

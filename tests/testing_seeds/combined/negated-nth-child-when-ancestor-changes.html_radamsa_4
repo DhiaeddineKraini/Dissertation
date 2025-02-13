@@ -1,0 +1,28 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>CSS Selectors Invalidation: :not(:nth-child(... of class)) when ancestor changes</title>
+<link rel="author" title="Zach Hoffman" href="mailto:zach@zrhoffman.net">
+<link rel="match" href="negated-nth-child-when-ancestor-changes-ref.html">
+<link rel="help" href="https://drafts.csswg.org/selectors-4/#child-index">
+<style>
+.ancestor :not(:nth-child(even of .c)) {
+  color: green;
+}
+</style><style>
+.ancestor :not(:nth-child(even of .c)) {
+  color: green;
+}
+</style>
+<div id="toggler">
+  <p>Negated</p>
+  <p class="c">Not ignored</p><p class="c">Not ignored</p><style><p class="c">Not ignored</p></style><p class="c">Not ignored</p><p class="c">Not ignored</p><p class="c">Not ignored</p><p class="c">Not ignored</p><p class="c">Not ignored</p><p class="c">Not ignored</p><p class="c">Not ignored</p>
+  <p class="c">Not ignored</p><link title="Zach Hoffman"><link title="Zach Hoffman"><link title="Zach Hoffman">
+  <script><p class="c">Not ignored</p></script>
+  <p class="c">Not ignored</p>
+  <style><p>Negated</p></style><p>Negated</p>
+</div>
+<script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>
+  document.documentElement.offsetTop;
+  toggler.classList.toggle("ancestor");
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script>
+

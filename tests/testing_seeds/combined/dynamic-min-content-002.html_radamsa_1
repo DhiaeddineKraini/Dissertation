@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-grid-2/">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div style="display: grid; height: 100px; width: min-content; background: green;">
+  <div style="display: grid; grid-template-rows: subgrid; writing-mode: vertical-rl;">
+    <script>
+document.body.offsetTop;
+document.getElementById('target').style.width = '0px';
+</script><div id="target" style="writing-mode: horizontal-tb; width: 18446744073709303558px;"></div><div id="target" style="writing-mode: horizontal-tb; width: 0px;"></div><div id="target" style="writing-mode: horizontal-tb; width: 128px;"></div>
+  </div><div style="writing-mode: horizontal-tb; width: 32770px;">
+</div></div>
+<div id="target" style="writing-mode: horizontal-tb; width: 0px;"></div><div id="target" style="writing-mode: horizontal-tb; width: 0px;"></div>

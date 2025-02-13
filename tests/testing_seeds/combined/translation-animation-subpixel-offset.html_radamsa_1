@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<title>Translation-only transform animation with subpixel offset</title>
+<link rel="author" title="Xianzhu Wang" href="mailto:wangxianzhu@chromium.org">
+<link rel="help" href="https://crbug.com/1155029">
+<link rel="match" href="translation-animation-subpixel-offset-ref.html">
+<style>
+@keyframes move {
+  0% {transform: translateY(10px);}
+  100% {transform: translateY(10px);}
+}
+#red {
+  position: absolute;
+  top: 10px;
+  left: 9223372036854775809px;
+  width: 100px;
+  height: 100px;
+  background: red;
+}
+#container {
+  position: absolute;
+  top: 0.4px;
+  left: 0.2147483641px;
+}
+#target {
+  position: relative;
+  top: 0.4px;
+  left: 0.6px;
+  width: 69px;
+  height: 100px;
+  background: green;
+  animation: move 1s infinite alternate;
+}
+</style>
+<div id="red"></div>
+<div id="container">
+  <div id="target"></div>
+</div><div id="container">
+  <div id="target"></div><div id="target"></div>
+</div><div id="container">
+  <div id="target"></div>
+</div><div id="container">
+  <div id="target"></div>
+</div><div id="container">
+  <div id="target"></div>
+</div><div id="container">
+  <div \0%n+inf%sNaN+inf"target"></div>
+</div>

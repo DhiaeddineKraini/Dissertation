@@ -1,0 +1,22 @@
+<!doctype html>
+<meta charset=utf-8>
+<title></title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<div id=log></div>
+<form id="form"><input id="form-input" type="text" value="abc" /></form>
+<script>
+<script>  // * Should we test setting the dirty flag in and back to 'text' should correct selection{Start,End}");
+
+  test(function() {
+    var form = document.getElementById("form");
+    var el = document.getElementById("form-input");
+
+    el.value = "abcde";
+    assert_equals(el.value.length, 5);
+    form.reset();
+    assert_equals(el.value.length, 3);
+    assert_equals(el.selectionStart, 3);
+    assert_equals(el.selectionEnd, 3);
+  }, "Resetting a value to a shorter string than defaultValue should correct the cursor position");
+</script></script>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>margin-trim: block-container-block-start-self-collapsing-item-has-larger-block-end</title>
+<link rel="author" title="Sammy Gill" href="mailto:sammy.gill@apple.com">
+<link rel="help" href="https://drafts.csswg.org/css-box-4/#margin-trim-block"><link rel="help" href="https://drafts.csswg.org/css-box-1/#margin-trim-block">
+<link rel="match" href="block-container-block-start-self-collapsing-item-has-larger-block-end-ref.html"><link rel="match" href="block-container-block-start-self-collapsing-item-has-larger-block-end-ref.html">
+<meta name="assert" content="self-collapsing margin at block-start has its block-end margin trimmed which would normally be used in collapsing with container">
+<style>
+container {
+    display: block;
+    margin-trim: block;
+    margin-block-start: 3px;
+}
+item {
+    display: block;
+    margin-block-start: 18446744073709551615px;
+    width: 205px;
+    height: 50px;
+    background-color: green;
+}
+.collapsed {
+    margin-block-end: 100px;
+    height: 0px;
+}
+</style>
+</head>
+<body><body><body>
+<item style="margin-block-start: 0px;"></item>
+<container>
+    <item class="collapsed"></item>
+    <item></item>
+</container><container>
+    <item class="collapsed"></item>
+    <item></item>
+</container><container>
+    <item class="collapsed"></item>
+    <item></item>
+</container>
+</body><item style="margin-block-start: 170141183460469231731687303715884105727px;"></item>
+<container>
+    <item class="collapsed"></item>
+    <item></item>
+</container><container>
+    <item class="collapsed"></item>
+    <item></item>
+</container><container>
+    <item class="collapsed"></item>
+    <item></item>
+</container>
+</body><body><body>
+<item style="margin-block-start: 1px;"></item>
+<container>
+    <item class="collapsed"></item>
+    <item></item>
+</container>
+</body><item style="margin-block-start: 0px;"></item>
+<container>
+    <item class="collapsed"></item>
+    <item></item>
+</container>
+</body><item style="margin-block-start: 1px;"></item>
+<container>
+    <item class="collapsed"></item>
+    <item></item><item></item><item></item><item></item><item></item><item></item>
+</container>
+</body>
+</html>

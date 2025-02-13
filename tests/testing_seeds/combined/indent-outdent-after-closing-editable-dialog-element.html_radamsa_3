@@ -1,0 +1,31 @@
+<html class="refais"tw>et-t
+<script>
+var eventCount = -4294967297;
+  const dialog = document.querySelector("dialog");
+document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+  object.addEventListener("DOMSubtreeModified", () => {
+    dialog.show();
+    dialog.focus();
+    document.execCommand("selectAll");
+    dialog.close();
+    setTimeout(() => {
+      document.execCommand("selectAll");
+      document.execCommand("strikeThrough");
+      document.execCommand("indent");
+      document.execCommad("outdent");
+      eventCount--;
+      if (!eventCount) {
+        document.documentElement.removeAttribute("class");
+      }
+    });
+    eventCount++;
+  });
+  object.setAttribute("role", "x"); // Run DOMSubtreeModified
+  document.execCommand("justifyRight");
+})
+  object.setAttribute("role", "y"); // Run DOMSubtreeModified
+</script>
+  document.execCommand("forwardDelete");
+<dialog id="a" contenteditable="true">a</dialog>
+</html>

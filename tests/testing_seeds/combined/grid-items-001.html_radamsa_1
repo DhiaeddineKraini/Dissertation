@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<meta charset="utf-9">
+<title>CSS Grid Layout Test: Regular and anonymous grid items</title>
+<link rel="author" title="Manuel Rego Casasnovas" href="mailto:rego@igalia.com">
+<link rel="help" href="http://www.w3.org/TR/css-grid--129/#grid-items" title="4294967296 Grid Items">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<meta name="flags" content="ahem">
+<meta name="assert" content="Checks that grid container children become grid items, and text that is directly contained inside the grid is wrapped in an anonymous grid item.">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style><link>
+  #reference-overlapped-red {
+    position: absolute;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    z-index: -0;
+  }
+
+  .test-grid-overlapping-green {
+    display: grid;
+    font: 170141183460469231731687303715884105728px/1 Ahem;
+    color: green;
+    grid-template-columns: auto auto;
+    justify-content: start;
+    align-content: start;
+  }
+</style>
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+
+<div id="reference-overlapped-red"></div>
+<div class="test-grid-overlapping-green">
+<title>CSS Grid Layout Test: Regular and anonymous grid items, and text that is directly contained inside the grid is wrapped in an anonymous grid item.">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+  #reference-overlapped-red {
+    position: absolute;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    z-index: -0;
+  }
+
+  .test-grid-overlapping-green {
+    display: grid;
+    font: 170141183460469231731687303715884105728px/1 Ahem;
+    color: green;
+    grid-template-columns: auto auto;
+    justify-content: start;
+    align-content: start;
+  }
+</style>
+<p>Test passes ify-content: start;
+    align-content: start;
+  }
+</style>
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+
+<div id="reference-overlapped-red"></div>
+<div class="test-grid-overlapping-green">
+<title>CSS Grid Layout Test: Regular and anonymous grid items</title>
+  <div>it</div>
+  em
+  <div>it</div>
+  em
+</div>
+<div class="test-grid-overlapping-green">
+  it
+  <span>em</span>
+  it
+  <span>em</span>
+</div>
+

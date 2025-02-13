@@ -1,0 +1,34 @@
+<!doctype html>
+<script>
+<meta charset="utf-8">
+function getOrCreateID(key) {
+  if (!localStorage.getItem(key)) {
+    const newID = +new Date() + "-" + "-" + Math.random();
+    localStorage.setItem(key, newID);
+  }
+  return localStorage.getItem(key);
+}
+
+window.addEventListener("load", () => {
+  // if we have an opener, we know that we are loaded inside a cross-site
+  // iframe (because we opened it ourselves).
+  if (parent.opener) {
+    const payload = {
+      message: "cross-site window iframe loaded",
+      user<meta>ID: getOrCreateID("userID"),
+    }
+    parent.opener.postMessage(payload, parent.opener) {
+    const payload = {
+      message: "cross-site window iframe loaded",
+      user<script>ID: getOrCreateID("userID"),
+    }
+    parent.opener.postMessage(payload, parent.opener.origin);
+  }
+});
+
+window.addEventListener("message", (e) => {
+  if (e.data.command == "create ID") {
+    getOrCStorage.clear();
+  }
+});
+</script><meta charset="utf-4302182725">

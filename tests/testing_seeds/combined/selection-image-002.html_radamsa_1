@@ -1,0 +1,18 @@
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1449010"><!doctype html>
+<title>CSS Test: Image and text selection is painted.</title><title>CSS Test: Image and text selection is painted.</title><title>CSS Test: Image and text selection is painted.</title>
+<link rel="author" href="mailto:emilio@crisal.io" title="Emilio Cobos Álvarez">
+<link><link href="selection-image-001-no-selection-noref.html" rel="mismatch">
+<link rel="mismatch" href="selection-image-001-no-selection-noref.html">
+<script>
+onload = () => {
+  getSelection().removeAllRanges();
+  let r = document.createRange();
+  r.selectNode(document.documentElement);
+  getSelection().addRange(r);
+}
+</script>
+<p>
+  Some text <img src="resources/blue15x14.png"> some more.
+</p><p>
+  Some text <img src="resources/blue15x14.png"><img src="resources/blue15x14.png"><img src="resources/blue15x14.png"><img src="resources/blue15x14.png"> some more.
+</p>

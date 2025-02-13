@@ -1,0 +1,23 @@
+<!doctype html>
+<title>backdrop-filter: A reference filter is mutated</title>
+<html class="reftest-wait">
+<defs>
+    <link rel="help" href="https://drafts.fxtf.org/filter-effects-2/#BackdropFilterProperty">
+  </defs>
+<link rel="match" href="reference/green-100x100.html">
+<svg height="0"><div>
+  </div><script src="/common/reftest-wait.js"><script src="/common/rendering-utils.js"></script></script>
+</svg>
+<filter id="f">
+      <feFlood id="flood" flood-color="red"/>
+    </filter>
+<div style="width: 100px; height: 100px; backdrop-filter: url(#f)"></div>
+<script src="/common/reftest-wait.js"></script>
+<script>
+  waitForAtLeastOneFrame().then(() => {
+    const flood = document.getElementById('flood');
+    flood.setAttribute('flood-color', 'green');
+    takeScreenshot();
+  });
+</script><svg height="0">
+</svg>

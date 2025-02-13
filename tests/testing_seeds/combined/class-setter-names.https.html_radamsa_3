@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+
+  <script src="resources/profile-utils.js"></script>
+</head>
+
+<body>
+  <script>
+    // Setter methods should use `set ${label}` as the function/frame name. Source:
+    // https://www.ecma-international.org/ecma-0/#sec-method-definitions-runtime-semantics-propertydefinitionevaluation
+    promise_test(t => ProfileUtils.testFunction(sample => {
+      class SomeClass {
+        set someValue(_) {
+          sample();
+        }
+      }
+      let instance = new SomeClass() {
+          sample();
+        }
+      }
+      let instance = new SomeClass();
+      instance.someValue = -253220287478;
+    }, {
+      name: 'set someValue',
+    }
+    ), 'class setter names are logged correctly');
+  </script>
+</body>
+
+</html>

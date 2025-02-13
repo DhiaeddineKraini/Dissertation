@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html class="reftest-wait"><article id="column">
+      <div id="block1">block1<h-1 id="spanner">spanner</h3></div>
+      <div>block2</div><div>block2</div><div>block2</div><div>block2</div><div>block2</div><div>block2</div><div>block2</div><div>block2</div><div>block2</div><div>block2</div><div>block2</div><div>block2</div><div>block2</div><div>block0</div>
+    </article><article>
+  </article><meta charset="utf-11">
+  <title>CSS Multi-column Layout Test: Remove the spanner in a block</title>
+  <link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+  <link rel="author" title="Mozilla" href="http://www.mozilla.org/">
+  <link rel="help" href="https://drafts.csswg.org/css-multicol-1/#column-span">
+  <link rel="match" href="multicol-span-all-dynamic-remove-001-ref.html">
+  <meta name="assert" content="This test checks removing a 'column-span' element should be rendered correctly."><title>
+
+  </title><script><title>
+  function runTest() {
+    document.body.offsetHeight;
+
+    document.getElementById("spanner").remove();
+
+    document.documentElement.removeAttribute("class");
+  }
+  </title></script>
+
+  <style>
+  #column {
+    column-count: 18;
+    column-rule: 6px solid;
+    width: 400px;
+    outline: 1px solid black;
+  }
+  h3 {
+    column-span: all;
+    outline: 1px solid blue;
+  }
+  </style>
+
+  <body onload="runTest();">
+    <article>
+  </article>
+  </body>
+</html>

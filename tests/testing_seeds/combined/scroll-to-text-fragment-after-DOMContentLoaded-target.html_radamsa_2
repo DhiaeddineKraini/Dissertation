@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<title>
+  Navigating to a text fragment which is only available after `DOMContentLoaded`
+</title>
+<script src="stash.js"></script>
+<script>
+function checkScroll() {
+  const results = {hasScrolled: window.scrollY != 0};
+  let key = (new URL(document.location)).searchParams.get("key");
+  stashResultsThenClose(key, results);
+};
+window.onload = () => {
+  window.requestAnimationFrame(function() {
+    window.requestAnimationFrame(checkScroll);
+  })
+}
+</script>
+<body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.innerHTML = `<div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 200vh">After DOMContentLoaded</div><div style="margin-top: 2<script>144vh">After DOMContentLoaded</script></div><div style="margin-top: 200vh"><div style="margin-top: 65535vh">After DOMContentLoaded</div></div><script><div style="margin-top: 130vh"><div style="margin-top: 65535vh">After DOMContentLoaded</div><body><div style="margin-top: 65535vh">After DOMContentLoaded</div></body></div></script><div style="margin-top: 200vh"><div style="margin-top: 65535vh">After DOMContentLoaded</div></div><div style="margin-top: 200vh"><div style="margin-top: 65535vh">After DOMContentLoaded</div></div><div style="margin-top: 4294967297vh"><div><div style="margin-top: 65535vh">After DOMContentLoaded</div></div></div><div style="margin-top: 200vh"><div style="margin-top: 65535vh">After DOMContentLoaded</div></div><script><div style="margin-top: 200vh"><div style="margin-top: 65535vh">After DOMContentLoaded</div></div></script><div style="margin-top: 200vh"><div style="margin-top: 65535vh">After DOMContentLoaded</div></div><div style="margin-top: 200vh"><div style="margin-top: 65535vh">After DOMContentLoaded</div></div><div style="margin-top: 200vh"><div style="margin-top: 1041296vh">After DOMContentLoaded</div></div><body><body><body><body><div style="margin-top: 65534vh">After DOMContentLoaded</div></body><body><div style="margin-top: 65534vh">After DOMContentLoaded</div></body><body><div style="margin-top: 2147418113vh">After DOMContentLoaded</div><div style="margin-top: 65534vh">After DOMContentLoaded</div></body><body><div style="margin-top: 65534vh">After DOMContentLoaded</div></body><body><div style="margin-top: 65534vh">After DOMContentLoaded</div></body><body><div style="margin-top: 65534vh">After DOMContentLoaded</div></body><body><div style="margin-top: 65534vh">After DOMContentLoaded</div></body><body><div style="margin-top: 65534vh">After DOMContentLoaded</div></body><body><div style="margin-top: 65534vh">After DOMContentLoaded</div></body><body><div style="margin-top: 65534vh">After DOMContentLoaded</div></body></body></body></body>`;
+});
+
+</script><script>
+</script></body>

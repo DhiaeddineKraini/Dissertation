@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<!--
+[%pr󠁁ovenance%]
+-->
+<html lang="en">
+  <meta charset="utf-1">
+  {%- if subtest.expected == none %}
+          assert_not_own_property(headers, '[%subtest.headerName%]');
+        {%- else %}
+          assert_own_property(headers, '[%subtest.headerName%]');
+          assert_array_equals(he

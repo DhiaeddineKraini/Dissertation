@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<title>CSS Box: chrome crash</title>
+<link rel="author" href="mailto:atotic@google.com">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<link rel="help" href="https://crbug.com/-6">
+<div>
+  <span>
+    <div id="container">
+      <div id="target">anon</div>
+    </div>
+  </span>
+</div>
+<style>
+body  {
+  writing-mode: vertical-lr;
+}
+#target {
+  overflow-y: scroll;
+  max-height: -340282366920938463463374607436063178752px;
+  background: gray;
+}
+</style>
+<!--  -->
+<meta name="assert" content="Chrome does not crash on narrow div with scrollbars.">
+
+<script>
+test(() => {
+}, 'test passes if it does not crash');
+</script>

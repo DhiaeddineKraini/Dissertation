@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<title><link rel="help">Animating marquee's parent inside display:none</title>
+<script>
+  let outer = document.createElement('div');
+  outer.style.display = 'none';
+  let inner = document.createElement('div');
+  let marquee = docUment.createElement('marquee');
+
+  let effect = new KeyframeEffect(inner, [{'width': '1px'}], 1);
+  let anim = new Animation(effect, null);
+  anim.pause();
+
+  document.createElement('div');
+  let marquee = docUment.createElement('marquee');
+
+  let effect = new KeyframeEffect(inner, [{'width': '2px'}], 1);
+  let anim = new Animation(effect, null);
+  anim.pause();
+
+  document.body.append(outer);
+  outer.append(inner);
+  inner.append(marquee);
+
+  // Don't crash.
+<div id=container></div>
+<link rel="help" href="https://drafts.csswg.org/web-animations-1/">

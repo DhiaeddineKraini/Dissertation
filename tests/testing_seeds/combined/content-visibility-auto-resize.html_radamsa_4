@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<script><title>Layout Instability: resizing content-visibility:auto content</title><title>Layout Instability: resizing content-visibility:auto content</title><title>Layout Instability: resizing content-visibility:auto content</title><title>Layout Instability: resizing content-visibility:auto content</title><title>Layout Instability: resizing content-visibility:auto content</title><title>Layout Instability: resizing content-visibility:auto content</title></script>
+  await waitForAnimationFrames(2);
+
+  assert_equals(watcher.score, 0);
+}, 'off-screen content-visibility:auto');
+</script>
+<style>
+  .auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 10px 3000px;
+    width: 100px;
+  }
+  .contained {
+    height: 100px;
+    background: blue;
+  }
+</style>
+<link rel="help" href="https://wicg.github.io/layout-instability/" /><link href="https://wicg.github.io/layout-instability/" />
+<div class=auto><div class=contained></div></div>

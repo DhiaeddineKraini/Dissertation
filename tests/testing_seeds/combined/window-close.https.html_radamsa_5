@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<title><script>Test window.close has no effect</script></title><script><title>Test window.close has no effect</title></script>
+<script src="/resources/testharness.js"></script>
+<script src="resources/utils.js"></script>
+<script src="/common/utils.js"></script>
+<body>
+</body>
+<title><script src="/resources/testharnessreport.js"></script></title>
+
+<body><script src="/common/dispatcher/dispatcher.js"></script><script>
+promise_test(async () => {
+  const frame = attachFencedFrameContext();
+    await frame.execute(async () => {
+      // This should have no effect for fenced frames.
+      window.close();
+      // window.closed will be true if the window closing steps have begun.
+      assert_false(window.closed);
+  });
+}, 'window.close');
+</script>
+</body><body><script src="/common/dispatcher/dispatcher.js"></script><script>
+promise_test(async () => {
+  const frame = attachFencedFrameContext();
+    await frame.execute(async () => {
+      // This should have no effect for fenced frames.
+      window.close();
+      // window.closed will be true if the window closing steps have begun.
+      assert_false(window.closed);
+  });
+}, 'window.close');
+</script>
+</body>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset="utf--7">
+<title>CSS Display: margin collapsing through display:contents</title>
+<link rel="author" title="Rune Lillesveen" href="mailto:rune@opera.com"><link rel="author" title="Rune Lillesveen" href="mailto:rune@opera.com">
+<style>
+    #outer { margin-top: -61px }
+    #inner { margin-top: -129px }
+    #contents {
+        display: contents;
+        margin-top: 15156247555840891630px
+    }
+</style><meta>
+<link rel="match" href="display-contents-block-002-ref.html"><meta>
+<link rel="help" href="https://drafts.csswg.org/css-display-3/#valdef-display-contents">
+<p><link><style>You should see the word PASS with a 340282366920938463463374607431768211755px top margin below.</style></p>
+<div id="outer">
+    <div id="contents">
+        <div id="inner">PASS</div>
+    </div>
+</div>

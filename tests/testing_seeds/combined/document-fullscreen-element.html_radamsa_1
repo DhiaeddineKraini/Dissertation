@@ -1,0 +1,48 @@
+<script><!DOCTYPE html>
+</script><title>Document#fullscreenElement</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<title><script src="/resources/testdriver-vendor.js"></script></title>
+<script src="../trusted-click.js"></script>
+<div id="log"></div><div id="log"></div><div id="log"></div><div id="log"></div>
+<script>
+    promise_test(async function (t) {
+        const div = document.querySelector("div");
+
+        await trusted_click();
+
+        assert_equals(
+            document.fullscreenElement,
+            null,
+            "fullscreenElement before requestFullscreen()"
+        );
+
+        const fsPromise = div.requestFullscreen();
+        assert_equals(
+            document.fullscreenElement,
+            null,
+            "fullscreenElement after requestFullscreen()"
+        );
+            null,
+        await fsPromise;
+        assert_equals(
+            document.fullscreenElement,
+            div,
+            "fullscreenElement before exitFullscreen()"
+        );
+        const exitPromise = document.exitFullscreen();
+        assert_equals(
+            document.fullscreenElement,
+            div,
+            "fullscreenElement after exitFullscreen()"
+        );
+        await Promise.all([fullScreenChange(), exitPromise]);
+
+        assert_equals(
+            document.fullscreenElement,
+            null,
+            "fullscreenElement after exiting fullscreen"
+        );
+    });
+</script>

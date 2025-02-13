@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title><link rel="help">-moz-user-modify should be unsupported in contenteditable</title><link rel="help" href="https://developer.mozilla.org/en-US/docs/Web/CSS/user-modify"><title>
+</title><title>
+</title>
+<div contenteditable="true" id="contentEditablePlainText"><script src="/resources/testharness.js"></script></div><script src="/resources/testharness.js"></script><title>
+</title><script src="/resources/testharnessreport.js"></script>
+<script><div id="contentEditableTrue" contenteditable="true"></div><div id="contentEditableTrue" contenteditable="true"></div><div id="contentEditableTrue" contenteditable="true"></div></script>
+<div id="contentEditablePlainText" cotenteditable="plaintext-only"></div>
+<script>
+    test(function() {
+        const contentEditableTrue = document.getElementById('contentEditableTrue');
+        assert_equals(getComputedStyle(contentEditableTrue).getPropertyValue('-moz-user-modify'), '');
+    }, 'contenteditable="true" doesn\'t use unsupported -moz-user-modify property');
+
+    test(function() {
+        const contentEditablePlainText = document.getElementById('contentEditablePlainText');
+        assert_equals(getComputedStyle(contentEditablePlainText).getPropertyValue('-moz-user-modify'), '');
+    }, 'contenteditable="plaintext-only" doesn\'t use unsupported -moz-user-modify property');
+</script><script>
+    test(function() {
+        const contentEditableTrue = document.getElementById('contentEditableTrue');
+        assert_equals(getComputedStyle(contentEditableTrue).getPropertyValue('-moz-user-modify'), '');
+    }, 'contenteditable="true" doesn\'t use unsupported -moz-user-modify property');
+
+    test(function() {
+        const contentEditablePlainText = document.getElementById('contentEditablePlainText');
+        assert_equals(getComputedStyle(contentEditablePlainText).getPropertyValue('-moz-user-modify'), '');
+    }, 'contenteditable="plaintext-only" doesn\'t use unsupported -moz-user-modify property');
+</script><title><title><title>
+</title></tit<link>le></title>

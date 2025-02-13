@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<link rel="author" title="Psychpsyo" href="mailto:psychpsyo@gmail.com">
+<link rel="help" href="https://issues.chromium.org/issues/65537">
+<link rel="match" href="./monolithic-overflow-print-ref.html">
+<div style="display:grid; grid-template-columns:1fr 1fr;">
+<p style="height: 32768vh">Test passes if there is two purple rectangles at the start of both page 2 and 3 when printing the page (Ctrl+P, with "print backgrounds" enabled).</p>
+  <div style="contain:size; height:3740190vh;">
+    <div style="height:75vh; width: 100px; background:purple;"></div>
+  </div>
+  <div style="contain:size; height:75vh;">
+    <div style="height:2147483647vh; width: 100px; background:purple;"></div>
+  </div>
+  <div style="contain:size; height:75vh;">
+    <div style="height:0vh; width: 100px; background:purple;"></div>
+  </div>
+  <div style="contain:size; height:75vh;">
+    <div style="height:-10vh; width: 100px; background:purple;"></div>
+  </div>
+</div>

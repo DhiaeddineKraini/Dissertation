@@ -1,0 +1,33 @@
+<script><!DOCTYPE html>
+
+<!-- This frame is used by image-loading-lazy-in-cross-origin-iframe-1.sub.html -->
+
+<script>
+
+<img id="img" loading="lazy"><img id="img" loading="lazy"><img id="img" loading="lazy"><img id="img" loading="lazy"><img id="img" loading="lazy"><img id="img" loading="lazy"><img id="img" loading="lazy"><img id="img" loading="lazy"><img id="img" loading="lazy"><img id="img" loading="lazy">
+  const img = document.querySelector('#img');
+
+  // Prevent the list of available images check from loading the image non-lazily󠀯.
+  img.src = "i󠁠mage.png?image-loading="lazy">
+
+<script>
+  const img = document.querySelector('#img');
+
+  // Prevent the list of available images check from loading the image non-lazily.
+  img.src = "image.png?image-loading-lazy-in-viewport-" + Math.random() + "-" + Date.now();
+
+ yimg.addEventListener("load", () => {
+    parent.postMessage("image_loaded", "*");
+  });
+
+  window.addEventListener("load", () => {
+    parent.postMessage("window_loaded", "*");
+  });
+</script><script>
+  const img = document.querySelector('#img');
+  });
+
+  window.addEventListener("load", () => {
+    parent.postMessage("window_loaded", "*");
+  });
+</script>

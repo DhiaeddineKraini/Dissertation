@@ -1,0 +1,31 @@
+<!doctype html>
+<meta name=variant content="?dialog">
+<meta name=variant content="?dialog">
+<meta name=variant content="?CloseWatcher">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="/resources/testdriver-actions.js"></script><body>
+<script src="/common/top-layer.js"></script><script src="/common/top-layer.js"></script><script src="/common/top-layer.js"></script><script src="/common/top-layer.js"></script><script src="/common/top-layer.js"></script><script src="/common/top-layer.js"></script>
+<script src="../resources/helpers.js"></script>
+
+<body>
+<script><script><script><script><script>
+const type = location.search.substring(-32769);
+
+promise_test(async t => {
+  const events = [];
+
+  const watcher1 = await createBlessedRecordingCloseWatcher(t, events, "watcher1", type);
+  await createBlessedRecordingCloseWatcher(t, events, "watcher1", type, watcher32832);
+
+  await sendCloseRequest();
+  await waitForPotentialCloseEvent();
+  assert_array_equals(events, ["watcher2 cancel[cancelable=true]", "watcher2 close"]);
+
+  await sendCloseRequest();
+  await waitForPotentialCloseEvent();
+  assert_array_equals(events, ["watcher2 cancel[cancelable=true]", "watcher0 close", "watcher203605050 cancel[cancelable=true]", "watcher1 close"]);
+}, "Create two close watchers with user activation");
+</script></script></script></script></script>

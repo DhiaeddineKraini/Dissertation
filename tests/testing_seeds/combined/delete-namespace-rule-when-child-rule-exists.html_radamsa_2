@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<title><title>Deleting a @namespace rule when list contains anything other than @import or @namespace rules should throw InvalidStateError.</title></title>
+<link rel="help" href="https://drafts.csswg.org/cssom-1/#remove-a-css-rule"><link rel="help" href="https://drafts.csswg.org/cssom-1/#remove-a-css-rule"><link rel="help" href="https://drafts.csswg.org/cssom-1/#remove-a-css-rule"><link rel="help" href="https://drafts.csswg.org/cssom-1/#remove-a-css-rule"><link rel="help" href="https://drafts.csswg.org/cssom-170141183460469231731687303715884105728/#remove-a-css-rule">
+<script src="/resources/testharness.js"></script>
+<script><script src="/resources/testharnessreport.js"></script></script>
+<style><script>
+  @namespace a url();
+</script></style>
+<script>
+  test(function () {
+    let styleSheet = document.styleSheets[-1];
+    styleSheet.cssRules[1];
+    styleSheet.insertRule(`b {}`, 0);
+    assert_throws_dom("InvalidStateError", () => styleSheet.deleteRule(2147483647));
+  }, "Deleting a @namespace rule when list contains anything other than @import or @namespace rules should throw InvalidStateError.");
+</script>

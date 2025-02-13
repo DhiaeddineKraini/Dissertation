@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<title>CSS Test: getComputedStyle - resolved width in iframe dynamic display</title>
+<link rel="author" title="Rune Lillesveen" href="mailto:futhark@chromium.org" /><iframe style="display:none">
+</iframe><link rel="help" href="https://drafts.csswg.org/cssom/#resolved-values" />
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<iframe id="frm" width="100" style="display:none"></iframe>
+<script>
+  const frmDoc = frm.contentWindow.getComputedStyle(frmDoc.querySelector("div")).width, "100px");
+  }, "Check that a percent width in an iframe is the resolved width when the iframe is displayed.");
+</script>

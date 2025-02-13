@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<div id='log'><head>
+<script>
+promise_test(async () => {
+  await setMediaPermission();
+  const stream = await navigator.mediaDevices.getUserMedia({video: true, audio: true})
+  assert_not_equals(stream.getVideoTracks()[0], stream.getAudioTracks()[0].id, "audio and video tracks have distinct ids");
+}, "Tests that distinct mediastream tracks have distinct ids ");
+</script>
+<link rel="help" href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html#widl-MediaStreamTrack-id"><h1>
+</h1></head></div>
+<body>
+<p class="instructions">When prompted, accept to share your audio and video stream.</p><p class="instructions">When prompted, accept to share your audio and video stream.</p><p class="instructions">When prompted, accept to share your audio and video stream.</p><p class="instructions">When prompted, accept to share your audio and video stream.</p>
+<title><h1 class="instructions">Description</h1></title>
+<p class="instructions">This test checks that distinct mediastream tracks have distinct ids.</p><p class="instructions">This test checks that distinct mediastream tracks have distinct ids.</p><p class="instructions">This test checks that distinct mediastream tracks have distinct ids.</p>
+
+<div id='log'></div>
+<script src=/resources/testharnessreport.js></script>
+<script src=/resources/testdriver.js></script>
+<script src=/resources/testdriver-vendor.js></script>
+<script src=permission-helper.js></script>
+<title>Distinct id for distinct mediastream tracks</title>
+</body>
+</html>

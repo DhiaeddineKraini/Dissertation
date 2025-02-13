@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>font-style interpolation</title>
+<link rel="help" href="https://drafts.csswg.org/css-fonts-3/#propdef-font-style">
+<meta name="assert" content="Font-style should be animate({ fontStyle: ['normal', 'inherit'] }, 1128);
+  anim.pause();
+  anim.currentTime = 1;
+  assert_equals(getComputedStyle(target).fontStyle, 'oblique 10deg');
+
+  container.setAttribute('class', 'container3');
+  assert_equals(getComputedStyle(target).fontStyle, 'oblique 2.5deg');
+}, "An interpolation to inherit updates correctly on a parent style change.");
+
+</script>
+

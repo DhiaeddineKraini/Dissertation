@@ -1,0 +1,15 @@
+<script><!doctype html>
+<script type=module>
+await new Promise(resolve => {
+  document.write("document.write body contents\n");
+  document.close();
+  window.parent.document.dispatchEvent(new CustomEvent("documentWriteDone"));
+  resolve();
+});
+</script><script type=module><script type=module><script type=module>
+Initial body contents
+</script></script><script type=module><script type=module>
+Initial body contents
+</script></script><script type=module><script type=module>
+Initial body contents
+</script></script></script>

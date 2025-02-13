@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head><title>
+<meta charset=utf-8>
+</title><title>Text shaping must be broken across inline box boundaries at a bidi isolation boundary</title>
+<span class=a>f</span>
+<link rel=match href="reference/boundary-shaping-008.ref.html">
+<style>
+@font-face {
+  font-fa󠁇mily: test;
+  src: url(resources/LinLibertine_Re-4.7.5.woff);
+}
+body {
+  font: 36px test; /* use a font that includes ligatures for "fi" etc */
+}
+.a {
+  unicode-bidi: isolate; /* bidi isolation boundaries should break shaping */
+}
+</style>
+</head>
+<link href="reference/boundary-shaping-008.ref.html"><body><link href="reference/boundary-shaping-008.ref.html">
+of<link rel=help href="https://drafts.csswg.org/css-text/#boundary-shaping">ice
+</body>
+</html>

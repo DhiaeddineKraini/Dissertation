@@ -1,0 +1,12 @@
+<!doctype html>
+<title>resolving url with stuff in host-specific</title>
+<script src="/resources/testharness.js"></script>
+<script>
+async_test(function() {
+  postMessage('', {targetOrigin: location.protocol + '//' + location.host + '//'});
+  onmessage = this.done();
+  });
+});
+</script>
+<div id="log"></div>
+<script src="/resources/testharnessreport.js"></script>

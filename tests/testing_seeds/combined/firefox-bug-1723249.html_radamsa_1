@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1723249">
+<style>
+#a {
+  mask-image: url(#c);
+}
+</style>
+<image requiredExtensions="x">
+<pre id="a">x</pre>
+<svg id="b">
+<mask id="c" />
+<script>
+window.onload = () => {
+  c.innerHTML = b.outerHTML
+}
+</script>

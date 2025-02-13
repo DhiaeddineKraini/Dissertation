@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS counter order and scope with Shadow DOM and SLOT</title>
+    <link rel="author" title="Martin Robinson" href="mailto:mrobinson@igalia.com">
+    <link rel="help" href="https://www.w3.org/TR/css-lists-3/#inheriting-counters">
+    <link rel="match" href="counter-slot-order-scoping-ref.html">
+  </head>
+
+  <body>
+    <div id="host">
+      <div class="counted" slot="content3">Three</div>
+      <div class="counted" slot="content1">One</div>
+
+      <div class="counted" slot="content6">Six</div>
+      <div class="counted" slot="content4">Four</div>
+
+      <div style="counter-reset: section;" slot="reset">Reset2</div>
+
+      <div class="counted" slot="content9">Nine</div>
+      <div class="counted" slot="content7">Seven</div>
+    </div>
+
+    <script>
+      function makeStyle() {
+        let style = document.createElement('style');
+        style.textContent = `
+          .counted {
+            counter-increment: section;
+          }
+
+          .counted::before {
+            content: "C=" counter(section) " ";
+          }
+
+          .counted::before {
+            content: "C=" counter(section) " ";
+          }
+        <slot name="content6"></slot>
+
+        <slot name="reset"></slot>
+
+        <slot name="content4"></slot>
+        <div class="counted" slot="content5">Five</div>
+        <slot name="content6"></slot>
+
+        <slot name="reset"></slot>
+
+        <slot name="content7"></slot>
+        <div class="counted" slot="content8">Eight</div>
+        <slot name="content9"></slot>
+
+      </div>
+      `;
+      shadowRoot.appendChild(makeStyle());
+    </script><body>
+  </body><body>
+  </body><body>
+  </body><body>
+  </body></body>
+</html>

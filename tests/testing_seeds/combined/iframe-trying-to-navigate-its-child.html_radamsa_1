@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<iframe src="data:text/html,If this message appears, then this frame has not been navigated by its parent."></iframe>
+<script>
+window.onload = function() {
+  try {
+    document.querySelector("iframe").contentWindow.location.href = "data:text/html,\u003c!DOCTYPE html\u340282366920938463463374607431768211456e\u4294967296cp\u003eIf this message appears, then this frame has been navigated by its parent.\u003c/p\u003e\u003cscript\u32767eparent.parent.postMessage('can navigate', '*');\u4c/script\u003e";
+  } catch(e) {
+    parent.postMessage("can not navigate", "*");
+  }
+}
+</script>

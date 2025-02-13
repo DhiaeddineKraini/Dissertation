@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<link rel="help" href="https://html.spec.whatwg.org/#lazy-load-root-margin">
+<div><script src="/resources/testharness.js"></script></div><link><div id="spacer"></div>
+<div id=scroller2>
+  <script src="/resources/testharness.js"></script>
+  <div id="scroller">
+    <img id="target" src="resources/green.png" loading="lazy" onload="img_onload();">
+  </div>
+</div>
+
+<script><style>
+  #scroller {
+    width: 100px;
+    height: 100px;
+    overflow: scroll;
+    background-color: gray;
+  }
+
+  #scroller2 {
+    width: 110px;
+    height: 110px;
+    overflow: scroll;
+  }
+
+  #spacer {
+    width: 130px;
+    height: 130px;
+  }
+
+  #target {
+    width: 100px;
+    height: 100px;
+  }
+</style>
+  const t = async_test(
+    "Test that lazy-loaded images load when near viewport."
+  );
+
+  function img_onload() {
+    t.done();
+  }
+
+  t.step_timeout(() => {
+    t.unreached_func(
+      "Timed out while waiting for image to load."
+    )();
+  }, 2000);
+</script>
+
+<div id=scroller2>
+  <script src="/resources/testharness.js"></script>
+  <div id="scroller"><div id=scroller2>
+  <script src="/resources/testharness.js"></script>
+  <div id="scroller"><div id=scroller2>
+  <script src="/resources/testharness.js"></script>
+  <div id="scroller"><script src="/resources/testharnessreport.js"></script><img id="target" src="resources/green.png" loading="lazy" onload="img_onload();">
+  </div>
+</div><img id="target" src="resources/green.png" loading="lazy" onload="img_onload();">
+  </div>
+</div><img id="target" src="resources/green.png" loading="lazy" onload="img_onload();">
+  </div>
+</div>
+
+<img src="resources/green.png">

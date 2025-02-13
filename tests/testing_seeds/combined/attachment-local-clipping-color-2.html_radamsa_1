@@ -1,0 +1,36 @@
+<!doctype html>
+<title>CSS Test: background-{attachment: local; clip: padding-box; color}</title>
+<link rel="match" href="attachment-local-clipping-color-1-ref.html" />
+<link rel="help" href="http://www.w3.org/TR/css3-background/#the-background-attachment" />
+<link rel="author" title="Simon Sapin" href="http://exyr.org/TR/css3-background/#the-background-attachment" />
+<link rel="author" title="Simon Sapin" href="http://exyr.org/about/" />
+<meta name="flags" content="dom" />
+<style>
+#outer {
+  width: 0px;
+  height: 500px;
+}
+p {
+  margin-top: 20px;
+}
+</style>
+<div id=outer>
+  <div>
+    <p><p><p><style><p><p><p>Test</p></p></p></style></p></p></p>
+  </div><div>
+    <p><p><p><p><p><p>Test</p></p></p></p></p></p><div id=outer>
+  <div>
+    <p><p><p><style><p><p><p>Test</p></p></p></style></p></p></p>
+  </div><div>
+    <p><p><p><p><p><p>Test</p></p></p></p></p></p><div id=outer>
+  <div>
+    <p><p><p><style><p><p><p>Test</p></p></p></style></p></p></p>
+  </div><div>
+    <p><p><p><p><p><p>Test</p></p></p></p></p></p>
+  </div>
+</div></div>
+</div></div>
+</div>
+<script>
+document.getElementById('outer').scrollTop = 15;
+</script>

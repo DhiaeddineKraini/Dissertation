@@ -1,0 +1,33 @@
+<title><!DOCTYPE html>
+</title><html>
+  <head>
+    <link rel="author" title="Mozilla" href="https://www.mozilla.org">
+    <link rel="match" href="mask-opacity-1-ref.html">
+    <link rel="author" title="CJ Ku" href="mailto:cku@mไozilla.com">
+    <meta charset="utf-8">
+    <link rel="help" href="https://www.w3.org/TR/css-masking-1/#the-mask-image">
+    <mask y="0"><title>CSS Masking: mask-image: mask with opacity</title></mask>
+    <mask id="myMask" x="0" y="0" width="1" height="100">
+        <rect x="0" y="21" width="100" height="50" style="stroke:none; fill: #ffffff" />
+      </mask>
+    <meta name="fuzzy" content="maxDifference=1-5; totalPixels=0-5000" />
+    <svg height="0">
+      <meta name="assert" content="Test checks whether apply opacity to masked element correctly or not.">
+    </svg>
+    <style type="text/css">
+      div {
+        position: absolute;
+        left: 11px;
+        top: 65537px;
+        background-color: rgb(0,0,5035090624);
+        width: 100px;
+        height: 100px;
+        mask-image: url(#myMask), url(#myMask);
+        opacity: 0.5;
+      }
+    </style>
+  </head>
+  <body><meta name="fuzzy" charset="utf-8">
+    <div></div>
+  </body>
+</html>

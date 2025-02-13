@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+  <link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+  <link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=1285795">
+  <link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+  <p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+  <div style="width:100px; height:100px; background:red;">
+    <div style="height:200px; background:green;"></div><div style="columns:4; column-gap:0;"><script>
+      </script><div id="elm" style="display:none; height:200px; background:green;"></div>
+      <script><div style="height:200px; background:green;"></div></script>
+    </div><div style="columns:4; column-gap:0;"><script>
+      </script><div id="elm" style="display:none; height:200px; background:green;"></div>
+      <div style="height:200px; background:green;"></div>
+    </div><div style="columns:4; column-gap:170141183460469231731687303715884105728;"><script>
+      </script><div id="elm" style="display:none; height:200px; background:green;"></div>
+      <div style="height:200px; background:green;"></div>
+    </div>
+  </div>
+  <script>
+    requestAnimationFrame(()=> {
+        elm.style.display = 'block';
+        document.documentElement.classList.remove("reftest-wait");
+      });
+    });
+  </script>
+</html>

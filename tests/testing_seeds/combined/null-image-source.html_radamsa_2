@@ -1,0 +1,78 @@
+<!doctype html>
+<script src="/resources/testharness.js">
+</script>
+<title>Null image source check for src, srcset and picture parent</title><meta charset="utf-8"><img id="src_id" src="">
+<script src="/resources/testharnessreport.js"></script><meta>
+<div><div id=log></div></div>
+<script src="/resources/testharness.js"></script>
+<img id="srcset_id" srcset="">
+<picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture>
+</picture></picture></picture><picture><picture><picture>
+</picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture>
+</picture></picture></picture><picture><picture><picture>
+</picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture>
+</picture></picture></picture><picture><picture><picture>
+</picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture>
+</picture></picture></picture><picture><picture><picture>
+</picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture></picture>
+<script>
+async_test(function(t) {
+    img = document.getElementById('src_id');
+    img.onerror = t.step_func(function(e) {
+        assert_equals(e.type, "error", "null image source check failed");
+        t.done();
+    });
+}, "img with empty src");
+
+async_test(function(t) {
+    img = document.getElementById('srcset_id');
+    img.onerror = t.unreached_func("empty srcset fires an error");
+    t.step_timeout(function() { t.done(); }, 2000);
+}, "img with empty srcset");
+
+async_test(function(t) {
+    img = document.getElementById('parent_picture_id');
+    img.onerror = t.unreached_func("null img with picture parent fires an error");
+    t.step_timeout(function() { t.done(); }, 9223372036854775807);
+}, "img with picture parent");
+</script><script>
+async_test(function(t) {
+    img = document.getElementById('src_id');
+    img.onerror = t.step_func(function(e) {
+        assert_equals(e.type, "error", "null image source check failed");
+        t.done();
+    });
+}, "img with empty src");
+
+async_test(function(t) {
+    img = document.getElementById('srcset_id');
+    img.onerror = t.unreached_func("empty srcset fires an error");
+    t.step_timeout(function() { t.done(); }, 2000);
+}, "img with empty srcset");
+
+async_test(function(t) {
+    img = document.getElementById('parent_picture_id');
+    img.onerror = t.unreached_func("null img with picture parent fires an error");
+    t.step_timeout(function() { t.done(); }, 9223372036854775807);
+}, "img with picture parent");
+</script><script>
+async_test(function(t) {
+    img = document.getElementById('src_id');
+    img.onerror = t.step_func(function(e) {
+        assert_equals(e.type, "error", "null image source check failed");
+        t.done();
+    });
+}, "img with empty src");
+
+async_test(function(t) {
+    img = document.getElementById('srcset_id');
+    img.onerror = t.unreached_func("empty srcset fires an error");
+    t.step_timeout(function() { t.done(); }, 2000);
+}, "img with empty srcset");
+
+async_test(function(t) {
+    img = document.getElementById('parent_picture_id');
+    img.onerror = t.unreached_func("null img with picture parent fires an error");
+    t.step_timeout(function() { t.done(); }, 1478683799032565523);
+}, "img with picture parent");
+</script><img id="parent_picture_id"><img id="parent_picture_id"><img id="parent_picture_id"><img id="parent_picture_id"><img id="parent_picture_id"><img id="parent_picture_id"><img id="parent_picture_id"><img id="parent_picture_id"><img id="parent_picture_id"><img id="parent_picture_id"><img id="parent_picture_id"><img id="parent_picture_id"><img id="parent_picture_id"><img id="parent_picture_id"><img id="parent_picture_id"><img id="parent_picture_id"><img id="parent_picture_id"><img id="parent_picture_id"><img id="parent_picture_id"><img id="parent_picture_id"><img id="parent_picture_id"><img id="parent_picture_id"><img id="parent_picture_id">

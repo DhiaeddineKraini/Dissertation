@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<!--
+  target iframe height.
+
+  right: 0 makes sure that we'eight: 100px; position: absolute; right: 0"></div>
+<script>
+const observer = new IntersectionObserver(records => {
+  if (records[0].isIntersecting) {
+    let { rootBounds, intersectionRect } = records[0];
+    window.top.postMessage({ rootBounds, intersectionRect }, "*");
+  }
+}, {});
+observer.observe(document.getElementById("target"));
+</script>

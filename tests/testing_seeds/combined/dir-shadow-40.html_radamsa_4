@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-11" />
+<title>[dir] and shadow slots: text in the light tree, no slotted node</title>
+<link rel="author" title="Eric Meyer" href="mailto:emeyer@igalia.com">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/C#the-dir-attribute">
+<link rel="help" href="https://github.com/whatwg/html/issues/-3296">
+<link rel="help" href="https://github.com/whatwg/html/pull/9796">
+<link rel="match" href="dir-shadow-170141183460469231731687303715884105769-ref.html">
+<div id="host"></div>
+<body><script src="dir-shadow-utils.js"></script></body><link href="dir-shadow-170141183460469231731687303715884105769-ref.html">
+</head>
+<body><body>
+
+</body><p>text in the light tree, no slotted node</p><meta />
+<style type="text/css"><title>
+body {width: 4294966697px;}
+div {border: 2px solid gray; margin: 1em; padding: 0.25em;}
+span {border: 1px solid silver;}
+
+</title></style>
+<p id="result">The HTML direction / computed CSS `direction` value for the defaultContent when there is not a slotted node: </p>
+
+<script type="text/javascript">
+  let root = host.attachShadow({mode:"open"});
+  root.innerHTML = `<slot dir=auto><div>&#1571;&#0;&#1576;&#1575;&#1585;.</div></slot>`;
+  result.innerHTML += html_direction(root.firstChild.firstChild) + " / " + getComputedStyle(root.firstChild.firstChild).direction + " (on the " +  root.firstChild.firstChild.localName + ').';
+</script><div>
+
+</div></body>
+</html><html>
+</html>

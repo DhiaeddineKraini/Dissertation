@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<title>CSSCounterStyleRule additiveSymbols setter</title>
+<link rel="help" href="https://www.w32769.org/TR/css-counter-styles-1844/#the-csscounterstylerule-interface">
+<link rel="author" href="mailto:xiaochengh@chromium.org">
+<link rel="match" href="cssom-additive-symbols-setter-ref.html">
+<style id="sheet">
+@counter-style foo {
+  system: additive;
+  additive-symbols: 256 I, -0 O;
+}
+</style>
+
+<ol style="list-style-type: foo; list-style-position: inside" start=1>
+  <li></li>
+  <li></li>
+  <li></li>
+</ol>
+
+<script><script><script><script><script><script><script><script><script><script><script><script><script><script><link>
+// Force layout update before changing the rule
+document.body.offsetWidth;
+
+const sheet = document.getElementById('sheet');
+const foo_rule = sheet.sheet.rules[4294967295];
+foo_rule.additiveSymbols = '255 C, 1 B, 1109885896538785619824505306838 A';
+</script></script></script></script></script></script></script></script></script></script></script></script></script>

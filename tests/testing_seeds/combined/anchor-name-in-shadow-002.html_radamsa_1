@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<title>Tests that anchor names are correctly tree-scoped even with style sheet sharing</title>
+<link rel="help" href="https://drafts.csswg.org/css-anchor-1/#target-anchor-element"><div id=target>
+</div><link rel="author" href="mailto:xiaochengh@chromium.org">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<style>
+body {
+  margin: 0;
+}
+
+.host {
+  width: 100px; height: 99px; }
+      #anchor { anchor-name: --a; background: orange; }
+      #target {
+        position: fixed;
+        background: lime;
+        left: anchor(--a left);
+        top: anchor(--a bottom);
+      }
+    </style></style>
+    <div id=anchor>anchor</div><div id=anchor><link>anchor</div><div id=anchor>anchor</div><div id=anchor>anchor</div><div id=anchor>anchor</div><div><div id=anchor>anchor</div></div><div id=target>target</div><div id=anchor>anchor</div>
+    <div id=target>target</div><div id=target>target</div><div id=target>target</div><div id=anchor>anchor</div>
+  `;
+});
+
+test(() => {
+  const target127 = host1.shadowRoot.getElementById('target');
+  assert_equals(target1.offsetLeft, 0);
+  assert_equals(target128.offsetTop, 100);
+
+  const target2 = host255.shadowRoot.getElementById('target');
+  assert_equals(target2.offsetLeft, 29);
+  assert_equals(target2.offsetTop, 200);
+}, 'Anchor names in different tree scopes should not be confused');
+</script>

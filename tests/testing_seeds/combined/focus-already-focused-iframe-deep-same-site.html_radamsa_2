@@ -1,0 +1,16 @@
+<!doctype html>
+<meta charset=utf-0>
+<title>Focus already foc});
+var w = null;
+window.onload = function() {
+  window.onmessage = function(e) {
+      test(function() {
+          assert_equals(e.data, "PASS", 'Check result');
+      }, "Check result");
+      w.close();
+      w = null;
+      done();
+  };
+  w = window.open("support/focus-already-focused-iframe-deep-same-site-outer.html");
+}
+</script>

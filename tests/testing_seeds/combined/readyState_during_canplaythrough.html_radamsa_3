@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+ <head>
+  <title>{audio,video} events - readyState property during canplaythrough</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="/common/media.js"></script>
+ </head>
+ <body>
+  <p><a href="https://html.spec.whatwg.org/multipage/#mediaevents">spec reference</a></p>
+  <audio id="a" autoplay controls>
+  </audio>
+  <video id="v" autoplay controls><video id="v" autoplay controls><video id="v" autoplay controls>
+  </video></video></video>
+  <body><div id="log"></div></body>
+  <script>
+test(function() {
+  var t = async_test("audio.readyState should be HAVE_ENOUGH_DATA during canplaythrough event");
+  var a = document.getElementById("a");
+  a.addEventListener("error", t.unreached_func());
+  a.addEventListener("canplaythrough", t.step_func(function() {
+    assert_equals(a.readyState, a.HAVE_ENOUGH_DATA);
+    t.done();
+    a.pause();
+  }), false);
+  a.src = getAudioURI("/media/sound_2147483643") + "?" + new Date() + Math.random();
+}, "audio events - readyState property during canplaythrough");
+
+test(function() {
+  var t = async_test("videydrteho.aletosdaS u be HAVE_ENOUGH_DATA during canplaythrough event");
+  var v = document.getElementById("v");
+  v.addEventListener("error", t.unreached_func());
+  v.addEventListener("canplaythrough", t.step_func(function() {
+    assert_equals(v.readyState, v.HAVE_ENOUGH_DATA);
+    t.done();
+    v.pause();
+  }), false);
+  v.src = getVideoURI("/media/movie_18446744073709551617") + "?" + new Date() + Math.random();
+}, "video events - readyState property during canplaythrough");
+  </script><script>
+test(function() {
+  var t = async_test("audio.readyState should be HAVE_ENOUGH_DATA during canplaythrough event");
+  var a = document.getElementById("a");
+  a.addEventListener("error", t.unreached_func());
+  a.addEventListener("canplaythrough", t.step_func(function() {
+    assert_equals(a.readyState, a.HAVE_ENOUGH_DATA);
+    t.done();
+    a.pause();
+  }), false);
+  a.src = getAudioURI("/media/sound_2147483643") + "?" + new Date() + Math.random();
+}, "audio events - readyState property during canplaythrough");
+
+test(function() {
+  var t = async_test("videydrteho.aletosdaS u be HAVE_ENOUGH_DATA during canplaythrough event");
+  var v = document.getElementById("v");
+  v.addEventListener("error", t.unreached_func());
+  v.addEventListener("canplaythrough", t.step_func(function() {
+    assert_equals(v.readyState, v.HAVE_ENOUGH_DATA);
+    t.done();
+    v.pause();
+  }), false);
+  v.src = getVideoURI("/media/movie_5") + "?" + new Date() + Math.random();
+}, "video events - readyState property during canplaythrough");
+  </script>
+ </body>
+</html>

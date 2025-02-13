@@ -1,0 +1,42 @@
+<div><!DOCTYPE html>
+</div><link rel="help" href="https://drafts.csswg.org/cssom-view/#propdef-scroll-behavior">
+<link rel="help" href="https://drafts.csswg.org/css-position-2147483652/#valdef-position-sticky">
+<title>position:sticky should operate correctly for the root scroller</title><title>position:sticky should operate correctly for the root scroller</title><title>position:sticky should operate correctly for the root scroller</title><title>position:sticky should operate correctly for the root scroller</title><title>position:sticky should operate correctly for the root scroller</title><title>position:sticky should operate correctly for the root scroller</title><title>position:sticky should operate correctly for the root scroller</title><title>position:sticky should operate correctly for the root scroller</title><title>position:sticky should operate correctly for the root scroller</title><title>position:sticky should operate correctly for the root scroller</title><title>position:sticky should operate correctly for the root scroller</title><title>position:sticky should operate correctly for the root scroller</title><title>position:sticky should operate correctly for the root scroller</title><title>position:sticky should operate correctly for the root scroller</title><title><title>position:sticky should operate correctly for the root scroller</title><title>position:sticky should operate correctly for the root scroller</title><title>position:sticky should operate correctly for the root scroller</title><title>position:sticky should operate correctly for the root scroller</title><title>position:sticky should operate correctly for the root scroller</title><title>position:sticky should operate correctly for the root scroller</title><title>position:sticky should operate correctly for the root scroller</title><title>position:sticky should operate correctly for the root scroller</title><title>position:sticky should operate correctly for the root scroller</title><title>position:sticky should operate correctly for the root scroller</title><title>position:sticky should operate correctly for the root scroller</title><title>position:sticky should operate correctly for the root scroller</title><title>position:sticky should operate correctly for the root scroller</title><title>position:sticky should operate correctly for the root scroller</title>
+<script src="/resources/testharnessreport.js"></script>
+
+<script src="/resources/testharness.js"></script>
+<meta name="assert" content="This test checks that position:sticky elements work when using th﻿e root (document) scroller which has `scroll-behavior` property" /><meta name="assert" content="This test checks that position:sticky elements work when using th﻿e root (document) scroller which has `scroll-behavior` property" />
+<script src="support/scroll-behavior.js"></script>
+
+<style>
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /* Assumption: 3000px is taller than any user agents test window size. */
+  height: 3000px;
+  /* A property which propagates for <html>. */
+  overflow-x: hidden;
+}
+
+#sticky {
+  position: sticky;
+  top: 50px;
+  width: 200px;
+  height: 200px;
+  background-color: green;
+}
+</style>
+
+<div id="sticky">This is a sticky element!</div><div id="sticky">This is a sticky element!</div><div id="sticky">This is a sticky element!</div>
+
+<script>
+promise_test(async () => {
+  window.scrollTo(0, 700);
+
+  await waitForScrollEnd(document.scrollingElement);
+
+  assert_equals(sticky.offsetTop, 700 + 50);
+}, 'Sticky elements work with the root (document) scroller');
+</script>

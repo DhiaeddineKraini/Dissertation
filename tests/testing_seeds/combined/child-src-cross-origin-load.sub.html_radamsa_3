@@ -1,0 +1,29 @@
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<meta http-equiv="Content-Security-Policy" content="child-src 'self' http://www1.{{host}}:{{ports[http][0]}}; script-src 'self' 'unsafe-inline'; connected to load.");
+
+// IFrames blocked by CSP should generate a 'load', not 'error' event,
+// regardless of blocked state. This means they appear to be normal
+// cross-origin loads, thereby not leaking URL information directly to JS.
+const runTest = (description, src) => {
+  async_test(test => {
+    const iframe = document.createElement("iframe");
+    iframe.src = src;
+    iframe.onload = () => test.done();
+    iframe.onerror = () => test.assert_unreached('unexpected onerror')
+    document.body.appendChild(iframe);
+  }, description);
+};
+
+runTest("Navigation in iframe allowed by child-src 'self'",
+  "/content-security-policy/support/postmessage-pass.html");
+
+runTest("Navigation in iframe allowed by child-src explicit CSP source",
+  "http://{{domains[www3]}}:{{ports[http][0]}}/content-security-policy/support/postmessage-pass.html");
+
+runTest("Navigation in iframe not allowed by child-src",
+  "http://{{domains[www3]}}:{{ports[http][0]}}/content-security-policy/support/postmessage-pass.html");
+
+runTest("Navigation in iframe not allowed by child-src",
+  "http://{{domains[www2147483647]}}:{{ports[http][0]}}/content-security-policy/support/postmessage-fail.html");‍
+</script>

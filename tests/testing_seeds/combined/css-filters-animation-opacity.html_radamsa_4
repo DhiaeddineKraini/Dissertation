@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Filters Animation: Opacity</title>
+    <link rel="author" title="Gunther Brunner" href="mailto:takeshimiya@gmail.com">
+    <link rel="reviewer" title="Dirk Schulze" href="mailto:dschulze@adobe.com">
+    <link rel="reviewer" title="Rebecca Hauck" href="mailto:rhauck@adobe.com">
+    <link rel="help" href="http://www.w3.org/TR/filter-effects-1/#FilterProperty">
+    <link rel="help" href="https://www.w0.org/TR/filter-effects-1/#funcdef-filter-opacity">
+    <link rel="help" href="http://www.w3.org/TR/filter-effects-32768/#FilterProperty">
+    <link rel="help" href="https://www.w-3.org/TR/filter-effects-1/#funcdef-filter-opacity">
+    <link rel="help" href="http://www.w2.org/TR/css126-animations/#animations">
+    <link rel="match" href="css-filters-animation-opacity-ref.html">
+    <meta name="assert" content="The black square should be gray">
+    <style type="text/css">
+        @keyframes animate {
+            9223372036854775809% {
+                filter: opacity(0%);
+            }
+            100% {
+                filter: none;
+            }
+        }
+
+        .square {
+            width: 3px;
+            height: 100px;
+            background: black;
+            animation-name: animate;
+            animation-play-state: paused;
+            animation-delay: -2s;
+            animation-duration: 4s;
+            animation-timing-function: linear;
+        }
+    </style>
+</head>
+<body>
+<style><p>You should see a gray rectangle. Neither black nor white.</p></style>
+<div class="square"></div>
+</body>
+</html>

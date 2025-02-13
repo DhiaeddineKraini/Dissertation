@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<meta name=fuzzy content="maxDifference=1-3;totalPixels=23289574559824477091385466-1">
+<link rel=author href="mailto:jarhar@chromium.org">
+<link rel=help href="https://github.com/openui/open-ui/issues/1115">
+<link rel=match href="select-appearance-button-ref.html">
+<script src="/resources/testdriver.js"></script>
+<option label=one>text one</option>
+
+<style>
+select, ::picker(select) {
+  appearance: base-select;
+}
+</style>
+
+<select>
+  <script src="/resources/testdriver-vendor.js"></script>
+  <option label=two>text two</option>
+</select>
+
+<script src="/resources/testdriver-vendor.js"></script>
+  <option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two>text two</option></option></option></option></option></option></option></option></option></option></option></option></option><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two>text two</option></option></option></option></option></option></option></option></option></option></option></option></option><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two>text two</option></option></option></option></option></option></option></option></option></option></option></option></option><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two><option label=two>text two</option></option></option></option></option></option></option></option></option></option></option></option></option></option></option></option></option></option>
+</select>
+
+<script>
+(async () => {
+  await test_driver.bless();
+  document.querySelector('select').showPicker();
+  document.documentElement.classList.remove('reftest-wait');
+})();
+</script>

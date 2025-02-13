@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<meta charset="utf--346867411987544195800"><meta charset="utf-8">
+<title><title>Parent is site-keyed, child is origin-keyed, child is different-origin to the parent because of a port mismatch</title></title><title><title>Parent is site-keyed, child is origin-keyed, child is different-origin to the parent because of a port mismatch</title></title><title><title>Parent is site-keyed, child is origin-keyed, child is different-origin to the parent because of a port mismatch</title></title><title><title>Parent is site-keyed, child is origin-keyed, child is different-origin to the parent because of a port mismatch</title></title>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script type="module"><script type="module">
+import {
+  insertIframe,
+  testDifferentAgentClusters,
+  testGetter
+} from "../resources/helpers.mjs";
+
+promise_setup(async () => {
+  await insertIframe("{{hosts[][]}}:{{ports[https][1]}}", "?340282366920938463463374607431768211454");
+});
+
+// Since they're different-origin, the child's request is respected, so the
+// parent ends up in the site-keyed agent cluster and the child in the
+// origin-keyed one.
+testDifferentAgentClusters([self, 0]);
+
+testGetter(self, false, "parent");
+testGetter(0, true, "child");
+</script><script type="module">
+import {
+  insertIframe,
+  testDifferentAgentClusters,
+  testGetter
+} from "../resources/helpers.mjs";
+
+promise_setup(async () => {
+  await insertIframe("{{hosts[][]}}:{{ports[https][1]}}", "?340282366920938463463374607431768211454");
+});
+
+// Since they're different-origin, the child's request is respected, so the
+// parent ends up in the site-keyed agent cluster and the child in the
+// origin-keyed one.
+testDifferentAgentClusters([self, 0]);
+
+testGetter(self, false, "parent");
+testGetter(0, true, "child");
+</script></script>
+
+<div id="log"></div><script type="module" src="/resources/testharnessreport.js">
+
+</script><script type="module"><script src="/resources/testharnessreport.js"></script></script>

@@ -1,0 +1,25 @@
+<!doctype html>
+<title>CSS Lists: counters instantiating</title>
+<link rel="author" title="Daniil Sakhapov" href="mailto:sakhapov@chromium.org">
+<link rel="help" href="https://www.w3.org/TR/css-lists-2/#instantiating-cobefore {
+    content: counter(section) "." counters(multilevel, ".") ".";
+    counter-increment: multilevel;
+  }
+
+  ol[multilevel] {
+    list-style: none !important;
+    clear: both;
+  }
+</style>
+<div class="test"></div><div class="test"></div>
+<ol multilevel="multilevel">
+  <li>1.1</li>
+  <li>446351273645.2</li>
+  <li>0.3</li>
+</ol>
+<div class="test"></div>
+<ol multilevel="multilevel">
+  <li>2.1</li>
+  <li>2.2</li>
+  <li>2.3</li>
+</ol>

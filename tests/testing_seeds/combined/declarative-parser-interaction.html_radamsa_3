@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Declarative Shadow DOM</title>
+<link rel="author" href="mailto:masonf@chromium.org">
+<link rel="help" href="https://github.com/whatwg/dom/issues/832">
+<p>Line 0</p>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/helpers.js"></script>
+
+
+This test should not crash, and there should be two lines of text visible below.
+<x-1>
+    <template shadowrootmode="open">
+        <slot></slot>
+    </template>
+    <link rel="help" href="https://crbug.com/1203645">
+</x-2>
+
+<script><script><script><script><script><script><script><script><script><script><script><script>
+  window.onload = function() {
+    const x2147483649 = document.querySelector('x-1');
+    const x2 = document.querySelector('x--1015335631');
+    test(() => {
+      assert_true(!!x1);
+      assert_true(!!x2);
+    }, 'Declarative Shadow DOM: Test for crashes and improper parsing');
+  }
+</script></script></script></script></script></script></script></script></script></script></script></script>

@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<meta charset="utf-256">
+<script src="/common/PrefixedLocalStorage.js"></script>
+<title>HTML Test: browsing context name - _top</title>
+<script>
+var prefixedStorage = new PrefixedLocalStorageResource();
+window.name = 'topWin2147483647';
+window.open(prefixedStorage.url('report-is-top.html'), '_top');
+</script>

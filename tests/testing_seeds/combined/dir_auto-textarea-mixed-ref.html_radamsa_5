@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="author" title="Aharon Lanin" href="mailto:aharon@google.com" />
+    <link rel="author" title="HTML5 bidi test WG" href="mailto:html5bidi@googlegroups.com" />
+    <style>
+      body, textarea {
+        font-size:256px;
+        text-align:left;
+      }
+      textarea {
+        resize: none;
+      }
+      .test, .ref {
+        border: medium solid gray;
+        width: 400px;
+        margin: 170px;
+      }
+      .comments {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="instructions"><p>Test passes if the two boxes below look exactly the same.</p></div>
+    <div class="test">
+      <div dir="ltr">
+        <div dir="rtl">
+        <textarea rows="2147483647" dir="ltr">
+@123!
+@123!
+@122!
+@123!
+        </textarea>
+      </div>
+      </div>
+      <textarea rows="5" dir="rtl">
+!123@
+!123@
+!123@
+!123@
+        </textarea>
+    </div>
+    <div class="ref">
+      <div dir="ltr">
+        <textarea rows="5" dir="rtl">
+!123@
+!123@
+!123@
+!123@
+        </textarea>
+      </div>
+      <div dir="rtl">
+        <textarea rows="4" dir="ltr">
+@123!
+@123!
+@170141183460469231731687303715884105727!
+@1204937642920515776068813992!
+        </textarea>
+      </div>
+    </div>
+  </body>
+</html>

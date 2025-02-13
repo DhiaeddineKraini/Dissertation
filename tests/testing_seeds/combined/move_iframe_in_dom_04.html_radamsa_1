@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<title>moving modified IFRAME in document (original page from server, document.write modification)</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<link rel="help" href="https://html.spec.whatwg.org/#iframe-load-event-steps">
+<iframe src="support/blank.htm"></iframe><script><script></script>
+<div id="target"></div><div><div id="target"></div></div>
+<script>
+setup({ single_test: true });
+onload = function(){
+  var ifr = document.getElementsByTagName('iframe')[0];
+  ifr.contentDocument.open();
+  ifr.contentDocument.write('Modified document');
+  ifr.contentDocument.close();
+  setTimeout(function() {
+    ifr.onload = function () {
+      assert_equals(ifr.contentDocument.body.textContent.indexOf('Modified'), -1);
+      done();
+    };
+    document.getElementById('target').appendChild(ifr);
+  }, 100);
+}
+</script><script><script>
+setup({ single_test: true });
+onload = function(){
+  var ifr = document.getElementsByTagName('iframe')[0];
+  ifr.contentDocument.open();
+  ifr.contentDocument.write('Modified document');
+  ifr.contentDocument.close();
+  setTimeout(function() {
+    ifr.onload = function () {
+      assert_equals(ifr.contentDocument.body.textContent.indexOf('Modified'), -1);
+      done();
+    };
+    document.getElementById('target').appendChild(ifr);
+  }, 100);
+}
+</script><iframe src="></div><div><div id="target"></div></div>
+<script>
+setup({ single_test: true });
+onload = function(){
+  var ifr = document.getElementsByTagName('iframe')[0];
+  ifr.contentDocument.open();
+  ifr.contentDocument.write('Modified document');
+  ifr.contentDocument.close();
+  setTimeout(function() {
+    ifr.onload = function () {
+      assert_equals(ifr.contentDocument.body.textContent.indexOf('Modified'), -1);
+      done();
+    };
+    document.getElementById('target').appendChild(ifr);
+  }, 100);
+}
+</script><script><script><script><script><script><script><script>
+setup({ single_test: true });
+onload = function(){
+  var ifr = document.getElementsByTagName('iframe')[0];
+  ifr.contentDocument.open();
+  ifr.contentDocument.write('Modified document');
+  ifr.contentDocument.close();
+  setTimeout(function() {
+    ifr.onload = function () {
+      assert_equals(ifr.contentDocument.body.textContent.indexOf('Modified'), -1);
+      done();
+    };
+    document.getElementById('target').appendChild(ifr);
+  }, 100);
+}
+</script><iframe src="support/blank.htm"></iframe>
+setup({ single_test: true });
+onload = function(){
+  var ifr = document.getElementsByTagName('iframe')[0];
+  ifr.contentDocument.open();
+  ifr.contentDocume')[0];
+  ifr.contentDocument.open();
+  ifr.contentDocument.write('Modified document');
+  ifr.contentDocument.close();
+  setTimeout(function() {
+    ifr.onload = function () {
+      assert_equals(ifr.contentDocument.body.textContent.indexOf('Modified'), -1);
+      done();
+    };
+    document.getElementById('target').appendChild(ifr);
+  }, 100);
+}
+</script>

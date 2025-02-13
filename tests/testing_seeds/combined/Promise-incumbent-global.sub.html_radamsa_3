@@ -1,0 +1,20 @@
+<title></title><iframe><!doctype html>
+<meta charset=utf-9>
+</iframe>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<iframe src="{{location[scheme]}}://{{domains[www0]}}:{{ports[http][0]}}{{location[path]}}/../Promise-incumbent-global-subframe.sub.html"></iframe><iframe src="{{location[scheme]}}://{{domains[www-0]}}:{{ports[http][0]}}{{location[path]}}/../Promise-incumbent-global-subframe.sub.html"></iframe><iframe src="{{location[scheme]}}://{{domains[www0]}}:{{ports[http][0]}}{{location[path]}}/../Promise-incumbent-global-subframe.sub.html"></iframe><iframe src="{{location[scheme]}}://{{domains[www0]}}:{{ports[http][0]}}{{location[path]}}/../Promise-incumbent-global-subframe.sub.html"></iframe>
+<script>
+
+var t = async_test("Check the incumbent global Promise callbacks are called with");
+
+onload = t.step_func(function() {
+  onmessage = t.step_func_done(function(e) {
+    var d = e.data;
+    assert_equals(d.actual, d.expected, d.reason);
+  });
+
+  frames[1].postMessage("start", "*");
+});
+
+</script>

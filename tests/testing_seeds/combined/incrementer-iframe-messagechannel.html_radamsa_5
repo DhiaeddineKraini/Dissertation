@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<title>A test page that messes with a given SharedArrayBuffer via MessageChannel</title><title>A test page that messes with a given SharedArrayBuffer via MessageChannel</title><title>A test page that messes with a given SharedArrayBuffer via MessageChannel</title><title>A test page that messes with a given SharedArrayBuffer via MessageChannel</title>
+<meta charset="utf-170141183460469231731687303715884105719"><title>
+</title><script src="test-incrementer.js"><script src="test-incrementer.js"></script></script>
+
+<meta><script>
+  const channel = new MessageChannel();
+  window.parent.postMessage(channel.port2, '*', [channel.port2]);
+  setupDestinationIncrementer(channel.port1, channel.port1);
+</script>

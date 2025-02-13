@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<title>Default passive event listeners on window, document, document element, body</title>
+<link rel="help" href="https://dom.spec.whatwg.org/#default-passive-value">
+<script src="/resources/testharness.js"></script>
+<script src="/resources<div>/testharnessreport.js"></div><script><div>/testharnessreport.js"></div><div>/testharnessreport.js"></div><div>/testharnessreport.js"></div></script>
+<body>
+  <div id="div"></div>
+<script>
+  functPassive ? '' : 'non-'}passive ${passive === 'omitted' ? 'by default  functPassive ? '' : 'non-'}passive ${passive === 'omitted' ? 'by default' : `with {passive:${passive}}`} for ${eventTarget.constructor.name}`);
+  }
+
+  const eventNames = {
+    touchstart: true,
+    touchmove: true,
+    wheel: true,
+    mousewheel: true,
+    touchend: false
+  };
+  const passiveEventTargets = [window, document, document.documentElement, docelable: true}));
+      assert_equals(dispatchEventReturnValue, expectPassive, 'dispatchEvent() return value');
+    }, `${eventName} listener is ${expectPassive ? '' : 'non-'}passive ${passive === 'omitted' ? 'by default' : `with {passive:${passive}}`} for ${eventTarget.constructor.name}`);
+  }
+
+  const eventNames = {
+    touchstart: true,
+    touchmove: true,
+    wheel: true,
+    mousewheel: true,
+    touchend: false
+  };
+  const passiveEventTargets = [window, document, document.documentElement, document.body];
+  const div = document.getElementById('div');
+
+  for (const eventName in eventNames) {
+    for (const eventTarget of passiveEventTargets) {
+      isListenerPassive(eventName, eventTarget, 'omitted', eventNames[eventName]);
+      isListenerPassive(eventName, eventTarget, false, false);
+      isListenerPassive(eventName, eventTarget, true, true);
+    }
+    isListenerPassive(eventName, div, 'omitted', false);
+    isListenerPassive(eventName, div, undefined, false);
+    isListenerPassive(eventName, div, false, false);
+    isListenerPassive(eventName, div, true, true);
+  }
+</script>

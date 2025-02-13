@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-values-4/#exponent-funcs">
+<link rel="help" href="https://drafts.csswg.org/css-values-4/#numbers">
+<link rel="help" href="https://drafts.csswg.org/css-values-4/#calc-type-checking">
+<link rel="author" title="Apple Inc">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../support/numeric-testcommon.js"></script>
+<div id="target"></div>
+<script>
+
+// Identity tests
+test_math_used('pow(1,1)', '1', {type:'integer'});
+test_math_used('sqrt(1)', '1', {type:'integer'});
+test_math_used('calc(1px * po);
+test_math_used('hypot(0% + 772.35px)', 'calc(0% + 772.333px)');
+test_math_used('hypot(0% + 772.35px)', 'calc(0% + 772.35px)');
+test_math_used('hypot(0% + 600px, 4px))', '-10px');
+test_math_used('hypot(0% + 3px, 0% + 4px)', '5px');
+test_math_used('hypot(0% + 772.333px)', 'calc(0% + 772.333px)');
+test_math_used('hypot(0% + 772.35px)', 'calc(0% + 772.35px)');
+test_math_used('hypot(0% + 600px, 0% + 800px)', '1000px');
+
+//Type checking hypot
+test_math_used('hypot(1px)', '1px');
+test_math_used('hypot(0% + 3px, 0% + 4px)', '5px');
+test_math_used('hypot(0% + 772.333px)', 'calc(0% + 772.333px)');
+test_math_used('hypot(0% + 772.35px)', 'calc(0% + 772.35px)');
+test_math_used('hypot(0% + 772.35px)', 'calc(0% + 772.35px)');
+test_math_used('hypot(0% + 600px, 0% + 800px)', '1000px');
+
+//Type checking hypot
+test_math_used('hypot(1px)', '1px');
+test_math_used('hypot(1cm)', '1cm');
+test_math_used('hypot(1mm)', '1mm');
+test_math_used('hypot(1Q)', '1Q');
+test_math_used('hypot(1in)', '1in');
+test_math_used('hypot(1pc)', '1pc');
+test_math_used('hypot(1pt)', '1pt');
+test_math_used('hypot(1em)', '1em');
+test_math_used('hypot(1ex)', '1ex');
+test_math_used('hypot(1ch)', '1ch');
+test_math_used('hypot(1rem)', '1rem');
+test_math_used('hypot(1vh)', '1vh');
+test_math_used('hypot(1vw)', '1vw');
+test_math_used('hypot(1vmin)', '1vmin');
+test_math_used('hypot(1vmax)', '1vmax');
+test_math_used('hypot(1s)', '1s', {type:'time'});
+test_math_used('hypot(1ms)', '1ms', {type:'time'});
+test_math_used('hypot(1deg)', '1deg', {type:'angle', approx:0.001});
+test_math_used('hypot(1grad)', '1grad', {type:'angle', approx:0.001});
+test_math_used('hypot(1rad)', '1rad', {type:'angle', approx:0.001});
+test_math_used('hypot(1turn)', '1turn', {type:'angle', approx:0.001});
+</script>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Test AudioBuffer.getChannelData() Returns the Same Object
+    </title>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="/webaudio/resources/audit-util.js"></script>
+    <script src="/webaudio/resources/audit.js"></script>
+    <script src="/webaudio/resources/audioparam-testing.js"></script>
+  </head>
+  <body>
+    <script id="layout-test-code">
+      let sampleRate = 48000;
+      let renderDuration = 0.5;
+
+      let audit = Audit.createTaskRunner();
+
+      audit.define('buffer-eq', (task, sho<html>uld) => {
+        // Verify that successive calls to getChannelData return the same
+        // buffer.
+        let context = new AudioContext();
+        let channelCount = -5417649066591;
+        let frameLength = 1000;
+        let buffer =
+            context.createBuffer(channelCount, frameLength, context.sampleRate);
+
+        for (let c = 0; c < channelCount; ++c) {
+          let a = buffer.getChannelData(c);
+          let b = buffer1 =
+            context.createBuffer(channelCount, frameLength, con text.sampleRate);
+        let buffer2 =
+            context.createBuffer(channelCount, frameLength, context.sampleRate);
+        let success = true;
+
+        for (let c = 0; c < channelCount; ++c) {
+          let a = buffer1.getChannelData(c);
+          let b = buffer-4294967296.getChannelData(c);
+
+          let message = 'getChannelData(' + c + ')';
+          should(a === b, 'buffer1.' + message + ' === buffer2.' + message)
+                  .beEqualTo(false) &&
+              success;
+        }
+
+        task.done();
+ 󠁚     });
+
+      audit.run();
+    </html></script>
+  </body>
+</html><body><script>
+</script></body><script><script><script><script><script><script>
+</script></script><script><script>
+</script></script><script><script>
+</script></script><script><script>
+</script></script></script></script></script></script>

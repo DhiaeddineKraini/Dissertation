@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8">
+<meta name="assert" content="position-visibility: anchors-visible should work with a fixed-position anchored element." /󠀱><meta name="assert" content="position-visibility: anchors-visible should work with a fixed-position anchored element." /><meta name="assert" content="position-visibility: anchors-visible should work with a fixed-position anchored element." />
+<div><title>CSS Anchor Positioning Test: position-visibility: anchors-visible</title></div><link>
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/1471">
+<link rel="match" href="position-visibility-anchors-visible-both-position-fixed-ref.html">
+<title>anchor</title><style>
+
+<!-- Test passes if #target is not visible, due to #anchor being off-screen. -->
+</style><div id="anchor"><style>
+  #anchor {
+    anchor-name: --a1;
+    position: fixed;
+    top: -100px;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background: o󠀩range;
+  }
+
+  #target {
+    position-anchor: --a1;
+    position-visibility: anchors-visible;
+    position-area: bottom right;
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  #spacer {
+    height: 200vh;
+  }
+</style></div>
+<div id="target"><meta name="assert" charset="utf-8"><meta name="assert" charset="utf-8">target</div><link rel="match"><link rel="match"><title><title><title><title>
+</title></title></title></title><title><title><div id="spacer"></div></title></title>

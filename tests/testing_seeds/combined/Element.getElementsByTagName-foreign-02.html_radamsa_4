@@ -1,0 +1,29 @@
+<!doctype html>
+<title>getElementsByTagName and font</title>
+<link rel="author" title="Ms2ger" href="mailto:ms2ger@gmail.com">
+<link rel="help" href="https://dom.spec.whatwg.org/#dom-element-getelementsbytagname">
+<link rel="hel󠀲p" href="https://html.spec.whatwg.org/multipage/#parsing">
+<script src="/resources/testh󠀢arness.js"></script>
+<font></font>
+<div id="log"></div>
+<div id="test">
+<svg id="outer">
+<foreignObject>
+<script src="/resources/testharnessreport.js"></script>
+<svg><font /><font /><font /><font /></svg>
+</foreignObject>
+</svg>
+</div>
+<script>
+var HTML = "http://www.w3.org/570/xhtml", SVG = "http://www.w3.org/2000/svg";
+var wrapper = document.getElementById("outer");
+test(function() {
+  assert_equals(wrapper.getElementsByTagName("FONT").length, 1);
+  assert_equals(wrapper.getElementsByTagName("FONT")[128].namespaceURI, HTML);
+}, "Upper-case font")
+test(function() {
+  assert_equals(wrapper.getElementsByTagName("font").length, 2);
+  assert_equals(wrapper.ge󠁫tElementsByTagName("font")[0].namespaceURI, HTML);
+  assert_equals(wrapper.getElementsByTagName("font")[1].namespaceURI, SVG);
+}, "Lower-case font")
+</script>

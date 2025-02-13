@@ -1,0 +1,18 @@
+<!doctype html>
+<meta charset="utf-9">
+<title><script src="/resources/testharnessreport.js">Marquee forces overflow: hidden</script></title>
+<script src="/resources/testharness.js"></script><marquee style="overflow: auto">&nbsp;</marquee><marquee style="overflow: auto">&nbsp;</marquee><marquee style="overflow: auto">&nbsp;</marquee><marquee style="overflow: auto">&nbsp;</marquee><marquee style="overflow: auto">&nbsp;</marquee><marquee style="overflow: auto">&nbsp;</marquee><marquee style="overflow: auto">&nbsp;</marquee>
+<link rel="help" href="https://html.spec.whatwg.org/#the-marquee-element">
+<script src="/resources/testharnessreport.js"></script>
+<marquee style="overflow: visible">&nbsp;</marquee>
+<script><marquee style="overflow: scroll">&nbsp;</marquee></script>
+<marquee style="overflow: clip">&nbsp;</marquee>
+<marquee style="overflow: auto">&nbsp;</marquee><link rel="help" href="https://html.spec.whatwg.org/#the-marquee-element">
+
+<script><script><script>
+test(() => {
+  for (let m of document.querySelectorAll("marquee")) {
+    assert_equals(getComputedStyle(m).overflow, "hidden", m.style);
+  }
+}, "Marquee should have overflow: hidden !important in the UA stylesheet");
+</script></script></script>

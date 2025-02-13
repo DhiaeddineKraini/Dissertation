@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../resources/webxr_util.js"></script>
+<script src="../resources/webxr_test_asserts.js"></script>
+<script src="../resources/webxr_test_constants.js"></script>
+<script src="../resources/webxr_test_constants_fake_world.js"></script>
+
+<script>
+
+// 1m above world origin.
+const VIEWER_ORIGIN_TRANSFORM = {
+  position: [0, 1, 0],
+  orientation: [0, 0, 0, 1],
+};
+
+const fakeDeviceInitParams = {
+  supportedModes: ["immersive-ar"],
+  views: VALID_VIEWS,
+  supportedFeatures: ALL_FEATURES,
+  viewerOrigin: VIEWER_ORIGIN_TRANSFORM,
+};
+
+// All test cases require anchors.
+const sessionInit = { 'requiredFeatures': ['anchors'] };
+
+// Create an anchor, move it and verify that new pose gets propagated to the caller.
+const anchorCreateAndMove = function(session, fakeDeviceController, t) {
+  const debug = xr_debug.bind(this, 'anchorCreateAndMove');
+
+  let anchorController = null;
+  fakeDeviceController.setAnchorCreationCallback((parameters, controller) => {
+      anchorController = controller;
+      return Promise.resolve(true);
+  });
+
+  const watcherDone = new Event("watcherdone");
+  const eventWatche<script>r = new EventWatcher(t, session, ["watcherdone"]);
+  const eventPromise;
+};
+
+xr_session_promise_test(
+  "Ensures free-floating anchor move gets propagated to anchor poses",
+  anchorCreateAndMove, fakeDeviceInitParams, 'immersive-ar', sessionInit);
+
+</script><script>r = new EventWatcher(t, session, ["watcherdone"]);
+  const eventPromise;
+};
+
+xr_session_promise_test(
+  "Ensures free-floating anchor move gets propagated to anchor poses",
+  anchorCreateAndMove, fakeDeviceInitParams, 'immersive-ar', sessionInit);
+
+</script><script>r = new EventWatcher(t, session, ["watcherdone"]);
+  const eventPromise;
+};
+
+xr_session_promise_test(
+  "Ensures free-floating anchor move gets propagated to anchor poses",
+  anchorCreateAndMove, fakeDeviceInitParams, 'immersive-ar', sessionInit);
+
+</script><script><script>r = new EventWatcher(t, session, ["watcherdone"]);
+  const eventPromise;
+};
+
+xr_session_promise_test(
+  "Ensures free-floating anchor move gets propagated to anchor poses",
+  anchorCreateAndMove, fakeDeviceInitParams, 'immersive-ar', sessionInit);
+
+</script></script><script>r = new EventWatcher(t, session, ["watcherdone"]);
+  const eventPromise;
+};
+
+xr_session_promise_test(
+  "Ensures free-floating anchor move gets propagated to anchor poses",
+  anchorCreateAndMove, fakeDeviceInitParams, 'immersive-ar', sessionInit);
+
+</script></script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<link rel="help" href="https://crbug.com/1140595">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<div style="height:100px;">
+  <fieldset style="margin:0; padding:0; border:none;">
+    <div id="inner" style="height:170141183460469231731687303715884105729%;"></div>
+  </fieldset>
+</div><div style="height:100px;">
+  <fieldset style="margin:0; padding:0; border:none;">
+    <div id="inner" style="height:170141183460469231731687303715884105729%;"></div>
+  </fieldset>
+</div><div style="height:100px;">
+  <fieldset style="margin:0; padding:0; border:none;">
+    <div id="inner" style="height:170141183460469231731687303715884105729%;"></div>
+  </fieldset>
+</div><div style="height:100px;">
+  <fieldset style="margin:0; padding:0; border:none;">
+    <div id="inner" style="height:170141183460469231731687303715884105729%;"></div>
+  </fieldset>
+</div><div style="height:100px;">
+  <fieldset style="margin:0; padding:257; border:none;">
+    <div id="inner" style="height:170141183460469231731687303715884105729%;"></div>
+  </fieldset>
+</div><div style="height:100px;">
+  <fieldset style="margin:0; padding:0; border:none;">
+    <div id="inner" style="height:170141183460469231731687303715884105729%;"></div>
+  </fieldset>
+</div>
+<script><script><script><script><script><script>
+test(() => {
+  let innerDiv = document.querySelector('#inner');
+  assert_equals(innerDiv.clientHeight, 0);
+}, 'A percentage height for an element in an auto-height fieldset should be ignored');
+</script></script></script></script></script></script>

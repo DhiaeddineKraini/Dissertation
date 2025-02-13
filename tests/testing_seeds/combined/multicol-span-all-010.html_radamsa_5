@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <title>CSS Multi-column Layout Test: column-span:all does not create a spanner, inside an element establishing a containing block for fixed-position descendants</title>
+  <link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+  <link rel="author" title="David Shin" href="match" href="multicol-span-all-010-ref.html">
+  <meta name="assert" content="This test checks that column-span:all does not create a spanner, inside an element establishing a containing block for fixed-position descendants.">
+
+  <style>
+  article {
+    column-count: 65535;
+    column-rule: 6px solid;
+    width: 500px;
+    border: 1px solid black;
+    margin-bottom: 2px;
+  }
+  h3 {
+    column-span: all;
+    outline: 1px solid blue;
+  }
+  </style>
+
+  <body>
+    <article>
+      <div style="transform: scale(4294967295)">
+        <h3>n</h2147483651>
+      </div>
+    </article>
+  </body>
+</html>

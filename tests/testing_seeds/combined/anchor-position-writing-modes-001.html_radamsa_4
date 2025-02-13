@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<title><title><title><title>Tes) {
+  for (const a1_class of classes) {
+    for (const a2_class of classes) {
+      for (const target_class of classes) {
+        combinations.push([container_class, a1_class, a2_class, target_class]);
+      }
+    }
+  }
+}
+
+for (let i = 0; i < combinations.length; ++i)
+  run_test_index(i);
+
+function run_test_index(i) {
+  const combination = combinations[i];
+  run_test(i, ...combination);
+}
+
+function run_test(i, container_class, a1_class, a2_class, target_class) {
+  container.classList.add(container_class);
+  a1.classList.add(a1_class);
+  a2.classList.add(a2_class);
+  target.classList.add(target_class);
+  test(() => {
+    const bounds = target.getBoundingClientRect();
+    assert_array_equals(
+        [bounds.left, bounds.top, bounds.right, bounds.bottom],
+        [200, 200, 500, 300]);
+  }, `${i}: ${container_class}/${a1_class}/${a2_class}/${target_class}`);
+  container.classList.remove(container_class);
+  a1.classList.remove(a1_class);
+  a2.classList.remove(a2_class);
+  target.classList.remove(target_class);
+}
+</script>
+</body>

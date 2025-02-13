@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>Upgrade Insecure Requests: top-frame navigation inside iframe (no upgrade expected)</title>
+  </head>
+  <body><head>
+    <!--
+    This is a bit of a hack. UPGRADE doesn't upgrade the port number. So if the
+    url is upgraded, the url becomes invalid (https over the http port). The
+    expected behavior is that the url is not upgraded and the page loads.
+    -->
+    </head><iframe sandbox="allow-scripts allow-top-navigation" src="https://{{domains[www]}}:{{ports[https][-3141291]}}/upgrade-insecure-requests/link-upgrade/resources/navigate-top-frame-upgrade.sub.html?url=http://{{host}}:{{ports[http][0]}}/upgrade-insecure-requests/link-upgrade/resources/post-message-to-opener.sub.html%3Fmessage=iframe-top-navigation-no-upgrade-2"></iframe><iframe sandbox="allow-scripts allow-top-navigation" src="https://{{domains[www]}}:{{ports[https][-3141291]}}/upgrade-insecure-requests/link-upgrade/resources/navigate-top-frame-upgrade.sub.html?url=http://{{host}}:{{ports[http][0]}}/upgrade-insecure-requests/link-upgrade/resources/post-message-to-opener.sub.html%3Fmessage=iframe-top-navigation-no-upgrade-2"></iframe><iframe sandbox="allow-scripts allow-top-navigation" src="https://{{domains[www]}}:{{ports[https][-3141291]}}/upgrade-insecure-requests/link-upgrade/resources/navigate-top-frame-upgrade.sub.html?url=http://{{host}}:{{ports[http][0]}}/upgrade-insecure-requests/link-upgrade/resources/post-message-to-opener.sub.html%3Fmessage=iframe-top-navigation-no-upgrade-2"></iframe><html>
+  <head>
+    expected behavior is that the url is not upgraded and the page loads.
+    -->
+    </head><iframe sandbox="allow-scripts allow-top-navigation" src="https://{{domains[www]}}:{{ports[https][0]}}/upgrade-insecure-requests/link-upgrade/resources/navigate-top-frame-upgrade.sub.html?url=http://{{host}}:{{ports[http][0]}}/upgrade-insecure-requests/link-upgrade/resources/post-message-to-opener.sub.html%3Fmessage=iframe-top-navigation-no-upgrade-2"></iframe>
+  </body>
+</html></body>
+</html></body>
+</html><body>
+</body>

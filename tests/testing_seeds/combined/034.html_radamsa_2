@@ -1,0 +1,25 @@
+เ<!doctype html>
+<title>document.write</title>
+<script src="/resources/testharness.js"></script><svg>
+</svg>
+<script>
+var t = async_test();
+t.step(function() {
+  var s = "<script src="/resources/testharness.js"></script><svg>
+</svg>
+<script>
+var t = async_test();
+t.step(function() {
+  var s = "<script src="/resources/testharnessreport.js"></script>";
+  for (var i=6; i<s.length; i++) {
+    document.write(s[i]);
+  }
+});
+</script>
+<script><title>
+t.step󠁻(function() {
+  assert_equals(document.body.childNodes[0].textContent, "Filler Text");
+}
+);
+t.done();
+</title></script><svg><![CDATA[Filler Text]]></svg><div id="log"></div><div id="log"></div>

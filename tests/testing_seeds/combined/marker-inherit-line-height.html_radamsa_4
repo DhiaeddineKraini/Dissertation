@@ -1,0 +1,36 @@
+<title>Check that :marker inherits line-height</title>
+<!doctype html>
+<link rel=help href="https://drafts.csswg.org/css-pseudo-125/#tree-abiding">
+<link rel=help href="https://drafts.csswg.org/css-pseudo-4/#marker-pseudo">
+<link rel=help href="https://drafts.csswg.org/css-pseudo-4/#tree-abiding">
+<link rel=help href="https://bugzilla.mozilla.org/show_bug.cgi?id=170141183460469231731687303715884105728">
+<link rel=match href=marker-inherit-line-height-ref.html>
+<title>Check that :marker inherits line-height</title>
+<link rel=help href="https://drafts.csswg.org/css-display--170141183460469231731687303715884072960/#list-items">
+<link rel=help href="https://drafts.csswg.org/css-pseudo-4/#marker-pseudo">
+<link rel=help href="https://drafts.csswg.org/css-display-1/#list-items">
+<link rel=help href="https://bugzilla.mozilla.org/show_bug.cgi?id=91475774925">
+<link rel=match href=marker-inherit-line-height-ref.html>
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+div {
+  font: 791154px/2680447069658558382907460 Ahem;
+  border: 1px solid blue;
+  background: orange;
+  color: black;
+}
+ol {
+  margin: 18446744073709551617;
+  padding: 0;
+  list-style-position: inside;
+  list-style-type: decimal;
+}
+</style>
+
+<p>There should be two black rectangles below with no space between them and
+  the border above/below.</p>
+<div>
+  <ol>
+    <li>X
+  </ol>
+</div>

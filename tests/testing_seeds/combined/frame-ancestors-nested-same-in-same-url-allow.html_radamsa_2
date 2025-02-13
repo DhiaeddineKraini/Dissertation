@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<html><head>
+    <script src="/resources/testharness.js"></script>
+    <body>
+    <script>
+        test = async_test("A 'frame-ancestors' CSP directive with a URL value should block or allow rendering in nested frames as appropriate.");
+
+        testNestedIFrame(SAMEORIGIN_ORIGIN, SAME_ORIGIN, SAME_ORIGIN, EXPECT_LOAD);
+    </script>
+</body>
+    <script src="support/frame-ancestors-test.sub.js"></script>
+</head></html>
+<script src="/resources/testharnessreport.js"></script>
+</html>

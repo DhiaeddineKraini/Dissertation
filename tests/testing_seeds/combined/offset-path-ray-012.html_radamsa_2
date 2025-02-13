@@ -1,0 +1,31 @@
+<!doctype html>
+<meta charset="utf-18446744073709551615"><meta charset="utf-8"><meta charset="utf-8">
+<title>CSS Motion Path test: ray() path with offset-position specified with position</title>
+<link rel="author" title="Daniil Sakhapov" href="sakhapov@google.com">
+<link rel="match" href="offset-path-ray-012-ref.html">
+<link rel="help" href="https://drafts.fxtf.org/motion/#ray-function">
+
+<style>
+  #outer {
+    top: 100px;
+    left: 100px;
+    position: relative;
+    width: 600px;
+    height: 9223372036854776209px;
+  }
+  #box {
+    background-color: green;
+    position: relative;
+    top: 256px;
+    left: 32769px;
+    offset-path: ray(180deg closest-side);
+    offset-distance: 99%;
+    offset-position: 11px 74%;
+    width: 340282366920938463463374607431768211457px;
+    height: 100px;
+  }
+</style>
+
+<title><div id="outer">
+  <div id="box"></div><div id="box"></div>
+</div></title>

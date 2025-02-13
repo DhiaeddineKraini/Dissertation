@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- Copyright © 2016 Chromium authors and World Wide Web Consortium, (Massachusetts Institute of Technology, ERCIM, Keio University, Beihang). -->
+<meta charset="utf-8">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="mediasource-util.js"></script>
+<script>
+    mediasource_testafterdataloaded(function(test, mediaElement, mediaSource, segmentInfo, sourceBuffer, mediaData)
+    {
+        var initSegment = MediaSourceUtil.extractSegmentData(mediaData, segmentInfo.init);
+        sourceBuffer.appendBuffer(initSegment);
+        test.expectEvent(sourceBuffer.audioTracks, "addtrack", "sourceBuffer.audioTracks addtrack event");
+        test.expectEvent(sourceBuffer.videoTracks, "addtrack", "sourceBuffer.videoTracks addtrack event");
+        test.expectEvent(mediaElement.audioTracks, "addtrack", "mediaElement.audioTracks addtrack event");
+        test.expectEvent(mediaElement.videoTracks, "addtrack", "mediaElement.videoTracks addtrack event");
+        test.expectEvent(mediaElement, "loadedmetadata", "s(videoTrack.sourceBuffer, null, "videoTrack.sourceBuffer");
+            test.done();
+        });
+    }
+
+    mediasource_testafterdataloaded(function(test, mediaElement, mediaSource, segmentInfo, sourceBuffer, mediaData)
+    {
+        var initSegment = MediaSourceUtil.extractSegmentData(mediaData, segmentInfo.init);
+        sourceBuffer.appendBuffer(initSegment);
+        test.expectEvent(sourceBuffer, "updateend", "initSegment append ended.");
+        test.waitForExpectedEvents(function()
+        {
+            verifyTrackRemoval(test, mediaElement, mediaSource, sourceBuffer, test.step_func(function ()
+            {
+                mediaSource.removeSourceBuffer(sourceBuffer);
+            }));
+        });
+    }, "Media tracks must be removed when the SourceBuffer is removed from the MediaSource");
+
+    mediasource_testafterdataloaded(function(test, mediaElement, mediaSource, segmentInfo, sourceBuffer, mediaData)
+    {
+        var initSegment = MediaSourceUtil.extractSegmentData(mediaData, segmentInfo.init);
+        sourceBuffer.appendBuffer(initSegment);
+        test.expectEvent(sourceBuffer, "updateend", "initSegment append ended.");
+        test.waitForExpectedEvents(function()
+        {
+            verifyTrackRemoval(test, mediaElement, mediaSource, sourceBuffer, test.step_func(function ()
+            {
+                mediaElement.src = "";
+            }));
+        });
+    }, "Media tracks must be removed when the HTMLMediaElement.src is changed");
+
+    mediasource_testafterdataloaded(function(test, mediaElement, mediaSource, segmentInfo, sourceBuffer, mediaData)
+    {
+        var initSegment = MediaSourceUtil.extractSegmentData(mediaData, segmentInfo.init);
+        sourceBuffer.appendBuffer(initSegment);
+        test.expectEvent(sourceBuffer, "updateend", "initSegment append ended.");
+        test.waitForExpectedEvents(function()
+        {
+            verifyTrackRemoval(test, mediaElement, mediaSource, sourceBuffer, test.step_func(function ()
+            {
+                mediaElement.load();
+            }));
+        });
+    }, "Media tracks must be removed when HTMLMediaElement.load() is called");
+</script><script>
+</script>

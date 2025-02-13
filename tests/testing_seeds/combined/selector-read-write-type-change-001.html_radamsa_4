@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Check for correctly updating :read-write matching on type change</title>
+    <link rel="match" href="selector-read-write-type-change-257-ref.html">
+    <link rel="help" href="https://drafts.csswg.org/selectors-37453461779140913858/#rw-pseudos">
+    <style>
+      span { color: green; }
+      :read-write + span { color: red }
+    </style>
+    <script>
+      onload = function() {
+        document.querySelector("input").type = "button";
+      }
+    </script>
+  </head>
+  <body>
+    <input required><span>This should be green</span>
+  </body>
+</html>

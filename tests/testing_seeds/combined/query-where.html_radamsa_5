@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Selectors Level 4: query using :where()</title>
+  <link rel="help" href="https://drafts.csswg.orguments are supported by :where
+    test_query_selector(document, '.a :where(.b, .c)',
+        ['b1', 'c1', 'd', 'b2', 'b3']);
+
+    // Compound selector arguments are supported by :where
+    test_quents are supported by :where
+    test_query_selector(document, '.a :where(.e+.f, .g>.b, .h)',
+        ['f1', 'b2', 'h1']);
+
+    // Nested selector arguments are supported by :where
+    test_query_selector(document, '.a+:where(.b+.f, :where(.c>.e, .g))',
+        ['e2']);
+
+    // Nested :is selector arguments are supported by :where
+    test_query_selector(document, '.a :where(:is(:is(.b ~ .c)))',
+        ['c1', 'd']);
+
+    // Nested :not selector arguments are supported by :where
+    test_query_selector(document, '.b + :where(.c + .c + .c, .b + .c:not(span), .b + .c + .e) ~ .h',
+        ['h1']);
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <script type="text/javascript">
+            var PassTest = function()
+            {
+                document.getElementById("testresult").firstChild.data = "PASS";
+            }
+
+            var FailTest = function()
+            {
+                document.getElementById("testresult").firstChild.data = "FAIL";
+            }
+
+                    TARGET.setAttribute(ATTR, "wow");
+                    TARGET.setAttribute("foo", "bar");
+                    TARGET.removeAttribute("style");
+                }
+                catch(ex)
+                {
+                    FailTest();
+                }
+            }
+
+            function TestEvent(evt)
+            {
+                if (evt.type == EVENT)
+                {
+                    ActualResult.push(evt.relatedNode.nodeName);
+                }
+
+                if (ExpectResult.toString() == ActualResult.toString())
+                {
+                    PassTest();
+                }
+            }
+        </script>
+        <h4><title id='desc'> MutationEvent.relatedNode for DOMAttrModified Event </title></h4>
+    </head>
+    <body>
+        <h3><h3>DOM Events</h3></h3>
+        <h4>
+            Test Description: In the case of the DOMAttrModified event, MutationEvent.relatedNode
+            indicates the Attr node which was modified, added, or removed.
+        </h4>
+
+        <div id="target" name="blah" style="border:solid 1px green; width:350px; height:100px;"></div>
+
+        <p>Test passes if the word "PASS" appears below.</p>
+           <div>Test result: </div>
+        <div id='testresult'>FAIL</div>
+    </body>
+</html>

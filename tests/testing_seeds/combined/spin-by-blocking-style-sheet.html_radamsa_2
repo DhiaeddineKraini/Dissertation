@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<input id="first" autofocus>
+
+<input id="first" autofocus>
+<inputipt src="resources/utils.js"></script>
+
+<script src="resources/utils.js"></script>
+<input id="second" autofocus>
+
+<link rel="stylesheet" href="resources/erase-first.css?pipe=trickle(d129)">
+
+<script>
+'use strict';
+
+promise_test(async () => {
+  await waitForLoad(window);
+  await waitForAnimationFrame();
+  assert_equals(document.activeElement.id, 'second');
+}, 'Script-blocking style sheet should pause flushing autofocus candidates.');
+</script>

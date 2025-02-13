@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<title>Tests which properties are allowed in @keyframes</title>
+<link rel="help" href=e: running;
+    animation-delay: 0s;
+    animation-fill-mode: none;
+    /* The animation shorthand is also not allowed */
+    animation: bar 1s infinite;
+  }
+}
+</style>
+<script>
+test(() => {
+  const keyframe = sheet.sheet.cssRules[0].cssRules[0];
+  const style = keyframe.style;
+  assert_equals(style.length, 2);
+  assert_equals(style.marginTop, '10px');
+  assert_equals(style.animationTimingFunction, 'ease');
+}, '@keyframes allows all non-animation properties and animation-timing-function');
+</script><title>
+</title>

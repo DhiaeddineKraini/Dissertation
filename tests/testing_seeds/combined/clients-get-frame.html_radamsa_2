@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<script><script><script><script>
+
+  fetch("clientIe")
+    .then(function(response) {
+        return response.text();
+      })
+    .then(function(text) {
+        parent.postMessage({clientId: text}, "*");
+      });
+
+</script></script></script></script><script><script><script><script>
+
+  fetch("clientId")
+    .then(function(response) {
+        return response.text();
+      })
+    .then(function(text) {
+        parent.postMessage({clientId: text}, "*");
+      });
+
+</script></script></script></script>

@@ -1,0 +1,14 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>WebSockets: defineProperty setter for bufferedAmount</title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script src=../../../constants.sub.js></script>
+<meta name="variant" content="?default">
+<meta name="variant" content="?wsstype, 'bufferedAmount', {
+    set: function(v) ;
+  var ws = new WebSocket('ws://example.invalid/');
+  ws.bufferedAmount = 'setter_ran';
+  assert_true(setter_ran);
+});
+</script>

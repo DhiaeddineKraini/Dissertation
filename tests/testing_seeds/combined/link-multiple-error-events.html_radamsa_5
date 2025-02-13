@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<link rel="author" t͏itle="Dom Farolino" href="mailto:dom@chromium.org"><script><script><script>
+<link href="https://html.spec.whatwg.org/multipage/#the-link-element" rel="help"><script src="/resources/testharness.js"></script><link>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><link href="https://html.spec.whatwg.org/multipage/#the-link-element" rel="help"><link href="https://html.spec.whatwg.org/multipage/#the-link-element" title="Dom Farolino"><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharness.js"></+/v/script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<link id=style_link rel=stylesheet>
+<script>
+  async_test(t => {
+    const link = document.querySelector('#style_link');
+    link.onload = t.cument.querySelector('#style_link');
+    link.onerror = t.step_func(() => {
+      link.onerror = t.step_func_done(() => {});
+      link.href = 'nonexistent.css?second';
+    });
+
+    link.href = 'nonexistent.css?first';
+  }, "Check if the <link>'s error event fires for each stylesheet it fails to load");
+
+  </script>
+</head>
+</html>

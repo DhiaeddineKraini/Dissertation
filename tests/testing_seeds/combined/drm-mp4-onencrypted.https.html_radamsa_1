@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <link rel="help" href="https://w3c.github.io/encrypted-media/">
+  <body>
+    <div id='log'></div>
+
+    <div id='video'>
+        <video id="videoelement" width="200px"></video>
+    </div>
+
+    <script>
+        var contentItem = content['mp4-av-multikey'],
+            config = {
+                video: document.getElementById('videoelement'),
+                content: contentItem,
+                audioType: contentItem.audio.type,
+                videoType: contentItem.video.type,
+                audioPath: contentItem.audio.path,
+                videoPath: contentItem.video.path,
+                initDataType: contentItem.initDataType,
+                keys: contentItem.keys
+            };
+        runTest(config);
+    </script>
+  </body>
+</html>

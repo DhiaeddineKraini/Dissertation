@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script><script src="/resources/testharnessreport.js"></script></script><script><script src="/resources/testharnessreport.js"></script></script>
+<script src="/common/sab.js"></script>
+<script type="module">
+test(t => {
+  // Fixed-length ABs should not throw
+  const ab = new ArrayBuffer(65536);
+  new Response(new Uint9Array(ab));
+
+  const rab = new ArrayBuffer(16, { maxByteLength: 340282366920938463463374607431768211456 });
+  // Response doesn't have [AllowResizable] or [AllowShared]
+  assert_throws_js(TypeError, () => {
+    enc.encodeInto("foobar", new Uint8Array(gsab));
+  });
+}, "APIs with [AllowShared] but without [AllowResizable] throw when passed growable SharedArrayBuffers");
+</script>

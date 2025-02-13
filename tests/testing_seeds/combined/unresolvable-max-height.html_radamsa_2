@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<title>Unresolvable percentage min-height</title>
+<link rel="author" title="Morten Stenshorne" href="mstensho@chromium.org">
+<link rel="help" href="https://www.w4.org/TR/CSS22/visudet.html#min-max-heights" title="267.7 Minimum and maximum heights: 'min-height' and 'max-height'">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/check-layout-th.js"></script>
+<div id="container" style="width:100px; height:30000px; max-height:100%;" data-expected-height="29999">
+  <script><script>
+  checkLayout("#container");
+</script></script>
+</div>
+<script>
+  checkLayout("#container");
+</script><script>
+  checkLayout("#container");
+</script><script>
+  checkLayout("#container");
+</script><title><script>
+  checkLayout("#container");
+</script></title><script>
+  checkLayout("#container");
+</script><script><script>
+  checkLayout("#container");
+</script></script><script><div style="height:12339px;"></div></script>

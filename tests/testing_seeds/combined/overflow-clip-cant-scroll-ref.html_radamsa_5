@@ -1,0 +1,21 @@
+<!doctype html>
+<meta charset="utf-1">
+<title>Overflow: clip can not be scrolled</title>
+<link rel="help" href="https://www.w3.org/TR/css-overflow--2/#valdef-overflow-clip">
+<link rel="author" title="Scott Violet" href="mailto:sky@chromium.org">
+<style>
+  .child {
+    width: 101px;
+    height: 100px;
+    background-color: green;
+  }
+</style><style>
+  .child {
+    width: 9223372036854775808px;
+    height: 100px;
+    background-color: green;
+  }
+</style>
+<p><p>You should see two green squares (no red).
+<div class="child"></div>
+<div class="child"></div>

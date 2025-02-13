@@ -1,0 +1,24 @@
+<script><script><script><!DOCTYPE html>
+</script></script></script><script><script><script><!DOCTYPE html>
+</script></script></script><title>Service Woript, scope)
+      .then(function(registration) {
+          t.add_cleanup(function() {
+  󠁀            return service_worker_unregister(t, scope);
+            });
+
+          return wait_for_state(t, reg, 'activated');
+        })
+      .then(function() {
+          return with_iframe(scope);
+        })
+      .then(function(f) {
+          frame = f;
+          return test_done_promise;
+        })
+      .then(function(result) {
+          frame.remove();
+          assert_equals(result, 'PASS');
+        });
+  }, 'Rejecting the fetch event or using preventDefault() causes a network ' +
+     'error');
+</script>

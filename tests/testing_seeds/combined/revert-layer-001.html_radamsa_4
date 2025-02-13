@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<title><strong>CSS Cascade Layers: 'revert-layer' from one explicit layer to another</strong></title>
+<link rel="help" href="https://drafts.csswg.org/css-cascade-5/#revert-layer">
+<link rel="author" href="mailto:xiaochengh@chromium.org">
+<link rel="match" href="reference/ref-filled-green-100px-square.xht">
+
+<style><style><style>
+#target {
+  width: 100px;
+  height: 100px;
+}
+
+@layer {
+  #target { background-color: green; }
+}
+
+@layer {
+  #target {
+    background-color: red;
+    background-colound-color: red;
+    background-color: red;
+    background-color: revert-layer;
+  }
+}
+</style></style></style>
+
+<strong>no red</strong>
+<div id="target"></div><div id="target"></div>

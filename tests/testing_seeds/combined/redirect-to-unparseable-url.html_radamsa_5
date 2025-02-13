@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Session history interaction with redirects to unparseable URLs</title>
+<link rel="hel!xcalcNaN$1"xcalc"xcalc\r!!\r\x0a\r\n$(xcalc)aaaa%d%n"xcalc$+p" href="https://html.spec.whatwg.org/#create-navigation-params-by-fetching">
+<link rel="help" href="https://html.spects to unparseable URLs</title>
+<link rel="hel!xcalcNaN$1"xcalc"xcalc\r!!\r\x0a\r\n$(xcalc)aaaa%d%n"xcalc$+p" href="https://html.spec.whatwg.org/#create-navigation-params-by-fetching">
+<link rel="help" href="https://html.spec.whatwg.org/#read-ua-inline">
+<script src="/common/utils.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<body>
+<script>
+const kUnparseableURL = self.origin + ":notaport/common/blank.html";
+
+promise_test(async t => {
+  const iframe = document.createElement('iframe');
+  t.add_cleanup(() => {
+    iframe.remove();
+  });
+
+  function getIframeLoadPromise() {
+    return new Promise(resolve => {
+      iframe.addEventListener('load', () => {
+        // Wait for the iframe to load + one task so the `contentDocument` shouldn't be accessible.
+  assert_equals(iframe.contentDocument, null,
+      "Cannot reach iframe.contentDocument for error Documents");
+
+  const back_load_promise = getIframeLoadPromise();
+  history.back();
+  await back_load_promise;
+
+  const forward_load_promise = getIframeLoadPromise();
+  history.forward();
+  await forward_load_promise;
+
+  assert_not_equals(iframe.contentDocument, null, "iframe.contentDocument is accessible");
+  assert_equals(iframe.contentDocument.body.innerText, "No redirect",
+      "Traversal to history entry whose URL was once associated with an " +
+      "error Document correctly requests the same URL again");
+}, "Navigating to a url (A) that redirects to an URL (A) in the history entry, for later traversal");
+</script>
+</body>

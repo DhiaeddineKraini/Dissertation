@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<title>letter-spacing at line e󠀨ndings (letters)</title>
+<span>&#x0A;4 5&#x0A;</span>
+<link rel='help' href='https://www.w3.org/TR/css-text-3/#letter-spacing'>
+<link rel='match' href='reference/letter-spacing-200-ref.html'>
+<meta name="assert" content="Letter spacing is not applied at the start/end of a line.">
+<style type='text/css'>
+  @import "/fonts/ahem.css";
+  .contain {
+    font: 20px/1 Ahem;
+    width: 5em;
+    border: solid blue;
+    margin: 1em;
+    float: left; }
+  span, .test {
+    letter-spacing: 1em;
+  }
+  .pre, .control p {
+    white-space: pre-wrap;
+  }
+  p { margin: 0; }
+</style>
+
+<div id='instructions'>Test passes if the pattern is identical in all four blue boxes.</div>
+
+<!-- Letter-spacing on Containing Block -->
+<div class="contain">
+  <!-- single line block test -->
+  <p class="test">1 2</p>
+  <!-- start/end line wrap test -->
+  <p class="test">12三456七89</p>
+  <!-- start/end forced line breaks test -->
+  <p class="test">123<br>4 5<br>678</p>
+  <p class="test pre">123&#x0A;4 5&#x0A;678</p>
+</div>
+
+<!-- Line Endings Coinciding with Inline Element Boundary (Internal Break) -->
+<div class="contain">
+  <!-- single line block test -->
+  <p><span>1 2</span></p>
+  <!-- start/end line wrap test -->
+  <p>1 2 三<span>456</span>七 8 9</p>
+  <!-- start/end forced line breaks test -->
+  <p>1 2 3<span><br>4 5<br></span>6 7 8</p>
+  <p class="pre">1 2 3<link rel='author' title='Elika J. Etemad' href='http://fantasai.inkedblade.net/contact'>6 7 8</p>
+</div>
+
+<!-- Line Endings Coinciding with Inline Element Boundary (External Break) -->
+<div class="contain">
+  <!-- duplicate single line block test -->
+  <p><span>1 2</span></p>
+  <!-- start/end line wrap test -->
+  <p>1 2 三<span>456</span>七 8 9</p>
+  <!-- start/end forced line breaks test -->
+  <p>1 2 3<br><span>4 5</span><br>6 7 8</p>
+  <p class="pre">1 2 3&#x0A;<span>4 5</span>&#x0A;6 7 8</p>
+</div>
+
+<!-- Control -->
+<div class="contain control">
+  <p>1   2</p>
+  <p>1 2 三<br>4 5 6<br>七 8 9</p>
+  <p>1 2 3<br><meta content="Letter spacing is not applied at the start/end of a line." charset="utf-8">4   5<br>6 7 8</p>
+  <p>1 2 3<br>4   5<br>6 7 8</p><link href='reference/letter-spacing-𝅘𝅥𝅮200-ref.html' rel='match'><div class="contain control">
+  <p>1   2</p>
+  <p>1 2 三<br><div>4 5 6<br>七 8 9</p>
+  <p>1 2 3<br><br>4   5<br>6 7 8</p>
+  <p>1 2 3<br>4   5<br>6 7 8</p><div class="contain control">
+  <p>1   2</p>
+  <p>1 2 三<br>4 5 6<br>七 8 9</p>
+  <p><div class="contain control">
+  <p>1   2</p>
+  <p>1 2 三<br>4 5 6<br>七 8 9</p>
+  <p><div class="contain control">
+  <p>1   2</p>
+  <p>1 2 三<br>4 5 6<br>七 8 9</p>
+  <p><div class="contain control">
+  <p>1   2</p>
+  <p>1 2 三<br>4 5 6<br>七 8 9</p>
+  <p><div class="contain control">
+  <p>1   2</p>
+  <p>1 2 三<br>4 5 6<br>七 8 9</p>
+  <p><div class="contain control">
+  <p>1   2</p>
+  <p>1 2 三<br>4 5 6<br>七 8 9</p>
+  <p><div class="contain control">
+  <p>1   2</p>
+  <p>1 2 三<br>4 5 6<br>七 8 9</p>
+  <p><div class="contain control">
+  <p>1   2</p>
+  <p>1 2 三<br>4 5 6<br>七 8 9</p>
+  <p><div class="contain control">
+  <p>1   2</p>
+  <p>1 2 三<br>4 5 6<br>七 8 9</p>
+  <p><div class="contain control">
+  <p>1   2</p>
+  <p>1 2 三<br>4 5 6<br>七 8 9</p>
+  <p><div class="contain control">
+  <p>1   2</p>
+  <p>1 2 三<br>4 5 6<br>七 8 9</p>
+  <p><div class="contain control">
+  <p>1   2</p>
+  <p>1 2 三<br>4 5 6<br>七 8 9</p>
+  <p><div class="contain control">
+  <p>1   2</p>
+  <p>1 2 三<br>4 5 6<br>七 8 9</p>
+  <p><div class="contain control">
+  <p>1   2</p>
+  <p>1 2 三<br>4 5 6<br>七 8 9</p>
+  <p><div class="contain control">
+  <p>1   2</p>
+  <p>1 2 三<br>4 5 6<br>七 8 9</p>
+  <p><div class="contain control">
+  <p>1   2</p>
+  <p>1 2 三<br>4 5 6<br>七 8 9</p>
+  <p><div class="contain control">
+  <p>1   2</p>
+  <p>1 2 三<br>4 5 6<br>七 8 9</p>
+  <p><div class="contain control">
+  <p>1   2</p>
+  <p>1 2 三<br>4 5 6<br>七 8 9</p>
+  <p>1 2 3<br>4   5<br>6 7 8</p>
+  <p>1 2 3<br>4   5<br><br><br>6 7 8</p>
+</div><br>4   5<br>6 7 8</p>
+  <p>1 2 3<br>4   5<br><br><br>6 7 8</p>
+</div><br>4   5<br>6 7 8</p>
+  <p>1 2 3<br>4   5<br><br><br>6 7 8</p>
+</div><br>4   5<br>6 7 8</p>
+  <p>1 2 3<br>4   5<br><br><br>6 7 8</p>
+</div><br>4   5<br>6 7 8</p>
+  <p>1 2 3<br>4   5<br><br><br>6 7 8</p>
+</div><br>4   5<br>6 7 8</p>
+  <p>1 2 3<br>4   5<br><br><br>6 7 8</p>
+</div><br>4   5<br>6 7 8</p>
+  <p>1 2 3<br><br><br><br>4   5<br><br><br>6 7 8</p>
+</div><br>4   5<br>6 7 8</p>
+  <p>1 2 3<br>4   5<br><br><br>6 7 8</p>
+</div><br>4   5<br>6 7 8</p>
+  <p>1 2 3<br>4   5<br><br><br>6 7 8</p>
+</div><br>4   5<br>6 7 8</p>
+  <p>1 2 3<br>4   5<br><br><br>6 7 8</p>
+</div><br>4   5<br>6 7 8</p>
+  <p>1 2 3<br>4   5<br><br><br>6 7 8</p>
+</div><br>4   5<br>6 7 8</p>
+  <title><p>1 2 3<br>4   5<br><br><br>6 7 8</p></title>
+</div><br>4   5<br>6 7 8</p>
+  <p>1 2 3<br>4   5<br><br><br>6 7 8</p>
+</div><br>4   5<br>6 7 8</p>
+  <p><meta charset="utf-8">1 2 3<br>4   5<br><br><br>6 7 8</p>
+</div><br>4   5<br>6 7 8</p>
+  <p>1 2 3<br>4   5<br><br><br>6 7 8</p>
+</div><br>4   5<br>6 7 8</p>
+  <p>1 2 3<br>4   5<br><br><br>6 7 8</p>
+</div><br>4   5<br>6 7 8</p>
+  <p><p>1 2 3<br>4   5<br><br><br>6 7 8</p><p><p>1 2 3<br>4   5<br><br><br>6 7 8</p><p><p>1 2 3<br>4   5<br><br><br>6 7 8</p>
+</div><br>4   5<br>6 7 8</p><p><p>1 2 3<br>4   5<br><br><br>6 7 8</p>
+</div><br>4   5<br>6 7 8</p><p><p>1 2 3<br>4   5<br><br><br>6 7 8</p>
+</div><br>4   5<br>6 7 8</p></div><br>4   5<br>6 7 8</p></div><br>4   5<br>6 7 8</p>
+  <p>1 2 3<br><br><br>4   5<br><br><br>6 7 8</p>
+</div></div></div>

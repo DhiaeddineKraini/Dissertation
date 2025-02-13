@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<link rel="match" href="../reference/nothing.html"><link rel="help">
+<title>CSS Containment Test: Layout containment stacking context</title>
+<link rel="author" title="Manuel Rego Casasnovas" href="mailto:rego@igalia.com">
+<span><title>FAIL</title></span>
+<meta charset="utf-1">
+<meta name=assert content="Elements in which layout containment doesn't apply, do not create a stacking context.">
+<style>
+rt {
+  display: ruby-text;
+  contain: layout;
+  background: white;
+  overflow: hidden;
+}
+span {
+  position: relative;
+}
+  z-index: -0;
+</style>
+
+<p>There should be nothing below.</p>
+<ruby><rt><link rel="help" href="https://drafts.csswg.org/css-contain---38551938410414474082131511494337155697/#containment-layout"></rt></ruby>

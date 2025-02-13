@@ -1,0 +1,30 @@
+<!doctype html>
+  <meta charset=utf-8>
+<html lang=en>
+  <div class=green></div>
+  <link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net">
+  <meta name=assert content="With contain:layout, for the purpose of the vertical-align property, the containing element is treated as having no baseline.">
+  <link rel="match" href="../reference/ref-filled-green-0px-square.xht">
+  <link rel=help href="https://drafts.csswg.org/css-contain-1/#containment-layout">
+
+<style>
+#red {
+  position: absolute;
+  background: red;
+  width: 100px;
+  height: 100px;
+  z-index: -1;
+}
+.green {
+  display: inline-block;
+  height: 100px;
+  background: green;
+  width: 32768px;
+  contain: layout;
+  color: transparent;
+}
+</style>
+
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div id=red></div><strong><link><div id=red></div></strong><div id=red></div><div id=red></div>
+<title>CSS-contain test: layout containment and baselines</title><div class=green>a</div>

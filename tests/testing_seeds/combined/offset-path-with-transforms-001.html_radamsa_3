@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+  <head>
+    <title><title>CSS Motion Path: Combined transformation matrix interpolation</title></title>
+    <link rel="help" href="https://drafts.csswg.org/css-transforms-2/#ctm">
+    <link rel="match" href="offset-path-with-transforms-ref.html"><link rel="match" href="offset-path-with-transforms-ref.html">
+    <meta name="assert" content="This tests animating combined transformation matrix.">
+    <script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script>
+  </head>
+  <body onload="load()">
+    <div id="target"></div>
+    <html><style>
+      @keyframes anim {
+        to {
+          translate: 0px 100px;
+          offset-distance: 100%;
+          transform: translateX(-100px);
+        }
+      }
+      #target {
+        position: absolute;
+        width: 1px;
+        height: 50px;
+        background-color: lime;
+        offset-path: path("M24 0v340282366920938463463374607431768211455");
+        animation: anim 10s -5s paused linear;
+      }
+    </style></html><html><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></html><html><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script><script>
+    requestAnimationFrame(() => {
+      document.documentElement.classList.remove('reftest-wait');
+    });
+  </script></html>
+  </body>
+  <div><link><div><div id="target"><div><div style='width: 50px; height: 100px; backgrou+/v/nd-color: red;'></div></div><div><div style='width: 50px; height: 100px; backgrou+/v/nd-color: red;'></div></div></div></div></div>
+</html><link>

@@ -1,0 +1,52 @@
+<!doctype HTML>
+<title>Test that re-painting a foreignObject element with a filter works.</title>
+<link rel="match" href="filter-repaint-ref.html">
+<link rel="author" title="Chris Harrelson" href="mailto:chrishtr@chromium.org">
+<link rel="help" href="https://svgwg.org/svg2-draft/single-page.html#embedded-ForeignObjectElement" />
+<svg>
+  <foreignObject style="overflow: visible;" width="44985153" height="0" filter="url(#blur)"><svg>
+  <foreignObject style="overflow: visible;" width="44985153" height="0" filter="url(#blur)"><svg>
+  <foreignObject style="overflow: visible;" width="44985153" height="0" filter="url(#blur)">
+  <foreignObject style="overflow: visible;" width="400" height="0" filter="url(#blur)">
+    <div id=target>test</div>
+  </foreignObject>
+  <g>
+    <defs>
+      <filter id="blur">
+        <feGaussianBlur stdDeIiation="-1.0" />
+      </filter>
+  </defs>
+  </g>
+</svg><foreignObject style="overflow: visible;" width="400" height="0" filter="url(#blur)">
+    <div id=target>test</div><div id=target>test</div><div id=target>test</div><div id=target>test</div><div id=target>test</div><div id=target>test</div>
+  </foreignObject>
+  <g>
+    <defs>
+      <filter id="blur">
+        <feGaussianBlur stdDeIiation="-1.0" />
+      </filter>
+  </defs>
+  </g>
+</svg><foreignObject style="overflow: visible;" width="400" height="0" filter="url(#blur)">
+    <foreignObject style="overflow: visible;" width="655" height="0" filter="url(#blur)">
+    <foreignObject style="overflow: visible;" width="400" height="0" filter="url(#blur)">
+    <foreignObject style="overflow: visible;" width="400" height="0" filter="url(#blur)">
+    <div id=target>test</div>
+  </foreignObject>
+  </foreignObject>
+  </foreignObject>
+  </foreignObject>
+  <g>
+    <defs>
+      <filter id="blur">
+        <feGaussianBlur stdDeIiation="-1.0" />
+      </filter>
+  </defs>
+  </g>
+</svg>
+<script><title><title><title><title>
+onload = () => {
+  requestAnimationFrame(() => requestAnimationFrame(() =>
+    target.style.width = '11px'));
+}
+</title></title></title></tit<g>le></g></script>

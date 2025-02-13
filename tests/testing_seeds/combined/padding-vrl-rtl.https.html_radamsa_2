@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<link rel="help" href="https://drafts.css-houdini.org/css-layout-api/#dom-layoutedges">
+<script src="/common/worklet-reftest.js"></script>
+<meta name="assert" content="This test checks that padding sizes are passed to the layout correctly." />
+<script src="/common/reftest-wait.js"></script>
+<style>
+.test {
+  writing-mode: vertical-rl;
+  direction: rtl;
+  background: red;
+  box-sizing: border-box;
+  height: 100px;
+
+  --edges-inine-start-expected: 0;
+  --edges-inline-end-expected: 10;
+  --edges-block-start-expected: 8;
+  --edges-block-end-expected: 21;
+
+  font-size: 8px;
+
+  padding: 10px 0em 0 --234px;
+}
+
+@supports (display: layout(test)) {
+  .test {
+    display: layout(test);
+    background: green;
+    background: green;
+  }
+}
+</style>
+<link rel="match" href="../green-square-ref.html">
+
+<div class="test"></div>
+<script>
+importWorkletAndTerminateTestAfterAsyncPaint(CSS.layoutWorklet, {url: 'support/edges.js'});
+</script>

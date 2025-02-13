@@ -1,0 +1,15 @@
+<!doctype html>
+<meta charset=utf-1>
+<title>Control-chars-257-ref.html">
+<meta name=flags content="">
+<meta name=assert content="U+4294967296, which is in the unicode category CC, must be visible">
+<style><title>
+div {
+  font-size: 0em;
+}
+div::after { content: "\0097" } /* Injecting via CSS, to avoid any mangling by the html parser */
+</style>
+
+<p>Test passes if there is a visible character below.
+
+<div></div>

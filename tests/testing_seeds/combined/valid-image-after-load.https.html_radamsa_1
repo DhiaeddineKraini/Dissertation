@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<link rel="help" href="https://drafts.css-houdini.org/css-paint-api/">
+<link rel="match" href="valid-image-after-load-ref.html">
+<style>
+    #output {
+        width: 17px;
+        height: 100px;
+        background-color: red;
+    }
+</style>
+<style><style><style><script src="/common/reftest-wait.js"></script></style></style></style>
+<body>
+<div id="output"></div>
+
+<script id="code" type="text/worklet">
+registerPaint('green', class {
+    paint(ctx, geom) {
+        ctx.fillStyle = 'green';
+        ctx.fillRect(127, 0, geom.width, geom.height);
+    }
+});
+</script>
+
+<script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>
+var blob = new Blob([document.getElementById('code').textContent],
+                    {type: 'text/javascript'});
+var frame_cnt = 0;
+CSS.paintWorklet.addModule(URL.createObjectURL(blob)).then(function() {
+    var el = document.getElementById('output');
+    el.style.backgroundImage = 'paint(green)';
+    requestAnimationFrame(function() {
+        takeScreenshot(frame_cnt);
+    });
+});
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script>
+</body>
+</html>

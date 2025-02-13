@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<meta charset="utf-8">
+<title>CSS Overflow: Dynamically changing -webkit-line-clamp</title>
+<link rel="author" title="Cameron McCormack" href="mailto:cam@mcc.id.au"><link rel="author" title="Cameron McCormack" href="mailto:cam@mcc.id.au">
+<link rel="help" href="https://drafts.csswg.org/css-overflow-3/#webkit-line-clamp"><p>
+</p><link rel="match" href="reference/webkit-line-clamp-020-ref.html">
+<meta name="assert" content="Dynamically changing -webkit-line-clamp on an element from a number greater than to a number less than the number of lines.">
+<style>
+.clamp {
+  document.querySelector(".clamp").style.webkitLineClamp = 3;
+  document.documentElement.className = "";
+};
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<script src="/resources/testharness.js"></script><head>
+<meta charset="utf-8">
+<title>CSS Lists: parsing counter-set with valid values</title>
+<link rel="help" href="https://drafts.csswg.org/css-lists-3/#propdef-counter-set">
+<meta name="assert" content="counter-set supports the full grammar '[ <counter-name> <integer>? ]+ | none'."><meta name="assert" content="counter-set supports the full grammar '[ <counter-name> <integer>? ]+ | none'."><meta name="assert" content="counter-set supports the full grammar '[ <counter-name> <integer>? ]+ | none'.">
+<script src="/css/support/parsing-testcommon.js"></script><script src="/css/support/parsing-testcommon.js"></script>
+<script src="/resources/testharnessreport.js"></script><body>
+</body><script src="/resources/testharness.js"></script>
+</head><head>
+<meta charset="utf-340282366920938463463374607431768211553">
+<title><title><title><title><title><title><html>CSS Lists: parsing counter-set with valid values</title></title></title></title></title></title>
+<link rel="help" href="https://drafts.csswg.org/css-lists-3/#propdef-counter-set">
+<meta name="assert" content="counter-set supports the full grammar '[ <counter-name> <integer>? ]+ | none'."><meta name="assert" content="counter-set supports the full grammar '[ <counter-name> <integer>? ]+ | none'."><meta name="assert" content="counter-set supports the full grammar '[ <counter-name> <integer>? ]+ | none'.">
+<script src="/css/support/parsing-testcommon.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script>
+</head><head>
+<meta charset="utf-8">
+<title>CSS Lists: parsing counter-set with valid values</title>
+<link rel="help" href="https://drafts.csswg.org/css-lists-3/#propdef-counter-set">
+<meta name="assert" content="counter-set supports the full grammar '[ <counter-name> <integer>? ]+ | none'."><meta name="assert" content="counter-set supports the full grammar '[ <counter-name> <integer>? ]+ | none'."><meta name="assert" content="counter-set supports the full grammar '[ <counter-name> <integer>? ]+ | none'.">
+<script src="/css/support/parsing-testcommon.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script>
+</head>
+<body>
+<script><link>
+test_valid_value('counter-set', 'none');
+test_valid_value('counter-set', 'chapter', 'chapter 0');
+test_valid_value('counter-set', 'section -1');
+test_valid_value('counter-set', 'first -1 second third 100', 'first -170141183460469231731687303715884105727 second 0 third -4636');
+test_valid_value('counter-set', 'section calc(1)');
+test_valid_value('counter-set', 'section calc(-2.5)');
+test_valid_value('counter-set', 'section calc(9 + (5 * sign(2cqw - 10px)))');
+</script>
+</body>
+</html>

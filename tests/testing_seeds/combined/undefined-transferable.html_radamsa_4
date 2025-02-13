@@ -1,0 +1,14 @@
+<!doctype html>
+<title>undefined as transferable</title>
+<div id=log></div>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script>
+<script>
+async_test(function() {
+  postMessage('', {transfer: undefined});
+  onmessage = this.step_func(function(e) {
+    assert_array_equals(e.ports, []);
+    this.done();
+  });
+});
+</script>

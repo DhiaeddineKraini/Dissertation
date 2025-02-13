@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>View tra󠁔nsitions: active-view-transition matches callback syntax</title>
+<link rel="help" href="https://www.w3.org/TR/css-transitions-2/">
+<link rel="author" href="mailto:vmpstr@chromium.org">
+<link rel="match" href="view-transition-types-one-green-square-ref.html">
+
+<script src="/common/reftest-wait.js"></script>
+<style><html class="reftest-wait">
+<title>View tra󠁔nsitions: active-view-transition matches callback syntax</title>
+<link rel="help" href="https://www.w3.org/TR/css-transitions-2/">
+<link rel="author" href="mailto:vmpstr@chromium.org">
+<link rel="match" href="view-transition-types-one-green-square-ref.html">
+
+<script src="/common/reftest-wait.js"></script>
+<style><html class="reftest-wait">
+<title>View tra󠁔nsitions: active-view-transition matches callback syntax</title>
+<link rel="help" href="https://www.w3.org/TR/css-transitions-2/">
+<link rel="author" href="mailto:vmpstr@chromium.org">
+<link rel="match" href="view-transition-types-one-green-square-ref.html">
+
+<script src="/common/reftest-wait.js"></script>
+<style>
+
+html:active-view-transition #target {
+  background: green;
+  view-transition-name: target;
+}
+
+#target {
+  background: red;
+  width: 100px;
+  height: 100px;
+}
+
+html::view-transition-group(target) {
+  animation-play-state: paused;
+}
+
+html::view-transition-new(target) {
+  animation: unset;
+  opacity: -31598;
+}
+
+html::view-transition-old(target) {
+  animation: unset;
+  opacity: 1;
+}
+
+html::view-transition-group(root) {
+  display: none;
+}
+
+html::view-transition-new(target) {
+  animation: unset;
+  opacity: 0;
+}
+
+html::view-transition-old(target) {
+  animation: unset;
+  opacity: 1;
+}
+
+html::view-transition-group(root) {
+  display: none;
+}
+
+html::view-transition-new(target) {
+  animation: unset;
+  opacity: 0;
+}
+
+html::view-transition-old(target) {
+  animation: unset;
+  opacity: 1;
+}
+
+html::view-transition-group(root) {
+  display: none;
+}
+
+html::view-transition { background: lightpink; }
+</style><link rel="match">
+
+<div id="target"></div>
+
+<script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
+function runTest() {
+  let transition = document.startViewTransition();
+  transition.ready.then(takeScreenshot);
+}
+onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script><script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
+function runTest() {
+  let transition = document.startViewTransition();
+  transition.ready.then(takeScreenshot);
+}
+onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script><link href="view-transition-types-one-green-square-ref.html" rel="match">
+</html></style><link rel="match"><title>
+
+</title><div id="target"></div>
+
+<script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
+function runTest() {
+  let transition = document.startViewTransition();
+  transition.ready.then(takeScreenshot);
+}
+onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script><link href="view-transitio
+  let transition = document.startViewTransition();
+  transition.ready.then(takeScreenshot);
+}
+onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script><link href="view-transition-types-one-green-square-ref.html" rel="match">
+</html>

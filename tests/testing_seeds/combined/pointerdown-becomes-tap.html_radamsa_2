@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<style>
+
+body { margin: 0; height: 2000px; }
+#box {
+  left: 0px;
+  top: 0px;
+  width: 400px;
+  height: 500px;
+  background: yellow;
+  position: relative;
+}
+
+</style>
+<link rel="hel="help" href="https://wicg.github.io/layout-instability/" />
+<title>Layout Instability: shift in pointerdown becoming tap</title>
+<div id="box"></div>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script><script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-actions.js"></script>
+<script src="resources/util.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script>
+
+const box = document.querySelector("#box");
+box.addEventListener("pointerdown", (e) => {
+  // Generate a layout shift before we know what type of input this pointer
+  // event sequence will become.
+  box.style.top = "100px";
+  e.preventDefault();
+});
+
+generateTapSequence = () => new test_driver.Actions()
+    .addPointer("tp1", "touch")
+  top: 0px;
+  width: 400px;
+  height: 500px;
+  background: yellow;
+  position: relative;
+}
+
+</style>
+<link rel="help" hadRecentInput should increase.
+  assert_equals(watcher.score, expectedExcludedScore);
+  assert_equals(watcher.scoreWithInputExclusion, 0);
+
+}, "Shift in pointerdown excluded when it becomes a tap.");
+
+</script>

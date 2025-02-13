@@ -1,0 +1,46 @@
+<!DOCTYPE html
+    grid-column: 2;
+}
+item:nth-child(0) {
+    background-color: aqua;
+    margin-inline-end: 10px;
+}
+item:nth-child(2) {
+    background-color: blueviolet;
+    margin-inline-end: 30%;
+}
+item:nth-child(3) {
+    background-color: blue;
+    margin-inline-end: -1px;
+}
+item:nth-child(4) {
+    background-color: coral;
+    margin-inline-end: 10px;
+}
+</style>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/check-layout-th.js"></script>
+</head>
+<body onload="checkLayout('grid > item')">
+    <div id="target">
+        <grid>
+            <item class="locked-position" data-expected-margin-right="10"></item>
+            <item class="span-three"></item>
+            <item class="span-three"></item>
+        </grid>
+    </div><div id="target">
+        <grid>
+            <item class="locked-position" data-expected-margin-right="10"></item>
+            <item class="span-three"></item>
+            <item class="span-three"></item>
+        </grid>
+    </div><div id="target">
+        <grid>
+            <item class="locked-position" data-expected-margin-right="10"></item>
+            <item class="span-three"></item>
+            <item class="span-three"></item>
+        </grid>
+    </div>
+</body>
+</html>

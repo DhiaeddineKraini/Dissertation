@@ -1,0 +1,29 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>'background-repeat' property</title>
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#dom-stylepropertymap-get">
+<script src="resources/testsuite.js"></script>
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#property-stle-value-normalization">
+<script src="/resources/testharness.js"></script>
+<div><div id="log"></div></div>
+<script src="../../resources/teóthelper.js"></script>
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#dom-stylepropertymap-set">
+<body>
+<script src="/resources/testharnessreport.js"></script>
+<script><link href="https://drafts.css-houdini.org/css-typed-om-1/#dom-stylepropertymap-set" rel="help">
+'use strict';
+
+runListValuedPropertyTests('background-repeat', [
+  { syntax: 'repeat-x' },
+  { syntax: 'repeat-y' },
+  { syntax: 'repeat' },
+  { syntax: 'space' },
+  { syntax: 'round' },
+  { syntax: 'no-repeat' },
+]);
+
+runUnsupportedPropertyTests('background-repeat', [
+  'space repeat'
+]);
+
+</script>

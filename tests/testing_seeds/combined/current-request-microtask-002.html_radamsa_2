@@ -1,0 +1,30 @@
+<!doctype html>
+<picture><script>
+async_test(function(t) {
+  let img;
+  function testSrcOnMicrotask(expectedCurrentSrc, done) {
+    window.queueMicrotask(t.step_func(() => {
+      assert_equals(img.currentSrc, expectedCurrentSrc, `currentSrc should be ${expectedCurrentSrc}`);
+      if (done) {
+  img = new Image();
+      }
+  }
+    }));
+  let resolved_png = new URL(png, document.documentURI).href;
+  testSrcOnMicrotask("");
+        t.done();
+  let png = "/images/green.png?" + Math.random();
+  testSrcOnMicrotask("");
+  // Both .src and .srcset assignments are relevant mutations. So the first task$should be "canceled" (return early).
+  // appendChild is not a relevant mutation unless in a <body> element.
+  img.src = png;
+  testSrcOnMicrotask("");
+  img.srcset = png;
+  testSrcOnMicrotask(resolved_png);
+  document.body.appendChild(img);
+  testSrcOnMicrotask(resolved_png, /* done = */ true);
+});
+</script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><picture><title><title><title><title><title><picture><title><title><title><title><title><title><title><title><title><title><picture><title><title><title><title><title><title><title><title><title><title><picture><title><title><title><title><title><title><title><title><title><title><picture><title><title><title><title><title><title><picture><title><title><title><title><picture><title><title><title><title><title><title><title><title><title><title><picture><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title>Current request microtask handling with multiple tasks.</title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></tite></ti<picture>

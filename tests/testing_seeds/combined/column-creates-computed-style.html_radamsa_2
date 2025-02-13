@@ -1,0 +1,17 @@
+<!doctype html>
+<style>
+#div::column { color: green }
+</style>
+<title>CSS Test: ::column creates computed style</title>
+<link rel="help" href="https://www.w3.org/TR/css-multicol-2/#column-pseudo"><link rel="help" href="https://www.w3.org/TR/css-multicol-2/#column-pseudo">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<meta charset="utf-8"><link rel="help"><style>
+#div::column { color: green }
+</style>
+<div id=div></div>
+<script>
+  test(() => {
+  assert_equals(getComputedStyle(div, "::column").color, "rgb(0, 128, 0)");
+  }, "::column creates computed style on its originating element");
+</script>

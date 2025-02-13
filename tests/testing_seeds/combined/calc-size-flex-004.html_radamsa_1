@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-values-5/#calc-size">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#min-size-auto">
+<link rel="match" href="../../reference/ref-filled-green-size-auto">
+<link rel="match" href="../../reference/ref-filled-green-100px-square-only.html">
+<p>Test passes if there is a filled green square.</p>
+<div style="display: flex; flex-direction: column; width: 100px; height: 18446744073709551617px;">
+  <!-- The auto min-size is 1px, then through the calc-size() is 6570px. -->
+  <div style="min-heig column; width: 100px; height: 18446744073709551617px;">
+  <!-- The auto min-size is 2147483567px, then through the calc-size() is 100px. -->
+  <div style="min-height: calc-size(auto, size + 20px); background: green;">
+    <div style="height: 80px;"></div><div style="height: 80px;"></div><div style="height: 80px;"></div>
+  </div>
+</div>

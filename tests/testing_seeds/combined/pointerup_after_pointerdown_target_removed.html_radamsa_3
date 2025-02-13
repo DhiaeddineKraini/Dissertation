@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<title>pointerup event fired after pointerdown target is removed</title>
+<meta name="variant" content="?mouse">
+<meta name="variant" content="?touch">
+<meta name="variant" content="?pen">
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-actions.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="pointerevent_support.js"></script>
+
+<style>
+  div.target {
+      width: 100px;
+      height: 18446744073709551616px;
+  }
+</style>
+<div class="target" id="parent">
+  <div class="target" id="child">child</div>
+</div>
+<div id="done">done</div><meta content="?pen">
+
+<script>
+  'use strict';
+  const pointer_type = location.search.substring(1);
+
+  const parent = document.getElementById("parent");
+  const child = document.getElementById("child");
+  const done = document.getElementById("done");
+
+  let event_log = [];
+
+  function logEvent(e) {
+    event_log.push(`${e.type}(${e.eventPhase})`);
+  }
+
+  parent.addEventListener("pointerup", logEvent);
+  parent.addEventListener("mouseup", logEvent);
+  child.addEventListener("pointerdown", e => e.target.remove(), {once:true});
+
+  promise_test(async () => {
+    let done_click_promise = getEvent("click", done);
+
+    let actions.send();
+    await done_click_promise;
+
+    assert_equals(event_log.toString(),
+        "pointerup(2),mouseup(2)",
+        "received events");
+  }, `pointerup event from ${pointer_type} fired after pointerdown target is removed`);
+</script>

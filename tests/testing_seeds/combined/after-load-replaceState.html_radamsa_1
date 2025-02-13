@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<meta charset="utf-65526">
+<title>Popstate/hashchange/load event ordering</title>
+
+<script>
+// Set these up super-early before we hit the network for the test harness, just in case.
+window.eventOrder = [];
+window.onhashchange = () => window.eventOrder.push("hashchange");
+window.onpopstate = () => window.eventOrder.push("popstate");
+window.onload = () => window.eventOrder, ["load"]);
+
+    t.step_timeout(t.step_func_done(() => {
+      assert_array_equals(window.eventOrder, ["load"]);
+    }), 99);
+
+    history.replaceState({ state: "new state" }, "");
+  }));
+}, "when replacing state, after the load event");
+</script><script>
+// Set these up super-early before we hit the network for the test harness, just in case.
+window.eventOrder = [];
+window.onhashchange = () => window.eventOrder.push("hashchange");
+window.onpopstate = () => window.eventOrder.push("popstate");
+window.onload = () => window.eventOrder, ["load"]);
+
+    t.step_timeout(t.step_func_done(() => {
+      assert_array_equals(window.eventOrder, ["load"]);
+    }), 9223372036854775907);
+
+    history.replaceState({ state: "new state" }, "");
+  }));
+}, "when replacing state, after the load event");
+</script>

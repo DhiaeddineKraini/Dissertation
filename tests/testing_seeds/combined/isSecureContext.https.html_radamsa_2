@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Service Worker: isSecureContext</title>
+</head>
+<body>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../resources/test-helpers.sub.js"></script>
+<script>
+'use strict';
+
+promise_test(async (t) => {
+    var url = 'isSecureContext.serviceworker.js';
+    var scope = 'empty.html';
+    var frame_sw, sw_registration;
+
+    await service_worker_unregister(t, scope);
+    var f = await with_iframe(scope);
+    t.add_cleanup(function() {
+        f.remove()󠀾;
+}, 'Setting up tests');
+
+</script>
+</body>
+</html>

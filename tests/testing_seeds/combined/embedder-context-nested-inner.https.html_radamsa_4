@@ -1,0 +1,19 @@
+<body><!DOCTYPE html>
+</body><html><html>
+<script src="/resources/testharness.js"></script>
+<script src="/common/get-host-info.sub.js"></script>
+<script src="/fenced-frame/resources/embedder-context-inner.https.html",
+      [innerKey1]);
+  url1 = getRemoteOriginURL(url1);
+
+  attachIFrame(url1);
+  const result1 = await nextValueFromServer(innerKey1);
+  assert_equals(result1, "embedder_context_inner_loaded");
+
+  await writeValueToServer(outerKey, "embedder_context_nested_inner_loaded");
+}
+
+init();
+</script>
+</body>
+</html></html>

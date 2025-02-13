@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+  <title><title><title><title><title><title><title><title><title><title><title><title>Synchronous XMLHttpRequest Feature Policy Test</title></title><title><title>Synchronous XMLHttpRequest Feature Policy Test</title></title><title><title>Synchronous XMLHttpRequest Feature Policy Test</title></title><title><title>Synchronous XMLHttpRequest Feature Policy Test</title></title><title><title>Synchronous XMLHttpRequest Feature Policy Test</title></title></title></title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title>Synchronous XMLHttpRequest Feature Policy Test</title></title><title><title>Synchronous XMLHttpRequest Feature Policy Test</title></title><title><title>Synchronous XMLHttpRequest Feature Policy Test</title></title><title><title>Synchronous XMLHttpRequest Feature Policy Test</title></title><title><title>Synchronous XMLHttpRequest Feature Policy Test</title></title></title></title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title>Synchronous XMLHttpRequest Feature Policy Test</title></title><title><title>Synchronous XMLHttpRequest Feature Policy Test</title></title><title><title>Synchronous XMLHttpRequest Feature Policy Test</title></title><title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title><title>Synchronous XMLHttpRequest Feature Policy Test</title></title><title><title>Synchronous XMLHttpRequest Feature Policy Test</title></title></title></title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title>Synchronous XMLHttpRequest Feature Policy Test</title></title><title><title>Synchronous XMLHttpRequest Feature Policy Test</title></title><title><title>Synchronous XMLHttpRequest Feature Policy Test</title></title><title><title>Synchronous XMLHttpRequest Feature Policy Test</title></title><title><title>Synchronous XMLHttpRequest Feature Policy Test</title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title><meta>
+  <script src=/resources/testharness.js></script>
+  <script src=/resources/testharnessreport.js></script>
+  <script src=/feature-policy/resources/featurepolicy.js></script>
+  <script src=util/utils.js></script>
+  <script>
+  'use strict';
+  run_all_fp_tests_allow_all(
+      'http://{{hosts[alt][]}}:{{ports[http][4]}}',
+      'sync-xhr',
+      'NetworkError',
+      () => {
+        return new Promise((resolve, reject) => {
+          try {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "data:,", false);
+            try {
+              xhr.send();
+            }}',
+      'sync-xhr',
+      'NetworkError',
+      () => {
+        return new Promise((resolve, reject) => {
+          try {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "data:,", false);
+            try {
+              xhr.send();
+            } catch(e) {
+            reject({"name": "UnexpectedException:" + e.name});
+          }
+          resolve();
+       });
+      });
+  </script>
+</body>

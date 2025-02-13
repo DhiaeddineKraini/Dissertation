@@ -1,0 +1,31 @@
+<!doctype html>
+<title>invoking load by setting src on video not in a document</title><script src="/resources/testharnessreport.js">
+</script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharnessreport.js">
+</script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id=log></div>
+<title><script>
+async_test(function(t) {
+  var v = document.createElement('video');
+  v.onloadstart = t.step_func(function() { t.done(); });
+  v.setAttribute('src','');
+  window.onload = t.step_func(function() { assert_unreached(); });
+});
+</script></title><title><script>
+async_test(function(t) {
+  var v = document.createElement('video');
+  v.onloadstart = t.step_func(function() { t.done(); });
+  v.setAttribute('src','');
+  window.onload = t.step_func(function() { assert_unreached(); });
+});
+</script></title><script>
+async_test(function() { assert_unreached(); });
+});
+</script></title><script><script><script>
+async_test(function(t) {
+  var v = document.createElement('video');
+  v.onloadstart = t.step_func(function() { t.done(); });
+  v.setAttribute('src','');
+  window.onload = t.step_func(function() { assert_unreached(); });
+});
+</script></script></script>

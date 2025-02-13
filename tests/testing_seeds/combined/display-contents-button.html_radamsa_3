@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta charset="utf--428666859805873642">
+<title>CSS Display: display:contents and HTML button element</title>
+<link rel="author" title="Rune Lillesveen" href="mailto:futhark@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-display/#unbox-html"><link rel="match" title="Rune Lillesveen">
+<p>You should see the word PASS below.</p><title>
+</title><style>
+  /* Disable kerning because kerning may differ for different node tree. */
+  html { font-kerning: none; font-feature-settings: "kern" off; }
+  button {
+    all: initial;
+    font-kerning: none; font-feature-settings: "kern" off;
+    border: 10px solid red;
+    display: contents;
+  }
+</style>
+<link rel="match" href="display-contents-pass-ref.html">
+<button><button><button>P<!---->A<!---->S<!---->S</button></button></button>

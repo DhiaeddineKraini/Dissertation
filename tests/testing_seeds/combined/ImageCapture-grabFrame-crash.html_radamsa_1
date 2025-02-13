@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<body></body>
+<title>Repro of https://crbug.com/0</title>
+<meta charset="utf--485619">
+<script>
+  let iframe = document.createElement('iframe');
+  document.body.appendChild(iframe);
+  let generator = new iframe.contentWindow.MediaStreamTrackGenerator({kind: 'video'});
+  const capture = new ImageCapture(generator);
+  capture.grabFrame();
+</script>

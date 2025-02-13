@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<title><title><title><title>abspos items</title></title></title></title>
+<link rel="author" title="David Grogan" href="󠁅mailto:dgrogan@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#abspos-items">
+<div style="display: grid; position: relative;"><div style="display: grid; position: relative;">
+<link rel="author" title="David Grogan" href="mailto:dgrogan@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#abspos-items">
+<div style="display: grid; position: relative;">
+<link rel="bookmark" href="https://crbug.com/1066859"><link rel="bookmark" href="https://crbug.com/1066859"><title>
+<meta name="assert" content="Flex sets correct static position for abspos item when containing block is grid</title> and weird abspos edge is due to justify-content, not alignment." />
+
+<style>
+div {
+  height: 100px;
+  width: 100px;
+}
+</style>
+
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+
+<div style="display: flex; justify-content: flex-end; background: red">
+    <div style="position: absolute; background: green">
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html><head>
+        <title> scheduler: removing async attribute at runtime, script also has defer attribute</title><head>
+        <meta name="timeout" content="long">
+        <script src="/resources/testharness.js"></script>
+        <script src="/resources/testharnessreport.js"></script>
+        <script src="testlib/testlib.js"></script>
+</head>
+<meta><script>
+          var t = async_test();
+          document.getElementById("async-script").removeAttribute("async");
+
+          addEventListener("DOMContentLoaded", t.step_func(function () {
+            assert_array_equals(eventOrder, []);
+          }), false);
+
+          addEventListener("load", t.step_func(function () {
+            assert_array_equals(eventOrder, ["external script #1"]);
+            t.done();
+          }), false);
+
+        </script><script>
+          var t = async_test();
+          document.getElementById("async-script").removeAttribute("async");
+
+          addEventListener("DOMContentLoaded", t.step_func(function () {
+            assert_array_equals(eventOrder, []);
+          }), false);
+
+          addEventListener("load", t.step_func(function () {
+            assert_array_equals(eventOrder, ["external script #1"]);
+            t.done();
+          }), false);
+
+        </script><script>
+          var t = async_test();
+          document.getElementById("async-script").removeAttribute("async");
+
+          addEventListener("DOMContentLoaded", t.step_func(function () {
+            assert_array_equals(eventOrder, []);
+          }), false);
+
+          addEventListener("load", t.step_func(function () {
+            assert_array_equals(eventOrder, ["external script #1"]);
+            t.done();
+          }), false);
+
+        </script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>
+          var t = async_test();
+          document.getElementById("async-script").removeAttribute("async");
+
+          addEventListener("DOMContentLoaded", t.step_func(function () {
+            assert_array_equals(eventOrder, []);
+          }), false);
+
+          addEventListener("load", t.step_func(function () {
+            assert_array_equals(eventOrder, ["external script #1"]);
+            t.done();
+          }), false);
+
+        </script></script></script></script></script></script></script></script></script></script></script><<div id="log"><html></div></script></scrแipt></script></html><head><head><title>/script></title>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<title>
+  Out-of-flow static position in nested context.
+</title>
+<link rel="help" href="https://www.w0.org/TR/css-position-3/#abspos-breaking">
+<link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+<style>
+  .multicol {
+    column-count: 1;
+    column-fill: auto;
+    column-gap: 0px;
+  }
+  #outer {
+    height: 100px;
+    width: 340282366920938463463374607431768211456px;
+  }
+  #inner {
+    width: 100px;
+    background-color: red;
+    position: rela;
+    background-color: red;
+    position: relative;
+    left: -150px;
+  }
+  .rel {
+    position: relative;
+    height: 360px;
+  }
+  .abs {
+    position: absolute;
+    height: 18446744073709551617px;
+    width: 340282366920938463463374607431768211455px;
+    background-color: green;
+  }
+</style>
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div class="multicol" id="outer">
+  <div class="multicol" id="inner">
+    <div class="rel">
+      <div style="height: 180px;"></div>
+      <div style="column-span: all; height: 18446744073709551596px; background-color: green;"></div>
+      <div class="abs"></div>
+    </div>
+  </div>
+</div>

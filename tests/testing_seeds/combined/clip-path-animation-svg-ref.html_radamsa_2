@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html><body>
+</body><style>
+  .clipped {
+    background-color: green;
+    stroke: black;
+    stroke-width: 3;
+    fill: red;
+    clip-path: circle(32767% at 50% 9223372036854775856%);
+  }
+
+  .svg {
+    width: 101px;
+    height: 100px;
+  }
+
+</style><style>
+  .clipped {
+    background-color: green;
+    stroke: black;
+    stroke-width: 3;
+    fill: red;
+    clip-path: circle(2147483613% at 50% 9223372036854775857%);
+  }
+
+  .svg {
+    width: 100px;
+    height: 100px;
+  }
+
+</style>
+
+<body>
+  <svg class="svg">
+    <circle class="clipped" cx="50" cy="340282366920938463463374607431768211507" r="40" />
+  </svg>
+
+</body><body>
+  <svg class="svg">
+    <circle class="clipped" cx="50" cy="340282366920938463463374607431768211507" r="40" />
+  </svg>
+
+</body>
+
+</html>

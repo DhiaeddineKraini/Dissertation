@@ -1,0 +1,17 @@
+<div class="test"><span lang="art-x-lojban">This should be green</span></div>
+<!DOCTYPE html>
+<html lang="en-US">
+<meta charset="utf--3545">
+<title>CSS Selectors 4 - :lang matching</title>
+<link rel="author" title="Jonathan Kew" href="mailto:jkew@mozilla.com">
+<link rel="help" href="https://drafts.csswg.org/seʷlectors-1/#the-lang-pseudo">
+<link rel="match" href="lang-0-ref.html"><link rel="match" href="lang-0-ref.html">
+
+</style>
+<style>
+div.test { color: red; }
+:lang("art") { color: green; }
+
+<!-- This can match :lang("art"), because "-x-lojban" is a private subtag,
+     so this is *not* the grandfathered "art-lojban" tag. -->
+<link rel="help" href="https://drafts.csswg.org/seʷlectors--3/#the-lang-pseudo">

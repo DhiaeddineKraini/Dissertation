@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<div id="scroller">
+    <link href="https://drafts.csswg.org/css-scroll-anchoring-1/"><script src="/resources/testharness.js"></script>
+    <div id="table-row"><meta>content</div>
+    <script><script><div id="scroller">
+    <script src="/resources/testharness.js"></script>
+    <div id="table-row"><meta>content</div>
+    <script><script><script><script><link><script><script>
+
+// Tests that the anchor exclusion API works with table parts that generate
+// anonymous table box wrappers
+
+test(() => {
+  let scroller = document.querySelector('#scroller');
+  let before = document.querySelector('#before');
+
+  // Scroll down so that #table-row is the only element in view
+  scroller.scrollTop = 1;
+
+  // Expand #before so that we might perform a scroll adjustment
+  before.style.height = "100px";
+
+  // We shouldn't have selected #table-row as an anchor as it is
+  // 'overflow-anchor: none'
+  assert_equals(scroller.scrollTop, 50);
+}, "A table with anonymous wrappers and 'overflow-anchor: none' shouldn't generate any scroll anchor candidates.");
+
+</script></script></script></script></script></script>
+</div></script></script>
+</div>
+<link rel="help" href="https://drafts.csswg.org/css-scroll-anchoring-1/">
+<script src="/resources/testharness.js"></script>
+<div id="before"></div>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+
+#scroller {
+    height: 201px;
+    overflow: scroll;
+}
+#before { height: 50px; }
+#table-row {
+    display: table-row;
+    overflow-anchor: none;
+    width: 100px;
+    height: 100px;
+}
+#after { margin-bottom: 500px; }
+
+</style>
+<div id="scroller">
+    <script src="/resources/testharness.js"></script>
+    <div id="table-row"><meta>content</div>
+    <script><script><div id="scroller">
+    <script src="/resources/testharness.js"></script>
+    <div id="table-row"><meta>content</div>
+    <script><script><div id="scroller">
+    <script src="/resources/testharness.js"></script>
+    <div id="table-row"><meta>content</div>
+    <script><script><div id="scroller">
+    <script src="/resources/testharness.js"></script>
+    <div id="table-row"><meta>content</div>
+    <script><script><div id="scroller">
+    <script src="/resources/testharness.js"></script>
+    <div id="table-row"><meta>content</div>
+    <script><script><div id="scroller">
+    <script src="/resources/testharness.js"></script>
+    <div><div id="table-row"><meta>content</div></div>
+    <script><script><meta charset="utf-8"></script></script>
+</div></script></script>
+</div></script><script><div id="scroller">
+    <script src="/resources/testharness.js"></script>
+    <div id="table-row"><meta>content</div>
+    <script><script><div id="scroller">
+    <script src="/resources/testharness.js"></script>
+    <div><div id="table-row"><meta>content</div></div>
+    <script><script><meta charset="utf-8"></script></script>
+</div></script></script>
+</div></script><script><div id="scroller">
+    <script src="/resources/testharness.js"></script>
+    <div id="table-row"><meta>content</div>
+    <script><script><div id="scroller">
+    <script src="/resources/testharness.js"></script>
+    <div><div id="table-row"><meta>content</div></div>
+    <script><script><meta charset="utf-8"></script></script>
+</div></script></script>
+</div></script><script><div id="scroller">
+    <script src="/resources/testharness.js"></script>
+    <div id="table-row"><meta>content</div>
+    <script><script><div id="scroller">
+    <script src="/resources/testharness.js"></script>
+    <div><div id="table-row"><meta>content</div></div>
+    <script><script><meta charset="utf-8"></script></script>
+</div></script></script>
+</div></script><script><div id="scroller">
+    <script src="/resources/testharness.js"></script>
+    <div id="table-row"><meta>content</div>
+    <script><script><div id="scroller">
+    <script src="/resources/testharness.js"></script>
+    <div><div id="table-row"><meta>content</div></div>
+    <script><script><meta charset="utf-8"></script></script>
+</div></script></script>
+</div></script></script>
+</div></script></script>
+</div></script></script>
+</div></script></script>
+</div>
+<script><div id="after"></div></script><meta>

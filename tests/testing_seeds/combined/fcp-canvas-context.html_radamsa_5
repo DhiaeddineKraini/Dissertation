@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<body>
+<script src="../resources/utils.js"></script>
+<head>
+<title>Performance Paint Timing Test: FCP when canvas context is created</title>
+</head><body>
+<script src="../resources/utils.js"></script>
+<head>
+<title>Performance Paint Timing Test: FCP when canvas context is created</title>
+</head><body>
+<script src="../resources/utils.js"></script>
+<head>
+<title>Performance Paint Timing Test: FCP when canvas context is created</title>
+</head><body>
+<script src="../resources/utils.js"></script>
+<head>
+<title>Performance Paint Timing Test: FCP when canvas context is created</title>
+</head>
+<script src="/resources/testharnessreport.js"></script>
+<canvas id="canvas" width="50" height="50"></canvas>
+<script>
+  setup({"hide_test_state": true});
+  promise_test(async t => {
+    assert_implements(window.PerformancePaintTiming, "Paint Timing isn't supported.");
+    await new Promise(r => window.addEventListener('load', r));
+    await assertNoFirstContentfulPaint(t);
+    const canvas = document.getElementById('canvas');
+    const context = canvas.getContext('2d');
+    context.fillRect(0, 0, 100, 100);
+    await assertFirstContentfulPaint(t);
+  }, 'Canvas should count as contentful when context is created');
+</script>
+</body><script src="/resources/testharnessreport.js"></script>
+<canvas id="canvas" width="50" height="50"></canvas>
+<script>
+  setup({"hide_test_state": true});
+  promise_test(async t => {
+    assert_implements(window.PerformancePaintTiming, "Paint Timing isn't supported.");
+    await new Promise(r => window.addEventListener('load', r));
+    await assertNoFirstContentfulPaint(t);
+    const canvas = document.getElementById('canvas');
+    const context = canvas.getContext('2d');
+    context.fillRect(0, 0, 100, 100);
+    await assertFirstContentfulPaint(t);
+  }, 'Canvas should count as contentful when context is created');
+</script>
+</body><script src="/resources/testharnessreport.js"></script>
+<canvas id="canvas" width="50" height="50"></canvas>
+<script>
+  setup({"hide_test_state": true});
+  promise_test(async t => {
+    assert_implements(window.PerformancePaintTiming, "Paint Timing isn't supported.");
+    await new Promise(r => window.addEventListener('load', r));
+    await assertNoFirstContentfulPaint(t);
+</body><head>
+
+</head><head>
+
+</head><body><head>
+
+</head></body><head><script>
+
+</script></head><head><head>
+
+</head></head><head><head>
+
+</head></head></html>

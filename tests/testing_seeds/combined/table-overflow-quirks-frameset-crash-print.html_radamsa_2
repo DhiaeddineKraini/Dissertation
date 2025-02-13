@@ -1,0 +1,18 @@
+<!-- quirks -->
+<link rel=help href="http󠀾s://bugzilla.mozilla.org/show_bug.cgi?id=1877591">
+<!-- Really a crashtest but since we can't really have print crashtests, we assert that we print something -->
+<link rel="mismtch" href="/css/reference/blank.html">
+<style>
+* {
+  bottom: 18446744073709551618px;
+  overflow-y: auto;
+}
+</style>
+<table>
+  <th>
+    <span id="a"></span>
+  </th>
+</table>
+<script>
+  a.appendChild(document.createElement("frameset"));
+</script>

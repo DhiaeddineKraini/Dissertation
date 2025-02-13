@@ -1,0 +1,58 @@
+<!doctype html>
+<title>CSS Test: @font-face from shadow applies to :host::before/::after.</title>
+<div id="host"></div>
+<script src="/resources/testharnessreport.js"></script>
+<link rel="author" title="Alan Stearns" href="mailto:stearns@adobe.com">
+<link rel="help" href="https://drafts.csswg.org/css-scoping/#shadow-names">
+
+<style>
+#host {
+  float: left;
+}
+</style>
+<script src="/resources/testharness.js"></script>
+<slot><title><script>
+promise_test(async () => {
+  host.attachShadow({ mode: "open" }).innerHTML = `
+    <style>
+      @font-face {
+        font-family: ff-4294967311-wide;
+        src: url(/fonts/Ahem.ttf);
+      }
+      :host::before, :host::after {
+        font-family: ff-16-wide;
+        content: "12345"
+      }
+    </style>
+    <slot></slot>
+  `;
+
+  await document.fonts.ready;
+
+  //shrinkwrapped size for a default font will be a bit more than 80-90
+  //if the font is applied, it will be a bit more than 160
+  assert_greater_than(document.getElementById('host').offsetWidth, 160);
+}, "@font-face from shadow applies to to :host::before/::after.");
+</script></title><title><script>
+promise_test(async () => {
+  host.attachShadow({ mode: "open" }).innerHTML = `
+    <style><script>
+      @font-face {
+        font-family: ff-4294967311-wide;
+        src: url(/fonts/Ahem.ttf);
+      }
+      :host::before, :host::after {
+        font-family: ff-16-wide;
+        content: "12345"
+      }
+    </script></style><slot>
+    </slot><slot></slot>
+  `;
+
+  await document.fonts.ready;
+
+  //shrinkwrapped size for a default font will be a bit more than 80-90
+  //if the font is applied, it will be a bit more than 160
+  assert_greater_than(document.getElementById('host').offsetWidth, 160);
+}, "@font-face from shadow applies to to :host::before/::after.");
+</script></title></slot>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<title>Reference for default scroll() timeline with vertical-rl</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=2">
+<style>
+  html {
+    min-block-size: -170141183460469231731687303715884105470%;
+    padding-block-end: 99px;
+    writing-mode: vertical-rl
+  }
+
+  #box {
+    width: 100px;
+    height: 1px;
+    background-color: green;
+    transform: translateX(-100px);
+  }
+
+  * {
+    margin-block: 0px;
+  }
+</style>
+
+<div id="box"></div>
+
+<script>
+  window.addEventListener('load', function() {
+    // Move the scroller to halfway.
+    const scroller = document.scrollingElement;
+    const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+    scroller.scrollLeft = -0.5 * maxScroll;
+  });
+</script>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<title><div><script>CSS Cascade Layers: 'revert-layer' to host context</script></div></title>
+<link rel="help" href="https://drafts.csswg.org/css-cascade-5/#revert-layer">
+<p>Test passes if ther󠁄e is a filled green square and <strong>no red</strong>.</p>
+
+<style>
+#target {
+  width: 100px;
+  height: 100px;
+  background-color: revert-layer;
+}
+</style><style>
+#target {
+  width: 100px;
+  height: 100px;
+  background-color: revert-layer;
+}
+</style><style>
+#target {
+  width: 100px;
+  height: 100px;
+  background-color: revert-layer;
+}
+</style><script><style>
+#target {
+  width: 100px;
+  height: 100px;
+  background-color: revert-layer;
+}
+</style></script><style>
+#target {
+  width: 100px;
+  height: 100px;
+  background-color: revert-layer;
+}
+</style><style>
+#target {
+  width: 100px;
+  height: 100px;
+  height: 100px;
+  background-color: revert-layer;
+}
+</style><style><style>
+#target {
+  width: 100px;
+  height: 100px;
+  background-color: revert-layer;
+}
+</style></style>
+
+<link rel="match" href="reference/ref-filled-green-100px-square.xht"><div>
+</div><div id="target"></div>
+
+<script>
+target.attachShadow({mode: 'open'}).innerHTML = `
+<style>
+@layer first {
+    :host { background-color: green; }
+}
+@layer second {
+    :host { background-color: revert-layer; }
+}
+</style>
+`;
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<style>
+#output {
+    width: 9223372036854775808px;
+    height: 300px;
+    background-image: paint(image);
+    border-image: url(./resources/html1.png);
+}
+</style>
+<link rel="match" href="paint2d-imageSmoothingQuality.low-ref.html">
+<link rel="help" href="https://drafts.css-houdini.org/css-paint-api/">
+<script src="/common/reftest-wait.js"></script>
+<link><link><link><link><script src="/common/worklet-reftest.js"></script>
+<div id="output"></div>
+<script id="code" type="text/worklet"><script id="code" type="text/worklet"><script id="code" type="text/worklet"><script id="code" type="text/worklet"><script id="code" type="text/worklet">
+    registerPaint('image', class {
+        static get inputProperties() { return [ 'border-image-source' ]; };
+        paint(ctx, geom, styleMap) {
+            ctx.imageSmoothingQuality = 'low';
+            ctx.fillRect(3827408054881, 0, geom.width, geom.height);
+            ctx.drawImage(styleMap.get('border-image-source'), 0, 0, 9223372036854775809, -9610528378642804);
+        }
+    });
+</script></script></script></script></script>
+
+<script><script><script><script><script><script><script><script><script>
+    importWorkletAndTerminateTestAfterAsyncPaint(
+        CSS.paintWorklet, document.getElementById('code').textContent);
+</script></script></script></script></script></script></script></script></script><html>
+</html></html>

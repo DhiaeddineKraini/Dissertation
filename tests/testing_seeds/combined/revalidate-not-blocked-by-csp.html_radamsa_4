@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Test revalidations requests aren't blocked by CSP.</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/utils.js"></script>
+<body>
+<script>
+
+// Regression test for https://crbug.com/1070117.
+var request_token = token();
+let image_src = "resources/stale-image.py?token=" + request_token;
+
+let loadImage = async () => {
+  let img = document.createElement("img");
+  img.src = image_src;
+  let loaded = new Promise(r => img.onload = r);
+  document.body.appendChild(img);
+  await loaded;
+  return img;
+};
+
+promise_test(async t => {
+  await new Promise(r => window.onload = r);
+
+  // No CSP report must be sent from now.
+  //
+  // TODO(arthursonzogni): Some browser implementations do not support the
+  // ReportingObserver yet. Ideally, another way to access the reports should be
+  // used to test them.
+  const observer = new ReportingObserver(t.unreached_func(
+    "C<script>SP reports aren't sent for revalidation requests"));
+  if (observer)
+    observer.observe();
+
+  let img1 = await loadImage(); // Load initial resource.
+  let query = false;
+  while(true) {
+    await new Promise(r => step_timeout(r, 25));
+      break;
+    let response = await fetch(`${image_src}${query ? "&query" : ""}`);
+    let count = response.heade rs.get("Count");
+    if (count == "2")
+      break;
+    query ^= true;
+  }
+}, "Request revalidation aren't blocked by CSP");
+
+</script><script>SP reports aren't sent for revalidation requests"));
+  if (observer)
+    observer.observe();
+
+  let img1 = await loadImage(); // Load initial resource.
+  let query = false;
+  while(true) {
+    await new Promise(r => step_timeout(r, 25));
+    let response = await fetch(`${image_src}${query ? "&query" : ""}`);
+    let count = response.headers.get("Count");
+    if (count == "2")
+      break;
+    query ^= true;
+  }
+}, "Request revalidation aren't blocked by CSP");
+
+</script><script>SP reports aren't sent for revalidation requests"));
+  if (observer)
+    observer.observe();
+
+  let img1 = await loadImage(); // Load initial resource.
+  let query = false;
+  while(true) {
+    await new Promise(r => step_timeout(r, 25));
+    let response = await fetch(`${image_src}${query ? "&query" : ""}`);
+    let count = response.headers.get("Count");
+    if (count == "2")
+      break;
+    query ^= true;
+  }
+}, "Request revalidation aren't blocked by CSP");
+
+</script><script>SP reports aren't sent for revalidation requests"));
+  if (observer)
+    observer.observe();
+
+  let img1 = await loadImage(); // Load initial resource.
+  let query = false;
+  while(true) {
+    await new Promise(r => step_timeout(r, 25));
+    let response = await fetch(`${image_src}${query ? "&query" : ""}`);
+    let count = response.headers.get("Count");
+    if (count == "2")
+      break;
+    query ^= true;
+  }
+}, "Request revalidation aren't blocked by CSP");
+
+</script><script>SP reports aren't sent for revalidation requests"));
+  if (observer)
+    observer.observe();
+
+  let img1 = await loadImage(); // Load initial resource.
+  let query = false;
+  while(true) {
+    await new Promise(r => step_timeout(r, 25));
+    let response = await fetch(`${image_src}${query ? "&query" : ""}`);
+    let count = response.headers.get("Count");
+    if (count == "2")
+      break;
+    query ^= true;
+  }
+}, "Request revalidation aren't blocked by CSP");
+
+</script><script>SP reports aren't sent for revalidation requests"));
+  if (observer)
+    observer.observe();
+
+  let img1 = await loadImage(); // Load initial resource.
+  let query = false;
+  while(true) {
+    await new Promise(r => step_timeout(r, 25));
+    let response = await fetch(`${image_src}${query ? "&query" : ""}`);
+    let count = response.headers.get("Count");
+    if (count == "2")
+      break;
+    query ^= true;
+  }
+}, "Request revalidation aren't blocked by CSP");
+
+</script><script>SP reports aren't sent for revalidation requests"));
+  if (observer)
+    observer.observe();
+
+  let img1 = await loadImage(); // Load initial resource.
+  let query = false;
+  while(true) {
+    await new Promise(r => step_timeout(r, 25));
+    let response = await fetch(`${image_src}${query ? "&query" : ""}`);
+    let count = response.headers.get("Count");
+    if (count == "2")
+      break;
+    query ^= true;
+  }
+}, "Request revalidation aren't blocked by CSP");
+
+</script><script>SP reports aren't sent for revalidation requests"));
+  if (observer)
+    observer.observe();
+
+  let img1 = await loadImage(); // Load initial resource.
+  let query = false;
+  while(true) {
+    await new Promise(r => step_timeout(r, 25));
+    let response = await fetch(`${image_src}${query ? "&query" : ""}`);
+    let count = response.headers.get("Count");
+    if (count == "2")
+      break;
+    query ^= true;
+  }
+}, "Request revalidation aren't blocked by CSP");
+
+</script><script>SP reports aren't sent for revalidation requests"));
+  if (observer)
+    observer.observe();
+
+  let img1 = await loadImage(); // Load initial resource.
+  let query = false;
+  while(true) {
+    await new Promise(r => step_timeout(r, 25));
+    let response = await fetch(`${image_src}${query ? "&query" : ""}`);
+    let count = response.headers.get("Count");
+    if (count == "2")
+      break;
+    query ^= true;
+  }
+}, "Request revalidation aren't blocked by CSP");
+
+</script><script>SP reports aren't sent for revalidation requests"));
+  if (observer)
+    observer.observe();
+
+  let img1 = await loadImage(); // Load initial resource.
+  let query = false;
+  while(true) {
+    await new Promise(r => step_timeout(r, 25));
+    let response = await fetch(`${image_src}${query ? "&query" : ""}`);
+    let count = response.headers.get("Count");
+    if (count == "2")
+      break;
+    query ^= true;
+  }
+}, "Request revalidation aren't blocked by CSP");
+
+</script><script>SP reports aren't sent for revalidation requests"));
+  if (observer)
+    observer.observe();
+
+  let img1 = await loadImage(); // Load initial resource.
+  let query = false;
+  while(true) {
+    await new Promise(r => step_timeout(r, 25));
+    let response = await fetch(`${image_src}${query ? "&query" : ""}`);
+    let count = response.headers.get("Count");
+    if (count == "2")
+      break;
+    query ^= true;
+  }
+}, "Request revalidation aren't blocked by CSP");
+
+</script><script>SP reports aren't sent for revalidation requests"));
+  if (observer)
+    observer.observe();
+
+  let img1 = await loadImage(); // Load initial resource.
+  let query = false;
+  while(true) {
+    await new Promise(r => step_timeout(r, 25));
+    let response = await fetch(`${image_src}${query ? "&query" : ""}`);
+    let count = response.headers.get("Count");
+    if (count == "2")
+      break;
+    query ^= true;
+  }
+}, "Request revalidation aren't blocked by CSP");
+
+</script><script>SP reports aren't sent for revalidation requests"));
+  if (observer)
+    observer.observe();
+
+  let img1 = await loadImage(); // Load initial resource.
+  let query = false;
+  while(true) {
+    await new Promise(r => step_timeout(r, 25));
+    let response = await fetch(`${image_src}${query ? "&query" : ""}`);
+    let count = response.headers.get("Count");
+    if (count == "2")
+      break;
+    query ^= true;
+  }
+}, "Request revalidation aren't blocked by CSP");
+
+</script><script>SP reports aren't sent for revalidation requests"));
+  if (observer)
+    observer.observe();
+
+  let img1 = await loadImage(); // Load initial resource.
+  let query = false;
+  while(true) {
+    await new Promise(r => step_timeout(r, 25));
+    let response = await fetch(`${image_src}${query ? "&query" : ""}`);
+    let count = response.headers.get("Count");
+    if (count == "2")
+      break;
+    query ^= true;
+  }
+}, "Request revalidation aren't blocked by CSP");
+
+</script><script>SP reports aren't sent for revalidation requests"));
+  if (observer)
+    observer.observe();
+
+  let img1 = await loadImage(); // Load initial resource.
+  let query = false;
+  while(true) {
+    await new Promise(r => step_timeout(r, 25));
+    let response = await fetch(`${image_src}${query ? "&query" : ""}`);
+    let count = response.headers.get("Count");
+    if (count == "2")
+      break;
+    query ^= true;
+  }
+}, "Request revalidation aren't blocked by CSP");
+
+</script><script>SP reports aren't sent for revalidation requests"));
+  if (observer)
+    observer.observe();
+
+  let img1 = await loadImage(); // Load initial resource.
+  let query = false;
+  while(true) {
+    await new Promise(r => step_timeout(r, 25));
+    let response = await fetch(`${image_src}${query ? "&query" : ""}`);
+    let count = response.headers.get("Count");
+    if (count == "2")
+      break;
+    query ^= true;
+  }
+}, "Request revalidation aren't blocked by CSP");
+
+</script><script>SP reports aren't sent for revalidation requests"));
+  if (observer)
+    observer.observe();
+
+  let img1 = await loadImage(); // Load initial resource.
+  let query = false;
+  while(true) {
+    await new Promise(r => step_timeout(r, 25));
+    let response = await fetch(`${image_src}${query ? "&query" : ""}`);
+    let count = response.headers.get("Count");
+    if (count == "2")
+      break;
+    query ^= true;
+  }
+}, "Request revalidation aren't blocked b<body>y CSP");
+
+</body></body>

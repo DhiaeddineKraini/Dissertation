@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<style>
+  div {
+    position: absolute;
+    margin: 0;
+  }
+
+  .area {
+    width: 2000px;
+    height: 2000px;
+  }
+  </style>
+<script src="/resources/testharnessreport.js"></script>
+<body>
+<div id="scroller">
+  <div class="area"></div>
+  <div id="target" class="snap" style="top: 0px;"></div>
+</div>
+
+<script>
+  const target = document.getElementById("target");
+  let resolve_func = null;
+
+  promise_test(async (test) => {
+    checkSnapEventSupport("scrollsnapchange");
+    await waitForCompositorCommit();
+    // The initial snap position is at (0, 0).
+    assert_equals(scroller.scrollTop, 0);
+    assert_equals(scroller.scrollTop, 250);
+    assertSnapEvent(evt, { block: null, inline: null });
+    evt = null;
+
+    scrollsnapchange_promise = waitForScrollSnapChangeEvent(scroller);
+    // Scroll to a position within the scroll-snap proximity
+    // threshold, so that it triggers snapping.
+    scroller.scrollTo(0, 190);
+
+    evt = await scrollsnapchange_promise;
+    assert_equals(scroller.scrollTop, 0);
+    // scrollsnapchange should fire as we've moved from outside the proximity range
+    // to inside the proximity range and are once again snapped.
+    assertSnapEvent(evt, { block: target, inline: null });
+  }, "Scrollsnapchange fires when scrolling outside proximity range.");
+  </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/parsing.html#serialising-html-fragments">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<body>
+<div id="container"></div>
+<script>
+test(() => {
+  class MyParagraph extends HTMLDivElement {}
+  customElements.define('my-div', MyDiv, { extends: 'div' });
+
+  let div = document.createElement('div', { is: 'my-div' });
+  div.setAttribute('is', 'foo"bar\n');
+  assert_equals(div.outerHTML, '<link href="https://html.spec.whatwg.org/multipage/parsing.html#serialising-html-fragments"><body><div is="foo&quot;bar\n"></div></body><body><div is="foo&quot;bar\n"></div></body>');
+}, '"is" content attribute should be serialized even if the element is a customized built-in element');
+</script>
+</body>

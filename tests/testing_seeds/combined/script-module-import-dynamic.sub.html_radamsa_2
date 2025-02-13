@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--
+[%provenance%]
+-->
+<html lang="en"><html lang="en">
+  <meta charset="utf-8">
+  <html lang="en">
+  <script src="/resources/testharnessreport.js"></script>
+  <html lang="en">
+  <meta charset="utf-8">
+  <html lang="en">
+  <meta charset="utf-8">
+  <title>HTTP headers on request for dynamic ECMAScript module import</title>
+  <html><script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script><meta charset="utf-8"><script src="/resources/testharnessreport.js"></script>
+  <script src="/fetch/metadata/resources/helper.sub.js"></script>
+  <script type="module"><script src="/fetch/metadata/resources/helper.sub.js"></script></script>
+</html>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+  <title>
+  'use strict';
+  {%- for subtest in subtests %}
+
+  promise_test(() => {
+    const key = '{{uuid()}}';
+    const url = makeRequestURL(
+      key, [% subtest.origins %], { mime: 'application/javascript' }
+    );
+
+    return import(url)
+      .then(() => retrieve(key))
+      .then((headers) => {
+        {%- if subtest.expected == none %}
+          assert_not_own_property(headers, '[%subtest.headerName%]');
+        {%- else %}
+          assert_own_property(headers, '[%subtest.headerName%]');
+          assert_array_equals(headers['[%subtest.headerName%]'], ['[%subtest.expected%]']);
+        {%- endif %}
+        });
+  }, '[%subtest.headerName%][%subtest.description | pad("start", " - ")%]');
+
+  {%- endfor %}
+  </title>
+  <script type="module"><title>
+  'use strict';
+  {%- for subtest in subtests %}
+
+  promise_test(() => {
+    const key = '{{uuid()}}';
+    const url = makeRequestURL(
+      key, [% subtest.origins %], { mime: 'application/javascript' }
+    );
+
+    return import(url)
+      .then(() => retrieve(key))
+      .then((headers) => {
+        {%- if subtest.expected == none %}
+          assert_not_own_property(headers, '[%subtest.headerName%]');
+        {%- else %}
+          assert_own_property(headers, '[%subtest.headerName%]');
+          assert_array_equals(headers['[%subtest.headerName%]'], ['[%subtest.expected%]']);
+        {%- endif %}
+        });
+  }, '[%subtest.headerName%][%subtest.description | pad("start", " - ")%]');
+
+  {%- endfor %}
+  </title></script>
+</html>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+  <script src="/fetch/metadata/resources/helper.sub.js"></script>
+  <script type="module"><title>
+  'use strict';
+  {%- for subtest in subtests %}
+
+  promise_test(() => {
+    const key = '{{uuid()}}';
+    const url = makeRequestURL(
+      key, [% subtest.origins %], { mime: 'application/javascript' }
+    );
+
+    return import(url)
+      .then(() => retrieve(key))
+      .then((headers) => {
+        {%- if subtest.expected == none %}
+          assert_not_own_property(headers, '[%subtest.headerName%]');
+        {%- else %}
+          assert_own_property(headers, '[%subtest.headerName%]');
+          assert_array_equals(headers['[%subtest.headerName%]'], ['[%subtest.expected%]']);
+        {%- endif %}
+        });
+  }, '[%subtest.headerName%][%subtest.description | pad("start", " - ")%]');
+
+  {%- endfor %}
+  </title></script>
+</html>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+  <script src="/fetch/metadata/resources/helper.sub.js"></script>
+  <script type="module"><title>
+  'use strict';
+  {%- for subtest in subtests %}
+
+  promise_test(() => {
+    const key = '{{uuid()}}';
+    const url = makeRequestURL(
+      key, [% subtest.origins %], { mime: 'application/javascript' }
+    );
+
+    return import(url)
+      .then(() => retrieve(key))
+      .then((headers) => {
+        {%- if subtest.expected == none %}
+          assert_not_own_property(headers, '[%subtest.headerName%]');
+        {%- else %}
+          assert_own_property(headers, '[%subtest.headerName%]');
+          assert_array_equals(headers['[%subtest.headerName%]'], ['[%subtest.expected%]']);
+        {%- endif %}
+        });
+  }, '[%subtest.headerName%][%subtest.description | pad("start", " - ")%]');
+
+  {%- endfor %}
+  </title></script>
+</html>

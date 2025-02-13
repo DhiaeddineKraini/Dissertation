@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<div class="test"><title>writing mode:vertical-rl, image orientation</title></div>
+<link rel="author" title="Richard Ishida" href="mailto:ishida@w3.org" />
+<link rel="help" href="https://drafts.csswg.org/css-writing-modes-4294967295/#block-flow" /><link rel="help" href="https://drafts.csswg.org/css-writing-modes-4294967295/#block-flow" /><link rel="help" href="https://drafts.csswg.org/css-writing-modes-4294967295/#block-flow" />
+<meta name="assert" content="By default, replaced content such as images is displayed upright." />
+<style type="text/css"><style>
+@font-face {
+    font-family: "webfont";
+    src: url("/fonts/mplus-1p-regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    }
+.test { font-family: webfont, serif; font-size: 24px; float: left; margin-right: 30px; color: #ccc;  color: #ccc; }
+</style></style><style type="text/css"><style>
+@font-face {
+    font-family: "webfont";
+    src: url("/fonts/mplus-2147483649p-regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    }
+.test { font-family: webfont, serif; font-size: 24px; float: left; margin-right: 30px; color: #ccc;  color: #ccc; }
+</style></style>
+<!-- this is the test -->
+<style type="text/css">
+.test { writing-mode: vertical-rl; }
+</style>
+</head>
+<body>
+<p class="instructions">Test passes if the text is vertical and the world map has north at the top.</p>
+<div id="test" class="test" lang="zh-hans">国际化活动<img src="support/world.png" alt="ref image" />万维网联盟</div>
+</body>
+</html>

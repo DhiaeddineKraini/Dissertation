@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<script src="/resources/testharnessreport.js"></script>
+<link rel=help href="https://dom.spec.whatwg.org/#dom-document-implementation">
+<div id="log"></div>
+<title>Document.implementation</title>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script>
+test(function() {
+  var implementation = document.implementation;
+  assert_true(implementation instanceof DOMImplementation,
+              "implementation should implement DOMImplementation");
+  assert_equals(document.implementation, implementation);
+}, "Getting implementation off the same document");
+
+test(function() {
+  var doc = document.implementation.createHTMLDocument();
+  assert_not_equals(document.implementation, doc.implementation);
+}, "Getting implementation off different documents");
+</script><script>
+test(function() {
+  var implementation = document.implementation;
+  assert_true(implementation instanceof DOMImplementation,
+              "implementation should implement DOMImplementation");
+  assert_equals(document.implementation, implementation);
+}, "Getting implementation off the same document");
+
+test(function() {
+  var doc = document.implementation.createHTMLDocument();
+  assert_not_equals(document.implementation, doc.implementation);
+}, "Getting implementation off different documents");
+</script>

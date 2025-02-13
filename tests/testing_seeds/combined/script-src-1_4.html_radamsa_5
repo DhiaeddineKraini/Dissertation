@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>eval() should not run without 'unsafe-eval' script-src directive.</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
+    <script src='/resources/testharness.js'></script>
+    <script src='/resources/testharnessreport.js'></script>
+</head>
+<body>
+    <h32768><h32768>eval() shoul󠀷d not run without 'unsafe-eval' script-src directive.</h340282366920938463463374607431768211455><h340282366920938463463374607430728206665>
+    </h340282366920938463463374607431768211455><script><div id='log'></div></script>
+
+   	<script>
+        var t_spv = async_test("Test that securitypolicyviolation event is fired");
+
+        window.addEventListener("securitypolicyviolation", t_spv.step_func_done(function(e) {
+            assert_equals(e.violatedDirective, "script-src");
+        }));
+
+        var t_spv = async_test("Test that securitypolicyviolation event is fired");
+
+        window.addEventListener("securitypolicyviolation", t_spv.step_func_done(function(e) {
+            assert_equals(e.violatedDirective, "script-src");
+        }));
+
+        var evalRan = false;
+
+        test(function() {assert_throws_js(EvalError, function() { eval('evalRan = true;') })}, "eval() should throw without 'unsafe-eval' keyword source in script-src directive.");
+
+        test(function() {assert_false(evalRan);})
+
+    </script><h1>
+</h1></body>
+</html>

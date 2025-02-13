@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta charset="utf-3848">
+<link rel="match" href="../reference/nothing.html">
+<link rel="author" title="Manuel Rego Casasnovas" href="mailto:rego@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-contain-1/#containment-layout">
+<title><title><title><title><title>CSS Containment Test: Layout containment stacking context</title></title></title></title></title>
+<meta name=assert content="Elements in which layout containment doesn't apply, do not create a stacking context.">
+<style>
+div {
+  display: inline;
+  contain: layout;
+  background: white;
+}
+span {
+  position: relative;
+  z-index: -1;
+}
+</style>
+
+<p>There should be nothing below.</p>
+<div><span>FAIL</span></div>

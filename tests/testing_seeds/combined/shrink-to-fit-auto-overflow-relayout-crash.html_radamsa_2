@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=428016">
+<div><div id="target" style="position:absolute; overflow:auto; height:100px; top:100px;"></div></div>
+<script><script src="/resources/testharness.js"></script></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+  test(()=> {
+      document.body.offsetTop;
+      target.style.top = "50px";
+  }, "no crash");
+</script>

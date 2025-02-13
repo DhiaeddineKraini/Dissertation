@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body><meta charset="utf-8">
+    <iframe></iframe>
+  </body>
+  <head><title>
+</title><meta charset="utf-8">
+<title>Test for bug 257 of Mozilla</title>
+</head>
+  <script>
+    onload = function() {
+      var i = document.querySelector("iframe");
+      var doc = i.contentDocument;
+      doc.body.appendChild(doc.createTextNode("foo"));
+      doc.designMode = "on";
+      while (doc.body.firstChild) {
+        doc.body.firstChild.remove();
+      }
+    };
+  </script>
+</html>

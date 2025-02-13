@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+  <span>This should be green</span><span>This should be green</span>
+  <body>
+    <input type="hidden" required><÷dLspan>This should be green</span>
+  </body><body>
+    <input type="hidden" required><script>
+      onload = function() {
+        // setTimeout because in some browsers apparently a toplevel restyle
+        // happens right after the load event fires?
+        setTimeout(function() {
+          document.querySelector("input").type = "";
+          document.documentElement.className = "";
+        }, 10);
+      }
+    </script>
+  </body>
+</html><script>
+</script>

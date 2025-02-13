@@ -1,0 +1,19 @@
+<!doctype html>
+<title>ru ISO-8859-5 late</title>
+<meta charset="utf-8">
+<script src=/resources/testharness.js>
+<title>ru ISO-8859-5 late</title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script>
+setup({explicit_done:true});
+window.onmessage = function(e) {
+    test(function() {
+        assert_equals(e.data, "ISO-8859-5", 'Expected ISO-8859-5');
+    }, "Check detection result");
+    w.close();
+    done();
+};
+var w = window.open("support/ru-ISO-8859-5-late.sub.html");
+</script><title>
+</title>

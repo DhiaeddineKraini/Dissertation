@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<link rel="stylesheet" hr-style: solid;
+   padding: 6px 3px 7px 8px;
+   margin: 10px 6px 4px 12px;
+}
+.extraLeftPadding { padding-left: 30px; }
+.extraRightPadding { padding-right: 30px; }
+.item { display: inline-block; }
+.block1, .block2 { float: left; }
+</style>
+
+<style><p>4x1 with orthogonal items, but opposite block-flow direction.</p></style>
+<div class="block verticalLR"><meta charset="utf-8">
+  <div class="block1">
+    <div class="item">É</div><div class="item">É</div>
+  </div>
+  <div class="block2 verticalRL">
+    <div class="item">É</div><div class="item">É</div>
+  </div>
+</div>
+<div class="block verticalLR">
+  <div class="block1">
+    <div class="item extraRightPadding">É</div><div class="item extraLeftPadding">É</div><p>
+  </p></div>
+  <div class="block2 verticalRL" style="margin-left: 10px;">
+    <div class="item">É</div><div class="item">É</div>
+  </div>
+</div>

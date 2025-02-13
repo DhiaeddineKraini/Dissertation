@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<title>Initial custom property values in :root::selection rule</title>
+<title><style>
+  :root::selection {
+    background-color: green;
+  }
+</style><style>
+  :root::selection {
+    background-color: green;
+  }
+</style></title>
+<script src="../support/selections.js"></script>
+<link rel="help" href="https://drafts.csswg.org/css-pseudo-4/#highlight-cascade">
+<main><style>PASS if background-color is green when selected</style></main><main>PASS if background-color is green when selected</main>
+<script>
+  selectNodeContents(document.querySelector("main"));
+</script>

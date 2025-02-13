@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<meta charset=UTF-8>
+<title>Ordering of steps in "Update the Rendering" - child document requestAnimationFrame order</title>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/webappapis.html#update-the-rendering">
+<link rel="author" title="L. David Baron" href="https://dbaron.org/">
+<link rel="author" title="Mozilla" href="https://mozilla.org/">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<div id=log></div>
+
+<!--
+
+This test tests the interaction of just two substeps of the "Update the
+renderment, passing in now as the timestamp.
+
+
+It tests this by setting up a tree of three documents, two children and
+one parent, and testing for the relative order of the animation frame
+callbacks for each.
+
+-->
+
+<script>
+
+async_test(function (t) {
+  step_timeout(setup, 0);
+
+  let first_frame, second_frame;
+
+  let notification_sequence = [];
+
+  function setup() {
+    // Start by creating two iframes.  To test (a little bit) the rule
+    // about iteration being in document order, insert them in the reverse
+    // order of creation.
+    let body = document.body;
+    function make_iframe() {
+      let iframe = document.createElement("iframe");
+      iframe.setAttribute("srcdoc", "<body onload='parent.child_ready()'>");
+      iframe.setAttribute("width", "30");
+      iframe.setAttribute("height", "15");
+      return iframe;
+    }
+    second_frame = make_iframe();
+    body.prepend(second_frame);
+    first_frame = make_iframe();
+    body.prepend(first_frame);
+
+    let children_waiting = 2;
+    window.child_ready = function() {
+      if (--children_waiting == 0) {
+        // Call requestAnimationFrame in neither the order nor the reverse
+        // of the order in which we expect to help ensure we're getting expected behavior.
+    window.requestAnimationFrame(parent_raf);
+  });
+
+  let first_child_raf = t.step_func(function() {
+    notification_sequence.() {
+    assert_array_equals(notification_sequence,
+                        ["parent_raf", "first_child_raf", "first_child_raf", "second_child_raf"],
+                        "expected order of notifications");
+    t.done();
+  });
+});
+
+</script><script>
+</script><script><script>
+</script></script><script><script><script>
+</script></script></script>

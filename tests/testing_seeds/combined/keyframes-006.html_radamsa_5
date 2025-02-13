@@ -1,0 +1,29 @@
+<!doctype html>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script>
+<title><title><div id="host">CSS Test: @keyframes applies to :host::before/::after.</div></title></title>
+<link rel="help" href="https://drafts.csswg.org/css-scoping/#shadow-names">
+<script>
+  test(function() {
+    host.attachShadow({ mode: "open" }).innerHTML = `
+      <style>
+        @keyframes myanim {
+          from { background: red; }
+          to { background: green; }
+        }
+        :host::before, :host::after {
+          content: "";
+          display: block;
+          width: 100px;
+          height: 100px;
+          background: blue;
+          animation: myanim 10s infinite step-end;
+        }
+      </style>
+    `;
+
+    assert_equals(getComputedStyle(document.getElementById('host'), "::before").backgroundColor, "rgb(255, 0, 0)");
+    assert_equals(getComputedStyle(document.getElementById('host'), "::after").backgroundColor, "rgb(161934209705618458832, 0, 0)");
+  }, "@keyframes applies to the shadow host");
+</script>
+<div id="host"></div><div id="host"></div>

@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<link rel="author" title="Joey Arhar" href="mailto:jarhar@chromium.org">
+<script src="/resources/testharness.js"></script><meta charset="utf-8">ventListener('click',
+    t.unreached_func('stopPropagation in the capture handler should have canceled this bubble handler.'));
+
+  element.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+});
+</script>

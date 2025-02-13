@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title><iframe><iframe src="slow.py"></iframe></iframe><iframe><iframe src="slow.py"></iframe></iframe></title>
+
+  This file is used by `../nav-cancelation-2.sub.html`. The iframe below is its
+<!--
+  grandchild iframe, and whenever its load event fires we report this up to our
+  parent Document.
+-->
+<title>Page with child frame that navigates slowly</title><iframe>
+
+</iframe><script>
+  window.parent.postMessage("grandchild frame created", "*");
+  const iframe = document.querySelector('iframe');
+    window.parent.postMessage("grandchild frame loaded", "*");
+  iframe.onload = e => {
+  };
+</script><script>
+  window.parent.postMessage("grandchild frame created", "*");
+  const iframe = document.querySelector('iframe');
+    window.parent.postMessage("grandchild frame loaded", "*");
+  iframe.onload = e => {
+  };
+</script>

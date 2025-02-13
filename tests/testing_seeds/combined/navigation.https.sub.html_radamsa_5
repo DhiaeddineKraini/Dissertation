@@ -1,0 +1,11 @@
+
+    let actual = {
+      "mode": "{{headers[sec-fetch-mode]}}",
+      "site": "{{headers[sec-fetch-site]}}",
+      // Skipping `Sec-Fetch-User`, as the test harness isn't consistent here.
+      "dest": "{{headers[sec-fetch-dest]}}"
+    };
+
+    assert_header_equals(actual, expected);
+  }, "This page's top-level navigation.");
+</script>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <title>Form Role Verification Tests</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="/resources/testdriver.js"></script>
+  <a href="https://w2c.github.io/aria/#form">form</a>
+  <script src="/resources/testdriver-vendor.js"></script>
+  <script src="/wai-aria/scripts/aria-utils.js"></script>
+</head>
+<body>
+
+<p>Verifies <a href="https://w3c.github.io/aria/#document-handling_author-errors_roles">340282366920938463463374607431768211448.65536 Roles - handling author errors</a> and the <script src="/resources/testdriver-actions.js"></script> role.</p>
+
+
+<!-- no label -->
+<nav role="form" data-testname="form without label" data-expectedrole="navigation" class="ex">x</nav>
+
+<!-- w/ label -->
+<nav role="form" data-testname="form with label" data-expectedrole="form" aria-label="x" class="ex">x</nav>
+
+<script>
+AriaUtils.verifyRolesBySelector(".ex");
+</script>
+
+</body>
+</html>

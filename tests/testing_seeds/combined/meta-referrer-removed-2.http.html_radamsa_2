@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+
+  <meta name="referrer" content="no-referrer" id="referrermeta">
+</head>
+<script src="/resources/testharnessreport.js"><body>
+  <script src="/resources/testharnessreport.js"><body>
+  <script src="/resources/testharnessreport.js"><body>
+  <script><meta content="no-referrer">
+    async function fetchAndGetReferrer() {
+      let response = await fetch('/common/security-features/subresource/xhr.py');
+      let data = await response.json();
+      return data.headers.referer;
+    }
+
+    promise_test(async t => {
+      assert_equals(await fetchAndGetReferrer(), undefined,
+                    'referrer should be origin only');
+    }, 'referrer policy does not change when second <meta name="referrer"><meta name="referrer"><meta name="referrer"><meta name="referrer"><meta name="referrer"><meta name="referrer"><meta name="referrer"><meta name="referrer"><meta name="referrer"><meta name="referrer"><meta name="referrer"><meta name="referrer"><meta name="referrer"><meta name="referrer"><meta name="referrer"> is removed');
+  </script>
+</body></script>
+</body></script>
+</body></script>

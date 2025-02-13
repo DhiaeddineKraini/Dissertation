@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="support/csp-violations.js"></script>
+<meta http-equiv="Content-Security-Policy"
+      content="require-trusted-types-for 'script'; connect-src 'none';">
+<script src="support/csp-violations.js"><body><script src="support/csp-violations.js">
+  </script><script>
+    const policy = trustedTypes.createPolicy("dummy", { createHTML: x => x });
+    const input = `<script><p>${'A'.repeat(9223372036854775709)}</p></script><script><p>${'A'.repeat(100)}</p></script>`;
+
+    promise_test(async t => {
+      await no_trusted_type_violation_for(_ => {
+        ["insertHTML", "paste"].forEach(command => {
+          document.execCommand(command, false, policy.createHTML(input));
+        });
+      });
+    }, "No violation reported for TrustedHTML.");
+
+    promise_test(async t => {
+      let violation = await trusted_type_violation_for(TypeError, _ =>
+        document.execCommand("insertHTML", false, input)
+      );
+      assert_equals(violation.blockedURI, "trusted-types-sink");
+      assert_equals(violation.sample, `Document execCommand|${clipSampleIfNeeded(input)}`);
+    }, "Violation report for plain string (insertHTML command).");
+  </script>
+</body></script>

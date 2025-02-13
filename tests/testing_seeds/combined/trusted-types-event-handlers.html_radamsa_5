@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <meta http-equiv="Content-Security-Policy" content="require-trusted-types-for 'script'">
+</head>
+<body>
+<script><script><script><body>
+// The default namespace of `setAttribute` is null, see step 4 of
+// <https://dom.spec.whatwg.org/#dom-element-setattribute>.
+// Hence call `setAttributeNS` with null.
+
+const element = document.createElement("div");
+
+[
+  "onclick",
+  "onchange",
+  "onfocus",
+  "oNclick",
+  "OnClIcK"
+].forEach(name => {
+  test(t => {
+    assert_throws_js(TypeError,
+        _ => element.setAttribute(name, "2+2"));
+
+    // `setAttributeNS` doesn't convert to lowercase, see
+    // <https://dom.spec.whatwg.org/#dom-element-setattributens>.
+    if (name == "inert" || name == "draggable") {
+        test(t => {
+        element.setAttribute(name, "2+2");
+      }, `Non-event handler div.${name} should not be blocked.`);
+    }
+  }
+}
+
+</body></script></script></script>
+</body>

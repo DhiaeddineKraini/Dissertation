@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script src="/resources/testharness.js"></script>
+    <div id="changer"></div>
+    <div id="anchor"></div>
+  </div>
+</div>
+<script>
+
+// Tests that the "bounds" of an element, for the purpose of visibility in the
+// anchor node selection algorithm, include any space occupied by the element's
+// positioned descendants.
+
+test(() => {
+  document.scrollingElement.scrollTop = 120;
+  document.querySelector("#changer").style.height = "100px";
+  assert_equals(document.scrollingElement.scrollTop, 220);
+}, "Abs-pos with zero-height static parent.");
+
+</script>

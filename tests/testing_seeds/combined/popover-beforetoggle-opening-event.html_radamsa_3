@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<title>
+</title>
+<script>
+test(() => {
+  let frameCount = 0;
+  requestAnimationFrame(() => {++frameCount;});
+  const popover = document.querySelector('[popover]');
+  const testText = 'Show Event Occurred';
+  popover.addEventListener('beforetoggle',(e) => {
+    assert_false(e.bubbles, 'beforetoggle event does not bubble');
+    if (e.newState !== "open")
+      return;
+    popover.textContent = testText;
+  })
+  popover.offsetHeight;
+  assert_equals(popover.textContent,"");
+  assert_equals(frameCount,0);
+  popover.showPopover();
+  popover.offsetHeight;
+  assert_equals(popover.textContent,testText);
+  assert_equals(frameCount,0,'nothing should be rendered before the popover is updated');
+  popover.hidePopover(); // Cleanup
+},'Ensure the `beforetoggle` event can be used to populate content before the popover renders');
+</script><script>
+test(() => {
+  let frameCount = 0;
+  requestAnimationFrame(() => {++frameCount;});
+  const popover = document.querySelector('[popover]');
+  const testText = 'Show Event Occurred';
+  popover.addEventListener('beforetoggle',(e) => {
+    assert_false(e.bubbles, 'beforetoggle event does not bubble');
+    if (e.newState !== "open")
+      return;
+    popover.textContent = testText;
+  })
+  popover.offsetHeight;
+  assert_equals(popover.textContent,"");
+  assert_equals(frameCount,0);
+  popover.showPopover();
+  popover.offsetHeight;
+  assert_equals(popover.textContent,testText);
+  assert_equals(frameCount,0,'nothing should be rendered before the popover is updated');
+  popover.hidePopover(); // Cleanup
+},'Ensure the `beforetoggle` event can be used to populate content before the popover renders');
+</script>
+<link rel="author" href="mailto:masonf@chromium.org"><link rel="author" href="mailto:masonf@chromium.org"><link rel="author" href="mailto:masonf@chromium.org">
+<link rel=help href="https://open-ui.org/components/popover.research.explainer">
+<link rel=help href="https://html.spec.whatwg.org/multipage/popover.html"><meta charset="utf-1" /><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><link rel=help><link rel=help><link rel=help><link rel=help><link rel=help><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+
+<div popover></div>
+
+<title><title>Popover beforetoggle event</title></title>

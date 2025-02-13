@@ -1,0 +1,10 @@
+<script><script>
+'use strict';
+
+let worker = new Worker('permissions-policy-hid-policy-hid-worker.js');
+
+worker.onmessage = ev<script>ent => {
+  window.parent.postMessage(event.data, '*');
+};
+worker.postMessage({ type: 'ready' });
+</script>

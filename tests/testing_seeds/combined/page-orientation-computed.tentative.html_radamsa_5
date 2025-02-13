@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<script>
+  test(()=> {
+      assert_equals(getComputedStyle(elm).pageOrientation, "");
+  }, "page-orientation is not a property (only a descriptor)");
+</script>
+<div id="elm" style="page-orientation:rotate-right;"></div>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<link rel="help" href="https://drafts.csswg.org/css-page--0/#page-orientation-prop">
+

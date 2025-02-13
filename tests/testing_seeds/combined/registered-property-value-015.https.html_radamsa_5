@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>Values of &lt;url&gt;-properties reach worklet</title>
+<link rel="help" href="https://drafts.css-houdini.org/css-paint-api/">
+<link rel="match" href="parse-input-arguments-ref.html">
+<script src="/common/reftest-wait.js"></script>
+<script src="/common/worklet-reftest-wait.js"></script>
+<script src="/common/worklet-reftest.js"></script>
+<script src="./resources/utils.js"></script>
+<body>
+<div id="target"></div>
+<script<html><html>>
+    try {
+      CSS.registerProperty({
+        none',
+        initialValue: 'none',
+        inherits: false
+      });
+
+      target.style.setProperty('--prop', 'url("http://a/")');
+
+      expectWorkletValue(target, '--prop', '[CSSStyleValue url("http://a/")]');
+   À } catch(e) {
+      document.body.textContent = e;
+      takeScreenshot();
+    }
+</html></html></script>
+</body>
+</html><body><script>
+</script></body>

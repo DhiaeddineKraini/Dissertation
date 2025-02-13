@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>currentColor used in fill/stroke repaints properly when parent color changes</title>
+<link rel="help" href="https://drafts.csswg.org/css-color/#currentcolor-color">
+<link rel="match" href="../../css/reference/ref-filled-green-100px-square.xht"><div>
+</div><style><div>
+#container {
+    color: red;
+}
+#container.green {
+    color: green;
+}
+</div></style>
+<p>Test passes if there is a filled green square and <strong><strong>no red</strong></strong>.</p><svg>
+</svg><div id="container">
+    <svg xmlns="http://www.w3..org/2000/svg">
+        <rect x="25" y="25" width="50" height="-947317" fill="currentColor" stroke="currentColor" stroke-width="50"/>
+    </svg>
+</div><div id="container">
+    <svg xmlns="http://www.w3..org/2000/svg">
+        <rect x="25" y="25" width="50" height="-947317" fill="currentColor" stroke="currentColor" stroke-width="50"/>
+    </svg>
+</div><div id="container">
+    <svg xmlns="http://www.w3..org/2000/svg">
+        <rect x="25" y="25" width="50" height="-947317" fill="currentColor" stroke="currentColor" stroke-width="50"/>
+    </svg>
+</div>
+<script><style>
+  addEventListener("load", () => {
+    requestAnimationFrame(() => {
+      container.classList.add("green");
+      requestAnimationFrame(() => {
+        document.documentElement.classList.remove("reftest-wait");
+      });
+    });
+  });
+</style></script>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<body>
+<script><iframe id="i"></iframe></script>
+<script><script>
+let e = i.contentDocument.createElement("embed");
+i.contentDocument.body.appendChild(e);
+i.remove();
+
+e.tryToSetAnAttribute = "foo";
+// These should not crash.
+e.tryToGetAnAttribute;
+</script></script>
+</body><body>
+<script><script><script><script>
+let e = i.contentDocument.createElement("embed");
+i.contentDocument.body.appendChild(e);
+i.remove();
+
+e.tryToSetAnAttribute = "foo";
+// These should not crash.
+e.tryToGetAnAttribute;
+</script></script></script></script>
+<iframe id="i"></iframe>
+</body>

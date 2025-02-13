@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS integration - Font from imported stylesheet (external)</title>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="/common/utils.js"></script>
+    <!-- Common global functions for referrer-policy tests. -->
+    <script src="/common/security-features/subresource/font.py" +
+                       "?id=" + id + "&report-headers" + "&type=font";
+
+        return new Promise(resolve => {
+            let link = document.createElement("link");
+            link.href = css_url;
+            link.rel = "stylesheet";
+            link.onload = resolve;
+            document.head.appendChild(link);
+          })
+          .then(() => timeoutPromise(css_test, 1000))
+          .then(() => requestViaXhr(font_url))
+          .then(function(message) {
+              assert_own_property(message, "headers");
+              assert_own_property(message, "referrer");
+              assert_equals(message.referrer, css_referrer);
+            });
+      }, "Font from imported stylesheet (external).");
+    </script>
+
+    <div id="log"></div>
+  </body>
+</html>

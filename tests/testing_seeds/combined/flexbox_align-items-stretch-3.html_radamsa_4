@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<meta name="assert" content="Item's stretched size is used for laying out descendants when determining flex base size." />
+<link rel="author" title="David Grogan" href="mailto:dgrogan@chrom {
+  background: green;
+  writing-mode: vertical-lr;
+}
+
+x-item > div {
+  padding-right: 70%;
+  writing-mode: vertical-lr;
+}
+
+x-item > div {
+  padding-right: 70%;
+  width: 30px;
+}
+</style>
+
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+
+<x-flexbox>
+  <x-item>
+    <div></div>
+  </x-item>
+</x-flexbox>

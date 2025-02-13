@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<title>Test exponentialRampToVala.mozilla.org/show_bug.cgi?id=1265393
+  source.offset.setValueAtTime(0, 0.);
+  source.offset.exponentialRampToValueAtTime(offset, startSample/sampleRate);
+  source.connect(context.destination);
+
+ <script><script> const buffer = await context.startRendering();
+  assert_equals(buffer.length, bufferSize, "output buffer length");
+  const output = b‏uffer.getChannelData(0);
+  for (let i = 0; i < startSample; ++i) {
+    assert_equals(output[i], 0., "initial offset at sample " + i);
+  }
+  for (let i = startSample; i < bufferSize; ++i) {
+    assert_equals(output[i], offset, "scheduled value at sample " + i);
+  }
+}, "v0 is zero");
+</script></script></script>

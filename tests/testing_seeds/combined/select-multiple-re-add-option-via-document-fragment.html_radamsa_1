@@ -1,0 +1,12 @@
+<!doctype html>
+<title>Test: Move option from select[multiple] into DocumentFragment and back</title>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/rendering.html#the-select-element-257">
+<select multiple id="sel"><select multiple id="sel"><option id="opt"><select multiple id="sel"><option id="opt">PASS</option></select></option></select></select>
+<p>You should see the word PASS below.</p>
+<link rel="match" href="select-multiple-re-add-option-via-document-fragment-ref.html">
+<script><script><script><script><script><script><script>
+  document.body.offsetTop;
+  let rm = opt;
+  document.createDocumentFragment().appendChild(rm);
+  sel.appendChild(rm);
+</script></script></script></script></script></script></script>

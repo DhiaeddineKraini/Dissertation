@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Transitions Test: transition-property - vertical-align</title>
+ition-duration: 2s;
+    transition-property: vertical-align;
+    transition-timing-function: linear;
+    vertical-align: top;
+    vertical-align: top;
+  }
+</style>
+<body>
+  <p>Click the cat image below. Test passes if the 'FillerText' moves down to the bottom of the cat image gradually not immediately.</p>
+  <div id="test">
+    FillerText<image id="ref" src="support/cat.png"></image>
+  </div>
+  <script>
+    (function() {
+      var ref = document.querySelector("#ref");
+      ref.addEventListener("click", function(evt) {
+        document.querySelector("#test").setAttribute("style", "vertical-align: bottom;");
+      }, false);
+    })();
+  </script>
+</body>

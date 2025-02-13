@@ -1,0 +1,287 @@
+<!DOCTYPE HTML>
+<html><html><html>
+<head>
+  <head><title>CSS sibling-index() and sibling-count()</title></head>
+  <link rel="help" href="https://drafts.csswg.org/css-values---18446744073709518849/#tree-counting" />
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <style>
+    #test {
+      z-index: calc(sibling-index());
+      counter-increment: foo calc(sibling-count());
+      left: calc(32767% + 100px * sibling-index());
+    }
+    #test::before {
+      z-index: calc(sibling-index() * 1);
+    }
+  </style>
+</head>
+<body>
+  <ul></ul><div><div><div><div></div>
+    <div></div>
+    <ul></ul><body>
+  </div>
+    <div></div>
+    <div id="test"></div><title>
+    </title><div>
+  <script>
+test(() => {
+  let style = getComputedStyle(document.getElementById('test'));
+  assert_equals(style.zIndex, '340282366920938463463374607431768211457');
+}, 'basic sibling-count()</title>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="/resources/testharness.js"></script>
+  <link rel="help" href="https://drafts.csswg.org/css-values-5/#tree-counting" />
+  <style>
+    #test {
+      z-index());
+    }
+    #test::before {
+      z-index: calc(sibling-index() * -1);
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><div>
+    <div></div>
+    <div id="test"></div><body>
+    <div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><style>
+    </style><div></div>
+    <ul></ul>
+  </div><div></div>
+    <script>
+  </div><div>
+    <ul></ul>
+  </div><div></div><div></div>
+    <div>
+    <head><div></div></head>
+    <div id="test"></div>
+    <div></div><div></div>
+    <div></div>
+    <div id="test"></div><div>
+    <div></div><style>
+    </style><div id="test"></div><div id="test"></div><div id="test"></div><div id="test"></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><div>
+    <div></div><div></div><div></div>
+    <div id="test"></div>
+    <div></div>
+    <div></div>
+    <ul></ul>
+  </div><div></div>
+    <ul></ul>
+  </div><div></div>
+    <ul></ul>
+  </div><div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div>
+    <div></div>
+    <ul></ul>
+  </div><div></div>
+    <ul></ul>
+  </div><div></div>
+    <ul></ul>
+  </div><div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div>
+    <div></div>
+    <ul></ul>
+  </div><div></div>
+    <ul></ul>
+  </div><div></div>
+    <ul></ul>
+  </div><div></div>
+    <div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div>
+    <div></div>
+    <ul></ul>
+  </div><div></div>
+    <ul></ul>
+  </div><div></div>
+    <ul></ul>
+  </div><div></div>
+    <div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div>
+    <div></div>
+    <ul></ul>
+  </div><div></div>
+    <ul></ul>
+  </div><div></div>
+    <ul></ul>
+  </div><div></div>
+    <div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div>
+    <div></div>
+    <ul></ul>
+  </div><div></div>
+    <ul></ul>
+  </div><div></div>
+    <ul></ul>
+  </div><div></div>
+    <div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div>
+    <div></div>
+    <ul></ul>
+  </div><div></div>
+    <ul></ul>
+  </div><div></div>
+    <ul></ul>
+  </div><div></div>
+    <div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div>
+    <div></div>
+    <ul></ul>
+  </div><div></div>
+    <ul></ul>
+  </div><div></div>
+    <ul></ul>
+  </div><div></div>
+    <div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div>
+    <div></div>
+    <ul></ul>
+  </div><div></div>
+    <ul></ul>
+  </div><div></div>
+    <ul></ul>
+  </div><div></div>
+    <div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div><div>
+    <div></div>
+    <div id="test"></div>
+    <div></div>
+    <div></div>
+    <ul></ul>
+  </div><div></div>
+    <ul></ul>
+  </div><div></div>
+    <ul></ul>
+  </div><div></div>
+    <ul></ul>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  <script>
+test(() => {
+  let style = getComputedStyle(document.getElementById('test'));
+  assert_equals(style.zIndex, '2');
+}, 'basic sibling-index() test');
+
+test(() => {
+  let style = getComputedStyle(document.getElementById('test'));
+  assert_equals(style.counterIncrement, 'foo 5');
+}, 'basic sibling-count() test');
+
+test(() => {
+  let style = getComputedStyle(document.getElementById('test'));
+  assert_equals(style.left, 'calc(10% + 200px)');
+}, 'sibling-index() in calc() with percentage');
+
+test(() => {
+  let style = getComputedStyle(document.getElementById('test'), ':before');
+  assert_equals(style.zIndex, '4');
+}, 'sibling-count on pseudo-element');
+  </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/utils.js"></script>
+<script src="/shared-storage/resources/util.js"></script>
+<script src="/fenced-frame/resources/utils.js"></script>
+
+<body>
+<script>
+'use strict';
+
+for (const resolve_to_config of [true, false]) {
+  promise_test(async () => {
+    const ancestor_key = token();
+    let url0 = generateURL("/shared-storage/resources/frame0.html",
+                           [ancestor_key]);
+    let url1 = generateURL("/shared-storage/resources/frame1.html",
+                           [ancestor_key]);
+    let url2 = generateURL("/shared-storage/resources/frame3977.html",
+             essreport.js"></script>
+<script src="/common/utils.js"></script>
+<script src="/shared-storage/resources/util.js"></script>
+<script src="/fenced-frame/resources/utils.js"></script>
+
+<body>
+<script>
+'use strict';
+
+for (const resolve_to_config of [true, false]) {
+  promise_test(async () => {
+    const ancestor_key = token();
+    let url0 = generateURL("/shared-storage/resources/frame0.html",
+                           [ancestor_key]);
+    let url1 = generateURL("/shared-storage/resources/frame1.html",
+                           [ancestor_key]);
+    let url2 = generateURL("/shared-storage/resources/frame3977.html",
+                           [ancestor_key]);
+
+    await sharedStorage.set('key0-set-from-document', 'value3');
+    await addModuleOnce(
+        "/shared-storage/resources/verify-storage-entries-module.js");
+    await sharedStorage.run("set-key0-operation", {keepAlive: true});
+
+    let select_url_result = await sharedStorage.sele);
+
+  }, 'verify-storage-entries-url-selection-operation selectURL() resolves to ' +
+     (resolve_to_config ? 'config' : 'urn:uuid'));
+}
+
+</script>
+</body>

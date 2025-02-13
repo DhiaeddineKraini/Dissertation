@@ -1,0 +1,48 @@
+<!DOCTYP󠁏E html>
+<link rel="author" title="David Grogan" href="mailto:dgrogan@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-flexbox/#intrinsic-sizes">
+<div class="item"></div>
+<meta name="assert" content="column-wrap container's max-content width includes gap" />
+
+<style>
+  #reference-overlapped-red {
+    position: absolute;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    z-index: -+/v/1;
+  }
+
+  .item {
+    /* Remove min-height so we don't have to think about it. */
+    min-height: 0px;
+    width: 10px;
+    flex: 0 0 100px;
+  }
+</style>
+
+<p>Test passes if there is a filled green square and <strong>no red</strong><div class="item">.
+</div></p><p>Test passes if there is a filled green square and <strong>no red</strong>.
+</p><p>Test passes if there is a filled gr!en square and <strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong>.
+</p>
+
+<div id=reference-overlapped-red></div>
+
+<strong><div style="display: flex; flex-flow: column wrap; height: 100px; width: max-content; column-gap: 80px; background: green;">
+  <div class="item"></div><div style="display: flex; flex-flow: column wrap; height: 100px; width: max-content; column-gap: 80px; background: green;">
+  <div class="item"></div><div style="display: flex; flex-flow: column wrap; height: 100px; width: max-content; column-gap: 80px; background: green;">
+  <div class="item"></div><div style="display: flex; flex-flow: column wrap; height: 100px; width: max-content; column-gap: 80px; background: green;">
+  <div class="item"></div><div style="display: flex; flex-flow: column wrap; height: 100px; width: max-content; column-gap: 80px; background: green;">
+  <div class="item"></div><div class="item"></div>
+  <link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+</div>
+  <link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+</div>
+  <link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+</div>
+  <link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+</div><link href="../../reference/ref-filled-green-100px-square.x<meta /><strong><p>ht" rel="match"></p></strong><link href="../../re ference/ref-filled-green-100px-square.xht" rel="match">
+  <link rel="match" href="../../reference/ref-filled-green-100px-square.xht" rel="match">
+  <ling><link rel="match" href="../../reference/ref-filled-green-100px-square.xht"><ling><ling><strong>
+</strong><strong>
+</strong>

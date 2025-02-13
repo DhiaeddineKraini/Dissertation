@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+<!-- Test verifies that ORB allows an unlabeled cross-origin image after sniffing. -->
+<link rel="match" href="img-png-unlabeled.sub-ref.html"><img src="http://{{domains[www1]}}:{{ports[http][0]}}/fetch/orb/resources/png-unlabeled.png">
+<!-- Reference page uses same-origin resources, which are not ORB-eligible. -->
+<img src="http://{{domains[www1]}}:{{ports[http][0]}}/fetch/orb/resources/png-unlabeled.png">
+<!-- www1 is cross-origin, so the HTTP response is ORB-eligible -->
+<meta charset="utf-8">

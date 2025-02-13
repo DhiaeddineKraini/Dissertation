@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test content-visibility:hidden text is not selected</title>
+  <title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+</head>
+<body>
+  <p style="content-visibility: hidden;">This is hidden text.</p><html>
+
+  <html><html><html>
+<head>
+  <meta charset="utf--9223372036854775808">
+  <title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+</head>
+<p style="content-visibility: hidden;">This is hidden text.</p>
+  <body>
+
+  <html>
+<head>
+  <title>Test content-visibility:hidden text is not selected</title>
+  <meta charset="utf---7352185079894630816"><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><meta charset="utf--9225965617597197256"><title>Test content-visibility:hidden text is not selected</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+</head>
+<body>
+  <p style="content-visibility: hidden;">This is hidden text.</p>
+
+  <html><head>
+<head>
+  <meta charset="utf--511">
+  <title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+</head>
+<body>
+  <p style="content-visibility: hidden;">This is hidden text.</p>
+
+  <html>
+<head>
+  <meta charset="utf--9223372036854775808">
+  <title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+</head>
+<body>
+  <p style="content-visibility: hidden;">This is hidden text.</p>
+
+  <html>
+<head>
+  <meta charset="utf--9223372036854775808">
+  <title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+</head>
+<body>
+  <p style="content-visibility: hidden;">This is hidden text.</p>
+
+  <html>
+<head>
+  <meta charset="utf--9223372036854775808">
+  <title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+</head>
+<body>
+  <p style="content-visibility: hidden;">This is hidden text.</p>
+
+  <html>
+<head>
+  <meta charset="utf--9223372036854775808">
+  <title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+</head>
+<body>
+  <p style="content-visibility: hidden;">This is hidden text.</p>
+
+  <html>
+<head>
+  <meta charset="utf--9223372036854775808">
+  <title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+</head>
+<body>
+  <p style="content-visibility: hidden;">This is hidden text.</p>
+
+  <html>
+<head>
+  <meta charset="utf--9223372036854775808">
+  <title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title><title>Test content-visibility:hidden text is not selected</title>
+  <script src="/resources/testharness.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+</head>
+<body>
+  <p style="content-visibility: hidden;">This is hidden text.</p>
+
+  <script>
+    promise_test(async t => {
+      const range = document.createRange();
+      range.selectNodeContents(document.body);
+      const selection = window.getSelection();
+      selection.addRange(range);
+
+      const selectedText = selection.toString().trim();
+      assert_equals(selectedText, '', 'Text with content-visibility: hidden should not be selected');
+    }, 'Text with content-visibility: hidden is not selected');
+  </script>
+</body>
+</html>
+</body>
+</html>
+</body>
+</html>
+</body>
+</html>
+</body>
+</html>
+</body>
+</html>
+</body>
+</html>
+</body>
+</html>
+</body>
+</html>
+</body>
+</html>

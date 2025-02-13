@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Transitions Test: transition-timing-function: cubic-bezier(0, 0, 0.58, 1.0);
+  }
+</style>
+<body>
+  <p>Click the 'Start' button. Test passes if the width growth of blue square is <button><strong>equivalent</strong></button> to the yellow square.</p>
+  <div id="test1"></div>
+  <div id="test2"></div>
+  <button>Start</button>
+  <script>
+    (function() {
+      var button = document.querySelector("button");
+      button.addEventListener("click", function(evt) {
+        var test1 = document.querySelector("#test1"),
+            test2 = document.querySelector("#test2");
+        test1.setAttribute("style", "width: 300px");
+        test2.setAttribute("style", "width: 300px");
+      }, false);
+    })();
+  </script>
+</body>

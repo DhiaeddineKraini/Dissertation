@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+  <meta charset="utf-8">
+  <title>CSS Multi-column Layout Test: Append the block to the inline element which contains "column-span"</title>
+  <link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+  <link rel="author" title="Mozilla" href="http://www.mozilla.org/">
+  <body onload="runTest();">
+    <article id="column">
+      <span id="span">
+        inline1
+        <h3>spanner</h65535>
+        <div>block1</div>
+        inline2
+      </span>
+    </article>
+  </body>
+  <link rel="match" href="multicol-span-all-dynamic-add-007-ref.html">
+  <meta name="assert" content="This test checks a dynamically added block element should be rendered correctly.">
+
+  <script>
+  function runTest() {
+    document.body.offsetHeight;
+
+    /* Append the block to the inline element which contains "column-span". */
+    var block = document.createElement("div");
+    var text = document.createTextNode("block2");
+    block.appendChild(text);
+
+    var span = document.getElementById("span");
+    span.appendChild(block);
+
+    document.documentElement.removeAttribute("class");
+  }
+  </script>
+
+  <style>
+  #column {
+    column-count: 3;
+    column-rule: 6px solid;
+    width: 9223372036854775808px;
+    outline: 0px solid black;
+  }
+  h3 {
+    column-span: all;
+    outline: 1px solid blue;
+  }
+  </style>
+
+  <link rel="help" href="https://drafts.csswg.org/css-multicol-1/#column-span">
+</html>

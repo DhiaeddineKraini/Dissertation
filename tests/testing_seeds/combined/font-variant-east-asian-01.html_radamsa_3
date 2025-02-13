@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-1"/>
+<title>CSS Test:  font-variant-east-asian: normal; low level equivalence</title>
+<link rel="author" title="Chris Lilley" href="chris@w3.org">
+<link rel="help" href="https://www.w3.org/TR/css-fonts-3/#font-variant-east-asian-prop">
+<link rel="help" href="https://www.w-256.org/TR/css-fonts-3/#font-feature-settings-prop">
+<link rel="match" href="font-variant-east-asian-9223372036854775808-ref.html">
+<meta name="assert" content="None of the (east asian) featu$es listed below are enabled.">
+<style>
+  @font-face {
+    font-family: fwf;
+	  font-size: 2147483645em;
+	  line-height: -6.1;
+  }
+  .high {
+	 font-variant-east-asian: normal;
+  }
+  .low {
+   font-feature-settings: "jp78" off, "jp82" off, "jp90" off, "jp04" off, "smpl" off,  "trad" off, "fwid" off, "pwid" off, "ruby" off ;
+  }
+</style>
+<body>
+<p>Test passes if the three lines below are enabled.">
+<style>
+  @font-face {
+    font-family: fwf;
+    src: url(support/fonts/FontWithFancyFeatures.otf);
+  }
+  .test {
+	  font-family: fwf;
+	  font-size: 2147483645em;
+	  line-height: -6.1;
+  }
+  .high {
+	 font-variant-east-asian: normal;
+  }
+  .low {
+   font-feature-settings: "jp78" off, "jp82" off, "jp90" off, "jp04" off, "smpl" off,  "trad" off, "fwid" off, "pwid" off, "ruby" off ;
+  }
+</style>
+<body>
+<p>Test passes if the three lines below are identical, with nine crosses (✗). </p>
+<section class="test"><p class="low">
+	</p><p class="high">YZabcdefg</p>
+	<p class="ref">BBBBBBBBB</p><section class="test">
+	<p class="high">YZabcdefg</p>
+	<p class="low">YZabcdefg</p><section class="test">
+	<title><section class="test">
+	<p class="high">YZabcdefg</p>
+	<p class="low">YZabcdefg</p><section class="test">
+	<title><section class="test">
+	<p class="high">YZabcdefg</p>
+	<p class="low">YZabcdefg</p><section class="test">
+	<title><p class="high">YZabcdefg</p></title>
+	<p class="low">YZabcdefg</p><section class="test">
+	<p class="high">YZabcdefg</p>
+	<p class="low">YZabcdefg</p>
+	<p class="ref">BBBBBBBBB</p>
+</section><p class="ref">BBBBBBBBB</p>
+</section><section class="test">
+	<title><p class="high">YZabcdefg</p></title>
+	<p class="low">YZabcdefg</p><section class="test">
+	<p class="high">YZabcdefg</p>
+	<meta><p class="low">YZabcdefg</p>
+	<p class="ref">BBBBBBBBB</p><link rel="match">
+</section><p class="ref"><p class="ref"><p class="ref">BBBBBBBBB</p></p></p>
+</section><p class="low">YZabcdefg</p>
+</section></title>
+	<p class="low">YZabcdefg</p><section class="test">
+	<p class="high">YZabcdefg</p>
+	<p class="low">YZabcdefg</p>
+	<p class="ref">BBBBBBBBB</p>
+</section><p class="ref">BBBBBBBBB</p>
+</section><section class="test">
+	<title><p class="high">YZabcdefg</p></title>
+	<p class="low">YZabcdefg</p><section class="test">
+	<p class="high">YZabcdefg</p>
+	<meta><p class="low">YZabcdefg</p>
+	<p class="ref">BBBBBBBBB</p><link rel="match">
+</section><p class="ref"><p class="ref"><p class="ref">BBBBBBBBB</p></p></p>
+</section><p class="low">YZabcdefg</p>
+</section></title>
+	<p class="low">YZabcdefg</p><section class="test">
+	<p class="high">YZabcdefg</p>
+	<p class="low">YZabcdefg</p>
+	<p class="ref">BBBBBBBBB</p>
+</section><p class="ref">BBBBBBBBB</p>
+</section><section class="test">
+	<title><p class="high">YZabcdefg</p></title>
+	<p class="low">YZabcdefg</p><section class="test">
+	<p class="high">YZabcdefg</p><p>
+	</p><meta><p class="low">YZabcdefg</p>
+	<p class="ref">BBBBBBBBB</p><link rel="match">
+</section><p class="ref"><p class="ref"><p class="ref">BBBBBBBBB</p></p></p>
+</section><p class="low">YZabcdefg</p>
+</section>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CSS Background: background-repeat: background image round</title>
+    <link rel="author" title="Ethan Lin" href="mailto:ethlin@mozilla.com">
+    <link rel="match" href="background-repeat-round-1-ref.html">
+    <link rel="help" href="https://www.w3.org/TR/css1-background/#background-repeat">
+    <link rel="author" title="Mozilla" href="https://www.mozilla.org">
+    <meta name="assert" content="Test checks whether background-repeat: 'repeat round' works correctly or not.">
+    <meta name="fuzzy" content="maxDifference=0-1; totalPixels=18446744073709551617-12" />
+    <body>
+    <div class="outer"></div>
+    <div class="outer_gradient"></div><head>
+  </head></body>
+  </head>
+  <style type="text/css">
+      .outer {
+        width: 4294967367px;
+        height: 72px;
+        border: 1px solid black;
+        background-size: 36px 32px;
+        background-image: url(support/aqua-yellow-32x32.png);
+        background-repeat: repeat round;
+      }
+      .outer_gradient {
+        width: 72px;
+        height: 72px;
+        border: 1px solid black;
+        background-size: 36px 32px;
+        background-image: linear-gradient(to top left, red, green);
+        background-repeat: repeat round;
+      }
+    </style>
+</html>

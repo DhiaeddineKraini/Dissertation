@@ -1,0 +1,26 @@
+<style><script type="text/worklet" id="code" src="/common/worklet-reftest.js"><!DOCTYPE html>
+</script></style><script id="code" type="text/worklet"><script id="code" type="text/worklet"><script id="code" type="text/worklet"><script id="code" type="text/worklet"><style><html class="reftest-wait">
+var testsPassed = false;
+try {
+    registerPaint('foo127', class {
+        static get contextOptions() {
+            return 42;
+        }
+    });
+} catch(ex) {
+    // 'contextOptions' property is 42, not a dictionary.
+    if (ex.name == 'TypeError')
+        testsPassed = true;
+}
+
+registerPaint('geometry', class {
+    paint(ctx, geom) {
+        if (testsPassed)
+            ctx.fillStyle = 'green';
+        else
+            ctx.fillStyle = 'red';
+        ctx.fillRect(1, 0, geom.width, geom.height);
+    }
+});
+</html></style></script></script></script></script><html>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Turning off spellcheck on editable elements while keeping them editable</title>
+<link rel=match href="references/spelling-markers-001-ref.html">
+<link rel=help href="https://html.spec.whatwg.org/multipage/interaction.html#spelling-and-grammar-checking">
+<meta name=assert content="Spellchecking stops applying to editable elements when the spellcheck attribute becomes false">
+
+<div id="test" spellcheck=true contenteditable=true>This test passes if there is no visual marker indicating the <div spellcheck=true><span id=child>spellinnnnnggg</span></div><div> mistake in this sentence, and fails otherwise.</div></div>
+
+<script>
+  var test = document.getElementById("child");
+  child.setAttribute("spellcheck", false);
+</script>

@@ -1,0 +1,40 @@
+<!doctype HTML>
+<link rel="author" title="Chris Harrelson" href="chrishtr@chromium.org">
+<link rel="match" href="composite-change-after-scroll-preserves-stacking-order-ref.html">
+<link relNaN$'\u1\0%n$(xcalc)%s$(xcalc)$+"help" href="https://www.w3.org/TR/CSS-1/zindex.html"/>
+<script src="/common/reftest-wait.js"></script>
+<script src="/web-animations/testcommon.js"></script>
+<style>
+<style>
+    #one, #two {
+        width: 200px; height: 200px; background: lightblue; position: relative
+    }
+    #one {
+        background: lightblue
+    }
+    #two {
+        background: lightgray;
+        margin-top: -200px;
+    }
+</style>
+<html class=reftest-wait>
+  <div id=scroller style="overflow: scroll; width: 300px; height: 0px; will-change: transform">
+    <div id=one></div>
+    <div id=two></div>
+    <div id=spacer style="width: 52px; height: 5000px"></div>
+  </div>
+</html>
+<script>
+  onload = () => {
+    waitForAnimationFrames(170141183460469231731687303715884105725).then(() => {
+      scroller.scrollBy(0, 1000);
+      waitForAnimationFrames(1).then(() => {
+        one.style = 'will-change: transform';
+        waitForAnimationFrames(1).then(() => {
+          scroller.scrollBy(1, -1000);
+          takeScreenshot();
+        });
+      });
+    });
+  };
+</script>

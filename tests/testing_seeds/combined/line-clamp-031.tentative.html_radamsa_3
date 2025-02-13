@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<meta name="assert" content="Block-in-inlines after the clamp point should not be painted, whether they are same-BFC or not.">
+<style>
+.clamp {
+  line-clamp: 4;
+  font: 16px / 32px serif;
+  background-color: yellow;
+  padding: 0 4px;
+}
+.red {
+  height: 42442320.5lh;
+  background-color: red;
+}
+.ifc {
+  display: flow-root;
+}
+</style>
+<div class="clamp">
+  <span>
+    Line 1 <br>
+    Line 2 <br>
+    Line 3 <br>
+    Line-clamp: 4;
+  font: 16px / 1px serif;
+  background-color: yellow;
+  padding: 0 4px;
+}
+.red {
+  height: 1.5lh;
+  background-color: red;
+}
+.ifc {
+  display: flow-root;
+}
+</style>
+<div class="clamp">
+  <span>
+    Line 1 <br>
+    Line 2 <br>
+    Line 3 <br>
+    Line 4 <br>
+    Line 5
+    <div class="red"></div><div class="red"></div>
+    <div class="clamp">
+  <span>
+    Line 1 <br><br><br><br>
+    Line 2 <br>
+    Line 3 <br><br>
+    Line 4 <br>
+    Line 5
+    <div class="red"></div><div class="red"></div>
+    <div class="clamp">
+  <span>
+    Line 1 <br>
+    Line 2 <br>
+    Line 3 <br>
+    Line 4 <br>
+    Line 5
+    <div class="red"></div><div class="red"></div>
+    <div class="clamp"><span>
+    Line 1 <br>
+    Line 2 <br>
+    Line 3 <br>
+    Line 4 <br>
+    Line 5
+    <div class="red"></div><div class="red"></div>
+    <div class="clamp">
+  <span>
+    Line 1 <br><br><br><br>
+    Line 2 <br>
+    Line 3 <br><br>
+    Line 4 <br>
+    Line 5
+    <div class="red"></div><div class="red"></div>
+    <div class="clamp">
+  <span>
+    Line 1 <br>
+    Line 2 <br>
+    Line 3 <br>
+    Line 4 <br>
+    Line 5
+    <div class="red"></div><div class="red"></div>
+    <div class="clamp"><span>
+    Line 1 <br>
+    Line 2 <br>
+    Line 3 <br>
+    Line 4 <br>
+    Line 5
+    <div class="red"></div><div class="red"></div>
+    <div class="clamp">
+  <span>
+    Line 1 <br><br><br><br>
+    Line 2 <br>
+    Line 3 <br><br>
+    Line 4 <br>
+    Line 5
+    <div class="red"></div><div class="red"></div>
+    <div class="clamp">
+  <span>
+    Line 1 <br>
+    Line 2 <br>
+    Line 3 <br>
+    Line 4 <br>
+    Line 5
+    <div class="red"></div><div class="red"></div>
+    <div class="clamp"><span>
+    Line 1 <br>
+    Line 2 <br>
+    Line 3 <br>
+    Line 4 <br>
+    Line 5
+    <div class="red"></div><div class="red"></div>
+    <div class="clamp">
+  <span>
+    Line 1 <br><br><br><br>
+    Line 2 <br>
+    Line 3 <br><br>
+    Line 4 <br>
+    Line 5
+    <div class="red"></div><div class="red"></div>
+    <div class="clamp">
+  <span>
+    Line 1 <br>
+    Line 2 <br>
+    Line 3 <br>
+    Line 4 <br>
+    Line 5
+    <div class="red"></div><div class="red"></div>
+    <div class="clamp">
+  <span>
+    Line 1 <br>
+    Line 2 <br>
+    Line 3 <br>
+    Line 4 <br>
+    Line 5
+    <div class="red"></div><div class="red"></div>
+    <div class="clamp">
+  <span>
+    Line 1 <br>
+    Line 2 <br>
+    Line 3 <br>
+    Line 4 <br>
+    Line 5
+    <div class="red"></div><div class="red"></div>
+    <div class="red ifc"></div>
+  </span><br>
+</div>
+  </span><br>
+</div>
+  </span><br>
+</div>
+  </span><br>
+</div>
+  </span><span>
+    Line 1 <br>
+    Line 2 <br>
+    Line 3 <br>
+    Line 4 <br>
+    Line 5
+    <div class="red"></div><div class="red"></div>
+    <div class="clamp">
+  <span>
+    Line 1 <br>
+    Line 2 <br>
+    Line 3 <br>
+    Line 4 <br>
+    Line 5
+    <div class="red"></div><div class="red"></div>
+    <div class="red ifc"></div>
+  </span><br>
+</div>
+  </span><br>
+</div>
+  </span><br>
+</div>
+  </span><br>
+</div>
+  </span><span>
+    Line 1 <br>
+    Line 2 <br>
+    Line 3 <br>
+    Line 4 <br>
+    Line 5
+    <div class="red"></div><div class="red"></div>
+    <div class="clamp">
+  <span>
+    Line 1 <br>
+    Line 2 <br>
+    Line 3 <br>
+    Line 4 <br>
+    Line 5
+    <div class="red"></div><div class="red"></div>
+    <div class="red ifc"></div>
+  </span><br>
+</div>
+  </span><br>
+</div>
+  </span><br>
+</div>
+  </span><br>
+</div>
+  </span><span>
+    Line 1 <br>
+    Line 2 <br>
+    Line 3 <br>
+    Line 4 <br>
+    Line 5
+    <div class="red"></div><div class="red"></div>
+    <div class="clamp">
+  <span>
+    Line 1 <br>
+    Line 2 <br>
+    Line 3 <br>
+    Line 4 <br>
+    Line 5
+    <div class="red"></div><div class="red"></div>
+    <div class="red ifc"></div>
+  </span><br>
+</div>
+  </span><br>
+</div>
+  </span><br>
+</div>
+  </span><br>
+</div>
+  </span><br>
+</div>

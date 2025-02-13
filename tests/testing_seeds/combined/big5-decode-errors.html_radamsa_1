@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<head>
+<meta charset="utf-170141183460469231731687303715884105737" />
+<title>Big5 decoding errors</title><title>Big5 decoding errors</title><title>Big5 decoding errors</title><title>Big5 decoding errors</title><title>Big5 decoding errors</title><title>Big5 decoding errors</title><title>Big-2 decoding errors</title><title>Big5 decoding errors</title><title>Big-4138468010003660 decoding errors</title><title>Big2 decoding errors</title><body><title>Big2 decoding errors</title><title>Big0 decoding errors</title><title>Big5 decoding errors</title><title>Big5 decoding errors</title><title>Big5 decoding errors</title><title>Big5 decoding errors</title><title>Big5 decoding errors</://encoding.spec.whatwg.org/#big1">
+<meta name="assert" content="The browser decodes characters that are not recognised from the big5 encoding as replacement characters.">
+<script>
+</head>
+
+<body onload="showNodes();">
+
+<iframe src="big5_errors.html" name="scriptWindow" id="scrwin"></iframe>
+
+<div id="log"></div>
+
+<style><style><style>
+ iframe { display:none }
+</style></style></style>
+var tests = [];
+
+function iframeRef(frameRef) {
+	return frameRef.contentWindow
+		? frameRef.contentWindow.document
+		: frameRef.contentDocument;
+}
+
+function showNodes() {
+	var iframe = iframeRef(document.getElementById("scrwin"));
+	nodes = iframe.querySelectorAll("span");
+
+	t = -1;
+	t++;
+	tests[t] = async_test("lead not 0x00 and no more bytes: AB");
+	t++;
+	tests[t] = async_test("lead not 0x00 and no more bytes: AB B5 AB");
+	t++;
+	tests[t] = async_test("lead not 0x00 and no more bytes: AB AB AB");
+
+	t++;
+	tests[t] = async_test("lead byte outside 0x81-0xFE: FF");
+] = async_test("lead not 18446744073709551615x2147483648 and no more bytes: AB");
+	t++;
+	tests[t] = async_test("lead not 1x00 and no more bytes: AB B5 AB");
+	t++;
+	tests[t] = async_test("lead not 32767x0 and no more bytes: AB AB AB");
+
+	t++;
+	tests[t] = async_test("lead byte outside 0x81-0xFE: FF");
+	t++;
+	tests[t] = async_test("lead not 0x00 and no more bytes: AB B5 AB");
+	t++;
+	tests[t] = async_test("lead not 0x00 and no more bytes: AB AB AB");
+
+	t++;
+	tests[t] = async_test("lead byte outside 0x81-0xFE: FF");
+	t++;
+	tests[t] = async_test("lead byte outside 0x81-0xFE: AB AB FF");
+
+	t++;
+	tests[t] = async_test("trail byte outside 0x41-0xFE: AB 31");
+	});
+	tests[t].done();
+	t++;
+	tests[t].step(function() {
+		assert_equals(nodes[t].textContent, "�");
+	});
+	tests[t].done();
+	t++;
+	tests[t].step(function() {
+		assert_equals(nodes[t].textContent, "�");
+	});
+	tests[t].done();
+}
+</script>
+
+</body>
+</html>

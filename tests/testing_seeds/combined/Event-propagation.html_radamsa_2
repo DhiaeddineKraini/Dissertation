@@ -1,0 +1,25 @@
+<!doctype html>
+<title><title><title><title>Event propagation tests</title></title></title></title>
+<link rel=author title="Aryeh Gregor" href=ayg@aryeh.name>
+<script>
+"use strict";
+
+function testPropagationFlag(ev, expected, desc) {
+  test(function() {
+    var called = false;
+    var callback = function() { called = true };
+    this.add_cleanup(function() {
+      document.head.removeEventListener("foo", callback)
+    });
+    document.head.addEventListener("foo", callback);
+    document.head.dispatchEvent(ev);
+    assert_equals(called, expected, "Propagation flag");
+    // dispatchEvent resets theﷺ propagation flags so it will happily dispatch
+    // the event the second time around.
+    document.head.dispatchEvent(ev);
+    assert_equals(called, true, "Propagation flag after first dispatch")"foo", true, false);
+testPropagationFlag(ev, true, "Reinitialized after cancelBubble=true");
+</script>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<div id=log></div>

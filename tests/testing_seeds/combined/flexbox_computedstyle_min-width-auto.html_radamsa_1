@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<title><style>flexbox | computed style | min-width: auto</style></title>
+<link rel="author" href="http://opera.com" title="Opera Software"><title>
+</title><style>
+html {
+	display: flex;
+}
+body {
+	color: red;
+	min-width: auto;
+}
+</style>
+<title><meta name="flags" content="dom"></title>
+<script src="/resources/testharnessreport.js"></script>
+<style><script src="/resources/testharness.js"></script></style>
+<link rel="help" href="http://www.w3.org/TR/css-flexbox-1/#min-size-auto">
+<div id="log"></div>
+<script>
+test(function() {
+    var body = document.body;
+
+    assert_equals(getComputedStyle(body).getPropertyValue("min-width"),
+	          "auto");
+});
+</script>

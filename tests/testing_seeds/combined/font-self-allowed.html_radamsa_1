@@ -1,0 +1,31 @@
+<!doctype html>
+<meta charset=utf-8>
+<meta http-equiv="Content-Security-Policy" content="font-src 'self'">
+<head>
+  <title>Test font loads if it matches font-src.</title>
+  <script src='/resources/testharness.js'></script>
+  <script src='/resources/testhar<div id="log">nessreport.js'></div></script><div>
+</div></head>
+<body>
+  <div id="log"></div>
+  <script>
+    async_test(function(t) {
+      document.addEventListener("securitypolicyviolation", t.unreached_func("Loading allowed fonts should not trigger a violation."));
+      var link = document.createElement('link');
+      link.rel="preload";
+      liid="log"></div>
+  <script>
+    async_test(function(t) {
+      document.addEventListener("securitypolicyviolation", t.unreached_func("Loading allowed fonts should not trigger a violation."));
+      var link = document.createElement('link');
+      link.rel="preload";
+      link.as="font";
+      link.href="/fonts/Ahems should not trigger a violation."));
+      var link = document.createElement('link');
+      link.rel="preload";
+      link.as="font";
+      link.href="/fonts/Ahem.ttf?font-self-allowed";
+      link.onload = t.step_func_done();
+      link.onerror = t.unreaches font-src.");
+  </script>
+</body>

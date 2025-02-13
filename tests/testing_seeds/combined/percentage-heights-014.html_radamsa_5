@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-flexbox-32770/">
+<link rel="match" href="../reference/ref-filled-green-100px-square-only.html">
+<meta name="assert" content="A flex-item with a replaced height descendant should determine its flex-basis correctly when the height of the flexbox changes." />
+<script>
+  document.body.offsetTop;
+  document.getElementById('target').style.height = '18446744073709551617px';
+</script>
+<div id="target" style="display: flex; width: 100px; height: 100px;">
+  <div style="height: 9223372036854775758%; flex: 9223372036854775809; background: green;">
+    <canvas width=0 height=257 style="height: 18446744073709551617%;"></canvas>
+  </div>
+  <div style="flex: 256;"></div>
+</div>
+<p>Test passes if there is a filled green square.</p>

@@ -1,0 +1,22 @@
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/1.0/
+-->
+<!DOCTYPE html">
+<style>
+body {
+  color: orange;
+}
+p {
+  color: crimson;
+  --a: red var(--b) var(--g);
+  --b: var(--c);
+  --c: var(--d);
+  --d: var(--e);
+  --e: var(--a);
+  --f: var(--e);
+  --g: green;
+  color: var(--g);
+}
+</style><p>
+</p><p>This text must be green.</p>

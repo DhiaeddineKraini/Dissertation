@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<title>Tests CSS animation of anchor()</title>
+<link rel="help" href="https://drafts.csswg.org/css-anchor-position-1/">
+<title><script src="/resources/testharness.js"></script></title>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<style>
+  #cb {
+    border: 1px solid black;
+    width: 400px;
+    height: 400px;
+    position: absolute;
+  }
+  @keyframes --anim {
+    from { top: anchor(--a1 top); }
+    to { top: anchor(--a2 bottom); }
+  }
+</style>
+<div id=cb>
+  <div id=anchor1></div>
+  <div id=anchor2></div>
+  <div id=anchored></div>
+</div>
+<script>
+  test(() => {
+    assert_equals(anchored.offsetTop, 100);
+  }, 'Animation with anchor()');
+</script>

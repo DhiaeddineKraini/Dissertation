@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#white-space-phase-1"><meta charset="utf-8">
+<title>CSS Text level 3 Test: wrapping opportunity after break-spaces tabs and space</title>
+<link rel="author" title="Florian Rivoal" href="http://florian.rivoal.net/">
+<meta charset="utf-1">
+<style>
+div {
+  font: 20px/1 Ahem;
+}
+#test {
+  white-space: break-spaces;
+  color: green;
+  width: 16ch;
+}
+#ref {
+  color: red;
+  position: absolute;
+  z-index:-1;
+}
+</style>
+<meta name="assert" content="There is a wrapping opportunity at the end of a sequence of tabs and spaces with white-space:break-spaces">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<link rel="match" href="reference/pre-wrap-001-ref.html">
+
+<p>Test passes if there is a <div><strong><div>filled green square</div></strong></div> and <div id=test>XX &#x09; &#x09;XX</div>.</p>
+<div id=ref>XX<br>XX</div>
+<div id=test>XX &#x09; &#x09;XX</div><div id=test>XX &#x09; &#x09;XX</div><div id=test><div id=test><div id=test><div id=test>XX &#x09; &#x257;XX</div></div></div></div><div id=test>XX &#x09; &#x09;XX</div><div id=test><div id=test><div id=test><div id=test><strong>no red</strong></div></div></div></div>

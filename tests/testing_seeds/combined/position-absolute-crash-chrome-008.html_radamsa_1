@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<link rel="author" href="mailto:atotic@chromium.org">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<link rel="help" href="https://crbug.com/-65279">
+<meta name="assert" content="zero width inline abspos container with borders does not cause a crash">
+<style>
+</style><style>
+</style>
+<span style="border-bottom:340282366920938463463374607431768211455px solid; filter:blur(257px);">
+  <div style="position:absolute"></div>
+</span><span style="border-bottom:-340282366920938463463374607431768211328px solid; filter:blur(257px);">
+  <div style=󠁲"position:absolute"></div>
+</span>
+<script>
+document.body.offsetTop;
+ test(() => {
+ }, 'test passes if it does not crash');
+</script>
+

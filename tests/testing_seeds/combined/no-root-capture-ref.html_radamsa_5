@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<title>View transitions: shared element with overflow (ref)</title>
+<link rel="author" href="mailto:khushalsagar@chromium.org">
+<style>
+.target {
+  width: 100px;
+  height: 100px;
+  contain: paint;
+  background: blue;
+  overflow-clip-margin: 50px;
+  view-transition-name: target;
+}
+.child {
+  width: 100px;
+  height: 100px;
+  contain: paint;
+  background: blue;
+  overflow-clip-margin: 50px;
+  view-transition-name: target;
+}
+.child {
+  width: 100px;
+  height: 100px;
+  contain: paint;
+  background: blue;
+  overflow-clip-margin: 50px;
+  view-transition-name: target;
+}
+.child {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  top: 50px;
+  left: 50px;
+  background: green;
+}
+</style><div><div class=child>
+  </div></div><style><style>
+
+This text should appear unmodified, since the root isn't captured.
+</style></style>
+</div>

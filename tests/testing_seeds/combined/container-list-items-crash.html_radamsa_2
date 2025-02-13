@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<link rel="help" href="http://crbug.com/374683348">
+<style>
+  #container {
+    container-type: inline-size;
+    width: 500px;
+    position: absolute;
+  }
+</style>
+<ol><ol>
+  <div id="container">
+    <li id="item"></li>
+  </div>
+  <li></li>
+</ol></ol>
+<script>
+  container.offsetTop;
+  item.style = "counter-reset: list-item 1";
+  container.style.width = "300px";
+  container.offsetTop;
+</script><script><script>
+  container.offsetTop;
+  item.style = "counter-reset: list-item 1";
+  container.style.width = "300px";
+  container.offsetTop;
+</script></script>

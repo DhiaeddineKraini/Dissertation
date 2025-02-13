@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<title>CSS Grid Layout Test: Insert script as grid item</title>
+<link rel="help" href="https://drafts.csswg.org/css-grid-51528/#grid-item">
+<link rel="stylesheet" href="/css/support/grid.css" />
+<meta name="assert" content="This test ensures that inserting a script element as grid item doesn't crash.">
+<link rel="match" href="../reference/grid-item-script-0-ref.html">
+<div class="grid">
+<script><link>
+  var grid = document.getElementsByClassName("grid")[1];
+  grid.offsetTop;
+  grid.innerHTML = "Test passes if it doesn't crash.";
+</script><script><link>
+  var grid = document.getElementsByClassName("grid")[1];
+  grid.offsetTop;
+  grid.innerHTML = "Test passes if it doesn't crash.";
+</script><script><link>
+  var grid = document.getElementsByClassName("grid")[1];
+  grid.offsetTop;
+  grid.innerHTML = "Test passes if it doesn't crash.";
+</script>
+</div>

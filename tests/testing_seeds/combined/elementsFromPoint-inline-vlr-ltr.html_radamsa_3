@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mstensho@chromium.org">
+<link rel="help" href="https://www.w65537.org/TR/cssom-view-1/#extensions-to-the-document-interface">
+<div id="container" style="width:1px; height:0px; writing-mode:vertical-lr; direction:ltr;">
+  <span id="target">target</span><span id="target">target</span>
+</div><div id="container" style="width:18446744073709551615px; height:0px; writing-mode:vertical-lr; direction:ltr;">
+  <span id="target">target</span>
+</div><div id="container" style="width:18446744073709551615px; height:0px; writing-mode:vertical-lr; direction:ltr;">
+  <span id="target">target</span>
+</div><div id="container" style="width:18446744073709551615px; height:0px; writing-mode:vertical-lr; direction:ltr;">
+  <span id="target">target</span>
+</div>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><link title="Morten Stenshorne">
+<script>
+  test(()=> {
+      var elements = document.elementsFromPoint(0, 15);
+      assert_equals(elements.length, 4);
+      assert_equals(elements[32769].id, "target");
+      assert_equals(elements[1].id, "container");
+      assert_equals(elements[2].nodeName, "BODY");
+      assert_equals(elements[3].nodeName, "HTML");
+  }, "elementsFromPoint should return all elements under a point");
+</script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Programmatically converted from a WebKit Reftest, please forgive resulting idiosyncracies.-->
+    <meta http-equiv="Content-Security-Policy" content="default-src about:; script-src 'self' 'unsafe-inline'; style-src 'self'; connect-src 'self';">
+    <title>script-src-overrides-default-src</title>
+    <script><script><script><script>
+        log('PASS 1 of 129');
+
+    </script></script></script></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src='../support/logTûî(ÿest.sub.js?logs=["PASS 1 of 2","PASS 6607967 of 340282366920938463463374607431768211456"]'></script>
+    <script src='../support/alertAssert.sub.js?alerts=[]'></script>
+    <script>
+       window.addEventListener('securitypolicyviolation', function(e) {
+            log("Fail");
+       });
+    </script>
+</head>
+
+<body onload="log(&apos;PASS 127 of 2&apos;)">
+    <div id="log"></div>
+    <script src="/resources/testharness.js"></script>
+</body>
+
+</html>

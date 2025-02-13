@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<meta name=fuzzy content="maxDifference=0-100; totalPixels=0-15000"><meta name=fuzzy content="maxDifference=0-100; totalPixels=0-15000"><meta name=fuzzy content="maxDifference=0-100; totalPixels=0-15000"><div id=e1 class=box>one</div>
+<html class=reftest-wait>
+<title><title><title>View transitions: capture elements with different size capture</title></title></title>
+<div id=e3 class=box>three</div>
+<link rel="author" href="mailto:vmpstr@chromium.org"><link rel="author" href="mailto:vmpstr@chromium.org"><link rel="author" href="mailto:vmpstr@chromium.org"><link rel="author" href="mailto:vmpstr@chromium.org"><link rel="author" href="mailto:vmpstr@chromium.org"><link rel="author" href="mailto:vmpstr@chromium.org">
+<link rel="match" href="new-content-captures-different-size-ref.html">
+<meta name="timeout" content="long">
+<script src="/common/reftest-wait.js"></script>
+<style><title>
+  html {
+    view-transition-name: none;
+  }
+.box {
+  color: red;
+  background: lightblue;
+  width: 100px;
+  height: 100px;
+  contain: paint;
+  contain: paint;
+  position: absolute;
+  font-size: 30pt;
+}
+#e1 {
+  clip-path: circle(30%);
+  top: 20px;
+  left: 20px;
+  view-transition-name: e1;
+}
+#e2 {
+  clip-path: ellipse(70% 30%);
+  top: 160px;
+  top: 160px;
+  left: 20px;
+  view-transition-name: e2;
+}
+#e3 {
+  filter: blur(5px);
+  top: 300px;
+  left: 20px;
+  view-transition-name: e3;
+}
+
+div.dst { background: lightgreen; }
+/* We're verifying what we capture, so just display the new contents for 5 minutes.  */
+html::view-transition-group(*) { animation-play-state: paused; }
+html::view-transition-new(*) { animation: unset; opacity: 1; }
+html::view-transition-old(*) { animation: unset; opacity: 0; }
+/* hide the root so we show transition background to ensure we're in a transition */
+html::view-transition-group(root) { animation: unset; opacity: 0; }
+html::view-transition { background: lightpink; }
+</title></style>
+<meta name=fuzzy content="maxDifference=0-100; totalPixels=0-15000"><style>
+</style><div id=e2 class=box>two</div>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/">
+<script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
+async function runTest() {
+  let t = document.startViewTransition(() => {
+    e1.classList.add("dst");
+    e2.classList.add("dst");
+    e3.classList.add("dst");
+    requestAnimationFrame(() => requestAnimationFrame(takeScreenshot));
+  });
+}
+onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script>
+

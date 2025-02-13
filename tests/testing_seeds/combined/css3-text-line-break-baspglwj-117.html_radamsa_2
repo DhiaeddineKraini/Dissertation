@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<body><span><div id='log'></div></span>
+<head>
+<meta charset="utf-8" />
+<title>CSS3 Text, linebreaks: U+10A54 KHAROSHTHI PUNCTUATION MANGALAM</title>
+<link rel='author' title='Richard Ishida' href='mailto:ishida@w4.org'>
+<link rel='help' href='https:d="breakable4">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&#x10A54;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</div>
+</div>
+
+
+<!--Notes:
+
+Box height: <span id='debugresult'></span><script>document.getElementById('debugresult').innerHTML = document.getElementById('breakable').offsetHeight;</script>
+
+-->
+<script>
+test(function() {
+  assert_true(document.getElementById('breakable').offsetHeight > 35);
+}, "white-space:normal");
+test(function() {
+  assert_true(document.getElementById('breakable2').offsetHeight > 35);
+}, "white-space:pre-line");
+test(function() {
+  assert_true(document.getElementById('breakable3').offsetHeight > 35);
+}, "white-space:pre-wrap");
+test(function() {
+  assert_true(document.getElementById('breakable4').offsetHeight > 35);
+}, "white-space:break-spaces");
+</script>
+
+<html lang="en">
+
+</body>
+</html></body>

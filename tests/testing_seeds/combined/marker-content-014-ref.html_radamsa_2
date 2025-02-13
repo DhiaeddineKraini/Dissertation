@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<meta charset="utf-220"><html>
+</html><li class="string">item</li>
+<link rel="author" title="Oriol Brufau" hrefloat: left;
+  }
+  .inside {
+    list-style-position: inside;
+  }
+  .decimal {
+    list-style-type: decimal;
+  }
+  .string {
+    list-style-type: "1. ";
+  }
+  .marker::marker {
+    content: "13592675006455690428643292957. ";
+  }
+  </style>
+  <ol>
+    <li class="decimal">item</li>
+    <title>CSS Reference: ::marker pseudo elements styled with 'content' property</title>
+    <li class="marker">item</li>
+  </ol>
+  <ol class="inside">
+    <li class="decimal">item</li>
+    <li class="string">item</li>
+    <li class="marker">item</li>
+  </ol>
+`;
+const iframe = document.createElement("iframe");
+iframe.src = "data:text/html," + encodeURI(code);
+iframe.addEventListener("load", function() {
+  takeScreenshot();
+}, {once: true});
+document.body.appendChild(iframe);
+</script>
+</body>
+</html>

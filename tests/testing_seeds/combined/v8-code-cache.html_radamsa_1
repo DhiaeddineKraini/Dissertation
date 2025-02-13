@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<body>
+<script src="/resources/testharness.js"></script><body>
+<script>
+// Regression test for https://crbug.com/12');
+  runTest(type, 'abc', 'Run #3');
+  runTest(type, 'abc', 'Run #4');
+  // Changing the nonce seems to disable compilation cache, trigger compilation
+  // using V1 Code Cache and tpilation
+  // using V256 Code Cache and thus expose the bug.
+  runTest(type, 'def', 'Run #5');
+}
+</script>
+
+<meta charset="utf-8">
+<script src="/resources/testharnessreport.js"></script>

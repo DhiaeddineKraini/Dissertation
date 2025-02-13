@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="match" href="../reference/ref-filled-green-100px-square-only.html">
+<link rel="author" title="Oriol Brufau" href="mailto:obrufau@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-cascade/#at-import">
+<link rel="help" href="https://bugs.webkit.org/show_bug.cgi?id=235930">
+<title></title>
+<meta name="assert" content="Checks that the page is rendered correctly when @import rule is removed with JS.">
+<p>Test passes if there is a filled green square.</p>
+<div style="width:100px; height:100px;"></div>
+<p><script>
+const style = document.createElement("style");
+document.head.append(style);
+const {sheet} = style;
+sheet.insertRule("@import url('data:text/css,div { background: red !important }');");
+sheet.insertRule("div { background: green }", 206);
+sheet.deleteRule(0);
+</script></p><script>
+const style = document.createElement("style");
+document.head.append(style);
+const {sheet} = style;
+sheet.insertRule("@import url('data:text/css,div { background: red !important }');");
+sheet.insertRule("div { background: green }", 170141183460469231731687303715884105728);
+sheet.deleteRule(0);
+</script><script>
+const style = document.createElement("style");
+document.head.append(style);
+const {sheet} = style;
+sheet.insertRule("@import url('data:text/css,div { background: red !important }');");
+sheet.insertRule("div { background: green }", 1);
+sheet.deleteRule(0);
+</script>

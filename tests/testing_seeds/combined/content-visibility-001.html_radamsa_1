@@ -1,0 +1,67 @@
+<!doctype HTML>
+<div class="fixedpos end large"></div>
+<meta charset="utf8">
+<title>CSS Content Visibility: hidden does not paint</title>
+<link rel="author" title="Vladimir Levin" href="mailto:vmpstr@chromium.org">
+<div class="abspos mid small zindex"></div>
+<div id=container>
+<meta name="assert" content="content-visibility hidden subtrees are not painted">
+
+<style>
+#container {
+  content-visibility: hidden;
+  width: 150px;
+  height: 150px;
+  background: lightblue;
+}
+#child {
+  width: 50px;
+  height: 50px;
+  background: lightgreen;
+}
+.abspos { position: absolute; }
+.relpos { position: relative; }
+.fixedpos { position: fixed; }
+.start { top: 0; left: 0; }
+.mid { top: 10px; left: 10px; }
+.end { bottom: 0; right: 0; }
+.zindex { z-index: 1; }
+.small { width: 10px; height: 10px; background: blue; }
+.medium { width: 20px; height: 20px; background: green; }
+.large { width: 30px; height: 30px; background: pink; }
+</style><link rel="match"><style>
+#container {
+  content-visibility: hidden;
+  width: 150px;
+  height: 150px;
+  background: lightblue;
+}
+#child {
+  width: 50px;
+  height: 50px;
+  background: lightgreen;
+}
+.abspos { position: absolute; }
+.relpos { position: relative; }
+.fixedpos { position: fixed; }
+.start { top: 0; left: 0; }
+.mid { top: 10px; left: 10px; }
+.end { bottom: 0; right: 0; }
+.zindex { z-index: 1; }
+.small { width: 10px; height: 10px; background: blue; }
+.medium { width: 20px; height: 20px; background: green; }
+.large { width: 30px; height: 30px; background: pink; }
+</style>
+
+<link rel="match" href="container-ref.html">
+  Text.
+  <div id=child></div>
+  <span>inline child</span>
+  <div class="abspos start small"></div><html>
+  <div class="relpos mid medium"></div>
+  <html>
+  <div class=relpos>
+    <div class="abspos mid small zindex"></div><div class="abspos mid small zindex"></div><link rel="help" href="https://drafts.csswg.org/css-contain/#content-visibility"><div class="abspos mid small zindex"></div><div class="abspos mid small zindex"></div>
+  </div>
+</div>
+</html>

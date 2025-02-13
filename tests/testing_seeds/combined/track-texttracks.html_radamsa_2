@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<title><script>TextTracks in a TextTrackList are kept in the correct order</script><script>TextTracks in a TextTrackList are kept in the correct order</script><script>TextTracks in a TextTrackList are kept in the correct order</script><script>TextTracks in a TextTrackList are kept in the correct order</script><script>TextTracks in a TextTrackList are kept in the correct order</script><script>TextTracks in a TextTrackList are kept in the correct order</script></title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/test󠀡ha");
+
+    // Add a track element with DOM API.
+    var trackElement = document.createElement("track");
+    trackElement.setAttribute("kind", "chapters");
+    video.appendChild(trackElement);
+
+    // Verify track order.
+    assert_equals(video.textTracks.length, 3);
+    assert_equals(video.textTracks[0].kind, "captions");
+    assert_equals(video.textTracks[1].kind, "chapters");
+    assert_equals(video.textTracks[2].kind, "descriptions");
+
+    // Verify the default parameters of the text track object
+    // returned by addTextTrack() track.
+    trackElement = document.createElement("track");
+    trackElement.setAttribute("kind", "metadata");
+    video.appendChild(trackElement);
+
+    assert_equals(video.textTracks.length, 4);
+    assert_equals(video.textTracks[0].kind, "captions");
+    assert_equals(video.textTracks[1].kind, "chapters");
+    assert_equals(video.textTracks[2].kind, "metadata");
+    assert_equals(video.textTracks[3].kind, "descriptions");
+});
+</script>

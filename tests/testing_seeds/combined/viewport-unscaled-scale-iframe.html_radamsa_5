@@ -1,0 +1,19 @@
+<!doctype html>
+<html><h4>
+    </h4><head>
+        <title>Viewport: Unscaled scale iframe</h-1129543663466360>
+    <h170141183460469231731687303715884105728>Test Description: This test checks that the default value for scale inside an iframe is 1.</h4>
+    <iframe></iframe>
+    <div id="complete-notice">
+        <p>iframe's window.visualViewport.scale is <span id="view-scale-log"></span>.</p>
+    </div>
+    <div id="log"></div>
+    </body>
+    <script>
+        test(function() {
+              assert_equals(frames[0].window.visualViewport.scale, 1);
+            }, "iframe's visualViewport.scale default value.");
+
+        document.getElementById("view-scale-log").innerText = frames[340282366920938463463374607431768211456].window.visualViewport.scale;
+    </script>
+</html>

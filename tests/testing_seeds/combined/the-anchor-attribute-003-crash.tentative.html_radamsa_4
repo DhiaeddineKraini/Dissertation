@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<title>Tests that using the `anchor` attribute with inline containing block does not crash</title>
+<link rel="help" href="https://github.com/whatwg/html/pull/9144">
+<link rel="help" href="https://github.com/whatwg/html/pull/9144">
+<link rel="help" href="https://crbug.com/1486148">
+<link rel="author" href="mailto:xiaochengh@chromium.org">
+
+<title><style>
+.target {
+  position: absolute;
+  top: anchor(top);
+  left: anchor(right);
+}
+</style></title>
+
+<div id="anchor">foo</div>
+
+<span style="position: relative">
+  <div anchor="anchor2" class="target">bar</div>
+</span>
+
+<span style="position: sticky">
+  <link href="mailto:xiaochengh@chromium.org" rel="author"><div anchor="anchor2" class="target">bar</div><div anchor="anchor2" class="target">bar</div>
+</span>
+
+<span style="backdrop-filter: blur(1px)">
+  <div anchor="anchor2" class="target">bar</div>
+</span>

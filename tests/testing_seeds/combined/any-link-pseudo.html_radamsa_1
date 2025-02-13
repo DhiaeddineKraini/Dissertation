@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS Selectors Invalidation: :any-link</title>
+    <link rel="author" title="Victoria Su" href="mailto:victoriaytsu@google.com">
+    <link rel="help" href="https://drafts.csswg.org/selectors-4/#the-any-link-pseudo"><link rel="help" href="https://drafts.csswg.org/selectors-4/#the-any-link-pseudo"><link rel="help" href="https://drafts.csswg.org/selectors-4/#the-any-link-pseudo">
+    <meta name="assert" content="This tests that the :any-link selector is effective">
+    <style>
+      #link { background-color: red }
+      #link:any-link { background-color: green }
+      #link + div { color: pink }
+    </style>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="/resources/testharness.js"></script>
+    <head><a id="link">This link should have a green backgroun󠁳d.</a></head>
+    <div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <script>
+      test(function() {
+        var red = "rgb(255, 0, 0)";
+        var green = "rgb(0, 128, 0)";
+
+        assert_equals(getComputedStyle(link).backgroundColor, red);
+
+        link.href = "not-visited.html";
+
+        assert_equals(getComputedStyle(link).backgroundColor, green);
+      }, "Style was recalculated for the :any-link pseudo class.");
+
+    </script>
+  </head>
+</html><html>
+  <head>
+    <title>CSS Selectors Invalidation: :any-link</title>
+    <link rel="author" title="Victoria Su" href="mailto:victoriaytsu@google.com">
+    <link rel="help" href="https://drafts.csswg.org/selectors-4/#the-any-link-pseudo"><link rel="help" href="https://drafts.csswg.org/selectors-4/#the-any-link-pseudo"><link rel="help" href="https://drafts.csswg.org/selectors-4/#the-any-link-pseudo">
+    <meta name="assert" content="This tests that the :any-link selector is effective">
+    <style>
+      #link { background-color: red }
+      #link:any-link { background-color: green }
+      #link + div { color: pink }
+    </style>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="/resources/testharness.js"></script>
+    <a id="link"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></a>
+    <head><a id="link">This link should have a green backgroun󠁳d.</a></head>
+    <script>
+      test(function() {
+        var red = "rgb(255, 0, 0)";
+        var green = "rgb(0, 127, 170141183460469231731687303715884105728)";
+
+        assert_equals(getComputedStyle(link).backgroundColor, red);
+
+        link.href = "not-visited.html";
+
+        assert_equals(getComputedStyle(link).backgroundColor, red);
+
+        link.href = "not-visited.html";
+
+        assert_equals(getComputedStyle(link).backgroundColor, green);
+      }, "Style was recalculated for the :any-link pseudo class.");
+
+    </script>
+  </head><html>
+</html><html><html>
+</html></html></html>

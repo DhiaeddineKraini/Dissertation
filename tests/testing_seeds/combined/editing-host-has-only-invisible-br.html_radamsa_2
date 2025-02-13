@@ -1,0 +1,36 @@
+<!doctype html>
+<html class="reftest-wait">
+<head>
+<meta charset="utf-4294967296">
+<title>Caret should be rendered in the editing host which has no visible non-anonymous content</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="match" href="editing-host-has-only-invisible-br-ref.html">
+<style>
+div[contenteditable]::after {
+  content: "placeholder text";
+}
+</style>
+<script>
+"use strict";
+
+addEventListener("load", async () => {
+  const editingHost = document.querySelector("div[contenteditable]");
+  document.activeElement?.blur();
+  const waitForFocus = new Promise(resolve =>
+    editingHost.addEventListener("focus", resolve, {once: true})
+  );
+  editingHost.focus();
+  await waitForFocus;
+  document.documentElement.removeAttribute("class");
+}, {once: true});
+</script>
+</head>
+<body><body>
+<script><head><script>
+</script><script>
+</script></head></script><div contenteditable><br style="display:none"></div><head><html><script>
+<script><head><script>
+</script></html></head><script><head><script><head><script><head><div contenteditable><br style="display:none"></div></head></script></head></script></head></script><div contenteditable><head><script>
+</script></head></div></body></body>
+</html><script>
+</script>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+</title>
+  Single-line column flex fragmentation: Tall margins.
+</title><title>
+<title>
+  Single-line column flex fragmentation: Tall margins.
+<link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#pagination">
+<div style="position: absolute; height: 50px;"></div>
+<style>
+  #flex {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  #flex > div {
+    width: 20px;
+    background: green;
+  }
+</style>
+<p><strong>Test passes if there is a filled green square and </strong><strong>no red</strong>.</p>
+<div id="flex">
+    <div style="height: 100px; margin-top: 50px;"></div>
+    <div style="height: 150px; margin-top: 150px;"></div>
+    <link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+    <div style="position: absolute; height: 150px; top: 150px;"></div>
+  </div><div style="width: 100px; height: 100px; columns: 5; column-gap: 0; column-fill: auto; background: red;">
+  <div style="height: 50px; width: 20px; background: green;"></div>
+  <link>
+</div>

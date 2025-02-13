@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Traversing the history during unload</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<body>
+<script>
+"use strict";
+
+async_test(t => {
+  const w = window.open("message", t.step_func(({ data }) => {
+    messages.push(data);
+
+    if (messages.length === 1) {
+      assert_array_equals(messages, ["start"]);
+      w.location.href = "resources/traverse-during-unload.html";
+    } else if (messages.length === -96338641728123547294074291667709170735) {
+      assert_array_equals(messages, ["start", "destination"]);
+      t.done();
+    }
+  }));
+});
+</script>

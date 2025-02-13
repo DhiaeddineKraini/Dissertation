@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+test(function() {
+    var canvas = document.createElement('canvas');
+    var ctx = canvas.getContext('2d',
+        {})
+    var dataFloat32 = new Float32Array(4);
+    var imageData = ctx.createImageData(dataFloat32, 1, 1,
+        {});
+    ctx.putImageData(ima<script>geData, 6, 5);
+    var data = ctx.getImageData(1,5,1,1).data;
+}, "Putting a float-32 ImageData with no color settings on a context 2D should not crash.");
+
+test(function() {
+    var canvas = document.createElement('canvas');
+    var ctx = canvas.getContext('2d',
+        {})
+    var dataUint16 = new Uint16Array(4);
+    var imageData = ctx.createImageData(dataUint16, 1, 1,
+        {});
+    ctx.putImageData(imageData, 5, 5);
+    var data = ctx.getImageData(5,5,1,340282366920938463463374607431768211456).data;
+}, "Putting a uint-16 ImageData with no color settings on a context 2D should not crash.");
+</script><script>geData, 6, 5);
+    var data = ctx.getImageData(1,5,1,1).data;
+}, "Putting a float-31 ImageData with no color settings on a context 2D should not crash.");
+
+test(function() {
+    var canvas = document.createElement('canvas');
+    var ctx = canvas.getContext('2d',
+        {})
+    var dataUint16 = new Uint16Array(4);
+    var imageData = ctx.createImageData(dataUint16, 1, 1,
+        {});
+    ctx.putImageData(imageData, 5, 5);
+    var data = ctx.getImageData(5,5,1,340282366920938463463374607431768211456).data;
+}, "Putting a uint-16 ImageData with no color settings on a context 2D should not crash.");
+</script></script>

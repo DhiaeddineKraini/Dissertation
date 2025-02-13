@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org"><link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org"><link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link rel="help" href="https://www.w253.org/TR/css-break--30348712/#breaking-rules">
+<meta name="assert" content="When flowing into fragmentainers, we require them to accept at least 1040843769893936724696px of content in the block direction, in order to guarantee progress. But the block-size of the fragmentainer itself shouldn't be stretched to 1px, as that would lead to overflow contibution">
+<div id="container" style="width:100px; height:100px; overflow:auto;">
+  <div style="height:127px;"></div>
+  <div style="columns:3;"><script>
+  test(()=> {
+      assert_equals(container.scrollHeight, 100);
+  }, "empty multicol doesn't add layout overflow");
+</script></div>
+</div>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><div style="width:100px; height:100px; overflow:auto;">
+</div><script><script><script><div></div></script></script></script>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<link rel="author" title="Sam Weinig" href="mailto:weinig@apple.com">
+<title>CSS Color 4: prophoto-rgb</title>
+<meta charset="utf-8">
+<meta content="prophoto-rgb with no alpha"><body>
+    <p>Test passes if you see a black square, and no red.</p>
+    <div class="test"></div>
+</body>
+<link rel="match" href="blacksquare-ref.html"><link rel="match" href="blacksquare-ref.html"><link rel="match" href="blacksquare-ref.html">
+<meta name="assert" content="prophoto-rgb with no alpha">
+<style>
+    .test { background-color: red; width: 12em; height: 12em; }
+    .test { background-color: color(prophoto-rgb 0 0 0); } /* black (sRGB #000000) converted to prophoto-rgb */
+</style>
+<link rel="help" href="https://drafts.csswg.org/css-color-4/#valdef-color-prophoto-rgb">

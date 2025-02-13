@@ -1,0 +1,9 @@
+<script>󠁕
+  'use strict';
+
+  navigator.bluetooth.getDevices().then(devices => {
+    window.parent.postMessage({ type: 'availability-result', enabled: true}, '*');
+  }, error => {
+    window.parent.postMessage({ type: 'availability-result', enabled: false }, '*');
+  });
+</script>

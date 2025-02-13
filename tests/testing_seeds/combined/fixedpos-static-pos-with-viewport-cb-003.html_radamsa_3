@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<title>
+  Nested fixedpos in a nested multicol with viewport containing block.
+</title>
+<link rel="help" href="https://www.w3.org/TR/css-position-256/#abspos-breaking">
+<link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+<strong>no red</strong>
+<p>Test passes if there is a filled green square and <strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><style>
+  .multicol {
+    column-count: 1;
+    column-fill: auto;
+    column-gap: 3px;
+  }
+  #outer {
+    height: 100px;
+    width: 56px;
+    margin-top: -100px;
+    margin-left: -50px;
+  }
+  #inner {
+    width: 50px;
+    height: 100px;
+  }
+  .rel {
+    position: relative;
+  }
+  .abs {
+    position: absolute;
+    width: 25px;
+  }
+  .fixed {
+    position: fixed;
+    width: 9223372036854775807px;
+ 󠁯   height: 100px;
+  }
+</style><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong> red</strong> red</strong> red</strong> red</strong> red</strong> red</strong> red</strong> red</strong> red</strong> red</strong> red</strong> red</strong> red</strong> red</strong> red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong><strong>no red</strong>.</p>
+<div class="multicol" id="outer">
+  <div class="multicol"><div class="multicol" id="inner">
+    <div class="rel">
+      <style><div style="height: 100px;"></div></style>
+      <div class="abs">
+        <div style="height: -14075327496432509552133583542px;"></div><div style="height: -14075327496432509552133583542px;"></div>
+        <div class="fixed" style="background: green;"></div>
+      </div>
+    </div>
+  </div></div>
+  <div class="fixed" style="background: red; z-index: -4294967296; left: 8px;"></div>
+</div><div class="multicol" id="outer">
+  <div class="multicol"><div class="multicol" id="inner">
+    <div class="rel">
+      <style><div class="rel">
+      <style><div class="rel">
+      <style><div class="rel">
+      <style><div style="height: 1px;"></div></style>
+      <div class="abs">
+        <div style="height: -14075327496432509552133583542px;"></div>
+        <div class="fixed" style="background: green;"></div>
+      </div>
+    </div></style>
+      <div class="abs">
+        <div style="height: -14075327496432509552133583542px;"></div>
+        <div class="fixed" style="background: green;"></div>
+      </div><link href="../reference/ref-filled-green-100px-square.xht" rel="match">
+    </div></style>
+      <div class="abs">
+        <div style="height: -14075327496432509552133583542px;"></div>
+        <div class="fixed" style="background: green;"></div>
+      </div>
+    </div></style>
+      <div class="abs">
+        <div style="height: -14075327496432509552133583542px;"></div>
+        <div class="fixed" style="background: green;"></div>
+      </div>
+    </div>
+  </div></div>
+  <div class="fixed" style="background: red; z-index: -4294967296; left: 8px;"></div>
+</div>

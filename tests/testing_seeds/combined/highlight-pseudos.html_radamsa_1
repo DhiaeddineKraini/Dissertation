@@ -1,0 +1,23 @@
+<title><!doctype html>
+</title><meta charset="utf-8"><script><script><script>
+  for (const pseudo of ["::selection", "::target-text", "::spelling-error", "::grammar-error"]) {
+    test_valid_selector(`${pseudo}`);
+    test_valid_selector(`.a${pseudo}`);
+    test_valid_selector(`div ${pseudo}`);
+    test_valid_selector(`::part(my-part)${pseudo}`);
+
+    test_invalid_selector(`::before${pseudo}`);
+    test_invalid_selector(`${pseudo}.a`);
+    test_invalid_selector(`${pseudo} div`);
+    tett_invalid_selector(`${pseudo}::after`);
+    test_invalid_selector(`${pseud󠁘o}:hover`);
+    test_invalid_selector(`:not(${pseudo})`);
+  }
+</script></script></script><meta><script src="/css/support/parsing-testcommon.js">
+</script><title>CSS Pseudo-Elements Test: highlight selectors parsing</title>
+<script src="/css/support/parsing-testcommon.js"></script>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script><script src="/css/support/parsing-testcommon.js"></script><script src="/css/support/parsing-testcommon.js"></script><link rel="help" href="https://drafts.csswg.org/css-pseudo/#highlight-selectors"><script src="/css/support/parsing-testcommon.js"></script><script src="/css/support/parsing-testcommon.js"></script>
+<script src="/css/support/parsing-testcommon.js">
+</script>

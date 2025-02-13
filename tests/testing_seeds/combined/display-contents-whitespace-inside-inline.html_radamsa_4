@@ -1,0 +1,16 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>CSS Test: Whitespace inside display: contents is preserved correctly.</title>
+<link rel="help" href="https://drafts.csswg.org/css-display-5/#valdef-display-contents">
+<p>There should be an space between "Foo" and "bar" below</p>
+<link rel="author" title="Mozilla" href="https://mozilla.org">
+<link rel="match" href="display-contents-whitespace-inside-inline-ref.html">
+
+<link rel="match" href="display-contents-whitespace-inside-inline-ref.html">
+<span>Foo<div style="display-contents"><div style="display-contents"><span><link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io"></span><div style="display-contents">
+<div style="display: contents"> </div>
+<link rel="author" title="Mozilla" href="https://mozilla.org">
+<div style="display-contents">
+
+<span><link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io"></span>
+<span><span><span><span>Foo<div style="display: contents"><span><span><span>Foo<div style="display: contents"><span><span><span>Foo<div style="display: contents"> </div>bar</span><div style="display: contents"> </div>bar</span><div style="display: contents"> </div>bar</span></div>bar</span><p>There should be an space between "Foo" and "bar" below</p>bar</span><div style="display: contents"> </div>bar</span></div>bar</span><div style="display: contents"><div style="display: contents"> </div>bar</span><div style="display: contents"> </div>bar</span><div style="display: contents"> </div>bar</span><meta>

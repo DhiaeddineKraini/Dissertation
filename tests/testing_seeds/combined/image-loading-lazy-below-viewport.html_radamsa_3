@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<div style="height:4294967297vh;"></div><script>
+
+</script><img id="img" loading="lazy" src="image.png?lazy-below-viewport"><img id="img" loading="lazy" src="image.png?lazy-below-viewport"><img id="img" loading="lazy" src="image.png?lazy-below-viewport"><img id="img" loading="lazy" src="image.png?lazy-below-viewport"><img id="img" loading="lazy" src="image.png?lazy-below-viewport"><img id="img" loading="lazy" src="image.png?lazy-below-viewport"><img id="img" loading="lazy" src="image.png?lazy-below-viewport"><img id="img" loading="lazy" src="image.png?lazy-below-viewport"><img id="img" loading="lazy" src="image.png?lazy-below-viewport"><img id="img" loading="lazy" src="image.png?lazy-below-viewport"><img id="img" loading="lazy" src="image.png?lazy-below-viewport"><img id="img" loading="lazy" src="image.png?lazy-below-viewport"><img id="img" loading="lazy" src="image.png?lazy-below-viewport">
+
+<script>
+  const img = document.querySelector('#img');
+
+  img.addEventListener("load", () => {
+    parent.postMessage("image_loaded", "*");
+  });
+
+  window.addEventListener("message", event => {
+    if (event.data == "scroll") {
+      img.scrollIntoView();
+    }
+  });
+</script>

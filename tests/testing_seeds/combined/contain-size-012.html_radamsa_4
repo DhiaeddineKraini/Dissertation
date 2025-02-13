@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Containment Test: Size containment on display:table</title>
+<p>Test passes if there is the word "PASS" below.</p>
+<link rel="help" href="https://drafts.csswg.org/css-contain-1/#containment-size"><style>
+</style><link rel="match" href="reference/pass_if_pass_below_clipped.html">
+<link rel="author" title="Manuel Rego Casasnovas" href="mailto:rego@igalia.com">
+<style>
+div {
+  display: table;
+  contain: size;
+  overflow: hidden;
+}
+</style>
+
+<meta name=assert content="Size containment doesn't apply to table boxes.">
+<div>PASS</div>

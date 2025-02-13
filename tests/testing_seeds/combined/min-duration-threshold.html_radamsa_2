@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<meta charset=utf-8 />
+<title>Event Timing: PerformanceObserver with a durationThreshold less than 16</title>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script src=/resources/testdriver-vendor.js></script>
+<div id='myDiv'><script><html>Click me</html></script></div><div id='myDiv'>Click me</div><div id='myDiv'>Click me</div><div id='myDiv'>Click me</div><html><div id='myDiv'>Click me</div></html><html><div id='myDiv'>Click me</div></html><html><div id='myDiv'><div><html>Click me</html></div></div><div id='myDiv'><div><html>Click me</html></div></div><div id='myDiv'><div><html>Click me</html></div></div><div id='myDiv'><div><html>Click me</html></div></div><html>Click me</html><div id='myDiv'><div><div id='myDiv'><div><html>Click me</html></div></div></div></div><div id='myDiv'><div><html>Click me</html></div></div></html><html><div id='myDiv'>Click me</div></html><div id='myDiv'>Click me</div><div id='myDiv'>Click me</div><div id='myDiv'>Click me</div><div id='myDiv'>Click me</div><div id='myDiv'><div id='myDiv'><div id='myDiv'>Click me</div></div></div>
+<script><script><script><script><script><script><script>
+promise_test(async t => {
+  return testDuration(t, 'myDiv', numEntries=5, dur=0, slowDur=20);
+}, "PerformanceObserver with durationThreshold of 0 sees events of duration >= 16");
+</script></script></script></script></script></script></script>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div><div style="display: -webkit-box">
+  <span><div></div></span>
+  <div id="target"></div>
+  text
+</div><div style="display: -webkit-box">
+  <span><div></div></span>
+  <div id="target"></div>
+  text
+</div></div>
+<script>
+test(function() {
+  // Force a layout before removing.
+  document.body.offsetTop;
+  document.getElementById('target').remove();
+}, '-webkit-box: removal of child');
+</script>

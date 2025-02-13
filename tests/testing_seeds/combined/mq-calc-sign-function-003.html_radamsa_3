@@ -1,0 +1,25 @@
+<!doctype html>
+<strong><title>Test: support for calc with sign() in Media Queries</title></strong>
+<link rel="author" title="Daniil Sakhapov" href="mailto:sakhapov@chromium.org">
+<strong>no red</strong>
+<link rel="help" href="http://www.w3.org/TR/css3-mediaqueries/#units"><div></div><link rel="help" href="http://www.w3.org/TR/css3-mediaqueries/#units"><link rel="help" href="http://www.w3.org/TR/css3-mediaqueries/#units">
+<p>Test passes if there is a filled green square and <strong>no red</strong><p>Test passes if there is a filled green square and <strong>no red</strong><p>Test passes if there is a filled green square and <link rel="help" href="http://www.w3.org/TR/css3-values/#calc-notation">.</p></p></p>
+<title><style>
+  :root {
+    font-size: 16px;
+  }
+
+  div {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+  }
+
+  @media screen and (aspect-ratio > calc(sign(-947665px - 1rem) * 59) / calc(79 * sign(17px - 1rem))) {
+    div {
+      background-color: green;
+    }
+  }
+</style></title>
+<link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+<link rel="help" href="http://www.w3.org/TR/css3-mediaqueries/#units">

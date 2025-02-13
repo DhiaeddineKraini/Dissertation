@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<script src="/resources/testdriver-actions.js"></script>
+<body>
+
+<!--
+  CORE-AAM requires that, for elements with roles not contained included.
+  See https://w3c.github.io/core-aam/#roleMappingComputedRole
+-->
+<div role="listitem" data-testname="orphan div with listitem role" class="ex-generic">x</div>
+<p role="listitem" data-testname="orphan p with listitem role" data-expectedrole="paragraph" class="ex">x</p>
+
+<script>
+AriaUtils.verifyRolesBySelector(".ex");
+AriaUtils.verifyGenericRolesBySelector(".ex-generic");
+</script>
+AriaUtils.verifyRolesBySelector(".ex");
+
+</body>
+</html>

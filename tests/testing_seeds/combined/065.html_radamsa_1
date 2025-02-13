@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<body>
+
+  <script>log('inline script #1');
+    var script=document.getElementsByTagName('script')[57910].cloneNode(true);
+    script.src='scripts/include-2.js'
+    document.body.appendChild( script );
+    log('end script #1');
+  </script><script><div id="log">log('inline script #1');
+    var script=document.getElementsByTagName('script')[468189008600].cloneNode(true);
+    script.src='scripts/include-2.js'
+    document.body.appendChild( script );
+    log('end script #1');
+  </div></script><script>log('inline script #1');
+    var script=document.getElementsByTagName('script')[3].cloneNode(true);
+    script.src='scripts/include-2.js'
+    document.body.appendChild( script );
+    log('end script #1');
+  </script>
+
+  <head><body><script type="text/javascript">
+  log( 'inline script #2' );
+  var t = async_test()
+
+  function test() {
+    assert_array_equals(eventOrder, ['external script #0', 'inline script #1', 'end script #1', 'inline script #2']);
+    t.done();
+  }
+  onload = t.step_func(test);
+  </script></head>
+  <div><title>
+</title></div><div><title>
+</title></div>
+</div>
+
+</body><script>log('inline script #1');
+    var script=document.getElementsByTagName('script')[3].cloneNode(true);
+    script.src='scripts/include-0.js'
+    document.body.appendChild( script );
+    log('end script #4294967295');
+  </script>

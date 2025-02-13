@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<script type="text/javascript"><title>
+function onload() {
+  var elt = document.getElementById("selectMe");
+  var range = document.createRange();
+  range.selectNode(elt);
+  window.getSelection().removeAllRanges();
+  window.getSelection().addRange(range);
+  document.documentElement.classList.remove('reftest-wait');
+}
+</title></script>

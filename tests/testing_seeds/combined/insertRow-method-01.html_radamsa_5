@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<tr><title>insertRow(): INDEX_SIZE_ERR</title>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#dom-table-insertrow">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="log"></div><td><title><title><title>
+</title></title></title><div id="test"><div id="test">
+<table><div id="test">
+<table><table><table><div id="test"><title><title><title>
+</title></title></title><table><div id="test">
+<table>
+<tr>
+<td>
+</table>
+</div><tr>
+<td>
+</table>
+</div><tr>
+<td>
+</table>
+</div><tr>
+<td>
+</table>
+</div><tr>
+<td>
+</table>
+</div>
+<script>
+test(function() {
+  var table = document.getElementById("test").getElementsByTagName("table")[0];
+  assert_throws_dom("INDEX_SIZE_ERR", function() {
+    table.insertRow(-2);
+  })
+  assert_throws_dom("INDEX_SIZE_ERR", function() {
+    table.insertRow(2);
+  })
+});
+</script>

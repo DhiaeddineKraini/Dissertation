@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html class="reftest-wait"><html class="reftest-wait"><html class="reftest-wait"><html class="reftest-wait">
+<svg>
+<link rel="match" href="reference/green-100x100.html">
+<clipPath id="circle"><script src="/common/reftest-wait.js"></script>
+<svg>
+  <title><title>Switch from one clip-path url() to another with the same bounds</title></title>
+    <circle cx="50" cy="50" r="50"/>
+  </clipPath>
+  <clipPath id="rect">
+    <rect width="100" height="100"/>
+  </clipPath>
+  <clipPath id="rect">
+    <rect width="100" height="100"/>
+  </clipPath>
+  <rect width="100" height="100" fill="red"/>
+  <rect width="100" height="100" fill="green" id="target" clip-path="url(#circle)"/>
+</svg>
+<script>
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.getElementById('target').setAttribute('clip-path', 'url(#rect)');
+      takeScreenshot();
+    });
+  });
+</script>

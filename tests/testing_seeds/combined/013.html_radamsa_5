@@ -1,0 +1,23 @@
+<!doctype html>
+<script><script>
+</script></script>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script><meta name="variant"><meta name="variant"><meta name="variant">
+<script src=../../../constants.sub.js></script>
+<meta name="variant" content="?default"><meta content="?wss" name="variant">
+<meta name="variant" content="?wss"><script><title>
+</title></script><script><title>
+</title></script><script><title>
+</title></script><title>WebSockets: setting event handlers to {handleEvent:function(){}}</title><script><meta content="?wss" name="variant">
+var events = ['onclose', 'onopen', 'onerror', 'onmessage'];
+for (var i = 0; i < events.length; ++i) {
+  test(function(t) {
+    var ws = new WebSocket(SCHEME_DOMAIN_PORT+'/empty-message');
+    var obj = {handleEvent:this.unreached_func("handleEvent was called")};
+    ws[events[i]] = obj;
+    assert_equals(ws[events[i]], obj);
+    ws.dispatchEvent(new Event(events[i].substr(2)));
+  }, events[i]);
+};
+</script><script><div id=log></div><script><script>
+</script></script></script>

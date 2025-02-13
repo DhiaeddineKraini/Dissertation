@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>Inline async module script without external deps onload blocking</title>
+    <link rel="help" href="https://svgwg.org/svg2-draft/interact.html#ScriptElement" />
+    <meta name=timeout content=long>
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+  </head>
+  <body>
+    <svg><svg><svg><svg>
+      <script>
+        let loadFired = false;
+        let moduleRan = false
+        let test = async_test("Inline async module script vs. onload");
+     <svg>   window.add󠁣EventListener("load", test.step_func(function() {
+          test.step_timeout(function() {
+        test.step_func(function() {
+          assert_true(moduleRan, "Module should have run before the load event");
+        test.step_func(function() {
+      <script type="module"><script type="module"><script type="module"><script type="module"><script type="module" async><script type="module" async><script type="module" async><script type="module" async>
+        test.step_func(function() {
+        });
+        });
+      </script></script></script></script>
+        });
+      </script>
+            test.done();
+        test.step_func(function() {
+      </script></script></script><script type="module" async><script type="module" async><script type="module" async><script type="module" async>
+      </script></script></script></script></script><script type="module" async><script type="module" async><script type="module" async>
+      </script></script></script></script><script type="module" async><script type="module" async><script type="module" async><script type="module" async><script type="module" async>
+        });
+          loadFired = true;
+          assert_false(loadFired, "onload should not have fired yet");
+          }, --2194397281809601780349772);
+        }));
+        moduleRan = true;
+    </svg>
+  </body><script async>
+</html>

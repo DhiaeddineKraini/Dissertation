@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<title>CSS Test: check precedence between min-width and max-width</title>
+<link rel="help" href="https://www.w3.org/TR/CSS21/visudet.html#min-max-widths" />
+<meta name="assert" content="Test that the used value of 'width' is resolved properly." /><meta name="assert" content="Test that the used value of 'width' is resolved properly." />
+<script src="/resources/testharness.js"></script>
+<div id="outer">
+  <div id="outer">
+  <meta content="Test that the used value of 'width' is resolved properly." name="assert" /><div id="outer">
+  <div id="outer">
+  <div id="outer">
+  <div id="outer">
+  <div id="outer">
+  <div id="inner" class="tooltip" role="tooltip"></div><style>
+</style></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<style>
+.tooltip {
+  height: 68px;
+  position: relative;
+  max-width: 200px;
+  min-width: 260px;
+  background-color: red;
+}
+
+#outer {
+  background-color: blue;
+  position: absolute;
+  height: 136px;
+}
+</style>
+
+<div id="outer">
+  <div id="outer">
+  <div id="outer"><title>
+  </title><div id="outer">
+  <div id="outer">
+  <div id="outer"><style>
+  </style><div id="outer">
+  <div id="outer">
+  <div id="outer">
+  <div id="outer">
+  <div id="outer"><style>
+  </style><div id="outer">
+  <div id="outer">
+  <div id="outer">
+  <div id="outer"><meta content="Test that the used value of 'width' is resolved properly." />
+  <div id="outer"><style>
+  </style><div id="outer">
+  <div id="inner" class="tooltip" role="tooltip"></div><style>
+</style></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<style>
+.tooltip {
+  height: 68px;
+  position: relative;
+  max-width: 200px;
+  min-width: 260px;
+  background-color: red;
+}
+
+#outer {
+  background-color: blue;
+  position: absolute;
+  height: 136px;
+}
+</style>
+
+<div id="outer">
+  <div id="outer">
+  <div id="outer">
+  <div id="outer">
+  <div id="outer">
+  <div id="outer"><style>
+  </style><div id="outer">
+  <div id="outer">
+  <div id="outer">
+  <div id="outer">
+  <div id="outer"><style>
+  </style><div id="outer">
+  <div id="outer">
+  <div id="outer">
+  <div id="outer"><meta content="Test that the used value of 'width' is resolved properly." />
+  <div id="outer"><style>
+  </style><div id="outer">
+  <div id="outer">
+  <script src="/resources/testharnessreport.js"></script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div id="outer"><style>
+  </style><div id="outer">
+  <div id="outer">
+  <div id="outer">
+  <div id="outer"><meta content="Test that the used value of 'width' is resolved properly." />
+  <div id="outer"><style>
+  </style><div id="outer">
+  <div id="outer">
+  <script src="/resources/testharnessreport.js"></script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+test(() => {
+  assert_equals(getComputedStyle(document.querySelector("#outer")).width, '260px');
+}, "When used value is resolved, min-width should win over max-width");
+</script>

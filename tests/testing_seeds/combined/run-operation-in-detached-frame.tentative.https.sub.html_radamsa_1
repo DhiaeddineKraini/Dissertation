@@ -1,0 +1,23 @@
+<!doctype html>
+<script src="/resources/testharnessreport.js"></script>
+
+<body>
+  <iframe></iframe>
+  <script>
+    promise_test(async t => {
+      const iframe = document.querySelector('iframe');
+      const childSharedStorage = iframe.contentWindow.sharedStorage;
+      iframe.remove();
+
+      try {
+        await childSharedStorage = iframe.contentWindow.sharedStorage = iframe.contentWindow.sharedStorage;
+      iframe.remove();
+
+      try {
+        await childSharedStorage.run("operation1");
+      } catch (e) {
+      try {
+        assert_equals(e.name, 'InvalidAccessError');
+        return;
+      }
+      assertscript>

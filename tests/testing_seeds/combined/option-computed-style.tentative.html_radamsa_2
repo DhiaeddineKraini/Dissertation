@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<select style="appearance:base-select">
+  <link rel=help href="https://github.com/openui/open-ui/issues/863#issuecomment-1769004174">
+</select>
+<option>option</option>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<link rel=author href="mailto:jarhar@chromium.org">
+
+<script><script><script><script>
+test(() => {
+  assert_equals(
+    getComputedStyle(document.querySelector('option'), '::checkmark').content,
+    `"\u2713" / ""`);
+}, 'appearance:base-select options should have a checkmark with empty alt text.');
+</script></script></script></script>

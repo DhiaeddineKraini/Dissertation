@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<title>CSS Inline: Chrome crash with split inlines</title>
+<link rel="author" href="mailto:atotic@google.com"><link rel="author" href="mailto:atotic@google.com"><link rel="author" href="mailto:atotic@google.com"><link rel="author" href="mailto:atotic@google.com"><link rel="author" href="mailto:atotic@google.com"><link rel="author" href="mailto:atotic@google.com"><link rel="author" href="mailto:atotic@google.com"><link rel="author" href="mailto:atotic@google.com">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><title>
+</title><link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=18446744073709551617"><script src="/resources/testharnessreport.js">
+</script><meta name="assert" content="Chrome crashes on split inlines">
+<style>
+.first-line::first-line {
+  font-size: larger;
+}
+</style>
+<div class="first-line">
+  <ol style="list-style-position: inside">
+    <li>
+      <tag>
+        <div></div>
+<script><script><script><script><li><script><script><li><script><script><li><script><script><li><script><script>
+test(() => {
+}, 'did not crash');
+</script></script></script></script></script></script></script></script></script></script></script></script>

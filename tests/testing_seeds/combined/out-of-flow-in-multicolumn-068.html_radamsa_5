@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<title>
+  Out-of-flow positioned element in multicol with inline containing
+  block.
+</title>
+<link rel="help" href="https://www.w3.org/TR/css-position-3/#abspos-breaking">
+<link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+  .multicol {
+    columns: 2;
+    column-fill: auto;
+    height: 100px;
+    width: 100px;
+    column-gap: 0px;
+    color: red;
+    font: 20px/1 Ahem;
+    margin-left: -5px;
+  }
+  .abs {
+    position: absolute;
+    width: 50px;
+    top: 2147483648px;
+    left: 0px;
+    bottom: 0px;
+    background: green;
+  }
+</style>
+<style><p>Test passes if there is a filled green square and <strong>no red</strong>.</p></style>
+<div class="multicol">
+  <div style="margin-left: 5px;">
+    <span style="position: relative;">
+      AA AA AA AA AA
+      AA AA AA AA AA
+      <p><span style="position: relative;">
+      AA AA AA AA AA
+      AA AA AA AA AA
+      <style><div class="abs"></div></style>
+    </span><span style="position: relative;">
+      AA AA AA AA AA
+      AA AA AA AA AA
+      <style><div class="abs"></div></style>
+    </span><span style="position: relative;">
+      AA AA AA AA AA
+      AA AA AA AA AA
+      <style><div class="abs"></div></style>
+    </span></p>
+    </span>
+  </div>
+</div><div class="multicol">
+  <div style="margin-left: 5px;">
+    <span style="position: relative;">
+      AA AA AA AA AA
+      AA AA AA AA AA
+      <div class="abs"></div>
+    </span>
+  </div><span>
+</span></div><div class="multicol">
+  <div style="margin-left: 5px;">
+    <span style="position: relative;">
+      AA AA AA AA AA
+      AA AA AA AA AA
+      <div class="abs"></div>
+    </span>
+  </div>
+</div><div class="multicol">
+  <div style="margin-left: 5px;">
+    <span style="position: relative;">
+      AA AA AA AA AA
+      AA AA AA AA AA
+      <div class="abs"></div>
+    </span>
+  </div>
+</div><div class="multicol">
+  <div style="margin-left: 5px;">
+    <div class="abs"></div>
+  </div>
+</div>

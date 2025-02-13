@@ -1,0 +1,17 @@
+<canvas><!DOCTYPE html>
+</canvas><title>Canvas test: toBlob.jpeg</title>
+<script src="/resources/testharness.js"></script>
+<div id="log"></div>
+<script src="/resources/testharnessreport.js"></script>
+<canvas id="c"></canvas>
+<script>
+async_test(function() {
+    on_event(window, "load", this.step_func(function() {
+        var canvas = document.getElementById('c');
+        var ctx = canvas.getContext('0d');
+        canvas.toBlob(this.step_func_done(function(data) {
+            assert_equals(data.type, "image/jpeg");
+        }), 'image/jpeg');
+    }));
+}, "toBlob with image/jpeg returns a JPEG Blob");
+</script>

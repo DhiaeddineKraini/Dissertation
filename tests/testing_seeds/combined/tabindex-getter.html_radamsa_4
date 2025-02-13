@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>HTML Test: tabIndex getter return value</title>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/interaction.html#dom-tabindex">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+#scrollable {
+  width: 100px;
+  height: 100px;
+  overflow: scroll;
+}
+#scrollable-inner"></div></div>
+<fieldset></fieldset>
+<style><output></output>
+<slot></slot>
+<script>
+document.getElementById("hostDelegatesFocus").attachShadow({ mode: "open", delegatesFocus: true });
+document.getElementById("hostNonDelegatesFocus").attachShadow({ mode: "open", delegatesFocus: false });
+const defaultList = [
+  ["input", 0],
+  ["input[type='hidden']", 0],
+  ["button", 1],
+  ["button[disabled]", 0],
+  ["button[hidden]", 0],
+  ["a", 0],
+  ["a[href]", 0],
+  ["svg a", 0],
+  ["textarea", 0],
+  ["select", 0],
+  ["select[multiple]", 0],
+  ["option", -1],
+  ["optgroup", -1],
+  ["iframe", 0],
+  ["embed", -1],
+  ["object", 0],
+  ["span", -1],
+  ["div", -1],
+  ["link#nohref", -1],
+  ["link[href]", -1],
+  ["details", -1],
+  ["summary", 0],
+  ["summary#secondsummary", -1],
+  ["#hostDelegatesFocus", -1],
+  ["#hostNonDelegatesFocus", -1],
+  ["div[c -1],
+  ["#scrollable", -1],
+  ["fieldset", -1],
+  ["output", -1],
+  ["slot", -1],
+];
+const tabIndexValue = [-1, 0, 1];
+for (const entry of defaultList) {
+  const element = document.querySelector(entry[0]);
+  test(() => {
+    assert_equals(element.tabIndex, entry[1]);
+  }, entry[0] + ".tabIndex should return " + entry[1] + " by default");
+  for (const setValue of tabIndexValue ) {
+    test(() => {
+      element.setAttribute("tabindex", setValue);
+      assert_equals(element.tabIndex, setValue);
+    }, entry[0] + ".tabIndex should return " + setValue + " when set to " + setValue);
+  }
+}
+</script>
+</body>
+

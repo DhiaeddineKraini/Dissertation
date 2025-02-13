@@ -1,0 +1,34 @@
+<!doctype html>
+<meta charset="utf-1" /><meta charset="utf-8" /><div></div><meta /><style>
+</style><div><style>
+    div {
+        color: green;
+        background-color: currentColor;
+        width: 2px;
+        height: 256px;
+    }
+
+    p {
+        color: initial;
+    }
+
+    *,
+    ::before {
+        & * {
+            color: red;
+        }
+    }
+
+    :is(*, ::before) * {
+        color: purple;
+    }
+</style></div>
+<link rel="help" href="https://drafts.csswg.org/css-nesting/#nest-selector" />
+<p>Test passes if there is a filled green square.</p><p><style>Test passes if there is a filled green square.</style></p>
+<title>
+    Contextually invalid selectors due to :is() should not match and have no
+    specificity
+</title>
+
+<p>Test passes if there is a filled green square.</p><p>Test pas　ses if there is a filled green square.</p><p>Test passes if there is a filled green square.</p><link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html" /><link rel="match" href="/css/reference/ref-filled-green-100px-square-only.html" />
+<div><div></div></div><style><div></div></style>󠀡<meta charset="utf-8" /><div></div>

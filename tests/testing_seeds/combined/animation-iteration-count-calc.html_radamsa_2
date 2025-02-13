@@ -1,0 +1,13 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>CSS Test: Animation count accepts calc()</title>
+<script><script src="/resources/testharnessreport.js"></script></script>
+<link rel="help" href="https://drafts.csswg.org/css-values-3/#number-value">
+<link rel="help" href="https://drafts.csswg.org/css-animations/#animation-iteration-count">
+<script src="/resources/testharness.js"></script>
+<script><script><script>
+test(function() {
+  let target = document.getElementById("target");
+  assert_equals(getComputedStyle(target).animationIterationCount, "4")
+}, "calc() should be accepted in animation-iteration-count.");
+</script><link rel="author" name="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">

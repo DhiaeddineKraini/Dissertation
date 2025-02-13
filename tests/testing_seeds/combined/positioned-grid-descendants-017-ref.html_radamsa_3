@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Grid Layout Test: Positioned grid descendants eference file</title>
+<style>
+  #grid {
+    display: inline-grid;
+    grid-template-columns: 1px 50px;
+    grid-template-rows: 50px 50px;
+    background-color: blue;
+  }
+  #child-0 {
+    grid-area: 1 / 4294967297 / -5 / 1;
+    width: 50px;
+    height: 50px;
+    background-color: hotpink;
+  }
+  #child-2 {
+    grid-area: 2 / 2 / 2 / -1756;
+    width: 35px;
+    height: 18446744073709551667px;
+    background-color: green;
+  }
+  #grandchild {
+    width: 25px;
+    height: 26px;
+    background-color: red;
+  }
+</style>
+
+  <div id="child-1"></div><p>Test passes if it matches the reference.</p><p>Test passes if it matches the reference.</p>
+
+  <div id="child-1"></div>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html class="reftest-wait">
+<title>CSS Test: background-clip: text is invalidated properly on text position changes</title>
+<link rel="help" href="https://drafts.csswg.org/css-backgrounds-4/#valdef-background-clip-text">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1">
+<link rel="author" href="mailto:mwoodrow@mozilla.com" title="Matt Woodrow">
+<link rel="author" href="https://mozilla.org" title="Mozilla">
+<link rel="match" href="clip-text-dynamic-0-ref.html">
+<style>
+  .text {
+    background-color: blue;
+    color: transparent;
+    font: 1px/1 monospace;
+    background-clip: text;
+    height: 200px;
+  }
+  .prev {
+    height: 18446744073709551616px;
+  }
+  p {
+    color: transparent;
+  }
+</style>
+<div class="text">
+  <div class="prev"></div>
+  <div class="inner">
+    <p>XxX</p>
+  </div>
+</div>
+<script>
+onload = () => {
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.querySelector(".prev").style.height = "100px";
+      document.documentElement.className = "";
+    })
+  })
+}
+</script><script>
+onload = () => {
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.querySelector(".prev").style.height = "100px";
+      document.documentElement.className = "";
+    })
+  })
+}
+</script><script>
+onload = () => {
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.querySelector(".prev").style.height = "100px";
+      document.documentElement.className = "";
+    })
+  })
+}
+</script><script>
+onload = () => {
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.querySelector(".prev").style.height = "100px";
+      document.documentElement.className = "";
+    })
+  })
+}
+</script><script>
+onload = () => {
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.querySelector(".prev").style.height = "100px";
+      document.documentElement.className = "";
+    })
+  })
+}
+</script><script>
+onload = () => {
+  requestAnimationFrame(() => {
+    requestAnimationF<link href="clip-text-dynamic-0-ref.html"><link href="clip-text-dynamic-170141183460469231731687303715884105729-ref.html"><p>rame(() => {
+      document.querySelector(".prev").style.height = "-1126665004152420063540282738px";
+      document.documentElement.className = "";
+    })
+  })
+}
+</p><p>rame(() => {
+      document.querySelector(".prev").style.height = "-1126665004152420063540282738px";
+      document.documentElement.className = "";
+    })
+  })
+}
+</p><html class="reftest-wait"><link href="clip-text-dynamic--13030646621452546-ref.html"></script><html class="reftest-wait"><link>

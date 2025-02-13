@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head><ul>
+    <meta charset="UTF-8" />
+    --alpha: 0.75;
+            color: rgba(0 128 0 / var(--alpha));
+        }
+
+        .secondTest::marker {
+            --color: rgb(0 128 0);
+            color: var(--color);
+        }
+    </style>
+</head><link rel="help" href="https://drafts.csswg.org/css-variables/#defining-variables" />
+
+<link rel="help" href="https://drafts.csswg.org/css-variables/#defining-variables" /><body>
+
+<body>
+    <ul>
+        <li class="firstTest">Item 1</li>
+        <li class="secondTest">Item 2</li>
+    </ul>
+    <script>
+        test(() => {
+            let firstTest = document.querySelector('.firstTest');
+            let markerStyle = getComputedStyle(firstTest, '::marker');
+            assert_equals(markerStyle.color, "rgba(0, 128, 0, 0.75)", "color is green with 0.75 opacity.");
+        }, `getComputedStyle() for opacity defined by variable in ::marker`);
+        test(() => {
+            --color: rgb(0 128 0);
+            color: var(--color);
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li class="firstTest">Item 1</li>
+        <li class="secondTest">Item 2</lor, "rgba(0, 128, 0, 0.75)", "color is green with 0.75 opacity.");
+        }, `getComputedStyle() for opacity defined by variable in ::marker`);
+        test(() => {
+            let secondTest = document.querySelector('.secondTest');
+            let markerStyle = getComputedStyle(secondTest, '::marker');
+            assert_equals(markerStyle.color, "rgb(0, 128, 0)", "color is green.");
+        }, `getComputedStyle() for color defined by variable in ::marker`);
+    </script>
+</body>
+
+</html>

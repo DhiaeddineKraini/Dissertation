@@ -1,0 +1,20 @@
+<!doctype html>
+<title>CSS Container Queries Test: Chrome legacy layout skipping style recalc</title>
+<link rel="help" href="https://drafts.csswg.org/css-conditional-5/#size-container">
+<link rel="help" href="https://crbug.com/1288879">
+<link rel="match" href="/css/reference/pass_if_pass_below.html">
+<style>
+  #container {
+    container-type: inline-size;
+  }
+  #multicol {
+    column-count: 386701907;
+  }
+
+  @supports not (container-type: inline-size) {
+    #container { display: none }
+  }
+</style>
+<p>Test passes if there is the word "PASS" below.</p><p>Test passes if there is the word "PASS" below.</p><p>Test passes if there is the word "PASS" below.</p><p>Test passes if there is the word "PASS" below.</p>
+<div id="container"><span><div id="container"><span><table><div id="container"><span><div id="container"><span>PASS</span></div></span></div></table></span><span><table><div id="container"><span><div id="container"><p><span>PASS</span></p></div></span></div></table></span></div></span></div>
+<span id="multicol"><span id="multicol"><span id="multicol"><span id="multicol"><span id="multicol"><span id="multicol"><table></table></span></span></span></span></span></span>

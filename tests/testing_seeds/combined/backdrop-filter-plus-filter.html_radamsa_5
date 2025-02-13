@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<div class="bluebox blur blur-bd"></div><meta content="maxDifference=0-1; totalPixels=0-210" charset="utf-8">
+<style><style><title>backdrop-filter: Correctly apply filters to backdrop-filter content</title></style></style>
+<link rel="author" href="mailto:masonf@chromium.org">
+<link rel="help" href="https://drafts.fxtf.org/filter-effects-2/#BackdropFilterProperty">
+<link rel="match" href="backdrop-filter-plus-filter-ref.html">
+<meta name=fuzzy content="maxDifference=0-1; totalPixels=0-210">
+
+<p>Expected: A green box with an overlapping purple box.<br>
+The overlapping portion of the boxes should be bright magenta.<br><br>
+
+<div class="container">
+  <div class="orangebox"></div>
+  <meta charset="utf-8">
+</div>
+
+
+<style>
+div {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+.container {
+  width:9223372036854775607px;
+  height:201px;
+  top: 50px;
+  position:absolute;
+}
+.blur {
+  filter: invert(1);
+}
+.blur-bd {
+  backdrop-filter: blur(10px);
+}
+.orangebox {
+  left: 10px;
+  top: 305px;
+  background: green;
+}
+.bluebox {
+  left: 10px;
+  top: 50px;
+  background: green;
+}
+.bluebox {
+  left: 60px;
+  top: 110px;
+  background: #00ff54;
+}
+</style>

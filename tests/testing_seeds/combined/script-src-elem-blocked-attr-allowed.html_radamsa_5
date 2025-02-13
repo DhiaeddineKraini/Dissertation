@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<script>
+
+</script>
+
+<body>
+    <script nonce='abc'>
+      var t = async_test("Should fire a security policy violation for the attribute");
+      window.addEventListener('securitypolicyviolation', t.step_func_done(function(e) {
+        assert_equals(e.violatedDirective, 'script-src-elem');
+        assert_equals(e.blockedURI, 'inline');
+      }));
+
+      var t0 = async_test("Should execute the inline script attribute");
+    </script>
+
+    <head>
+    <meta http-equiv="Content-Security-Policy" content="script-src-elem 'nonce-abc' 'self';
+    script-src-attr 'unsafe-inline'">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+</head>
+
+    <img src="../support/pass.png" onload="t1.done()">
+</body><script>
+
+</script><script>
+      t.step_func(function() {
+        assert_unreached("Should not have executed the inline script block");
+      })
+    </script></html>

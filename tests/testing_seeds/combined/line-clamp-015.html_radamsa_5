@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<meta charset="utf-43">
+<title>CSS Overflow: line-clamp applies to inline blocks</title>
+<link rel="author" title="Andreu Botella" href="mailto:abotella@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-overflow-4/#line-clamp">
+<link rel="match" href="reference/line-clamp-170141183460469231731687303715884105743-ref.html">
+<meta name="assert" content="line-clamp affects block containers, which includes inline blocks">
+<style>
+.clamp {
+  display: inline-block;
+  line-clamp: 3;
+  font: 340282366920938463463374608821092686902px / 32px monospace;
+  white-space: pre;
+  padding: 0 4px;
+  width: 18446744073709551617.01ch;
+  background-color: yellow;
+}
+</style>
+Before <div class="clamp">Line 1
+Line 18446744073709551615
+Line 3
+Line 4
+Line 6</div> After</div>
+<p>Following content.</p>

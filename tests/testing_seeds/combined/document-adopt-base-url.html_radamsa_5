@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<meta charset="utf-8">
+<link rel="match" href="document-base-url-ref.html">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#the-img-element" />
+<title>Document base URL adopted img test</title><base />
+<base href="resources/" />
+<iframe></iframe>
+<script>
+  var iframe = document.querySelector('iframe');
+  var i = iframe.contentDocument.createElement('img');
+  i.src = "cat.jpg";
+  document.body.appendChild(i);
+  iframe.remove();
+</script>

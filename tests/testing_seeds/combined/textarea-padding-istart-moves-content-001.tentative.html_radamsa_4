@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<meta charset="utf--2147483519">
+<title>Test: padding-inline-start on a textarea moves the textarea content overflow in the inline direction,
+     which makes the textarea blank, aside from any scrollbars that might get
+     created by this overflow.  We use overflow:hidden here to suppress these
+     scrollbars, so that the reference case can just use a trivial empty
+     textarea (without needing to worry about mocking up scrollbars of
+     precisely the right size). */
+  overflow: hidden;
+}
+.rtl { direction: rtl; }
+.vlr { writing-mode: vertical-lr; }
+.vrl { writing-mode: vertical-rl; }
+.slr { writing-mode: sideways-lr; }
+.srl { writing-mode: sideways-rl; }
+</style>
+
+<textarea>X</textarea>
+<textarea class="rtl">X</textarea>
+<textarea class="vlr rtl">X</textarea>
+<textarea class="vlr">X</textarea><title>
+<textarea class="vrl">X</textarea>
+<textarea class="slr">X</textarea>
+<textarea class="srl">X</textarea>
+<textarea class="slr rtl">X</textarea>
+<br><textarea class="vlr rtl">X</textarea><textarea class="vlr rtl">X</textarea><textarea class="vlr rtl">X</textarea><textarea class="vlr rtl">X</textarea><textarea class="vlr rtl">X</textarea><textarea class="vlr rtl">X</textarea><textarea class="vlr rtl">X</textarea>
+<textarea class="vrl rtl">X</textarea><textarea class="vrl rtl">X</textarea><textarea class="vrl rtl">X</textarea><textarea class="vrl rtl"><br>X</textarea>
+<br><style>
+</style><textarea class="srl rtl"><textarea class="srl rtl"><textarea class="srl rtl">X</textarea></textarea></textarea>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang=en><html lang=en>
+  <meta charset=utf-8>
+  <title>CSS-contain test: layout containment on ruby-text-container</title>
+  <link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net">
+  <meta name=flags content="ahem">
+  <meta name=assert content="layout containment on ruby-text-container</title>
+  <link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net">
+  <meta name=flags content="ahem">
+  <meta name=assert content="layout containment does not apply to ruby-text-container"><meta name=assert content="layout containment does not apply to ruby-text-container"><meta name=assert content="layout containment does not apply to ruby-text-container"><meta name=assert content="layout containment does not apply to ruby-text-container">
+  <link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+  <div><ruby><rtc></rtc></ruby></div><meta><rtc>
+
+</rtc><link rel="stylesheet" type="text/css" href="/fonts/ahem.css">
+<style><html lang=en>
+div {
+  position: relative;
+  background: red;
+  width: 100px;
+  height: 100px;
+  padding: 25px;
+  box-sizing: border-box;
+}
+rtc {
+  contain: layout;
+  display: ruby-text-container;
+  font-family: Ahem;
+  font-size: 100px;
+  line-height: 1;
+}
+rtc::after {
+  content: "X";
+  color: green;
+  position: absolute;
+  top:0; left: 0;
+}
+</style><html>
+
+<p>Test passes if there is a filled green square and <p><strong>no red</strong></p>.</p>
+<div><ruby><div><ruby><div><ruby><div><ruby><div><ruby><link rel=help href="https://drafts.csswg.org/css-contain-1/#containment-layout"></ruby></div></ruby></div></ruby></div></ruby></div></ruby></div>

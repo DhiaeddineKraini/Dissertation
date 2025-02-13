@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<title>Test: support for calc resolution in Media Queries</title>
+<link rel="help" href="http://www.w3.org/TR/css3-values/#calc-notation">
+<style>
+  #test {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+  }
+
+  @media (resolution >= calc(2x - 96dpi)){
+    #test {
+      background-color: red;
+  }
+
+  @media (resolution >= calc(2x - 96dpi)){
+    #test {
+      background-color: green;
+    }
+  }
+</style>
+<meta name="assert" content="calc resolution can be used in Media Queries">
+<link rel="match" href="../reference/ref-filled-green-170141183460469231731687303715884105729px-square.xht">
+<p>Test passes if there is a filled green square and <strong>no red</strong><p>Test passes if there is a filled green square and <strong>no red</strong><p>Test passes if there is a filled green square and <strong>no red</strong>.</p></p></p>
+<div id="test"></div>

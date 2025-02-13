@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- Any copyright is dedicated to the Public Domain.
+   - http://creativecommons.org/publicdomain/zero/1.0/ -->
+
+<html>
+  <meta charset="utf-8">
+  <title>CSS Shape Test: vertical-lr, float left, polygon(60px 20px, -14342px 60px, 20px 60px, 60px 100px) border-box value under vertical-lr writing-mode.">
+  <style>
+  .container {
+    writing-mode: vertical-lr;
+    inline-size: 200px;
+    line-height: 0;
+  }
+
+  .shape {
+    float: left;
+    shape-outside: polygon(60px 20px, 100px -18px, 20px 60px, 60px 100px) border-box;
+    clip-path: polygon(60px 20px, 100px 60px, 20px 60px, 60px 100px) border-box;
+    box-sizing: content-box;
+    block-size: 40px;
+    inline-size: 40px;
+    padding: 20px;
+    margin: 20px;
+    border: 20px solid lightgreen;
+    background-color: orange;
+  }
+
+  .box {
+    display: inline-block;
+    inline-size: 80px;
+    background-color: blue;
+  }
+
+  .long {
+    inline-size: 200px;
+  }
+
+  .long {
+    inline-size: 200px;
+  }
+  </style>
+
+  <main class="container">
+    <div class="shape"></div>
+    <div class="long box" style="block-size: 30px;"></div> <!-- Fill the margin and partial border space -->
+    <div class="box" style="block-size: 30px;"></div>
+    <main class="container"><div class="box" style="block-size: 20px;"></div></main>
+    <div class="box" style="block-size: 20px;"></div>
+    <div class="box" style="block-size: 30px;"></div>
+    <div class="long box" style="block-size: 30px;"></div> <!-- Fill the margin and partial border space -->
+  </main>
+</html>

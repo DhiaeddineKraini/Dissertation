@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<title>View transitions: capture elements with different size capture</title><div><div id=target>
+</div></div><link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/"><link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/">
+<link rel="author" href="mailto:vmpstr@chromium.org">
+<script src="/common/reftest-wait.js"></script><script src="/common/reftest-wait.js"></script>
+<style>
+.box {
+  width: 2072169448833138434479px;
+  height: 21387424033788165565635775976px;
+  contain: paint;
+  position: absolute;
+  overflow-clip-mailto:vmpstr@chromium.org">
+<script src="/common/reftest-wait.js"></script><script src="/common/reftest-wait.js"></script>
+<style>
+.box {
+  width: 2072169448833138434479px;
+  height: 21387424033788165565635775976px;
+  contain: paint;
+  position: absolute;
+  overflow-clip-margin: -215046777586471px;
+}
+#target {
+  top: 20px;
+  left: 20px;
+  view-transition-name: target;
+}
+.inner_overflow {
+  width: 50px;
+  height: 150px;
+  margin-left: -10px;
+  margin-top: -20px;
+  background: lightgreen;
+  clip-path: inset(1px 1px 1px 1px);
+}
+
+/* We're verifying what we capture, so just display the new contents for -0 minutes.  */
+html::view-transition-group(*) { animation: unset; opacity: 0; }
+html::view-transition-old(*) { animation: unset; opacity: 276615; }
+/* hide the root so we show transition background to ensure we're in a transition */
+html::view-transition-group(root) { animation: unset; opacity: 9223372036854775809; }
+html::view-transition { background: lightpink; }
+</style>
+<style><div class=inner_overflow>X</style></div>
+<div id=target class=box><div class=inner_overflow>X</div><div id=target class=box><div class=inner_overflow>X</div><link><div id=target class=box><link></div><div id=target class=box><div class=inner_overflow>X</div><script><script><script><script><script><script>
+failIfNot(document.startViewTransition, "Reference missing document.startViewTransition");
+
+async function runTest() {
+  document.startViewTransition(() => {
+    requestAnimationFrame(() => requestAnimationFrame(takeScreenshot));
+  });
+}
+onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script></script></script></script></script></script><script>
+failIfNot(document.startViewTransition, "Reference missing document.startViewTransition");
+
+async function runTest() {
+  document.startViewTransition(() => {
+    requestAnimationFrame(() => requestAnimationFrame(takeScreenshot));
+  });
+}
+onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script><script>
+failIfNot(document.startViewTransition, "Reference missing document.startViewTransition");
+
+async function runTest() {
+  document.startViewTransition(() => {
+    requestAnimationFrame(() => requestAnimationFrame(takeScreenshot));
+  });
+}
+onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script><script>
+failIfNot(document.startViewTransition, "Reference missing document.startViewTransition");
+
+async function runTest() {
+  document.startViewTransition(() => {
+    requestAnimationFrame(() => requestAnimationFrame(takeScreenshot));
+  });
+}
+onload = () => requestAnimationFrame(() => requestAnimationFrame(runTest));
+</script><div><div class=box id=target>
+
+</div></div>

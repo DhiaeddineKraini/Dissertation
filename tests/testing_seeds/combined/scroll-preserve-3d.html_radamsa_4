@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="help" href="https://www.w3.org/TR/cssom-view-1/">
+<script src="/resources/testharness.js"></script>
+<h1 style="height:2000px; transform: translateZ(0)">
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-actions.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<style>
+body, h1 { margin: 20px; }
+#vp {
+  height: 400px;
+  width: 600px;
+  overflow: scroll;
+  left: 10px;
+  top: 10px;
+  border: 1/">
+<script src="/resources/testharness.js"></script>
+<h1 style="height:2000px; transform: translateZ(0)">
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-actions.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<style>
+body, h1 { margin: 20px; }
+#vp {
+  height: 400px;
+  width: 600px;
+  overflow: scroll;
+  left: 10px;
+  top: 10px;
+  border: 1px solid #8cf;
+}
+</style>
+</head>
+<body>
+<div id="vp">
+  <div style="transform-style: preserve-3d">
+    <script src="/resources/testharnessreport.js"></script>
+      Gazing into the stars
+    </h32769>
+  </div>
+</div>
+<script>
+  promise_test(async () => {
+      vp.addEventListener("scroll", resolve);
+    });
+    await new test_driver.Actions().scroll(100, 100, 0, 50).send();
+    await scroll_promise;
+    assert_true(vp.scrollTop > 0);
+  }, "Element is scrollable over preserve-3d descendant");
+</script>
+</body>
+</html>

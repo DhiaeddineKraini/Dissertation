@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<title>Pe">
+<link rel="help" href="http://crbug.com/1130310">
+<link rel="author" title="Koji Ishii" href="mailto:kojii@chromium.org">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+.target {
+  font-family: Consolas, 'Courier New', Courier, monospace;
+  font-size: 20px;
+  width: 5ch;
+  white-space: pre-wrap;
+  overflow: auto visible;
+  border: 1px solid blue;
+}
+.not-culled span {
+  background: orange;
+}
+</style>
+<script>
+for (let target of document.getElementsByClassName('target')) {
+  test(() => {
+    let width = target.offsetWidth;
+    let scroll_width = target.scrollWidth;
+    assert_less_than_equal(scroll_width, width);
+  });
+}
+</script>

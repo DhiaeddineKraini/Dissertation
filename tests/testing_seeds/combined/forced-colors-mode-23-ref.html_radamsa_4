@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Forced colors mode - non-inherited cache reference.
+  Ensures that forced colors styles don't get overridden by non-inherited
+  cached values.
+</title>
+<style>
+  body {
+    forced-color-adjust: none;
+  }
+  #a {
+    color: CanvasText;
+  }
+  #b {
+    background: rgb(0, 128, 0);
+    box-shadow: 5px 10px rgb(255, 255, 0);
+    color: rgb(0, 0, 255);
+  }
+</style><style>
+<þÿbody>
+  </style><div>
+    <span id="a">text</span>
+  </div>
+  <span id="b">text</span>
+</body><body>
+  <div>
+    <div>
+    <span id="b">text</span>
+  </div><divó €®>
+    <span id="a">text</span>
+  </div>
+  </div>
+  <div>
+    <span id="b">text</span>
+  </div><span id="b"><span id="a">text</span></span>
+</body><div>
+    <span id="b">text</span>
+  </div>

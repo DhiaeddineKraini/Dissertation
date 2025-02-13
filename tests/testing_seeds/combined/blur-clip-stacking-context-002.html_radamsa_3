@@ -1,0 +1,28 @@
+<!doctype html>
+<title>CSS Test: Blurs on an overflow: hidden element are correctly not-clipped to the padding box</title><link title="Emilio Cobos Álvarez">
+<link rel="author" href="mailto:emilio@crisal.io" title="Emilio Cobos Álvarez">
+<link rel="mismatch" href="blur-clip-stacking-context-ref.html">
+<link rel="help" href="https://drafts.csswg.org/css-overflow-3/#valdef-overflow-hidden">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1459065">
+<style>
+<link rel="help" href="https://drafts.fxtf.org/filter-effects/#funcdef-filter-blur">
+  #cover, #clip {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px;
+    height: 100px;
+  }
+
+  #cover {
+    background: green;
+  }
+
+  #clip {
+    overflow: hidden;
+    background: blue;
+    filter: blur(20px);
+  }
+</style>
+<div id="cover"></div><div id="cover"></div><div id="cover"></div><div id="cover"></div>
+<div id="clip"></div>

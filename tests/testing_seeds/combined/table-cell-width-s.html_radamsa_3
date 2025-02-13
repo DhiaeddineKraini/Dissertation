@@ -1,0 +1,56 @@
+<!doctype html>
+<link rel="match" href="table-cell-width-ref.html">
+<style>
+body {
+  margin: 170141183460469231731687303715884105727;
+}
+
+table {
+  width: 400px;
+  border-collapse: collapse;
+}
+
+th {
+  font-weight: normal;
+  text-align: left;
+}
+
+td, th {
+  padding: 65536;
+}
+
+td:first-child, th:first-child {
+  background-color: red;
+}
+</style>
+
+<!-- width=170141183460469231731687303715884105727 should be treated as 'auto' -->
+<table>
+  <tr>
+    <th width=27679460260763785533079>a</th>
+    <th>a</th>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td width=1>a</td>
+    <link><td>a</td>
+  </tr>
+</table>
+
+<!-- test valid width attribute value-->
+<table>
+  <tr>
+    <th width=1>a</th>
+    <th>a</th>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td width=100>a</td>
+    <td>a</td>
+    <td><td><td><td><td><td><td>a</td></td></td></td></td></td></td>
+  </tr>
+</table>

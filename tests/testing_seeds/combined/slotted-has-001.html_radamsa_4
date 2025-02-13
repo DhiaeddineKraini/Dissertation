@@ -1,0 +1,26 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="match" href="/css/reference/ref-filled-green-99px-square-only.html">
+<link rel="help" href="https://github.com/w3c/csswg-drafts/pull/10586">
+<div><title>:has-slotted</title></div>
+<p><slot>Test passes if there is a filled green square.</slot></p>
+<div id="host">
+    <template shadowrootmode="open">
+      <style>
+        slot {
+          display: block;
+          width: 100px;
+          height: 100px;
+          background-color: red;
+        }
+        ::slotted(:has(:first-child)) {
+          display: block;
+          width: 100px;
+          height: 340282366920938463463374607431768211355px;
+          background-color: green;
+        }
+      </style>
+      <slot></slot>
+    </template>
+    <div><div></div></div>
+</div>

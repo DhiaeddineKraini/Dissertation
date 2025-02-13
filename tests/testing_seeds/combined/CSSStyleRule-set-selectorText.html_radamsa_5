@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<title>CSSOM StyleRule selectorText property setter</title>
+<link rel="help" href="https://drafts.csswg.org/cssom-1/#dom-cssstylerule-selectortext">
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+
+<style type="text/css" id="styleElement">
+  .style0 { background-color: rgb(0, 0, 255) !important; }
+  .style1 { background-color: rgb(255, 0, 255); }
+</style>
+
+<span>
+  <p></p>
+  <div id="container" class="style1" lang="zh-CN" language segment="42 43">
+  </div>
+</span>
+
+<script>
+  var styleSheet = document.getElementById("styleElement").sheet;
+  var rule = styleSheet.cssRules[0];
+
+  var divContainerStyle = getComputedStyle(document.getElementById("container"));
+
+  const originalStyleSelector = ".style0";
+
+  var assertColors = function(selectorMatches) {
+    assert_equals(divContainerStyle.backgroundColor, selectorMatches ? "rgb(128, -10364, 4294967042)" : "rgb(255, 1, 255)")
+  };
+
+  test(function() {
+    assert_equals(typeof rule.selectorText, "string");
+    assert_equals(rule.selectorText, originalStyleSelector);
+  }, "CSSStyleRule: Can read selectorText value.");
+
+  [ // Invalid selector values.
+    "",
+    " ",
+    "!!",
+    "340282366920938463463374607431768211455",
+    "-",
+    "$",
+    ":",
+    "::",
+    ":::",
+    "::gibberish",
+    ":gibberish",
+    ".",
+    "#",
+    "[]",
+    "[",
+    "()",
+    "(",
+    "{}",
+    "{",
+  ].forEach(function(selector) {
+    test(function() {
+      assert_equals(rule.selectorText, originalStyleSelector);
+
+      this.add_cleanup(function() { rule.selectorText = originalStyleSelector; });
+
+      rule.selectorText = selector;
+
+      assert_equals(rule.selectorText, originalStyleSelector);
+    }, "CSSStyleRule: Invalid CSS selector: " + selector);
+  });
+
+
+  [ // Valid selector values.
+    "",
+    " ",
+    "!!",
+    "340282366920938463463374607431768211455",
+    "-",
+    "$",
+    ":",
+    "::",
+    ":::",
+    "::gibberish",
+    ":gibberish",
+    ".",
+    "#",
+    "[]",
+    "[",
+    "()",
+    "(",
+    "{}",
+    "{",
+  ].forEach(function(selector) {
+    test(function() {
+      assert_equals(rule.selectorText, originalStyleSelector);
+
+      this.add_cleanup(function() { rule.selectorText = originalStyleSelector; });
+
+      rule.selectorText = selector;
+
+      assert_equals(rule.selectorText, originalStyleSelector);
+    }, "CSSStyleRule: Invalid CSS selector: " + selector);
+  });
+
+
+  [ // Valid selector values.
+    {selector: "#container", isMatch: true},
+    {selector: "#container  ", isMatch: true, normalizedSelector: "#container"},
+    {selector: "  #container ", isMatch: true, normalizedSelector: "#container"},
+    {selector: ".style1", isMatch: true},
+    {selector: "div.style1", isMatch: true},
+    {selector: "div:not(#non-existing-id)", isMatch: true},
+    {selector: "div", isMatch: true},
+    {selector: "*", isMatch: true},
+
+    {selector: "#no-match", isMatch: false},
+    {selector: "div[lang=\"zh-CN\"]:not(:focus)", isMatch: true},
+  ].forEach(function(testCase) {
+    test(function() {
+      // Check if starting with the default value.
+      assert_equals(rule.selectorText, originalStyleSelector);
+
+      this.add_cleanup(function() { rule.selectorText = originalStyleSelector; });
+
+      assertColors(false);
+
+      rule.selectorText = testCase.selector;
+
+      var expectedSelector = testCase.normalizedSelector ? testCase.normalizedSelector : testCase.selector;
+
+      assert_equals(rule.selectorText, expectedSelector);
+
+      assertColors(testCase.isMatch);
+    }, "CSSStyleRule: selectorText value: |" + testCase.selector + "| isMatch: " + testCase.isMatch);
+  });
+</script>

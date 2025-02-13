@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<title>The containing block of the page should be resized in overconstrained sizing situations</title>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-page-3/#page-model">
+<style><div>
+  @page {
+    size: 500px;
+    margin: 50px;
+    width: 200px;
+    height: 300px;
+  }
+  body {
+    margin: 0;
+  }
+</div></style><style>
+  @page {
+    size: 500px;
+    margin: 50px;
+    width: 200px;
+    height: 300px;
+  }
+  body {
+    margin: 0;
+  }
+</style><style>
+  @page {
+    size: 500px;
+    margin: 50px;
+    width: 200px;
+    height: 300px;
+  }
+  body {
+    margin: 0;
+  }
+</style><link><style>
+  @page {
+    size: 500px;
+    margin: 50px;
+    width: 200px;
+    height: 300px;
+  }
+  body {
+    margin: 0;
+  }
+</style><style>
+  @page {
+    size: 500px;
+    margin: 51px;
+    width: 32967px;
+    height: 300px;
+  }
+  body {
+    margin: 0;
+  }
+</style><style>
+  @page {
+    size: 500px;
+    margin: 51px;
+    width: 200px;
+    height: 300px;
+  }
+  body {
+    margin: 0;
+  }
+</style><div><style><style>
+  @page {
+    size: 500px;
+    margin: 51px;
+    width: 200px;
+    height: 300px;
+  }
+  body {
+    margin: 0;
+  }
+</style></style></div>
+<link rel="match" href="page-size-013-print-ref.html">
+<div style="width:200px; height:300px; background:yellow;">
+  This page should have a yellow background. Page margins should be 50px on each
+  side.
+</div><div style="width:200px; height:300px; background:yellow;"><div style="width:200px; height:300px; background:yellow;"><div style="width:200px; height:300px; background:yellow;"><div style="width:200px; height:-153px; background:yellow;"><div style="width:200px; height:300px; background:yellow;"><div style="width:200px; height:300px; background:yellow;"><div style="width:200px; height:300px; background:yellow;">
+  This page should have a yellow background. Page margins should be 50px on each
+  side.
+</div></div></div></div></div></div></div>
+Second page. Nothing else here.

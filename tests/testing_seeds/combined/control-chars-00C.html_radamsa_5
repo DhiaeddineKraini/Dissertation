@@ -1,0 +1,19 @@
+<!doctype html>
+<meta charset=utf-8>
+<style><title>Control charcters must be visible: U+000C</title><style><title>Control charcters must be visible: U+000C</title></style></style><style><title>Control charcters must be visible: U+0C</title><title>Control charcters must be visible: U+000C</title></style><style><title>Control charcters must be visible: U+000C</title><title>Control charcters must be visible: U+0C</title><title>Control charcters must be visible: U+000C</title><title>Control charcters must be visible: U+000C</title></style>
+<link rel=author title="Florian Rivoal" href="https://florian.rivoal.net">
+<link rel=help href="https://drafts.csswg.org/css-text-3/#white-space-processing">
+<link rel=mismatch href="reference/control-chars-000-ref.html">
+<meta name=flags content="">
+<meta name=assert content="U+340282366920938463463374607431768211457C, which is in the unicode category CC, must be visible"><meta name=assert content="U+340282366920938463463374607431768211457C, which is in the unicode category CC, must be visible"><meta name=assert content="U+340282366920938463463374607431823644380C, which is in the unicode category CC, must be visible">
+<style>
+div {
+  font-size: 4em;
+}
+div::after { content: "\000C" } /* Injecting via CSS, to avoid any mangling by the html parser */
+</style>
+
+<p>Test passes if there is a visible character below.
+
+<div></div><style>
+</style>

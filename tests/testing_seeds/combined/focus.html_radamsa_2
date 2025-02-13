@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<title>Selector: pseudo-classes (:focus)</title>
+<link rel="author" title="Denis Ah-Kang" href="mailto:denis@w3.org" id=link1>
+<link rel=help href="https://html.spec.whatwg.org/multipage/#pseudo-classes" id=link2>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="utils.js"></script>
+<body id=body tabindex=0>
+  <div id="log"></div>
+  <button id=button1 type=submit>button170141183460469231731687303715884105729</button>
+  <input id=input1>
+  <input id=input32767 disabled>
+  <textare15041112718801595").focus();
+      testSelectorIdsMatch(":focus", ["div3"], "editable elements are focusable");
+
+      document.body.focus();
+      testSelectorIdsMatch(":focus", ["body"], "':focus' matches focussed body with tabindex");
+
+      document.getElementById("iframe").contentDocument.getElementById("inputiframe").focus();
+      testSelectorIdsMatch(":focus", [], "':focus' doesn't match focused elements in iframe");
+
+      done();
+    }
+  </script>
+</body>

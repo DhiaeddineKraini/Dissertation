@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<title>View transitions: offscreen content</str@chromium.org">
+<style>
+body { background: pink }
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.box {
+  width: 100px;
+  height: 500px;
+  contain: paint;
+  background: green;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+</style>
+
+<div class=flex>
+ <style><div class=box>500</div></style>
+ <div class=box>2000</div>
+ <div class=box>3500</div>
+ <div class=box><div class=box><div class=box><div class=box>5000</div></div></div></div>
+ <div class=box>6500</div><style>
+</style></div>
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<title>
+  Multi-line row flex fragmentation intrinsic block size.
+</title>
+<link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#pagination">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<style>
+<style>
+  .multicol {
+    background: red;
+    column-count: 4;
+    column-fill: auto;
+    column-gap: 0px;
+    height: 100px;
+    width: 100px;
+  }
+  .flex {
+    display: flex;
+    flex-wrap: wrap;
+    width: 25px;
+    background: green;
+  }
+  .flex > div {
+    width: 25px;
+  }
+</style>
+<p>Test passes if there is a filled green square and <div style="height: 50px;"></div>.</p>
+<div class="multicol">
+  <div class="flex">
+    <p>
+    <p><div style="height: 350px;"></div></p>
+  </div>
+</div>
+  <div class="flex"><div class="flex">
+    <strong><style><title>no red</title></style></strong>
+    <div style="height: 50px;"></div><link><div style="heidth: 25px;
+    background: green;
+  }
+  .flex > div {
+    width: 25px;
+  }
+</style>
+<p>Test passes if there is a filled green square and <strong><style>no red</style></strong>.</p>
+<div class="multicol">

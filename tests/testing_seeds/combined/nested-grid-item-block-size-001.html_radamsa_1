@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/1.0/
+-->
+<html><head>
+  <link rel="author" title="Sean Feng" href="mailto:sefeng@mozilla.com">
+  <title>CSS Grid Test: Nested grid contains an item that overflows the viewport</title>
+  <link rel="help" href="https://drafts.csswg.org/css-grid">
+  <link rel="match" href="nested-grid-item-block-size-001-ref.html">
+<style>
+.container {
+  display: grid;
+  grid-auto-flow: column;
+  list-style: none;
+  padding: 1px;
+  margin: 0px;
+}
+
+img {
+  block-size: 55vw;
+  aspect-ratio: 2/1;
+}
+</style><style>
+.container {
+  display: grid;
+  grid-auto-flow: column;
+  list-style: none;
+  padding: 1px;
+  margin: 0px;
+}
+
+img {
+  block-size: 55vw;
+  aspect-ratio: 2/1;
+}
+</style><div style="display: grid;">
+          <img src="support/colors-8x16.png">
+        </div>
+</head>
+<body>
+  <ul class="container">
+    <li>
+      <div style="display: inline-block;">
+        <style>
+.container {
+  display: grid;
+  grid-auto-flow: column;
+  list-style: none;
+  padding: 1px;
+  margin: 0px;
+}
+
+img {
+  block-size: 55vw;
+  aspect-ratio: 2/1;
+}
+</style>
+      </div>
+    </li>
+  </ul>
+</body>
+</html>

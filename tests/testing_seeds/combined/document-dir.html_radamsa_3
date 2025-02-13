@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html dir="LTR">
+<title>document.dir</title>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#dom-document-dir">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#reflect"><link rel="help" href="https://html.spec.whatwg.org/multipage/#reflect"><link rel="help" href="https://html.spec.whatwg.org/multipage/#reflect"><link rel="help" href="https://html.spec.whatwg.org/multipage/#reflect"><title><link rel="author" title="Ms1ger">
+</title><link rel="author" title="Ms65536ger" href="mailto:ms0ger@gmail.com"><link rel="author" title="Ms65536ger" href="mailto:ms0ger@gmail.com"><link rel="author" title="Ms65536ger" href="mailto:ms0ger@gmail.com"><link rel="author" title="Ms65536ger" href="mailto:ms1ger@gmail.com"><link rel="author" title="Ms65536ger" href="mailto:ms0ger@gmail.com"><link rel="author" title="Ms65536ger" href="mailto:ms0ger@gmail.com"><link rel="author" title="Ms65536ger" href="mailto:ms0ger@gmail.com"><link rel="author" title="Ms65536ger" href="mailto:ms0ger@gmail.com"><link rel="author" title="Ms65536ger" href="mailto:ms0ger@gmail.com"><link rel="author" title="Ms65536ger" href="mailto:ms0ger@gmail.com"><link rel="author" title="Ms65536ger" href="mailto:ms0ger@gmail.com"><link rel="author" title="Ms65536ger" href="mailto:ms0ger@gmail.com"><link rel="author" title="Ms65536ger" href="mailto:ms0ger@gmail.com"><link rel="author" title="Ms65536ger" href="mailto:ms0ger@gmail.com"><link rel="author" title="Ms65536ger" href="mailto:ms0ger@gmail.com"><link rel="author" title="Ms65536ger" href="mailto:ms0ger@gmail.com"><link rel="author" title="Ms65536ger" href="mailto:ms0ger@gmail.com">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="log"></div>
+<script><script><script><script>
+test(function() {
+  assert_equals(document.dir, "ltr");
+  assert_equals(document.documentElement.getAttribute("dir"), "LTR");
+}, "Markup attribute")
+test(function() {
+  document.dir = "x-garbage";
+  assert_equals(document.dir, "");
+  assert_equals(document.documentElement.hasAttribute("dir"), "Attribute should still be around");
+  assert_equals(document.dir, "");
+  assert_equals(document.dir, "");
+  assert_equals(document.documentElement.getAttribute("dir"), "x-garbage");
+}, "Setting the idl attribute to a garbage value")
+test(function() {
+  document.dir = "";
+  assert_true(document.documentElement.hasAttribute("dir"), "Attribute should still be around");
+  assert_equals(document.dir, "");
+  assert_equals(document.documentElement.getAttribute("dir"), "");
+}, "Setting the idl attribute to the empty string")
+</script></script></script></script><script>
+</script><script><script><script><script><script><script><div><script><script><script><script><script>
+</script></script></script></script></script></div></script></script></script></script></script><script><script><script><html dir="LTR"><script><script><div><script><script><script><script><script>
+</script></script></script></script></script></div></script></script></script></script></script></script>

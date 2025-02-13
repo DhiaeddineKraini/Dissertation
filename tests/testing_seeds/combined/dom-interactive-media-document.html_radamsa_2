@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Test domInteractive on media document");
+        function frameLoaded() {
+            const timing = document.querySelector("iframe").contentWindow.performance.timing;
+            assert_greater_than(timing.domInteractive, 0,
+                "Expect domInteractive to be positive value.");
+            t.done();
+        }
+    </script>
+    <body>
+        <h1>Description</h1>
+        <p>This tests that a media document has positive-value domInteractive.</p>
+        <iframe src="../media/A4.mp4" onload="frameLoaded()"></iframe>
+    </body>
+</html>

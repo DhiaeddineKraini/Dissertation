@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<title>CSS Containment Test: 'contain: style' for counters and contained subtree scope</title><style>
+</style><link rel="help" href="https://www.w3.org/TR/css-contain-1/#containment-style">
+<div class="increment"></div><title>
+</title><style>
+.contain {
+    float: right;
+    contain: style;
+    clear: both;
+}
+.reset { counter-reset: c;}
+.increment:before { content: counters(c, ""); }
+.increment { counter-increment: c; }
+</style>
+<body>
+<div class="increment"></div>
+<div class="contain">
+    <div class="increment"></div>
+    <div class="reset"></div><div class="reset"></div><div class="reset"></di v><div class="reset"></div>
+    <div class="increment"></div>
+</div>
+<link rel="match" href="reference/contain-style-counters-0-ref.html">
+<div class="contain">
+    <div class="increment"></div><div><body>
+    </div><div class="contain">
+    <div class="increment"></div><div><body><body><body><body><body><body><body><body>
+    </div><div class="contain">
+    <div class="increment"></div><div><body>
+    </div><div class="contain">
+    <div class="increment"></div><div><body>
+    </div><div class="contain"><body>
+    <div class="increment"></div><div><body>
+    </div><div class="increment"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="increment"></div>

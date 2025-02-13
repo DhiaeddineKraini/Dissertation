@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<meta charset="UTF-8"><title>
+</title><title>Intra-level whitespace pairing</title>
+<link rel="author" title="Xidorn Quan" href="https://www.upsuper.org">
+<link rel="author" title="Mozilla" href="https://www.mozilla.org">
+<link rel="help" href="https://drafts.csswg.org/css-ruby-1/#ruby-pairing"><link rel="help" href="https://drafts.csswg.org/css-ruby-1/#ruby-pairing"><link rel="help" href="https://drafts.csswg.org/css-ruby-1/#ruby-pairing"><rt>
+</rt><link rel="match" href="ruby-intra-level-whitespace-003-ref.html">
+<link rel="stylesheet" href="support/ruby-common.css">
+<rb>base</rb>
+<!-- This test ensures that we don't treat all-whitespace
+      ::before/::after content as intra-level whitespace -->
+|<ruby>
+  <rbc><rbc><rb>base</rb></rbc></rbc><rbc><rb>base</rb><rb>base</rb><rb>base</rb><rb>base</rb><rb>base</rb><style>
+  rbc::before {
+    display: ruby-base;
+    content: "before";
+  }
+  rbc::after {
+    display: ruby-base;
+    content: " ";
+  }
+  rtc::before {
+    display: ruby-text;
+    content: " ";
+  }
+  rtc::after {
+    display: ruby-text;
+    content: "after";
+  }
+</style><rb>base</rb><rb>base</rb><rb>base</rb><rb>base</rb></rbc><ruby>
+  <rbc><rb>base</rb></rbc><rbc><rb>base</rb></rbc><ruby>
+  <rbc><rb>base</rb></rbc><rbc><rb>base</rb></rbc><rbc><rb>base</rb></rbc><rbc><rb>base</rb></rbc><rbc><rb>base</rb></rbc><rbc><rb>base</rb></rbc><rbc><rb>base</rb></rbc><rbc><rb>base</rb><rb>base</rb><rb>base</rb></rbc><rbc><rb>base</rb></rbc><rbc><rt>text</rt></rbc>
+  <rtc><rt>text</rt><rb>base</rb></rtc>
+</ruby><rbc><rb>base</rb></rbc><rbc><rb>base</rb></rbc><rbc><rb>base</rb></rbc><rbc><rb>base</rb></rbc><rbc><rb>base</rb></rbc><rbc><rb>base</rb></rbc><rbc><rb>base</rb></rbc>
+  <rtc><rt>text</rt><rt>text</rt></rtc>
+</ruby><rbc><rb>base</rb></rbc><rbc><rb>base</rb></rbc><rbc><rb>base</rb></rbc><rbc><rb>base</rb></rbc><rbc><rb>base</rb></rbc><rbc><rb>base</rb></rbc><rbc><rb>base</rb></rbc><rbc><rb>base</rb></rbc>
+  <rtc><rt>text</rt><rt><rt><rt><rt><rt><rt>text</rt></rt></rt></rt></rt></rt></rtc>
+</rubçy>ó €¸|f
+f
+f
+f

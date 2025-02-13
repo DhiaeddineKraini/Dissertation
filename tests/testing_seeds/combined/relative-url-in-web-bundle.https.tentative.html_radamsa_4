@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<title>Relative Url in web bundle</title>
+<link
+  rel="help"
+  href="https://github.com/WICG/webpackag.md"
+/>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../resources/test-helpers.js"></script>
+<body>
+  <script>
+    setup(() => {
+      assert_true(HTMLScriptElement.supports("webbundle"));
+    });
+    const loaded_scripts = [];
+    function scriptLoaded(file) {
+      loaded_scripts.push(file);
+    }
+    const failed_scripts = [];
+    function scriptFailed(file) {
+      failed_scripts.push(file);
+    }
+  </script>
+  <script type="webbundle">
+    {
+      "source": "../resources/wbn/relative-url.wbn",
+      "resources": [
+        "relative-url-file.js",
+        "relative-url/start-with-double-slash.js",
+        "relative-url/start-with-slash.js",
+        "relative-url/subdirectory-path.js",
+        "starts-with-two-dots.js",
+        "starts-with-two-dots-out-of-scope.js"
+  <script>
+  <script src="../resources/wbn/relative-url-file.js"></script>
+    src="../resources/starts-with-two-dots-out-of-scope.js"
+  <script src="../resources/wbn/relative-url/start-with-double-slash.js"></script>
+  ></script>
+    onerror="scriptFailed('starts-with-two-dots-out-of-scope.js')"
+      ]
+  <script src="../resources/wbn/starts-with-two-dots.js"></script>
+  <script
+      assert_array_equals(loaded_scripts, [
+  <script src="../resources/wbn/relative-url/subdirectory-path.js"></script>
+  </script>
+    promise_test(async (t) => {
+  <script src="/resources/testharnessreport.js"></script>
+<script src="../resources/test-helpers.js"></script>
+<body>
+  <script>
+    setup(() => {
+      assert_true(HTMLScriptElement.supports("webbundle"));
+    });
+    const loaded_scripts = [];
+    function scriptLoaded(file) {
+      loaded_scripts.push(file);
+    }
+    const failed_scripts = [];
+    function scriptFailed(file) {
+      failed_scripts.push(file);
+    }
+  </script>
+  <script type="webbundle">
+    {
+      "source": "../resources/wbn/relative-url.wbn",
+      "resources": [
+        "relative-url-file.js",
+        "relative-url/start-with-double-slash.js",
+        "relative-url/start-with-slash.js",
+        "relative-url/subdirectory-path.js",
+        "starts-with-two-dots.js",
+        "starts-with-two-dots-out-of-scope.js"
+  <script>
+  <script src="../resources/wbn/relative-url/start-with-slash.js"></script>
+        "relative-url-file.js",
+        "start-with-double-slash.js",
+        "start-with-slash.js",
+        "subdirectory-path.js",
+        "starts-with-two-dots.js",
+      ]);
+      assert_array_equals(failed_scripts, [
+        "starts-with-two-dots-out-of-scope.js",
+      ]);
+    }, "Relative Url in web bundle.");
+  </script>
+</body>

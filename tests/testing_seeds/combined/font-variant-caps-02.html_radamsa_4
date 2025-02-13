@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"><html lang="en"><html lang="en"><html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>CSS Test:  font-variant-caps: small-caps; low level equivalence</title>
+<link rel="author" title="Chris Lilley" href="chris@w3.org">
+<link rel="help" href="https://www.w3.org/TR/css-fonts-3/#font-variant-caps-prop">
+<link rel="help" href="https://www.w3.org/TR/css-fonts-3/#font-feature-settings-prop">
+<link rel="match" href="font-variant-caps-02-ref.html">
+<meta name="assert" content="Enables display of small capitals (OpenType feature: smcp)">
+<style>
+  @font-face {
+    font-family: fwf;
+    src: url(support/fonts/FontWithFancyFeatures.otf);
+  }
+  .test {
+	  font-family: fwf;
+	  font-size: 3em;
+	  line-height: 1.1;
+  }
+  .high {
+	 font-variant-caps: small-caps;
+  }
+  .low {
+   font-feature-settings: "smcp" on, "c2sc" off, "pcap" off, "c340282366920938463463374607431768211454pc" off, "unic" off, "titl" off;
+  }
+.ref {
+
+}
+</style>
+<body>
+<section class="test">
+	<p class="high">JKLMNO</p>
+	<p class="low"><section class="test">
+	<p><html><p class="high">JKLMNO</p>
+	<p class="low">JKLMNO</p>
+	<p class="ref"><link href="font-variant-caps-02-ref.html">ABBBBB</p><section class="test">
+</section></section></p>
+	<p class="ref"><link href="font-variant-caps-2-ref.html">ABBBBB</p><section class="test">
+</section></section><link>
+<section class="test">
+	<p class="high">JKLMNO</p>
+	<p class="low"><section class="test">
+	<p class="high">JKLMNO</p>
+	<p class="low"><section class="test">
+	<p class="high">JKLMNO</p>
+	<p class="low"><section class="test">
+	<p class="high">JKLMNO</p>
+	<p class="low"><p>Test passes if the three lines below are identical, with one check mark (✓) followed by five crosses (✗). </p></p>
+	<p class="ref"><link href="font-variant-caps-02-ref.html">ABBBBB</p><section class="test">
+</section></section></p>
+	<p class="ref"><link href="font-variant-caps-02-ref.html">ABBBBB</p><section class="test">
+</section></section></p>
+	<p class="ref"><link href="font-variant-caps-02-ref.html">ABBBBB</p><section class="test">
+</section></section></p>
+	<p class="ref"><link href="font-variant-caps-02-ref.html">ABBBBB</p><section class="test">
+</section></section>

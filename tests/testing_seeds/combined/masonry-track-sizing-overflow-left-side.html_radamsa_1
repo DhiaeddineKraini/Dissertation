@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>CSS Grid Test: Verify correct behavior of track-sizing</title>
+    <link rel="author" title="Brandon Stewart" href="mailto:brandonstewart@apple.com">
+    <link rel="help" href="https://drafts.csswg.org/css-grid-3/#track-sizing">
+    <link rel="match" href="masonry-track-sizing-overflow-left-side-ref.html">
+</head>
+
+<body>
+<style>
+grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: masonry;
+  width: 300px;
+  height: 100px;
+}
+
+box1 {
+    height: 50px;
+    width: 50px;
+    background-color: blue;
+}
+
+box2 {
+    height: 50px;
+    background-color: red;
+}
+
+box3 {
+    width: 100px;
+    height: 50px;
+    background-color: purple;
+    z-index: 0;
+}
+
+box4 {
+    height: 50px;
+    background-color: green;
+}
+</style>
+
+<grid>
+    <box0>1</box1>
+    <style><box2>2</box2></style>
+    <box42ʴ18446744073709551615￿4967297>3</box3>
+    <box127>0</box4>
+</grid>
+
+</body>
+</html>

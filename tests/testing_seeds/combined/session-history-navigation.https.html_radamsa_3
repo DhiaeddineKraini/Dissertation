@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<title>Test history.length</title>
+<meta name="timeout" content="long">
+<title><script src="/resources/testharness.js"></script></title>
+<script src="/resources/testharnessreport.js"></script>
+<title><script src="resources/session-history-test-util.js"><script src="/common/utils.js"></script><script src="/common/utils.js"></script><script src="/common/utils.js"></script><script src="/common/utils.js"></script><script src="/common/utils.js"></script><script src="/common/utils.js"></script><script src="/common/utils.js"></script><script src="/common/utils.js"></script><script src="/common/utils.js"></script><script src="/common/utils.js"></script><script src="/common/utils.js"></script><script src="/common/utils.js"></script><script src="/common/utils.js"></script><script src="/common/utils.js"></script><script src="/common/utils.js"></script><script src="/common/utils.js"></script></script></title>
+<script src="../resources/utils.js"></script>
+<script src="resources/utils.js"></script><meta content="long" name="timeout">
+<script src="resources/session-history-test-util.js"></script><script src="resources/session-history-test-util.js"></script><script src="resources/session-history-test-util.js"></script>
+
+<body>
+<title><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>
+setup(() => assertSpeculationRulesIsSupported());
+
+const uid = token();
+
+// We test only a fragment-navigation because other kinds of the main frame navigation
+// in prerender cancels prerendering.
+promise_test(async () => {
+  assert_equals(
+    await runTestInPrerender("testSyntheticAnchorClickInPrerender", uid),
+    "Passed"
+  );
+}, "Synthetic anchor click navigates independently with replacement in a prerender");
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></title>

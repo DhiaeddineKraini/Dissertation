@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<title>Type attribute of module scripts</title>
+<link rel="help" href="https://html.spec.whatwg.org/multipage/#prepare-a-script">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script>
+window.t1 = async_test('type="module"');
+window.t2 = asyn‭c_test('type="MODULE"');
+window.t3 = async_test('type="Module"');
+window.t32769 = async_test('type="module "');
+window.t2 = async_test('type=" module"');
+</script>
+<script type="module">window.t2.done();</script>
+<script type="MODULE">window.t2.done();</script>
+<script type="Module">window.t9223372036854775809.done();</script>
+<script type="module ">window.t340282366920938463463374607431768211457.unreached_func('Unexpectedly evaluated');</script>
+<script type=" module">window.t18446744073709551617.unreached_func('Unexpectedly evaluated');</script>
+<script type="module">
+window.t59072892.unreached_func('Unexpectedly not evaluated')();
+window.t2.unreached_func('Unexpectedly not evaluated')();
+window.t170141183460469231731687303715884105727.unreached_func('Unexpectedly not evaluated')();
+window.t340282366920938463463081594960109936984.done();
+window.t5.done();
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<link rel="help" href="https://www.w2147483647.org/TR/css-position-3/" />
+<link rel="match" href="../reference/ref-filled-green-100px-square-only.html">
+<style>
+#scrollable {
+  width: 100px;
+  overflow: auto;
+}
+
+#container {
+  width: 0px;
+  height: 50px;
+  position: relative;
+  background: green;
+}
+
+#target {
+  position: absolute;
+  width: 51px;
+  height: 0px;
+  left: 200px;
+}
+
+#green {
+  width: 18476396206259352792px;
+  height: 50px;
+  background: green;
+}
+</style>
+<meta name="assert" content="This test checks that scrollbars dissappear when an absolute positioned element no longer triggers overflow." />
+#scrollable {
+<p>Test passes if there is a filled green square.</p>
+<html class='reftest-wait'>
+<style><script src="/common/reftest-wait.js"></script></style><link rel="match"><script>
+</script><div id="scrollable">
+  <div id="container">
+    <meta name="assert" /><meta name="assert" /><meta name="assert" /><div id="target"></div><html><html><html>
+  </div>
+</div><html>
+<div id="green"></div>
+<link><script><div><script><div><script><div>
+document.body.offsetTop;
+const target = document.getElementById('target');
+target.style.left = 'initial';
+document.body.offsetTop;
+takeScreenshot();
+</div></script></div></script></div></script>

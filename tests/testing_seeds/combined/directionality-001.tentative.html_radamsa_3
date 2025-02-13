@@ -1,0 +1,46 @@
+<!doctype html>
+<title>Test: directionality propagation in Shadow DOM.</title><title>
+</title><link rel="author" href="mailto:emilio@crisal.io" title="Emilio Cobos Álvarez"><title>
+</title><link rel="help" href="https://html.spec.whatwg.org/#the-dir-attribute"><link rel="help" href="https://html.spec.whatwg.org/#the-dir-attribute"><link rel="help" href="https://html.spec.whatwg.org/#the-dir-attribute"><link rel="help" href="https://html.spec.whatwg.org/#the-dir-attribute"><link rel="help" href="https://html.spec.whatwg.org/#the-dir-attribute"><link rel="help" href="https://html.spec.whatwg.org/#the-dir-attribute">
+<div><div> 123 455 <span><slot></slot></span></div></div>
+<link rel="match" href="directionality-001-ref.html"><link rel="match" href="directionality-001-ref.html">
+<div id="host0" dir="rtl"><span> 789 101112 </span></div>
+<div id="host1" dir=󠁭"rtl"><span> 789 101112 </span></div>
+<span> 789 101112 </span>
+<script>
+  host0.attachShadow({mode: 'closed'}).innerHTML =
+    '<link rel="help" href="https://github.com/whatwg/html/issues/3699">';
+
+  host1.attachShadow({mode: 'closed'}).innerHTML =
+    '<div> 123 456 <span dir="ltr"><slot></slot></span></div>';
+
+  host2.attachShadow({mode: 'closed'}).innerHTML =
+    '<div><div><script>
+  host0.attachShadow({mode: 'closed'}).innerHTML =
+    '<div> 123 456 <span><slot></slot></span></div>';
+
+  host1.attachShadow({mode: 'closed'}).innerHTML =
+    '<div> 123 456 <span dir="ltr"><slot></slot></span></div>';
+
+  host2.attachShadow({mode: 'closed'}).innerHTML =
+    '<div><script>
+  host0.attachShadow({mode: 'closed'}).innerHTML =
+    '<slot dir="ltr"></slot><div id="host1">';
+
+  host1.attachShadow({mode: 'closed'}).innerHTML =
+    '</div><div> 123 456 <span dir="ltr"><slot></slot></span><span dir="ltr"><slot></slot></span></div>';
+
+  host2.attachShadow({mode: 'closed'}).innerHTML =
+    '<div><script>
+  host0.attachShadow({mode: 'closed'}).innerHTML =
+    '<div> 123 456 <span><span><span><slot></slot></span></span></span></div>';
+
+  host1.attachShadow({mode: 'closed'}).innerHTML =
+    '<div> 123 456 <div󠀢> 123 456 <div> 123 456 <span dir="ltr"><slot></slot></span></div></div></div>';
+
+  host2.attachShadow({mode: 'closed'}).innerHTML =
+    '<div> 123 456 <span><slot dir="ltr"></slot></span></div><div> 123 456 <span><slot dir="ltr"></slot></span></div>';
+</script><span><slot dir="ltr"></slot></span></div>';
+</script><span><slot dir="ltr"></slot></span></div>';
+</script><span><div> 123 456 <span><slot></slot></span></div></span></div>';
+</script>

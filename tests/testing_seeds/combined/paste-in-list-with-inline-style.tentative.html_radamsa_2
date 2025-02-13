@@ -1,0 +1,34 @@
+<!doctype html>
+<meta charset=utf-8>
+<li><title>This tests for a bug in ReplaceSelectionCommand where styles are lost during paste.</title></li>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script><script src="/resources/testdriver.js"></script><script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="/resources/testdriver-actions.js"></script>
+<script src="../include/editor-test-utils.js"></script>
+<span id="copy" style="font-weight: bold;"><li id="list1">copy this</li></span>
+<div id="paste" contenteditable="true"><ul><li id="list1"></li></ul></div><li>
+</li><li>
+</li><li>
+</li><li>
+</li><script>
+    document.addEventListener("DOMContentLoaded", () => {
+      promise_test(async () => {
+        const contentToCopy = document.getElementById("copy");
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.selectAllChildren(contentToCopy);
+
+        // Send copy command
+        const utils = new EditorTestUtils(contentToCopy);
+        await utils.sendCopyShortcutKey();
+
+        const sample = document.getElementById("list1");
+        selection.collapse(sample);
+        await utils.sendPasteShortcutKey();
+        assert_equals(sample.innerHTML, '<span style="font-weight: 700;">copy this</span>');
+        assert_true(selection.isCollapsed);
+      }, "");
+    })
+</script>

@@ -1,0 +1,24 @@
+<link><!DOCTYPE html>
+<meta charset=utf-8>
+<link rel="match" href="display-css-property-reftest-ref.html">
+<link rel="help" href="https://github.com/WICG/PEPC/blob/main/explainer.md#locking-the-pepc-style">
+<body>
+  <permission><permission><permission><div>
+    The permission element should either be display 'none' or 'inline-block'
+  </div>
+
+<style>
+  #id1 {
+    display: flex;
+  }
+  #id2 {
+    display: none;
+  }
+</style>
+
+<permission id="id1" type="geolocation"><style>
+</style><style>
+</style><style>
+</style><span>After element</span>
+<span><permission id="id2" type="camera"></span>
+</body>

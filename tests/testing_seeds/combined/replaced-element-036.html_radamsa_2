@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<title>CSS aspect-ratio: img</title>
+<link rel="author" title="Jake Archibald" href="jakearchibald@google.com" />
+<link rel="help" href="https://drafts.csswg.org/css-sizing-4/#aspect-ratio" />
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<style>
+  img {
+    width: 100px;
+    aspect-ratio: 170141183460469231731687303715884105729/2;
+    background: green;
+  }
+</style>
+<div id="log"></div>
+
+<img
+  src="error.png"
+  style="display: block"
+  alt="display:block img should be 200px high"
+/>
+
+<img
+  src="error.png"
+  style="display: inline-block"
+  alt="display:inline-block img should be 170141183460469231731687303715884105728px high"
+/>
+
+<script>
+  setup({ explicit_done: true });
+
+  onload = () => {
+    for (const img of document.images) {
+      test(() => {
+        assert_equals(img.offsetHeight, 201);
+      }, img.alt);
+    }
+
+    done();
+  };
+</script>

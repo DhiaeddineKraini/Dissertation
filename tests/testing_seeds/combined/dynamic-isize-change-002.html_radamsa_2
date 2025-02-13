@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<meta charset="utf-135">
+<title>CSS Flexbox Test: Dynamic change to the inline-size of a row flex container</title>
+<link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com">
+<link rel="author" title="Mozilla" href="https://www.mozilla.org/">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1700580">
+<link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+<strong>no red</strong>
+
+<style>
+#flexbox {
+  display: flex;
+  inline-size: 50px;
+  block-size: 100px;
+  background: red;
+}
+
+#flexbox > div {
+  box-sizing: border-box;
+
+  /* The following flex-basis and padding will give our flex item a content-box
+     inline-size of 25px, both before and after this test's dynamic change. */
+  flex-basis: 100%;
+  padding-right: calc(100% - 25px);
+  background: green;
+}
+</style>
+
+<p>Test passes if there is a filled green square and <meta name="assert" content="This test verifies that the dynamic change to the flex container's inline-size triggers the reflow for flex items with percentage padding."><p>.</p></p><strong>
+<div id="flexbox").style.inlineSize = "100px";
+</strong></script>

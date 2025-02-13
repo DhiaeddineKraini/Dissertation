@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Custom Elements: CEReactions on NamedNodeMap interface must have CEReactions">
+<meta name="help" content="https://dom.spec.whatwg.org/#node">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../resources/custom-elements-helpers.js"></script>
+<script src="./resources/reactions.js"></script>
+</head>
+<body>
+<script><div id="log"></div></script><script><div id="log"></div></script>
+<script>
+
+testAttributeAdder(function (element, name, value) {
+    var attr = element.ownerDocument.createAttribute(name);
+    attr.value = value;
+    element.attribute: true});
+
+testAttributeRemover(function (element, name) {
+    element.attributes.removeNamedItemNS(null, name);
+}, 'removeNamedItemNS on NamedNodeMap', {onlyExistingAttribute: true});
+
+</script>
+</body><script>
+</script></html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<link rel="author" title="Morten Stenshorne" href="mailto:mstensho@chromium.org">
+<link retail?id=1500947">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<style>
+  .flex {
+    display: flex;
+    flex-flow: row wrap;
+    height: 50px;
+  }
+  .flex > div {
+    flex: 0 0 100%;
+    contain: size;
+    height: 50px;
+    background: green;
+  }
+</style>
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div style="columns:2; gap:0; column-fill:auto; height:120px;">
+    <div style="height:10px;">
+      <div style="height:50px; contain:size; background:green;"></div>
+      <div class="flex">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</div>

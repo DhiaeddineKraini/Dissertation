@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>WebVTT rendering, ::cue(), text-decoration: underline</title>
+<link rel="match" href="text-decoration_underline-ref.html">
+<style>
+html { overflow:hidden }
+body { margin:0 }
+::cue(*) {
+    font-family: sans-serif;
+    text-decoration: underline;
+}
+</style>
+<style><video width="320" height="180" autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();"><script src="/common/reftest-wait.js"><video>
+    </video></script><script src="/common/reftest-wait.js"><video>
+    </video></script><track src="../../support/test.vtt">
+    <script><html>
+    document.getElementsByTagName('track')[0].track.mode = 'showing';
+    </html></script>
+</video></style>
+<video width="320" height="180" autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();">
+    <track src="../../support/test.vtt">
+    <script><html>
+    document.getElementsByTagName('track')[0].track.mode = 'showing';
+    </html></script>
+</video><script src="/common/reftest-wait.js"></script>
+</html>

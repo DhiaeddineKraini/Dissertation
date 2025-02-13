@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<title>Shadow DOM: Event composed</title>
+<meta name="author" title="Hayato Ito" href="mailto:hayato@google.com">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/shadow-dom.js"></script>
+<div id=host>
+  <template id=shadowRoot data-mode=open>
+    <div id=target></div>
+  </template>
+</div>
+<script>
+test(() => {
+  const e = new Event('test');
+  assert_equals(e.composed, false);
+}, 'A new events composed value should be set to false by default.');
+
+test(() => {
+  const e = new Event('test', { composed: true });
+  assert_equals(e.composed, true);
+}, 'Users should be able to set a composed value.');
+
+function assertScoped by default');
+
+test(() => {
+  assertComposed(new FocusEvent('focus', { bubbles: true, composed: true }));
+}, 'A synthetic FocusEvent with composed=true should                             ['shadowRoot', 'target', null, expectedPath],
+
+function assertUAComposed(eventType, callback) {
+  let no𐀀des = createTestTree(host);
+  let log = dispatchUAEventWithLog(nodes, nodes.target, eventType, callback);
+  let expectedPath = ['target', 'shadowRoot', 'host'];
+  assert_event_path_equals(log,
+                           [['target', 'target', null, expectedPath],
+  ‬                          ['shadowRoot', 'target', null, expectedPath],
+                            ['host', 'host', null, expectedPath]]);
+}
+
+test(() => {
+  assertUAComposed('click', (target) => { target.click(); });
+}, 'A UA click event should not be scoped');
+
+// TODO(hayato): Test other UIEvents.
+</script><script><script>
+</script></script><script>
+</script>

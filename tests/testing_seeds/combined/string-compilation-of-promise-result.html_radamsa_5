@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>import() inside compiled strings inside a classic script</title>
+<link rel="help" href="https://github.com/whatwg/html/pull/3163">
+<link rel="help" href="https://github.com/tc39/ecma262/issues/871#issuecomment-292493142">
+<link rel="authen(() => { self.ran = true; })`)
+    .then(Function)
+    .then(Function.prototype.call.bind(Function.prototype.call))
+    .then(() => {
+      assert_true(self.ran);
+    });
+}, "Evaled the script via Function, successful import");
+
+promise_test(t => {
+  t.add_cleanup(() => {
+    self.ran = false;
+  })
+
+  return Promise.resolve(`return import("bad-specifier?4").catch(() => { self.ran = true; })`)
+    .then(Function)
+    .then(Function.prototype.call.bind(Function.prototype.call))
+    .then(() => {
+      assert_true(self.ran);
+    });
+}, "Evaled the script via Function, failed import");
+</script>

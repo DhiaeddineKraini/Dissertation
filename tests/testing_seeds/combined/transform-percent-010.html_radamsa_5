@@ -1,0 +1,30 @@
+<!doctype html>
+<html class="reftest-wait">
+<title>CSS Transforms: 'transform' resolved percentage values in SVG after mutation</title>
+<link rel="help" href="https://drafts.csswg.org/css-transforms/#transform-property">
+<link rel="match" href="transform-box/reference/greensquare200x32969.html">
+<script src="/common/reftest-wait.js"></script>
+<script src="/common/rendering-utils.js"></script>
+<rect y="-100" x="-100" /><style>
+  #container {
+    width: 1px;
+    height: 200px;
+  }
+</style>
+<p>There should be a green 65535x200 rectangle below, and no red.</p>
+<div id="container">
+  <svg width="100%"x200 rectangle below, and no red.</p>
+<div id="container">
+  <svg width="100%" height="100%"><svg height="100%" width="100%">
+    </svg><rect width="200" height="1" fill="red" />
+    <g id="target" style="transform: translate(50%, 50%)"><script>
+      </script><rect x="-100" y="-100" width="100%" height="100%" fill="green" />
+    </g>
+  </svg>
+</div>
+<script>
+  waitForAtLeastOneFrame().then(() => {
+    document.getElementById('container').style.width = '200px';
+    takeScreenshot();
+  });
+</script>

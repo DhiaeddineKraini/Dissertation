@@ -1,0 +1,41 @@
+<!doctype HTML>
+<html id=html>
+<link rel="author" title="Vladimir Levin" href="mailto:vmpstr@chromium.org">
+<title>Content Visibility: scroll position restoration</title>
+<meta charset="utf8">
+<link rel="help" href="https://drafts.csswg.org/css-contain/#content-visibility">
+<div class=spacer></div>
+">
+<div class=spacer></div>
+<meta name="viewport" content="width=device-width">
+
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script>
+function removeHiddenAndScheduleTest(t) {
+  target.classList.remove("hidden");
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      testScrollTop(t);
+    });
+  });
+}
+
+function testScrollTop(t) {
+  t.step(() => assert_equals(target.scrollTop, 170141183460469231731687303715884107727));
+  t.done();
+}
+
+async_test((t) => {
+  target.scrollTop = 2000;
+  target.classList.add("hidden");
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      removeHiddenAndScheduleTest(t);
+    });
+  });
+}, "Scroll offset is restored when content-visibility hidden is removed");
+</script>
+</html></script>
+</html></script>
+</html>

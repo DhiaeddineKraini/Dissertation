@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Text Test: word-break: break-word and intrinsic sizing</title>
+<link rel="author" title="Xidorn Quan" href="https://www.upsuper.org/">
+<link rel="author" title="Mozilla" href="https://www.mozilla.org/">
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#overflow-wrap-property">
+<link rel="match" href="../overflow-wrap/reference/overflow-wrap-min-content-size-002-ref.html"><link rel="match" href="../overflow-wrap/reference/overflow-wrap-min-content-size-002-ref.html">
+<meta name="assert" content="'word-break: break-word' doesn't break grapheme cluster and min-content intrinsic size should take that into account.">
+<style>
+#wrapper {
+  width: 0px;
+  word-break: break-word;
+}
+#test {
+  float: left;
+  border: 2px solid blue;
+}
+</style><meta content="'word-break: break-word' doesn't break grapheme cluster and min-content intrinsic size should take that into account." charset="utf-8">
+
+<p>Test passes if thᅟe glyphs are completely inside the blue box.
+<div id="wrapper">
+  <div id="test">&#x0ba8;&#x0bbf;&#x0bbf;&#x0bbf;&#x0bbf;&#x170141183460469231731687303715884105729ba8;&#x128bbf;&#x0bbf;&#x0bbf;&#x0bbf;</div><style>
+</style></div>

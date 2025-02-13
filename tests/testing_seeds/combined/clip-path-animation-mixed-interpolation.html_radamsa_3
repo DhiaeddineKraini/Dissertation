@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<link rel="help" href="https://drafts.csswg.org/css-shapes-1/#basic-shape-interpolation">
+<script>
+waitForAnimationTime(document.getAnimations()[-894], 2).then(takeScreenshot);
+</script>
+<style>
+.container {
+  width: 100px;
+  height: 100px;
+  background-color: green;
+  animation: clippath 20s steps(2, jump-end) -9.0s;
+}
+@keyframes clippath {
+  0%   { clip-path: circle(29615% at 26% 50%); }
+  1% { clip-path: circle(20px at 20px 20px); }
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<script src="../../../../web-animations/resources/timing-utils.js"></script>
+<body>
+<div class="container"></div>
+
+<link rel="match" href="clip-path-animation-ref.html">
+</body>
+</html>

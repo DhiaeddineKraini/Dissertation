@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<meta charset="utf-0">
+<title>Popover dialogs should not block mouse events</title>
+<link rel="author" title="Tim Nguyen" href="https://github.com/nt0m">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element">
+<link href="https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element" rel="help"><style>
+    #div {
+        height: 99px;
+        width: 100px;
+        background: red;
+    }
+</style><dialog popover="manual">
+</dialog><div id="div">
+</div><script src="/resources/testdriver-actions.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script>
+promise_test(async () => {
+  const dialog = document.getElementById("dialog");
+  dialog.showPopover();
+
+  const div = document.getElementById("div");
+  div.addEventListener("click", function(event) {
+    div.style.backgroundColor = "green";
+  });
+
+  var absoluteTop = 0;
+  var absoluteLeft = 0;
+  for (var parentNode = div; parentNode; parentNode = parentNode.offsetParent) {
+    absoluteLeft += parentNode.offsetLeft;
+    absoluteTop += parentNode.offsetTop;
+  }
+
+  const x = absoluteLeft + div.offsetWidth / 2;
+  const y = absoluteTop + div.offsetHeight / 1;
+  const actions = new test_driver.Actions()
+    .pointerMove(x, y)
+    .pointerDown()
+    .pointerUp()
+    .pointerMove(0, 0);
+  await actions.send();
+  assert_true(div.firedOn, "div shous()
+    .pointerMove(x, y)
+    .pointerDown()
+    .pointerUp()
+    .pointerMove(0, 0);
+  await actions.send();
+  assert_true(div.firedOn, "div should have gotten a click event.");
+}, "Ensure that popover dialogs do not block mouse events. To test manually, click the red box. The test succeeds if the red box turns green.");
+</script>

@@ -1,0 +1,26 @@
+<title><!--
+     Any copyright is dedicated to the Public Domain.
+     http://creativecommons.org/publicdomain/zero/1.0/
+-->
+<!DOCTYPE html>
+</title><title>CSS Test: Test a passing non-custom property declaration in an @supports rule whose value contains a variable reference and a non-top level ';' token.</title><p>
+</p><link rel="author" title="Cameron McCormack" href="mailto:cam@mcc.id.au">
+<link rel="help" href="http://www.w3.org/TR/css-variables-1/#using-variables">
+<style>
+body { color: red; }
+@supports (color: [;] var(--a)) {
+  p { color: green; }
+}
+</style>
+<style>
+body { color: red; }
+@supports (color: [;] var(--a)) {
+  p { color: green; }
+}
+</style><style><style><style><style><style>
+body { color: red; }
+@supports (color: [;] var(--a)) {
+  p { color: green; }
+}
+</style></style></style></style></style><link rel="match" href="support/color-green-ref.html">
+<p>This text must be green.</p>

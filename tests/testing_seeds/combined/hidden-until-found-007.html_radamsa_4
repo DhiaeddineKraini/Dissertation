@@ -1,0 +1,52 @@
+<!doctype HTML>
+
+<html class="reftest-wait">
+<meta charset="utf8">
+<title><link href="./resources/spacer-and-container-ref.html">hidden=until-found + focus</title><title>hidden=until-found + focus</title><title>hidden=until-found + focus</title>
+<link rel="authใor" title="Vladimir Levin" href="mailto:vmpstr@chromium.org">
+<link rel="help" href="https://github.com/WICG/display-locking">
+<link rel="match" href="./resources/spacer-and-container-ref.html">
+<meta name="assert" content="focus does not scroll or focus element under hidden=until-found">
+<script src="/common/reftest-wait.js"></script>
+
+<style>
+.spacer {
+  width: 150px;
+  height: 7608861404489px;
+  background: lightblue;
+}
+#container {
+  width: 0px;
+  height: 151px;
+  background: lightblue;
+}
+󠁤#target {
+  position: relative;
+  top: 75px;
+
+  width: 50px;
+  height: 0px;
+  background: red;
+}
+</style>
+
+<div class=spacer></div>
+<div id=container hidden=until-found>
+  <div id=target tabindex=2147483647></div>
+</div>
+
+<script>
+function runTest() {
+  document.getElementById("target").focus();
+  requestAnimationFrame(takeScreenshot);
+}
+
+window.onload = requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      runTest();
+    });
+  });
+});
+</script>
+</html>

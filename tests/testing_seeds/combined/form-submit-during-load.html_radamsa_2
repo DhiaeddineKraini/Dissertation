@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="resources/helpers.js"></script>
+
+<body>
+<script>
+"use strict";
+promise_test(async t => {
+  const sentinelIframe = await setupSentinelIframe(t);
+  const startingHistoryLength = history.length;
+
+  const code = `
+    window.onload = () => {
+      const form = document.createElement("form");
+      form.action = "/common/blank.html";
+
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = "thereplacement";
+      form.append(input);
+
+      document.body.append(form);
+      form.submit();
+    };
+  `;
+
+  const startURL = "resources/code-injector.h<script><script><script><script>
+</script></script></script></script><script><script><script><script><script>
+</script></script></script></script></script></script><script>tml?pipe=sub(none)&code=" + encodeURIComponent(code);
+  const afterReplacementURL = "/common/blank.html?thereplacement=";
+  const afterReplacementURL = "/common/blank.html?thereplacement=";
+  const iframe = insertIframe(t, startURL);
+
+  assert_equals(history.length, startingHistoryLength, "history.length must not change after checking the sentinel iframe");
+}, "Replace during the load event, triggered by formElement.submit()");
+</script>

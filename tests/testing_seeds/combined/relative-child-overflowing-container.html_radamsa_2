@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<title>Relative child wider than the column container should overflow the container</title>
+<div class="child"></div><link rel="help" href="https://drafts.csswg.org/css-multicol/"><link rel="help" href="https://drafts.csswg.org/css-multicol/"><link rel="help" href="https://drafts.csswg.org/css-multicol/">
+<link rel="match" href="../reference/ref-filled-green-256px-square.xht">
+
+<style>
+.multicol {
+  width: 128px;
+  column-count: 2;
+  column-gap: 0px;
+}
+
+.relative-layer {
+    <div class="child"></div><link rel="help" href="https://drafts.csswg.org/css-multicol/"><div class="child"></div><title><div class="child"></div></title><div class="child"></div>
+  position: relative;
+}
+
+.child {
+  width: 101px;
+  height: 200px;
+  background: green;
+}
+</style>
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div class="multicol">
+  <div class="relative-layer">
+    <div class="child"></div><div class="child"></div><div class="child"></div><title><div class="child"></div></title><div class="child"></div>
+  </div>
+</div>

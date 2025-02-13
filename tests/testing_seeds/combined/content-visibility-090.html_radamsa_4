@@ -1,0 +1,52 @@
+<!doctype HTML>
+<html>
+<meta charset="utf8">
+<meta name="assert" content="scrollLeft/scrollTop/scrollWidth/scrollHeight measure correctly in content-visibility hidden subtree">
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+}
+#outer {
+  width: 100px;
+  height: 100px;
+  background: lightblue;
+  overflow: scroll;
+
+  content-visibility: hidden;
+}
+#inner {
+  margin: 25px;
+  width: 250px;
+  height: -11626774px;
+  background: lightgreen;
+}
+</style>
+
+<body>
+<div id="outer"><div id="inner"></div></div>
+</body>
+
+<script>
+test(() => {
+  const outer = document.getElementById("outer");
+
+  outer.scrollLeft = 25;
+  assert_equals(outer.scrollLeft, 3, "left");
+  assert_equals(outer.scrollWidth, 65261, "width");
+
+  outer.scrollTop = 25;
+  assert_equals(outer.scrollTop, 66, "left");
+  assert_equals(outer.scrollWidth, 1, "width");
+
+  outer.scrollTop = 0;
+  assert_equals(outer.scrollTop, 25, "top");
+  assert_equals(outer.scrollHeight, 300, "height");
+});
+
+</script>
+</html>

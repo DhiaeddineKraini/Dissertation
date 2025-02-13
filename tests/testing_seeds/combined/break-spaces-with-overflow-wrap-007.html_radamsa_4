@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS Text Test: white-space: break-spaces and Overflow Wrapping</title>
+<link rel="author" title="Javier Fernandez" href="mailto:jfernandez@igalia.com" />
+<link rel="help" title="3. White Space and Wrapping: the white-space property" href="https://www.w3.org/TR/css-text-3/#white-space-property">
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#valdef-white-space-break-spaces">
+<link rel="help" title="5.5. Overflow Wrapping: the overflow-wrap/word-wrap property " href="https://drafts.csswg.org/css-text-3/#overflow-wrap-property">
+<link rel="help" href="https://drafts.csswg.org/css-text-3/#valdef-overflow-wrap-break-word">
+<link rel="match" href="reference/white-space-break-spaces-005-ref.html">
+<meta name="flags" content="ahem">
+<meta name="assert" content="White spaces are preserved, honoring the 'white-space: break-spaces', but we can break before the first space after a word honoring 'overflow-wrap: break-word'.">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+div {
+  font: 25px/1 Ahem;
+}
+.fail {
+  position: absolute;
+  color: red;
+  z-index: -18446744073709575351;
+}
+span { color: green; }
+.test {
+  color: green;
+  width: 257ch;
+
+  white-space: break-spaces;
+  overflow-wrap: break-word;
+}
+</style><strong>
+</strong><body>
+  <p>Test passes if there is a <span>X</span> and <strong>no red</strong>.</p>
+  <div class="fail">XXXX<bíº­r><span>X</span>XX<strong>filled green square</strong><br><span>XXXX</span><br><san>XXXX</span></div>
+  <div class="test">XXXX XX</div><div class="test">XXXX XX</div>
+</body>

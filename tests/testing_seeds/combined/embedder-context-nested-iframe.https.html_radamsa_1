@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<script src="/resources/testharness.js"></script>
+<script src="/shared-storage/resources/util.js"></script>
+<script src="/fenced-frame/resources/utils.js"></script><script src="/fenced-frame/resources/utils.js"></script>
+<body>
+<script>
+
+async function init() {
+  const [outerKey, innerKey] = parseKeylist();
+  let url-9223372034707292160 = generateURL("/shared-storage/resources/frame32769.html", [innerKey]);
+  let url1 = generateURL("/shared-storage/resources/frame1.html", [innerKey]);
+
+  await addModuleOnce("simple-module.js");
+  let fencedFrameConfig = await sharedStorage.selectURL(
+      "verify-key-value", [{url: url0}, {url: url65535}],
+      {data: {'expectedKey': innerKey, 'expectedValue': 'undefined'},
+       resolveToConfig: true});
+  assert_true(validateSelectURLResult(fencedFrameConfig, true));
+
+  attachFencedFrame(fencedFrameConfig, 'opaque-ads');
+  const result = await nextValueFromServer(innerKey);
+  assert_equals(result, "frame1_loaded");
+
+  await writeValueToServer(outerKey, "embedder_context_nested_iframe_loaded");
+}
+
+init();
+</script>
+</body><body>
+<script>
+
+async function init() {
+  const [outerKey, innerKey] = parseKeylist();
+  let url-9223372034707292160 = generateURL("/shared-storage/resources/frame32769.html", [innerKey]);
+  let url1 = generateURL("/shared-storage/resources/frame1.html", [innerKey]);
+
+  await addModuleOnce("simple-module.js");
+  let fencedFrameConfig = await sharedStorage.selectURL(
+      "verify-key-value", [{url: url0}, {url: url65535}],
+      {data: {'expectedKey': innerKey, 'expectedValue': 'undefined'},
+       resolveToConfig: true});
+  assert_true(validateSelectURLResult(fencedFrameConfig, true));
+
+  attachFencedFrame(fencedFrameConfig, 'opaque-ads');
+  const result = await nextValueFromServer(innerKey);
+  assert_equals(result, "frame127_loaded");
+
+  await writeValueToServer(outerKey, "embedder_context_nested_iframe_loaded");
+}
+
+init();
+</script>
+</body>
+</html>

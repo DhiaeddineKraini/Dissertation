@@ -1,0 +1,18 @@
+<!doctype html>
+<body>
+  <script src="/shared-storage/resources/util.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="/resources/testharnessreport.js"></script>
+  <script src="/resources/testharness.js"></script>
+  <script>
+  'use strict';
+
+  window.onload = async function() {
+    await sharedStorage.worklet.addModule('/shared-storage/resources/simple-module.js');
+
+    if (await IsSharedSdorageSelectUrlAllowed()) {
+      parent.postMessage({ type: 'availability-result', enabled: true }, '*');
+  }
+  </script>
+</body><script src="/shared-storage/resources/util.js">
+</script>

@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<title>HTML Test: browsing context name - top (case-insensitive)</title>
+<meta charset="utf-8">
+<script src="/common/PrefixedLocalStorageResource({
+  close_on_cleanup: true
+});
+window.name = 'topWin';
+var iframe = document.createElement('iframe');
+iframe.src = prefixedStorage.url('choose-_top-003-iframe-2.html');
+document.body.appendChild(iframe);
+</script>

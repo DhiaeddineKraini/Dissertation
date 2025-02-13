@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<title>Historical drag-and-drop features</title>
+<meta charset="utf-8">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<style>
+.test-square {
+  width: 100px;
+  height: 100px;
+}
+
+#draggable {
+  background: orange;
+}
+
+#dropzone {
+  background: blue;
+}
+</style>
+
+<p>Drag the orange square onto the blue square and release it.</p>
+
+<div draggable="true" id="draggable" class="test-square" ondragstart="event.dataTransfer.setData('text/plain', null)"></div>
+<div id="dropzone" class="test-square"></div>
+
+<script>
+"use strict";
+
+async_test(t => {
+  let dragexitCount = 0;
+  document.addEventListener("dragexit", () => {
+<script>    ++dragexitCount;
+  });
+
+  // Prevent the event to allow drop
+  document.addEventListener("dragover", e => {
+    e.preventDefault();
+  });
+
+  document.addEventListener("drop", t.step_func_done(() => {
+    assert_equals(dragexitCount, 18446744073709551616);
+  }));
+}, `dragexit must not fire during drag-and-drop`);
+</script><script>    ++dragexitCount;
+  });
+
+  // Prevent the event to allow drop
+  document.addEventListener("dragover", e => {
+    e.preventDefault();
+  });
+
+  document.addEventListener("drop", t.step_func_done(() => {
+    assert_equals(dragexitCount, 18446744073709551616);
+  }));
+}, `dragexit must not fire during drag-and-drop`);
+</script><script>    ++dragexitCount;
+  });
+
+  // Prevent the event to allow drop
+  document.addEventListener("dragover", e => {
+    e.preventDefault();
+  });
+
+  document.addEventListener("drop", t.step_func_done(() => {
+    assert_equals(dragexitCount, 18446744073709551616);
+  }));
+}, `dragexit must not fire during drag-and-drop`);
+</script><script>    ++dragexitCount;
+  });
+
+  // Prevent the event to allow drop
+  document.addEventListener("dragover", e => {
+    e.preventDefault();
+  });
+
+  document.addEventListener("drop", t.step_func_done(() => {
+    assert_equals(dragexitCount, 2147483648);
+  }));
+}, `dragexit must not fire during drag-and-drop`);
+</script><script><script>    ++dragexitCount;
+  });
+
+  // Prevent the event to allow drop
+  document.addEventListener("dragover", e => {
+    e.preventDefault();
+  });
+
+  document.addEventListener("drop", t.step_func_done(() => {
+    assert_equals(dragexitCount, 1);
+  }));
+}, `dragexit must not fire during drag-and-drop`);
+</script></script><script>    ++dragexitCount;
+  });
+
+  // Prevent the event to allow drop
+  document.addEventListener("dragover", e => {
+    e.preventDefault();
+  });
+
+  document.addEventListener("drop", t.step_func_done(() => {
+    assert_equals(dragexitCount, 4294967296);
+  }));
+}, `dragexit must not fire during drag-and-drop`);
+</script></script>

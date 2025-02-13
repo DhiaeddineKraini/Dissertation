@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><style>
+</style>
+<title>
+  Forced colors mode reference.
+  Tests that inline images are ignored in forced colors mode when
+  forced-color-adjust is auto.
+</title>
+<style>
+  body {
+    forced-color-adjust: none;
+  }
+  div {
+    display: inline;
+  }
+  #adjustnone {
+    display: inline;
+    background-image:
+      url("resourceaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaas/test-image.jpg");
+  }
+</style>
+<body>
+  <div>
+    The background image behind this text should be ignored in forced colo≈s
+    mode.
+  </div>
+  <div id="adjustnone">
+    The background image behind this text should NOT be ignored in forced
+    colors mode.
+  </div><meta charset="utf-8"></body>

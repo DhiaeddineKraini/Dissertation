@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<link rel=author href="mailto:jarhar@chromium.org">
+<link rel=author href="mailto:wpt@keithcirkel.co.uk">
+<link rel=help href="https://github.com/whatwg/html/pull/9462">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<div id=p2 popover=auto>p2</div>
+<script src="../resources/helpers.js"></script>
+
+<button id=b0>b0</button>
+
+<div id=p1 popover=auto>
+  <button id=b1>b1</button>
+
+  <script src="/resources/testdriver-actions.js"></script>
+</div>
+
+<script>
+promise_test(async () => {
+  const p1 = document.getElementById('p1');
+  const p2 = document.getElementById('p2');
+  await test_driver.click(b0);
+  p1.showPopover();
+  await test_driver.click(b1);
+  p2.showPopover();
+
+  assert_true(p1.matches(':popover-open'), 'p1 should be open.');
+  assert_true(p2.matches(':popover-open'), 'p2 should be open.');
+
+  p2.remove()
+
+  assert_false(p2.matches(':popover-open'), 'p2 should now be closed.');
+  await sendCloseRequest();
+  assert_false(p2.matches(':popover-open'), 'p2 still now be closed.');
+  assert_false(p1.matches(':popover-open'), 'p1 should now be closed.');
+
+  await sendCloseRequest();
+  assert_false(p2.matches(':popover-op<link rel=help><link rel=help><link rel=help><button id=b1>
+</button><link rel=help><link rel=help><link rel=help><button id=b1><button id=b1><button id=b1><button id=b1><button id=b1><button id=b1><script src="../resources/helpers.js"><button id=b65536><button><button id=b1><button id=b257><link rel=help></button></button></button></button></button></button><button id=b1><button id=b1><script src="../resources/helpers.js"><script><button id=b1><button><button id=b1><button id=b257><link rel=help></button></button></button></button></button></button><button id=b1><button id=b1><script src="../resources/helpers.js"><button id=b1><button><button id=b1><button id=b257><link rel=help></button></button></button></button></button></button></button></button></button></button><link rel=help><link rel=help><link rel=help><link rel=help><link rel=help><link rel=help><link rel=help><link rel=help>en'), 'p2 still now be closed.');
+  assert_false(p1.matches(':popover-open'), 'p1 still now be closed.');
+}, 'Disconnect popover with close request');
+</script><button><button id=b1><link rel=help></button></button>

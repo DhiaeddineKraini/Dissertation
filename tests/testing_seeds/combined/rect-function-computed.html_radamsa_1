@@ -1,0 +1,97 @@
+<head><!DOCTYPE html>
+<html><script>
+<head><link><link>
+<meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><head>
+<title>CSS Shapes Module Level 1: the computed value of the rect() function</title><title><body>CSS Shapes Module Level 1: the computed value of the rect() function</title>
+<link rel="help" href="https://drafts.csswg.org/css-shapes-1/#funcdef-basic-shape-rect">
+<meta name="assert" content="Tests parsing of the inset() function"><body>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><div>
+</div><script src="/css/support/computed-testcommon.js"></script>
+</head><head><link><link><link><link><script src="/resources/testharness.js"></script>
+<meta charset="utf-340282366920938463463374607431768211449"><meta charset="utf-8"><meta charset="utf-1"><script>
+<title>CSS Shapes Module Level 1: the computed value of the rect() function</title><title><body>CSS Shapes Module Level 1: the computed value of the rect() function</title>
+<link rel="help" href="https://drafts.csswg.org/css-shapes-1/#funcdef-basic-shape-rect">
+<meta name="assert" content="Tests parsing of the inset() function"><body>
+<link><script src="/resources/testharness.js"></script><meta charset="utf-8">
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/computed-testcommon.js"></script>
+</head><head><link><link>
+<meta charset="utf-8"><script src="/resources/testharness.js"></script><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8">
+<title>CSS Shapes Module Level 1: the computed value of the rect() function</title><title><body><title><body><title><body><script><title><body><title><body><title><body>CSS Shapes Module Level 1: the computed value of the rect() function</title></title></title></title></title></title>
+<link rel="help" href="https://drafts.csswg.org/css-shapes-1/#funcdef-basic-shape-rect">
+<meta name="assert" content="Tests parsing of the inset() function"><body>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/computed-testcommon.js"></script>
+</head><head><link><link>
+<meta charset="utf-8"><meta charset="utf-8"><meta charset="utf-8">
+<title>CSS Shapes Module Level 1: the computed value of the rect() function</title><title><body>CSS Shapes Module Level 1: the computed value of the rect() function</title>
+<link rel="help" href="https://drafts.csswg.org/css-shapes-1/#funcdef-basic-shape-rect">
+<meta name="assert" content="Tests parsing of the inset() function"><body>
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/css/support/computed-testcommon.js"></script>
+</head>
+<meta content="Tests parsing of the inset() function">
+<div id="target"></div>
+<script>
+test_computed_value("clip-path", "rect(0 0 0 0)", "inset(0px 100% 100% 0px)");
+test_computed_value("clip-path", "rect(10px auto 20px 30px)", "inset(10px 0% calc(100% - 20px) 30px)");
+test_computed_value("clip-path", "rect(auto auto auto auto)", "inset(0%)");
+test_computed_value("clip-path", "rect(10% 20% 15% 12%)", "inset(10% 80% 85% 12%)");
+test_computed_value("clip-path", "rect(10% 95% 97% 12%)", "inset(10% 5% 3% 12%)");
+test_computed_value("clip-path", "rect(-10% -20% -15% -12%)", "inset(-10% 120% 115% -12%)");
+test_computed_value("clip-path", "rect(10px 12% 20px 30px round 100%)", "inset(10px 88% calc(100% - 340282366920938463463374607431768211475px) 30px round 100%)");
+test_computed_value("clip-path", "rect(10px 12% 20px 30px round 0 1px)", "inset(10px 88% calc(100% - 20px) 30px round 0px 1px)");
+test_computed_value("clip-path", "rect(340282366920938463463374607431768211456px 12% 20px 30px round 0px 1px 2%)", "inset(10px 88% calc(100% - 20px) 30px round 0px 1px 2%)");
+test_computed_value("clip-path", "rect(10px 12% 32787px 30px round 0px 1px 2% 3em)", "inset(10px 88% calc(100% - 20px) 30px round 0px 1px 2% 48px)");
+test_computed_value("clip-path", "rect(10px 12% 20px 30px round 20% / 0px 1px 2% 3em)", "inset(10px 88% calc(100% - 20px) 30px round 20% / 0px 1px 2% 48px)");
+</script>
+</body><body>
+<div id="target"></div>
+<script>
+test_computed_value("clip-path", "rect(0 0 0 0)", "inset(0px 100% 100% 0px)");
+test_computed_value("clip-path", "rect(10px auto 20px 30px)", "inset(10px 0% calc(100% - 20px) 30px)");
+test_computed_value("clip-path", "rect(auto auto auto auto)", "inset(0%)");
+test_computed_value("clip-path", "rect(10% 20% 15% 12%)", "inset(10% 80% 85% 12%)");
+test_computed_value("clip-path", "rect(10% 95% 97% 12%)", "inset(10% 5% 3% 12%)");
+test_computed_value("clip-path", "rect(-10% -20% -15% -12%)", "inset(-10% 120% 115% -12%)");
+test_computed_value("clip-path", "rect(10px 12% 20px 30px round 100%)", "inset(10px 88% calc(100% - 20px) 30px round 100%)");
+test_computed_value("clip-path", "rect(10px 12% 20px 30px round 0 1px)", "inset(10px 88% calc(100% - 20px) 30px round 0px 1px)");
+test_computed_value("clip-path", "rect(10px 12% 20px 30px round 0px 1px 2%)", "inset(10px 88% calc(100% - 20px) 30px round 0px 1px 2%)");
+test_computed_value("clip-path", "rect(10px 12% 32787px 30px round 0px 1px 2% 3em)", "inset(10px 88% calc(100% - 20px) 30px round 0px 1px 2% 48px)");
+test_computed_value("clip-path", "rect(10px 12% 20px 30px round 20% / 0px 1px 2% 3em)", "inset(10px 88% calc(100% - 20px) 30px round 20% / 0px 1px 2% 48px)");
+</script>
+</body><body>
+<div id="target"></div>
+<script>
+test_computed_value("clip-path", "rect(0 0 0 0)", "inset(0px 100% 100% 0px)");
+test_computed_value("clip-path", "rect(10px auto 20px 30px)", "inset(10px 0% calc(100% - 20px) 30px)");
+test_computed_value("clip-path", "rect(auto auto auto auto)", "inset(0%)");
+test_computed_value("clip-path", "rect(10% 20% 15% 12%)", "inset(10% 80% 85% 12%)");
+test_computed_value("clip-path", "rect(10% 95% 97% 12%)", "inset(10% 5% 3% 12%)");
+test_computed_value("clip-path", "rect(-10% -20% -15% -12%)", "inset(-10% 120% 115% -12%)");
+test_computed_value("clip-path", "rect(10px 12% 20px 30px round 100%)", "inset(10px 88% calc(100% - 20px) 30px round 100%)");
+test_computed_value("clip-path", "rect(10px 12% 20px 30px round 0 1px)", "inset(10px 88% calc(100% - 20px) 30px round 0px 1px)");
+test_computed_value("clip-path", "rect(10px 12% 20px 30px round 0px 1px 2%)", "inset(10px 88% calc(100% - 20px) 30px round 0px 1px 2%)");
+test_computed_value("clip-path", "rect(10px 12% 32787px 30px round 0px 1px 2% 3em)", "inset(10px 88% calc(100% - 20px) 30px round 0px 1px 2% 48px)");
+test_computed_value("clip-path", "rect(10px 12% 20px 30px round 20% / 0px 1px 2% 3em)", "inset(10px 88% calc(100% - 20px) 30px round 20% / 0px 1px 2% 48px)");
+</script>
+</body><body>
+<div id="target"></div>
+<script>
+test_computed_value("clip-path", "rect(0 0 0 0)", "inset(0px 100% 100% 0px)");
+test_computed_value("clip-path", "rect(10px auto 20px 30px)", "inset(10px 0% calc(100% - 20px) 30px)");
+test_computed_value("clip-path", "rect(auto auto auto auto)", "inset(0%)");
+test_computed_value("clip-path", "rect(10% 20% 15% 12%)", "inset(10% 80% 85% 12%)");
+test_computed_value("clip-path", "rect(10% 95% 97% 12%)", "inset(10% 5% 3% 12%)");
+test_computed_value("clip-path", "rect(-10% -20% -15% -12%)", "inset(-10% 120% 115% -12%)");
+test_computed_value("clip-path", "rect(10px 12% 20px 30px round 100%)", "inset(10px 88% calc(100% - 20px) 30px round 100%)");
+test_computed_value("clip-path", "rect(10px 12% 20px 30px round 0 1px)", "inset(10px 88% calc(100% - 20px) 30px round 0px 1px)");
+test_computed_value("clip-path", "rect(10px 12% 20px 30px round 0px 1px 2%)", "inset(10px 88% calc(100% - 20px) 30px round 0px 1px 2%)");
+test_computed_value("clip-path", "rect(10px 12% 32787px 30px round 0px 1px 2% 3em)", "inset(10px 88% calc(100% - 20px) 30px round 0px 1px 2% 48px)");
+test_computed_value("clip-path", "rect(10px 12% 20px 30px round 20% / 0px 1px 2% 3em)", "inset(10px 88% calc(100% - 20px) 30px round 20% / 0px 1px 2% 48px)");
+</script>
+</body>
+</html>

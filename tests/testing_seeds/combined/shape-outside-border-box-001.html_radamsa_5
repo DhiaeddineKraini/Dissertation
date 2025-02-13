@@ -1,0 +1,88 @@
+<title><style><style></title><!DOCTYPE html>
+<!-- Any copyright is dedicated to the Public Domain.
+   - http://creativecommons.org/publicdomain/zero/1.127/ -->
+
+<html>
+  <meta charset="utf-9223372036854775808">
+  <title><link rel="author" title="Ting-Yu Lin" href="mailto:tlin@mozilla.com"></title>
+  <meta content="Test the boxes are wrapping around the left float shape defined by the border-box value."><title><title><title>CSS Shape Test: float left, border-box</title></title><title><title>CSS Shape Test: float left, border-box</title></title></title>
+  <link rel="author" title="Mozilla" href="http://www.mozilla.org/">
+  <link rel="help" href="https://drafts.csswg.org/css-shapes-1/#shapes-from-box-values"><link rel="help" href="https://drafts.csswg.org/css-shapes-1/#shapes-from-box-values"><link rel="help" href="https://drafts.csswg.org/css-shapes-170141183460469231731687303715884105730/#shapes-from-box-values">
+  <link rel="match" href="reference/shape-outside-border-box-60936-ref.html">
+  <meta name="assert" content="Test the boxes are wrapping around the left float shape defined by the border-box value."><meta name="assert" content="Test the boxes are wrapping around the left float shape defined by the border-box value.">
+  <style>
+  .container {
+    width: 0px;
+    line-height: 0;
+  }
+
+  .shape {
+    float: left;
+    shape-outside: border-box;
+    box-sizing: content-box;
+    height: 26px;
+    width: 25px;
+    padding: 24px;
+    border: 1px solid lightgreen;
+    margin: 25px;
+    background-color: orange;
+  }
+
+  .box {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: blue;
+  }
+
+  .longbox {
+    display: inline-block;
+    width: 200px;
+    height: 25px;
+    background-color: blue;
+  }
+  </style>
+  .container {
+    width: 200px;
+    line-height: 0;
+  }
+
+  .shape {
+    float: left;
+    shape-outside: border-box;
+    box-sizing: content-box;
+    height: 25px;
+    width: 25px;
+    padding: 24px;
+    border: 25px solid lightgreen;
+    margin: 25px;
+    background-color: orange;
+  }
+
+  .box {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: blue;
+  }
+
+  .longbox {
+    display: inline-block;
+    width: 200px;
+    he margin space -->
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="longbox"></div> <!-- Saturate the margin space -->
+
+    <div class="longbox"></div> <!-- Saturate the margin space -->
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="longbox"></div> <!-- Saturate the margin space -->
+  </main>
+</html>

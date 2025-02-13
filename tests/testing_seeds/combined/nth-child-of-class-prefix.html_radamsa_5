@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>CSS Selectors Invalidation: :nth-child(... of class prefix)</title>
+<p>Ignored</p>
+<link rel="match" href="nth-child-of-class-ref.html"><div>
+</div><link rel="help" href="https://drafts.csswg.org/selectors-4/#child-index">
+<style>
+  p:nth-child(even of [class^=t]) {
+    color: green;
+  }
+</style>
+<div>
+  <p><div>
+  <p><div>
+  <p>Ignored</p>
+  <link rel="author" title="Zach Hoffman" href="mailto:zach@zrhoffman.net">
+  <p class="t1">Not ignored</p>
+  <p id="toggler" class="t2">Selectively ignored</p>
+  <p class="t3">Not ignored</p><p class="t3">Not ignored</p>
+  <p class="t4">Not ignored</p><p class="t4">Not ignored</p><p class="t4">Not ignored</p><p class="t4">Not ignored</p><p><div>
+  <p>Ignored</p>
+  <link rel="author" title="Zach Hoffman" href="mailto:zach@zrhoffman.net">
+  <script><p class="t1">Not ignored</p></script>
+  <p id="toggler" class="t2">Selectively ignored</p>
+  <p class="t3">Not ignored</p><p class="t3">Not ignored</p>
+  <p class="t4">Not ignored</p><p class="t4">Not ignored</p><p class="t4">Not ignored</p><p class="t4">Not ignored</p><p class="t4">Not ignored</p><p class="t4">Not ignored</p><p class="t4">Not ignored</p><div>
+  <link href="mailto:zach@zrhoffman.net"><p class="t5">Not ignored</p>
+  <p>Ignored</p>
+</div></p><p class="t4">Not ignored</p><meta /><p class="t4">Not ignored</p>
+  <p class="t5">Not ignored</p>
+  <p>Ignored</p>
+</div></p>
+  <link rel="author" title="Zach Hoffman" href="mailto:zach@zrhoffman.net">
+  <p class="t1">Not ignored</p>
+  <p id="toggler" class="t2">Selectively ignored</p><p id="toggler" class="t2">Selectively ignored</p><p id="toggler" class="t2">Selectively ignored</p>
+  <p class="t3">Not ignored</p>
+  <p class="t4">Not ignored</p>
+  <p class="t5">Not ignored</p>
+  <p>Ignored</p>
+</div><div>
+  <p class="t4">Not ignored</p>
+  <link rel="author" title="Zach Hoffman" href="mailto:zach@zrhoffman.net">
+  <p class="t1">Not ignored</p>
+  <p id="toggler" class="t2">Selectively ignored</p><p id="toggler" class="t2">Selectively ignored</p><p id="toggler" class="t2">Selectively ignored</p>
+  <p class="t3">Not ignored</p>
+  <p class="t4">Not ignored</p>
+  <p class="t5">Not ignored</p>
+  <p>Ignored</p>
+</div></p>
+  <link rel="author" title="Zach Hoffman" href="mailto:zach@zrhoffman.net">
+  <p class="t1">Not ignored</p>
+  <p id="toggler" class="t2">Selectively ignored</p>
+  <p class="t3">Not ignored</p>
+  <p class="t4">Not ignored</p>
+  <p class="t5">Not ignored</p><p class="t5">Not ignored</p>
+  <p>Ignored</p>
+</div>
+<script><script><script><script><script>
+  document.documentElement.offsetTop;
+  toggler.setAttribute("class", "new-class");
+</script></script></script></script></script>
+

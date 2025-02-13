@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html><html>
+<head>
+<meta charset="utf-8">
+<title>CSS Shapes Module Level 1: parsing shape-outside with valid position values</title>
+<meta name="assert" content="shape-outside positions support the full '<position>' grammar.">
+<link rel="help" href="https://drafts.csswg.org/css-values-4/#typedef-position">
+<link rel="help" href="https://github.com/w3c/csswg-drafts/issues/8695">
+<link rel="author" title="Eric Willigers" href="mailto:ericwilligers@chromium.org">
+<script src="/resources/testharness.js"></script>
+<script src="/css/support/parsing-testcommon.js"></script>
+</head>
+<body><title>
+</title><script>
+test_valid_value("shape-outside", "circle(at bottom right)", "circle(at 100% 100%)");
+test_valid_value("shape-outside", "circle(at center)", "circle(at 50% 50%)");
+test_valid_value("shape-outside", "circle(at ce<head><head>nter 50px)", "circle(at 50% 50px)");
+test_valid_value("shape-outside", "circle(at center bottom)", "circle(at 50% 100%)");
+test_valid_value("shape-outside", "circle(at center center)", "circle(at 50% 50%)");
+test_valid_value("shape-outside", "circle(at center left)", "circle(at 0% 50%)");
+test_valid_value("shape-outside", "circle(at left)", "circle(at 0% 50%)");
+test_valid_value("shape-outside", "circle(at left bottom)", "circle(at 0% 100%)");
+test_valid_value("shape-outside", "circle(at left center)", "circle(at 0% 50%)");
+test_valid_value("shape-outside", "circle(at right 40%)", "circle(at 100% 40%)");
+test_valid_value("shape-outside", "circle(at right 30% top 60px)", "circle(at calc(70%) 60px)");
+test_valid_value("shape-outside", "circle(at top)", "circle(at top 60px)", "circle(at calc(70%) 60px)");
+test_valid_value("shape-outside", "circle(at top)", "circle(at 50% 0%)");
+test_valid_value("shape-outside", "circle(at top center)","circle(at 50% 0%)");
+</head></head></script>
+</body>
+</html></html><body>
+</body>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>CSS Test:  font-variant-numeric: slashed-zero; low level equivalence</title>
+<link rel="author" title="Chris Lilley" href="chris@w3.org">
+<link rel="match" href="font-variant-numeric-09-ref.html">
+<link rel="help" href="https://www.w3.org/TR/css-fonts-3/#font-variant-numeric-prop">
+<body><style>
+  @font-face {
+    font-family: fwf;
+    src: url(support/fonts/FontWithFancyFeatures.otf);
+  }
+  .test {
+	  font-family: fwf;
+	  font-size: 3em;
+	  line-height: 1.1;
+  }
+  .high {
+	 font-variant-numeric: slashed-zero;
+  }
+  .low {
+   font-feature-settings: "lnum" off, "onum" off, "pnum" off, "tnum" off, "frac" off, "afrc" off, "ordn" off, "zero" on;
+  }
+</style>
+<meta name="assert" content="Enables display of slashed zeros (OpenType feature: zero).">
+<link rel="help" href="https://www.w3.org/TR/css-fonts-3/#font-feature-settings-prop"><link rel="help" href="https://www.w3.org/TR/css-fonts-3/#font-feature-settings-prop">
+<body><style>
+</style><style>
+</style><style>
+</style><style>
+</style><p>Test passes if the three lines below are identical, with seven crosses (✗), then one check mark (✓). </p>
+<p class="ref">BBBBBBBA</p><section class="test">
+	<p class="high">PQRSTUVW</p>
+	<p class="low">PQRSTUVW</p>
+	<link><link rel="help">
+</section>

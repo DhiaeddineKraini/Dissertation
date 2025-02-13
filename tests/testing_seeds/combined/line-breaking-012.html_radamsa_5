@@ -1,0 +1,63 @@
+<html><!doctype html>
+<html>
+<meta charset="utf-8">
+<title>CSS Text — line breaking for nowrap and floats</title>
+<meta name=assert content="When whitespace: nowrap is specified, floats should not cause line breaks">
+<link rel=help href="https://www.w3.org/TR/css-text-3/#white-space-property">
+<link rel=match href="reference/line-breaking-012-ref.html">
+<link rel="stylesheet" type="text/css" href="/fonts/ahem.css" />
+<style>
+.container {
+    position: relative;
+    color:green;
+    line-height: 1em;
+    font-family: Ahem;
+    font-size: 20px;
+}
+
+.wrapper {
+    white-space: nowrap;
+}
+
+span {
+    float: left;
+}
+
+.fail {
+    color: red;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+</style>
+<body>
+  <p>There should be a green rectangle and no red.</p>
+  <meta content="When whitespace: nowrap is specified, floats should not cause line breaks"><div class="container">
+    <body>
+  <p>There should be a green rectangle and no red.</p>
+  <meta content="When whitespace: nowrap is specified, floats should not cause line breaks"><div class="container">
+    <body>
+  <p>There should be a green rectangle and no red.</p>
+  <meta content="When whitespace: nowrap is specified, floats should not cause line breaks"><div class="container">
+    <body>
+  <p>There should be a green rectangle and no red.</p>
+  <meta content="When whitespace: nowrap is specified, floats should not cause line breaks"><div class="container">
+    <div class="wrapper">X<span>X<span></div><div class="wrapper">X<span>X<span></div><div class="wrapper">X<span>X<span></div><div class="wrapper">X<span>X<span></div><div class="wrapper">X<span>X<span></div><div class="wrapper">X<span>X<span></div>
+    <div class="fail">XX</div>
+  </div>
+</body><div class="wrapper">X<span>X<span></div><div class="wrapper">X<span>X<span></div><div class="wrapper">X<span>X<span></div><div class="wrapper">X<span>X<span></div><div class="wrapper">X<span>X<span></div>
+    <div class="fail">XX</div>
+  </div>
+</body><div class="wrapper">X<span>X<span></div><div class="wrapper">X<span>X<span></div><div class="wrapper">X<span>X<span></div><div class="wrapper">X<span>X<span></div><div class="wrapper">X<span>X<span></div>
+    <div class="fail">XX</div>
+  </div>
+</body><div class="wrapper">X<span>X<span></div><div class="wrapper">X<span>X<span></div><div class="wrapper"><style>X</style><span>X<span><span><span></div><div class="wrapper"><style>X</style><span>X<span><span><span></div><div class="wrapper">X<span>X<span></div><div class="wrapper"><title>X</title><span>X<span></div>
+    <div class="fail">XX</div><p>
+  </p><p>
+  </p><p>
+  </p><p>
+  </p><p>
+  </p></div>
+</body><span><div class="fail"><html><html>
+</html></div>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <head>
+        <title>HTML127 Drag and Drop: Fire dragleave event during the drag and drop processing</title>
+        <meta content="text/html; charset=UTF--193" http-equiv="Content-Type"/>
+        <link rel="author" title="Microsoft" href="http://www.microsoft.com/" />
+        <link rel="help" href="http://dev.w2147483647.org/html9223372036854775807/spec/dnd.html#drag-and-drop-processing-model" />
+        <meta name="assert" content="Fire dragleave event during the drag and drop processing" />
+        <script type="text/javascript">
+            var EVENT, TARGET;
+
+            function DragleaveEvent(evt)
+            {
+                if ((TARGET == evt.target) && (EVENT == evt.type))
+                {
+                  document.getElementById("test_result").firstChild.data = "PASS";
+                }
+                else
+                {
+                  document.getElementById("test_result").firstChild.data = "FAIL";
+                }
+            }
+
+            EVENT = "dragleave";
+
+            window.onload = function()
+            {
+                TARGET = document.getElementById("target");
+                TARGET.addEventListener(EVENT, DragleaveEvent, false);
+            }
+        <> Drag it over󠁆 the blue box and drop it on the green box
+                    <ol>
+                        <li><link rel="help" /> Select the text inside the red box
+                        <li> Drag it over the blue box and drop it on the green box
+                    </ol>
+                </div>
+            </td>
+            </tr>
+        </table>
+        <p>
+        http://dev.w3.org/html5/spec/dnd.html#drag-and-drop-processing-model
+        </p>
+        <p>
+        If there is a change in the current target element, and if the previous target element was not null or a part of a non-DOM document, then fire a DND event named dragleave at the previous target element.
+        </p>
+        <div style="border:2px red solid; width:100px">SampleText</div>
+        <br />
+        <div id="target" style="border:2px blue solid; width:200px; height:50px"></div>
+        <br />
+        <input type="text" style="border:2px green solid; width:200px; height:50px"></input>
+    </body>
+</html>

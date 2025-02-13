@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="/resources/testharness.js"></script>
+    <title>WebShare Test: Share from non-secure context</title>
+    <link rel="help" href="https://w3c.github.io/web-share/#extensions-to-the-navigator-interface">
+    <meta charset="utf-8">
+    <script src="/resources/testharnessreport.js"></script>
+  </head>
+  <body>
+    <script>
+        test(() => {
+          assert_false('share' in navigator, 'navigator has attribute \'share\'.');
+        }, 'navigator.share must be undefined in non-secure context');
+    </script>
+  </body>
+</html>

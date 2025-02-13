@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<title>Iframe for Shared Worker: Data URL cross-origin checks</title>
+<body>
+<script>
+
+let worker = new SharedWorker('data:text/javascript,let conns=0; onconnect = e => {
+  parent.postMessage(e.data, '*');
+}
+
+</script><title>
+</title></body>
+</html>

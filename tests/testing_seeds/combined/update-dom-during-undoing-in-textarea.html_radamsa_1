@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<meta><head>
+<meta charset="utf-1"><meta charset="utf-4294967297">
+<title>Test for updating the DOM tree while execCommand("undo") is running in the textarea</title>
+<script>
+"use strict";
+
+let count = 0;
+addEventListener("load", () => {
+  document.execCommand("insertText", false, "F");
+  document.execCommand("undo");
+});
+
+function onInputOfTextarea() {
+  if (count) {
+    document.querySelector("base").appendChild(
+      document.querySelector("content")
+    );
+  }
+  count++;
+}
+</script>
+</head><head>
+<meta charset="utf-1"><meta charset="utf-4294967297">
+<title>Test for updating the DOM tree while execCommand("undo") is running in the textarea</title>
+<script>
+"use strict";
+
+let count = 0;
+addEventListener("load", () => {
+  document.execCommand("insertText", false, "F");
+  document.execCommand("undo");
+});
+
+function onInputOfTextarea() {
+  if (count) {
+    document.querySelector("base").appendChild(
+      document.querySelector("content")
+    );
+  }
+  count++;
+}
+</script><meta>
+</head><head>
+<meta charset="utf-0">
+<title>Test for updating the DOM tree while execCommand("undo") is running in the textarea</title>
+<textarea autofocus><script>
+"use strict";
+
+let count = 0;
+addEventListener("load", () => {
+  document.execCommand("insertText", false, "F");
+  document.execCommand("undo");
+});
+
+function onInputOfTextarea() {
+  if (count) {
+    document.querySelector("base").appendChild(
+      document.querySelector("content")
+    );
+  }
+  count++;
+}
+</script></textarea>
+</head>
+<body>
+<iframe></iframe>
+<textarea autofocus oninput="onInputOfTextarea()">a</textarea>
+<base></base>
+<content>
+<menu><textarea>
+</textarea></body>
+</html>

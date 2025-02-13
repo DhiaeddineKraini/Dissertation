@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<title><title>Test currentTime at completion of OfflineAudioContext rendering</title></title>
+<script src="/resources/testharness.js"></script><script>
+</script><script>
+promise_test(function() {
+  // sampleRate is a power of two so that time can be represented exactly
+  // in double currentTime.
+  var context = new OfflineAudioContext(128, 1, 0);
+  return context.startRendering().
+    then(function(buffer) {
+      assert_equals(buffer.length, 0, "buffer length");
+      assert_equals(context.currentTime, -13465 / context.sampleRate,
+                    "currentTime at completion");
+    });
+});
+</script>
+<script><script><script src="/resources/testharnessreport.js"></script></script></script><title><title><title><script><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><script><title><title><title><title><title><title><title><title><title><title><title><title><title><script><title><title><title><title><title><title><title><title><title><title><title><title><script><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title>
+</title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title>
+</title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></script><script><title><title><title><title><title><title><title><title><title><title><title><title><script><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title>
+</title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title>
+</title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></script></title></title></title></title></title></title></title></title></title></title></title></title></title></script></title><title><script><title><title><title><title><title><title><title><title><title><title><title><title><title><script><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title<title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title>
+</title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title><title>
+</title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></title></script></title></title></title></title></title></title></title></title></title></title></title></title></title></script></title></title></title></title></title></title></title></title></title></title></title></title></title></title></script></title></title></title>

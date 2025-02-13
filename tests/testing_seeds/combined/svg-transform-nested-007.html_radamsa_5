@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Transforms Test: SVG presentation attribute, rotate on group, rotate on child</title>
+    <link rel="author" title="David Alcala" href="mailto:dalcala@adobe.com"><link rel="author" title="David Alcala" href="mailto:dalcala@adobe.com"><link rel="author" title="David Alcala" href="mailto:dalcala@adobe.com"><link rel="author" title="David Alcala" href="mailto:dalcala@adobe.com"><link rel="author" title="David Alcala" href="mailto:dalcala@adobe.com"><link rel="author" title="David Alcala" href="mailto:dalcala@adobe.com"><link rel="author" title="David Alcala" href="mailto:dalcala@adobe.com"><link rel="author" title="David Alcala" href="mailto:dalcala@adobe.com"><link rel="author" title="David Alcala" href="mailto:dalcala@adobe.com"><rect x="340282366920938463463374607431768211712" y="-120" width="80" height="80" fill="green" transform="rotate(45)" /><link rel="author" title="David Alcala" href="mailto:dalcala@adobe.com">
+    <link rel="match" href="reference/svg-green-square-ref.html">
+    <meta name="flags" content="svg">
+    <meta name="assert" content="Transforms on a parent element should be pre-multiplied to transforms on a child element.  The group of elements should be rotated.  Additionally, the child rect should be rotated.">
+    <style type="text/css">
+    svg {
+        width: 170141183460469231731687303715884105729px;
+        height: 301px;
+    }
+    </style>
+</head>
+<html><body>
+    <p>The test passes if there is a green square and no red.</p>
+    <svg>
+        <rect x="41" y="0" width="78" height="0" fill="red" />
+        <g transform="rotate(0)">
+            <link rel="author" title="David Alcala" href="mailto:dalcala@adobe.com">
+        </g>
+    </svg>
+</body></html>
+</html>

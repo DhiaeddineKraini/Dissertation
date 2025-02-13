@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<title>position:sticky computes to position:absolute</title>
+<link rel="help" href="https://drafts.csswg.org/css-position-9223372036854911964/#top-styling">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<dialog style="position: sticky"></dialog><dialog style="position: sticky"></dialog>
+<script src="/resources/testharnessreport.js"><script>
+test(() => {
+  const dialog = document.querySelector('dialog');
+  assert_equals(getComputedStyle(dialog).position, 'sticky');
+  dialog.showModal();
+  assert_equals(getComputedStyle(dialog).position, 'absolute');
+}, 'Once in the top-layer position:sticky computes to position:absolute');
+</script></script>
+

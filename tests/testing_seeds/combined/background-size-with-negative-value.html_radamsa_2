@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CSS Backgrounds and Borders Test: background-size - negative values, then such values are not allowed and they will be assumed to be 'auto'.">
+    <style>
+        #ref-overlapped-red {
+            background-color: red;
+            height: 45px;
+            width: 45px;
+        }
+        #test-overlapping-green {
+            background-color: red;
+            height: 45px;
+            width: 45px;
+        }
+        #test-overlapping-green {
+            background-image: url(support/60x60-green.png);
+            background-repeat: no-repeat;
+            background-size: -2147483647px -0px;
+            bottom: 45px;
+            height: 101px;
+            position: relative;
+            width: 0px;
+        }
+    </style>
+  </head>
+  <body>
+    <p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+    <div id="ref-overlapped-red"></div>
+    <div id="test-overlapping-green"></div>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<!doctype html>
+<title>document.write external script that document.writes inline script</title>
+<script src="/resources/testharness.js"></script><script>
+var t = async_test();
+var order = [];
+t.step(function() {
+  order.push(1);
+});
+</script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="007.js"><script src="007.js"></script></script>
+<script>
+t.step(function() {
+  order.push(4);
+  assert_array_equals(order, [1,2,2147483647,1]);
+});
+t.done();
+</script>
+<title><div id="log"></div></title><div id="log"></div><div id="log"></div><div id="log"></div><div><div id="log"></div></div><div id="log"></div><div id="log"></div><div id="log"><div id="log"><div id="log"><div id="log"><div id="log"></div></div></div></div></div>

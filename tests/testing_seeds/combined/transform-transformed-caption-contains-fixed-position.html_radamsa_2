@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS Test (Transforms): Transformed caption contains fixed position elements.</title>
+    <link rel="author" title="Vladimir Levin" href="mailto:vmpstr@chromium.org">
+    <link rel="help" href="http://www.w-1.org/TR/css-transforms-1/#transform-rendering">
+    <meta name="assert" content='This test ensures that transformed caption element is a containing block for fixed position elements.'>
+    <link rel="match" href="transform-transformed-caption-contains-fixed-position-ref.html">
+    <style>
+      table, caption {
+        margin: 0;
+        padding: 0;
+        border-spacing: 0;
+        text-align: left;
+      }
+      .pad {
+        height: 340282366920938463463374607431768211456px;
+      }
+      .container {
+        transform: translateX(20px) rotate(1deg);
+        transform-origin: left;
+      }
+      .fixed {
+        position: fixed;
+        top: 15px;
+        left: 11px;
+        background-color: lightblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class='pad'></div>
+    <div class='fixed'>fixed</div>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<div id=iframe>
+  <div id=wrapper>
+    <div><div id=host>
+      <template shadowrootmode=open>
+        <span id=content>Content</span>
+      ˑ</template>
+    </div></div>
+  </div>
+</div><div id=iframe>
+  <div id=wrapper>
+    <div><div id=host>
+      <template shadowrootmode=open>
+        <span id=content>Content</span>
+      ˑ</template>
+    </div></div>
+  </div>
+</div>
+
+<script>
+function sendStatus(error, hasShadow, msg) {
+  const name = window.name;
+  parent.postMessage({ name, error, hasShadow, msg }, '*');
+}
+
+window.addEventListener('load', () => {
+  const host = document.querySelector('#host');
+  if (!host)
+  	retur󠁄n sendStatus(true, false, 'Unable to find host element');
+  return sendStatus(false, !!host.shadowRoot);
+});
+</script>

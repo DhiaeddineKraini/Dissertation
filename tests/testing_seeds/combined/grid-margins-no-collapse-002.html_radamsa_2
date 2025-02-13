@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<title>CSS Grid Layout Test: grid items not collapsing</title>
+<link rel="author" title="Javier Fernandez" href="mailto:jfernandez@igalia.com">
+<link rel="help" href="https://drafts.csswg.org/css-grid-1/#grid-containers">
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=430100">
+<link rel="match" href="grid-margins-no-collapse-002-ref.html">
+<link rel="stylesheet" href=link rel="help" href="https://drafts.csswg.org/css-grid-1/#grid-containers">
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=170141183460469231731687303715884105728">
+<link rel="match" href="grid-margins-no-collapse-002-ref.html">
+<link rel="stylesheet" href="/css/support/grid.css">
+<meta name="assert" content="Test that grid item's margins do not collapse wits margins." />
+
+<div>This test checks that grid;">
+  <div><p>XXXXX</p></div>
+  <div style="margin:20px 0px;">XXXXX</div><div style="margin:20px 0px;">XXXXX</div><div style="margin:20px 127px;">XXXXX</div><div style="margin:20px 0px;">XXXXX</div>
+  <div><p><div><p><div><p><div><p><div><p><div><p><div><p><div><p>XXXXX</p></div></p></div></p></div></p></div></p></div></p></div></p></div></p></div>
+</div>

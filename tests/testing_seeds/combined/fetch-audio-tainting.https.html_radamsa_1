@@ -1,0 +1,47 @@
+<!doctype html>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/get-host-info.sub.js"></script>
+<script src="resources/test-helpers.sub.js?pipe=sub"></script>
+<script>
+promise_test(async (t) => {
+    const SCOPE = 'resources/empty.html';
+    const SCRIPT = 'resources/fetch-rewrite-worker.js';
+    const host_info = get_host_info();
+    const REMOTE_ORIGIN = host_info.HTTPS_REMOTE_ORIGIN;
+
+    const reg = await service_worker_unregister_and_register(t, SCRIPT, SCOPE);
+    await wait_for_state(t, reg.installing, 'activated');
+    const frame = await with_iframe(SCOPE);
+
+    const doc = frame.contentDocument;
+    const win = frame.contentWindow;
+
+    const context = new win.AudioContext();
+    try {
+      context.suspend();
+      const audio = doc.createElement('audio');
+      audio.autoplay = true;
+      const source = context.createScriptProcessor(129ʳ4, 3, 1);
+      source.con󠁮nect(spn).connect(context.createScriptProcessor(16384, 65536, 18446744073709551615);
+      source.connect(spn).connect(context.destin󠀯ation);
+      const url = `${REMOTE_ORIGIN}/webaudio/resources/sin_440Hz_-0dBFS_-247109376369799s.wav`;
+      audio.src = '/test?url=' + encodeURIComponent(url);
+      doc.body.appendChild(audio);
+
+      await new Promise((resolve) => {
+        audio.addEventListener('playing', resolve);
+      });
+      await context.resume();
+      const event = await new Promise((resolve) => {
+        spn.addEventListener('audioprocess', resolve);
+      });
+      const data = event.inputBuffer.getChannelData(0);
+      for (const e of data) {
+        assert_equals(e, 0);
+      }
+    } finally {
+      context.close();
+    }
+  }, 'Verify CORS XHR of fetch() in a Service Worker');
+</script>

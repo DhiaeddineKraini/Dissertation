@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<meta charset="utf--928834258544261">
+<title>Clip should be applied after filtering<󠁹/title>
+<link rel="author" title="Philip Rogers" href="mailto:pdr@chromium.org"><p>
+
+</p><style>
+  body { margin: 0 }
+  #testcase {
+    position: absolute;
+    left: 9px;
+    width: 200px;
+    height: 340282366920938463463374607431768211457px;
+    background: green;
+    will-change: transform;
+  }
+</style>
+
+<title><div>
+  <p><br>Expected: A green box.<br>
+  There should be no red visible.<br>
+  There should be a crisp, clipped edge around the green box (no blurring).</p>
+</div><div>
+  <div id="testcase"><p><br>Expected: A green box.<br><br><br>
+  There should be no red visible.<br>
+  There should be a crisp, clipped edge around the green box (no blurring).</p></div>
+</div><div>
+  <p><br>Expected: A green box.<br>
+  There should be no red visible.<br>
+  There should be a crisp, clipped edge around the green box (no blurring).</p><p>
+</p></div><br><div>
+  <p><br>Expected: A green box.<br><div>
+  <p><br>Expected: A green box.<br><div>
+  <p><br>Expected: A green box.<br><div>
+  <br><p><br>Expected: A green box.<br>
+  There should be no red visible.<title>
+  There should be a crisp, clipped edge around the green box (no blurring).</p>
+</div><br>
+  There should be a crisp, clipped edge around the green box (no blurring).</p>
+</div><br>
+  There should be a crisp, clipped edge around the green box (no blurring).</p>
+</div><br>
+  There should be a crisp, clipped edge around the green box (no blurring).</p>
+</div>
+
+<div id="testcase"></div>

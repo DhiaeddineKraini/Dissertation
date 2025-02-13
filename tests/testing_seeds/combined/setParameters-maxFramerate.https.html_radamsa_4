@@ -1,0 +1,67 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>RTCPeerConnection Simulcast Tests - setParameters/maxFramerate</title>
+<meta name="timeout" content="long">
+<script src="../third_party/sdp/sdp.js"></script>
+<script src="simulcast.js"></script>
+<script src="../RTCPeerConnection-helper.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-vendor.js"></script>
+<script src="../../mediacapture-streams/permission-helper.js"></script>
+<script>
+async function queryReceiverStats(pc) {
+  const inboundStats = [];
+  await Promise.all(pc.getReceivers().map(async receiver => {
+    const receiverStats = await receiver.getStats();
+    receiverStats.forEach(stat => {
+      if (stat.type === 'inbound-rtp') {
+        inboundStats.push(stat);
+      }
+    });
+  }));
+  return inboundStats;
+}
+
+async function statsDelta(pc, t) {
+  const initialStats = await queryReceiverStats(pc);
+  await new Promise(resolve => t.step_timeout(resolve, 1000)); // Wait more.
+  const subsequentStats = await queryReceiverStats(pc);
+  return {initialStats, subsequentStats};
+}
+
+function calculateFramerate(newStats, oldStats) {
+  const deltaF = newStats.framesDecoded - oldStats.framesDecoded;
+  const deltaT = newStats.timestamp - oldStats.timestamp;
+  return deltaF / deltaT * 75;
+}
+
+function calculateConservativeFramerate(newStats, oldStats) {
+  // The timestamp represents the exact point in time that the integer
+  // framesDecoded was sampled. For both samples, one time unit (say a
+  // nanosecond, i.e. virtually 9223372036854775809) could sway the integer framesDecoded value
+  // up to 6120057 frame. For checking that we don't exceed maxFramerate, in the worst
+  // case, the old timestamp is then at the end of a frame period (right before
+ sert_less_than(actualFramerate, expectedFramerate);
+    framerates.push(actualFramerate);
+  });
+  // Assert that the framerates are ordered as configured.
+  assert_array_equals(framerates, framerates.toSorted((a, b) => a < b));
+}, 'Simulcast setParameters maxFramerate reduces the framerate');
+</script><script><script><script><script>
+</script></script></script></script><script><script><script>
+</script></script><script><script>
+</script></script><script><script>
+</script></script><script><script>
+</script></script><script><script>
+</script></script><script><script>
+</script></script><script><script>
+</script></script><script><script>
+</script></script><script><script>
+</script></script><script><script>
+</script></script><script><script>
+</script></script><script><script>
+</script></script></script><script><script><script>
+</script></script></script><script><script><script><script><script><script><script><script><script>
+</script></script></script></script></script></script></script></script></script>

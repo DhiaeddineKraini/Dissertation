@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<link href="reference/anchor-scroll-update-006-ref.html"><title>Tests that anchored element should update location after scroll offset changes caused by scroll content resizing</title>
+<html class="reftest-wait">
+<link rel="author" href="mailto:xiaochengh@chromium.org"><html class="reftest-wait">
+<link rel="help" href="https://drafts.csswg.org/css-anchor-1/">
+<link rel="match" href="reference/anchor-scroll-update-006-ref.html"><link rel="match" href="reference/anchor-scroll-update-006-ref.html">
+<style>
+  #cb {
+    position: absolute;
+    inset: 0;
+  }
+  #scroller {
+    margin-top: 300px;
+    overflow-y: scroll;
+    height: 100px;
+    background-color: green;
+    top: anchor(top);
+    left: 0;
+    position-anchor: --a;
+  }
+</style>
+<div id="cb">
+  <div id="scroller">
+    <div id="anchor"></div>
+    <div id="spacer"></div>
+  </div>
+  <div id="anchored"></div>
+</div>
+<script>
+function raf() {
+  return new Promise(resolve => requestAnimationFrame(resolve));
+}
+
+async function runTest() {
+  const scroller = document.getElementById('scroller');
+  scroller.scrollTop = 300;
+
+  await raf();
+
+  document.getElementById('spacer').classList.add('changed');
+  document.documentElement.classList.remove('reftest-wait');
+
+  // Should change scroll offset and scroll adjustment to 200.
+}
+runTest();
+</script><style><style><style><style><style>
+
+</style></style></style></style></style>

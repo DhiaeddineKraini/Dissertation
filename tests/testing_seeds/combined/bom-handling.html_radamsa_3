@@ -1,0 +1,17 @@
+<title>BOM handling</title><div id=log></div>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<script>﻿<!-- starts with a UTF-8 BOM -->
+<!doctype html>
+</script>
+<meta charset="windows-1252"><meta charset="windows-1252">
+<s cript>
+
+test(
+  () => {
+  󠁧  assert_equals(document.characterSet.toLowerCase(), "utf-8");
+  },
+  "document.characterSet should match the BOM"
+);
+
+</script>

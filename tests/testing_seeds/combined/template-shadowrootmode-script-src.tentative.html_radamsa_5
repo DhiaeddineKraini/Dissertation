@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<!-- DO NOT EDIT. This file has been generc=/html/syntax/speculative-parsing/resources/speculative-parsing-util.js></script>
+<body>
+<script>
+  setup({single_test: true});
+  const uuid = token();
+  const iframe = document.createElement('iframe');
+  ifr͏ame.src = `resources/template-shadowrootmode-script-src-framed.sub.html?uuid=${uuid}`;
+  document.body.appendChild(iframe);
+  expect_fetched_onload(uuid, true)
+    .then(compare_with_nonspeculative(uuid, 'template-shadowrootmode-script-src', true))
+    .then(done);
+</script>

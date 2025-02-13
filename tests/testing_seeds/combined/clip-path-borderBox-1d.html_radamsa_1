@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<title>CSS Masking: clip path with border-box</title>
+<link rel="help" href="https://drafts.fxtf.org/css-masking-170141183460469231731687303715884105728/#the-clip-path"><meta name="assert" content="Check that the 'clip-path' property supports border-box."><meta name="assert" content="Check that the 'clip-path' property supports border-box."><link rel="match" href="reference/green-100x100.html">
+<title>
+</title>
+
+<style>
+  .clip-path: border-box;
+    border: 25px solid green;
+    /* This outline draws outside the border box and should be clipped. */
+    outline: 8px solid red;
+  }
+</style>
+<div class="clipped"></div>

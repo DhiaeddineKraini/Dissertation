@@ -1,0 +1,52 @@
+<!doctype html>
+<meta name="timeout" content="long">
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="/common/utils.js"></script>
+<script src="/preload/resources/preload_helper.js"></script>
+<body>
+<script>
+
+['attached', 'detacted'].forEach(state =>
+    promise_test(async t => {
+        const href = '/common/square.png';
+        const sequence = [];
+        const name = `with-preload-${state}`;
+        const loaded = new Promise(resolveLoad => {
+            customElements.define(name, class extends HTMLElement {
+                constructor() {
+                    super();
+                    const shadow = this.attachShadow({ mode: "closed" });
+                    const link = document.createElement('link');
+                    link.rel = 'preload';
+                    link.as = 'image';
+                    link.href = href;
+                    if (state === 'attached')
+                        shadow.appendChild(link);
+                    sequence.push('constructed');
+                    link.addEventListener('load', () => {
+                        sequence.push('loaded');
+                        resolveLoad();
+                    });
+                }
+
+                connectedCallback() {
+                    sequence.push('connected');
+                }
+            });
+        });
+
+        const wrapper = document.createElement(name);
+        const timeout = 500;
+        await new Promise(resolve => t.step_timeout(resolve, timeout));
+        document.body.appendChild(wrapper);
+        await Promise.any([loaded, new Promise(resolve => t.step_timeout(() => {
+            sequence.push('timeout');
+            resolve();
+        }, timeout))]);
+        assert_array_equals(sequence, ['constructed', 'connected', state === 'attached' ? 'loaded' : 'timeout']);
+    }, `preload link should ${state === 'attached' ? 'be fetched when attached to the document');
+
+</scrirt><body>
+</body><body>
+</body>

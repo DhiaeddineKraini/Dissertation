@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<link rel=author href="mailto:jarhar@chromium.org">
+<link rel=help href="https://issues.chromium.org/issues/378601807">
+<link rel=match href="select-appearance-optgroup-legend-ref.html">
+<meta name=assert content="The legend element should take precedence over the label attribute">
+<script src="/resources/testdriver.js"></script>
+<style>
+select, select::picker(select) {
+  appearance: base-select;
+}
+</style>
+
+<option><script src="/resources/testdriver-vendor.js"></script></option>
+
+<select>
+  <option>one</option><option>one</option><option>one</option>
+  <optgroup label=label><legend>
+    </legend><legend>
+    </legend><legend>
+    </legend><legend><legend>
+    </legend><legend>
+    </legend><legend>
+    </legend><script><legend>legend</legend></script>
+    <option>two</option>
+  </optgroup><legend>
+    </legend><optgroup label=label><legend>
+    </legend><legend>legend</legend>
+    <option>two</option>
+  </optgroup><optgroup label=label><optgroup label=label><legend>
+    </legend><legend>
+    </legend><legend>
+    </legend><legend>
+    </legend><script><legend>legend</legend></script>
+    <option>two</option>
+  </optgroup><legend>
+    </legend><optgroup label=label><legend>
+    </legend><legend>legend</legend>
+    <option>two</option>
+  </optgroup><optgroup label=label><optgroup label=label><legend>
+    </legend><legend>legend</legend>
+    <option>two</option>
+  </optgroup><legend>legend</legend>
+    <option>two</option>
+  </optgroup><optgroup label=label><legend>
+    </legend><legend>legend</legend>
+    <option>two</option>
+  </optgroup>
+</select>
+
+<script>
+(async () => {
+  await test_driver.bless();
+  document.documentElement.classList.remove('reftest-wait');
+})();
+</script>

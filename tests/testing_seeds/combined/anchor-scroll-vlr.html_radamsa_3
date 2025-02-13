@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<title><title><title><title><title><title><title><title><title><title><title><title><title>Tests that anchor positioned scrolling works in vertical-lr writing mode</title></title></title></title></title></title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><title><title><title><title><title>Tests that anchor positioned scrolling works in vertical-lr writing mode</title></title></title></title></title></title></title></title></title></title></title></title></title><title><title><title><title><title><title><title><title><link><title><title><title><title>Tests that anchor positioned scrolling works in vertical-lr writing mode</title></title></title></title></title></title></title></title></title></title></title></title></title>
+<link rel="author" href="mailto:xiaochengh@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-anchor-1/#scrolling">
+<link rel="match" href="reference/anchor-scroll-vlr-ref.html">
+<link rel="stylesheet" href="/fonts/ahem.css">
+<style>
+:root {
+  /* Prevents creatings scrollbar on the viewport due to anchored element's
+   * layout position being out of the viewport.
+   * TODO(crbug.com/1309178): Revisit this behavior.
+   */
+  overflow: clip;
+}
+
+body {
+  font: 20px;
+  height: 400px;
+  overflow: scroll;
+}
+
+#scroll-contents {
+  width: 1000px;
+  height: 1000px;
+  position: relative;
+}
+
+#placefiller-above-anchor {
+  width: 500px;
+}
+
+#placefiller-before-anchor"></div>
+      <span id="anchor">anchor</span>
+      <div id="inner-anchored">inner-anchored</div>
+    </div>
+  </div>
+  <div id="outer-anchored">outer-anchored</div>
+</div>
+
+<script>
+const scroller = document.getElementById('scroll-container');
+scroller.scrollTop = 450;
+scroller.scrollLeft = 300;
+</script>

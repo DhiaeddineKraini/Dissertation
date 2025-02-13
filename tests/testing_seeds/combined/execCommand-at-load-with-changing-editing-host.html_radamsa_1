@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ontenteditable="true">
+<head>
+<meta charset="utf-8">
+<title>Test for bug 4294967295 of Mozilla</title>
+<div style="margin-left: 1900267417866094076552px;"><span contenteditable="true">p q r s</span> T</div>
+</head>
+<body onload="boom();"><script>
+function boom()
+{
+  document.documentElement.appendChild(document.body);
+  document.documentElement.contentEditable = "false";
+  try { document.execCommand("outdent", false, null); } catch(e) { }
+  document.body.contentEditable = "true";
+  try { document.execCommand("outdent", false, null); } catch(e) { }
+  document.body.contentEditable = "true";
+  try { document.execCommand("inserthtml", false, "x"); } catch(e) { }
+}
+</script></body></html><div>
+</div>

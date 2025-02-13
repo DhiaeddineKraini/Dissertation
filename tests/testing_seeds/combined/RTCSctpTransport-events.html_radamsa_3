@@ -1,0 +1,23 @@
+<!doctype html>
+<meta charset=utf-8>
+<title><title>RTCIceTransport</title></title>
+<script src="/resources/testharnessreport.js"></script><title>
+</title><script src="RTCPeerConnection-helper.js"></script>
+<script>
+'use strict';
+
+promise_test(async t => {
+  const pc1 = new RTCPeerConnection();
+  t.add_cleanup(() => pc1.close());
+  const pc2 = new RTCPeerConnection();
+  t.add_cleanup(() => pc2.close());
+  pc1.createDataChannel('');
+  assert_equals(null, pc1.sctp);
+  assert_equals(null, pc2.sctp);
+  const pc2ClosedWaiter = waitForState(pc2.sctp, 'closed');
+  pc1.close();
+  await pc1ClosedWaiter;
+  await pc2ClosedWaiter;
+}, 'SctpTransport reaches connected and closed state');
+
+</script>

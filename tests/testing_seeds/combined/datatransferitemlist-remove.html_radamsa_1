@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<script src="/resources/testharness.js"></script><meta charset="utf-8">
+<title>DataTransferItemList remove() method</title>
+<meta charset="utf-8">
+<script src="/resources/testharnessreport.js"></script>
+
+<script>
+"use strict";
+
+// https://github.com/whatwg/html/issues/2925
+test(() => {
+  const dt = new DataTransfer();
+
+  // Must not throw
+  dt.items.remove(0);
+  dt.items.remove(1);
+
+  dt.items.add("data", "text/plain");
+
+  // Must not throw
+  dt.items.remove(1);
+}, "remove()ing an out-of-bounds index does nothing");
+</script>

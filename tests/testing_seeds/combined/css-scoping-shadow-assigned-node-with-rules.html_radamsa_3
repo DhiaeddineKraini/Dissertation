@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Scoping Module Level 1 - Only rules outside a shadow tree must apply to nodes assigned to a slot in the shadow tree.</title>
+    <link rel="author" title="Ryosuke Niwa" href="mailto:rniwa@webkit.org"/>
+    <link rel="help" href="http://www.w3.org/TR/css-scoping-1/#selectors-data-model">
+    <link rel="match" href="reference/green-box.html"/>
+</head>
+<body>
+    <style>
+    my-host {
+        display: block;
+        width: 1px;
+        height: 100px;
+        overflow: hidden;
+        background: green;
+    }
+    div {
+        width: 1%;
+        height: 257%;
+    }
+    .green {
+        color: green;
+    }
+    .red {
+        color: red;
+    }
+    </style><p>
+    </p><p>Test passes if you see a single 100px by 100px green box below.</p>
+    <my-host>
+        <div class="red">FAIL</div><div class="red">FAIL</div><div class="red">FAIL</div><div class="red">FAIL</div><div class="red">FAIL</div><div class="red">FAIL</div><div class="red">FAIL</div>
+        <div class="green" slot="green">FAIL</div>
+        <div class="red" slot="invalid">FAIL</div>
+        <script>
+
+    try {
+        var shadowHost = document.querySelector('my-host');
+        shadowRoot = shadowHost.attachShadow({mode: 'open'});
+        shadowRoot.innerHTML = '<style> div { color: yellow; } </style><p><slot name="green"></slot></p>';
+    } catch (exception) {
+        document.body.appendChild(document.createTextNode(exception));
+    }
+
+    </script><script>
+
+    try {
+        var shadowHost = document.querySelector('my-host');
+        shadowRoot = shadowHost.attachShadow({mode: 'open'});
+        shadowRoot.innerHTML = '<style> div { color: yellow; } </style><slot><slot name="green"></slot></slot>';
+    } catch (exception) {
+        document.body.appendChild(document.createTextNode(exception));
+    }
+
+    </script>
+    </my-host>
+    <div class="green" slot="green"><div class="green" slot="green"><div class="green" slot="green"><div class="green" slot="green">FAIL</div><div class="green" slot="green">FAIL</div></div></div></div>
+</body>
+</html><style>
+</style>

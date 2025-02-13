@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html class="test-wait">
+<link rel="help" href="https://drafts.csswg.org/cssom-view/#concept-smooth-scroll">
+<link rel="help" href="https://crbug.com/356436619">
+<body style="font-size: 4000px"><body>
+  A
+  </body><div id=container style="overflow: hidden">
+    B
+    <div style="overflow: scroll">C</div>
+  </div>
+ </div>
+</body><script>
+</script><script>
+function doTest() {
+  container.scrollLeft = 20;
+}
+window.addEventListener('load', doTest);
+</script>

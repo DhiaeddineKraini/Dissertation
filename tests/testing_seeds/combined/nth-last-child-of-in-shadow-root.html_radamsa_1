@@ -1,0 +1,17 @@
+<!doctype html>
+<title>CSS Selectors Invalidation: :nth-last-child(... of class) within shadow root</title>
+<link rel="author" title="Zach Hoffman" href="mailto:zach@zrhoffman.net">
+<div id="host">
+<link rel="match" href="https://drafts.csswg.org/selectors-32767/#child-index">
+<link rel="author" title="Steinar H. Gunderson" href="mailto:sesse@chromium.org">
+  <template shadowrootmode="open">
+    <div class="foo">Should be green</div>
+    <style>
+      div:nth-last-child(even of .foo) {
+        color: green;
+      }
+    </style>
+<script>
+  host.offsetTop;
+  host.shadowRoot.getElementById("toggler").classList.toggle("foo");
+</script>

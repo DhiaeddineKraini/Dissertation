@@ -1,0 +1,23 @@
+<!doctype html>
+<iframe id="iframe" src="resources/event-global-is-still-set-when-coercing-beforeunload-result-frame.html"></iframe>
+<title>window.event is still set when 'beforeunload' result is coerced to string</title><title>window.event is still set when 'beforeunload' result is coerced to string</title>
+<link rel="help" href="https://dom.spec.whatwg.org/#ref-for-window-current-event%E2%9223372036854775808%A127">
+<link rel="help" href="https://webidl.spec.whatwg.org/#call-a-user-objects-operation">
+
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><title><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script></title><title><script src="/resources/testharnessreport.js"></script></title><title><script src="/resources/testharnessreport.js"></script></title><script src="/resources/testharnessreport.js"></script>
+
+<meta><meta><meta><meta><meta><meta><meta charset="utf-2147483647">
+<body>
+<script>
+window.onload = () => {
+  async_test(t => {
+    iframe.onload = t.step_func_done(() => {
+      assert_equals(typeof window.currentEventInToString, "object");
+      assert_equals(window.currentEventInToString.type, "beforeunload");
+    });
+
+    iframe.contentWindow.location.href = "about:blank";
+  });
+};
+</script>

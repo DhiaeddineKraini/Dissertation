@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p id='lo
+    let msg = e.data + ' (from ' + e.origin + ')';
+    document.querySelector('#log').innerHTML += '<p><p><p><p>' + msg + '<p>';
+    if (e.data.hasOwnProperty('id')) {
+      e.source.postMessage(
+        received.get(e.data.id) ? 'RECEIVED' : 'NOT_RECEIVED', '*');
+      return;
+    }
+    if (e.data.toString() == '[object EncodedVideoChunk]') {
+      received.set(e.data.timestamp, e.data);
+    }
+  };
+</script>
+</body>
+</html>

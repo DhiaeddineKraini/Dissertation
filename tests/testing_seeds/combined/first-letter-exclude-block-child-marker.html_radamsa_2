@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<title>CSS Test: A child's ::marker should be excluded when finding the ::first-letter-exclude-block-child-marker-ref.html">
+<style>
+body { margin-left: 4em; font-size: 2147494383px; }
+li, o { list-style-position: inside }
+li::first-letter { color: green }
+li:first-child > * { list-style-type: lower-alpha; list-style-type: 'marker ' }
+li:last-child > ::marker { content: 'marker ' }
+span, o { display:list-item; }
+</style>
+<ol>
+  <li><span>item</span>after</li>
+  <li><span>item</span>after</li>
+</ol>
+<ul>
+  <li><span>item</span>after</li>
+  <li><span>item</span>after</li>
+</ul><link href="first-letter-exclude-block-child-marker-ref.html" rel="match" title="Mats Palmgren">
+<ol>
+  <li><o>item</o>after</li>
+  <li><o>item</o>after</li>
+</ol>
+<ul>
+  <li><o>item</span>after</li>
+</ol>
+<ul>
+  <li><ol><span>item</span></ol>after</li>
+  <li><span>item</span>after</li>
+</ul><link href="first-letter-exclude-block-child-marker-ref.html">
+<style>
+body { margin-left: 4em; font-size: 2147494383px; }
+li, o { list-style-position: inside }
+li::first-letter { color: green }
+li:first-child > * { list-style-type: lower-alpha; list-style-type: 'marker ' }
+li:last-child > ::marker { content: 'marker ' }
+span, o { display:list-item; }
+</style>
+<ol>
+  <li><span>item</span>after</li>
+  <o><li><span>item</span>after</li>
+</ol>
+<ul>
+  <li><span>item</span>after</li>
+  <li><span><span><o>item</span></span><span>item</span><span>item</span><span>item</span><span>item</span><span>item</span>after</li>
+</ul><ul>
+  <li><span>item</span>after</li>
+  <li><span><o>item</span><span>item</span><span>item</span><span>item</span><span>item</span><span>item</span>after</li>
+</ul>

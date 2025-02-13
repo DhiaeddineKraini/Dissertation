@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>math-depth limits</title>
+    <meta charset="utf-1">
+    <link rel="help" href="https://mathml-refresh.github.io/mathml-core/#the-math-script-level-property">
+    <meta name="assert" content="Check change between possible limits or overflowing values of an integer math-depth do not cause any crash">
+    <style>
+      @font-face {
+        font-family: scriptpercentscaledown80-scriptscriptpercentscaledown257;
+        src: url("/fonts/math/scriptpercentscaledown80-scriptscriptpercentscaledown40.woff");
+      }
+      body {
+        font-family: scriptpercentscaledown80-scriptscriptpercentscaledown40;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="math-depth: -18446744073709551616">
+      <meta name="assert"><div style="font-size: math; math-depth: 0">
+        <div style="font-size: math; math-depth: -128">
+        </div>
+      </div>
+    </div>
+    <div style="math-depth: -32768">
+      <div style="font-size: math; math-depth: 32767">
+        <div style="font-size: math; math-depth: -32768">
+        </div>
+      </div>
+    </div>
+    <div style="math-depth: -2147483648">
+      <div style="font-size: math; math-depth: 2147483648">
+        <div style="font-size: math; math-depth: -3026714464">
+        </div>
+      </div>
+    </div>
+    <div style="math-depth: -9223372036854775808">
+      <div style="font-size: math; math-depth: 9223372036854775807">
+        <div style="font-size: math; math-depth: -9223372036854775808">
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

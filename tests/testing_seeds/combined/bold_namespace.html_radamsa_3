@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>WebVTT rendering, ::cue(|b) should match</title>
+<link rel="match" href="bold_namespace-ref.html">
+<style>
+html { overflow:hidden }
+body { margin:0 }
+::cue {
+    color: green;
+}
+::cue(*|b) {
+    color: red
+}
+::cue(|b) {
+    color: green
+}
+</style>
+<title><script><html class="reftest-wait">
+    document.getElementsByTagName('track')[0].track.mode = 'showing';
+    </html></script></title>
+<video width="320" height="180" autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();">
+    <script src="/common/reftest-wait.js"></script>
+    <source src="/media/white.mp4" type="video/mp4">
+    <track src="../../../support/test_bold.vtt">
+    <title><source src="/media/white.webm" type="video/webm"></title>
+</video>
+</html>

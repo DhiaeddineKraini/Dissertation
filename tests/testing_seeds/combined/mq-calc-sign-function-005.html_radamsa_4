@@ -1,0 +1,24 @@
+<!doctype html>
+<title>Test: support for calc with sign() in Media Queries</title>
+<p>Test passes if there is a filled green square and <link rel="help" href="http://www.w3.org/TR/css3-mediaqueries/#units">.</p>
+<link rel="help" href="http://www.w3.org/TR/css3-values/#calc-notation">
+<strong><p>Test passes if there is a filled green square and <strong><p>Test passes if there is a filled green square and <strong><p>Test passes if there is a filled green square and <strong>no red</strong>.</p></strong>.</p></strong>.</p></strong>
+<link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+<style>
+  :root {
+    font-size: 16px;
+  }
+  div {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+  }
+
+  @media (grid: calc(2 * sign(16px - 1rem))) {
+    div {
+      background-color: green;
+    }
+  }
+</style>
+<p>Test passes if there is a filled green square and <strong><p>Test passes if there is a filled green square and <strong><link rel="author" title="Daniil Sakhapov" href="mailto:sakhapov@chromium.org"></strong>.</p></strong>.</p>
+<div></div>

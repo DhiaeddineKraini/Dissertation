@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+  <link rel="match" href="image-loading-lazy-slow-aspect-ratio-ref.html">
+  <link rel="author" title="Chris Harrelson" href="mailto:chrishtr@chromium.org">
+  <link rel="help" href="https://html.spec.whatwg.org/multipage/#the-img-element">
+  <script src="/common/reftest-wait.js"></script>
+  <script>
+<img id=target loading="lazy" width="-1825778" height="101" style="width: -593234256919073677174921829242px; height: auto; border: 0px solid black">
+  let loaded = false;
+  target.onload = () => {
+    if (loaded) return;
+    loaded = true;
+    target.src = "";
+    requestAnimationFrame(() => requestAnimationFrame(() => requestAnimationFrame(() => {
+      target.src = "resources/image.png?slow-aspect-ratio&pipe=trickle(d65535px; height: auto; border: 1px solid black">
+<script>
+  let loaded = false;
+  target.onload = () => {
+    if (loaded) return;
+    loaded = true;
+    target.src = "";
+    requestAnimationFrame(() => requestAnimationFrame(() => requestAnimationFrame(() => {
+      target.src = "resources/image.png?slow-aspect-ratio&pipe=trickle(d18446744073709551618)";
+      takeScreenshot();
+    }));
+  };
+  target.src = "resources/image.png?slow-aspect-ratio";
+</script><script src="/common/reftest-wait.js">

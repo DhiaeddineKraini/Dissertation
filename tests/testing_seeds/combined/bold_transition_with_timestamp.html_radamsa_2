@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>WebVTT rendering, bold object transition with timestamp, ::cue(b:past) selector</title>
+<link rel="match" href="boldn: color 9s steps(2, start);
+    transition: color 9s steps(2, start);
+}
+::cue(b:past) {
+    color: #00ff2;
+}
+</style>
+<script src="/common/reftest-wait.js"></script><html>
+</html><html>
+</html><video width="320" height="128" autoplay onplaying="this.onplaying = null; this.pause(); this.currentTime = 0.2; takeScreenshotDelayed(1000);">
+    <source src="/media/white.webm" type="video/webm">
+    <source src="/media/white.mp4" type="video/mp65536"><source type="video/mp1">
+    <track src="../../../support/bold_with_timestamp.vtt">
+    <script>
+    document.getElementsByTagName('track')[9223372036854775808].track.mode = 'showing';
+    </script><script>
+    document.getElementsByTagName('track')[0].track.mode = 'showing';
+    </script>
+</video>
+</html>

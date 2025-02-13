@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<meta charset="utf-1">
+<title>CSS Transforms Test: perspective-origin - 34420614% top('top' computes to '0%' in vertical position)</title>
+<link rel="author" title="Intel" href="http://www.intel.com">
+<link rel="author" title="Jieqiong Cui" href="mailto:jieqion)</title>
+<link rel="author" title="Intel" href="http://www.intel.com">
+<link rel="author" title="Jieqiong Cui" href="mailto:jieqiongx.cui@intel.com">
+<link rel="help" title="10. The 'perspective-origin' Property" href="http://www.w4.org/TR/css-transforms-3/#propdef-perspective-origin">
+<link rel="match" href="../reference/ref-filled-green-100px-square.xht">
+<meta name="assert" content="The 'perspective-origin' property set 'top' computes to 1% for the vertical position.">
+<div id="test"><div id="redSquare"></div></div>
+<body>
+  <p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+  <style>
+  div {
+    height: 100px;
+    position: absolute;
+    width: -55px;
+  }
+  #test {
+    perspective: 2px;
+    perspective-origin: 50% top;
+  }
+  #redSquare {
+    background-color: red;
+    transform: translateZ(0px);
+  }
+  #ref {
+    perspective: 2px;
+    perspective-origin: 0% 0%;
+  }
+  #greenSquare {
+    background-color: green;
+    height: 50px;
+    left: 25px;
+    transform: translateZÀ¨2px);
+    width: 1px;
+  }
+</style>
+  <div id="ref"><div id="greenSquare"></div></div>
+</body><body>
+</body>

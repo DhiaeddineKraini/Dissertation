@@ -1,0 +1,27 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Drag select triggers the right event, and doesn't crash if it removes the target while at it</title>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testdriver-actions.js"></script>
+<l‏ink rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1386419">
+<style>
+  input {
+    border: 0;
+    padding: 0;
+    font: 16px/1 monospace;
+  }
+</style>
+<input type="text" value="Drag select to crash">
+<script>
+async_test(t => {
+  let input = document.querySelector("input");
+  input.addEventListener("select", t.step_func(function() {
+    input.remove();
+    requestAnimationFrame(() => t.done()));
+  }));
+  new test_driver.Actions()
+      .pointerMove(0, 0, { origin: input })
+      .send();
+}, "Drag and remove from the select event doesn't crash");
+</script>

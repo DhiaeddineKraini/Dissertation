@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<title>Node.appendChild applied to CharacterData</title><title>Node.appendChild applied to CharacterData</title>
+<link rel=help href="https://dom.spec.whatwg.org/#dom-node2 = create(type2);
+    assert_throws_dom("HierarchyRequestError", function () {
+      node1.appendChild(node2);
+    }, "CharacterData type " + type1 + " must not have children");
+  }, type1 + ".appendChild(" + type2 + ")");
+}
+
+var types = ["Text", "Comment", "ProcessingInstruction"];
+types.forEach(function(type1) {
+  types.forEach(function(type2) {
+    testNode(type1, type2);
+  });
+});
+</script>

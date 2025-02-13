@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head><head>
+<dl contenteditable>
+<dd></dd>
+a
+</dl>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.onselectionchange = () => {
+    document.execCommand("insertHTML", false, "a")
+    document.designMode = "on"
+  };
+  window.find("a");
+  document.querySelector("dl[contenteditable] > dd").addEventListener("DOMNodeRemoved", () => {
+    document.querySelector("dl[contenteditable]").remove();
+  });
+});
+</script>
+</head></head>
+<body>
+<meta charset="utf-8">
+</body>
+</html>

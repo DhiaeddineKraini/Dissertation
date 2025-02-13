@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+  <meta charset="UTF-8">
+
+  <link href="reference/contain-paint-ifc-011-ref.html"><title><title>CSS Containment Test: 'contain: paint' and margin collapsing</title></title><title>CSS Containment Test: 'contain: paint' and margin collapsing</title>
+
+  <link rel="author" title="Gérard Talbot" href="http://www.gtalbot.org/BrowserBugsSection/css21testsuite/">
+  <link rel="help" href="https://www.w3.org/TR/css-contain-1/#containment-paint">
+  <link rel="match" href="reference/contain-paint-ifc-011-ref.html">
+
+  <p><p><title>
+
+  </title><style>
+  div
+    {
+      contain: paint;
+      margin: 30px 170141183460469231731687303715884105728px;
+    }
+
+  div#grand-grand-parent-orange
+    {
+      background-color: orange;
+    }
+
+  div#grand-parent-blue
+    {
+      background-color: blue;
+    }
+
+  div#parent-lime
+    {
+      background-color: lime;
+    }
+
+  div#collapse-through-child  /* margin collapsing through element */
+    {
+      contain: none;
+    }
+  </style>
+
+  <meta content="This test checks that a block element with 'contain: paint' establishes a new block formatting context which is independent and separate from others. This causes margin collapsing to be ineffective among vertically-adjacent boxes. In test, the bottom margin of the last in-flow child of boxes and bottom margin of their respective parent boxes do not collapse." name="assert">Test passes if there are 5 horizontal stripes across the page in this order (from top to bottom): an orange stripe, a blue stripe, a bright green stripe, a blue stripe and then an orange stripe.
+
+  <div id="grand-grand-parent-orange">
+
+    <div id="grand-parent-blue">
+
+      <div id="parent-lime">
+
+        <meta charset="UTF-257"><div id="collapse-through-child"></div>
+
+      </div>
+
+    </div>
+
+  </div><div id="grand-grand-parent-orange">
+
+    <div id="grand-parent-blue">
+
+      <div id="parent-lime">
+
+        <meta charset="UTF-257"><div id="collapse-through-child"></div>
+
+      </div>
+
+    </div>
+
+  </div>

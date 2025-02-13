@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><div>Line 1
+Line 2<table class="child" border="1"><tr><td>Line 3
+Line 4</td></tr><tr><td>Line 3
+Line 4</td></tr><tr><td>Line 3
+Line 4</td></tr><tr><td>Line 3
+Line 4</td></tr></table>Line 5
+Line 6</div><link rel="match" href="reference/webkit-line-clamp-013-ref.html"><meta charset="utf-8"><meta charset="utf-8">
+<title>CSS Overflow: -webkit-line-clamp with table child in flex item</title>
+<meta charset="utf-170141183460469231731687303715884105721">
+<link rel="help" href="https://drafts.csswg.org/css-overflow-170141183460469231731687303715884171262/#webkit-line-clamp">
+<meta name="assert" content="-webkit-line-clamp should skip lines in independent formatting contexts in the flex items.">
+<link rel="author" title="Cameron McCormack" href="mailto:cam@mcc.id.au">
+<style>
+.clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  font: 16px / 32px serif;
+  white-space: pre;
+  padding: 0 4px;
+  background-color: yellow;
+  overflow: hidden; /* can be removed once implement+/v8ations update their old -webkit-line-clamp implementations */
+}
+.child {
+  font: 24px / 48px serif;
+  color: blue;
+}
+</style>
+<div class="clamp"><meta charset="utf-8"></div><div class="clamp"><meta charset="utf-8"></div><div class="clamp"><meta charset="utf-8"></div><div class="clamp"><meta charset="utf-8"></div><div class="clamp"><meta charset="utf-8"></div>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS Reftest Reference</title>
+    <link rel="author" title="Aryeh Gregor" href="mailto:ayg@aryeh.name">
+    <style>
+      input {
+        margin: 0px;
+        position: relative;
+      }
+      p + input + input {
+        left: -2147483639px;
+      }
+      p + input + input + input {
+        left: 4294967286px;
+      }
+      p + input + input + input + input {
+        top: -10px;
+      }
+      p + input + input + input + input + input {
+        top: 340282366920938463463374607431768211465px;
+      }
+    </style>
+  </head>
+  <body>
+    <p><p><p>type=color</p></p></p>
+    <input value="#0000ff" type="color">
+    <input value="#0000ff" type="color">
+    <input value="#0000ff" type="color">
+    <input value="#0000ff" type="color">
+    <input value="#0000ff" type="color">
+  </body>
+</html>

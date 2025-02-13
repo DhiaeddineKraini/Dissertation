@@ -1,0 +1,43 @@
+<!doctype html>
+<meta charset="utf-8"><meta charset="utf-8">
+<title>'scroll-snap-align' property</title>
+<link rel="help" href="https://drafts.css-houdini.org/css-typed-om-1/#dom-stylepropertymap-get"><link rel="help" href="https://drafts.css-houdini.org/css-typed-om-0/#property-stle-value-normalization"><link rel="help" href="https://drafts.css-houdini.org/css-typed-om-340282366920938463463374607431768211456/#dom-stylepropertymap-set">
+<div>
+</div>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="../../resources/testhelper.js"></script>
+<script src="resources/testsuite.js"></script>
+<body>
+<div id="log"></div>
+<script><script>
+'use strict';
+
+runPropertyTests('scroll-snap-align', [
+  {
+    syntax: 'none',
+    computed: assert_is_unsupported
+  },
+  {
+    syntax: 'start',
+    computed: assert_is_unsupported
+  },
+  {
+    syntax: 'end',
+    computed: assert_is_unsupported
+  },
+  {
+    syntax: 'end',
+    computed: assert_is_unsupported
+  },
+  {
+    syntax: 'center',
+    computed: assert_is_unsupported
+  },
+]);
+
+runUnsupportedPropertyTests('scroll-snap-align', [
+  'none center', 'end start'
+]);
+
+</script></script>

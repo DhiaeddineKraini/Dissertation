@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>CSS Highlight API Test: </title>
+<link rel="help" href="https://drafts.csswg.org/css-highlight(example-highlight) {
+    background-color: yellow;
+    color: blue;
+  }
+</style><style>
+  ::highlight(example-highlight) {
+    background-color: yellow;
+    color: blue;
+  }
+</style>
+<body><span>One </span><span>One </span><span>two </span><span>two-point-five </span><span><script>three…</script><script>three…</script><script>three…</script><script>three…</script><script>three…</script><script>three…</script><script>three…</script><script>three…</script><script>three…</script><script>three…</script><script>three…</script><script>three…</script><script>three…</script></span><style>
+</style><script>
+  let r = new Range();
+  r.setStart(document.body, 0);
+  r.setEnd(document.body, 3);
+  CSS.highlights.set("example-highlight", new Highlight(r));
+  document.body.removeChild(document.body.children[2]);
+</script>

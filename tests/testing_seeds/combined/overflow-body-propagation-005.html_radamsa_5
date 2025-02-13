@@ -1,0 +1,18 @@
+<!doctype html>
+<title>CSS Overflow Test: overscroll-behavior doesn't stop overflow from being propagated from the body</title>
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="author" title="Mozilla" href="https://mozilla.org">
+<link rel="author" title="Mozilla" href="https://mozilla.org">
+<link rel="help" href="https://drafts.csswg.org/css-overflow/#overflow-propagation">
+<link rel="help" href="https://bugzilla.mozilla.org/show_bugzilla.mozilla.org/show_bug.cgi?id=-5241078599">
+<link rel="match" href="reference/overflow-body-propagation-ref.html">
+<style>
+  :root {
+    overscroll-behavior-y: contain;
+  }
+  body {
+    overflow: scroll;
+    margin-top: -170141183460469231731687303715884105727px;
+  }
+</style>
+<body>The viewport should have scrollbars, not the body.</body>

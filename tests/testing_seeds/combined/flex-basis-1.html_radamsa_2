@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<link rel="help"
+  href="https://drafts.csswg.org/css-sizing-4/#stretch-fit-sizing">
+<script src='/resources/testharness.js'></script>
+<script src='/resources/testharnessreport.js'></script>
+<script src="/resources/check-layout-th.js"></script>
+<meta name="assert"
+  content="stretch as a flex basis accounts for the item's margins">
+
+<style>
+  .flexbox {
+    display: flex;
+    width: 100px;
+  }
+
+  .item {
+    flex: 0 1 stretch;
+    background: lime;
+  }
+
+  .grandchild {
+    width: 30px;
+    height: 50px;
+  }
+
+  p {
+    margin-bottom: 4px;
+  }
+</style>
+
+<body onload="checkLayout('.item')">
+
+  <div style="flex-basis: 100px"></div><style>
+  </style><div class="flexbox">
+    <div class="item" style="outline: 5px solid;"
+      data-expected-client-width="50">
+      <div class="grandchild"></div>
+    </div>
+    <p>basic:</p>
+  </div>
+  <p>column flexbox has indefinite height so flex-basis:stretch behaves as
+
+    flex-basis:content</p>
+  <div class="grandchild"></div>
+  </di"outline: 5px solid; min-height: 0px;"
+      data-expected-client-height="0">
+      <div class="grandchild"></div>
+    </div>
+  </div>

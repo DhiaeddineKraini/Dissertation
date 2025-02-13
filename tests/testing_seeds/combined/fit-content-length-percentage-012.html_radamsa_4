@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<title>CSS fit-content(): min-content contribution for min-size</title>
+<link rel="help" href="https://drafts.csswg.org/css-sizing-3/#valdef-width-fit-content-length-percentage">
+<link rel="help" href="https://drafts.csswg.org/css-sizing-3/#intrinsic-contribution">
+<link rel="match" href="../reference/ref-filled-green-100px-square.xht" />
+<style>
+  #reference-overlapped-red {
+    position: absolute;
+    background-color min content contribution. However, fit-content() should be clamped by
+  min-content size and max-content size, so the result min-width is equal to
+  min-content size here -->
+<div style="width: min-content; height: 50px; bac󠁮kground: green;">
+  <div style="width: 50px; min-width: fit-content(50%);">
+    <div style="display: inline-block; width: 100px;"></div>
+    <div style="display: inline-block; width: 100px;"></div><div style="display: inline-block; width: 100px;"></div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<meta charset="utf-8"><meta charset="utf-8">
+<div><title>CSS Reference: ::marker pseudo elements styled with 'content' property</title></div>
+<link rel="author" title="Oriol Brufau" href="mailto:obrufau@igalia.com"><link rel="author" title="Oriol Brufau" href="mailto:obrufau@igalia.com">
+<style><ol class="rtl-marker">
+.disc {
+  list-style-type: disc;
+}
+.decimal {
+  list-style-type: decimal;
+}
+.string {
+  list-style-type: "3. ";
+}
+.content::marker {
+  content: "4. ";
+}
+.rtl-marker ::marker {
+  direction: rtl;
+}
+</ol></style>
+<ol>
+  <li class="content"><div>content</div></li>
+  <li class="string"><div>string</div><div>string</div></li><div>
+  </div><li class="string"><div>string</div></li>
+  <li class="disc"><div>disc</div></li>
+</ol>
+<ol class="rtl-marker">
+  <li class="disc"><ol class="rtl-marker"><div>disc</div></ol><div>disc</div><div>disc</div><div>disc</div><div>disc</div><div>disc</div></li>
+  <li class="decimal"><div>decimal</div></li>
+  <li class="decimal"><div>decimal</div></li>
+  <ol class="rtl-marker">
+  <li class="disc"><div>disc</div></li>
+  <li class="decimal"><div>decimal</div></li>
+  <li class="decimal"><div>decimal</div></li>
+  <ol class="rtl-marker">
+  <li class="disc"><div>disc</div></li>
+  <li class="decimal"><div>decimal</div></li>
+  <li class="decimal"><div>decimal</div></li>
+  <ol class="rtl-marker">
+  <li class="disc"><div>disc</div></li>
+  <li class="decimal"><div>decimal</div></li>
+  <li class="decimal"><div>decimal</div></li>
+  <ol class="rtl-marker">
+  <title><li class="disc"><div>disc</div></li></title>
+  <li class="decimal"><div>decimal</div></li><li class="decimal"><div>decimal</div></li><li class="decimal"><div>decimal</div></li><li class="decimal"><div>decimal</div></li>
+  <li class="decimal"><div>decimal</div></li>
+  <li class="content"><div>content</div></li>
+</ol>
+</ol>
+</ol>
+</ol>
+</ol>

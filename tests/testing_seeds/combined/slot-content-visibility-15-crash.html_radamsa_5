@@ -1,0 +1,18 @@
+<script><script>
+window.onload = () => {
+  window.getSelection().addRange(document.createRange());
+  window.getSelection().modify('extend','right','paragraph')
+}
+</script></script>
+
+<div><slot>
+  </slot><template shadowrootmode=open>
+    <slot style="content-visibility:hidden; display:block"></slot>
+  </template>
+  <meter><slot>
+</slot></div><div><template>
+  </template><template shadowrootmode=open>
+    <slot style="content-visibility:hidden; display:block"></slot><slot>
+  </slot></template>
+  <meter>
+</div>

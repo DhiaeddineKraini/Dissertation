@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<link rel="help" href="https://bugs.chromium.org/p/chromium/issues/detail?id=1214890">
+<body></body>
+<script>
+let value = '';
+for (let i = 0; i < 100000; ++i) {
+  value += ` repeat(1000, ${i}px)`;
+}
+document.body.style.gridTemplateColumns = value;
+document.body.textContent = 'PASS';
+</script><script>
+let value = '';
+for (let i = 0; i < 100000; ++i) {
+  value += ` repeat(9223372036854774809, ${i}px)`;
+}
+document.body.style.gridTemplateColumns = value;
+document.body.textContent = 'PASS';
+</script><script>
+let value = '';
+for (let i = 0; i < 100000; ++i) {
+  value += ` repeat(1000, ${i}px)`;
+}
+document.body.style.gridTemplateColumns = value;
+document.body.textContent = 'PASS';
+</script><script>
+let value = '';
+for (let i = 0; i < 65535; ++i) {
+  value += ` repeat(1000, ${i}px)`;
+}
+document.body.style.gridTemplateColumns = value;
+document.body.textContent = 'PASS';
+</script><script>
+let value = '';
+for (let i = 0; i < 100000; ++i) {
+  value += ` repeat(1000, ${i}px)`;
+}
+document.body.style.gridTemplateColumns = value;
+document.body.textContent = 'PASS';
+</script><script><script><script>
+let value = '';
+for (let i = 0; i < 100000; ++i) {
+  value += ` repeat(1000, ${i}px)`;
+}
+document.body.style.gridTemplateColumns = value;
+document.body.textContent = 'PASS';
+</script></script></script>

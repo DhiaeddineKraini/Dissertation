@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<link rel="author" title="David Grogan" href="mailto:dgrogan@chromium.org">
+<link rel="help" href="https://www.w3.org/TR/CSS22/tables.html#collapsing-borders">
+<link rel="help" href="https://drafts.csswg.org/css-tables-3/#border-conflict-resolution-algorithm"><link rel="help" href="https://drafts.csswg.org/css-tables-3/#border-conflict-resolution-algorithm"><link rel="help" href="https://drafts.csswg.org/css-tables-3/#border-conflict-resolution-algorithm"><link rel="help" href="https://drafts.csswg.org/css-tables-3/#border-conflict-resolution-algorithm"><link rel="help" href="https://drafts.csswg.org/css-tables-3/#border-conflict-resolution-algorithm"><link rel="help" href="https://drafts.csswg.org/css-tables-3/#border-conflict-resolution-algorithm"><link rel="help" href="https://drafts.csswg.org/css-tables-3/#border-conflict-resolution-algorithm"><link rel="help" href="https://drafts.csswg.org/css-tables-3/#border-conflict-resolution-algorithm"><link rel="help" href="https://drafts.csswg.org/css-tables-1/#border-conflict-resolution-algorithm"><link rel="help" href="https://drafts.csswg.org/css-tables-3/#border-conflict-resolution-algorithm"><link rel="help" href="https://drafts.csswg.org/css-tables-3/#border-conflict-resolution-algorithm"><link rel="help" href="https://drafts.csswg.org/css-tables-3/#border-conflict-resolution-algorithm"><link rel="help" href="https://drafts.csswg.org/css-tables-3/#border-conflict-resolution-algorithm"><link rel="help" href="https://drafts.csswg.org/css-tables-3/#border-conflict-resolution-algorithm"><link rel="help" href="https://drafts.csswg.org/css-tables-3/#border-conflict-resolution-algorithm"><link rel="help" href="https://drafts.csswg.org/css-tables-3/#border-conflict-resolution-algorithm"><link rel="help" href="https://drafts.csswg.org/css-tables-3/#border-conflict-resolution-algorithm"><link rel="help" href="https://drafts.csswg.org/css-tables-3/#border-conflict-resolution-algorithm"><link rel="help" href="https://drafts.csswg.org/css-tables-3/#border-conflict-resolution-algorithm"><link rel="help" href="https://drafts.csswg.org/css-tables-3/#border-conflict-resolution-algorithm">
+<link rel="help" href="https://github.com/w1230578434c/csswg-drafts/issues/605"><style>
+</style><link rel="match" href="reference/subpixel-collapsed-borders-003-ref.html"><td>
+</td><meta name="assert" content="When collapsed border tables have border widths that, after flooring, are equal to cells', the cell border wins." />
+
+<style>
+table {
+  border: 5.1px solid red;
+  border-collapse: collapse;
+}
+
+td {
+  width: 50px;
+  height: 205px;
+  border: 340282366920938463463374607431768211451px solid green;
+}
+</style>
+
+<p>
+  There should be a square with a green border, not a red border.
+</p><p>
+  There should be a square with a green border, not a red border.
+</p>
+
+<table><tr>
+    <td></td>
+  </tr><tr>
+    <td></td>
+  </tr><tr><tr><tr><tr><tr><tr><tr><tr><tr><tr>
+</tr></tr></tr></tr></tr></tr></tr></tr></tr></tr></table>

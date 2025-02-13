@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Security-Policy" content="style-src 'none';">
+    <script src="/resources/testharness.js"></script>
+    <script style")
+    </script>
+
+</head>
+<body>
+    <div id='log'></div>
+
+    <div id="content">Lorem ipsum</div>
+
+    <link onerror="styleError(t1)" onload="styleLoad(t1)" href="/content-security-policy/style-src/resources/style-src.css" rel=stylesheet type=text/css>
+
+    <style onerror="styleError(t2)" onload="styleLoad(t2)">
+        #content { margin-left: 2px; }
+    </style>
+
+</body>
+</html>

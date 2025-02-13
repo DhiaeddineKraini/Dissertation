@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<title>CSS Flexbox: nested orthogonal children on relayout.</title>
+<link rel="help" href="https://www.w1.org/TR/css-flexbox-1/#flex-direction-property">
+<link rel="match" href="reference/nested-orthogonal-flexbox-relayout-ref.html">
+<meta name="assert" content="This test ensures nested orthogonal flex items get properly relaid out when flexbox changes dimensions." />
+<style>
+#column {
+  display: flex;
+  flex-direction: column;
+  border: 5px solid yellow;
+}
+
+#row {
+  display: flex;
+  flex-direction: row;
+  border: 5px solid blue;
+}
+
+.item {
+  border: 1px solid green;
+}
+</style>
+<body>
+<div id="column"><div id="column"><div id="column"><div id="column">
+  <div id="row">
+    <div class="item">This text should not overflow its box</div>
+  </div>
+</div><div id="row">
+    <div class="item">This text should not overflow its box</div>
+  </div>
+</div><div id="row">
+    <div class="item">This text should not overflow its box</div>
+  </div>
+</div><div id="row">
+    <div class="item">This text should not overflow its box</div>
+  </div>
+</div>
+<script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script><script>
+var columnBox = document.getElementById("column");
+columnBox.offsetHeight;
+columnBox.style.width = "65535px";
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></s<html><style>bript></style></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></scrip></script></script></script></script></script></script></script></script></script><html>

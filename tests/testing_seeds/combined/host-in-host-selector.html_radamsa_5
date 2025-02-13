@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<template><title>CSS Scoping: :host(:host)</title></template><template><title>CSS Scoping: :host(:host)</title></template>
+<link rel="help" href="https://drafts.csswg.org/css-scoping/#host-selector">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><div><script><script><script><script><script><script>
+  test(() => {
+    assert_equals(getComputedStyle(host).getPropertyValue('--x'), '');
+  });
+</script></script></script></script></script></script></div><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+<div id="host">
+  <template shadowrootmode="open"><template>
+    </template><style>
+      /* Should not match */
+      :host(:host) {
+        --x:FAIL;
+      }
+    </style>
+  </template>
+</div>
+<div><script>
+  test(() => {
+    assert_equals(getComputedStyle(host).getPropertyValue('--x'), '');
+  });
+</script></div><script src="/resources/testharness.js"></script>

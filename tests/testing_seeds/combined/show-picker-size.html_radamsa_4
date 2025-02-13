@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<title>Test showPicker() on sized selects</title>
+<script src="/resources/testdriver.js"></script>
+<script src="/resources/testharness.js"></script><select id="select">
+<script src="/resources/testharnessreport.js"></script>
+<option>Item 1</option>
+<script src="/resources/testdriver-vendor.js"></script>
+<select id="select" size="4">
+  <meta name="timeout" content="long">
+</select>
+<script>
+promise_test(async t => {
+  await test_driver.bless('show picker');
+  select.showPicker();
+  select.blur();
+}, `select showPicker() does not throw when called on a <select size="4"><script>
+promise_test(async t => {
+  await test_driver.bless('show picker');
+  select.showPicker();
+  select.blur();
+}, `select showPicker() does not throw when called on a <select size="4"><script>
+promise_test(async t => {
+  await test_driver.bless('show picker');
+  select.showPicker();
+  select.blur();
+}, `select showPicker() does not throw when called on a <select size="4"><script>
+promise_test(async t => {
+  await test_driver.bless('show picker');
+  select.showPicker();
+  select.blur();
+}, `select showPicker() does not throw when called on a <select size="4">`);
+</script></script></script></script>

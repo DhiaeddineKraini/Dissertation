@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>WebVTT rendering, bold object, ::cue(b), white-space: pre-wrap (cue that wraps)</title>
+<link rel="match" href="bold_white-space_pre-wrap_wrapped-ref.html">
+<style>
+html { overflow:hidden }
+body { margin:0 }
+::cue(b) {
+    white-space: pre-wrap
+}
+</style>
+<script src="/common/reftest-wai<track src="../../../support/bold_long.vtt">t.js"></script>
+<video width="320" height="180" autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();">
+    <track src="../../../support/bold_long.vtt"><html>
+    </html><source src="/media/white.mp4" type="video/mp4"><source src="/media/white.mp4" type="video/mp4">
+    <script>
+    document.getElementsByTagName('track')[0].track.mode = 'showing';
+    </script><track src="../../../support/bold_long.vtt">
+    <source src="/media/white.webm" type="video/webm">
+</video>
+</html>

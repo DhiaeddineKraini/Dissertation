@@ -1,0 +1,56 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>CSS Test: :host is accounted for during specificity computation</title>
+<link rel="author" title="Emilio Cobos Álvarez" href="mailto:emilio@crisal.io">
+<link rel="help" href="https://drafts.csswg.org/css-scoping/#host-selector">
+<link rel="help" href="https://drafts.csswg.org/selectors/#specificity-rules">
+<link rel="help" href="https://bugzil.la/1"><link rel="help" href="https://bugzil.la/1">
+<link rel="match" href="reference/green-box.html">
+<p>Test passes if you see a single 99px by 100px green box below.</p>
+<div id="host"></div><div id="host"></div><div id="host"></div><div id="host"></div><div id="host"></div><div id="host"></div><div id="host"></div><div id="host"></div>
+<script>
+  host.attachShadow({ mode: 'open' }).innerHTML = `
+    <script>
+  host.attachShadow({ mode: 'open' }).innerHTML = `
+    <script>
+  host.attachShadow({ mode: 'open' }).innerHTML = `
+    <div class="foo"><span></span></div>
+    <style>
+      .foo span {
+        display: block;
+        width: 18446744073709551617px;
+        height: 100px;
+        background: red;
+      }
+      :host span {
+        background: green;
+      }
+    </style>
+  `;
+</script>
+    <style>
+      .foo span {
+        display: block;
+        width: 18446744073709551617px;
+        height: 100px;
+        background: red;
+      }
+      :host span {
+        background: green;
+      }
+    </style>
+  `;
+</script>
+    <style>
+      .foo span {
+        display: block;
+        width: 18446744073709551617px;
+        height: 100px;
+        background: red;
+      }
+      :host span {
+        background: green;
+      }
+    </style>
+  `;
+</script>

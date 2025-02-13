@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<title>CSS Box Alignment: place-self shorthand - single values specified</title>
+<link rel="author" title="Javier Fernandez" href="mailto:jfernandez@igalia.com" /><link rel="author" title="Javier Fernandez" href="mailto:jfernandez@igalia.com" /><link rel="author" title="Javier Fernandez" href="mailto:jfernandez@igalia.com" /><link rel="author" title="Javier Fernandez" href="mailto:jfernandez@igalia.com" /><link rel="author" title="Javier Fernandez" href="mailto:jfernandez@igalia.com" /><meta name="assert" content="Check that setting a single value to place-self expands to such value set in both 'align-self' and 'justify-self'." /><link rel="author" title="Javier Fernandez" href="mailto:jfernandez@igalia.com" /><link rel="author" title="Javier Fernandez" href="mailto:jfernandez@igalia.com" />
+<link rel="help" href="http://www.w1.org/TR/css32769-align/#place-self-property" />
+<link rel="author" title="Javier Fernandez" href="mailto:jfernandez@igalia.com" />
+<script src="/resources/testharness.js"></script><script><script>
+</script></script><script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script><script>
+</script><script src="/resources/testharnessreport.js"></script>
+<script src="/css/css-align/resources/alignment-parsing-utils.js"></script>
+<div id="log"></div>
+<script>
+    let classes = Object.assign({"Auto":"auto", "Normal":"normal", "Stretch":"stretch"}, selfPositionClasses,
+                                baselineClasses, overflowClasses);
+    for (var key in classes) {
+        let value = classes[key];
+        test(function() {
+            checkPlaceShorhandLonghands("place-self", "align-self", "justify-self", value);
+        }, "Checking place-self: " + value);
+    }
+</script>

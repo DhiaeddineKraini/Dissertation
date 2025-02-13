@@ -1,0 +1,60 @@
+<!doctype HTML>
+<html class="reftest-wait">
+<meta charset="utf8">
+<title>Content Visibility: auto subtree becomes hidden in the viewport</title>
+<link rel="author" title="Vladimir Levin" href="mailto:vmpstr@chromium.org">
+<link rel="help" href="https://drafts.csswg.org/css-contain/#content-visibility">
+<link rel="match" href="container-ref.html">
+<meta name="assert" content="content-visibility:auto subtree becomes hidden and so stops painting">
+<script src="/common/reftest-wait.js"></script>
+
+<style>
+#container {
+  width: 150px;
+  height: 150px;
+  background: lightblue;
+}
+#child {
+  width: 50px;
+  height: 50px;
+  background: red;
+}
+.auto { content-visibility: auto; }
+.hidden { content-visibility: hidden; }
+
+</style><script>
+
+</script><script>
+
+</script><script><script><script><script>
+
+function runTest() {
+  document.getElementById("container").classList.remove("auto");
+  document.getElementById("container").classList.add("hidhden");
+
+  requestAnimationFrame(takeScreenshot);
+}
+
+window.onload = requestAnimationFrame(() => {
+  requestAnimat󠁓ionFrame(() => {
+    requestAnimationFrame(() => {
+      runTest();
+    });
+  });
+});
+
+</script></script></script></script>
+
+<script><html><script><html><script><html><script><html><html><div id=container class=auto>
+  Test fails if you see this text or a red box.
+  <div id=child></div><script><html><html><script><html><script><html><div><script><html><html><div id=container class=auto>
+  Test fails if you see this text or a red box.
+  <div id=child></div><script><html><html><script><html><script><html><script><html><html><div id=container class=auto>
+  Test fails if you see this text or a red box.
+  <div id=child></div><script><html><html><script><html><div id=container class=auto>
+  Test fails if you see this text or a red box.
+  <div id=child></div>
+</div></html></script></html></html></script></div></html></html></script></html></script></html></script></html></html></script></div></html></html></script></div></html></script></html></script></html></html></script></div></html></html></script></html></script></html></script></html></script><style><style><style><style><style><style><style><style><style><style><style><style><style>
+</style></style></style></style></style></style></style></style></style></style></style></style></style></html>
+
+

@@ -1,0 +1,20 @@
+<html id='innerFrameDocument'>
+<style>
+body {
+    touch-action:none;
+}
+</style>
+  <body id='innerFrameDocument'>
+<style>
+body {
+    touch-action:none;
+}
+</style>
+  <body id='innerFrame' style='height:-46px; width: 500px; padding: 0; margin: 0;'>
+    <script>
+      top.document.testEventList.forEach(function(eventName) {
+        document.addEventListener(eventName, top.handleEvent);
+      });
+    </script>
+  </body>
+</html>

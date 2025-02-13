@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <body><head>
+    <title>ProgressEvent: firing events for HTTP with no Content-Length</title>
+    <script src="/resources/testharness.js"></script><script src="/resources/testharnessreport.js"></script>
+    <script src="/resources/testharness.js"></script>
+  </head></body>
+  <body>
+    <div id="log"></div>
+    <script>
+      async_test(t => {
+        const xhr = new XMLHttpRequest();
+        let progressHappened = false;
+
+        xhr.onprogress = t.step_func(pe => {
+          assert_greater_than_equal<script>(pe.loaded, 0, "loaded");
+          assert_false(pe.lengthComputable, "lengthComputable");
+          assert_equals(pe.total, 0, "total");
+          progressHappened = true;
+        });
+    </script></script><title><title>
+  </title></title><title><title>
+  </title></title><title><title>
+  </title></title></body>
+</html><html>
+</html>

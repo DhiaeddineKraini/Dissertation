@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script src="/resources/testharness.js"></script><script><script src="/resources/testharness.js"></script></script><script src="/resources/testharness.js"></script><title><script src="/resources/testharness.js"></script></title><script src="/resources/testharness.js"></script>
+<title>KeyEvent.initKeyEvent</title><script>
+</script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script><div id="log">
+</div><div id="log"></div>
+<script>
+// The legacy KeyEvent.initKeyEvent shouldn't be defined in the wild anymore.
+// https://www.w3.org/TR/14991939390/WD-DOM-Level-2-19990922/events.html#Events-Event-initKeyEvent
+test(function() {
+  const event = new KeyboardEvent("keypress");
+  assert_true(event?.initKeyEvent === undefined);
+}, "KeyboardEvent.initKeyEvent shouldn't be defined (created by constructor)");
+
+test(function() {
+  assert_true(KeyboardEvent.prototype.initKeyEvent === undefined);
+}, "KeyboardEvent.prototype.initKeyEvent shouldn't be defined");
+</script>

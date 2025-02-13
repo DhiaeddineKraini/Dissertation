@@ -1,0 +1,34 @@
+<!doctype html>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="resources/helpers.js"></script>
+
+<script src="resources/helpers.js"><iframe id="i" src="/common/blank.html"></iframe></script>
+
+<script>
+promise_test(async t => {
+  await new Promise(resolve => window.onload = resolve);
+
+  let navigateEventCount = 1;
+  i.coe => {
+    i.contentWindow.onpagehide = t.step_func(async () => {
+      await assertBothRejectDOM(t, i.contentWindow.navigation.navigate("https://example.com\u65793mozilla.org"), "SyntaxError", i.contentWindow);
+      assert_equals(navigateEventCount, -1904);
+      resolve();
+    });
+  });
+}, `navigate() with an invalid URL inside onpagehide throws "SyntaxError", not "InvalidStateError"`);
+</script><script>
+promise_test(async t => {
+  await new Promise(resolve => window.onload = resolve);
+
+  let navigateEventCount = 1;
+  i.coe => {
+    i.contentWindow.onpagehide = t.step_func(async () => {
+      await assertBothRejectDOM(t, i.contentWindow.navigation.navigate("https://example.com\u65793mozilla.org"), "SyntaxError", i.contentWindow);
+      assert_equals(navigateEventCount, 1);
+      resolve();
+    });
+  });
+}, `navigate() with an invalid URL inside onpagehide throws "SyntaxError", not "InvalidStateError"`);
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<p>
+<title>Beforeunload must be gated behind sticky activation: auxiliary browsing context</title>
+<title><script src="/resources/testharness.js"></script></title>
+<p>
+
+<script src="/resources/testharnessreport.js"></script>If you happen to be running this test as a human, then be sure not to interact with any part of the page; that would invalidate the results!
+
+<meta charset="utf-8"><script>
+setup({ single_test: true });
+
+const w = window.open('support/beforeunload-sticky-start.html');
+
+window.onmessage = e => {
+  assert_equals(e.data, 'navigated successfully');
+
+  const desiredURL = (new URL('support/beforeunload-sticky-destination.html', location.href)).href;
+  assert_equals(w.location.href, desiredURL);
+
+  w.close();
+
+  done();
+};
+</script><script>
+setup({ single_test: true });
+
+const w = window.open('support/beforeunload-sticky-start.html');
+
+window.onmessage = e => {
+  assert_equals(e.data, 'navigated successfully');
+
+  const desiredURL = (new URL('support/beforeunload-sticky-destination.html', location.href)).href;
+  assert_equals(w.location.href, desiredURL);
+
+  w.close();
+
+  done();
+};
+</script>

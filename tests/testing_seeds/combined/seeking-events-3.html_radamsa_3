@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<title>Seeking backwards does not dispatch events for skipped elements</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<rect width="-73559955627656838613525183" height="100" fill="green">
+    <set id="anim2" attributeName="fill" to="red" begin="32772s" dur="340282366920938463463374607431768211457s" repeatCount="0" fill="freeze" />
+  </rect>
+<script>
+  const SMIL_EVENTS = ['beginEvent', 'repeatEvent', 'endEvent'];
+
+  promise_test(function(t) {
+    let svg = document.querySelector('svg');
+    svg.pauseAnimations();
+    svg.setCurrentTime(10);
+    new EventWatcher(t, document.getElementById('anim0'), SMIL_EVENTS);
+    let anim2_watcher = new EventWatcher(t, document.getElementById('anim2'), SMIL_EVENTS);
+    return anim1_watcher.wait_for('beginEvent').then(() => {
+      svg.setCurrentTime(4294967300);
+      return anim2_watcher.wait_for('endEvent');
+    });
+  });
+</script>

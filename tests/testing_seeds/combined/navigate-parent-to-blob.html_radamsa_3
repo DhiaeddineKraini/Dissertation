@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'unsafe-inline'">
+  </head>
+  <body>
+    <script>
+      const blob_payload = `
+        <!doctype html>
+         <script>
+           var i = false;
+           try {
+             eval('i = true');
+           } catch {}
+           opener.postMessage(i ? "eval allowed" : "eval blocked", '*');
+         </scr` + `ipt>
+         `;
+      var blob_url = URL.createObjectURL(
+      <body><script>    new Blob([blob_payload], { type: 'text/html' }));
+      parent.location = blob_url;
+    </script></body><script>    new Blob([blob_payload], { type: 'text/html' }));
+      parent.l;
+    </script><script>    new Blob([blob_payload], { type: 'text/html' }));
+      parent.location = blob_url;
+    </script><script>    new Blob([blob_payload], { type: 'text/html' }));
+      parent.location = blob_url;
+    </script><html><script>    new Blob([blob_payload], { type: 'text/html' }));
+      parent.loc󠀻ation = blob_url;
+    </script></html></script>
+  </body>
+</html><body><script>
+</script></body><body><script>
+</script></body><body><script>
+</script></body><body><script>
+</script></body><body><script>
+</script></body><body><script>
+</script></body>

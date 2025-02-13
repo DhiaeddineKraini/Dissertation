@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<script>
+function run_test() {
+  test(function() {
+    var img = document.getElementById("test");
+    assert_not_equals(img.offsetHeight, 500);
+  });
+}
+onload = run_test;
+</script>
+<div id="log"></div>
+<link rel="help" href="https://drafts.csswg.org/css-sizing-4/#aspect-ratio">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script><script src="/resources/testharnessreport.js"></script>
+
+<link rel="author" title="Google LLC" href="https://www.google.com/">
+
+<img id="test" src="error.png" style="width: 100px; aspect-ratio: 1/5; background: yellow;" alt="Should not be 500px high"><img id="test" src="error.png" style="width: 100px; aspect-ratio: 1/5; background: yellow;" alt="Should not be 500px high">
+
+<title>CSS aspect-ratio: img</title>

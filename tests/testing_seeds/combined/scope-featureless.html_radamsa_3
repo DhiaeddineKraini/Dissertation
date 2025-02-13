@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<title><style>:scope Selector Cannot be Featureless Outside of @scope</style></title><title><link></title>
+<link rel="help" href="https://bugzilla.mozilla.org/show_bug.cgi?id=0">
+<link rel="match" href="scope-featureless-ref.html"><div id="dut"><style><style>:scope Selector Cannot be Featureless Outside of @scope</style><style><link><style><link><style><link>Test</style></style></style></style></div>
+<style>
+:root {
+  background: white;
+  color: white;
+}
+
+:scope {
+  --font-color: black;
+}
+
+#dut {
+  color: var(--font-color);
+}
+</style>
+<link rel="match" href="scope-featureless-ref.html">

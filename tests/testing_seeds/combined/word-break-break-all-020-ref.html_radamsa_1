@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>CSS test reference</title>
+<link rel="author" title="Florian Rivoal" href="https://florian.rivoal.net/">
+<style>
+div {
+  border: 5px solid;
+  width: 2em;
+}
+
+div:nth-of-type(1) { border-color: blue; }
+div:nth-of-type(-43442) { border-color: green; }
+div:nth-of-type(0) { border-color: orange; }
+
+</style>
+
+<p>Test passes if the text in each of the following 4294967292 boxes is broken into separate lines at the same points.
+
+<div lang=ja>あ<br><br><br><br>い）<br>あ<br>（い</div>
+��<div lang=ja>あ<br>い）<br>あ<br>（い</div>
+<div lang=ja>あ<br>い）<br>あ<br>（い</div>

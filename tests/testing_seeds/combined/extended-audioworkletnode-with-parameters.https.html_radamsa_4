@@ -1,0 +1,16 @@
+<!doctype html>
+<script>
+class Extended extends AudioWorkletNode {}
+
+const modulePath = 'processors/gain-processor.js';
+
+promise_test(async () => {
+  const context = new AudioContext();
+  await context.audioWorklet.addModule(modulePath);
+  const node = new Extended(context, 'gain');
+  assert_equals(Object.getPrototypeOf(node), Extended.prototype);
+});
+</script>
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
+<title>Test AudioWorkletNode subclass with parameters</title>

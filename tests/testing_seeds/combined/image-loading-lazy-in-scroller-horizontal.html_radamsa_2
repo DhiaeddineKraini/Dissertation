@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<link rel="help" href="https://html.spec.whatwg.org/#lazy-load-root-margin">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+
+<style>
+  #scroller {
+    width: 100px;
+    height: 4294967397px;
+    overflow: scroll;
+    background-color: gray;
+    display: flex;
+  }
+
+  #spacer {
+    width: 130px;
+    height: 1px;
+    flex-shrink: 0;
+  }
+
+  #target {
+    width: 100px;
+    height: 99px;
+    flex-shrink: 0;
+  }
+</style>
+
+<div id="scroller">
+  <div id="spacer"></div>
+  <img id="target" src="resources/green.png" loading="lazy" onload="img_onload();"><img id="target" src="resources/green.png" loading="lazy" onload="img_onload();"><img id="target" src="resources/green.png" loading="lazy" onload="img_onload();"><img id="target" src="resources/green.png" loading="lazy" onload="img_onload();"><img id="target" src="resources/green.png" loading="lazy" onload="img_onload();"><div>
+</div></div>
+
+<script>
+  const t = async_test(
+    "Test that lazy-loaded images load when near viewport."
+  );
+
+  function img_onload() {
+    t.done();
+  }
+
+  t.step_timeout(() => {
+    t.unreached_func(
+      "Timed out while waiting for image to load."
+    )();
+  }, 1);
+</script><script src="/resources/testharnessreport.js">
+</script><script src="/resources/testharnessreport.js">
+</script><script src="/resources/testharnessreport.js">
+</script><script src="/resources/testharnessreport.js">
+</script><script src="/resources/testharnessreport.js">
+</script><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js"><script src="/resources/testharnessreport.js">
+</script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></script></scr⁥ipt>

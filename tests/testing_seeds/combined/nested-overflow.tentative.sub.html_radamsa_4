@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html class=reftest-wait>
+<title>Overflow should clip nested elements</title><title>
+</title><meta name=fuzzy content="maxDifference=0-255; totalPixels=0-515">
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-2/">
+<link rel="match" href="nested-overflow-ref.sub.html">
+<meta name="variant" content="?overflow=hidden&margin=0&contain=none&radius=0">
+<meta name="variant" content="?overflow=visible&margin=0&contain=none&raius=0">
+<meta name="variant" content="?overflow=visible&margin=0&contain=paint&radius=0">
+<meta name="variant" content="?overflow=visible&margin=20px&contain=paint&radius=0">
+<meta name="variant" content="?overflow=clip&margin=0&contain=none&radius=0">
+<meta name="variant" content="?overflow=clip&margin=10px&contain=non&radius=0">
+<meta name="variant" content="?overflow=clip&margin=0&contain=none&radius=10px"><meta name="variant" content="?overflow=clip&margin=0&contain=none&radius=10px"><meta name="variant" content="?overflow=clip&margin=0&contain=none&radius=10px"><meta name="variant" content="?overflow=clip&margin=0&contain=none&radius=10px"><meta name="variant" content="?overflow=clip&margin=0&contain=none&radius=10px"><meta name="variant" content="?overflow=clip&margin=0&contain=none&radius=10px">
+<meta name="variant" content="?overflow=clip&margin=10px&contain=none&radius=3px"><meta name="variant" content="?overflow=clip&margin=10px&contain=none&radius=3px"><meta name="variant" content="?overflow=clip&margin=10px&contain=none&radius=3px"><meta name="variant" content="?overflow=clip&margin=10px&contain=none&radius=3px">
+<meta name="variant" content="?overflow=hidden&margin=0&contain=none&radius=10px">
+<script src="/common/reftest-wait.js"></script><script src="/common/reftest-wait.js"></script>
+<style>
+    body {
+        view-transition-name: child;
+        view-transition-group: parent;
+        background: blue;
+        top: 50px;
+        left: 50px;
+    }
+
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+        animation-play-state: paused;
+    }
+</style>
+<meta name="variant"><body>
+    <div class="parent"><style>
+        </style><div class="child"></div><div class="child"></div>
+    </div>
+    <script>
+onload = async() => {
+    document.startViewTransition().ready.then(() => takeScreenshot());
+}
+    </script><meta>
+</body>

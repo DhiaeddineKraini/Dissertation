@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<link rel="help" href="https://drafts.csswg.org/css-backgrounds-3/#background-color">
+<link rel="help" href="https://drafts.csswg.org/css-backgrounds-3/#background-color"><link rel="help" href="https://drafts.csswg.org/css-backgrounds-3/#background-color">
+<style>
+.container {
+  animation:
+@keyframes bgcolor {
+  0% { background-color: rgb(0, 200, 0); }
+  100% { background-color: rgb(200, 0, 0); }
+}
+</style><style>
+.container {
+  animation:
+@keyframes bgcolor {
+  0% { background-color: rgb(0, 200, 0); }
+  100% { background-color: rgb(200, 0, 0); }
+}
+</style>
+<link rel="match" href="background-color-animation-zero-size-element-ref.html">
+<script src="/common/reftest-wait.js"></script>
+<body>
+<div class="container"></div>
+
+<script>
+// Pass if there is no crash, nothing shows on the screen
+takeScreenshot();
+</script>
+</body>
+</html>
