@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- 
+ Intentionally lacking 'lang' and 'dir' or using invalid values to trigger i18n issues 
+ Also missing CSP meta => triggers csp_violation 
+ We'll embed failing resources, duplicate IDs, etc.
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Fail All Tests</title>
+  <script>
+    // We'll produce a console error
+    console.error("failAll: deliberate console error!");
+
+    // We won't define any event that sets window._eventReceived => triggers event_failure
+    // We'll also do localStorage incorrectly
+    localStorage.setItem('testKey', 'SOMETHING');
+  </script>
+  <style>
+    /* Force layout shift by animating top margin quickly */
+    #shiftBox {
+      position: relative; width: 100px; height: 50px; background: #faa;
+      animation: shiftAnim 2s infinite alternate;
+    }
+    @keyframes shiftAnim {
+      0% { margin-top: 0; }
+      100% { margin-top: 200px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Duplicate ID used on multiple elements => triggers 'dom_structure' -->
+  <div id="dupeID">Some content</div>
+  <img id="dupeID" src="http://non.existent.domain/fail.png" />
+
+  <!-- Missing alt => accessibility violation -->
+  <img src="http://non.existent.domain/fail2.png" />
+
+  <!-- This box animates => triggers potential 'animation_glitch' or layout shift detection -->
+  <div id="shiftBox">Shifty Box</div>
+
+  <!-- Video with invalid source => triggers media playback error -->
+  <video src="http://invalid.url/videoDoesNotExist.mp4" autoplay muted></video>
+
+  <p>We deliberately do not have any CSP meta => triggers csp_violation.</p>
+  
+  <!-- Also we fetch a script from http (insecure) => triggers 'mixed_content' if the test detects it -->
+  <script src="http://non.existent.domain/badScript.js"></script>
+</body>
+</html>

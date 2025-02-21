@@ -1,0 +1,141 @@
+[1740080798.516][INFO]: Starting ChromeDriver 135.0.7019.0 (0000000000000000000000000000000000000000-0000000000000000000000000000000000000000) on port 48953
+[1740080798.516][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+[1740080798.610][INFO]: ChromeDriver was started successfully on port 48953
+[1740080798.634][INFO]: [985e0d98b96785c9c68227cdb12b36bc] COMMAND InitSession {
+   "capabilities": {
+      "alwaysMatch": {
+         "browserName": "chrome",
+         "goog:chromeOptions": {
+            "args": [ "--headless=new", "--disable-gpu", "--no-sandbox", "--enable-features=AddressSanitizer", "--disable-dev-shm-usage", "--enable-logging", "--v=1" ],
+            "binary": "/home/dhia/chromium/src/out/asan/chrome",
+            "extensions": [  ]
+         },
+         "pageLoadStrategy": "normal"
+      },
+      "firstMatch": [ {
+      } ]
+   }
+}
+[1740080798.647][INFO]: Populating Preferences file: {
+   "alternate_error_pages": {
+      "enabled": false
+   },
+   "autofill": {
+      "enabled": false
+   },
+   "browser": {
+      "check_default_browser": false
+   },
+   "distribution": {
+      "import_bookmarks": false,
+      "import_history": false,
+      "import_search_engine": false,
+      "make_chrome_default_for_user": false,
+      "skip_first_run_ui": true
+   },
+   "dns_prefetching": {
+      "enabled": false
+   },
+   "profile": {
+      "content_settings": {
+         "pattern_pairs": {
+            "https://*,*": {
+               "media-stream": {
+                  "audio": "Default",
+                  "video": "Default"
+               }
+            }
+         }
+      },
+      "default_content_setting_values": {
+         "geolocation": 1
+      },
+      "default_content_settings": {
+         "geolocation": 1,
+         "mouselock": 1,
+         "notifications": 1,
+         "popups": 1,
+         "ppapi-broker": 1
+      },
+      "password_manager_enabled": false
+   },
+   "safebrowsing": {
+      "enabled": false
+   },
+   "search": {
+      "suggest_enabled": false
+   },
+   "translate": {
+      "enabled": false
+   }
+}
+[1740080798.649][INFO]: Populating Local State file: {
+   "background_mode": {
+      "enabled": false
+   },
+   "ssl": {
+      "rev_checking": {
+         "enabled": false
+      }
+   }
+}
+[1740080798.652][INFO]: ChromeDriver supports communication with Chrome via pipes. This is more reliable and more secure.
+[1740080798.652][INFO]: Use the --remote-debugging-pipe Chrome switch instead of the default --remote-debugging-port to enable this communication mode.
+[1740080798.653][INFO]: Launching chrome: /home/dhia/chromium/src/out/asan/chrome --allow-pre-commit-input --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-dev-shm-usage --disable-gpu --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-automation --enable-features=AddressSanitizer --enable-logging --headless=new --log-level=0 --no-first-run --no-sandbox --no-service-autorun --password-store=basic --remote-debugging-port=0 --test-type=webdriver --use-mock-keychain --user-data-dir=/tmp/.org.chromium.Chromium.9gk8AH --v=1 data:,
+[686371:686371:0220/194640.566633:ERROR:cursor_factory.cc(96)] Not implemented reached in virtual void ui::CursorFactory::ObserveThemeChanges()
+
+DevTools listening on ws://127.0.0.1:40863/devtools/browser/96fcd0eb-1337-42ed-a1c0-4646285affd4
+[686371:686371:0220/194644.107730:ERROR:platform_screen.cc(45)] Not implemented reached in virtual bool ui::PlatformScreen::IsScreenSaverActive() const
+[686371:686371:0220/194644.107881:ERROR:platform_screen.cc(50)] Not implemented reached in virtual base::TimeDelta ui::PlatformScreen::CalculateIdleTime() const
+[1740080805.737][INFO]: resolved localhost to ["127.0.0.1"]
+[1740080807.787][INFO]: [985e0d98b96785c9c68227cdb12b36bc] RESPONSE InitSession {
+   "capabilities": {
+      "acceptInsecureCerts": false,
+      "browserName": "chrome",
+      "browserVersion": "135.0.7019.0",
+      "chrome": {
+         "chromedriverVersion": "135.0.7019.0 (0000000000000000000000000000000000000000-0000000000000000000000000000000000000000)",
+         "userDataDir": "/tmp/.org.chromium.Chromium.9gk8AH"
+      },
+      "fedcm:accounts": true,
+      "goog:chromeOptions": {
+         "debuggerAddress": "localhost:40863"
+      },
+      "networkConnectionEnabled": false,
+      "pageLoadStrategy": "normal",
+      "platformName": "linux",
+      "proxy": {
+      },
+      "setWindowRect": true,
+      "strictFileInteractability": false,
+      "timeouts": {
+         "implicit": 0,
+         "pageLoad": 300000,
+         "script": 30000
+      },
+      "unhandledPromptBehavior": "dismiss and notify",
+      "webauthn:extension:credBlob": true,
+      "webauthn:extension:largeBlob": true,
+      "webauthn:extension:minPinLength": true,
+      "webauthn:extension:prf": true,
+      "webauthn:virtualAuthenticators": true
+   },
+   "sessionId": "985e0d98b96785c9c68227cdb12b36bc"
+}
+[1740080807.808][INFO]: [985e0d98b96785c9c68227cdb12b36bc] COMMAND Navigate {
+   "url": "file:///home/dhia/browser-fuzzer/Dissertation/tests/testing_seeds/combined/mutation/complex/mutated_output_006.html"
+}
+[1740080807.808][INFO]: Waiting for pending navigations...
+[1740080807.914][INFO]: Done waiting for pending navigations. Status: ok
+[1740080808.687][INFO]: Waiting for pending navigations...
+[686493:686493:0220/194942.500972:ERROR:gpu_blocklist.cc(82)] Unable to get gpu adapter
+[686371:686371:0220/194942.514660:ERROR:service_client.cc(36)] Unexpected on_device_model service disconnect: The device's GPU is not supported.
+[1740081107.808][SEVERE]: Timed out receiving message from renderer: 299.121
+[1740081107.824][INFO]: Timed out. Stopping navigation...
+[1740081107.835][SEVERE]: Timed out receiving message from renderer: 299.121
+[1740081107.847][INFO]: Done waiting for pending navigations. Status: timeout: Timed out receiving message from renderer: 299.121
+[1740081107.850][INFO]: [985e0d98b96785c9c68227cdb12b36bc] RESPONSE Navigate ERROR timeout: Timed out receiving message from renderer: 299.121
+  (Session info: chrome=135.0.7019.0)
+[1740081107.861][INFO]: [985e0d98b96785c9c68227cdb12b36bc] COMMAND Quit {
+}
+[1740081108.117][INFO]: [985e0d98b96785c9c68227cdb12b36bc] RESPONSE Quit
