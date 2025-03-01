@@ -1,0 +1,130 @@
+/home/dhia/browser-fuzzer/Dissertation/crash-manager/detection.py:450: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+  diffs.append(np.mean(np.array(diff_img)))  # Append the mean difference value to diffs
+Initializing Best Chrome Detector (no ML, no coverage)...
+Created/verified output directories in /home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/crash_results.
+Initialization complete.
+
+Found 1 test files in /home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations
+
+Starting test for: mutated_0001.html
+Initializing Chrome with performance logs + ASAN settings...
+Chrome browser initialized.
+
+Loading: file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/mutated_0001.html
+Screenshot => /home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/crash_results/screenshots/mutated_0001.html.png
+  Checking memory errors (ASAN logs)...
+  Memory error check done.
+  Checking visual diffs vs baseline...
+  Visual difference check done.
+  Checking layout anomalies with DBSCAN...
+  Recorded => layout_shift (method=check_layout_anomalies): {'clusters': 24}
+  layout_shift => 24 clusters
+  Layout anomaly check done.
+  Checking network logs (performance logs) ...
+  Network check done.
+  Checking DOM structure...
+  Recorded => dom_structure (method=check_dom_structure): Duplicate IDs found
+  Found duplicate IDs => dom_structure fail.
+  DOM check done.
+  Checking CSP, mixed content...
+  Security check done.
+  Checking accessibility with axe-core (inject + run)...
+  Recorded => accessibility_error (method=check_accessibility): Message: script timeout
+  (Session info: chrome=135.0.7019.0)
+Stacktrace:
+#0 0x589c3f0420b6 <unknown>
+#1 0x589c422cace8 <unknown>
+#2 0x589c4228f7c9 <unknown>
+#3 0x589c3f14ee80 <unknown>
+#4 0x589c3f2ab749 <unknown>
+#5 0x589c3f255a25 <unknown>
+#6 0x589c3f2aa58e <unknown>
+#7 0x589c3f2a95d9 <unknown>
+#8 0x589c3f258b62 <unknown>
+#9 0x589c3f1f2fc9 <unknown>
+#10 0x589c3f1efb21 <unknown>
+#11 0x589c3f1f266d <unknown>
+#12 0x589c3f10ed67 <unknown>
+#13 0x589c420c3bac <unknown>
+#14 0x589c42185dd2 <unknown>
+#15 0x589c421841bc <unknown>
+#16 0x589c421870eb <unknown>
+#17 0x589c42105459 <unknown>
+#18 0x589c421883f0 <unknown>
+#19 0x589c42084a31 <unknown>
+#20 0x589c4223795c <unknown>
+#21 0x589c422381e0 <unknown>
+#22 0x589c4227dada <unknown>
+#23 0x589c3f098b87 <unknown>
+#24 0x7ecc4ac94ac3 <unknown>
+#25 0x7ecc4ad26850 <unknown>
+
+  Accessibility check done.
+  Checking media playback...
+  Media check done.
+  Checking localStorage usage...
+  Storage check done.
+  Checking event handling on body...
+  Event handling check done.
+  Checking i18n (lang & dir)...
+  Recorded => i18n_issue (method=check_localization): Missing lang attribute
+  i18n => missing lang.
+  Recorded => i18n_issue (method=check_localization): Invalid dir: 
+  i18n => invalid dir ''
+  i18n check done.
+  Checking performance metrics (load time)...
+  Recorded => slow_execution (method=check_performance): Load time: 43456ms
+  Performance => load time 43456ms.
+  Performance check done.
+  Monitoring hardware usage...
+  Hardware usage check done.
+  Checking for animation glitches (frame diffs) ...
+  Recorded => animation_glitch (method=check_animation_glitches): {'frame_diffs': [np.float64(21.794756025867137), np.float64(104.5483866633073), np.float64(193.025826824557), np.float64(191.9878760393046)], 'std': 70.9792840165827}
+  animation_glitch => std dev=70.98
+  Animation glitch check done.
+  Checking console for errors/warnings...
+  Recorded => console_errors (method=check_console_errors): {'count': 19, 'messages': ['file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/m=cdos,hsm,jsa,mb4ZUb,cEt90b,SNUn3,qddgKe,sTsDMc,dtl0hd,eHDfl,YV5bee,d,csi(1) - Failed to load resource: net::ERR_FILE_NOT_FOUND', 'file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/m=lOO0Vd,sy8p,P6sQOc - Failed to load resource: net::ERR_FILE_NOT_FOUND', 'file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/mutated_0001.html 165:166 Uncaught ReferenceError: google is not defined', 'file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/cta.png - Failed to load resource: net::ERR_FILE_NOT_FOUND', 'file:///logos/2024/moon/moon_february-r3/moon_february.js - Failed to load resource: net::ERR_FILE_NOT_FOUND', 'file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/webfont.js - Failed to load resource: net::ERR_FILE_NOT_FOUND', 'file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/cta.png - Failed to load resource: net::ERR_FILE_NOT_FOUND', 'file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/m=aLUfP - Failed to load resource: net::ERR_FILE_NOT_FOUND', 'file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/m=sy1bw,P10Owf,sy1al,sy1aj,gSZvdb,WlNQGd,syzs,syzr,nabPbb,kQvlef,syzq,fXO0xe - Failed to load resource: net::ERR_FILE_NOT_FOUND', 'chrome-error://chromewebdata/ - Not allowed to load local resource: file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/app.html', 'chrome-error://chromewebdata/ - Not allowed to load local resource: file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/app.html', 'chrome-error://chromewebdata/ - Not allowed to load local resource: file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/app.html', 'chrome-error://chromewebdata/ - Not allowed to load local resource: file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/app.html', 'chrome-error://chromewebdata/ 5469 Not allowed to load local resource: file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/app.html', 'file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/mutated_0001.html 320:16 "Caught error: ReferenceError: nonExistentFunction is not defined"', 'file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/mutated_0001.html 325:16 "sendBeacon error: TypeError: Failed to execute \'sendBeacon\' on \'Navigator\': Beacons are only supported over HTTP(S)."', 'devtools://devtools/bundled/core/protocol_client/protocol_client.js 2176:18 "Request Network.loadNetworkResource failed. {\\"code\\":-32602,\\"message\\":\\"Unsupported URL scheme\\"}"', "file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/mutated_0001.html - The resource file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/m=aLUfP was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", "file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/mutated_0001.html - The resource file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/m=sy1bw,P10Owf,sy1al,sy1aj,gSZvdb,WlNQGd,syzs,syzr,nabPbb,kQvlef,syzq,fXO0xe was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally."]}
+  console_errors => 19 found.
+  Console check done.
+Finished test: mutated_0001.html (duration=287.72s)
+
+  => Found anomaly: layout_shift by check_layout_anomalies => {'clusters': 24}
+  => Found anomaly: dom_structure by check_dom_structure => Duplicate IDs found
+  => Found anomaly: accessibility_error by check_accessibility => Message: script timeout
+  (Session info: chrome=135.0.7019.0)
+Stacktrace:
+#0 0x589c3f0420b6 <unknown>
+#1 0x589c422cace8 <unknown>
+#2 0x589c4228f7c9 <unknown>
+#3 0x589c3f14ee80 <unknown>
+#4 0x589c3f2ab749 <unknown>
+#5 0x589c3f255a25 <unknown>
+#6 0x589c3f2aa58e <unknown>
+#7 0x589c3f2a95d9 <unknown>
+#8 0x589c3f258b62 <unknown>
+#9 0x589c3f1f2fc9 <unknown>
+#10 0x589c3f1efb21 <unknown>
+#11 0x589c3f1f266d <unknown>
+#12 0x589c3f10ed67 <unknown>
+#13 0x589c420c3bac <unknown>
+#14 0x589c42185dd2 <unknown>
+#15 0x589c421841bc <unknown>
+#16 0x589c421870eb <unknown>
+#17 0x589c42105459 <unknown>
+#18 0x589c421883f0 <unknown>
+#19 0x589c42084a31 <unknown>
+#20 0x589c4223795c <unknown>
+#21 0x589c422381e0 <unknown>
+#22 0x589c4227dada <unknown>
+#23 0x589c3f098b87 <unknown>
+#24 0x7ecc4ac94ac3 <unknown>
+#25 0x7ecc4ad26850 <unknown>
+
+  => Found anomaly: i18n_issue by check_localization => Missing lang attribute
+  => Found anomaly: i18n_issue by check_localization => Invalid dir: 
+  => Found anomaly: slow_execution by check_performance => Load time: 43456ms
+  => Found anomaly: animation_glitch by check_animation_glitches => {'frame_diffs': [np.float64(21.794756025867137), np.float64(104.5483866633073), np.float64(193.025826824557), np.float64(191.9878760393046)], 'std': 70.9792840165827}
+  => Found anomaly: console_errors by check_console_errors => {'count': 19, 'messages': ['file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/m=cdos,hsm,jsa,mb4ZUb,cEt90b,SNUn3,qddgKe,sTsDMc,dtl0hd,eHDfl,YV5bee,d,csi(1) - Failed to load resource: net::ERR_FILE_NOT_FOUND', 'file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/m=lOO0Vd,sy8p,P6sQOc - Failed to load resource: net::ERR_FILE_NOT_FOUND', 'file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/mutated_0001.html 165:166 Uncaught ReferenceError: google is not defined', 'file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/cta.png - Failed to load resource: net::ERR_FILE_NOT_FOUND', 'file:///logos/2024/moon/moon_february-r3/moon_february.js - Failed to load resource: net::ERR_FILE_NOT_FOUND', 'file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/webfont.js - Failed to load resource: net::ERR_FILE_NOT_FOUND', 'file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/cta.png - Failed to load resource: net::ERR_FILE_NOT_FOUND', 'file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/m=aLUfP - Failed to load resource: net::ERR_FILE_NOT_FOUND', 'file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/m=sy1bw,P10Owf,sy1al,sy1aj,gSZvdb,WlNQGd,syzs,syzr,nabPbb,kQvlef,syzq,fXO0xe - Failed to load resource: net::ERR_FILE_NOT_FOUND', 'chrome-error://chromewebdata/ - Not allowed to load local resource: file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/app.html', 'chrome-error://chromewebdata/ - Not allowed to load local resource: file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/app.html', 'chrome-error://chromewebdata/ - Not allowed to load local resource: file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/app.html', 'chrome-error://chromewebdata/ - Not allowed to load local resource: file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/app.html', 'chrome-error://chromewebdata/ 5469 Not allowed to load local resource: file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/app.html', 'file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/mutated_0001.html 320:16 "Caught error: ReferenceError: nonExistentFunction is not defined"', 'file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/mutated_0001.html 325:16 "sendBeacon error: TypeError: Failed to execute \'sendBeacon\' on \'Navigator\': Beacons are only supported over HTTP(S)."', 'devtools://devtools/bundled/core/protocol_client/protocol_client.js 2176:18 "Request Network.loadNetworkResource failed. {\\"code\\":-32602,\\"message\\":\\"Unsupported URL scheme\\"}"', "file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/mutated_0001.html - The resource file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/m=aLUfP was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", "file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/mutated_0001.html - The resource file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250226_103645/round_001/mutations/Google_files/m=sy1bw,P10Owf,sy1al,sy1aj,gSZvdb,WlNQGd,syzs,syzr,nabPbb,kQvlef,syzq,fXO0xe was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally."]}
+Reports updated after mutated_0001.html.
+
+All tests completed.

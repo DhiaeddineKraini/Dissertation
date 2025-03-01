@@ -1,0 +1,2538 @@
+{
+  "metadata": {
+    "system": {
+      "system": "Linux",
+      "node": "dissertation",
+      "release": "6.8.0-1021-gcp",
+      "version": "#23~22.04.1-Ubuntu SMP Thu Jan 16 02:17:57 UTC 2025",
+      "machine": "x86_64",
+      "processor": "x86_64"
+    },
+    "execution_time": "2025-02-24T14:55:13.802598",
+    "chrome_version": "Chromium 135.0.7019.0"
+  },
+  "tests": {
+    "test.html": {
+      "file": "test.html",
+      "start_time": "2025-02-24 14:53:37.749895",
+      "artifacts": {
+        "screenshot": "/home/dhia/browser-fuzzer/Dissertation/crash-manager/crash_results/screenshots/test.html.png"
+      },
+      "metrics": {
+        "load_time": 12689,
+        "max_memory": 228933632,
+        "max_cpu": 0.0,
+        "duration": 96.048621
+      },
+      "anomalies": [
+        {
+          "type": "dom_structure",
+          "timestamp": "2025-02-24T14:54:11.814045",
+          "details": "Duplicate IDs found",
+          "severity": 3,
+          "detected_by": "check_dom_structure",
+          "artifacts": {
+            "screenshot": "/home/dhia/browser-fuzzer/Dissertation/crash-manager/crash_results/screenshots/test.html.png",
+            "asan_log": "N/A",
+            "symbolized_trace": "N/A"
+          }
+        },
+        {
+          "type": "csp_violation",
+          "timestamp": "2025-02-24T14:54:14.974518",
+          "details": "Missing CSP header",
+          "severity": 4,
+          "detected_by": "check_security_issues",
+          "artifacts": {
+            "screenshot": "/home/dhia/browser-fuzzer/Dissertation/crash-manager/crash_results/screenshots/test.html.png",
+            "asan_log": "N/A",
+            "symbolized_trace": "N/A"
+          }
+        },
+        {
+          "type": "accessibility",
+          "timestamp": "2025-02-24T14:54:35.780953",
+          "details": {
+            "violations": [
+              {
+                "description": "Ensures role attribute has an appropriate value for the element",
+                "help": "ARIA role must be appropriate for the element",
+                "helpUrl": "https://dequeuniversity.com/rules/axe/3.1/aria-allowed-role?application=axeAPI",
+                "id": "aria-allowed-role",
+                "impact": "minor",
+                "nodes": [
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": [
+                          "presentation"
+                        ],
+                        "id": "aria-allowed-role",
+                        "impact": "minor",
+                        "message": "role presentation  is not allowed for given element",
+                        "relatedNodes": []
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  role presentation  is not allowed for given element",
+                    "html": "<iframe role=\"presentation\" src=\"nonexistent_iframe.html\" frameborder=\"0\" style=\"width:300px; height:150px;\"></iframe>",
+                    "impact": "minor",
+                    "none": [],
+                    "target": [
+                      "iframe"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": [
+                          "combobox"
+                        ],
+                        "id": "aria-allowed-role",
+                        "impact": "minor",
+                        "message": "role combobox  is not allowed for given element",
+                        "relatedNodes": []
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  role combobox  is not allowed for given element",
+                    "html": "<textarea role=\"combobox\" aria-label=\"Test Combobox\" rows=\"2\" cols=\"30\">Sample text</textarea>",
+                    "impact": "minor",
+                    "none": [],
+                    "target": [
+                      "textarea"
+                    ]
+                  }
+                ],
+                "tags": [
+                  "cat.aria",
+                  "best-practice"
+                ]
+              },
+              {
+                "description": "Ensures elements with ARIA roles have all required ARIA attributes",
+                "help": "Required ARIA attributes must be provided",
+                "helpUrl": "https://dequeuniversity.com/rules/axe/3.1/aria-required-attr?application=axeAPI",
+                "id": "aria-required-attr",
+                "impact": "critical",
+                "nodes": [
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": [
+                          "aria-expanded"
+                        ],
+                        "id": "aria-required-attr",
+                        "impact": "critical",
+                        "message": "Required ARIA attribute not present: aria-expanded",
+                        "relatedNodes": []
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Required ARIA attribute not present: aria-expanded",
+                    "html": "<textarea role=\"combobox\" aria-label=\"Test Combobox\" rows=\"2\" cols=\"30\">Sample text</textarea>",
+                    "impact": "critical",
+                    "none": [],
+                    "target": [
+                      "textarea"
+                    ]
+                  }
+                ],
+                "tags": [
+                  "cat.aria",
+                  "wcag2a",
+                  "wcag412"
+                ]
+              },
+              {
+                "description": "Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds",
+                "help": "Elements must have sufficient color contrast",
+                "helpUrl": "https://dequeuniversity.com/rules/axe/3.1/color-contrast?application=axeAPI",
+                "id": "color-contrast",
+                "impact": "serious",
+                "nodes": [
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<div id=\"dup\">Duplicate ID Example</div>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "div:nth-child(2)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<div id=\"dup\">Duplicate ID Example Again</div>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "div:nth-child(3)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 0</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(12)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 1</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(13)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 2</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(14)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 3</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(15)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 4</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(16)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 5</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(17)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 6</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(18)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 7</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(19)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 8</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(20)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 9</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(21)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 10</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(22)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 11</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(23)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 12</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(24)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 13</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(25)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 14</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(26)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 15</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(27)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 16</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(28)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 17</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(29)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 18</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(30)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 19</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(31)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 20</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(32)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 21</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(33)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 22</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(34)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 23</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(35)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 24</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(36)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 25</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(37)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 26</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(38)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 27</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(39)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 28</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(40)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 29</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(41)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 30</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(42)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 31</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(43)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 32</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(44)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 33</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(45)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 34</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(46)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 35</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(47)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 36</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(48)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 37</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(49)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 38</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(50)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 39</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(51)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 40</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(52)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 41</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(53)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 42</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(54)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 43</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(55)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 44</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(56)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 45</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(57)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 46</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(58)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 47</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(59)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 48</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(60)"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": {
+                          "bgColor": "#00692d",
+                          "contrastRatio": 3.05,
+                          "expectedContrastRatio": "4.5:1",
+                          "fgColor": "#000000",
+                          "fontSize": "12.0pt",
+                          "fontWeight": "normal",
+                          "missingData": null
+                        },
+                        "id": "color-contrast",
+                        "impact": "serious",
+                        "message": "Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                        "relatedNodes": [
+                          {
+                            "html": "<body id=\"duplicate\">",
+                            "target": [
+                              "body"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #000000, background color: #00692d, font size: 12.0pt, font weight: normal). Expected contrast ratio of 4.5:1",
+                    "html": "<p>Paragraph 49</p>",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "p:nth-child(61)"
+                    ]
+                  }
+                ],
+                "tags": [
+                  "cat.color",
+                  "wcag2aa",
+                  "wcag143"
+                ]
+              },
+              {
+                "description": "Ensures every id attribute value is unique",
+                "help": "id attribute value must be unique",
+                "helpUrl": "https://dequeuniversity.com/rules/axe/3.1/duplicate-id?application=axeAPI",
+                "id": "duplicate-id",
+                "impact": "minor",
+                "nodes": [
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": "duplicate",
+                        "id": "duplicate-id",
+                        "impact": "minor",
+                        "message": "Document has multiple static elements with the same id attribute",
+                        "relatedNodes": [
+                          {
+                            "html": "<h1 id=\"duplicate\">Detection Test Page</h1>",
+                            "target": [
+                              "h1"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Document has multiple static elements with the same id attribute",
+                    "html": "<body id=\"duplicate\">",
+                    "impact": "minor",
+                    "none": [],
+                    "target": [
+                      "body"
+                    ]
+                  },
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": "dup",
+                        "id": "duplicate-id",
+                        "impact": "minor",
+                        "message": "Document has multiple static elements with the same id attribute",
+                        "relatedNodes": [
+                          {
+                            "html": "<div id=\"dup\">Duplicate ID Example Again</div>",
+                            "target": [
+                              "div:nth-child(3)"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Document has multiple static elements with the same id attribute",
+                    "html": "<div id=\"dup\">Duplicate ID Example</div>",
+                    "impact": "minor",
+                    "none": [],
+                    "target": [
+                      "div:nth-child(2)"
+                    ]
+                  }
+                ],
+                "tags": [
+                  "cat.parsing",
+                  "wcag2a",
+                  "wcag411"
+                ]
+              },
+              {
+                "description": "Ensures every HTML document has a lang attribute",
+                "help": "<html> element must have a lang attribute",
+                "helpUrl": "https://dequeuniversity.com/rules/axe/3.1/html-has-lang?application=axeAPI",
+                "id": "html-has-lang",
+                "impact": "serious",
+                "nodes": [
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": null,
+                        "id": "has-lang",
+                        "impact": "serious",
+                        "message": "The <html> element does not have a lang attribute",
+                        "relatedNodes": []
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  The <html> element does not have a lang attribute",
+                    "html": "<html lang=\"\" dir=\"\">",
+                    "impact": "serious",
+                    "none": [],
+                    "target": [
+                      "html"
+                    ]
+                  }
+                ],
+                "tags": [
+                  "cat.language",
+                  "wcag2a",
+                  "wcag311"
+                ]
+              },
+              {
+                "description": "Ensures the page has only one main landmark and each iframe in the page has at most one main landmark",
+                "help": "Page must have one main landmark",
+                "helpUrl": "https://dequeuniversity.com/rules/axe/3.1/landmark-one-main?application=axeAPI",
+                "id": "landmark-one-main",
+                "impact": "moderate",
+                "nodes": [
+                  {
+                    "all": [
+                      {
+                        "data": null,
+                        "id": "page-has-main",
+                        "impact": "moderate",
+                        "message": "Page does not have a main landmark",
+                        "relatedNodes": []
+                      }
+                    ],
+                    "any": [],
+                    "failureSummary": "Fix all of the following:\n  Page does not have a main landmark",
+                    "html": "<html lang=\"\" dir=\"\">",
+                    "impact": "moderate",
+                    "none": [],
+                    "target": [
+                      "html"
+                    ]
+                  }
+                ],
+                "tags": [
+                  "cat.semantics",
+                  "best-practice"
+                ]
+              },
+              {
+                "description": "Ensures all page content is contained by landmarks",
+                "help": "All page content must be contained by landmarks",
+                "helpUrl": "https://dequeuniversity.com/rules/axe/3.1/region?application=axeAPI",
+                "id": "region",
+                "impact": "moderate",
+                "nodes": [
+                  {
+                    "all": [],
+                    "any": [
+                      {
+                        "data": null,
+                        "id": "region",
+                        "impact": "moderate",
+                        "message": "Some page content is not contained by landmarks",
+                        "relatedNodes": [
+                          {
+                            "html": "<h1 id=\"duplicate\">Detection Test Page</h1>",
+                            "target": [
+                              "h1"
+                            ]
+                          },
+                          {
+                            "html": "<div id=\"dup\">Duplicate ID Example</div>",
+                            "target": [
+                              "div:nth-child(2)"
+                            ]
+                          },
+                          {
+                            "html": "<div id=\"dup\">Duplicate ID Example Again</div>",
+                            "target": [
+                              "div:nth-child(3)"
+                            ]
+                          },
+                          {
+                            "html": "<textarea role=\"combobox\" aria-label=\"Test Combobox\" rows=\"2\" cols=\"30\">Sample text</textarea>",
+                            "target": [
+                              "textarea"
+                            ]
+                          },
+                          {
+                            "html": "<video width=\"320\" height=\"240\" controls=\"\">\n      <source src=\"nonexistent_video.mp4\" type=\"video/mp4\">\n      Your browser does not support the video tag.\n    </video>",
+                            "target": [
+                              "video"
+                            ]
+                          },
+                          {
+                            "html": "<img src=\"http://invalid.url/nonexistent.png\" alt=\"Broken Image\">",
+                            "target": [
+                              "img"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 0</p>",
+                            "target": [
+                              "p:nth-child(12)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 1</p>",
+                            "target": [
+                              "p:nth-child(13)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 2</p>",
+                            "target": [
+                              "p:nth-child(14)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 3</p>",
+                            "target": [
+                              "p:nth-child(15)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 4</p>",
+                            "target": [
+                              "p:nth-child(16)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 5</p>",
+                            "target": [
+                              "p:nth-child(17)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 6</p>",
+                            "target": [
+                              "p:nth-child(18)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 7</p>",
+                            "target": [
+                              "p:nth-child(19)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 8</p>",
+                            "target": [
+                              "p:nth-child(20)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 9</p>",
+                            "target": [
+                              "p:nth-child(21)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 10</p>",
+                            "target": [
+                              "p:nth-child(22)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 11</p>",
+                            "target": [
+                              "p:nth-child(23)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 12</p>",
+                            "target": [
+                              "p:nth-child(24)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 13</p>",
+                            "target": [
+                              "p:nth-child(25)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 14</p>",
+                            "target": [
+                              "p:nth-child(26)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 15</p>",
+                            "target": [
+                              "p:nth-child(27)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 16</p>",
+                            "target": [
+                              "p:nth-child(28)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 17</p>",
+                            "target": [
+                              "p:nth-child(29)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 18</p>",
+                            "target": [
+                              "p:nth-child(30)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 19</p>",
+                            "target": [
+                              "p:nth-child(31)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 20</p>",
+                            "target": [
+                              "p:nth-child(32)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 21</p>",
+                            "target": [
+                              "p:nth-child(33)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 22</p>",
+                            "target": [
+                              "p:nth-child(34)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 23</p>",
+                            "target": [
+                              "p:nth-child(35)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 24</p>",
+                            "target": [
+                              "p:nth-child(36)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 25</p>",
+                            "target": [
+                              "p:nth-child(37)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 26</p>",
+                            "target": [
+                              "p:nth-child(38)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 27</p>",
+                            "target": [
+                              "p:nth-child(39)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 28</p>",
+                            "target": [
+                              "p:nth-child(40)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 29</p>",
+                            "target": [
+                              "p:nth-child(41)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 30</p>",
+                            "target": [
+                              "p:nth-child(42)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 31</p>",
+                            "target": [
+                              "p:nth-child(43)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 32</p>",
+                            "target": [
+                              "p:nth-child(44)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 33</p>",
+                            "target": [
+                              "p:nth-child(45)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 34</p>",
+                            "target": [
+                              "p:nth-child(46)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 35</p>",
+                            "target": [
+                              "p:nth-child(47)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 36</p>",
+                            "target": [
+                              "p:nth-child(48)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 37</p>",
+                            "target": [
+                              "p:nth-child(49)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 38</p>",
+                            "target": [
+                              "p:nth-child(50)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 39</p>",
+                            "target": [
+                              "p:nth-child(51)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 40</p>",
+                            "target": [
+                              "p:nth-child(52)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 41</p>",
+                            "target": [
+                              "p:nth-child(53)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 42</p>",
+                            "target": [
+                              "p:nth-child(54)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 43</p>",
+                            "target": [
+                              "p:nth-child(55)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 44</p>",
+                            "target": [
+                              "p:nth-child(56)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 45</p>",
+                            "target": [
+                              "p:nth-child(57)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 46</p>",
+                            "target": [
+                              "p:nth-child(58)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 47</p>",
+                            "target": [
+                              "p:nth-child(59)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 48</p>",
+                            "target": [
+                              "p:nth-child(60)"
+                            ]
+                          },
+                          {
+                            "html": "<p>Paragraph 49</p>",
+                            "target": [
+                              "p:nth-child(61)"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Some page content is not contained by landmarks",
+                    "html": "<html lang=\"\" dir=\"\">",
+                    "impact": "moderate",
+                    "none": [],
+                    "target": [
+                      "html"
+                    ]
+                  }
+                ],
+                "tags": [
+                  "cat.keyboard",
+                  "best-practice"
+                ]
+              }
+            ],
+            "count": 7
+          },
+          "severity": 2,
+          "detected_by": "check_accessibility",
+          "artifacts": {
+            "screenshot": "/home/dhia/browser-fuzzer/Dissertation/crash-manager/crash_results/screenshots/test.html.png",
+            "asan_log": "N/A",
+            "symbolized_trace": "N/A"
+          }
+        },
+        {
+          "type": "media_playback",
+          "timestamp": "2025-02-24T14:54:37.184096",
+          "details": {
+            "error": null,
+            "paused": true,
+            "readyState": 0
+          },
+          "severity": 3,
+          "detected_by": "check_media_playback",
+          "artifacts": {
+            "screenshot": "/home/dhia/browser-fuzzer/Dissertation/crash-manager/crash_results/screenshots/test.html.png",
+            "asan_log": "N/A",
+            "symbolized_trace": "N/A"
+          }
+        },
+        {
+          "type": "i18n_issue",
+          "timestamp": "2025-02-24T14:54:56.256084",
+          "details": "Missing lang attribute",
+          "severity": 2,
+          "detected_by": "check_localization",
+          "artifacts": {
+            "screenshot": "/home/dhia/browser-fuzzer/Dissertation/crash-manager/crash_results/screenshots/test.html.png",
+            "asan_log": "N/A",
+            "symbolized_trace": "N/A"
+          }
+        },
+        {
+          "type": "i18n_issue",
+          "timestamp": "2025-02-24T14:54:56.257418",
+          "details": "Invalid dir: ",
+          "severity": 2,
+          "detected_by": "check_localization",
+          "artifacts": {
+            "screenshot": "/home/dhia/browser-fuzzer/Dissertation/crash-manager/crash_results/screenshots/test.html.png",
+            "asan_log": "N/A",
+            "symbolized_trace": "N/A"
+          }
+        },
+        {
+          "type": "slow_execution",
+          "timestamp": "2025-02-24T14:54:57.609110",
+          "details": "Load time: 12689ms",
+          "severity": 2,
+          "detected_by": "check_performance",
+          "artifacts": {
+            "screenshot": "/home/dhia/browser-fuzzer/Dissertation/crash-manager/crash_results/screenshots/test.html.png",
+            "asan_log": "N/A",
+            "symbolized_trace": "N/A"
+          }
+        },
+        {
+          "type": "animation_glitch",
+          "timestamp": "2025-02-24T14:55:12.467216",
+          "details": {
+            "frame_diffs": [
+              13.342055158417987,
+              38.207366236846006,
+              78.84177811220941,
+              150.38987926257823
+            ],
+            "std": 51.86870800949254
+          },
+          "severity": 3,
+          "detected_by": "check_animation_glitches",
+          "artifacts": {
+            "screenshot": "/home/dhia/browser-fuzzer/Dissertation/crash-manager/crash_results/screenshots/test.html.png",
+            "asan_log": "N/A",
+            "symbolized_trace": "N/A"
+          }
+        },
+        {
+          "type": "console_errors",
+          "timestamp": "2025-02-24T14:55:12.991237",
+          "details": {
+            "count": 6,
+            "messages": [
+              "http://invalid.url/nonexistent.png - Failed to load resource: net::ERR_NAME_NOT_RESOLVED",
+              "file:///home/dhia/browser-fuzzer/Dissertation/crash-manager/nonexistent_video.mp4 - Failed to load resource: net::ERR_FILE_NOT_FOUND",
+              "file:///home/dhia/browser-fuzzer/Dissertation/crash-manager/test.html 66:16 \"Caught error: ReferenceError: nonExistentFunction is not defined\"",
+              "file:///home/dhia/browser-fuzzer/Dissertation/crash-manager/test.html 71:16 \"sendBeacon error: TypeError: Failed to execute 'sendBeacon' on 'Navigator': Beacons are only supported over HTTP(S).\"",
+              "chrome-error://chromewebdata/ - Not allowed to load local resource: file:///home/dhia/browser-fuzzer/Dissertation/crash-manager/nonexistent_iframe.html",
+              "devtools://devtools/bundled/core/protocol_client/protocol_client.js 2176:18 \"Request Network.loadNetworkResource failed. {\\\"code\\\":-32602,\\\"message\\\":\\\"Unsupported URL scheme\\\"}\""
+            ]
+          },
+          "severity": 3,
+          "detected_by": "check_console_errors",
+          "artifacts": {
+            "screenshot": "/home/dhia/browser-fuzzer/Dissertation/crash-manager/crash_results/screenshots/test.html.png",
+            "asan_log": "N/A",
+            "symbolized_trace": "N/A"
+          }
+        }
+      ],
+      "status": "failed"
+    }
+  }
+}
