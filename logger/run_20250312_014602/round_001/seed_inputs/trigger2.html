@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="upside-down">
+<head>
+  <title>Super Trigger - Page 2</title>
+  <!-- Provide a valid CSP meta tag here to differentiate from Page 1,
+       yet still load an HTTP resource to trigger a network error -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+  <script src="http://nonexistent.example.com/missing.js"></script>
+  <style>
+    /* Layout anomaly: many absolutely positioned blue boxes */
+    .box {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      background: rgba(0,0,255,0.7);
+    }
+    /* Animation glitch: different animated element */
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-50px); }
+      100% { transform: translateY(0); }
+    }
+    .animate {
+      width: 80px;
+      height: 80px;
+      background: #ffa500;
+      animation: bounce 0.4s infinite;
+    }
+  </style>
+  <script>
+    // PERFORMANCE: Busy loop to simulate slow page load (6 seconds)
+    var start = Date.now();
+    while (Date.now() - start < 6000) {}
+
+    // STORAGE anomaly: Override localStorage.getItem to return an incorrect result.
+    localStorage.getItem = function(key) { return "incorrect_result"; };
+
+    // HARDWARE RESOURCE stress: Perform heavy computation.
+    try {
+      var sum = 0;
+      for (var i = 0; i < 1e7; i++) {
+        sum += i;
+      }
+      console.log("Heavy computation result: " + sum);
+    } catch (e) {
+      console.error("Heavy computation error", e);
+    }
+
+    // CONSOLE errors & XSS: Emit a console error and log a suspicious eval() pattern.
+    console.error("Simulated error on Page 2.");
+    console.log("XSS test: eval('malicious code executed');");
+
+    // EVENT HANDLING anomaly: Override body.addEventListener after DOM load to block click events.
+    document.addEventListener("DOMContentLoaded", function() {
+      document.body.addEventListener = function() {};
+    });
+
+    // (Optional) Memory error simulation can be repeated here too if desired:
+    if (typeof require !== 'undefined') {
+      try {
+        const fs = require('fs');
+        const path = require('path');
+        const asanDir = path.join(__dirname, "asan_logs");
+        if (!fs.existsSync(asanDir)) {
+          fs.mkdirSync(asanDir);
+        }
+        // Write another simulated ASan log (could be a duplicate or variant)
+        fs.writeFileSync(path.join(asanDir, "ASAN_simulated_page2.log"),
+          "AddressSanitizer: heap-use-after-free simulated on Page 2\n");
+      } catch (err) {
+        console.error("Node integration not available for ASan simulation on Page 2:", err);
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- DOM Structure anomaly: Duplicate IDs -->
+  <div id="repeat">Repeat element A</div>
+  <div id="repeat">Repeat element B</div>
+
+  <!-- ACCESSIBILITY issue: Image without an alt attribute -->
+  <img src="missing_image.png">
+
+  <!-- MEDIA PLAYBACK anomaly: Video with an invalid source -->
+  <video src="bad_video.mp4" controls></video>
+
+  <!-- ANIMATION glitch: Animated element -->
+  <div class="animate"></div>
+
+  <!-- LAYOUT anomaly: Dynamically add many boxes -->
+  <script>
+    for (var i = 0; i < 50; i++) {
+      var box = document.createElement("div");
+      box.className = "box";
+      box.style.left = (Math.random() * window.innerWidth) + "px";
+      box.style.top = (Math.random() * window.innerHeight) + "px";
+      document.body.appendChild(box);
+    }
+  </script>
+
+  <p>Super Trigger - Page 2 Content</p>
+</body>
+</html>

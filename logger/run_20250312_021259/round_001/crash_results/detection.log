@@ -1,0 +1,59 @@
+[02:13:01][INFO] detection-advanced: [DETECTION] Deep & Detailed Reporting.
+[02:13:01][INFO] detection-advanced: [DETECTION] Found 1 mutated HTML files in => /home/dhia/browser-fuzzer/Dissertation/logger/run_20250312_021259/round_001/mutations
+[02:13:01][INFO] detection-advanced: [DETECTION] Start => mutated_0001.html
+[02:15:08][ERROR] detection-advanced: Unhandled error:
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 446, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 441, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.10/http/client.py", line 1375, in getresponse
+    response.begin()
+  File "/usr/lib/python3.10/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.10/http/client.py", line 279, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/dhia/browser-fuzzer/Dissertation/logger/fuzzing/detection.py", line 453, in execute_test
+    driver.get(url)
+  File "/home/dhia/.local/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py", line 454, in get
+    self.execute(Command.GET, {"url": url})
+  File "/home/dhia/.local/lib/python3.10/site-packages/selenium/webdriver/remote/webdriver.py", line 427, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "/home/dhia/.local/lib/python3.10/site-packages/selenium/webdriver/remote/remote_connection.py", line 404, in execute
+    return self._request(command_info[0], url, body=data)
+  File "/home/dhia/.local/lib/python3.10/site-packages/selenium/webdriver/remote/remote_connection.py", line 428, in _request
+    response = self._conn.request(method, url, body=body, headers=headers, timeout=self._client_config.timeout)
+  File "/usr/lib/python3/dist-packages/urllib3/request.py", line 78, in request
+    return self.request_encode_body(
+  File "/usr/lib/python3/dist-packages/urllib3/request.py", line 170, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "/usr/lib/python3/dist-packages/urllib3/poolmanager.py", line 375, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 756, in urlopen
+    retries = retries.increment(
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 534, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/lib/python3/dist-packages/six.py", line 719, in reraise
+    raise value
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 700, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 448, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 337, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='localhost', port=33339): Read timed out. (read timeout=120)
+[02:15:08][INFO] detection-advanced: Created failure artifact at /home/dhia/browser-fuzzer/Dissertation/logger/run_20250312_021259/round_001/crash_results/logs/failure_mutated_0001.html.log
+[02:17:05][INFO] detection-advanced:  => no anomalies found.
+[02:17:05][INFO] detection-advanced: Finished => mutated_0001.html, took 244.25s
+[02:17:06][INFO] detection-advanced: [REPORT] Updated => mutated_0001.html
+[02:17:06][INFO] detection-advanced: [COVERAGE] coverage_summary => /home/dhia/browser-fuzzer/Dissertation/logger/run_20250312_021259/round_001/crash_results/coverage_summary.json
+[02:17:06][INFO] detection-advanced: [DETECTION] All done; final coverage at => /home/dhia/browser-fuzzer/Dissertation/logger/run_20250312_021259/round_001/crash_results/coverage_summary.json
+[02:17:06][INFO] detection-advanced: Cleaning up 0 temporary files
