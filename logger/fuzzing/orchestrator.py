@@ -4,8 +4,8 @@ orchestrator.py
 ---------------
 Coordinates multi-round fuzzing:
 1) Picks seeds using a "top-k with randomness" approach rather than always picking the top 2.
-2) Runs an advanced mutation pipeline (grammar-based, bit-level, fractal, etc.).
-3) Invokes detection to gather anomalies, coverage, crash info, etc.
+2) Runs an advanced mutation pipeline.
+3) Invokes detection to gather anomalies, coverage, crash info, etc. (calling detection.py from the same folder).
 4) Aggregates results across rounds with optional coverage chart.
 """
 
@@ -17,8 +17,10 @@ import datetime
 import json
 import logging
 import random
+import time
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
+from collections import defaultdict
 
 # Shared config from your tool
 from config import (
@@ -34,8 +36,8 @@ THIS_FOLDER = Path(__file__).parent  # e.g. ~/browser-fuzzer/Dissertation/logger
 MUTATION_SCRIPT = str(THIS_FOLDER / "mutation_pipeline_deterministic.py")
 CRASH_SCRIPT = str(THIS_FOLDER / "detection.py")
 
-DEFAULT_MUTATIONS = 1
-DEFAULT_ROUNDS = 1
+DEFAULT_MUTATIONS = 2
+DEFAULT_ROUNDS = 5
 
 # -------------------------------------------------------------------------
 # Helper: validate_seed, load_coverage_summary, etc.
@@ -55,8 +57,8 @@ def load_coverage_summary(round_path: Path) -> Dict[str, Any]:
         try:
             with open(cov_file, "r", encoding="utf-8") as f:
                 return json.load(f)
-        except:
-            pass
+        except Exception as e:
+            logger.error("Failed to load coverage summary: %s", e)
     return {}
 
 def compute_weighted_coverage_score(cov_data: Dict[str, Any]) -> float:
@@ -75,10 +77,12 @@ def reorder_seeds_based_on_coverage(
     coverage_summary: Dict[str, Any]
 ) -> List[Path]:
     coverage_files = coverage_summary.get("files", {})
+
     def get_score(sp: Path) -> float:
         name = sp.name
         data = coverage_files.get(name, {})
         return compute_weighted_coverage_score(data)
+
     return sorted(seeds, key=get_score, reverse=True)
 
 def gather_new_crash_seeds(run_dir: Path) -> List[Path]:
@@ -119,6 +123,30 @@ def choose_seeds_with_randomness(sorted_seeds: List[Path], top_k: int = 5) -> Tu
 
     return seedA, seedB
 
+# --- Evolutionary Seed Selection Enhancements ---
+def calculate_seed_impact(seed_path: Path, coverage_data: Dict[str, Any]) -> float:
+    """Determine how much new coverage a seed contributed"""
+    filename = seed_path.name
+    impact = 0
+    for file_data in coverage_data.get("files", {}).values():
+        if filename in file_data.get("source_files", []):
+            impact += file_data.get("visitedRanges", 0) * COVERAGE_WEIGHT_LINE
+            impact += file_data.get("visitedFunctions", 0) * COVERAGE_WEIGHT_FUNC
+    return impact
+
+def select_evolutionary_seeds(seeds: List[Path], coverage_data: Dict[str, Any]) -> List[Path]:
+    """Prioritize seeds that contributed to coverage expansion"""
+    scored = []
+    for seed in seeds:
+        score = calculate_seed_impact(seed, coverage_data)
+        # Bonus for crash seeds
+        if "crash_seed" in seed.name:
+            score *= 1.5
+        scored.append((seed, score))
+    scored.sort(key=lambda x: x[1], reverse=True)
+    keep_count = max(2, len(scored) // 2)
+    return [s[0] for s in scored[:keep_count]]
+
 def get_seeds(
     cli_args: List[str],
     previous_coverage: Dict[str, Any],
@@ -153,9 +181,10 @@ def get_seeds(
     if len(seeds) < 2:
         raise RuntimeError("[FATAL] Not enough seeds after fallback to 'complex'.")
 
-    # reorder by coverage if we have it
+    # reorder by coverage if we have it and apply evolutionary selection
     if previous_coverage:
         seeds = reorder_seeds_based_on_coverage(seeds, previous_coverage)
+        seeds = select_evolutionary_seeds(seeds, previous_coverage)
     else:
         random.shuffle(seeds)
 
@@ -174,7 +203,7 @@ def aggregate_coverage_across_all_rounds(run_dir: Path) -> None:
             final_coverage["rounds"][rd.name] = data
             files_data = data.get("files", {})
             for f_name, cov_info in files_data.items():
-                sc = cov_info.get("weightedCoverageScore", cov_info.get("newCoverageScore", 0.0))
+                sc = cov_info.get("weightedCoverageScore", 0.0)
                 if sc > best_score:
                     best_score = sc
 
@@ -193,7 +222,7 @@ def aggregate_coverage_across_all_rounds(run_dir: Path) -> None:
             cdata = final_coverage["rounds"].get(label, {})
             sum_score = 0.0
             for fname, metrics in cdata.get("files", {}).items():
-                sum_score += metrics.get("weightedCoverageScore", metrics.get("newCoverageScore", 0.0))
+                sum_score += metrics.get("weightedCoverageScore", 0.0)
             rd_names.append(label)
             total_scores.append(sum_score)
 
@@ -210,6 +239,36 @@ def aggregate_coverage_across_all_rounds(run_dir: Path) -> None:
     except ImportError:
         logger.warning("matplotlib not installed => skipping coverage chart generation.")
 
+# --- Coverage-Guided Seed Prioritization Enhancements ---
+def calculate_coverage_gaps(previous_coverage: Dict[str, Any]) -> Dict[str, List[str]]:
+    """Identify least-covered elements/attributes from coverage data"""
+    gaps = {"elements": [], "attributes": [], "events": []}
+    if not previous_coverage.get("files"):
+        return gaps
+
+    element_counts = defaultdict(int)
+    attribute_counts = defaultdict(int)
+    event_counts = defaultdict(int)
+
+    for file_data in previous_coverage["files"].values():
+        for elem, data in file_data.get("element_coverage", {}).items():
+            element_counts[elem] += data.get("count", 0)
+        for attr, data in file_data.get("attribute_coverage", {}).items():
+            attribute_counts[attr] += data.get("count", 0)
+        for event, data in file_data.get("event_coverage", {}).items():
+            event_counts[event] += data.get("count", 0)
+
+    gap_size = max(1, len(element_counts) // 4)
+    gaps["elements"] = sorted(element_counts, key=lambda x: element_counts[x])[:gap_size]
+
+    gap_size = max(1, len(attribute_counts) // 4)
+    gaps["attributes"] = sorted(attribute_counts, key=lambda x: attribute_counts[x])[:gap_size]
+
+    gap_size = max(1, len(event_counts) // 4)
+    gaps["events"] = sorted(event_counts, key=lambda x: event_counts[x])[:gap_size]
+
+    return gaps
+
 def main() -> None:
     init_global_seed()
 
@@ -225,13 +284,22 @@ def main() -> None:
         logger.warning("[WARN] Using default mutation_count/rounds => %d/%d", mutation_count, num_rounds)
 
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    run_dir = Path(LOGGER_DIR) / f"run_{timestamp}"  # e.g. ~/browser-fuzzer/Dissertation/logger/run_YYYYMMDD_HHMMSS
+    run_dir = Path(LOGGER_DIR) / f"run_{timestamp}"
     run_dir.mkdir(parents=True, exist_ok=True)
     logger.info("[INIT] Created run => %s", run_dir)
 
     previous_coverage: Dict[str, Any] = {}
+    crash_data: Dict[str, Any] = {}
+    
+    # Track unique crashes and coverage across rounds
+    unique_crashes_seen = set()
+    cumulative_coverage = {}
 
     for round_num in range(1, num_rounds + 1):
+        # Create a new random seed for this round based on round number and timestamp
+        round_seed = int(time.time()) + round_num * 1000
+        os.environ["MUTATION_ROUND_SEED"] = str(round_seed)
+        
         round_path = run_dir / f"round_{round_num:03d}"
         round_path.mkdir()
         logger.info("[ROUND %d] => directory => %s", round_num, round_path)
@@ -240,6 +308,17 @@ def main() -> None:
         if round_num > 1:
             prev_round_dir = run_dir / f"round_{round_num - 1:03d}"
             previous_coverage = load_coverage_summary(prev_round_dir)
+            
+            # Extract crash data from previous round
+            crash_file = prev_round_dir / "crash_results" / "unique_crashes.json"
+            if crash_file.exists():
+                try:
+                    with open(crash_file, "r", encoding="utf-8") as f:
+                        crash_data = json.load(f)
+                        for sig in crash_data.keys():
+                            unique_crashes_seen.add(sig)
+                except Exception as e:
+                    logger.error("[CRASH-DATA] Failed to load => %s", e)
 
         new_crash_seeds = gather_new_crash_seeds(run_dir)
         seedA, seedB = get_seeds(sys.argv[1:], previous_coverage, new_crash_seeds, top_k=5)
@@ -259,20 +338,38 @@ def main() -> None:
         env.update({
             "MUTATION_SEED_A": str(seedA),
             "MUTATION_SEED_B": str(seedB),
-            "MUTATION_OUT_DIR": str(mutations_dir)
+            "MUTATION_OUT_DIR": str(mutations_dir),
+            "MUTATION_ROUND_NUM": str(round_num),
+            "MUTATION_ROUND_SEED": str(round_seed),
+            "UNIQUE_CRASHES_COUNT": str(len(unique_crashes_seen)),
         })
+        
+        # Add coverage data if available
+        if previous_coverage:
+            env["PREVIOUS_COVERAGE_AVAILABLE"] = "1"
+            coverage_file = round_path / "previous_coverage.json"
+            with open(coverage_file, "w", encoding="utf-8") as f:
+                json.dump(previous_coverage, f)
+            env["PREVIOUS_COVERAGE_FILE"] = str(coverage_file)
+            
+            # Set flags for specific coverage areas to focus on
+            if previous_coverage.get("files"):
+                covered_elements = set()
+                for file_data in previous_coverage["files"].values():
+                    covered_elements.update(file_data.get("coveredElements", []))
+                env["COVERED_ELEMENTS"] = ",".join(list(covered_elements)[:100])  # Limit size
+        
         mutation_cmd = ["python3", MUTATION_SCRIPT, str(mutation_count)]
         mut_proc = subprocess.run(mutation_cmd, env=env,
-                                  stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
-        (mutations_dir / "mutation.log").write_text(mut_proc.stdout)
+                                stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
         logger.info("[ROUND %d] => Mutation => returncode=%d", round_num, mut_proc.returncode)
 
-        # run detection
+        # run detection locally
         crash_dir = round_path / "crash_results"
         crash_dir.mkdir()
         detection_cmd = ["python3", CRASH_SCRIPT, str(mutations_dir)]
         det_proc = subprocess.run(detection_cmd,
-                                  stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+                                stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
         (crash_dir / "detection.log").write_text(det_proc.stdout)
         logger.info("[ROUND %d] => Detection => returncode=%d", round_num, det_proc.returncode)
 
