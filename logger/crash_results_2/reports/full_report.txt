@@ -1,0 +1,86 @@
+======================================================================
+        WEBPAGE ANOMALY DETECTION REPORT      
+======================================================================
+
+Report Generation Time: 2025-03-28 04:38:14
+
+----- OVERALL TEST SUMMARY -----
+Total Webpages Tested:        1
+Webpages Passed without Issues: 0
+Webpages with Detected Issues:   1
+
+----- SEVERITY OF ISSUES FOUND -----
+Informational Issues:   1
+
+----- MOST COMMON ISSUES DETECTED -----
+The most frequent types of issues detected were:
+- Media Playback Error: Detected in 2 webpages
+- Media Playback Interaction Error: Detected in 2 webpages
+- Console Errors Warnings: Detected in 1 webpages
+- Missing Or Invalid Security Headers: Detected in 1 webpages
+- Insecure External Script: Detected in 1 webpages
+
+----- WEBPAGES WITH DETECTED ISSUES (Details) -----
+
+--- Webpage File: page2.html ---
+Test Result: Failed with Issues
+Test Duration: 195.24 seconds
+Detected Anomalies:
+  - Issue Type: Console Errors Warnings, Severity: Informational, Detected by: check_console_errors
+    - Errors Warnings: [{'level': 'WARNING', 'type': 'general', 'message': 'file:///tmp/single_test_page2/page2.html 23:16 "Running script with intentional runtime error..."', 'source': 'console-api', 'url': ''}, {'level': 'SEVERE', 'type': 'general', 'message': 'file:///tmp/single_test_page2/page2.html 27:20 "Caught Expected Error (Runtime):" "someUndefinedVariable is not defined"', 'source': 'console-api', 'url': ''}, {'level': 'SEVERE', 'type': 'general', 'message': 'file:///tmp/single_test_page2/page2.html - Refused to load the script \'http://example.com/blocked.js\' because it violates the following Content Security Policy directive: "script-src \'self\' \'unsafe-inline\'". Note that \'script-src-elem\' was not explicitly set, so \'script-src\' is used as a fallback.\n', 'source': 'security', 'url': ''}, {'level': 'SEVERE', 'type': 'general', 'message': 'file:///tmp/single_test_page2/page2.html 34 Refused to load the stylesheet \'http://example.com/blocked.css\' because it violates the following Content Security Policy directive: "style-src \'unsafe-inline\'". Note that \'style-src-elem\' was not explicitly set, so \'style-src\' is used as a fallback.\n', 'source': 'security', 'url': ''}, {'level': 'SEVERE', 'type': 'network_error', 'message': 'http://via.placeholder.com/50 - Failed to load resource: net::ERR_NAME_NOT_RESOLVED', 'source': 'network', 'url': ''}, {'level': 'SEVERE', 'type': 'general', 'message': 'file:///tmp/single_test_page2/page2.html 60:16 "Deliberate console.error message!"', 'source': 'console-api', 'url': ''}, {'level': 'WARNING', 'type': 'general', 'message': 'file:///tmp/single_test_page2/page2.html 61:16 "Deliberate console.warn message!"', 'source': 'console-api', 'url': ''}, {'level': 'WARNING', 'type': 'general', 'message': 'file:///tmp/single_test_page2/page2.html 96 The specified value "2025/03/27" does not conform to the required format, "yyyy-MM-dd".', 'source': 'rendering', 'url': ''}]
+    - Error Counts: {'general': 7, 'network_error': 1}
+  - Issue Type: Missing Or Invalid Security Headers, Severity: Informational, Detected by: check_security_issues
+    - X-Content-Type-Options: Missing
+    - X-Frame-Options: Missing
+    - Strict-Transport-Security: Missing
+    - Content-Security-Policy: Missing
+    - X-Xss-Protection: Missing
+  - Issue Type: Insecure External Script, Severity: Informational, Detected by: check_security_issues
+    - Scripts: ['http://example.com/blocked.js']
+  - Issue Type: Media Playback Error, Severity: Informational, Detected by: check_media_playback
+    - Details: Media error: 4 - MEDIA_ELEMENT_ERROR: Format error
+  - Issue Type: Media Playback Interaction Error, Severity: Informational, Detected by: check_media_playback
+    - Details: 'WebElement' object has no attribute 'play'
+  - Issue Type: Media Playback Error, Severity: Informational, Detected by: check_media_playback
+    - Details: Media error: 4 - MEDIA_ELEMENT_ERROR: Format error
+  - Issue Type: Media Playback Interaction Error, Severity: Informational, Detected by: check_media_playback
+    - Details: 'WebElement' object has no attribute 'play'
+  - Issue Type: Storage Error, Severity: Informational, Detected by: check_storage
+    - Details: Message: invalid cookie domain
+  (Session info: chrome=135.0.7019.0)
+Stacktrace:
+#0 0x5f0e0deb30b6 <unknown>
+#1 0x5f0e1113bce8 <unknown>
+#2 0x5f0e111007c9 <unknown>
+#3 0x5f0e0dfbfe80 <unknown>
+#4 0x5f0e0e136b90 <unknown>
+#5 0x5f0e0e0c6a25 <unknown>
+#6 0x5f0e0e11b58e <unknown>
+#7 0x5f0e0e11a5d9 <unknown>
+#8 0x5f0e0e0c9b62 <unknown>
+#9 0x5f0e0e063fc9 <unknown>
+#10 0x5f0e0e060b21 <unknown>
+#11 0x5f0e0e06366d <unknown>
+#12 0x5f0e0df7fd67 <unknown>
+#13 0x5f0e10f34bac <unknown>
+#14 0x5f0e10ff6dd2 <unknown>
+#15 0x5f0e10ff51bc <unknown>
+#16 0x5f0e10ff80eb <unknown>
+#17 0x5f0e10f76459 <unknown>
+#18 0x5f0e10ff93f0 <unknown>
+#19 0x5f0e10ef5a31 <unknown>
+#20 0x5f0e110a895c <unknown>
+#21 0x5f0e110a91e0 <unknown>
+#22 0x5f0e110eeada <unknown>
+#23 0x5f0e0df09b87 <unknown>
+#24 0x7a617a894ac3 <unknown>
+#25 0x7a617a926850 <unknown>
+
+  - Issue Type: Mouseover Event Failed, Severity: Informational, Detected by: check_event_handling
+    - Details: Mouseover event handler not executed on element
+  - Issue Type: Potential Xss In Html, Severity: Informational, Detected by: check_xss_patterns
+    - Details: [{'pattern': '<script[^>]*>[^<]*</script>', 'match': '<script>\n        console.warn("Running script with intentional runtime error...");\n        try {\n            console.log(someUndefinedVariable); // Runtime ReferenceError\n        } catch (e) {\n            console.error("Caught Expected Error (Runtime):", e.message);\n        }\n    </script>'}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': '<script src="http://example.com/blocked.js"></script>'}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': '<script>\n        // Helper to log progress to the page and console\n        function logStatus(message) {\n            console.log(`[Status] ${message}`);\n            const logEl = document.getElementById(\'pageLog\');\n            if (logEl) {\n                logEl.textContent += \'\\n\' + message;\n                logEl.scrollTop = logEl.scrollHeight; // Scroll to bottom\n            }\n        }\n        logStatus("Combined page script started.");\n    </script>'}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': '<script>\n        console.error("Deliberate console.error message!");\n        console.warn("Deliberate console.warn message!");\n    </script>'}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': '<script>\n        // This script tag is in the body without async/defer (blocking_scripts_in_body)\n        logStatus("This is a blocking script in the body.");\n    </script>'}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': "<script>\n        setTimeout(() => {\n            try {\n                const video = document.getElementById('testVideo');\n                const audio = document.getElementById('testAudio');\n                logStatus(`Media Check: Video readyState: ${video?.readyState}, error: ${video?.error?.code}`);\n                logStatus(`Media Check: Audio readyState: ${audio?.readyState}, error: ${audio?.error?.code}`);\n                // Attempt interaction for media checks (will fail due to no source)\n                if(video && typeof video.play === 'function') video.play().catch(e => logStatus(`Video play attempt error: ${e.message}`));\n                if(audio && typeof audio.play === 'function') audio.play().catch(e => logStatus(`Audio play attempt error: ${e.message}`));\n            } catch(e) { logStatus(`Error checking media state: ${e.message}`); }\n        }, 2000); // Check after a delay\n     </script>"}, {'pattern': 'eval\\(', 'match': 'eval('}, {'pattern': 'eval\\(', 'match': 'eval('}, {'element_info': {'tag': 'script', 'outerHTML': "<script>\n        setTimeout(() => {\n            try {\n                const video = document.getElementById('testVideo');\n                const audio = document.getElementById('testAudio');\n                logStatus(`Media Check: Video readyState: ${video?.readyState}, error: ${video?.error?.code}`);\n                logStatus(`Media Check: Audio readyState: ${audio?.readyState}, error: ${audio?.error?.code}`);\n                // Attempt interaction for media checks (will fail due to no source)\n                if(video && typeof video.play === 'function') video.play().catch(e => logStatus(`Video play attempt error: ${e.message}`));\n                if(audio && typeof audio.play === 'function') audio.play().catch(e => logStatus(`Audio play attempt error: ${e.message}`));\n            } catch(e) { logStatus(`Error checking media state: ${e.message}`); }\n        }, 2000); // Check after a delay\n     </script>"}, 'pattern': 'setTimeout\\(', 'match': 'setTimeout('}, {'element_info': {'tag': 'script', 'outerHTML': "<script>\n        setTimeout(() => {\n            try {\n                const video = document.getElementById('testVideo');\n                const audio = document.getElementById('testAudio');\n                logStatus(`Media Check: Video readyState: ${video?.readyState}, error: ${video?.error?.code}`);\n                logStatus(`Media Check: Audio readyState: ${audio?.readyState}, error: ${audio?.error?.code}`);\n                // Attempt interaction for media checks (will fail due to no source)\n                if(video && typeof video.play === 'function') video.play().catch(e => logStatus(`Video play attempt error: ${e.message}`));\n                if(audio && typeof audio.play === 'function') audio.play().catch(e => logStatus(`Audio play attempt error: ${e.message}`));\n            } catch(e) { logStatus(`Error checking media state: ${e.message}`); }\n        }, 2000); // Check after a delay\n     </script>"}, 'pattern': 'setTimeout\\(', 'match': 'setTimeout('}, {'element_info': {'tag': 'script', 'outerHTML': "<script>\n        setTimeout(() => {\n            try {\n                const video = document.getElementById('testVideo');\n                const audio = document.getElementById('testAudio');\n                logStatus(`Media Check: Video readyState: ${video?.readyState}, error: ${video?.error?.code}`);\n                logStatus(`Media Check: Audio readyState: ${audio?.readyState}, error: ${audio?.error?.code}`);\n                // Attempt interaction for media checks (will fail due to no source)\n                if(video && typeof video.play === 'function') video.play().catch(e => logStatus(`Video play attempt error: ${e.message}`));\n                if(audio && typeof audio.play === 'function') audio.play().catch(e => logStatus(`Audio play attempt error: ${e.message}`));\n            } catch(e) { logStatus(`Error checking media state: ${e.message}`); }\n        }, 2000); // Check after a delay\n     </script>"}, 'pattern': 'setTimeout\\(', 'match': 'setTimeout('}, {'element_info': {'tag': 'script', 'outerHTML': "<script>\n        setTimeout(() => {\n            try {\n                const video = document.getElementById('testVideo');\n                const audio = document.getElementById('testAudio');\n                logStatus(`Media Check: Video readyState: ${video?.readyState}, error: ${video?.error?.code}`);\n                logStatus(`Media Check: Audio readyState: ${audio?.readyState}, error: ${audio?.error?.code}`);\n                // Attempt interaction for media checks (will fail due to no source)\n                if(video && typeof video.play === 'function') video.play().catch(e => logStatus(`Video play attempt error: ${e.message}`));\n                if(audio && typeof audio.play === 'function') audio.play().catch(e => logStatus(`Audio play attempt error: ${e.message}`));\n            } catch(e) { logStatus(`Error checking media state: ${e.message}`); }\n        }, 2000); // Check after a delay\n     </script>"}, 'pattern': 'setTimeout\\(', 'match': 'setTimeout('}]
+
+======================================================================
+       END OF ANOMALY REPORT      
+======================================================================

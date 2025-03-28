@@ -1,0 +1,77 @@
+======================================================================
+        WEBPAGE ANOMALY DETECTION REPORT      
+======================================================================
+
+Report Generation Time: 2025-03-28 04:31:33
+
+----- OVERALL TEST SUMMARY -----
+Total Webpages Tested:        1
+Webpages Passed without Issues: 0
+Webpages with Detected Issues:   1
+
+----- SEVERITY OF ISSUES FOUND -----
+Informational Issues:   1
+
+----- MOST COMMON ISSUES DETECTED -----
+The most frequent types of issues detected were:
+- Missing Or Invalid Security Headers: Detected in 1 webpages
+- Storage Error: Detected in 1 webpages
+- Mouseover Event Failed: Detected in 1 webpages
+- Missing Lang Attribute: Detected in 1 webpages
+- High Fid: Detected in 1 webpages
+
+----- WEBPAGES WITH DETECTED ISSUES (Details) -----
+
+--- Webpage File: page1.html ---
+Test Result: Failed with Issues
+Test Duration: 589.13 seconds
+Detected Anomalies:
+  - Issue Type: Missing Or Invalid Security Headers, Severity: Informational, Detected by: check_security_issues
+    - X-Content-Type-Options: Missing
+    - X-Frame-Options: Missing
+    - Strict-Transport-Security: Missing
+    - Content-Security-Policy: Missing
+    - X-Xss-Protection: Missing
+  - Issue Type: Storage Error, Severity: Informational, Detected by: check_storage
+    - Details: Message: invalid cookie domain
+  (Session info: chrome=135.0.7019.0)
+Stacktrace:
+#0 0x5d884371e0b6 <unknown>
+#1 0x5d88469a6ce8 <unknown>
+#2 0x5d884696b7c9 <unknown>
+#3 0x5d884382ae80 <unknown>
+#4 0x5d88439a1b90 <unknown>
+#5 0x5d8843931a25 <unknown>
+#6 0x5d884398658e <unknown>
+#7 0x5d88439855d9 <unknown>
+#8 0x5d8843934b62 <unknown>
+#9 0x5d88438cefc9 <unknown>
+#10 0x5d88438cbb21 <unknown>
+#11 0x5d88438ce66d <unknown>
+#12 0x5d88437ead67 <unknown>
+#13 0x5d884679fbac <unknown>
+#14 0x5d8846861dd2 <unknown>
+#15 0x5d88468601bc <unknown>
+#16 0x5d88468630eb <unknown>
+#17 0x5d88467e1459 <unknown>
+#18 0x5d88468643f0 <unknown>
+#19 0x5d8846760a31 <unknown>
+#20 0x5d884691395c <unknown>
+#21 0x5d88469141e0 <unknown>
+#22 0x5d8846959ada <unknown>
+#23 0x5d8843774b87 <unknown>
+#24 0x779124e94ac3 <unknown>
+#25 0x779124f26850 <unknown>
+
+  - Issue Type: Mouseover Event Failed, Severity: Informational, Detected by: check_event_handling
+    - Details: Mouseover event handler not executed on element
+  - Issue Type: Missing Lang Attribute, Severity: Informational, Detected by: check_localization
+    - Details: The 'lang' attribute is missing from the <html> tag.
+  - Issue Type: High Fid, Severity: Informational, Detected by: check_performance
+    - Details: First Input Delay (FID) is high: 1392.6999999999534 ms
+  - Issue Type: Potential Xss In Html, Severity: Informational, Detected by: check_xss_patterns
+    - Details: [{'element_info': {'tag': 'script', 'outerHTML': '<script>\n        const logElement = document.getElementById(\'log\');\n        function log(message) {\n            console.log(message);\n            logElement.textContent += message + \'\\n\';\n            logElement.scrollTop = logElement.scrollHeight;\n        }\n\n        let stopStress = false;\n        let cycleCount = 0;\n        const MAX_CYCLES = 500; // Limit runtime to avoid infinite loops in case of non-crash hangs\n\n        // --- Vector 1: DOM Manipulation Stress ---\n        function stressDOM() {\n            if (stopStress) return;\n            log(`DOM Stress Cycle ${cycleCount}`);\n            const container = document.getElementById(\'domContainer\');\n            if (!container) {\n                log("Error: DOM container not found.");\n                stopStress = true;\n                return;\n            }\n\n            try {\n                // Create and append elements rapidly\n                for (let i = 0; i < 100; i++) {\n                    const elType = Math.random() < 0.5 ? \'div\' : \'span\';\n                    const el = document.createElement(elType);\n                    el.textContent = `Node ${cycleCount}-${i} (${Math.random().toString(36).substring(2)})`;\n                    // Occasionally add attributes or styles\n                    if (Math.random() < 0.1) {\n                        el.setAttribute(\'data-random\', Math.random());\n                        el.style.color = Math.random() < 0.5 ? \'red\' : \'blue\';\n                    }\n                    container.appendChild(el);\n                }\n\n                // Remove elements rapidly from the beginning\n                while (container.children.length > 200) { // Keep a moderate number\n                    container.removeChild(container.firstElementChild);\n                }\n\n                // Occasionally trigger layout/reflow\n                if (cycleCount % 10 === 0) {\n                    log("Triggering layout read...");\n                    container.getBoundingClientRect();\n                }\n\n            } catch (e) {\n                log(`DOM Stress Error: ${e.message}`);\n                // Don\'t necessarily stop, maybe the error itself is interesting or recovery reveals a bug\n            }\n        }\n\n        // --- Vector 2: Canvas API Stress ---\n        function stressCanvas() {\n            if (stopStress) return;\n            log(`Canvas Stress Cycle ${cycleCount}`);\n            const canvas = document.getElementById(\'stressCanvas\');\n            if (!canvas || !canvas.getContext) {\n                 log("Error: Canvas not found or context unavailable.");\n                 stopStress = true;\n                 return;\n            }\n            const ctx = canvas.getContext(\'2d\');\n            const w = canvas.width;\n            const h = canvas.height;\n\n            try {\n                 // Many complex draw calls\n                for (let i = 0; i < 50; i++) {\n                    ctx.save();\n                    ctx.globalAlpha = Math.random() * 0.5 + 0.2;\n                    ctx.fillStyle = `hsl(${Math.random()*360}, 80%, 50%)`;\n                    ctx.translate(Math.random() * w, Math.random() * h);\n                    ctx.rotate(Math.random() * Math.PI * 2);\n\n                    // Draw varied shapes\n                    if (Math.random() < 0.3) {\n                        ctx.fillRect(-20, -20, 40, 40);\n                    } else if (Math.random() < 0.6) {\n                        ctx.beginPath();\n                        ctx.arc(0, 0, Math.random() * 20 + 5, 0, Math.PI * 2);\n                        ctx.fill();\n                    } else {\n                         ctx.beginPath();\n                         ctx.moveTo(0, 0);\n                         ctx.bezierCurveTo(Math.random()*40-20, Math.random()*40-20, Math.random()*40-20, Math.random()*40-20, Math.random()*40-20, Math.random()*40-20);\n                         ctx.lineTo(Math.random()*40-20, Math.random()*40-20);\n                         ctx.closePath();\n                         ctx.fill();\n                         ctx.stroke();\n                    }\n                    ctx.restore();\n                }\n\n                // Occasionally read back data (can be slow/stressful)\n                 if (cycleCount % 20 === 0) {\n                     log("Reading canvas pixels...");\n                     let imageData = ctx.getImageData(0, 0, 10, 10); // Small read\n                 }\n\n                 // Occasionally clear/resize (might trigger cleanup bugs)\n                 if (cycleCount % 50 === 3) {\n                     log("Clearing canvas...");\n                     ctx.clearRect(0, 0, w, h);\n                 }\n\n            } catch (e) {\n                log(`Canvas Stress Error: ${e.message}`);\n            }\n        }\n\n        // --- Vector 3: Memory Allocation Stress ---\n        // Keep track of allocated buffers to potentially free them later\n        let allocatedBuffers = [];\n        function stressMemory() {\n             if (stopStress) return;\n             log(`Memory Stress Cycle ${cycleCount}`);\n\n            try {\n                 // Allocate moderately large buffers repeatedly\n                 const allocSizeMB = 30;\n                 const allocSizeBytes = allocSizeMB * 1024 * 1024;\n                 log(`Allocating ${allocSizeMB}MB ArrayBuffer...`);\n                 let buffer = new ArrayBuffer(allocSizeBytes);\n                 allocatedBuffers.push(buffer); // Keep a reference\n\n                 // Touch memory briefly\n                 let view = new DataView(buffer);\n                 view.setInt32(0, cycleCount);\n\n                 // Remove old buffers to allow GC and potentially trigger UAF\n                 if (allocatedBuffers.length > 5) {\n                     log("Removing oldest buffer reference...");\n                     allocatedBuffers.shift(); // Remove first element\n                 }\n                 log(`Allocated ${allocSizeMB}MB. Total held buffers: ${allocatedBuffers.length}`);\n\n            } catch (e) {\n                 log(`Memory Allocation Error: ${e.message}`);\n                 // Clear array on major allocation failure to avoid holding partial/bad state\n                 allocatedBuffers = [];\n                 // Maybe stop if allocation fails consistently?\n                 // stopStress = true;\n            }\n        }\n\n        // --- Main Loop ---\n        function runStressCycle() {\n            if (stopStress || cycleCount >= MAX_CYCLES) {\n                 log(`Stress testing stopped. Reached cycle ${cycleCount}.`);\n                 return;\n            }\n            cycleCount++;\n\n            // Run the different stress vectors\n            stressDOM();\n            stressCanvas();\n            stressMemory(); // Run this last as it might be most likely to OOM\n\n            // Schedule next cycle\n            requestAnimationFrame(runStressCycle); // Use rAF for continuous stress tied to rendering loop\n        }\n\n        // --- Start ---\n        window.onload = () => {\n            log("Starting ASan stress test...");\n            // Add a small delay before starting intense loops\n            setTimeout(() => {\n                 requestAnimationFrame(runStressCycle);\n            }, 500);\n        };\n\n        // Optional: Stop mechanism if needed (e.g., via console)\n        window.stopTest = () => {\n            stopStress = true;\n            log("Manual stop requested.");\n        };\n\n    </script>'}, 'pattern': 'setTimeout\\(', 'match': 'setTimeout('}]
+
+======================================================================
+       END OF ANOMALY REPORT      
+======================================================================

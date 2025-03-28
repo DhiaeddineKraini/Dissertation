@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+
+<head data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><script>
+        window.__jsCoverage = new Proxy({}, {
+            get(t, p) { return t[p] || 0 },
+            set(t, p, v) { t[p] = (t[p] || 0) + 1; return true }
+        });
+        </script><title data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">CSS Test: scroll tracking for ::scroll-markers when scroll-marker-group is scrollable </title><meta content="default-src 'self' 'unsafe-inline'" data-mutated="true" data-uncovered-attr="fuzz" http-equiv="Content-Security-Policy" onabort="triggerFuzz()" onblur="triggerFuzz()"/><coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 1\');</script></coverage-gap-fill><coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 1\');</script></coverage-gap-fill><meta content="100" data-mutated="true" data-uncovered-attr="fuzz" name="mutation-round" onblur="triggerFuzz()"/><script>// JS Validation Error
+            try {                window.triggerFuzz = () => {                    console.log(\'Safe triggerFuzz execution\');                    document.dispatchEvent(new Event(\'fuzz\'));                };            } catch(e) {                console.error(\'Fuzz setup failed:\', e);            }            </script><script>function triggerFuzz() {}</script></head><body data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()"><html class="reftest-wait" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">
+<head data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()">
+<title data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">CSS Test: scroll tracking for ::scroll-markers when scroll-marker-group is scrollable </title>
+<link data-mutated="true" data-uncovered-attr="fuzz" href="https://drafts.csswg.org/css-overflow-5/#active-scroll-marker" onblur="triggerFuzz()" onerror="triggerFuzz()" rel="help"/>
+<link data-mutated="true" data-uncovered-attr="fuzz" href="scroll-marker-group-keeps-active-in-view-ref.html" onabort="triggerFuzz()" rel="match"/>
+<script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" src="/css/css-transitions/support/helper.js"></script>
+<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" src="/dom/events/scrolling/scroll_support.js"></script>
+<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()" src="/common/reftest-wait.js"></script>
+</head>
+<body data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">
+<style data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()">
+    .scroller {
+      height: 500px;
+      width: 80vw;
+      border: solid 1px;
+      overflow-x: scroll;
+      justify-self: center;
+      white-space: nowrap;
+      padding-top: 50px;
+      scroll-snap-type: x mandatory;
+      scroll-marker-group: after;
+      &::scroll-marker-group {
+        border: solid 1px black;
+        border-radius: 10px 10px 10px 10px;
+        height: 40px;
+        width: 200px;
+        display: grid;
+        grid-auto-flow: column;
+        justify-self: center;
+        overflow-x: scroll;
+        white-space: nowrap;
+      }
+      counter-set: markeridx -1;
+    }
+
+    .box {
+      height: 400px;
+      width: 40%;
+      border: 1px solid;
+      display: inline-block;
+      margin-left: 50px;
+      margin-right: 50px;
+      scroll-snap-align: center;
+      align-content: center;
+      text-align: center;
+      &::scroll-marker {
+        content: counter(markeridx);
+        counter-increment: markeridx;
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        border-radius: 50%;
+      }
+      &::scroll-marker:target-current {
+        background-color: green;
+      }
+    }
+
+    </style>
+<div class="scroller" data-mutated="true" data-uncovered-attr="fuzz" id="carousel" onabort="triggerFuzz()" onblur="triggerFuzz()">
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box0" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">0</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box1" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">1</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box2" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()">2</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box3" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">3</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box4" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">4</p></div>
+<entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()"><div class="box" data-mutated="tRue" data-uncovered-attr="fuzz" id="bnx5" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">5</p></div></entanglement-wrapper>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box6" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">6</p></div>
+<entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()"><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box7" mouseover="function handleEvent() {
+    try {
+        try {
+        document.querySelectorAll('*')
+    } finally {
+        window.lastMutation = performance.now();
+    }
+    } catch(e) {
+        document.body.classList.add('mutation-error');
+    }
+}" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">7</p></div></entanglement-wrapper>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box8" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()">8</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box9" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">9</p><p data-entangled="725fc034-43c2-4f66-87f7-e20e8382062e" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">9</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box10" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">10</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box11" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">11</p></div><div class="box" data-entangled="edfbf94b-11bc-43e3-a754-a23c2ab54b4c" data-mutated="true" data-uncovered-attr="fuzz" id="box11" onabort="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">11</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box12" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">12</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box13" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()">13</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box14" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">14</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box15" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">15</p></div>
+</div><body data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">
+</body><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+      async function runTest() {        const scrollend_promise =          waitForScrollEndFallbackToDelayWithoutScrollEvent(carousel);        // Scroll to the max horizontal offset.        carousel.scrollLeft = carousel.scrollWidth;        await scrollend_promise;        takeScreenshot();      }      waitForCompositorReady().then(runTest);    </script>
+</body>
+</html><script data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()">// JS Validation Error
+try { document.currentScript.parentNode.setAttribute(\'data-adv-entangle-1\', performance.now().toString()); } catch(e) {}</script><entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()"><body data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()">
+<style data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">
+    .scroller {
+      height: 500px;
+      width: 80vw;
+      border: solid 1px;
+      overflow-x: scroll;
+      justify-self: center;
+      white-space: nowrap;
+      padding-top: 50px;
+      scroll-snap-type: x mandatory;
+      scroll-marker-group: after;
+      &::scroll-marker-group {
+        border: solid 1px black;
+        border-radius: 10px 10px 10px 10px;
+        height: 40px;
+        width: 200px;
+        display: grid;
+        grid-auto-flow: column;
+        justify-self: center;
+        overflow-x: scroll;
+        white-space: nowrap;
+      }
+      counter-set: markeridx -1;
+    }
+
+    .box {
+      height: 400px;
+      width: 40%;
+      border: 1px solid;
+      display: inline-block;
+      margin-left: 50px;
+      margin-right: 50px;
+      scroll-snap-align: center;
+      align-content: center;
+      text-align: center;
+      &::scroll-marker {
+        content: counter(markeridx);
+        counter-increment: markeridx;
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        border-radius: 50%;
+      }
+      &::scroll-marker:target-current {
+        background-color: green;
+      }
+    }
+
+    </style>
+<div class="scroller" data-mutated="true" data-uncovered-attr="fuzz" id="carousel" onabort="triggerFuzz()" onerror="triggerFuzz()">
+<div class="box" data-mutated="trum" data-uncovered-attr="fuzz" id="boxp" onabort="triggerFuzz(i" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">0</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box1" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">1</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box2" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">2</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box3" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">3</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box4" onabort="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()">4</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box5" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">5</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box6" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">6</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box7" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">7</p></div>
+<entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()"><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box8" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">8</p><p data-entangled="f7c41407-2dff-4fca-aafd-9e07e2b20307" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">8</p></div></entanglement-wrapper>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box9" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">9</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box10" onabort="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">10</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box11" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()">11</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box12" onabort="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">12</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box13" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">13</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box14" onabort="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">14</p></div>
+<div class="box" data-mutated="vrue" data-uncovered-attr="fuzz" id="boxq5" onabort="tsiggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">15</p></div>
+</div>&lt;!--[if lt IE 9]&gt; &lt;script&gt;alert('old IE')&lt;![endif]--&gt;<body data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()">
+</body><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+      async function runTest() {        const scrollend_promise =          waitForScrollEndFallbackToDelayWithoutScrollEvent(carousel);        // Scroll to the max horizontal offset.        carousel.scrollLeft = carousel.scrollWidth;        await scrollend_promise;        takeScreenshot();      }      waitForCompositorReady().then(runTest);    </script>
+</body></entanglement-wrapper><entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()"><div class="scroller" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="carousel" onabort="triggerFuzz()">
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box0" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">0</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box1" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()">1</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box2" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()">2</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box3" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">3</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box4" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">4</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box5" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">5</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box6" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">6</p></div>
+<div class="box" click="alert('Interactive mutation at step 1');" data-mutated="true" data-uncovered-attr="fuzz" id="box7" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">7</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box8" onabort="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()">8</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box9" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()">9</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box10" onblur="triggerFuzz()">&lt;!-- Appears broken in IE --&gt;<p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">10</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box11" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">11</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box12" onabort="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">12</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box13" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()">13</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box14" onabort="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">14</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box15" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">15</p></div>
+</div></entanglement-wrapper><head data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">
+<title data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()">CSS Test: scroll tracking for ::scroll-markers when scroll-marker-group is scrollable </title>
+<link data-mutated="true" data-uncovered-attr="fuzz" href="https://drafts.csswg.org/css-overflow-5/#active-scroll-marker" onabort="triggerFuzz()" onerror="triggerFuzz()" rel="help"/>
+<link data-mutated="true" data-uncovered-attr="fuzz" href="scroll-marker-group-keeps-active-in-view-ref.html" onerror="triggerFuzz()" rel="match"/>
+<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" src="/css/css-transitions/support/helper.js"></script>
+<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()" src="/dom/events/scrolling/scroll_support.js"></script>
+<entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" src="/common/reftest-wait.js"></script></entanglement-wrapper><script data-entangled="25230b62-b81e-46fe-a0af-d466010a3cd8" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()" src="/common/reftest-wait.js"></script>
+</head><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box13" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">13</p></div><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box0" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">0</p></div><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box2" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()">2</p></div><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">// JS Validation Error
+try { document.currentScript.parentNode.setAttribute(\'data-adv-entangle-1\', performance.now().toString()); } catch(e) {}</script><entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()">&lt;!--[if lt IE 9]&gt; &lt;script&gt;alert('old IE')&lt;![endif]--&gt;<div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box10" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">10</p></div></entanglement-wrapper><div class="box" data-det-step="1" data-entangled="b1eec7cf-3351-402b-ac79-ef2d5b41ea52" data-mutated="true" data-uncovered-attr="fuzz" id="box10" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">10</p></div><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box15" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">15</p></div><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+try { document.currentScript.parentNode.setAttribute(\'data-adv-entangle-1\', performance.now().toString()); } catch(e) {}</script><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box4" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">4</p></div><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box3" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">3</p></div><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box12" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">12</p></div><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box6" onerror="triggerFuzz()"><p data-mutated="tr}e" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerBuzz()">6</p></div><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box8" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">8</p></div><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box5" onabort="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">5</p></div><html data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><head data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><title data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">CSS Test: scroll tracking for ::scroll-markers when scroll-marker-group is scrollable <coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></title><entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()"><coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></entanglement-wrapper><coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="2" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><meta content="100" data-mutated="true" data-uncovered-attr="fuzz" name="mutation-round" onabort="triggerFuzz()" onblur="triggerFuzz()"/><coverage-gap-fill data-depth="5" data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 1\');</script></coverage-gap-fill><coverage-gap-fill data-depth="5" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 1\');</script></coverage-gap-fill><coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="2" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></head><body data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><div data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" style="font-family: monospace; font-size: 1.5em">
+<div data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" style="font-family: sans-serif; font-size: 1rex">
+    Text.
+  </div>
+</div><html class="reftest-wait" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">
+<head data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">
+<title data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">CSS Test: scroll tracking for ::scroll-markers when scroll-marker-group is scrollable <coverage-gap-fill data-depth="5" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="5" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></title>
+<link data-mutated="true" data-uncovered-attr="fuzz" href="https://drafts.csswg.org/css-overflow-5/#active-scroll-marker" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()" rel="help"/>
+<link data-mutated="true" data-uncovered-attr="fuzz" href="scroll-marker-group-keeps-active-in-view-ref.html" onabort="triggerFuzz()" onerror="triggerFuzz()" rel="match"/><link data-entangled="5ecb49fd-0e43-4378-a802-38af5fcd9297" data-mutated="true" data-uncovered-attr="fuzz" href="scroll-marker-group-keeps-active-in-view-ref.html" onabort="triggerFuzz()" rel="match"/>
+<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" src="/css/css-transitions/support/helper.js"></script>
+<script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()" src="/dom/events/scrolling/scroll_support.js"></script>
+&lt;!-- Appears broken in IE --&gt;<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()" src="/common/reftest-wait.js"></script>
+<coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="t�ue" data-uncovered-attr="fuzz" mouseover="function handleEvent() {
+    try {
+        try { 
+        const res = document.body.appendChild(document.createElement('div')); 
+        console.debug('Mutation success:', res); 
+    } catch(e) { 
+        console.warn('Mutation error:', e); 
+        document.dispatchEvent(new CustomEvent('mutationFailed')); 
+    }
+    } catch(e) {
+        document.body.classList.add('mutation-error');
+    }
+}" onblur="triggerFuzZ()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></head>
+<body data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">
+<style data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">
+    .scroller {
+      height: 500px;
+      width: 80vw;
+      border: solid 1px;
+      overflow-x: scroll;
+      justify-self: center;
+      white-space: nowrap;
+      padding-top: 50px;
+      scroll-snap-type: x mandatory;
+      scroll-marker-group: after;
+      &::scroll-marker-group {
+        border: solid 1px black;
+        border-radius: 10px 10px 10px 10px;
+        height: 40px;
+        width: 200px;
+        display: grid;
+        grid-auto-flow: column;
+        justify-self: center;
+        overflow-x: scroll;
+        white-space: nowrap;
+      }
+      counter-set: markeridx -1;
+    }
+
+    .box {
+      height: 400px;
+      width: 40%;
+      border: 1px solid;
+      display: inline-block;
+      margin-left: 50px;
+      margin-right: 50px;
+      scroll-snap-align: center;
+      align-content: center;
+      text-align: center;
+      &::scroll-marker {
+        content: counter(markeridx);
+        counter-increment: markeridx;
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        border-radius: 50%;
+      }
+      &::scroll-marker:target-current {
+        background-color: green;
+      }
+    }
+
+    <coverage-gap-fill data-depth="5"><script>console.log('recursive script at step 0');</script></coverage-gap-fill><coverage-gap-fill data-depth="5"><script>console.log('recursive script at step 0');</script></coverage-gap-fill></style>
+<div class="scroller" data-mutated="true" data-uncovered-attr="fuzz" id="carousel" onabort="triggerFuzz()" onblur="triggerFuzz()">
+<div class="box" data-mutated="trug" data-uncovered-attr="fuzz" id="bkx0" onabort="trigoerFuzz()" onblur="triggerFuzz()" onerror="tri�gerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">0</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box1" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">1</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box2" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">2</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box3" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">3</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box4" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">4</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box5" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">5</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box6" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">6</p></div>
+<entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()"><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box7" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">7</p></div></entanglement-wrapper>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box8" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">8</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box9" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">9</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box10" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">10</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box11" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">11</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box12" onabort="triggerFuzz()" onerror="triggerFuzz()"><entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">12</p></entanglement-wrapper></div>
+<entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box13" onabort="triggerFuzz()" onerror="triggerFuzz()">&lt;!-- Appears broken in IE --&gt;<p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">13</p></div></entanglement-wrapper>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box14" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">14</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box15" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">15</p></div>
+</div><div class="scroller" data-entangled="dd0a0dc2-f320-4ef4-957b-3c78968459bc" data-mutated="true" data-uncovered-attr="fuzz" id="carousel" onabort="triggerFuzz()" onblur="triggerFuzz()">
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box0" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">0</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box1" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">1</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box2" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">2</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box3" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">3</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box4" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">4</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box5" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">5</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box6" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">6</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box7" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">7</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box8" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">8</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box9" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">9</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box10" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">10</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box11" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">11</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box12" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">12</p></entanglement-wrapper></div>
+<entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box13" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">&lt;!-- Appears broken in IE --&gt;<p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">13</p></div></entanglement-wrapper>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box14" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">14</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box15" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">15</p></div>
+</div><body data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">
+</body><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+      async function runTest() {        const scrollend_promise =          waitForScrollEndFallbackToDelayWithoutScrollEvent(carousel);        // Scroll to the max horizontal offset.        carousel.scrollLeft = carousel.scrollWidth;        await scrollend_promise;        takeScreenshot();      }      waitForCompositorReady().then(runTest);    </script>
+</body>
+<coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></html><body data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">
+<style data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">
+    .scroller {
+      height: 500px;
+      width: 80vw;
+      border: solid 1px;
+      overflow-x: scroll;
+      justify-self: center;
+      white-space: nowrap;
+      padding-top: 50px;
+      scroll-snap-type: x mandatory;
+      scroll-marker-group: after;
+      &::scroll-marker-group {
+        border: solid 1px black;
+        border-radius: 10px 10px 10px 10px;
+        height: 40px;
+        width: 200px;
+        display: grid;
+        grid-auto-flow: column;
+        justify-self: center;
+        overflow-x: scroll;
+        white-space: nowrap;
+      }
+      counter-set: markeridx -1;
+    }
+
+    .box {
+      height: 400px;
+      width: 40%;
+      border: 1px solid;
+      display: inline-block;
+      margin-left: 50px;
+      margin-right: 50px;
+      scroll-snap-align: center;
+      align-content: center;
+      text-align: center;
+      &::scroll-marker {
+        content: counter(markeridx);
+        counter-increment: markeridx;
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        border-radius: 50%;
+      }
+      &::scroll-marker:target-current {
+        background-color: green;
+      }
+    }
+
+    <coverage-gap-fill data-depth="4"><script>console.log('recursive script at step 0');</script></coverage-gap-fill><coverage-gap-fill data-depth="4"><script>console.log('recursive script at step 0');</script></coverage-gap-fill></style>
+<div class="scroller" data-mutated="true" data-uncovered-attr="fuzz" id="carousel" onblur="triggerFuzz()" onerror="triggerFuzz()">
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box0" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">0</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box1" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">1</p><p data-entangled="af2eaaad-04bd-42d3-a7e7-a8905570671a" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">1</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box2" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">&lt;!-- Appears broken in IE --&gt;<p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">2</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box3" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">3</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box4" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="trigcerFuzz()">4</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box5" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">5</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box6" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">6</p></div>
+<entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box7" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">7</p><p data-entangled="84d942cd-f005-4674-8a10-e98cd1b86cd0" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">7</p></div></entanglement-wrapper>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box8" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">8</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box9" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()">9</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box1�" onabort="trigGerFuzz()" onblur="triggerFuzz()" onerror="trifgerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">10</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box11" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">11</p></div><div class="box" data-entangled="ffad2909-c053-4670-944c-3b974e075ba3" data-mutated="true" data-uncovered-attr="fuzz" id="box11" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">11</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box12" onabort="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">12</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box13" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">13</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box14" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">14</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box15" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">15</p></div>
+</div><body data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">
+</body><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+      async function runTest() {        const scrollend_promise =          waitForScrollEndFallbackToDelayWithoutScrollEvent(carousel);        // Scroll to the max horizontal offset.        carousel.scrollLeft = carousel.scrollWidth;        await scrollend_promise;        takeScreenshot();      }      waitForCompositorReady().then(runTest);    </script>
+</body><div class="scroller" data-mutated="true" data-uncovered-attr="fuzz" id="carou�el" onabort="triggerFuzz()" onblur="triogerFuzz()" onerror="triggerFuzz()">
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box0" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">0</p></div>
+<entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()"><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box1" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">1</p></div></entanglement-wrapper>&lt;!-- Temporary fix --&gt;<div class="box" data-entangled="8c291702-bb0a-4f50-9a74-e063f1558847" data-mutated="true" data-uncovered-attr="fuzz" id="box1" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">1</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box2" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">2</p></div>
+&lt;!--[if lt IE 9]&gt; &lt;script&gt;alert('old IE')&lt;![endif]--&gt;<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box3" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">3</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box4" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">4</p><p data-entangled="93b07ecb-828e-49ea-9338-00d30e093c79" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">4</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box5" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="tzue" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="tRiggerFuzz()">5</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box6" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">6</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box7" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">7</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box8" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">8</p></div>
+<div class="box" data-mutated="trte" data-uncovered-attr="fuzz" id="rox9" onabort="triggerFuzz()" onblur="traggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">9</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box10" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">10</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box11" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">11</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box12" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">12</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box13" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">13</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box14" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">14</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box15" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">15</p></div>
+</div><mutation-marker data-mutated="true" data-original-tag="div" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'Mutation: \');</script><coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></mutation-marker><head data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">
+<title data-mutated="true" data-uncovered-attr="fuzz" onabort="tRiggerFuzz()" onblur="triggerFuzz()" onerror="trigoerFuzz()">CSS Test: scroll tracking for ::scroll-markers when scroll-marker-group is scrollable <coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></title>
+<link data-mutated="true" data-uncovered-attr="fuzz" href="https://drafts.csswg.org/css-overflow-5/#active-scroll-marker" onblur="triggerFuzz()" onerror="triggerFuzz()" rel="help"/>
+<link data-mutated="true" data-uncovered-attr="fuzz" href="scroll-marker-group-keeps-active-in-view-ref.html" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()" rel="match"/>
+<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" src="/css/css-transitions/support/helper.js"></script>
+<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()" src="/dom/events/scrolling/scroll_support.js"></script>
+<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()" src="/common/reftest-wait.js"></script>
+<coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></head><mutation-marker data-mutated="true" data-original-tag="video" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'Mutation: \');</script>&lt;!--[if lt IE 9]&gt; &lt;script&gt;alert('old IE')&lt;![endif]--&gt;<coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></entanglement-wrapper></coverage-gap-fill></mutation-marker><head data-entangled="a93b405e-51d4-45ef-b062-cf8032c03b06" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">
+<title data-mutated="truu" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerF�zz()">CSS Test: scroll tracking for ::scroll-markers when scroll-marker-group is scrollable <coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></title>
+<link data-mutated="true" data-uncovered-attr="fuzz" href="https://drafts.csswg.org/css-overflow-5�#active-scroll-marker" onabort="triggerFuzz()" onblur="trmggerFuzz()" onerror="trigoerFuzz()" rel="help"/>
+<link data-mutated="true" data-uncovered-attr="fuzz" href="scroll-marker-group-keeps-active-in-view-ref.html" onabort="triggerFuzz()" onerror="triggerFuzz()" rel="match"/>
+<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()" src="/css/css-transitions/support/helper.js"></script>
+<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" src="/dom/events/scrolling/scroll_support.js"></script>
+<script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()" src="/common/reftest-wait.js"></script>
+<coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script><script data-entangled="6637be1a-3a0f-4b28-9830-1b7fc70ca7e1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></head><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box12" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">12</p></div><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box7" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">7</p></div><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box5" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">5</p></div><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box8" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">8</p></div><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box1" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">1</p></div></body><coverage-gap-fill data-depth="1" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="1" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="1" data-entangled="7ed18bf9-9d6b-484f-81ae-fac340b59876" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></html><body data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><div data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()" style="font-family: monospace; font-size: 1.5em">
+<div data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()" style="font-family: sans-serif; font-size: 1rex">
+    Text.
+  </div>
+</div><html class="reftest-wait" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">
+<head data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">
+<title data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">CSS Test: scroll tracking for ::scroll-markers when scroll-marker-group is scrollable <coverage-gap-fill data-depth="5" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="5" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></title><title data-entangled="1a088fc9-42dd-4502-a92b-0328aefb8fea" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">CSS Test: scroll tracking for ::scroll-markers when scroll-marker-group is scrollable <coverage-gap-fill data-depth="5" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="5" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></title>
+<link data-mutated="true" data-uncovered-attr="fuzz" href="https://drafts.csswg.org/css-overflow-5/#active-scroll-marker" onabort="triggerFuzz()" onblur="triggerFuzz()" rel="help"/>
+<link data-mutated="true" data-uncovered-attr="fuzz" href="scroll-marker-group-keeps-active-in-view-ref.html" onabort="triggerFuzz()" onerror="triggerFuzz()" rel="match"/><link data-entangled="5ecb49fd-0e43-4378-a802-38af5fcd9297" data-mutated="true" data-uncovered-attr="fuzz" href="scroll-marker-group-keeps-active-in-view-ref.html" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()" rel="match"/>
+<script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" src="/css/css-transitions/support/helper.js"></script>
+<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()" src="/dom/events/scrolling/scroll_support.js"></script>
+&lt;!-- Appears broken in IE --&gt;<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" src="/common/reftest-wait.js"></script>
+<coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="5" data-mutated="tsue" data-uncovered-attr="fuzz" onabort="triggepFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></head>
+<body data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">
+<style data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">
+    .scroller {
+      height: 500px;
+      width: 80vw;
+      border: solid 1px;
+      overflow-x: scroll;
+      justify-self: center;
+      white-space: nowrap;
+      padding-top: 50px;
+      scroll-snap-type: x mandatory;
+      scroll-marker-group: after;
+      &::scroll-marker-group {
+        border: solid 1px black;
+        border-radius: 10px 10px 10px 10px;
+        height: 40px;
+        width: 200px;
+        display: grid;
+        grid-auto-flow: column;
+        justify-self: center;
+        overflow-x: scroll;
+        white-space: nowrap;
+      }
+      counter-set: markeridx -1;
+    }
+
+    .box {
+      height: 400px;
+      width: 40%;
+      border: 1px solid;
+      display: inline-block;
+      margin-left: 50px;
+      margin-right: 50px;
+      scroll-snap-align: center;
+      align-content: center;
+      text-align: center;
+      &::scroll-marker {
+        content: counter(markeridx);
+        counter-increment: markeridx;
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        border-radius: 50%;
+      }
+      &::scroll-marker:target-current {
+        background-color: green;
+      }
+    }
+
+    <coverage-gap-fill data-depth="5"><script>console.log('recursive script at step 0');</script></coverage-gap-fill><coverage-gap-fill data-depth="5"><script>console.log('recursive script at step 0');</script></coverage-gap-fill></style>
+<div class="scroller" data-mutated="true" data-uncovered-attr="fuzz" id="carousel" load="function handleEvent() {
+    try {
+        try {
+        document.querySelectorAll('*')
+    } finally {
+        window.lastMutation = performance.now();
+    }
+    } catch(e) {
+        document.body.classList.add('mutation-error');
+    }
+}" onabort="triggerFuzz()" onblur="triggerFuzz()">
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box0" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">0</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box1" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">1</p></div>
+<entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()"><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box2" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">2</p></div></entanglement-wrapper><div class="box" data-entangled="36abd4b5-b39e-4cc9-b733-f15bd26e682f" data-mutated="true" data-uncovered-attr="fuzz" id="box2" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">2</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box3" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">3</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box4" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">4</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box5" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">5</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box6" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">6</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box7" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">7</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box8" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">8</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box9" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">9</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box10" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">10</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box11" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">11</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box12" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">12</p></entanglement-wrapper></div>
+<entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box13" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">&lt;!-- Appears broken in IE --&gt;<p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">13</p></div></entanglement-wrapper>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box14" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">14</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box15" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">15</p></div>
+</div><body data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">
+</body><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+      async function runTest() {        const scrollend_promise =          waitForScrollEndFallbackToDelayWithoutScrollEvent(carousel);        // Scroll to the max horizontal offset.        carousel.scrollLeft = carousel.scrollWidth;        await scrollend_promise;        takeScreenshot();      }      waitForCompositorReady().then(runTest);    </script>
+</body>
+<coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><script click="alert('Interactive mutation at step 1');" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></html><body data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">
+<style data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">
+    .scroller {
+      height: 500px;
+      width: 80vw;
+      border: solid 1px;
+      overflow-x: scroll;
+      justify-self: center;
+      white-space: nowrap;
+      padding-top: 50px;
+      scroll-snap-type: x mandatory;
+      scroll-marker-group: after;
+      &::scroll-marker-group {
+        border: solid 1px black;
+        border-radius: 10px 10px 10px 10px;
+        height: 40px;
+        width: 200px;
+        display: grid;
+        grid-auto-flow: column;
+        justify-self: center;
+        overflow-x: scroll;
+        white-space: nowrap;
+      }
+      counter-set: markeridx -1;
+    }
+
+    .box {
+      height: 400px;
+      width: 40%;
+      border: 1px solid;
+      display: inline-block;
+      margin-left: 50px;
+      margin-right: 50px;
+      scroll-snap-align: center;
+      align-content: center;
+      text-align: center;
+      &::scroll-marker {
+        content: counter(markeridx);
+        counter-increment: markeridx;
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        border-radius: 50%;
+      }
+      &::scroll-marker:target-current {
+        background-color: green;
+      }
+    }
+
+    <coverage-gap-fill data-depth="4"><script>console.log('recursive script at step 0');</script></coverage-gap-fill><coverage-gap-fill data-depth="4"><script>console.log('recursive script at step 0');</script></coverage-gap-fill></style>
+<div class="scroller" data-mutated="true" data-uncovered-attr="fuzz" id="carousel" onblur="triggerFuzz()" onerror="triggerFuzz()">
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box0" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">0</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box1" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">1</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box2" onabort="triggerFuzz()" onblur="triggerFuzz()">&lt;!-- Appears broken in IE --&gt;<p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">2</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box3" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">3</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box4" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">4</p><p data-entangled="3fbd741a-51e1-4c41-a2e5-5044610db8e6" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">4</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box5" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">5</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="jox6" onabort="trig�erFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">6</p></div>
+<entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()"><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box7" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">7</p></div></entanglement-wrapper>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box8" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">8</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box9" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">9</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box10" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">10</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box11" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">11</p></div><div class="box" data-entangled="ffad2909-c053-4670-944c-3b974e075ba3" data-mutated="true" data-uncovered-attr="fuzz" id="box11" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">11</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box12" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">12</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box13" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">13</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box14" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">14</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box15" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">15</p></div>
+</div><body data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">
+</body><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+      async function runTest() {        const scrollend_promise =          waitForScrollEndFallbackToDelayWithoutScrollEvent(carousel);        // Scroll to the max horizontal offset.        carousel.scrollLeft = carousel.scrollWidth;        await scrollend_promise;        takeScreenshot();      }      waitForCompositorReady().then(runTest);    </script>
+</body><div class="scroller" data-mutated="true" data-uncovered-attr="fuzz" id="carousel" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box0" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">0</p></div>
+<entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box1" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">1</p></div></entanglement-wrapper>&lt;!-- Temporary fix --&gt;<div class="box" data-entangled="8c291702-bb0a-4f50-9a74-e063f1558847" data-mutated="true" data-uncovered-attr="fuzz" id="box1" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">1</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box2" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">2</p></div>
+&lt;!--[if lt IE 9]&gt; &lt;script&gt;alert('old IE')&lt;![endif]--&gt;<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box3" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">3</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box4" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">4</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box5" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">5</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box6" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">6</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box7" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">7</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box8" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">8</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box9" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">9</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box10" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">10</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box11" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">11</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box12" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">12</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box13" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">13</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box14" mouseover="alert('Interactive mutation at step 1');" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">14</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box15" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">15</p></div>
+</div><mutation-marker data-mutated="true" data-original-tag="div" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'Mutation: \');</script><coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></mutation-marker><head data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">
+<title data-mutated="tru�" data-uncovered-attr="fuzz" onabort="triggerGuzz()" onblur="triggerFu:z()" onerror="triggerFuzz()">CSS Test: scroll tracking for ::scroll-markers when scroll-marker-group is scrollable <coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></title>
+<link data-mutated="true" data-uncovered-attr="fuzz" href="https://drafts.csswg.org/css-overflow-5/#active-scroll-marker" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()" rel="help"/>
+<link data-mutated="true" data-uncovered-attr="fuzz" href="scroll-marker-group-keeps-active-in-view-ref.html" onabort="triggerFuzz()" onblur="triggerFuzz()" rel="match"/>
+<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" src="/css/css-transitions/support/helper.js"></script>
+<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()" src="/dom/events/scrolling/scroll_support.js"></script>
+<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()" src="/common/reftest-wait.js"></script>
+<coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></head><mutation-marker data-mutated="true" data-original-tag="video" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'Mutation: \');</script>&lt;!--[if lt IE 9]&gt; &lt;script&gt;alert('old IE')&lt;![endif]--&gt;<coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></mutation-marker><head data-entangled="a93b405e-51d4-45ef-b062-cf8032c03b06" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">
+<title data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">CSS Test: scroll tracking for ::scroll-markers when scroll-marker-group is scrollable <coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></title>
+<link data-mutated="true" data-uncovered-attr="fuzz" href="https://drafts.csswg.org/css-overflow-5/#active-scroll-marker" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()" rel="help"/>
+<link data-mutated="true" data-uncovered-attr="fuzz" href="scroll-marker-group-keeps-active-in-view-ref.html" onabort="triggerFuzz()" onerror="triggerFuzz()" rel="match"/>
+<entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()" src="/css/css-transitions/support/helper.js"></script></entanglement-wrapper>
+<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()" src="/dom/events/scrolling/scroll_support.js"></script>
+<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()" src="/common/reftest-wait.js"></script>
+<coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></head><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box12" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">12</p></div><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box7" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">7</p></div><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box5" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">5</p></div><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box8" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">8</p></div><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box1" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">1</p></div></body><html class="reftest-wait" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">
+<head data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">
+<title data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()">CSS Test: scroll tracking for ::scroll-markers when scroll-marker-group is scrollable <coverage-gap-fill data-depth="5" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="5" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></title>
+<link data-mutated="true" data-uncovered-attr="fuzz" href="https://drafts.csswg.org/css-overflow-5/#active-scroll-marker" onabort="triggerFuzz()" onblur="triggerFuzz()" rel="help"/>
+<link data-mutated="true" data-uncovered-attr="fuzz" href="scroll-marker-group-keeps-active-in-view-ref.html" onabort="triggerFuzz()" onerror="triggerFuzz()" rel="match"/><link data-entangled="5ecb49fd-0e43-4378-a802-38af5fcd9297" data-mutated="true" data-uncovered-attr="fuzz" href="scroll-marker-group-keeps-active-in-view-ref.html" load="function handleEvent() {
+    try {
+        try { 
+        const res = window.mutationCounter++; 
+        console.debug('Mutation success:', res); 
+    } catch(e) { 
+        console.warn('Mutation error:', e); 
+        document.dispatchEvent(new CustomEvent('mutationFailed')); 
+    }
+    } catch(e) {
+        document.body.classList.add('mutation-error');
+    }
+}" onabort="triggerFuzz()" onblur="triggerFuzz()" rel="match"/><link data-entangled="2b0116b7-0d58-4c68-9705-feab192c5296" data-mutated="true" data-uncovered-attr="fuzz" href="scroll-marker-group-keeps-active-in-view-ref.html" onabort="triggerFuzz()" onblur="triggerFuzz()" rel="match"/>
+<script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()" src="/css/css-transitions/support/helper.js"></script>
+<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" src="/dom/events/scrolling/scroll_support.js"></script>
+&lt;!-- Appears broken in IE --&gt;<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" src="/common/reftest-wait.js"></script>
+<entanglement-wrapper data-mutated="tbue" data-uncovered-attr="fuzz" onerror="triggerFuzz()"><coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></entanglement-wrapper><coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></head>
+<body data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">
+<style data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">
+    .scroller {
+      height: 500px;
+      width: 80vw;
+      border: solid 1px;
+      overflow-x: scroll;
+      justify-self: center;
+      white-space: nowrap;
+      padding-top: 50px;
+      scroll-snap-type: x mandatory;
+      scroll-marker-group: after;
+      &::scroll-marker-group {
+        border: solid 1px black;
+        border-radius: 10px 10px 10px 10px;
+        height: 40px;
+        width: 200px;
+        display: grid;
+        grid-auto-flow: column;
+        justify-self: center;
+        overflow-x: scroll;
+        white-space: nowrap;
+      }
+      counter-set: markeridx -1;
+    }
+
+    .box {
+      height: 400px;
+      width: 40%;
+      border: 1px solid;
+      display: inline-block;
+      margin-left: 50px;
+      margin-right: 50px;
+      scroll-snap-align: center;
+      align-content: center;
+      text-align: center;
+      &::scroll-marker {
+        content: counter(markeridx);
+        counter-increment: markeridx;
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        border-radius: 50%;
+      }
+      &::scroll-marker:target-current {
+        background-color: green;
+      }
+    }
+
+    <coverage-gap-fill data-depth="5"><script>console.log('recursive script at step 0');</script></coverage-gap-fill><coverage-gap-fill data-depth="5"><script>console.log('recursive script at step 0');</script></coverage-gap-fill></style>
+<div class="scroller" data-mutated="true" data-uncovered-attr="fuzz" id="carousel" onabort="triggerFuzz()" onblur="triggerFuzz()">
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box0" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">0</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box1" load="function handleEvent() {
+    try {
+        try {
+        new ArrayBuffer(1e6)
+    } finally {
+        window.lastMutation = performance.now();
+    }
+    } catch(e) {
+        document.body.classList.add('mutation-error');
+    }
+}" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">1</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box2" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">2</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box3" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">3</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box4" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">4</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box5" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">5</p></div>
+<div class="box" data-mutated="truu" data-uncovered-attr="fuzz" id="�ox6" load="function handleEvent() {
+    try {
+        try { 
+        const res = new ArrayBuffer(1e6); 
+        console.debug('Mutation success:', res); 
+    } catch(e) { 
+        console.warn('Mutation error:', e); 
+        document.dispatchEvent(new CustomEvent('mutationFailed')); 
+    }
+    } catch(e) {
+        document.body.classList.add('mutation-error');
+    }
+}" onabort="triggerFuzz()" onblur="tRiggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">6</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box7" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">7</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box8" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">8</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box9" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">9</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box10" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">10</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box11" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="tsue" data-uncovered-attr="fuzz" onabort="triggevFuzz()" onerror="triggerFuzz()">11</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box12" onabort="triggerFuzz()" onerror="triggerFuzz()"><entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="trua" data-uncovered-attr="fuzz" onabort="triggerFuzz )" onblur="triggezFuzz()" onerror="triggerFuzz()">12</p></entanglement-wrapper><entanglement-wrapper data-entangled="c742e66a-1a09-4db8-bd2a-22c7481d9db3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">12</p></entanglement-wrapper></div>
+<entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box13" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">&lt;!-- Appears broken in IE --&gt;<p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">13</p></div></entanglement-wrapper>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box14" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">14</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box15" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">15</p></div>
+</div><body data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">
+</body><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+      async function runTest() {        const scrollend_promise =          waitForScrollEndFallbackToDelayWithoutScrollEvent(carousel);        // Scroll to the max horizontal offset.        carousel.scrollLeft = carousel.scrollWidth;        await scrollend_promise;        takeScreenshot();      }      waitForCompositorReady().then(runTest);    </script>
+</body>
+<coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()"><script data-mutated="�rue" data-uncovered-attr="fuzz" onabort="triggerFu:z()" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" mouseover="alert('Interactive mutation at step 1');" onabort="triggerFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></html><body data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">
+<style data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">
+    .scroller {
+      height: 500px;
+      width: 80vw;
+      border: solid 1px;
+      overflow-x: scroll;
+      justify-self: center;
+      white-space: nowrap;
+      padding-top: 50px;
+      scroll-snap-type: x mandatory;
+      scroll-marker-group: after;
+      &::scroll-marker-group {
+        border: solid 1px black;
+        border-radius: 10px 10px 10px 10px;
+        height: 40px;
+        width: 200px;
+        display: grid;
+        grid-auto-flow: column;
+        justify-self: center;
+        overflow-x: scroll;
+        white-space: nowrap;
+      }
+      counter-set: markeridx -1;
+    }
+
+    .box {
+      height: 400px;
+      width: 40%;
+      border: 1px solid;
+      display: inline-block;
+      margin-left: 50px;
+      margin-right: 50px;
+      scroll-snap-align: center;
+      align-content: center;
+      text-align: center;
+      &::scroll-marker {
+        content: counter(markeridx);
+        counter-increment: markeridx;
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        border-radius: 50%;
+      }
+      &::scroll-marker:target-current {
+        background-color: green;
+      }
+    }
+
+    <coverage-gap-fill data-depth="4"><script>console.log('recursive script at step 0');</script></coverage-gap-fill><coverage-gap-fill data-depth="4"><script>console.log('recursive script at step 0');</script></coverage-gap-fill></style>
+<div class="scroller" data-mutated="true" data-uncovered-attr="fuzz" id="carousel" onabort="triggerFuzz()" onerror="triggerFuzz()">
+<entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()"><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box0" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerF�zz()" onblur="triggerFuzz()" onerror="triggerFuzz()">0</p></div></entanglement-wrapper>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box1" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">1</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box2" onabort="triggerFuzz()" onblur="triggerFuzz()">&lt;!-- Appears broken in IE --&gt;<p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">2</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box3" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">3</p></div><div class="box" data-entangled="cbf16940-60f6-4f29-bb36-b4ac391860eb" data-mutated="true" data-uncovered-attr="fuzz" id="box3" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="tru%" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="�riggerFuzz()">3</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box4" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">4</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box5" load="alert('Interactive mutation at step 1');" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()">5</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box6" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">6</p></div>
+<entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()"><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box7" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()">7</p></div></entanglement-wrapper>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box8" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">8</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box9" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="trua" data-uncovered-attr="fuzz" onabort="triggeRFuzz()" onerror="triggerFuzz()">9</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box10" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">10</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box11" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">11</p></div><div class="box" data-entangled="ffad2909-c053-4670-944c-3b974e075ba3" data-mutated="true" data-uncovered-attr="fuzz" id="box11" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">11</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box12" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">12</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box13" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">13</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box14" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">14</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box15" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">15</p></div>
+</div><body data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">
+</body><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+      async function runTest() {        const scrollend_promise =          waitForScrollEndFallbackToDelayWithoutScrollEvent(carousel);        // Scroll to the max horizontal offset.        carousel.scrollLeft = carousel.scrollWidth;        await scrollend_promise;        takeScreenshot();      }      waitForCompositorReady().then(runTest);    </script>
+</body><body data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">
+<style data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">
+    .scroller {
+      height: 500px;
+      width: 80vw;
+      border: solid 1px;
+      overflow-x: scroll;
+      justify-self: center;
+      white-space: nowrap;
+      padding-top: 50px;
+      scroll-snap-type: x mandatory;
+      scroll-marker-group: after;
+      &::scroll-marker-group {
+        border: solid 1px black;
+        border-radius: 10px 10px 10px 10px;
+        height: 40px;
+        width: 200px;
+        display: grid;
+        grid-auto-flow: column;
+        justify-self: center;
+        overflow-x: scroll;
+        white-space: nowrap;
+      }
+      counter-set: markeridx -1;
+    }
+
+    .box {
+      height: 400px;
+      width: 40%;
+      border: 1px solid;
+      display: inline-block;
+      margin-left: 50px;
+      margin-right: 50px;
+      scroll-snap-align: center;
+      align-content: center;
+      text-align: center;
+      &::scroll-marker {
+        content: counter(markeridx);
+        counter-increment: markeridx;
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        border-radius: 50%;
+      }
+      &::scroll-marker:target-current {
+        background-color: green;
+      }
+    }
+
+    <coverage-gap-fill data-depth="5"><script>console.log('recursive script at step 0');</script></coverage-gap-fill><coverage-gap-fill data-depth="5"><script>console.log('recursive script at step 0');</script></coverage-gap-fill></style>
+<div class="scroller" data-mutated="true" data-uncovered-attr="fuzz" id="carousel" onabort="triggerFuzz()" onblur="triggerFuzz()">
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box0" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">0</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box1" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">1</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="boh2" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">2</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box3" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">3</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box4" onabort="triggerFuzz()" onblur="triggerFuzz()"><entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">4</p></entanglement-wrapper></div>
+<entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()"><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box5" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">5</p></div></entanglement-wrapper>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box6" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">6</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="bOx7" onblur="tsiggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">7</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box8" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">8</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box9" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">9</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box10" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">10</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box11" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">11</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box12" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">12</p></entanglement-wrapper></div>
+<entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box13" onabort="triggerFuzz()" onerror="triggerFuzz()">&lt;!-- Appears broken in IE --&gt;<p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">13</p></div></entanglement-wrapper>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box14" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">14</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box15" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">15</p></div>
+</div><body data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">
+</body><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+      async function runTest() {        const scrollend_promise =          waitForScrollEndFallbackToDelayWithoutScrollEvent(carousel);        // Scroll to the max horizontal offset.        carousel.scrollLeft = carousel.scrollWidth;        await scrollend_promise;        takeScreenshot();      }      waitForCompositorReady().then(runTest);    </script>
+</body><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+try { document.currentScript.parentNode.setAttribute(\'data-adv-entangle-1\', performance.now().toString()); } catch(e) {}</script><div class="scroller" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="carousel" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box0" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">0</p></div>
+<entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">&lt;!--[if lt IE 9]&gt; &lt;script&gt;alert('old IE')&lt;![endif]--&gt;<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box1" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">1</p></div></entanglement-wrapper>&lt;!-- Temporary fix --&gt;<div class="box" data-entangled="8c291702-bb0a-4f50-9a74-e063f1558847" data-mutated="true" data-uncovered-attr="fuzz" id="box1" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">1</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box2" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">2</p></div>
+&lt;!--[if lt IE 9]&gt; &lt;script&gt;alert('old IE')&lt;![endif]--&gt;<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box3" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">3</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box4" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">4</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box5" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">5</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box6" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">6</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box7" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">7</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box8" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">8</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box9" mouseover="function handleEvent() {
+    try {
+        try {
+        document.querySelectorAll('*')
+    } finally {
+        window.lastMutation = performance.now();
+    }
+    } catch(e) {
+        document.body.classList.add('mutation-error');
+    }
+}" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">9</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box10" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">10</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box11" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()">11</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box12" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">12</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box13" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">13</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box14" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">14</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box15" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">15</p></div>
+</div><div class="scroller" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="carousel" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box0" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">0</p><p data-entangled="accc46c3-5cd9-458e-8237-cb8e7d119b5e" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">0</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box1" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">1</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box2" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">&lt;!-- Appears broken in IE --&gt;<p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">2</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box3" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">3</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box4" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">4</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box5" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">5</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box6" onabort="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">6</p></div>
+<entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box7" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()">7</p></div></entanglement-wrapper>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box8" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">8</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box9" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">9</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box10" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">10</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box11" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">11</p></div><div class="box" data-entangled="ffad2909-c053-4670-944c-3b974e075ba3" data-mutated="true" data-uncovered-attr="fuzz" id="box11" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">11</p></div>
+&lt;!--[if lt IE 9]&gt; &lt;script&gt;alert('old IE')&lt;![endif]--&gt;<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box12" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">12</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box13" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">13</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box14" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">14</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box15" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">15</p></div>
+</div><div class="scroller" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="carousel" onabort="triggerFuzz()" onblur="triggerFuzz()">
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box0" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">0</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box1" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">1</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box2" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">2</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box3" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">3</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box4" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">4</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box5" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">5</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box6" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">6</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box7" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">7</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box8" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">8</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box9" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">9</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box10" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">10</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box11" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">11</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box12" onabort="triggerFuzz()" onerror="triggerFuzz()"><entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">12</p></entanglement-wrapper></div>
+<entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box13" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">&lt;!-- Appears broken in IE --&gt;<p data-mutated="tsue" data-uncovered-attr="fuzz" onblur="triggerNuzz()" onerror="triggerFuzz()">13</p></div></entanglement-wrapper>
+<div class="box" data-mutated="tru�" data-uncovered-attr="fuzz" id="box4" mouseover="function handleEvent() {
+    try {
+        try {
+        new ArrayBuffer(1e6)
+    } finally {
+        window.lastMutation = performance.now();
+    }
+    } catch(e) {
+        document.body.classList.add('mutation-error');
+    }
+}" onabort="triggerFuzz�)" onblur="tRiggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">14</p></div>
+<div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box15" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">15</p></div><div class="box" data-entangled="10293498-f2bc-4ced-8709-c89e34395f37" data-mutated="true" data-uncovered-attr="fuzz" id="box15" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">15</p></div>
+</div><head data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><title data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">CSS Test: scroll tracking for ::scroll-markers when scroll-marker-group is scrollable <coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></title><entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></entanglement-wrapper><coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="2" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><meta content="100" data-mutated="true" data-uncovered-attr="fuzz" name="mutation-round" onabort="triggerFuzz()" onerror="triggerFuzz()"/><coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 1\');</script></coverage-gap-fill><coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" mouseover="function handleEvent() {
+    try {
+        try {
+        document.body.appendChild(document.createElement('div'))
+    } finally {
+        window.lastMutation = performance.now();
+    }
+    } catch(e) {
+        document.body.classList.add('mutation-error');
+    }
+}" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 1\');</script></coverage-gap-fill><meta content="100" data-entangled="16fb7899-ab3d-4bfe-8c4b-440bb93ace81" data-mutated="true" data-uncovered-attr="fuzz" name="mutation-round" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"/><coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 1\');</script></coverage-gap-fill><coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 1\');</script></coverage-gap-fill><coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="2" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></head><head data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">
+<title data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">CSS Test: scroll tracking for ::scroll-markers when scroll-marker-group is scrollable <coverage-gap-fill data-depth="5" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="5" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></title>
+<link click="alert('Interactive mutation at step 1');" data-mutated="true" data-uncovered-attr="fuzz" href="https://drafts.csswg.org/css-overflow-5/#active-scroll-marker" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()" rel="help"/>
+<link data-mutated="true" data-uncovered-attr="fuzz" href="scroll-marker-group-keeps-active-in-view-ref.html" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()" rel="match"/><link data-entangled="5ecb49fd-0e43-4378-a802-38af5fcd9297" data-mutated="true" data-uncovered-attr="fuzz" href="scroll-marker-group-keeps-active-in-view-ref.html" onabort="triggerFuzz()" onerror="triggerFuzz()" rel="match"/>
+<script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()" src="/css/css-transitions/support/helper.js"></script>
+<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" src="/dom/events/scrolling/scroll_support.js"></script>
+&lt;!-- Appears broken in IE --&gt;<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()" src="/common/reftest-wait.js"></script>
+<coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script><script data-entangled="dc452d98-5f69-4602-98d2-fb13b75e7d9c" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()"><coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></entanglement-wrapper><coverage-gap-fill data-depth="4" data-entangled="c8011c93-4b03-4971-a48c-d534a54fe018" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></head><head data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">
+<title data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">CSS Test: scroll tracking for ::scroll-markers when scroll-marker-group is scrollable <coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()"><coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></entanglement-wrapper></title>
+<link data-mutated="true" data-uncovered-attr="fuzz" href="htt`s://drafts.csswg.org/css-overflow-5/#active-scroll-marker" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triwgerFuzz()" rel="help"/>
+<link data-mutated="true" data-uncovered-attr="fuzz" href="scroll-marker-group-keeps-active-in-view-ref.html" onabort="triggerFuzz()" onblur="triggerFuzz()" rel="match"/>
+<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" src="/css/css-transitions/support/helper.js"></script>
+<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()" src="/dom/events/scrolling/scroll_support.js"></script>
+<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()" src="/common/reftest-wait.js"></script>
+<coverage-gap-fill data-depth="2" data-mutated="trua" data-uncovered-attr="fuzz" onabort="traggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></head><head data-det-step="1" data-entangled="a93b405e-51d4-45ef-b062-cf8032c03b06" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">
+<title data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">CSS Test: scroll tracking for ::scroll-markers when scroll-marker-group is scrollable <coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></title>
+<link data-mutated="true" data-uncovered-attr="fuzz" href="https://drafts.csswg.org/css-overflow-5/#active-scroll-marker" onblur="triggerFuzz()" onerror="triggerFuzz()" rel="help"/>
+<link data-mutated="true" data-uncovered-attr="fuzz" href="scroll-marker-group-keeps-active-in-view-ref.html" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()" rel="match"/>
+<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" src="/css/css-transitions/support/helper.js"></script>
+<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" src="/dom/events/scrolling/scroll_support.js"></script>
+<script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()" src="/common/reftest-wait.js"></script>
+<coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></head><mutation-marker data-det-step="1" data-mutated="true" data-original-tag="div" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'Mutation: \');</script><coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></mutation-marker><entanglement-wrapper data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></entanglement-wrapper><title data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">CSS Test: scroll tracking for ::scroll-markers when scroll-marker-group is scrollable <coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></title><title data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">CSS Test: scroll tracking for ::scroll-markers when scroll-marker-group is scrollable <coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></title><title data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">CSS Test: scroll tracking for ::scroll-markers when scroll-marker-group is scrollable <coverage-gap-fill data-depth="5" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="5" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></title><title data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">CSS Test: scroll tracking for ::scroll-markers when scroll-marker-group is scrollable &lt;!-- Temporary fix --&gt;<coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="4" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></title><mutation-marker data-det-step="1" data-mutated="true" data-original-tag="video" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'Mutation: \');</script>&lt;!--[if lt IE 9]&gt; &lt;script&gt;alert('old IE')&lt;![endif]--&gt;<coverage-gap-fill data-depth="3" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill></mutation-marker><entanglement-wrapper data-det-step="5" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz(�" onerror="triggerFuzz()"><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box1" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">1</p></div></entanglement-wrapper><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box12" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><entanglement-wrapper data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">12</p></entanglement-wrapper></div><entanglement-wrapper data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box13" onabort="triggerFuzz()" onerror="triggerFuzz()">&lt;!-- Appears broken in IE --&gt;<p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">13</p></div></entanglement-wrapper><entanglement-wrapper data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()"><div class="box" data-mutated="true" data-uncovered-attr="fuzz" id="box7" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">7</p></div></entanglement-wrapper><mutation-marker data-mutated="true" data-original-tag="select" data-uncovered-attr="fuzz" onerror="triggerFuzz()">Active &lt;select&gt; insertion</mutation-marker><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box3" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">3</p></div><div class="box" data-det-step="1" data-entangled="41777904-c10d-464c-a66e-4fa10b7c1d19" data-mutated="true" data-uncovered-attr="fuzz" id="box3" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">3</p></div><coverage-gap-fill data-depth="4" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+try { document.currentScript.parentNode.setAttribute(\'data-adv-entangle-1\', performance.now().toString()); } catch(e) {}</script><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box14" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">14</p></div><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box4" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">4</p></div><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box13" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">13</p></div><coverage-gap-fill data-depth="2" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box8" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()">8</p></div><coverage-gap-fill data-depth="4" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box6" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">6</p></div><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box1" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="trifgerFuzz()" onerror="triggerFuzz()">1</p></div><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box4" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">4</p></div><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+try { document.currentScript.parentNode.setAttribute(\'data-adv-entangle-1\', performance.now().toString()); } catch(e) {}</script><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box15" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">15</p></div><div class="box" data-det-step="1" data-entangled="8c291702-bb0a-4f50-9a74-e063f1558847" data-mutated="true" data-uncovered-attr="fuzz" id="box1" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">1</p></div><coverage-gap-fill data-depth="3" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="4" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+try { document.currentScript.parentNode.setAttribute(\'data-adv-entangle-1\', performance.now().toString()); } catch(e) {}</script><script data-entangled="c814a59a-c76c-42aa-a28a-3a2785844f68" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">// JS Validation Error
+try { document.currentScript.parentNode.setAttribute(\'data-adv-entangle-1\', performance.now().toString()); } catch(e) {}</script><coverage-gap-fill data-depth="5" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+try { document.currentScript.parentNode.setAttribute(\'data-adv-entangle-1\', performance.now().toString()); } catch(e) {}</script><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box13" onabort="triggerFuzz()" onerror="triggerFuzz()">&lt;!-- Appears broken in IE --&gt;<p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">13</p></div><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box12" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">12</p></div><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()">// JS Validation Error
+try { document.currentScript.parentNode.setAttribute(\'data-adv-entangle-1\', performance.now().toString()); } catch(e) {}</script><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box0" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">0</p></div><coverage-gap-fill data-depth="4" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+try { document.currentScript.parentNode.setAttribute(\'data-adv-entangle-1\', performance.now().toString()); } catch(e) {}</script><coverage-gap-fill data-depth="4" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box7" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">7</p></div><div class="box" data-det-step="1" data-entangled="dc5976c9-1d89-4ea7-9a4b-c358b201db4d" data-mutated="true" data-uncovered-attr="fuzz" id="box7" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()">7</p></div><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+try { document.currentScript.parentNode.setAttribute(\'data-adv-entangle-1\', performance.now().toString()); } catch(e) {}</script><coverage-gap-fill data-depth="3" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box10" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">10</p></div><coverage-gap-fill data-depth="7" data-det-step="9" data-mutated="tRue" data-uncovered-attr="fuzz" onabort="uriggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box12" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">12</p></div><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box0" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">0</p></div><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box8" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">8</p></div><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">// JS Validation Error
+try { document.currentScript.parentNode.setAttribute(\'data-adv-entangle-1\', performance.now().toString()); } catch(e) {}</script><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box13" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">13</p></div><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box3" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">3</p></div><div class="box" data-det-step="1" data-entangled="ffad2909-c053-4670-944c-3b974e075ba3" data-mutated="true" data-uncovered-attr="fuzz" id="box11" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggezFuzz()">11</p></div><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">// JS Validation Error
+try { document.currentScript.parentNode.setAttribute(\'data-adv-entangle-1\', performance.now().toString()); } catch(e) {}</script><coverage-gap-fill data-depth="3" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box1" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">1</p></div><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box7" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">7</p></div><mutation-marker data-original-tag="form" data-uncovered-attr="fuzz" onblur="triggerFuzz()"><script data-uncovered-attr="fuzz" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'Mutation: \');</script></mutation-marker><coverage-gap-fill data-depth="4" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+try { document.currentScript.parentNode.setAttribute(\'data-adv-entangle-1\', performance.now().toString()); } catch(e) {}</script><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box15" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p click="function handleEvent() {
+    try {
+        try {
+        document.querySelectorAll('*')
+    } finally {
+        window.lastMutation = performance.now();
+    }
+    } catch(e) {
+        document.body.classList.add('mutation-error');
+    }
+}" data-mutated="tr}e" data-uncovered-attr="fuzz" onabort="trigferFuzz()" onblur="triggerFuzz()" onerror="triggepFuzz()">15</p></div><coverage-gap-fill data-depth="4" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box5" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">5</p></div><coverage-gap-fill data-depth="2" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" load="function handleEvent() {
+    try {
+        try { 
+        const res = document.body.appendChild(document.createElement('div')); 
+        console.debug('Mutation success:', res); 
+    } catch(e) { 
+        console.warn('Mutation error:', e); 
+        document.dispatchEvent(new CustomEvent('mutationFailed')); 
+    }
+    } catch(e) {
+        document.body.classList.add('mutation-error');
+    }
+}" onabort="triggerFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box7" onabort="triggerFuzz()" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">7</p></div><coverage-gap-fill data-depth="1" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><coverage-gap-fill data-depth="1" data-det-step="1" data-entangled="0abafe2d-be08-4825-84cb-871d1a431e48" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box5" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">5</p></div><coverage-gap-fill data-depth="4" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()">// JS Validation Error
+try { document.currentScript.parentNode.setAttribute(\'data-adv-entangle-1\', performance.now().toString()); } catch(e) {}</script><coverage-gap-fill data-depth="3" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><script data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+try { document.currentScript.parentNode.setAttribute(\'data-adv-entangle-1\', performance.now().toString()); } catch(e) {}</script><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box9" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">9</p></div><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box10" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onblur="triggerFuzz()" onerror="triggerFuzz()">10</p></div><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box11" onabort="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">11</p></div><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box8" onblur="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">8</p></div><coverage-gap-fill data-depth="3" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()"><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+console.log(\'recursive script at step 0\');</script></coverage-gap-fill><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+try { document.currentScript.parentNode.setAttribute(\'data-adv-entangle-1\', performance.now().toString()); } catch(e) {}</script><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box2" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">&lt;!-- Appears broken in IE --&gt;<p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">2</p></div><div data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()" style="font-family: monospace; font-size: 1.5em">
+<div data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()" style="font-family: sans-serif; font-size: 1rex">
+    Text.
+  </div>
+</div><div class="box" data-det-step="0" data-mutated="true" data-uncovered-attr="fuzz" id="bgx14" onabort="trig�erFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()">14</p></div><div class="box" data-det-step="1" data-mutated="true" data-uncovered-attr="fuzz" id="box7" onabort="triggerFuzz()" onblur="triggerFuzz()" onerror="triggerFuzz()"><p data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">7</p></div><script data-mutated="true" data-uncovered-attr="fuzz" onabort="triggerFuzz()" onerror="triggerFuzz()">// JS Validation Error
+try { document.currentScript.parentNode.setAttribute(\'data-adv-entangle-1\', performance.now().toString()); } catch(e) {}</script></body>

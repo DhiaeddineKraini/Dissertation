@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Page 1 - Deep DOM & Accessibility & XSS</title>
+  <script>
+    // Trigger a console error intentionally
+    console.error("Deliberate console error from test_page_1!");
+
+    // XSS-like pattern (suspicious inline handler & eval usage)
+    function suspiciousHandler() {
+      // Some suspicious usage of eval
+      eval("console.log('eval call!');");
+    }
+  </script>
+</head>
+<body>
+  <!--
+    Large DOM: nested containers
+    Repeated sections to create >2000 DOM nodes
+  -->
+  <div id="nested1">
+    <div id="nested2">
+      <script>
+        // A blocking script in the body
+        console.warn("Blocking <script> in body triggered!");
+      </script>
+      <div id="nested3">
+        <div id="nested4">
+          <p>Deeply nested content to test layout and DOM-size checks.</p>
+          <p>Some placeholder text: Lorem ipsum dolor sit amet, which might be flagged as untranslated text or placeholders.</p>
+          <!-- Keep nesting more to exceed thresholds -->
+          <!-- (We won't literally type 2000 nodes, but the repeated approach is enough to show a large structure) -->
+          <!-- You can replicate the blocks 100+ times if you really want a huge DOM. -->
+          <!-- For brevity, let's do partial repeats. -->
+          <!-- Repeated Section Start -->
+          <!-- ~~~ Repeat or generate blocks ~~~ -->
+          <!-- Repeated Section End -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Accessibility issues: unlabeled form elements, missing alt text -->
+  <form>
+    <!-- No label on text input, no ARIA, etc. -->
+    <input type="text" placeholder="Enter name here...">
+    <!-- No text alternative for this image -->
+    <img src="broken_image.jpg" width="200" height="100">
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- Potential XSS: inline event handler with javascript:... -->
+  <a href="javascript:alert('XSS check');" onclick="suspiciousHandler()">Click me!</a>
+
+  <!-- Broken media resource to trigger media playback anomaly -->
+  <video controls>
+    <source src="non_existent_video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <script>
+    // Test localStorage & sessionStorage
+    try {
+      localStorage.setItem('test_page_1_local_key', 'test_value_1');
+      sessionStorage.setItem('test_page_1_session_key', 'session_value_1');
+    } catch (e) {
+      console.error("Storage error in test_page_1: " + e);
+    }
+  </script>
+</body>
+</html>

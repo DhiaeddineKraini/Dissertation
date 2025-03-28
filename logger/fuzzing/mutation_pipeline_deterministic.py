@@ -2,27 +2,8 @@
 """
 mutation_pipeline_deterministic.py
 ----------------------------------
-Generates mutated HTML test cases using a deterministic fractal approach enhanced to
-prevent loss of complexity over mutation cycles. Enhancements include:
-  - Progressive retention during crossover (coverage-weighted harvesting)
-  - Layered mutation stages that compound (base, interactive, semantic,
-    coverage-guided, and progressive complexity phases)
-  - Structural sanitization and smart comment injection to preserve functionality
-  - Robust, exception-aware JavaScript try/catch event handlers that surface errors
-  - Resource-aware mutation with memory monitoring and safe JavaScript mutation
-  - **New:** Dynamic mutation targeting using coverage gaps from previous rounds
-    to progressively focus on under-covered HTML elements/attributes.
-  
-Usage:
-    python3 mutation_pipeline_deterministic.py [num_mutations]
-
-Environment Variables:
-    MUTATION_SEED_A, MUTATION_SEED_B  : Force specific seeds if valid
-    MUTATION_OUT_DIR                  : Directory to store mutated HTML
-    RECENT_MEMORY_CRASH, RECENT_DOM_CRASH, OVERALL_COVERAGE
-    COVERAGE_DATA_JSON                : JSON file with coverage data
-    COVERAGE_GAPS                     : JSON string with coverage gap information
-    HISTORICAL_COVERAGE               : JSON string with aggregated coverage data
+Generates mutated HTML test cases using a deterministic fractal approach.
+Now entirely without Esprima.
 """
 
 import os
@@ -39,22 +20,13 @@ import re
 import contextlib
 from collections import defaultdict
 from typing import Any, Dict, List, Optional, Tuple
-from esprima import parseScript
-
 from bs4 import BeautifulSoup, Doctype
-
 # Additional imports for JavaScript mutation enhancements
-import esprima
+# import esprima  # Removed!
+# from esprima.error_handler import Error as EsprimaError  # Removed!
 import jsbeautifier
 
-try:
-    from estree import mutate_ast, generate_code
-except ModuleNotFoundError:
-    # Fallback dummy implementations if estree module is not installed
-    def mutate_ast(ast, config):
-        return ast
-    def generate_code(ast):
-        return "// Placeholder generated code; original AST unchanged"
+
 
 # Shared config for environment, logging, RNG seeding
 from config import (
@@ -62,7 +34,7 @@ from config import (
     init_global_seed, logger as base_logger
 )
 
-# --- New: Round-Specific Seed Function ---
+# --- Round-Specific Seed Function ---
 def get_round_specific_seed():
     """Get a seed specific to this round of mutation."""
     round_seed = os.environ.get("MUTATION_ROUND_SEED")
@@ -80,14 +52,50 @@ logger = logging.getLogger("mutation-deterministic")
 logger.setLevel(base_logger.level)
 logger.info(f"Using round-specific seed: {round_seed}")
 tracemalloc.start()
+MAX_DOM_SIZE = 1200  # Adjust this value as needed
+
+###############################################################################
+# Helper Functions
+###############################################################################
+def get_dom_size(soup: BeautifulSoup) -> int:
+    """Calculates the number of elements in a BeautifulSoup object."""
+    return len(soup.find_all(True))
+
+def create_script_tag(soup: BeautifulSoup, js_code: str, async_attr=False) -> BeautifulSoup:
+    """Creates a <script> tag, escaping HTML outside JS strings and optionally adding the async attribute."""
+    script = soup.new_tag('script')
+
+    # 1. Escape HTML tags *outside* of JavaScript strings
+    js_code = re.sub(r'(?<!")<[^>]*?>(?!")', '', js_code)
+
+    try:
+        # 2. Beautify (for basic validation, but not essential for fuzzing)
+        # You could remove this for pure fuzzing if you want maximum anomaly generation
+        jsbeautifier.beautify(js_code) 
+
+        script.string = js_code
+
+        # 3. Conditionally set the async attribute (important for scripts in <body>)
+        if async_attr:
+            script.attrs["async"] = ""
+
+    except jsbeautifier.JSBeautifyError as e:
+        logger.error(f"JS Validation Error (jsbeautifier): {e}")
+        script.string = f"// JS Validation Error (jsbeautifier): {e}\n" + js_code  # Keep the original code with a comment
+
+    except Exception as e:
+        logger.exception(f"Unexpected error during JS validation: {e}")
+        script.string = f"// Unexpected JS Error: {e}\n" + js_code  # Keep the original code with a comment
+
+    return script
 
 ###############################################################################
 # Complexity Validation & Structural Sanitization Parameters
 ###############################################################################
 COMPLEXITY_FACTORS = {
-    'element_diversity': 0.5,
-    'interaction_density': 0.3,
-    'nesting_depth': 4
+    'element_diversity': 0.3,
+    'interaction_density': 0.1,
+    'nesting_depth': 2
 }
 
 def validate_complexity(soup: BeautifulSoup) -> bool:
@@ -178,12 +186,12 @@ HTML_TAGS = [
 ]
 
 JS_SNIPPETS = [
-    """try { 
-        const res = %s; 
-        console.debug('Mutation success:', res); 
-    } catch(e) { 
-        console.warn('Mutation error:', e); 
-        document.dispatchEvent(new CustomEvent('mutationFailed')); 
+    """try {
+        const res = %s;
+        console.debug('Mutation success:', res);
+    } catch(e) {
+        console.warn('Mutation error:', e);
+        document.dispatchEvent(new CustomEvent('mutationFailed'));
     }""",
     """try {
         %s
@@ -211,22 +219,41 @@ def bitwise_corrupt_safe(s: str, intensity: float) -> str:
     return bitwise_corrupt_string(s, intensity)
 
 def insert_grammar_snippet(soup: BeautifulSoup, intensity: float) -> None:
-    if not soup.body:
+    """Inserts random HTML or script tags into the DOM."""
+    if not soup.body:  # Ensure a <body> exists
         return
+
     for _ in range(int(1 + (3 * intensity))):
         rand_tag = random.choice(HTML_TAGS)
-        if rand_tag == "<script>" and soup.find_parent('script'):
-            continue
-        new_element = soup.new_tag('mutation-marker')
-        new_element['data-original-tag'] = rand_tag.strip('<>')
-        if random.random() < 0.8:
-            new_element.string = f"Active {rand_tag} insertion"
-        else:
-            script = soup.new_tag('script')
-            script.string = f"console.log('Mutation: {rand_tag}');"
+        new_element = soup.new_tag('mutation-marker')  # Create the mutation marker *outside* the conditional
+
+        if rand_tag == "<script>":
+            if soup.find_parent('script'):  # Avoid nested scripts which always give errors
+                continue  # Skip this iteration if already within a <script> tag
+
+            js_code = f"console.log('Mutation: {rand_tag}');" # fuzz this even more if needed
+            script = create_script_tag(soup, js_code, async_attr=True)  # Async for scripts in <body>
             new_element.append(script)
-        insertion_index = random.randint(0, len(soup.body.contents))
-        soup.body.insert(insertion_index, new_element)
+            soup.body.insert(random.randint(0, len(soup.body.contents)), new_element)
+
+
+        else:  # For non-<script> tags
+
+            if random.random() < 0.5: # regular tag injection
+                new_element.string = f"Active {rand_tag} insertion"
+                soup.body.insert(random.randint(0, len(soup.body.contents)), new_element)
+
+
+            else: # js code injection inside of new tag
+
+                js_code = f"console.log('Mutation: {rand_tag}');"
+                script = create_script_tag(soup, js_code)  # No async needed if inserted elsewhere
+
+                if soup.head:  # Try to insert into <head> if it exists
+                    soup.head.append(script)
+                else: # fallback to insertion to body
+                    new_element.append(script)
+                    soup.body.insert(random.randint(0, len(soup.body.contents)), new_element)
 
 ###############################################################################
 # Revised Harvest: Progressive Retention with Coverage Weighting
@@ -246,36 +273,60 @@ def harvest(s: BeautifulSoup, step: int) -> List[BeautifulSoup]:
 ###############################################################################
 class CoverageAwareMutator:
     def __init__(self, coverage_gaps: Dict[str, Any]):
-        self.gaps = coverage_gaps
-        self.mutation_weights = {
-            'element': 0.4,
-            'attribute': 0.3,
-            'event': 0.3
-        }
-        
-    def adjust_weights(self, soup: BeautifulSoup):
-        present_elements = {tag.name for tag in soup.find_all(True)}
-        gap_elements = set(self.gaps.get("elements", []))
-        intersection = gap_elements & present_elements
-        if intersection:
-            self.mutation_weights['element'] = min(0.8, self.mutation_weights['element'] * 1.5)
-        
+        self.gaps = coverage_gaps or {}  # Handle empty gaps
+        self.target_element_weights = defaultdict(lambda: 0.1)
+        for element in self.gaps.get("elements", []):
+            self.target_element_weights[element] = 0.4
+
+        self.target_attribute_weights = defaultdict(lambda: 0.1)
+        for attribute in self.gaps.get("attributes", []):
+            self.target_attribute_weights[attribute] = 0.3
+
+        self.target_event_weights = defaultdict(lambda: 0.1)
+        for event in self.gaps.get("events", []):
+            self.target_event_weights[event] = 0.2
+
+
+    def adjust_weights(self, soup: BeautifulSoup) -> None:
+        """Dynamically adjust weights based on current DOM."""
+        present_elements = set(tag.name for tag in soup.find_all(True))
+        for element in list(self.target_element_weights):
+            if element not in present_elements:
+                self.target_element_weights[element] *= 0.9 # Reduce weight for absent elements
+
+
     def get_target_element(self, soup: BeautifulSoup) -> Optional[BeautifulSoup]:
-        gap_elements = self.gaps.get("elements", [])
-        existing_elements = [tag for tag in soup.find_all(True) if tag.name in gap_elements]
-        if existing_elements:
-            return random.choice(existing_elements)
-        candidate_elements = []
-        for tag in soup.find_all(True):
-            if self.gaps.get("attributes") and any(attr not in tag.attrs for attr in self.gaps["attributes"]):
-                candidate_elements.append(tag)
-            if self.gaps.get("events") and any(evt not in tag.attrs for evt in self.gaps["events"]):
-                candidate_elements.append(tag)
-        return random.choice(candidate_elements) if candidate_elements else None
+        """Choose a mutation target element based on weights and presence in DOM."""
+        eligible_elements = []
+        for element in soup.find_all(True):
+            weight = self.target_element_weights.get(element.name, 0.1) # Gets the weight for the given element
+            for attr in element.attrs:
+                weight += self.target_attribute_weights.get(attr, 0)  # Weights from attributes
+
+            for event_attr in element.attrs:
+                if event_attr.startswith('on'):
+                   event_name = event_attr[2:] # gets event name from the attribute (onclick => click)
+                   weight += self.target_event_weights.get(event_name, 0) # Weight the event
+
+            if weight > 0:  # consider element if the sum of weights is positive.
+                eligible_elements.append((element, weight))
+
+        if not eligible_elements:
+            return None  # No suitable target found
+
+        total_weight = sum(w for _, w in eligible_elements)
+        if total_weight == 0: # if no gaps exists default to random
+            return random.choice(soup.find_all(True)) if soup.find_all(True) else None
+        chosen_element, _ = random.choices(eligible_elements, weights=[w for _, w in eligible_elements], k=1)[0]
+        return chosen_element
+
+
 
 ###############################################################################
 # Advanced Anomaly Engine with Layered Mutation Strategy
 ###############################################################################
+
+
 class AdvancedAnomalyEngine:
     def __init__(self, step: int, coverage_feedback: Dict[str, Any]) -> None:
         self.fuzz_definitions = [
@@ -291,13 +342,12 @@ class AdvancedAnomalyEngine:
             base_intensity += 0.1
         if coverage_feedback.get("overall_coverage", 0) > 500:
             base_intensity -= 0.1
-        self.intensity = max(min(base_intensity, 1.0), 0.1)
+        self.intensity = max(min(base_intensity, 0.3), 0.1)
         self.coverage_feedback = coverage_feedback
 
     def mutate(self, soup: BeautifulSoup) -> None:
         self._base_mutations(soup)
         self._interactive_mutations(soup)
-        self._semantic_mutations(soup)
         self._coverage_guided_mutations(soup)
         self._entangle_dom(soup)
         self._propagate_mutations(soup)
@@ -305,47 +355,25 @@ class AdvancedAnomalyEngine:
         self._inject_meaningful_comments(soup)
         self._event_entanglement(soup)
 
-    def _base_mutations(self, soup: BeautifulSoup) -> None:
-        insert_grammar_snippet(soup, self.intensity)
+    def _base_mutations(self, soup: BeautifulSoup, intensity_reduction_factor: float = 1.0) -> None:
+        insert_grammar_snippet(soup, self.intensity * 0.2 * intensity_reduction_factor) # Apply reduction to snippet insertion intensity
         tags = soup.find_all(True)
         if tags:
-            subset_size = max(1, int(len(tags) * 0.1 * self.intensity))
+            subset_size = max(1, int(len(tags) * 0.1 * self.intensity * intensity_reduction_factor)) # Apply reduction to subset size
             chosen = random.sample(tags, min(subset_size, len(tags)))
             for el in chosen:
                 for attr, val in list(el.attrs.items()):
                     if isinstance(val, str):
-                        el.attrs[attr] = bitwise_corrupt_string(val, self.intensity)
+                        el.attrs[attr] = bitwise_corrupt_string(val, self.intensity * intensity_reduction_factor) # Apply reduction to bitwise corruption intensity
 
-    def _interactive_mutations(self, soup: BeautifulSoup) -> None:
+    def _interactive_mutations(self, soup: BeautifulSoup, intensity_reduction_factor: float = 1.0) -> None:
         tags = soup.find_all(True)
         for el in tags:
-            if random.random() < 0.02 * self.intensity:
+            if random.random() < 0.02 * self.intensity * intensity_reduction_factor: # Apply reduction to probability
                 ev = random.choice(['click', 'mouseover', 'load'])
                 el[ev] = f"alert('Interactive mutation at step {self.step}');"
 
-    def _semantic_mutations(self, soup: BeautifulSoup) -> None:
-        tags = soup.find_all(True)
-        if not tags:
-            return
-        sample_sz = max(2, int(len(tags) * 0.15 * self.intensity))
-        chosen = random.sample(tags, min(sample_sz, len(tags)))
-        for el in chosen:
-            el['data-mut-step'] = str(self.step)
-            if random.random() < 0.7:
-                el['data-fractal-id'] = ''.join(random.choices('abcdef0123456789', k=8))
-            if random.random() < 0.5:
-                mutant_tag = soup.new_tag("mutation-container")
-                mutant_tag['class'] = 'fractal-mutation'
-                if random.random() < 0.6:
-                    mutant_tag.string = f" Mutation {self.step}.{random.randint(1,100)}"
-                else:
-                    invalid_el = soup.new_tag("invalid_element")
-                    invalid_el['data-fractal'] = '1'
-                    mutant_tag.append(invalid_el)
-                el.append(mutant_tag)
-            if random.random() < 0.3:
-                corrupt_attr = f"data-corrupted-{random.choice(['a','b','c'])}"
-                el[corrupt_attr] = bitwise_corrupt_string(str(time.time()), self.intensity)
+  
 
     def _coverage_guided_mutations(self, soup: BeautifulSoup) -> None:
         for el in soup.find_all(True):
@@ -366,36 +394,41 @@ class AdvancedAnomalyEngine:
         inp['name'] = bitwise_corrupt_string("input", 0.8)
         return inp
 
-    def _entangle_dom(self, soup: BeautifulSoup) -> None:
+    def _entangle_dom(self, soup: BeautifulSoup, intensity_reduction_factor: float = 1.0) -> None:
+        if random.random() > 0.5 * intensity_reduction_factor: # Reduced probability of entanglement
+            return # Skip entanglement with reduced probability
+
         all_tags = soup.find_all(True)
         if not all_tags:
             return
-        sample_count = int(len(all_tags) * 0.3)
+        sample_count = int(len(all_tags) * 0.1 * intensity_reduction_factor) # Reduce sample count based on intensity
         for el in random.sample(all_tags, k=sample_count):
             clone = copy.copy(el)
             clone['data-entangled'] = str(uuid.uuid4())
-            if random.random() < 0.7:
+            if random.random() < 0.3 * intensity_reduction_factor: # Reduced probability of insert_after
                 el.insert_after(clone)
-            if random.random() < 0.4:
+            if random.random() < 0.2 * intensity_reduction_factor: # Reduced probability of wrap
                 wrapper = soup.new_tag("entanglement-wrapper")
                 el.wrap(wrapper)
 
-    def _propagate_mutations(self, soup: BeautifulSoup) -> None:
+    def _propagate_mutations(self, soup: BeautifulSoup, intensity_reduction_factor: float = 1.0) -> None:
         mutated_elements = soup.find_all(attrs={"data-mut-step": True})
         for el in mutated_elements:
-            if el.get('data-corrupted-a'):
-                new_attr = f"dep-{hash(el['data-corrupted-a'])}"
-                el[new_attr] = bitwise_corrupt_string(el.text, 0.5)
-            if 'data-fractal-id' in el.attrs:
-                fractal_child = soup.new_tag("fractal-node")
-                fractal_child.string = el['data-fractal-id'][:4]
-                el.append(fractal_child)
+            if random.random() < 0.8 * intensity_reduction_factor: # Reduced probability of attribute propagation
+                if el.get('data-corrupted-a'):
+                    new_attr = f"dep-{hash(el['data-corrupted-a'])}"
+                    el[new_attr] = bitwise_corrupt_string(el.text, 0.5 * intensity_reduction_factor) # Reduced corruption intensity
+            if random.random() < 0.5 * intensity_reduction_factor: # Reduced probability of fractal child injection
+                if 'data-fractal-id' in el.attrs:
+                    fractal_child = soup.new_tag("fractal-node")
+                    fractal_child.string = el['data-fractal-id'][:4]
+                    el.append(fractal_child)
 
-    def _amplify_coverage_gaps(self, soup: BeautifulSoup) -> None:
+    def _amplify_coverage_gaps(self, soup: BeautifulSoup, intensity_reduction_factor: float = 1.0) -> None: # Modified function signature
         undercovered = self._get_undercovered_elements(soup)
         for tag_name in undercovered:
             for el in soup.find_all(tag_name):
-                for _ in range(2 ** self.step):
+                for _ in range(max(1, int(2 ** self.step * intensity_reduction_factor))): # Reduced loop iterations based on intensity
                     self._inject_nested_anomaly(soup, el)
 
     def _get_undercovered_elements(self, soup: BeautifulSoup) -> List[str]:
@@ -407,13 +440,13 @@ class AdvancedAnomalyEngine:
     def _inject_nested_anomaly(self, soup: BeautifulSoup, element) -> None:
         anomaly = soup.new_tag("coverage-gap-fill")
         anomaly['data-depth'] = str(len(list(element.parents)))
-        anomaly.append(self._create_recursive_script(soup))
+        if len(list(element.parents)) < 8: # Add this if condition to limit nesting depth
+            anomaly.append(self._create_recursive_script(soup))
         element.append(anomaly)
 
     def _create_recursive_script(self, soup: BeautifulSoup) -> BeautifulSoup:
-        s = soup.new_tag('script')
-        s.string = f"console.log('recursive script at step {self.step}');"
-        return s
+        # Use create_script_tag
+        return create_script_tag(soup, f"console.log('recursive script at step {self.step}');")
 
     def _generate_valid_js(self) -> str:
         template = random.choice(JS_SNIPPETS)
@@ -426,9 +459,9 @@ class AdvancedAnomalyEngine:
         return template % random.choice(operations)
 
     def _event_entanglement(self, soup: BeautifulSoup) -> None:
-        if random.random() < 0.7:
-            script = soup.new_tag('script')
-            script.string = """
+        if random.random() < 0.1:
+            # Use create_script_tag here
+            script = create_script_tag(soup, """
             try {
                 window.triggerFuzz = () => {
                     console.log('Safe triggerFuzz execution');
@@ -437,7 +470,7 @@ class AdvancedAnomalyEngine:
             } catch(e) {
                 console.error('Fuzz setup failed:', e);
             }
-            """
+            """, async_attr=True)
             if soup.head:
                 soup.head.append(script)
             else:
@@ -482,22 +515,52 @@ class EnhancedAnomalyEngine(AdvancedAnomalyEngine):
         self.gaps = coverage_gaps
 
     def mutate(self, soup: BeautifulSoup) -> None:
-        self.mutator.adjust_weights(soup)
-        target_element = self.mutator.get_target_element(soup)
-        if target_element:
-            self._targeted_mutations(target_element)
-        super().mutate(soup)
+        current_dom_size = get_dom_size(soup) # Add this line
+        intensity_reduction_factor = 1.0 # Add this line
 
-    def _targeted_mutations(self, element):
-        if self.gaps.get("attributes"):
-            new_attr = random.choice(self.gaps["attributes"])
-            if new_attr not in element.attrs:
-                element[new_attr] = "targeted_attr_" + str(uuid.uuid4())[:8]
-        if self.gaps.get("events"):
-            new_event = random.choice(self.gaps["events"])
-            if new_event not in element.attrs:
-                element[new_event] = "targetedEvent()"
-        if element.name in self.gaps.get("elements", []):
+        if current_dom_size > MAX_DOM_SIZE * 0.8: # Add this if block
+            intensity_reduction_factor = 0.5
+            logger.warning(f"DOM size approaching limit ({current_dom_size} nodes), reducing mutation intensity.")
+        if current_dom_size > MAX_DOM_SIZE: # Add this if block
+            logger.warning(f"DOM size limit exceeded ({current_dom_size} nodes), skipping size-increasing mutations.")
+            self._light_mutation(soup.prettify()) # Call light_mutation with prettified HTML
+            return
+
+
+        self._base_mutations(soup, intensity_reduction_factor) # Modify this line to pass intensity_reduction_factor
+        self._interactive_mutations(soup, intensity_reduction_factor) # Modify this line
+        self._coverage_guided_mutations(soup, intensity_reduction_factor) # Modify this line
+
+        if current_dom_size <= MAX_DOM_SIZE * 0.9: # Add this if block for conditional entanglement
+            self._entangle_dom(soup, intensity_reduction_factor) # Modify this line
+            self._propagate_mutations(soup, intensity_reduction_factor) # Modify this line
+            self._amplify_coverage_gaps(soup, intensity_reduction_factor) # Modify this line
+
+        self._inject_meaningful_comments(soup)
+        self._event_entanglement(soup)
+
+    def _targeted_mutations(self, element: BeautifulSoup) -> None:
+        """Apply mutations based on coverage gaps."""
+        if element is None:
+            return
+
+        # Mutate attributes based on gaps
+        missing_attributes = [attr for attr in self.mutator.gaps.get("attributes", []) if attr not in element.attrs]
+
+        if missing_attributes:
+            new_attr = random.choice(missing_attributes)
+            element[new_attr] = "targeted_value_" + str(uuid.uuid4())[:8]
+
+        # Mutate events based on gaps
+        missing_events = [evt for evt in self.mutator.gaps.get("events", []) if f"on{evt}" not in element.attrs]
+
+        if missing_events:
+            new_event = random.choice(missing_events)
+            element[f"on{new_event}"] = f"targeted_{new_event}_handler()"
+
+
+        # Duplicate element if it's in the element gaps
+        if element.name in self.mutator.gaps.get("elements", []):
             clone = copy.copy(element)
             element.insert_after(clone)
 
@@ -506,28 +569,45 @@ class EnhancedAnomalyEngine(AdvancedAnomalyEngine):
 ###############################################################################
 class MutationOptimizer:
     def __init__(self):
-        self.historical_coverage = {}
+        self.historical_coverage = defaultdict(lambda: defaultdict(int))  # Nested defaultdict
 
-    def update_coverage(self, new_coverage: Dict[str, int]) -> None:
-        for key in new_coverage:
-            self.historical_coverage[key] = self.historical_coverage.get(key, 0) + new_coverage[key]
+    def update_coverage(self, new_coverage: Dict[str, Any]) -> None:
+        for file_path, file_data in new_coverage.get("files", {}).items(): # Access "files" data
+            for category, data in file_data.items(): # loop through data categories
+                if isinstance(data, dict):
+                    for item, count in data.items():
+                        self.historical_coverage[category][item] += count
 
-    def _least_covered(self, category: str) -> str:
+    def _least_covered(self, category: str) -> List[str]: # returns a list
         cat_data = self.historical_coverage.get(category, {})
         if not cat_data:
-            return ""
-        return min(cat_data, key=cat_data.get)
+            return []  # Return empty list if no data
 
-    def _calculate_intensity(self) -> float:
-        overall = sum(self.historical_coverage.get('elements', {}).values())
-        return 1.0 if overall > 1000 else 0.5
+        sorted_items = sorted(cat_data.items(), key=lambda item: item[1])
+        least_covered_count = sorted_items[0][1] if sorted_items else 0  # Consider empty case
+        return [item for item, count in sorted_items if count == least_covered_count]
 
     def suggest_mutation_strategy(self) -> Dict[str, Any]:
+        least_covered_elements = self._least_covered("element_coverage")
+        least_covered_attributes = self._least_covered("attribute_coverage")
+        least_covered_events = self._least_covered("event_coverage")
+
         return {
-            'focus_element': self._least_covered('elements'),
-            'focus_attribute': self._least_covered('attributes'),
-            'mutation_intensity': self._calculate_intensity()
+            "focus_elements": least_covered_elements,
+            "focus_attributes": least_covered_attributes,
+            "focus_events": least_covered_events,
+            "mutation_intensity": self._calculate_intensity()
         }
+
+    def _calculate_intensity(self) -> float:
+        element_coverage = self.historical_coverage.get("element_coverage", {})
+        overall_coverage = sum(element_coverage.values())  # Use element coverage for overall score
+        # Adjust thresholds and scaling as needed
+        if overall_coverage < 100:       return 1.0  # High intensity for very low coverage
+        elif overall_coverage < 500:     return 0.8
+        elif overall_coverage < 1000:    return 0.5
+        else:                           return 0.2  # Low intensity for high coverage
+
 
 ###############################################################################
 # Fractal Mutator with Feedback and Progressive Complexity
@@ -539,12 +619,8 @@ class FractalMutator:
         self.step = 0
         self.coverage_feedback = coverage_feedback if coverage_feedback else {}
         self.mutation_history = defaultdict(list)
-        
-        # Get round information for adaptive mutation
         self.round_num = int(os.environ.get("MUTATION_ROUND_NUM", "1"))
         self.unique_crashes = int(os.environ.get("UNIQUE_CRASHES_COUNT", "0"))
-        
-        # Load previous coverage data if available
         self.previous_coverage_file = os.environ.get("PREVIOUS_COVERAGE_FILE", "")
         self.previous_coverage = {}
         if self.previous_coverage_file and os.path.exists(self.previous_coverage_file):
@@ -553,49 +629,51 @@ class FractalMutator:
                     self.previous_coverage = json.load(f)
             except Exception as e:
                 logger.error(f"Failed to load previous coverage: {e}")
-        
-        # Adjust mutation strategy based on round number and previous results
+
         self.mutation_intensity = min(0.2 + (self.round_num * 0.1), 0.8)
         if self.unique_crashes > 0:
             self.mutation_intensity += min(self.unique_crashes * 0.05, 0.2)
-        
-        # Set entropy factor that increases with each round
         self.entropy_factor = 1.0 + (self.round_num * 0.2)
-        
         logger.info(f"Initialized FractalMutator with round {self.round_num}, "
                     f"intensity {self.mutation_intensity:.2f}, "
                     f"entropy {self.entropy_factor:.2f}")
+        self.optimizer = MutationOptimizer() # Initialize the optimizer here
+
 
     def generate_next(self) -> str:
-        # Apply round-specific randomness
         random.seed(get_round_specific_seed() + self.step * 100)
-        
+
         parent1 = self.chain[-2]
         parent2 = self.chain[-1]
         crossed_html = self._fractal_crossover(parent1, parent2)
         mutated_html = self._apply_advanced_mutation(crossed_html)
         soup = BeautifulSoup(mutated_html, 'html.parser')
-        
-        # Add round-specific markers to help track mutation evolution
+
         if soup.head:
             meta = soup.new_tag('meta')
             meta['name'] = 'mutation-round'
             meta['content'] = str(self.round_num)
             soup.head.append(meta)
-        
+
         self._track_mutation_impact(soup)
-        
-        # Apply targeted mutations in later rounds based on previous feedback
+
         if self.round_num > 1:
-            self._apply_targeted_mutations(soup)
-        
+
+            # Update optimizer and get suggested strategy
+            self.optimizer.update_coverage(self.coverage_feedback.get("previous_coverage", {}))
+            strategy = self.optimizer.suggest_mutation_strategy()
+
+            # Apply targeted mutations based on strategy
+            mutated_html = self._apply_targeted_mutations(soup, strategy)
+
+
         if not self._prevent_complexity_regression(soup):
-            logger.warning("Complexity regression detected, applying aggressive mutations.")
-        
+            logger.warning("Complexity regression detected, reinforcing mutations.")
+
         if not validate_complexity(soup):
             logger.warning("Complexity validation failed, enforcing aggressive mutations.")
             self._apply_aggressive_mutations(soup)
-        
+
         final_html = str(soup)
         self.chain.append(final_html)
         self.step += 1
@@ -618,10 +696,11 @@ class FractalMutator:
             clone = copy.copy(comp)
             for attr, val in comp.attrs.items():
                 if attr.lower().startswith('on'):
-                    clone[attr] = val
+                    clone[attr] = val            
             clone['data-det-step'] = self.step
             body.append(clone)
             if random.random() < 0.2:
+                # Use create_script_tag
                 body.append(self._create_entanglement_script(new_soup))
         donor_tags = [tag for tag, history in self.mutation_history.items() if len(history) > 2]
         for tag in donor_tags:
@@ -665,9 +744,8 @@ class FractalMutator:
 
     def _create_entanglement_script(self, soup: BeautifulSoup) -> Optional[BeautifulSoup]:
         try:
-            s = soup.new_tag('script')
-            s.string = f"try {{ document.currentScript.parentNode.setAttribute('data-adv-entangle-{self.step}', performance.now().toString()); }} catch(e) {{}}"
-            return s
+            # Use create_script_tag
+            return create_script_tag(soup, f"try {{ document.currentScript.parentNode.setAttribute('data-adv-entangle-{self.step}', performance.now().toString()); }} catch(e) {{}}")
         except Exception as e:
             logger.warning(f"Script creation failed: {str(e)}")
         return None
@@ -694,7 +772,7 @@ class FractalMutator:
     def _prevent_complexity_regression(self, soup: BeautifulSoup) -> bool:
         prev_complexity = self._calculate_complexity(self.chain[-1])
         new_complexity = self._calculate_complexity(str(soup))
-        if new_complexity < (prev_complexity * 0.8):
+        if new_complexity < (prev_complexity * 0.7):
             logger.warning("Complexity regression detected, reinforcing mutations")
             self._apply_aggressive_mutations(soup)
             return False
@@ -704,28 +782,40 @@ class FractalMutator:
         engine = AdvancedAnomalyEngine(self.step, self.coverage_feedback)
         engine.mutate(soup)
 
-    # --- New: Targeted Mutations Based on Feedback ---
-    def _apply_targeted_mutations(self, soup: BeautifulSoup) -> None:
-        """Apply mutations targeting areas that previously showed interesting behavior."""
-        if not self.previous_coverage:
-            return
-        high_coverage_elements = set()
-        if self.previous_coverage.get("files"):
-            for file_data in self.previous_coverage["files"].values():
-                elements = file_data.get("coveredElements", [])
-                if elements:
-                    high_coverage_elements.update(elements[:10])
-        for element_name in high_coverage_elements:
-            for el in soup.find_all(element_name):
-                el['data-high-coverage'] = f"round-{self.round_num}"
-                if random.random() < 0.3 * self.entropy_factor:
-                    event_type = random.choice(['click', 'mouseover', 'focus', 'input'])
-                    complex_handler = self._generate_complex_handler()
-                    el[f"on{event_type}"] = complex_handler
-                if random.random() < 0.2 * self.entropy_factor:
-                    depth = min(3, self.round_num)
-                    self._add_nested_elements(el, depth)
-                    
+    def _apply_targeted_mutations(self, soup: BeautifulSoup, strategy: Dict[str, Any]) -> str:
+        intensity = strategy.get("mutation_intensity", 0.5)  # Moderate default intensity
+        for element in soup.find_all(True):
+            if element.name in strategy.get("focus_elements", []):
+                self._mutate_element(element, intensity * 1.5)  # Increased intensity for focus elements
+            elif any(attr in strategy.get("focus_attributes", []) for attr in element.attrs):
+                self._mutate_attributes(element, intensity * 1.2) # Higher intensity for focused attributes
+            elif any(f"on{event}" in element.attrs for event in strategy.get('focus_events', [])):  # Target events
+                self._mutate_events(element, intensity)
+            else:
+                self._mutate_element(element, intensity) # Normal intensity for other elements
+
+        return str(soup)
+
+
+
+    def _mutate_element(self, element, intensity):
+        # Example mutation: add a new attribute (adapt as needed)
+        if random.random() < intensity:
+            element['data-mutated'] = 'true'
+
+    def _mutate_attributes(self, element, intensity):
+        # Example mutation: corrupt attributes (adapt as needed)
+        for attr in element.attrs:
+             if random.random() < intensity:
+                element[attr] = bitwise_corrupt_safe(element[attr], intensity)  # Example
+
+    def _mutate_events(self, element, intensity):
+         # Example: Modify existing event handlers or add new ones.
+        for attr in element.attrs:
+            if attr.startswith('on') and random.random() < intensity:
+                element[attr] = "alert('Mutated Event');"  # Example mutation
+
+
     def _generate_complex_handler(self) -> str:
         """Generate increasingly complex event handlers in later rounds."""
         base_handlers = [
@@ -741,7 +831,7 @@ class FractalMutator:
             ]
             base_handlers.extend(complex_handlers)
         return random.choice(base_handlers)
-        
+
     def _add_nested_elements(self, parent_element, depth: int) -> None:
         """Add nested elements with increasing depth based on round number."""
         if depth <= 0:
@@ -756,6 +846,7 @@ class FractalMutator:
         new_element.string = f"Nested element at depth {depth}, round {self.round_num}"
         parent_element.append(new_element)
         self._add_nested_elements(new_element, depth - 1)
+
 
 ###############################################################################
 # Resource-Aware Mutator extending FractalMutator
@@ -810,11 +901,11 @@ class ResourceAwareMutator(FractalMutator):
         if tags:
             sample_tags = random.sample(tags, min(100, len(tags)))
             for el in sample_tags[:50]:
-                if random.random() < 0.3:
+                if random.random() < 0.5:
                     el.decompose()
                 else:
                     if el.string:
-                        el.string = bitwise_corrupt_safe(el.string, 0.5)
+                        el.string = bitwise_corrupt_safe(el.string, 0.3)
         return str(soup)
 
     def _validate_and_sanitize(self, soup: BeautifulSoup) -> None:
@@ -824,7 +915,7 @@ class ResourceAwareMutator(FractalMutator):
                     meta.extract()
                     soup.head.append(meta)
         if not soup.find('html'):
-            new_soup = BeautifulSoup(f"<html>{str(soup)}</html>", 'html.parser')
+            new_soup = BeautifulSoup(f"<html>{soup}</html>", 'html.parser')
             soup.clear()
             for tag in new_soup.contents:
                 soup.append(tag)
@@ -841,8 +932,8 @@ class ResourceAwareMutator(FractalMutator):
 
     def _ensure_triggerfuzz_definition(self, soup: BeautifulSoup):
         if not soup.find(string=re.compile(r'\btriggerFuzz\s*\(')):
-            script = soup.new_tag('script')
-            script.string = "function triggerFuzz() {}"
+            # Use create_script_tag
+            script = create_script_tag(soup,"function triggerFuzz() {}")
             if soup.head:
                 soup.head.append(script)
             else:
@@ -856,7 +947,7 @@ class ResourceAwareMutator(FractalMutator):
 ###############################################################################
 # JavaScript Mutation Enhancements and Final Pipeline Functions
 ###############################################################################
-class JavaScriptMutator:
+class JavaScriptMutator: # Removed esprima dependency
     def __init__(self):
         self.unique_identifiers = set()
         self.fuzz_library = self._build_fuzz_library()
@@ -882,18 +973,24 @@ class JavaScriptMutator:
         }
 
     def mutate_js_ast(self, code: str) -> str:
+        # No more AST parsing!  We rely on jsbeautifier.
         try:
-            ast = esprima.parseScript(code, {'tolerant': True})
-            mutated_ast = mutate_ast(ast, {
-                'string_replace': 0.3,
-                'operator_swap': 0.2,
-                'type_confusion': 0.4,
-                'prototype_hijack': 0.1
-            })
-            return generate_code(mutated_ast)
+            # Attempt to beautify.  If it fails, it's likely invalid JS.
+            beautified_code = jsbeautifier.beautify(code)
+
+            # Simple string mutation (still applied, but after validation)
+            if random.random() < 0.1:
+                beautified_code += "//_fuzzed" # Simple string mutation
+
+            return beautified_code
+
+        except jsbeautifier.JSBeautifyError as e:
+            logger.error(f"JavaScript mutation and beautification failed: {e}")
+            return f"// JS Mutation and Beautification Error: {e}\n" + code
         except Exception as e:
-            logger.error(f"AST mutation failed: {e}")
-            return code
+            logger.exception(f"Unexpected error during JS mutation: {e}")
+            return f"//Unexpected JS error: {e}" + code
+
 
     def generate_complex_js(self, template_type: str) -> str:
         template = random.choice(self.fuzz_library[template_type])
@@ -901,9 +998,9 @@ class JavaScriptMutator:
         substitutions = {
             'name': var_name,
             'value': random.choice(["()=>{}", "document.body", "0xbadc0de"]),
-            'payload': self._generate_nested_operation(),
-            'size': random.choice([int(1e6), 0xffff, 2**32]),
-            'pages': random.randint(100, 1000)
+            'payload': self._generate_nested_operation(),  # Keep this as is
+            'size': random.choice([int(1e4), 0xffff, 2**16]),
+            'pages': random.randint(10, 100)
         }
         SAFE_RESOURCES = ['/fuzz-safe', 'https://example.com/fuzz', 'data:text/plain,test']
         substitutions.update({
@@ -911,7 +1008,7 @@ class JavaScriptMutator:
         })
         return template.format(**substitutions).replace('{', '{{').replace('}', '}}')
 
-    def _generate_nested_operation(self, depth=3) -> str:
+    def _generate_nested_operation(self, depth=1) -> str: #This function stays the same as the logic isn't esprima dependent
         if depth == 0:
             return random.choice([
                 "document.all", "undefined[0]", "new Proxy({}, {})"
@@ -923,32 +1020,6 @@ class JavaScriptMutator:
         ]
         return random.choice(ops)
 
-class EnhancedAnomalyEngine(AdvancedAnomalyEngine):
-    def __init__(self, step: int, coverage_feedback: Dict[str, Any], coverage_gaps: Dict[str, Any]):
-        super().__init__(step, coverage_feedback)
-        self.mutator = CoverageAwareMutator(coverage_gaps)
-        self.gaps = coverage_gaps
-
-    def mutate(self, soup: BeautifulSoup) -> None:
-        self.mutator.adjust_weights(soup)
-        target_element = self.mutator.get_target_element(soup)
-        if target_element:
-            self._targeted_mutations(target_element)
-        super().mutate(soup)
-
-    def _targeted_mutations(self, element):
-        if self.gaps.get("attributes"):
-            new_attr = random.choice(self.gaps["attributes"])
-            if new_attr not in element.attrs:
-                element[new_attr] = "targeted_attr_" + str(uuid.uuid4())[:8]
-        if self.gaps.get("events"):
-            new_event = random.choice(self.gaps["events"])
-            if new_event not in element.attrs:
-                element[new_event] = "targetedEvent()"
-        if element.name in self.gaps.get("elements", []):
-            clone = copy.copy(element)
-            element.insert_after(clone)
-
 class JsEnhancedMutator(ResourceAwareMutator):
     def generate_next(self) -> str:
         result = super().generate_next()
@@ -958,47 +1029,43 @@ class JsEnhancedMutator(ResourceAwareMutator):
         return str(soup)
 
     def _optimize_js_payloads(self, soup: BeautifulSoup) -> None:
-        SAFE_DOMAINS = ['example.com', 'localhost', 'test.fuzz']
-        for script in soup.find_all('script'):
-            if not script.string:
-                continue
-            original_content = script.string
-            sanitized = re.sub(
-                r"['\"](https?://)(?!{}).*?['\"]".format('|'.join(SAFE_DOMAINS)),
-                lambda m: f"{m.group(1)}{random.choice(SAFE_DOMAINS)}", 
-                original_content
-            )
-            if any(p in original_content for p in ['<!--', '<!CDATA', '<?']):
-                script.string = sanitized
-                continue
-            try:
-                if re.search(r"<\/?[a-z]", sanitized):
-                    logger.warning("Script contains HTML tags, wrapping in CDATA")
-                    script.string = f"/*<![CDATA[*/{sanitized}/*]]>*/"
-                    continue
-                parsed = esprima.parseScript(sanitized, {'loc': True})
-                script.string = sanitized
-            except Exception as e:
-                error_line = original_content.split('\n')[e.lineno-1] if hasattr(e, 'lineno') else ''
-                logger.warning(f"JS validation error: {str(e)}\nContext: {error_line.strip()}")
-                error_msg = f"\n// JS Validation Error: {str(e)}\n"
-                script.string = error_msg + sanitized
+        """Optimizes JS payloads for better fuzzing results."""
+        SAFE_DOMAINS = ['example.com', 'localhost', 'test.fuzz']  # Safe domains for URL replacement
 
+        for script in soup.find_all('script'):
+            if script.string:
+                js_code = str(script.string)
+
+                # 1. Sanitize URLs (replace with safe domains)
+                js_code = re.sub(r'https?://(?!' + '|'.join(SAFE_DOMAINS) + r')\S+',
+                                lambda m: f'"{random.choice(SAFE_DOMAINS)}"', js_code)
+
+
+                # Remove comments, as these might contain HTML and create issues when placed elsewhere
+                js_code = re.sub(r'//.*?\n|/\*.*?\*/', '', js_code, flags=re.DOTALL)
+
+
+
+                script.string = js_code  # No beautifying
     def _inject_js_coverage(self, soup: BeautifulSoup) -> None:
+        """Injects JavaScript code for coverage tracking."""
         coverage_script = """
         window.__jsCoverage = new Proxy({}, {
             get(t, p) { return t[p] || 0 },
             set(t, p, v) { t[p] = (t[p] || 0) + 1; return true }
         });
         """
-        tag = soup.new_tag('script')
-        tag.string = coverage_script
+
+        script_tag = create_script_tag(soup, coverage_script, async_attr=True)
+
         if soup.head:
-            soup.head.insert(0, tag)
-        else:
-            new_head = soup.new_tag('head')
-            new_head.append(tag)
-            soup.insert(0, new_head)
+            soup.head.append(script_tag)
+        elif soup.html: # Add head if it doesn't exist but html tag does
+            head = soup.new_tag('head')
+            head.append(script_tag)
+            soup.html.insert(0, head)
+        else:  # Fallback: insert directly into soup if no <html> or <head>
+            soup.insert(0, script_tag)
 
     def _validate_and_sanitize(self, soup: BeautifulSoup) -> None:
         if soup.head:
@@ -1020,9 +1087,12 @@ class JsEnhancedMutator(ResourceAwareMutator):
 # Structural Validation & Mutation Pipeline Functions
 ###############################################################################
 def generate_mutation(parent1: str, parent2: str, coverage_data: Dict[str, Any]) -> str:
+
     coverage_gaps = json.loads(os.getenv("COVERAGE_GAPS", "{}"))
     mutator = JsEnhancedMutator(parent1, parent2, coverage_data)
     mutator.engine = EnhancedAnomalyEngine(mutator.step, coverage_data, coverage_gaps)
+    #Initialize mutator for the anomaly engine
+    mutator.engine.mutator = CoverageAwareMutator(coverage_gaps) #Initialize the mutator
     return mutator.generate_next()
 
 ###############################################################################
@@ -1033,14 +1103,14 @@ def main() -> None:
     round_seed = get_round_specific_seed()
     random.seed(round_seed)
     logger.info(f"Using round-specific seed for mutation: {round_seed}")
-    
+
     total_mutations = int(sys.argv[1]) if len(sys.argv) > 1 else 1
     out_dir = os.environ.get("MUTATION_OUT_DIR", MUTATION_FOLDER)
     os.makedirs(out_dir, exist_ok=True)
 
     # Get round number for adaptive mutation strategies
     round_num = int(os.environ.get("MUTATION_ROUND_NUM", "1"))
-    
+
     # Prepare coverage feedback with more detailed information
     coverage_feedback = {
         "recent_memory_crash": bool(os.environ.get("RECENT_MEMORY_CRASH")),
@@ -1049,7 +1119,7 @@ def main() -> None:
         "round_number": round_num,
         "unique_crashes": int(os.environ.get("UNIQUE_CRASHES_COUNT", "0"))
     }
-    
+
     # Load previous coverage data if available
     previous_coverage_file = os.environ.get("PREVIOUS_COVERAGE_FILE", "")
     if previous_coverage_file and os.path.exists(previous_coverage_file):
@@ -1059,7 +1129,7 @@ def main() -> None:
                 coverage_feedback["previous_coverage"] = previous_coverage
         except Exception as e:
             logger.error(f"Failed to load previous coverage: {e}")
-    
+
     coverage_data = load_coverage_data()
     use_coverage_guided = any(coverage_data.get(key) for key in
                              ['element_coverage', 'attribute_coverage', 'event_coverage'])
@@ -1137,3 +1207,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+                    

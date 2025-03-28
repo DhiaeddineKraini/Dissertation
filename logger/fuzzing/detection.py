@@ -3,42 +3,11 @@
 detection.py
 ------------
 Executes mutated HTML files in an ASan-enabled Chrome to detect anomalies, crashes,
-and gather deep, detailed reporting. This version includes:
-1) Coverage collection via Chrome DevTools Protocol.
-2) Crash detection with root cause analysis (use-after-free, double-free, etc.).
-3) Comprehensive logs: CSV + JSON + optional coverage chart.
-4) Parallel test execution for improved throughput.
-5) Accessibility checks, layout anomalies, performance metrics, hardware usage, etc.
-6) Execution path analysis (via Chrome 'performance' logs).
-7) Advanced crash minimization via delta debugging.
-8) Enhanced error handling, resource optimization, concurrency improvements,
-   visual diff analysis using histogram comparison, deep security header checks,
-   coverage visualization upgrade, symbolization robustness, interactive HTML reporting,
-   and enhanced recommendation engine.
-
-Additional Enhancements:
-------------------------
-1) Updated Chrome configuration for heavy DOMs and large files:
-   - Increased memory limits for JS via --js-flags=--max-old-space-size=8192
-   - Disabled throttling, GPU usage, and images for speed and stability.
-2) Advanced Hang Detection System:
-   - A background thread that monitors inactivity and dumps state if 5m of no activity.
-3) Infinite Loop Prevention:
-   - Use Chrome DevTools to enable script interruption and limit script run time.
-4) Comprehensive Execution Wrapper with resource isolation:
-   - Strict memory checks, extended timeouts, and robust test crash recovery.
-
-Usage:
-  python3 detection.py [mutation_dir]
-
-Environment Variables:
-  DETECTION_TARGET_DIR : Override for the default mutation directory.
-  CHROME_BINARY_PATH, CHROMEDRIVER_PATH, SYMBOLIZER_PATH, etc. from config.
+and gather deep, detailed reporting.
 """
 
 import os
 import glob
-import csv
 import json
 import time
 import platform
@@ -47,40 +16,34 @@ import logging
 import hashlib
 import argparse
 import psutil
-import numpy as np
 import re
 import atexit
 import tempfile
 import threading
 from collections import defaultdict, Counter
 from datetime import datetime
-from pathlib import Path
 from typing import Any, Dict, List, Optional
 from io import BytesIO
-from PIL import Image, ImageChops
-import imagehash
-import pandas as pd
-import seaborn as sns
 import matplotlib.pyplot as plt
-import base64
+import pandas as pd
 from tabulate import tabulate
-
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.cluster import KMeans
-from ruptures import Binseg
+from ddmin import ddmin  # Import the ddmin library
+import shutil
+import uuid
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
+from urllib.parse import unquote
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.remote.client_config import ClientConfig
-
+from selenium.webdriver.remote.remote_connection import RemoteConnection
+import seaborn as sns
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import WebDriverException, TimeoutException
-from selenium.webdriver.remote.remote_connection import RemoteConnection
 from tenacity import retry, stop_after_attempt, wait_exponential
 import axe_selenium_python
 
-from selenium.webdriver.remote.remote_connection import RemoteConnection
 
 from config import (
     CHROME_BINARY_PATH,
@@ -105,14 +68,19 @@ parser.add_argument(
     default=os.getenv("DETECTION_TARGET_DIR", MUTATION_FOLDER),
     help="Directory containing the mutated HTML files to test.",
 )
+parser.add_argument(
+    "--report-formats",
+    default="text,json",  # Default formats are now text and JSON
+    help="Comma-separated list of report formats to generate (text,json). Default: text,json",
+)
 args = parser.parse_args()
 MUTATION_DIR: str = args.mutation_dir
+REPORT_FORMATS = [fmt.strip().lower() for fmt in args.report_formats.split(",")]
+
 
 logger = logging.getLogger("detection-advanced")
-logger.setLevel(base_logger.level if hasattr(base_logger, "level") else logging.INFO)
+logger.setLevel(logging.DEBUG)
 
-from threading import Lock
-csv_lock = Lock()
 
 def get_chrome_options() -> Options:
     options = Options()
@@ -125,6 +93,9 @@ def get_chrome_options() -> Options:
     options.add_argument("--disable-setuid-sandbox")
     options.add_argument("--disable-software-rasterizer")
     options.add_argument("--disable-background-timer-throttling")
+    options.add_argument("--disable-extensions")  # Add this line
+    options.add_argument("--disable-background-networking")  # Add this line
+    options.add_argument("--enable-features=NetworkServiceInProcess")  # Add this line
     options.add_argument("--js-flags=--max-old-space-size=8192")
     prefs = {
         "profile.managed_default_content_settings.images": 2,
@@ -132,6 +103,7 @@ def get_chrome_options() -> Options:
     }
     options.add_experimental_option("prefs", prefs)
     return options
+
 
 def enable_script_interruption(driver: webdriver.Chrome):
     try:
@@ -143,6 +115,7 @@ def enable_script_interruption(driver: webdriver.Chrome):
     except Exception as e:
         logger.warning("Failed enabling script interruption (CDP): %s", e)
 
+
 class MemoryWatcher:
     def __init__(self, max_mb=4096):
         self.max_mb = max_mb
@@ -151,6 +124,7 @@ class MemoryWatcher:
         process = psutil.Process(os.getpid())
         used_mb = process.memory_info().rss / 1024**2
         return used_mb < self.max_mb
+
 
 def validate_symbolizer_version(chrome_version: str) -> bool:
     try:
@@ -161,33 +135,64 @@ def validate_symbolizer_version(chrome_version: str) -> bool:
     except Exception:
         return False
 
+
 class CoverageCDP:
     def __init__(self, driver: webdriver.Chrome) -> None:
         self.driver = driver
         self.enabled = False
 
     def start_js_coverage(self) -> None:
+        logger.debug(
+            "[COVERAGE] start_js_coverage: Starting coverage collection..."
+        )  # ADDED LOGGING
         try:
             self.driver.execute_cdp_cmd("Profiler.enable", {})
             self.driver.execute_cdp_cmd(
                 "Profiler.startPreciseCoverage", {"callCount": False, "detailed": False}
             )
             self.enabled = True
+            logger.debug(
+                "[COVERAGE] start_js_coverage: Coverage collection started successfully."
+            )  # ADDED LOGGING
         except Exception as e:
             logger.warning("[COVERAGE] start_js_coverage => %s", e)
+            logger.warning(
+                "[COVERAGE] start_js_coverage: Failed to start coverage collection."
+            )  # ADDED LOGGING
 
     def stop_js_coverage(self) -> List[Dict[str, Any]]:
         if not self.enabled:
+            logger.debug(
+                "[COVERAGE] stop_js_coverage: Coverage not enabled, returning empty data."
+            )  # ADDED LOGGING
             return []
         try:
+            logger.debug(
+                "[COVERAGE] stop_js_coverage: Stopping coverage and taking data..."
+            )  # ADDED LOGGING
             result = self.driver.execute_cdp_cmd("Profiler.takePreciseCoverage", {})
             coverage_data = result.get("result", [])
             self.driver.execute_cdp_cmd("Profiler.stopPreciseCoverage", {})
             self.driver.execute_cdp_cmd("Profiler.disable", {})
+            logger.debug(
+                f"[COVERAGE] stop_js_coverage: Coverage data collected, {len(coverage_data)} scripts."
+            )  # ADDED LOGGING with script count
             return coverage_data
         except Exception as e:
             logger.warning("[COVERAGE] stop_js_coverage => %s", e)
+            logger.warning(
+                "[COVERAGE] stop_js_coverage: Error stopping coverage, returning empty data."
+            )  # ADDED LOGGING
             return []
+
+    def get_performance_metrics(self) -> Dict[str, Any]:
+        try:
+            metrics = self.driver.execute_cdp_cmd("Performance.getMetrics", {})
+            return metrics.get("metrics", {})  # Return the metrics data
+        except Exception as e:
+            logger.warning("[COVERAGE] get_performance_metrics => %s", e)
+            return {}
+
 
 class CrashDeduplicator:
     def __init__(self, outdir: str) -> None:
@@ -220,7 +225,7 @@ class CrashDeduplicator:
 
     def check_or_add_crash(
         self, raw_log_path: str, symbolized_trace: str
-    ) -> (bool, str):
+    ) -> tuple[bool, str]:
         with open(raw_log_path, "r", encoding="utf-8") as f:
             raw_log_content = f.read()
         sign = self.hybrid_signature(raw_log_content, symbolized_trace)
@@ -233,6 +238,7 @@ class CrashDeduplicator:
             }
             self._save_signatures()
         return is_new, sign
+
 
 class RootCauseAnalyzer:
     @staticmethod
@@ -248,8 +254,10 @@ class RootCauseAnalyzer:
             return "UB-Sanitizer"
         return "Unknown"
 
+
 def re_run_detection_for_file(html_path: str, mini_outdir: str) -> bool:
     from selenium.webdriver.chrome.options import Options
+
     asan_log_path = os.path.join(mini_outdir, "ASAN_minimization_%n_%p.log")
     env = os.environ.copy()
     existing_asan = env.get("ASAN_OPTIONS", "")
@@ -267,7 +275,7 @@ def re_run_detection_for_file(html_path: str, mini_outdir: str) -> bool:
     driver = None
     try:
         driver = webdriver.Chrome(options=options, service=serv)
-        driver.set_page_load_timeout(7200)
+        driver.set_page_load_timeout(120)
         url = f"file://{os.path.abspath(html_path)}"
         driver.get(url)
         time.sleep(3)
@@ -286,28 +294,58 @@ def re_run_detection_for_file(html_path: str, mini_outdir: str) -> bool:
             driver.quit()
     return False
 
+
 def minimize_crash_input(html_path: str) -> None:
+    """Minimizes a crashing HTML input using the ddmin algorithm."""
+
     def test_fn(content: bytes) -> bool:
+        """Test function for ddmin: checks if the given HTML content still crashes."""
         with tempfile.NamedTemporaryFile(delete=False, suffix=".html") as tf:
             tf.write(content)
             temp_path = tf.name
-        result = re_run_detection_for_file(
-            temp_path, os.path.join(os.path.dirname(temp_path), "minimization_temp")
-        )
         try:
-            os.remove(temp_path)
-        except Exception:
-            pass
-        return result
+            mini_outdir = os.path.join(os.path.dirname(temp_path), "minimization_temp")
+            os.makedirs(
+                mini_outdir, exist_ok=True
+            )  # Ensure directory for asan logs exists
+
+            result = re_run_detection_for_file(temp_path, mini_outdir)
+            return result
+        except Exception as e:
+            logger.error("[MINIMIZATION] Error in test function: %s", e)
+            return False
+        finally:
+            try:
+                os.remove(temp_path)
+                shutil.rmtree(mini_outdir, ignore_errors=True)
+            except Exception as e:
+                logger.warning(
+                    f"[MINIMIZATION] Could not remove temp file or directory : {e}"
+                )
 
     if not os.path.exists(html_path):
+        logger.warning("[MINIMIZATION] Crash input file not found: %s", html_path)
         return
-    with open(html_path, "rb") as f:
-        original = f.read()
-    minimized = delta(original, test_fn, delete_policy="DELETE_BLOCKS")
-    with open(html_path, "wb") as f:
-        f.write(minimized)
-    logger.info("[MINIMIZATION] Completed delta debugging for %s", html_path)
+
+    try:
+        with open(html_path, "rb") as f:
+            original_content = f.read()
+
+        minimized_content = ddmin(original_content, test_fn)
+
+        with open(
+            html_path + ".minimized", "wb"
+        ) as minimized_file:  # create new minimised file
+            minimized_file.write(minimized_content)
+
+        logger.info(
+            "[MINIMIZATION] Minimized crash input saved to: %s",
+            html_path + ".minimized",
+        )
+
+    except Exception as e:
+        logger.error("[MINIMIZATION] Error during minimization: %s", e)
+
 
 class BestChromeDetector:
     def __init__(self) -> None:
@@ -318,7 +356,9 @@ class BestChromeDetector:
         self.crash_deduper = CrashDeduplicator(OUTPUT_DIR)
         self.temp_files: List[str] = []
         self.memory_trend: List[Dict[str, Any]] = []
-        self.global_timeout = 7200
+        self.global_timeout = 300
+        self.important_timeout = 600  # 10 minutes in seconds
+        self.less_important_timeout = 300  # 5 minutes in seconds
         self.retry_count = 2
         self.asan_options = {
             "detect_leaks": "1",
@@ -326,43 +366,26 @@ class BestChromeDetector:
             "log_path": f"{OUTPUT_DIR}/asan_logs/ASAN_%n_%p.log",
             "allocator_may_return_null": "1",
             "malloc_context_size": "10",
-            "symbolize": "0",
-            "detect_leaks": "0",
+            "symbolize": "1",
         }
 
     def setup_directories(self) -> None:
         dirs = [
             os.path.join(OUTPUT_DIR, "logs"),
-            os.path.join(OUTPUT_DIR, "screenshots"),
             os.path.join(OUTPUT_DIR, "asan_logs"),
             os.path.join(OUTPUT_DIR, "reports"),
             os.path.join(OUTPUT_DIR, "network_logs"),
             os.path.join(OUTPUT_DIR, "performance"),
             os.path.join(OUTPUT_DIR, "accessibility"),
-            os.path.join(OUTPUT_DIR, "media"),
             os.path.join(OUTPUT_DIR, "storage"),
             os.path.join(OUTPUT_DIR, "localization"),
-            os.path.join(OUTPUT_DIR, "animations"),
             os.path.join(OUTPUT_DIR, "sym_versions"),
             os.path.join(OUTPUT_DIR, "crash_logs"),
         ]
         for d in dirs:
             os.makedirs(d, exist_ok=True)
         atexit.register(self._cleanup_temp_files)
-        csv_file = os.path.join(OUTPUT_DIR, "reports", "full_report.csv")
-        if not os.path.exists(csv_file):
-            with open(csv_file, "w", newline="") as cf:
-                w = csv.writer(cf)
-                w.writerow([
-                    "Test File",
-                    "Status",
-                    "Anomaly Count",
-                    "Anomaly Types",
-                    "Max Severity",
-                    "Duration",
-                    "RootCause",
-                    "Artifacts",
-                ])
+
         det_json = os.path.join(OUTPUT_DIR, "reports", "detailed_report.json")
         if not os.path.exists(det_json):
             with open(det_json, "w") as jf:
@@ -394,35 +417,77 @@ class BestChromeDetector:
         options.add_argument("--disable-media-session-api")
         options.add_argument("--autoplay-policy=no-user-gesture-required")
         options.add_argument("--enable-crash-reporter")
+        options.add_argument("--disable-extensions")
         options.add_argument(f"--crash-dumps-dir={OUTPUT_DIR}/crash_dumps")
-        options.add_argument("--user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
-        options.set_capability("goog:loggingPrefs", {"browser": "ALL"})
+        options.set_capability(
+            "goog:loggingPrefs", {"browser": "ALL", "performance": "ALL"}
+        )
+
+        asan_log_dir = os.path.join(OUTPUT_DIR, "asan_logs")
+        os.makedirs(asan_log_dir, exist_ok=True)  # Ensure directory exists
+
         env = os.environ.copy()
-        env["ASAN_OPTIONS"] = "detect_leaks=0:allocator_may_return_null=1:abort_on_error=0"
+
+        # Set/Update ASAN_OPTIONS:
+        asan_options = {
+            "detect_leaks": "1",
+            "abort_on_error": "1",  # Critical for ASan to work as expected
+            "symbolize": "1",  # If you have symbolization tools available
+            "log_path": os.path.join(asan_log_dir, f"ASAN_%n_%p.log"),
+        }
+
+        existing_asan_options = env.get("ASAN_OPTIONS")
+        if existing_asan_options:
+            asan_options.update(
+                {
+                    part.split("=")[0]: part.split("=")[1]
+                    for part in existing_asan_options.split(":")
+                    if "=" in part
+                }
+            )
+        env["ASAN_OPTIONS"] = ":".join(f"{k}={v}" for k, v in asan_options.items())
+        logs_dir = os.path.join(OUTPUT_DIR, "logs") # Place in the 'logs' subdirectory
+        os.makedirs(logs_dir, exist_ok=True)       # Ensure the directory exists
+        chromedriver_log_path = os.path.join(logs_dir, "chromedriver.log") # Use the consistent name
         service = Service(
             executable_path=CHROMEDRIVER_PATH,
             env=env,
-            service_args=["--verbose"],
-            log_output=os.path.join(OUTPUT_DIR, "chromedriver.log"),
-            timeout=7200
+           # service_args=["--verbose"],
+            log_output=chromedriver_log_path,   
+            timeout=720,
         )
         driver = webdriver.Chrome(service=service, options=options)
         driver.execute_cdp_cmd("Network.enable", {})
-        driver.execute_cdp_cmd("Network.setBlockedURLs", {
-            "urls": [
-                "*.mp4", "*.mp3", "*.avi", "*.webm", "*.ogg", "*.wav",
-                "*.png", "*.jpg", "*.jpeg", "*.gif", "*.woff", "*.ttf"
-            ]
-        })
+        driver.execute_cdp_cmd(
+            "Network.setBlockedURLs",
+            {
+                "urls": [
+                    "*.mp4",
+                    "*.mp3",
+                    "*.avi",
+                    "*.webm",
+                    "*.ogg",
+                    "*.wav",
+                    "*.png",
+                    "*.jpg",
+                    "*.jpeg",
+                    "*.gif",
+                    "*.woff",
+                    "*.ttf",
+                ]
+            },
+        )
         driver.execute_cdp_cmd("Performance.enable", {})
-        RemoteConnection.set_timeout(1800) 
-        driver.set_page_load_timeout(3200)
-        driver.set_script_timeout(900)
+        RemoteConnection.set_timeout(720)
+        driver.set_page_load_timeout(120)
+        driver.set_script_timeout(30)
         return driver
 
     def _is_browser_alive(self, driver) -> bool:
         try:
-            return driver.service.process.poll() is None and driver.execute_script("return !!window;")
+            return driver.service.process.poll() is None and driver.execute_script(
+                "return !!window;"
+            )
         except Exception:
             return False
 
@@ -448,112 +513,242 @@ class BestChromeDetector:
         current = {
             "file": test_name,
             "start_time": datetime.now(),
-            "artifacts": {},  # Ensure artifacts key is always present
+            "artifacts": {},
             "metrics": {},
             "anomalies": [],
             "status": "passed",
             "root_cause": "N/A",
         }
+
         driver = None
+        monitor_thread = None
+        execution_finished = threading.Event()
+
         try:
-            driver = self.init_chrome()
-            if not self._is_browser_alive(driver):
+            driver = (
+                self.init_chrome()
+            )  # Initialize Chrome driver (ensure ASan is enabled in init_chrome)
+
+            important_checks = [
+                "check_memory_errors",
+                "check_security_issues",
+                "check_console_errors",
+            ]
+            current_timeout = (
+                self.important_timeout
+                if any(
+                    check.__name__ in important_checks
+                    for check in [
+                        self.check_memory_errors,
+                        self.check_security_issues,
+                        self.check_console_errors,
+                    ]
+                )
+                else self.less_important_timeout
+            )
+
+            driver.set_page_load_timeout(current_timeout)
+            driver.set_script_timeout(current_timeout)
+
+            def monitor_execution(driver, timeout, current, test_file):
+                time.sleep(timeout)
+                if execution_finished.is_set():
+                    return
+
+                logger.error(
+                    f"Test {test_file} exceeded maximum execution time of {timeout} seconds."
+                )
+                self.record_anomaly(
+                    current,
+                    "max_execution_timeout",
+                    f"Test exceeded {timeout} seconds",
+                    "monitor_execution",
+                    anomaly_category="timeout",
+                )
+                current["status"] = "failed"
+                self._capture_crash_artifacts(
+                    driver
+                )  # Capture artifacts before quitting (assuming defined)
+                try:
+                    driver.quit()
+                except Exception as e:
+                    logger.warning(
+                        f"[ERROR] Test did not respond, unable to quit driver: {e}"
+                    )
+                    pass  # Ignore if driver can't quit gracefully
+
+            monitor_thread = threading.Thread(
+                target=monitor_execution,
+                args=(driver, current_timeout, current, test_file),
+                daemon=True,
+            )
+            monitor_thread.start()
+
+            if not self._is_browser_alive(
+                driver
+            ):  # Check browser alive status (assuming _is_browser_alive defined)
                 raise RuntimeError("Browser failed to initialize")
-            enable_script_interruption(driver)
-            initial_metrics = driver.execute_cdp_cmd("Performance.getMetrics", {})
-            logger.debug("Initial Performance Metrics: %s", json.dumps(initial_metrics, indent=2))
+
+            enable_script_interruption(
+                driver
+            )  # Enable script interruption (assuming defined)
+
             file_uri = f"file://{os.path.abspath(test_file)}"
             logger.info("Testing file: %s", file_uri)
-            try:
+
+            try:  # Handle initial page load timeout (now uses dynamic timeout)
                 driver.get(file_uri)
-            except (TimeoutException, WebDriverException) as e:
-                if "Read timed out" in str(e):
-                    logger.warning("Page load timed out. Forcing stop of further loading.")
-                    try:
-                        driver.execute_script("window.stop();")
-                    except Exception as e2:
-                        logger.warning("Failed to force stop: %s", e2)
-                else:
-                    raise
-            WebDriverWait(driver, 30).until(
-                lambda d: d.execute_script("return document.readyState") in ["interactive", "complete"]
-            )
-            driver.execute_script("window.stop();")
+                execution_finished.set()  # Signal successful page load
+            except TimeoutException:
+                logger.warning(f"Timeout loading {file_uri}")
+                self.record_anomaly(
+                    current,
+                    "timeout_error",
+                    f"Timeout loading URL",
+                    "_execute_single_test",
+                )  # Record timeout anomaly
+                return  # Skip further checks for this file
+
+            wait = WebDriverWait(
+                driver, current_timeout // 6
+            )  # Dynamic WebDriverWait timeout
+
+            try:  # Handle document readyState timeout
+                wait.until(
+                    lambda d: d.execute_script("return document.readyState")
+                    in ["interactive", "complete"]
+                )
+                driver.execute_script(
+                    "window.stop();"
+                )  # Stop further page loading after readyState reached
+            except TimeoutException:
+                logger.warning("Timeout waiting for document readyState")
+                self.record_anomaly(
+                    current,
+                    "timeout_error",
+                    "Timeout waiting for document readyState",
+                    "_execute_single_test",
+                )
+                return  # Skip further checks if readyState timeout
+
             ready_state = driver.execute_script("return document.readyState")
             logger.info("Document readyState: %s", ready_state)
             if ready_state not in ["interactive", "complete"]:
                 raise Exception(f"Document not loaded properly (state: {ready_state})")
-            final_metrics = driver.execute_cdp_cmd("Performance.getMetrics", {})
-            logger.debug("Final Performance Metrics: %s", json.dumps(final_metrics, indent=2))
+
             if driver.service.process.poll() is not None:
-                raise Exception("Browser process crashed during test")
-            self.check_memory_errors(driver, current, test_file)
-            self.check_console_errors(driver, current)
-            self.check_security_issues(driver, current)
-            if self.system_health_ok():
-                self.check_visual_differences(driver, current, test_name)
-                self.check_layout_anomalies(driver, current)
-                self.check_accessibility(driver, current)
-            else:
-                logger.warning("Skipping extended checks due to resource constraints")
-            more_checks = [
-                self.check_dom_structure,
+                raise Exception(
+                    "Browser process crashed during test"
+                )  # Detect browser crashes
+
+            # ********************* IMPORTANT CHECKS (10-minute timeout if needed) *********************
+            self.check_memory_errors(
+                driver, current, test_file
+            )  # Check for memory errors (ASan)
+            self.check_console_errors(driver, current)  # Check browser console errors
+            self.check_security_issues(driver, current)  # Check security-related issues
+
+           
+
+            more_checks = [  # List of less important checks
+              #  self.check_dom_structure,
                 self.check_media_playback,
                 self.check_storage,
                 self.check_event_handling,
                 self.check_localization,
                 self.check_performance,
                 self.check_hardware_resources,
-                self.check_animation_glitches,
                 self.check_xss_patterns,
                 self.check_memory_corruption_patterns,
                 self.check_js_heap_usage,
             ]
-            for check in more_checks:
-                if check.__name__ in ["check_js_heap_usage", "check_memory_errors"]:
+            for check in more_checks:  # Execute less important checks
+                if check.__name__ in [
+                    "check_js_heap_usage",
+                    
+                ]:  # Special handling for checks with test_file argument
                     check(driver, current, test_file)
                 else:
                     check(driver, current)
-            coverage_agent = None
-            if self._is_browser_alive(driver):
-                coverage_agent = CoverageCDP(driver)
+
+            if self._is_browser_alive(
+                driver
+            ):  # Check browser alive before coverage (again)
+                coverage_agent = CoverageCDP(
+                    driver
+                )  # Initialize coverage agent (assuming CoverageCDP defined)
                 coverage_agent.start_js_coverage()
-            if self._is_browser_alive(driver) and coverage_agent:
-                coverage_data = coverage_agent.stop_js_coverage()
-                current["metrics"]["coverage_data"] = coverage_data
-                self.coverage_map[test_name] = coverage_data
-            else:
-                logger.warning("Browser not alive during coverage collection")
-        except Exception as e:
+                performance_metrics = (
+                    coverage_agent.get_performance_metrics()
+                )  # Get detailed performance metrics
+                current["metrics"][
+                    "performance_data_cdp"
+                ] = performance_metrics  # Store in results
+                if (
+                    self._is_browser_alive(driver) and coverage_agent
+                ):  # Double check before stopping coverage
+                    coverage_data = coverage_agent.stop_js_coverage()
+                    current["metrics"]["coverage_data"] = coverage_data
+                    self.coverage_map[test_name] = coverage_data  # Store coverage data
+                else:
+                    logger.warning(
+                        "[DETECTION] Browser not alive or coverage agent not initialized, cannot collect coverage for %s",
+                        test_name,
+                    )  # ADDED WARNING LOGGING
+
+        except TimeoutException as te:  # Catch TimeoutException for page load, readyState, etc.
+            logger.error(f"Test {test_name} timed out: {te}")
+            self.record_anomaly(
+                current, "timeout_error", str(te), "_execute_single_test"
+            )  # Record timeout anomaly
+
+        except Exception as e:  # Generic exception handler for unexpected errors
             logger.error(f"Test {test_name} => Exception: {str(e)}")
             current["status"] = "failed"
-            self._capture_crash_artifacts(driver)
-            # Even if an exception occurs, try to run final anomaly checks using available data
+            self._capture_crash_artifacts(driver)  # Attempt to capture crash artifacts
             if driver:
                 try:
-                    self.check_console_errors(driver, current)
-                    self.check_security_issues(driver, current)
+                    self.check_console_errors(
+                        driver, current
+                    )  # Attempt to get console logs even on general exception
+                    self.check_security_issues(
+                        driver, current
+                    )  # Attempt to get security logs even on general exception
                 except Exception as e2:
-                    logger.warning("Final anomaly detection failed: %s", e2)
+                    logger.warning(
+                        "Final anomaly detection failed: %s", e2
+                    )  # Log if final anomaly detection fails in exception handler
+
         finally:
-            if driver:
+            execution_finished.set()  # Signal monitor thread to stop in finally block
+            if monitor_thread and monitor_thread.is_alive():
+                monitor_thread.join(
+                    timeout=30
+                )  # Wait for monitor thread to finish, with timeout
+            if driver:  # Check if driver was initialized before attempting to quit
                 try:
-                    driver.quit()
-                except Exception:
-                    pass
+                    driver.quit()  # Ensure driver is quit in finally block
+                except Exception as e:
+                    logger.warning(
+                        f"Error quitting driver: {e}"
+                    )  # Log if driver.quit() fails in finally
             duration = (datetime.now() - current["start_time"]).total_seconds()
             current["metrics"]["duration"] = duration
-            self.results[test_name] = current
-            # Immediately update the report with the data we have (partial or complete)
-            self.append_single_test_report(test_name)
-            if current["anomalies"]:
+            self.results[test_name] = current  # Store test results
+            if current["anomalies"]:  # Log anomalies if any
                 for a in current["anomalies"]:
                     logger.warning(" => anomaly => %s => %s", a["type"], a["details"])
             else:
-                logger.info(" => no anomalies found for %s", test_name)
-            logger.info("Finished => %s, took %.2fs", test_name, duration)
+                logger.info(
+                    " => no anomalies found for %s", test_name
+                )  # Log if no anomalies found
+            logger.info(
+                "Finished => %s, took %.2fs", test_name, duration
+            )  # Log test completion and duration
 
-    def check_js_heap_usage(self, driver: webdriver.Chrome, current: Dict[str, Any], test_file: str):
+    def check_js_heap_usage(
+        self, driver: webdriver.Chrome, current: Dict[str, Any], test_file: str
+    ):
         try:
             metrics = driver.execute_cdp_cmd("Performance.getMetrics", {})
             js_heap = None
@@ -569,36 +764,28 @@ class BestChromeDetector:
                         "memory_error",
                         f"Excessive JS heap usage: {js_heap} bytes",
                         "check_js_heap_usage",
+                        anomaly_category="performance",  # Example category
                     )
         except Exception as e:
-            self.record_anomaly(current, "memory_analysis_error", str(e), "check_js_heap_usage")
+            self.record_anomaly(
+                current,
+                "memory_analysis_error",
+                str(e),
+                "check_js_heap_usage",
+                anomaly_category="internal_error",
+            )  # Example category
 
     def execute_test(self, test_file: str) -> None:
-        if not MemoryWatcher().check():
-            logger.warning("Memory over budget! Skipping extended checks.")
-            return
-        start_time = time.time()
         try:
-            while True:
-                elapsed = time.time() - start_time
-                if elapsed > self.global_timeout:
-                    raise TimeoutException(f"Global test timeout reached: {elapsed:.1f}s")
-                if psutil.cpu_percent() > 80:
-                    logger.warning("CPU threshold exceeded, throttling...")
-                    time.sleep(10)
-                    continue
-                if psutil.virtual_memory().percent > 90:
-                    logger.warning("Memory threshold exceeded, throttling...")
-                    time.sleep(30)
-                    continue
-                break
             for attempt in range(self.retry_count + 1):
                 try:
                     self._execute_single_test(test_file)
                     break
                 except TimeoutException as te:
                     if attempt < self.retry_count:
-                        logger.warning(f"Timeout (attempt {attempt+1}/{self.retry_count+1}) for {test_file}. Retrying...")
+                        logger.warning(
+                            f"Timeout (attempt {attempt+1}/{self.retry_count+1}) for {test_file}. Retrying..."
+                        )
                         self._cleanup_temp_files()
                         continue
                     else:
@@ -609,16 +796,15 @@ class BestChromeDetector:
             raise
 
     def calculate_safe_concurrency(self) -> int:
-        mem = psutil.virtual_memory()
-        cpu_load = psutil.cpu_percent()
-        if mem.available < 2 * 1024**3 or cpu_load > 70:
-            return 1
-        elif mem.available < 4 * 1024**3 or cpu_load > 50:
-            return 2
-        return min(3, (os.cpu_count() or 1))
+        forced_workers = 1 # Or maybe 2 if your system is reasonably powerful
+        logger.info(f"Resource throttling disabled, forcing concurrency to {forced_workers}")
+        return forced_workers  
 
     def system_health_ok(self) -> bool:
-        return psutil.cpu_percent() < 75 and psutil.virtual_memory().available > 512 * 1024 * 1024
+        return (
+            psutil.cpu_percent() < 75
+            and psutil.virtual_memory().available > 512 * 1024 * 1024
+        )
 
     def _cleanup_temp_files(self):
         logger.info("Cleaning up %d temporary files", len(self.temp_files))
@@ -627,7 +813,9 @@ class BestChromeDetector:
                 os.remove(tf)
             except Exception:
                 pass
-        subprocess.run(["pkill", "-f", "chrome|chromedriver"], stderr=subprocess.DEVNULL)
+        subprocess.run(
+            ["pkill", "-f", "chrome|chromedriver"], stderr=subprocess.DEVNULL
+        )
         cache_dirs = [
             tempfile.gettempdir(),
             "/dev/shm",
@@ -648,14 +836,18 @@ class BestChromeDetector:
         logger.info("System cleanup completed")
 
     def _create_failure_artifact(self, test_file: str, exception: Exception) -> None:
-        artifact_path = os.path.join(OUTPUT_DIR, "logs", f"failure_{os.path.basename(test_file)}.log")
+        artifact_path = os.path.join(
+            OUTPUT_DIR, "logs", f"failure_{os.path.basename(test_file)}.log"
+        )
         with open(artifact_path, "w", encoding="utf-8") as af:
             af.write(str(exception))
         logger.info("Created failure artifact at %s", artifact_path)
 
     def symbolize_trace(self, log_file: str) -> str:
         try:
-            chrome_version = subprocess.check_output([CHROME_BINARY_PATH, "--version"], text=True).strip()
+            chrome_version = subprocess.check_output(
+                [CHROME_BINARY_PATH, "--version"], text=True
+            ).strip()
             sym_cache_dir = os.path.join(OUTPUT_DIR, "sym_versions")
             if not os.path.exists(sym_cache_dir):
                 os.makedirs(sym_cache_dir)
@@ -676,7 +868,9 @@ class BestChromeDetector:
                 check=True,
             )
             sym = proc.stdout
-            out_sym = os.path.join(OUTPUT_DIR, "asan_logs", f"symbolized_{os.path.basename(log_file)}")
+            out_sym = os.path.join(
+                OUTPUT_DIR, "asan_logs", f"symbolized_{os.path.basename(log_file)}"
+            )
             with open(out_sym, "w", encoding="utf-8") as sf:
                 sf.write(sym)
             logger.info("Symbolized => %s", out_sym)
@@ -685,7 +879,9 @@ class BestChromeDetector:
             logger.warning("Symbolization error => %s", e)
             return ""
 
-    def check_memory_errors(self, driver: webdriver.Chrome, current: Dict[str, Any], test_file_path: str) -> None:
+    def check_memory_errors(
+        self, driver: webdriver.Chrome, current: Dict[str, Any], test_file_path: str
+    ) -> None:
         asan_logs = glob.glob(os.path.join(OUTPUT_DIR, "asan_logs", "*.log"))
         for logf in asan_logs:
             try:
@@ -697,257 +893,1168 @@ class BestChromeDetector:
                     sym_trace = ""
                     if CRASH_ANALYSIS_MODE.lower() != "raw":
                         sym_trace = self.symbolize_trace(logf)
-                    is_new, sign = self.crash_deduper.check_or_add_crash(logf, sym_trace)
+                    is_new, sign = self.crash_deduper.check_or_add_crash(
+                        logf, sym_trace
+                    )
                     detail = f"CrashSign={sign}, new={is_new}, rootCause={rc}"
-                    self.record_anomaly(current, "memory_error", detail, "check_memory_errors")
+                    self.record_anomaly(
+                        current,
+                        "memory_error",
+                        detail,
+                        "check_memory_errors",
+                        anomaly_category="crash",
+                    )  # Example category
+
+                    # Embed raw and symbolized logs in JSON report
+                    current["artifacts"]["raw_asan_log"] = os.path.basename(logf)
+                    if sym_trace:
+                        current["artifacts"]["symbolized_asan_log"] = os.path.basename(
+                            os.path.join(
+                                OUTPUT_DIR,
+                                "asan_logs",
+                                f"symbolized_{os.path.basename(logf)}",
+                            )
+                        )
+
                     if is_new:
                         minimize_crash_input(test_file_path)
+                        current["artifacts"]["minimized_input"] = (
+                            os.path.basename(test_file_path) + ".minimized"
+                        )  # Track minimized input in report
+
             except Exception:
                 pass
 
-    def check_visual_differences(self, driver: webdriver.Chrome, current: Dict[str, Any], test_name: str) -> None:
+    def check_dom_structure(
+        self, driver: webdriver.Chrome, current: Dict[str, Any]
+    ) -> None:
         try:
-            driver.set_window_size(800, 600)
-            sc_path = os.path.join(OUTPUT_DIR, "screenshots", f"{test_name}.jpg")
-            driver.save_screenshot(sc_path)
-            baseline_path = os.path.join(BASELINE_DIR, f"{test_name}.jpg")
-            if os.path.exists(baseline_path):
-                baseline_hist = Image.open(baseline_path).histogram()
-                current_hist = Image.open(sc_path).histogram()
-                diff = sum(abs(b - c) for b, c in zip(baseline_hist, current_hist))
-                if diff > 500_000:
-                    self.record_anomaly(current, "visual_mismatch", {"histogram_difference": diff, "baseline": baseline_path}, "check_visual_differences")
-        except Exception as e:
-            self.record_anomaly(current, "visual_analysis_error", str(e), "check_visual_differences")
-
-    def check_layout_anomalies(self, driver: webdriver.Chrome, current: Dict[str, Any]) -> None:
-        try:
-            layout = driver.execute_script(
-                """
-                return [...document.querySelectorAll('div,p,section')]
-                    .filter(el => {
-                        const rect = el.getBoundingClientRect();
-                        return rect.width > window.innerWidth * 0.9;
-                    })
-                    .map(el => ({x: el.getBoundingClientRect().x, y: el.getBoundingClientRect().y}));
-                """
+            # 1. DOM Size
+            dom_size = driver.execute_script(
+                "return document.querySelectorAll('*').length;"
             )
-            if len(layout) > 5:
-                self.record_anomaly(current, "layout_shift", {"affected_elements": len(layout)}, "check_layout_anomalies")
-        except Exception as e:
-            self.record_anomaly(current, "layout_analysis_error", str(e), "check_layout_anomalies")
+            current["metrics"]["dom_nodes"] = dom_size
+            if dom_size > 5000:
+                self.record_anomaly(
+                    current,
+                    "large_dom_size",
+                    f"DOM contains a large number of nodes: {dom_size}",
+                    "check_dom_structure",
+                    anomaly_category="dom_structure",
+                )  # Example category
 
-    def check_dom_structure(self, driver: webdriver.Chrome, current: Dict[str, Any]) -> None:
-        try:
-            count = driver.execute_script("return document.querySelectorAll('*').length")
-            current["metrics"]["dom_nodes"] = count
-            if count > 1000:
-                self.record_anomaly(current, "dom_structure", f"High number of DOM nodes: {count}", "check_dom_structure")
-        except Exception as e:
-            if self.system_health_ok():
-                try:
-                    dom_info = driver.execute_script(
-                        """
-                        return {
-                          total: document.querySelectorAll('*').length,
-                          duplicates:(()=>{
-                             const ids = [...document.querySelectorAll('[id]')].map(x=>x.id);
-                             return ids.length !== new Set(ids).size;
-                          })()
-                        };
-                        """
-                    )
-                    if dom_info["duplicates"]:
-                        self.record_anomaly(current, "dom_structure", "Duplicate IDs found", "check_dom_structure")
-                except Exception as inner_e:
-                    self.record_anomaly(current, "dom_analysis_error", str(inner_e), "check_dom_structure")
-            else:
-                logger.warning("Skipping complex DOM analysis due to resource constraints")
+            # 2. Deep Nesting
+            max_depth = 0
+            deepest_element = None
 
-    def check_security_issues(self, driver: webdriver.Chrome, current: Dict[str, Any]) -> None:
-        try:
-            mix = driver.execute_script(
+            def get_depth(element, depth=0):
+                nonlocal max_depth, deepest_element
+                if depth > max_depth:
+                    max_depth = depth
+                    deepest_element = element
+                for child in element.find_elements(By.XPATH, "./*"):
+                    get_depth(child, depth + 1)
+
+            get_depth(driver.find_element(By.TAG_NAME, "html"))
+            if max_depth > 15:
+                deepest_element_html = (
+                    deepest_element.get_attribute("outerHTML")
+                    if deepest_element
+                    else "N/A"
+                )
+                self.record_anomaly(
+                    current,
+                    "excessive_dom_nesting",
+                    f"Excessive DOM nesting detected (depth: {max_depth}). Deepest element: {deepest_element_html}",
+                    "check_dom_structure",
+                    anomaly_category="dom_structure",
+                )  # Example category
+
+            # 3. Duplicate IDs
+            duplicate_ids = driver.execute_script(
                 """
-                return performance.getEntries().filter(e=>e.initiatorType==='script' && e.name.startsWith('http://'));
-                """
+                const ids = new Set();
+                const duplicates = new Set();
+                document.querySelectorAll('[id]').forEach(el => {
+                    if (ids.has(el.id)) {
+                       duplicates.add(el.id)
+                    } else {
+                      ids.add(el.id);
+                    }
+                });
+                return Array.from(duplicates);
+            """
             )
-            if mix:
-                self.record_anomaly(current, "mixed_content", {"count": len(mix)}, "check_security_issues")
-            csp = driver.execute_script(
+            if duplicate_ids:
+                elements_with_duplicate_ids = []
+                for id_value in duplicate_ids:
+                    elements = driver.find_elements(By.ID, id_value)
+                    for element in elements:
+                        elements_with_duplicate_ids.append(
+                            element.get_attribute("outerHTML")
+                        )
+                self.record_anomaly(
+                    current,
+                    "duplicate_ids",
+                    {"ids": duplicate_ids, "elements": elements_with_duplicate_ids},
+                    "check_dom_structure",
+                    anomaly_category="dom_structure",
+                )  # Example category
+
+            # 4. Blocking Scripts in Body
+            scripts_in_body = driver.execute_script(
                 """
-                let m = document.querySelector('meta[http-equiv="Content-Security-Policy"]');
-                return m ? m.content : null;
-                """
+            return Array.from(document.body.querySelectorAll('script'))
+                .filter(s => !s.async && !s.defer && !s.type)
+                .map(s => s.outerHTML);
+            """
             )
-            if not csp:
-                self.record_anomaly(current, "csp_violation", "Missing CSP meta", "check_security_issues")
-            security_headers = driver.execute_script(
-                """
-                let nav = performance.getEntriesByType('navigation')[0];
-                if (nav && nav.responseHeaders) {
-                    return Object.fromEntries(nav.responseHeaders.filter(h => h.name.toLowerCase().startsWith('x-')));
-                }
-                return {};
-                """
-            )
-            required = ["x-content-type-options", "x-frame-options", "permissions-policy"]
-            missing = [h for h in required if h not in security_headers]
-            if missing:
-                self.record_anomaly(current, "security_header", {"missing": missing}, "check_security_issues")
-        except Exception as e:
-            self.record_anomaly(current, "security_check_error", str(e), "check_security_issues")
+            if scripts_in_body:
+                self.record_anomaly(
+                    current,
+                    "blocking_scripts_in_body",
+                    {"scripts": scripts_in_body},
+                    "check_dom_structure",
+                    anomaly_category="performance",
+                )  # Example category
 
-    def check_accessibility(self, driver: webdriver.Chrome, current: Dict[str, Any]) -> None:
+        except Exception as e:
+            self.record_anomaly(
+                current,
+                "dom_structure_check_error",
+                str(e),
+                "check_dom_structure",
+                anomaly_category="internal_error",
+            )  # Example category
+
+    def check_security_issues(
+        self, driver: webdriver.Chrome, current: Dict[str, Any]
+    ) -> None:
         try:
-            import random
-            if random.random() < 0.3:
-                axe = axe_selenium_python.Axe(driver)
-                axe.inject()
-                results = axe.run(context="body", options={"runOnly": {"type": "tag", "values": ["wcag2a"]}})
-                if results.get("violations"):
-                    self.record_anomaly(current, "accessibility", {"violations": results["violations"], "count": len(results["violations"])}, "check_accessibility")
-        except Exception as e:
-            self.record_anomaly(current, "accessibility_error", str(e), "check_accessibility")
-
-    def check_media_playback(self, driver: webdriver.Chrome, current: Dict[str, Any]) -> None:
-        try:
-            arr = driver.execute_script(
-                """
-                return [...document.querySelectorAll('video,audio')].map(m=>({
-                    paused: m.paused,
-                    error: m.error,
-                    readyState: m.readyState
-                }));
-                """
-            )
-            for media_info in arr:
-                if media_info["error"] or media_info["readyState"] < 4:
-                    self.record_anomaly(current, "media_playback", media_info, "check_media_playback")
-        except Exception as e:
-            self.record_anomaly(current, "media_error", str(e), "check_media_playback")
-
-    def check_storage(self, driver: webdriver.Chrome, current: Dict[str, Any]) -> None:
-        try:
-            driver.execute_script("localStorage.setItem('testKey','testValue')")
-            val = driver.execute_script("return localStorage.getItem('testKey')")
-            if val != "testValue":
-                self.record_anomaly(current, "storage_anomaly", {"expected": "testValue", "got": val}, "check_storage")
-        except Exception as e:
-            self.record_anomaly(current, "storage_error", str(e), "check_storage")
-
-    def check_event_handling(self, driver: webdriver.Chrome, current: Dict[str, Any]) -> None:
-        try:
-            driver.execute_script(
-                """
-                window._evtClick=false;
-                document.body.addEventListener('click', ()=>{window._evtClick=true;});
-                """
-            )
-            time.sleep(0.5)
-            body = driver.find_element(By.TAG_NAME, "body")
-            driver.execute_script("arguments[0].click()", body)
-            time.sleep(0.5)
-            event_ok = driver.execute_script("return window._evtClick")
-            if not event_ok:
-                self.record_anomaly(current, "event_failure", "No click event on body", "check_event_handling")
-        except Exception as e:
-            self.record_anomaly(current, "event_error", str(e), "check_event_handling")
-
-    def check_localization(self, driver: webdriver.Chrome, current: Dict[str, Any]) -> None:
-        try:
-            lang = driver.execute_script("return document.documentElement.lang")
-            direction = driver.execute_script("return document.documentElement.dir")
-            if not lang:
-                self.record_anomaly(current, "i18n_issue", "missing lang", "check_localization")
-            if direction not in ["ltr", "rtl", ""]:
-                self.record_anomaly(current, "i18n_issue", f"Invalid dir={direction}", "check_localization")
-        except Exception as e:
-            self.record_anomaly(current, "localization_error", str(e), "check_localization")
-
-    def check_performance(self, driver: webdriver.Chrome, current: Dict[str, Any]) -> None:
-        try:
-            perf_timing = driver.execute_script("return window.performance.timing")
-            load_time = perf_timing["loadEventEnd"] - perf_timing["navigationStart"]
-            current["metrics"]["load_time"] = load_time
-            if load_time > 5000:
-                self.record_anomaly(current, "slow_execution", f"Load time={load_time}", "check_performance")
-        except Exception as e:
-            self.record_anomaly(current, "performance_error", str(e), "check_performance")
-
-    def check_hardware_resources(self, driver: webdriver.Chrome, current: Dict[str, Any]) -> None:
-        try:
-            mem = psutil.virtual_memory()
-            cpu = psutil.cpu_percent(interval=1)
-            current["metrics"].update({"sys_mem_used": mem.percent, "sys_cpu_used": cpu})
-            if mem.percent > 90:
-                self.record_anomaly(current, "memory_pressure", f"{mem.percent}% used", "check_hardware_resources")
-        except Exception as e:
-            logger.warning(f"Resource check error: {str(e)}")
-
-    def check_animation_glitches(self, driver: webdriver.Chrome, current: Dict[str, Any]) -> None:
-        try:
-            frames = []
-            for _ in range(3):
-                frames.append(driver.get_screenshot_as_png())
-                time.sleep(0.2)
-            diffs = []
-            for i in range(1, len(frames)):
-                i1 = Image.open(BytesIO(frames[i - 1]))
-                i2 = Image.open(BytesIO(frames[i]))
-                d = ImageChops.difference(i1, i2)
-                diffs.append(float(np.mean(np.array(d))))
-            if np.std(diffs) > 15:
-                self.record_anomaly(current, "animation_glitch", {"frame_diffs": diffs, "stdDev": float(np.std(diffs))}, "check_animation_glitches")
-        except Exception as e:
-            self.record_anomaly(current, "animation_error", str(e), "check_animation_glitches")
-
-    def check_console_errors(self, driver: webdriver.Chrome, current: Dict[str, Any]) -> None:
-        try:
-            logs = driver.get_log("browser")
-            severe = [x for x in logs if x["level"] in ["SEVERE", "WARNING"]]
-            if severe:
-                self.record_anomaly(current, "console_errors", {"count": len(severe), "messages": [y["message"] for y in severe]}, "check_console_errors")
-        except Exception as e:
-            self.record_anomaly(current, "console_error", str(e), "check_console_errors")
-
-    def check_xss_patterns(self, driver: webdriver.Chrome, current: Dict[str, Any]) -> None:
-        try:
-            logs = driver.get_log("browser")
-            suspicious = []
-            for l in logs:
-                msg = l["message"].lower()
-                if "alert(" in msg or "eval(" in msg or "<script>" in msg:
-                    suspicious.append(msg)
-            if suspicious:
-                self.record_anomaly(current, "xss_vulnerability", suspicious, "check_xss_patterns")
-        except Exception as e:
-            self.record_anomaly(current, "xss_check_error", str(e), "check_xss_patterns")
-
-    def check_memory_corruption_patterns(self, driver: webdriver.Chrome, current: Dict[str, Any]) -> None:
-        asan_logs = glob.glob(os.path.join(OUTPUT_DIR, "asan_logs", "*.log"))
-        for logf in asan_logs:
+            # 1. Mixed Content Check
+            mixed_content_resources = []
             try:
-                with open(logf, "r", encoding="utf-8") as lf:
-                    content = lf.read().lower()
-                    if "heap-use-after-free" in content or "double-free" in content:
-                        self.record_anomaly(current, "memory_corruption", logf, "check_memory_corruption_patterns")
-            except Exception:
-                pass
+                performance_logs = driver.get_log("performance")
+            except WebDriverException as e:
+                logger.warning(
+                    f"Failed to get 'performance' logs in check_security_issues: {e}"
+                )
+                performance_logs = []  # or None
+            if performance_logs:  # Check if the logs were successfully retrieved
+                for entry in performance_logs:
+                    try:
+                        message = json.loads(entry["message"])
+                        if (
+                            "message" in entry
+                            and "Network.responseReceived" in entry["message"]
+                            and "params" in message
+                            and "response" in message["params"]
+                        ):
+                            url = message["params"]["response"]["url"]
+                            if url.startswith(
+                                "http://"
+                            ) and driver.current_url.startswith("https://"):
+                                mixed_content_resources.append(url)
+                    except (json.JSONDecodeError, KeyError) as e:
+                        logger.warning(f"Error processing performance log entry: {e}")
 
-    # Modified: When an anomaly is recorded, immediately update the report.
-    def record_anomaly(self, current: Dict[str, Any], anomaly_type: str, details: Any, detected_by: str) -> None:
+            if mixed_content_resources:
+                self.record_anomaly(
+                    current,
+                    "mixed_content",
+                    {"resources": mixed_content_resources},
+                    "check_security_issues",
+                    anomaly_category="security",
+                )  # Example category
+
+            # 2. CSP Violations
+            csp_violations = []
+            try:
+                browser_logs = driver.get_log("browser")
+            except WebDriverException as e:
+                logger.warning(
+                    f"Failed to get 'browser' logs in check_security_issues: {e}"
+                )
+                browser_logs = []  # or None
+            if browser_logs:  # Ensure logs were retrieved
+                for entry in browser_logs:
+                    if "content security policy" in entry.get("message", "").lower():
+                        csp_violations.append(entry)
+            if csp_violations:
+                self.record_anomaly(
+                    current,
+                    "csp_violation",
+                    {"violations": csp_violations},
+                    "check_security_issues",
+                    anomaly_category="security",
+                )  # Example category
+
+            # 3. Missing Security Headers
+            nav_entry = driver.execute_script(
+                "return performance.getEntriesByType('navigation')[0];"
+            )
+            if nav_entry:
+                headers = nav_entry.get("responseHeaders", [])
+                headers_dict = {
+                    header["name"].lower(): header["value"] for header in headers
+                }
+                required_headers = {
+                    "x-content-type-options": "nosniff",
+                    "x-frame-options": ["deny", "sameorigin"],
+                    "strict-transport-security": r"max-age=\d+; includeSubDomains",
+                    "content-security-policy": ".+",
+                    "x-xss-protection": "1; mode=block",
+                }
+                missing_or_invalid_headers = {}
+                for header, expected_value in required_headers.items():
+                    actual_value = headers_dict.get(header)
+                    if not actual_value:
+                        missing_or_invalid_headers[header] = "Missing"
+                    elif isinstance(expected_value, list):
+                        if actual_value not in expected_value:
+                            missing_or_invalid_headers[
+                                header
+                            ] = f"Invalid (expected one of: {', '.join(expected_value)})"
+                    elif not re.match(expected_value, actual_value):
+                        missing_or_invalid_headers[
+                            header
+                        ] = f"Invalid (does not match: {expected_value})"
+                if missing_or_invalid_headers:
+                    self.record_anomaly(
+                        current,
+                        "missing_or_invalid_security_headers",
+                        missing_or_invalid_headers,
+                        "check_security_issues",
+                        anomaly_category="security",
+                    )  # Example category
+
+            # 4. Insecure External Script Inclusion
+            scripts = driver.find_elements(By.TAG_NAME, "script")
+            insecure_scripts = []
+            for script in scripts:
+                src = script.get_attribute("src")
+                if src and src.startswith("http://"):
+                    insecure_scripts.append(src)
+            if insecure_scripts:
+                self.record_anomaly(
+                    current,
+                    "insecure_external_script",
+                    {"scripts": insecure_scripts},
+                    "check_security_issues",
+                    anomaly_category="security",
+                )  # Example category
+
+        except Exception as e:
+            self.record_anomaly(
+                current,
+                "security_check_error",
+                str(e),
+                "check_security_issues",
+                anomaly_category="internal_error",
+            )  # Example category
+
+    def check_accessibility(
+        self, driver: webdriver.Chrome, current: Dict[str, Any]
+    ) -> None:
+        try:
+            axe = axe_selenium_python.Axe(driver)
+            axe.inject()
+            rules = {
+                "wcag2a": {"type": "tag", "values": ["wcag2a"]},
+                "wcag2aa": {"type": "tag", "values": ["wcag2aa"]},
+                "wcag21aa": {"type": "tag", "values": ["wcag21aa"]},
+                "section508": {"type": "tag", "values": ["section508"]},
+                "best-practice": {"type": "tag", "values": ["best-practice"]},
+            }
+            all_violations = []
+            for ruleset, options in rules.items():
+                results = axe.run(context="body", options={"runOnly": options})
+                violations = results.get("violations", [])
+                for violation in violations:
+                    violation["ruleset"] = ruleset
+                    violation["element_html"] = driver.find_element(
+                        By.CSS_SELECTOR, violation["target"][0]
+                    ).get_attribute("outerHTML")
+                    try:
+                        element = driver.find_element(
+                            By.CSS_SELECTOR, violation["target"][0]
+                        )
+                        violation["screenshot"] = element.screenshot_as_base64
+                    except Exception as e:
+                        logger.warning(
+                            f"Failed to capture screenshot of violating element: {e}"
+                        )
+                all_violations.extend(violations)
+
+            if all_violations:
+                summary = {}
+                for v in all_violations:
+                    ruleset = v["ruleset"]
+                    summary[ruleset] = summary.get(ruleset, 0) + 1
+                self.record_anomaly(
+                    current,
+                    "accessibility_violations",
+                    {"violations": all_violations, "summary": summary},
+                    "check_accessibility",
+                    anomaly_category="accessibility",
+                )  # Example category
+
+        except Exception as e:
+            self.record_anomaly(
+                current,
+                "accessibility_check_error",
+                str(e),
+                "check_accessibility",
+                anomaly_category="internal_error",
+            )  # Example category
+
+    def check_media_playback(
+        self, driver: webdriver.Chrome, current: Dict[str, Any]
+    ) -> None:
+        try:
+            media_elements = driver.find_elements(By.CSS_SELECTOR, "video, audio")
+            for element in media_elements:
+                media_info = {
+                    "tagName": element.tag_name,
+                    "src": element.get_attribute("src"),
+                    "paused": element.get_property("paused"),
+                    "error": element.get_property("error"),
+                    "readyState": element.get_property("readyState"),
+                    "duration": element.get_property("duration"),
+                    "networkState": element.get_property("networkState"),
+                }
+                if media_info["error"]:
+                    error_message = f"Media error: {media_info['error']['code']} - {media_info['error']['message']}"
+                    self.record_anomaly(
+                        current,
+                        "media_playback_error",
+                        error_message,
+                        "check_media_playback",
+                        element=element,
+                        anomaly_category="media",
+                    )  # Example category
+                elif media_info["readyState"] < 4:
+                    self.record_anomaly(
+                        current,
+                        "media_playback_incomplete",
+                        f"readyState: {media_info['readyState']}",
+                        "check_media_playback",
+                        element=element,
+                        anomaly_category="media",
+                    )  # Example category
+                elif (
+                    media_info.get("duration", 0) > 0
+                    and media_info["networkState"] == 3
+                ):
+                    self.record_anomaly(
+                        current,
+                        "media_playback_no_source",
+                        "No source found for media",
+                        "check_media_playback",
+                        element=element,
+                        anomaly_category="media",
+                    )  # Example category
+
+                try:
+                    if media_info["paused"]:
+                        element.play()
+                        time.sleep(2)
+                        if element.get_property("paused"):
+                            self.record_anomaly(
+                                current,
+                                "media_playback_failed_to_play",
+                                "Failed to play media",
+                                "check_media_playback",
+                                element=element,
+                                anomaly_category="media",
+                            )  # Example category
+                    else:
+                        element.pause()
+                        time.sleep(2)
+                        if not element.get_property("paused"):
+                            self.record_anomaly(
+                                current,
+                                "media_playback_failed_to_pause",
+                                "Failed to pause media",
+                                "check_media_playback",
+                                element=element,
+                                anomaly_category="media",
+                            )  # Example category
+
+                except Exception as e:
+                    self.record_anomaly(
+                        current,
+                        "media_playback_interaction_error",
+                        str(e),
+                        "check_media_playback",
+                        element=element,
+                        anomaly_category="media",
+                    )  # Example category
+
+        except Exception as e:
+            self.record_anomaly(
+                current,
+                "media_playback_error",
+                str(e),
+                "check_media_playback",
+                anomaly_category="media",
+            )  # Example category
+
+    def record_anomaly(
+        self,
+        current: Dict[str, Any],
+        anomaly_type: str,
+        details: Any,
+        detected_by: str,
+        anomaly_category: str = "general",
+        element: Optional[webdriver.Remote] = None,
+    ) -> None:
         entry = {
             "type": anomaly_type,
+            "category": anomaly_category,  # Added category
             "timestamp": datetime.now().isoformat(),
             "details": details,
             "severity": self.get_severity(anomaly_type),
             "detected_by": detected_by,
-            "artifacts": {},  # Always include artifacts
+            "artifacts": {},
         }
+        if element:
+            entry["artifacts"]["element_screenshot"] = self.capture_element_screenshot(
+                element
+            )  # More descriptive artifact name
+
         current["anomalies"].append(entry)
         current["status"] = "failed"
-        # Immediately flush the updated data to the report
-        self.append_single_test_report(current["file"])
+        # Report update is now done at the end in run_test_suite
+        # self.append_single_test_report(current["file"])
+
+    def capture_element_screenshot(self, element: webdriver.Remote) -> Optional[str]:
+        try:
+            return element.screenshot_as_base64
+        except Exception as e:
+            logger.error(f"Error capturing element screenshot: {e}")
+            return None
+
+    def check_storage(self, driver: webdriver.Chrome, current: Dict[str, Any]) -> None:
+        try:
+            # Local Storage Checks
+            test_key = "fuzz_test_key_" + str(uuid.uuid4())[:8]
+            test_value = "fuzz_test_value_" + str(uuid.uuid4())[:8]
+            driver.execute_script(
+                f"localStorage.setItem('{test_key}', '{test_value}');"
+            )
+            retrieved_value = driver.execute_script(
+                f"return localStorage.getItem('{test_key}');"
+            )
+            if retrieved_value != test_value:
+                self.record_anomaly(
+                    current,
+                    "local_storage_anomaly",
+                    f"Value mismatch: expected '{test_value}', got '{retrieved_value}'",
+                    "check_storage",
+                    anomaly_category="storage",
+                )  # Example category
+            driver.execute_script(f"localStorage.removeItem('{test_key}');")
+            retrieved_after_remove = driver.execute_script(
+                f"return localStorage.getItem('{test_key}');"
+            )
+            if retrieved_after_remove is not None:
+                self.record_anomaly(
+                    current,
+                    "local_storage_remove_failed",
+                    "Failed to remove item from localStorage",
+                    "check_storage",
+                    anomaly_category="storage",
+                )  # Example category
+
+            # Session Storage Checks
+            test_key_session = "fuzz_test_key_session" + str(uuid.uuid4())[:8]
+            test_value_session = "fuzz_test_value_session" + str(uuid.uuid4())[:8]
+            driver.execute_script(
+                f"sessionStorage.setItem('{test_key_session}', '{test_value_session}');"
+            )
+            retrieved_session = driver.execute_script(
+                f"return sessionStorage.getItem('{test_key_session}');"
+            )
+            if retrieved_session != test_value_session:
+                self.record_anomaly(
+                    current,
+                    "session_storage_anomaly",
+                    f"Value mismatch: expected '{test_value_session}', got '{retrieved_session}'",
+                    "check_storage",
+                    anomaly_category="storage",
+                )  # Example category
+            driver.execute_script(f"sessionStorage.removeItem('{test_key_session}');")
+            retrieved_session_after_remove = driver.execute_script(
+                f"return sessionStorage.getItem('{test_key_session}');"
+            )
+            if retrieved_session_after_remove is not None:
+                self.record_anomaly(
+                    current,
+                    "session_storage_remove_failed",
+                    "Failed to remove item from sessionStorage",
+                    "check_storage",
+                    anomaly_category="storage",
+                )  # Example category
+
+            # Cookie Checks
+            cookie_name = "fuzz_test_cookie_" + str(uuid.uuid4())[:8]
+            cookie_value = "fuzz_test_cookie_value_" + str(uuid.uuid4())[:8]
+            driver.add_cookie({"name": cookie_name, "value": cookie_value})
+            cookies = driver.get_cookies()
+            found = False
+            for cookie in cookies:
+                if cookie["name"] == cookie_name and cookie["value"] == cookie_value:
+                    found = True
+                    break
+            if not found:
+                self.record_anomaly(
+                    current,
+                    "cookie_set_failed",
+                    "Failed to set the cookie correctly.",
+                    "check_storage",
+                    anomaly_category="storage",
+                )  # Example category
+            driver.delete_cookie(cookie_name)
+            cookies_after_delete = driver.get_cookies()
+            cookie_exists_after_delete = any(
+                c["name"] == cookie_name for c in cookies_after_delete
+            )
+            if cookie_exists_after_delete:
+                self.record_anomaly(
+                    current,
+                    "cookie_deletion_failed",
+                    f"Failed to delete cookie '{cookie_name}'",
+                    "check_storage",
+                    anomaly_category="storage",
+                )  # Example category
+
+        except Exception as e:
+            self.record_anomaly(
+                current,
+                "storage_error",
+                str(e),
+                "check_storage",
+                anomaly_category="storage",
+            )  # Example category
+
+    def check_event_handling(
+        self, driver: webdriver.Chrome, current: Dict[str, Any]
+    ) -> None:
+        try:
+            # 1. Click Event Handling
+            click_test_id = "fuzz_click_test_" + str(uuid.uuid4())[:8]
+            driver.execute_script(
+                f"""
+                let test_element = document.createElement('button');
+                test_element.id = '{click_test_id}';
+                test_element.addEventListener('click', function() {{ this.setAttribute('data-clicked', 'true'); }});
+                document.body.appendChild(test_element);
+            """
+            )
+            try:
+                element = WebDriverWait(driver, 10).until(
+                    EC.presence_of_element_located((By.ID, click_test_id))
+                )
+                element.click()
+                time.sleep(0.5)
+                if not element.get_attribute("data-clicked"):
+                    self.record_anomaly(
+                        current,
+                        "click_event_failed",
+                        f"Click event handler not executed on element",
+                        "check_event_handling",
+                        anomaly_category="event_handling",
+                    )  # Example category
+            except TimeoutException:
+                self.record_anomaly(
+                    current,
+                    "element_not_found",
+                    f"Element with id '{click_test_id}' not found",
+                    "check_event_handling",
+                    anomaly_category="event_handling",
+                )  # Example category
+
+            # 2. Mouseover Event
+            mouseover_test_id = "fuzz_mouseover_test_" + str(uuid.uuid4())[:8]
+            driver.execute_script(
+                f"""
+                let test_element = document.createElement('div');
+                test_element.id = '{mouseover_test_id}';
+                test_element.addEventListener('mouseover', function() {{ this.setAttribute('data-mouseover', 'true'); }});
+                document.body.appendChild(test_element);
+            """
+            )
+            try:
+                element = WebDriverWait(driver, 10).until(
+                    EC.presence_of_element_located((By.ID, mouseover_test_id))
+                )
+                ActionChains(driver).move_to_element(element).perform()
+                time.sleep(0.5)
+                if not element.get_attribute("data-mouseover"):
+                    self.record_anomaly(
+                        current,
+                        "mouseover_event_failed",
+                        f"Mouseover event handler not executed on element",
+                        "check_event_handling",
+                        anomaly_category="event_handling",
+                    )  # Example category
+            except TimeoutException:
+                self.record_anomaly(
+                    current,
+                    "element_not_found",
+                    f"Element with id '{mouseover_test_id}' not found",
+                    "check_event_handling",
+                    anomaly_category="event_handling",
+                )  # Example category
+
+            # 3. Form Submission (if forms are present)
+            forms = driver.find_elements(By.TAG_NAME, "form")
+            if forms:
+                form = forms[0]
+                submit_button_test_id = "fuzz_submit_test_" + str(uuid.uuid4())[:8]
+                driver.execute_script(
+                    f"""
+                     let submit_button = document.createElement('button');
+                     submit_button.type = 'submit';
+                     submit_button.id = '{submit_button_test_id}';
+                     arguments[0].appendChild(submit_button)
+                """,
+                    form,
+                )
+                try:
+                    submit_button = WebDriverWait(driver, 10).until(
+                        EC.presence_of_element_located((By.ID, submit_button_test_id))
+                    )
+                    driver.execute_script(
+                        "arguments[0].setAttribute('data-submitted', 'false')", form
+                    )
+                    form.submit()
+                    time.sleep(2)
+                    driver.execute_script(
+                        """
+                        arguments[0].addEventListener('submit', function(event) {
+                             event.preventDefault();
+                             this.setAttribute('data-submitted', 'prevented');
+                             });
+                   """,
+                        form,
+                    )
+                    if form.get_attribute("data-submitted") == "prevented":
+                        self.record_anomaly(
+                            current,
+                            "form_submission_prevented",
+                            "Form submission prevented by JavaScript",
+                            "check_event_handling",
+                            anomaly_category="event_handling",
+                        )  # Example category
+                except TimeoutException:
+                    self.record_anomaly(
+                        current,
+                        "element_not_found",
+                        f"Submit button not found in form",
+                        "check_event_handling",
+                        anomaly_category="event_handling",
+                    )  # Example category
+
+        except Exception as e:
+            self.record_anomaly(
+                current,
+                "event_handling_error",
+                str(e),
+                "check_event_handling",
+                anomaly_category="event_handling",
+            )  # Example category
+
+    def check_localization(
+        self, driver: webdriver.Chrome, current: Dict[str, Any]
+    ) -> None:
+        try:
+            html_lang = driver.execute_script("return document.documentElement.lang;")
+            html_dir = driver.execute_script("return document.documentElement.dir;")
+
+            if not html_lang:
+                self.record_anomaly(
+                    current,
+                    "missing_lang_attribute",
+                    "The 'lang' attribute is missing from the <html> tag.",
+                    "check_localization",
+                    anomaly_category="localization",
+                )  # Example category
+            elif not re.match(r"^[a-zA-Z]{2,3}(-[a-zA-Z]{2,3})?$", html_lang):
+                self.record_anomaly(
+                    current,
+                    "invalid_lang_attribute",
+                    f"Invalid 'lang' attribute value: {html_lang}",
+                    "check_localization",
+                    anomaly_category="localization",
+                )  # Example category
+
+            if html_lang and html_dir:
+                expected_dir = (
+                    "rtl" if html_lang.startswith(("ar", "he", "fa", "ur")) else "ltr"
+                )
+                if html_dir != expected_dir:
+                    self.record_anomaly(
+                        current,
+                        "lang_dir_mismatch",
+                        f"'lang' and 'dir' attributes mismatch: lang={html_lang}, dir={html_dir}",
+                        "check_localization",
+                        anomaly_category="localization",
+                    )  # Example category
+
+            untranslated_text = driver.find_elements(
+                By.XPATH, "//*[text()='Placeholder Text' or text()='Lorem ipsum']"
+            )
+            if untranslated_text:
+                elements = []
+                for el in untranslated_text:
+                    element_info = {"tag": el.tag_name, "text": el.text}
+                    elements.append(element_info)
+                self.record_anomaly(
+                    current,
+                    "untranslated_text",
+                    f"Found untranslated placeholder text: {elements}",
+                    "check_localization",
+                    anomaly_category="localization",
+                )  # Example category
+
+            date_elements = driver.find_elements(By.XPATH, "//*[contains(@*, 'date')]")
+            for el in date_elements:
+                date_format = el.get_attribute("type") or el.tag_name
+                date_value = el.get_attribute("value") or el.text
+                if date_value:
+                    try:
+                        datetime.strptime(date_value, "%Y-%m-%d")
+                    except ValueError:
+                        self.record_anomaly(
+                            current,
+                            "invalid_date_format",
+                            f"Invalid date format: {date_value}, expected YYYY-MM-DD",
+                            "check_localization",
+                            element=el,
+                            anomaly_category="localization",
+                        )  # Example category
+
+        except Exception as e:
+            self.record_anomaly(
+                current,
+                "localization_error",
+                str(e),
+                "check_localization",
+                anomaly_category="localization",
+            )  # Example category
+
+    def check_performance(
+        self, driver: webdriver.Chrome, current: Dict[str, Any]
+    ) -> None:
+        try:
+            # 1. Page Load Time
+            navigation_start = driver.execute_script(
+                "return window.performance.timing.navigationStart;"
+            )
+            load_event_end = driver.execute_script(
+                "return window.performance.timing.loadEventEnd;"
+            )
+            if navigation_start is not None and load_event_end is not None:
+                load_time = load_event_end - navigation_start
+                current["metrics"]["load_time"] = load_time
+                if load_time > 5000:
+                    self.record_anomaly(
+                        current,
+                        "slow_page_load",
+                        f"Page load time exceeds threshold: {load_time} ms",
+                        "check_performance",
+                        anomaly_category="performance",
+                    )  # Example category
+
+            # 2. Resource Load Times
+            resource_timings = driver.execute_script(
+                "return window.performance.getEntriesByType('resource');"
+            )
+            slow_resources = []
+            for resource in resource_timings:
+                duration = resource.get("duration", 0)
+                if duration > 3000:
+                    slow_resources.append(
+                        {
+                            "url": resource["name"],
+                            "duration": duration,
+                            "initiatorType": resource.get("initiatorType"),
+                            "resourceType": resource.get("resourceType"),
+                        }
+                    )  # More resource details
+            if slow_resources:
+                self.record_anomaly(
+                    current,
+                    "slow_resources",
+                    {"resources": slow_resources},
+                    "check_performance",
+                    anomaly_category="performance",
+                )  # Example category
+
+            # 3. Long Tasks
+            long_tasks = driver.execute_script(
+                """
+                const longTasks = [];
+                try {
+                     new PerformanceObserver(list => {
+                        list.getEntries().forEach(entry => {
+                            if (entry.duration > 100) {
+                                longTasks.push({ name: entry.name, duration: entry.duration });
+                               }
+                         });
+                      }).observe({type: 'longtask', buffered: true});
+                } catch(e){}
+                return longTasks
+                """
+            )
+            if long_tasks:
+                self.record_anomaly(
+                    current,
+                    "long_tasks",
+                    {"tasks": long_tasks},
+                    "check_performance",
+                    anomaly_category="performance",
+                )  # Example category
+
+            # 4. First Input Delay (FID)
+            fid = driver.execute_script(
+                "return new Promise(resolve => {try {fid = new Promise(resolve => { new PerformanceObserver(list => {resolve(list.getEntries()[0].processingStart - list.getEntries()[0].startTime);}).observe({ type: 'first-input', buffered: true });});fid.then(value => resolve(value));} catch(e) {resolve(null);} })"
+            )
+            if fid and fid > 300:
+                self.record_anomaly(
+                    current,
+                    "high_fid",
+                    f"First Input Delay (FID) is high: {fid} ms",
+                    "check_performance",
+                    anomaly_category="performance",
+                )  # Example category
+
+            # 5. Time to First Byte (TTFB)
+            ttfb = driver.execute_script(
+                """
+                let navEntry = performance.getEntriesByType('navigation')[0];
+                return navEntry ? navEntry.responseStart - navEntry.requestStart : null;
+            """
+            )
+            if ttfb is not None and ttfb > 1000:
+                self.record_anomaly(
+                    current,
+                    "high_ttfb",
+                    f"Time to First Byte (TTFB) is high: {ttfb} ms",
+                    "check_performance",
+                    anomaly_category="performance",
+                )  # Example category
+
+        except Exception as e:
+            self.record_anomaly(
+                current,
+                "performance_check_error",
+                str(e),
+                "check_performance",
+                anomaly_category="internal_error",
+            )  # Example category
+
+    def check_hardware_resources(
+        self, driver: webdriver.Chrome, current: Dict[str, Any]
+    ) -> None:
+        try:
+            process = psutil.Process(os.getpid())
+            initial_cpu_percent = psutil.cpu_percent()
+            initial_memory_info = process.memory_info()
+            initial_disk_io = psutil.disk_io_counters()
+            time.sleep(5)
+            final_cpu_percent = psutil.cpu_percent()
+            final_memory_info = process.memory_info()
+            final_disk_io = psutil.disk_io_counters()
+
+            cpu_usage = final_cpu_percent - initial_cpu_percent
+            memory_usage = (final_memory_info.rss - initial_memory_info.rss) / (
+                1024**2
+            )
+            disk_read = (final_disk_io.read_bytes - initial_disk_io.read_bytes) / (
+                1024**2
+            )
+            disk_write = (final_disk_io.write_bytes - initial_disk_io.write_bytes) / (
+                1024**2
+            )
+
+            current["metrics"]["cpu_usage"] = cpu_usage
+            current["metrics"]["memory_usage"] = memory_usage
+            current["metrics"]["disk_read"] = disk_read
+            current["metrics"]["disk_write"] = disk_write
+
+            if cpu_usage > 90:
+                self.record_anomaly(
+                    current,
+                    "high_cpu_usage",
+                    f"CPU usage exceeded threshold: {cpu_usage:.2f}%",
+                    "check_hardware_resources",
+                    anomaly_category="hardware",
+                )  # Example category
+            if memory_usage > 500:
+                self.record_anomaly(
+                    current,
+                    "high_memory_usage",
+                    f"Memory usage exceeded threshold: {memory_usage:.2f} MB",
+                    "check_hardware_resources",
+                    anomaly_category="hardware",
+                )  # Example category
+            if disk_read > 100:
+                self.record_anomaly(
+                    current,
+                    "high_disk_read",
+                    f"Disk read exceeded threshold: {disk_read:.2f} MB",
+                    "check_hardware_resources",
+                    anomaly_category="hardware",
+                )  # Example category
+            if disk_write > 50:
+                self.record_anomaly(
+                    current,
+                    "high_disk_write",
+                    f"Disk write exceeded threshold: {disk_write:.2f} MB",
+                    "check_hardware_resources",
+                    anomaly_category="hardware",
+                )  # Example category
+
+            logger.info(
+                "Resource Usage: CPU=%.2f%%, Memory=%.2f MB, Disk Read=%.2f MB, Disk Write=%.2f MB",
+                cpu_usage,
+                memory_usage,
+                disk_read,
+                disk_write,
+            )
+
+        except Exception as e:
+            self.record_anomaly(
+                current,
+                "hardware_check_error",
+                str(e),
+                "check_hardware_resources",
+                anomaly_category="internal_error",
+            )  # Example category
+
+  
+
+    def check_console_errors(
+        self, driver: webdriver.Chrome, current: Dict[str, Any]
+    ) -> None:
+        try:
+            console_logs = driver.get_log("browser")
+            errors_and_warnings = []
+            for log_entry in console_logs:
+                level = log_entry["level"]
+                if level in ["SEVERE", "WARNING"]:
+                    message = log_entry["message"]
+                    source = log_entry.get("source", "unknown")
+                    url = log_entry.get("url", "")
+
+                    error_type = "general"
+                    if (
+                        "net::ERR_" in message
+                        or "failed to load resource" in message.lower()
+                        or "status code:" in message.lower()
+                    ):
+                        error_type = "network_error"
+                    elif (
+                        "javascript error:" in message.lower()
+                        or "uncaught" in message.lower()
+                        or "syntaxerror" in message.lower()
+                    ):
+                        error_type = "javascript_error"
+                    elif "404" in message or "500" in message:
+                        error_type = "http_error"
+
+                    errors_and_warnings.append(
+                        {
+                            "level": level,
+                            "type": error_type,
+                            "message": message,
+                            "source": source,
+                            "url": url,
+                        }
+                    )
+            if errors_and_warnings:
+                error_counts = {}
+                for error in errors_and_warnings:
+                    err_type = error["type"]
+                    error_counts[err_type] = error_counts.get(err_type, 0) + 1
+
+                anomaly_details = {
+                    "errors_warnings": errors_and_warnings,
+                    "error_counts": error_counts,
+                }
+                self.record_anomaly(
+                    current,
+                    "console_errors_warnings",
+                    anomaly_details,
+                    "check_console_errors",
+                    anomaly_category="console",
+                )  # Example category
+
+        except Exception as e:
+            self.record_anomaly(
+                current,
+                "console_check_error",
+                str(e),
+                "check_console_errors",
+                anomaly_category="console",
+            )  # Example category
+
+    def check_xss_patterns(
+        self, driver: webdriver.Chrome, current: Dict[str, Any]
+    ) -> None:
+        try:
+            html_content = driver.page_source
+            xss_patterns = [
+                r"<script[^>]*>[^<]*</script>",
+                r"on\w+=\".*javascript:.*\"",
+                r"data:text/html;base64,[a-zA-Z0-9+/=]+",
+                r"eval\(",
+                r"fromCharCode\(",
+                r"String\.fromCharCode\(",
+                r"setTimeout\(",
+                r"setInterval\(",
+                r"<iframe[^>]*src=[^>]*>",
+                r"<object[^>]*data=[^>]*>",
+                r"<embed[^>]*src=[^>]*>",
+            ]
+            suspicious_elements = []
+            for pattern in xss_patterns:
+                matches = re.finditer(pattern, html_content, re.IGNORECASE)
+                for match in matches:
+                    try:
+                        matching_element = driver.find_element(
+                            By.XPATH, f"//*[contains(text(),'{match.group(0)}')]"
+                        )
+                        element_info = {
+                            "tag": matching_element.tag_name,
+                            "outerHTML": matching_element.get_attribute("outerHTML"),
+                        }
+                        suspicious_elements.append(
+                            {
+                                "element_info": element_info,
+                                "pattern": pattern,
+                                "match": match.group(0),
+                            }
+                        )
+                    except Exception:
+                        suspicious_elements.append(
+                            {"pattern": pattern, "match": match.group(0)}
+                        )
+
+            if suspicious_elements:
+                self.record_anomaly(
+                    current,
+                    "potential_xss_in_html",
+                    suspicious_elements,
+                    "check_xss_patterns",
+                    anomaly_category="security",
+                )  # Example category
+
+            for entry in driver.get_log("browser"):
+                if entry["level"] == "SEVERE":
+                    message = entry.get("message", "")
+                    decoded_message = unquote(message)
+                    if any(
+                        re.search(p, decoded_message, re.IGNORECASE)
+                        for p in xss_patterns
+                    ):
+                        self.record_anomaly(
+                            current,
+                            "potential_xss_execution",
+                            message,
+                            "check_xss_patterns",
+                            anomaly_category="security",
+                        )  # Example category
+
+        except Exception as e:
+            self.record_anomaly(
+                current,
+                "xss_check_error",
+                str(e),
+                "check_xss_patterns",
+                anomaly_category="internal_error",
+            )  # Example category
+
+    def check_memory_corruption_patterns(
+        self, driver: webdriver.Chrome, current: Dict[str, Any]
+    ) -> None:
+        try:
+            asan_logs = glob.glob(os.path.join(OUTPUT_DIR, "asan_logs", "*.log"))
+            for log_file in asan_logs:
+                try:
+                    with open(log_file, "r", encoding="utf-8") as f:
+                        log_content = f.read()
+
+                    memory_errors = {}
+                    error_types = [
+                        "heap-use-after-free",
+                        "heap-buffer-overflow",
+                        "stack-buffer-overflow",
+                        "global-buffer-overflow",
+                        "use-after-poison",
+                        "container-overflow",
+                        "double-free",
+                    ]
+                    for err_type in error_types:
+                        matches = re.findall(
+                            r"" + err_type, log_content, re.IGNORECASE
+                        )  # Dynamic regex pattern
+                        if matches:
+                            memory_errors[err_type] = matches
+
+                    for error_type, matches in memory_errors.items():
+                        self.record_anomaly(
+                            current,
+                            error_type,
+                            {
+                                "count": len(matches),
+                                "log_file": log_file,
+                                "matches": matches,
+                            },
+                            "check_memory_corruption_patterns",
+                            anomaly_category="crash",
+                        )  # Example category
+
+                    if (
+                        "segmentation fault" in log_content.lower()
+                        or "segfault" in log_content.lower()
+                    ):
+                        self.record_anomaly(
+                            current,
+                            "segfault",
+                            {"log_file": log_file},
+                            "check_memory_corruption_patterns",
+                            anomaly_category="crash",
+                        )  # Example category
+                    if "memory usage:" in log_content.lower():
+                        memory_usage = float(
+                            log_content.lower().split("memory usage:")[1].split()[0]
+                        )
+                        if memory_usage > 1e9:
+                            self.record_anomaly(
+                                current,
+                                "excessive_memory_usage",
+                                f"Potentially excessive memory usage detected : {memory_usage}",
+                                "check_memory_corruption_patterns",
+                                anomaly_category="performance",
+                            )  # Example category
+
+                except Exception as log_error:
+                    logger.error(
+                        f"Error reading or processing ASan log file {log_file}: {log_error}"
+                    )
+
+        except Exception as e:
+            self.record_anomaly(
+                current,
+                "memory_corruption_check_error",
+                str(e),
+                "check_memory_corruption_patterns",
+                anomaly_category="internal_error",
+            )  # Example category
 
     def get_severity(self, anomaly_type: str) -> int:
         mapping = {
@@ -960,70 +2067,181 @@ class BestChromeDetector:
             "network_error": 3,
             "dom_structure": 3,
             "gpu_anomaly": 3,
-            "visual_mismatch": 3,
-            "layout_shift": 3,
             "media_playback": 3,
             "storage_anomaly": 3,
             "event_failure": 3,
             "slow_execution": 2,
-            "color_anomaly": 2,
             "accessibility": 2,
             "i18n_issue": 2,
-            "animation_glitch": 3,
             "execution_error": 5,
             "hardware_error": 3,
-            "animation_error": 3,
             "console_errors": 3,
             "memory_corruption": 5,
             "security_header": 4,
         }
         return mapping.get(anomaly_type, 1)
 
-    # Revised: Ensure the test result always contains an "artifacts" key.
-    def append_single_test_report(self, test_name: str) -> None:
-        tdata = self.results.get(
-            test_name,
-            {"file": test_name, "anomalies": [], "metrics": {}, "status": "passed", "artifacts": {}}
-        )
-        # If artifacts key is missing, set it to empty dict.
-        if "artifacts" not in tdata:
-            tdata["artifacts"] = {}
-        anomalies = [f"{a['type']}({a['detected_by']})" for a in tdata["anomalies"]]
-        sev = max((a["severity"] for a in tdata["anomalies"]), default=0)
-        csv_path = os.path.join(OUTPUT_DIR, "reports", "full_report.csv")
-        with csv_lock:
-            with open(csv_path, "a", newline="") as cf:
-                w = csv.writer(cf)
-                w.writerow([
-                    test_name,
-                    tdata["status"],
-                    len(tdata["anomalies"]),
-                    json.dumps(anomalies),
-                    sev,
-                    tdata["metrics"].get("duration", 0),
-                    tdata.get("root_cause", "N/A"),
-                    json.dumps(tdata["artifacts"]),
-                ])
+    def generate_text_report(self):
+        report_path = os.path.join(OUTPUT_DIR, "reports", "full_report.txt")
+        with open(report_path, "w", encoding="utf-8") as text_file:
+            text_file.write("=" * 70 + "\n")
+            text_file.write("        WEBPAGE ANOMALY DETECTION REPORT      \n")
+            text_file.write("=" * 70 + "\n\n")
+            text_file.write(
+                f"Report Generation Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
+            )
+
+            total_tests = len(self.results)
+            passed_tests = sum(
+                1 for r in self.results.values() if r["status"] == "passed"
+            )
+            failed_tests = total_tests - passed_tests
+
+            text_file.write("----- OVERALL TEST SUMMARY -----\n")
+            text_file.write(
+                f"Total Webpages Tested:        {total_tests}\n"
+            )  # More user-friendly labels
+            text_file.write(f"Webpages Passed without Issues: {passed_tests}\n")
+            text_file.write(f"Webpages with Detected Issues:   {failed_tests}\n\n")
+
+            severity_counts = defaultdict(int)
+            anomaly_counts = defaultdict(int)
+            for res in self.results.values():
+                max_sev = max((a["severity"] for a in res["anomalies"]), default=0)
+                severity_counts[max_sev] += 1
+                for a in res["anomalies"]:
+                    anomaly_counts[a["type"]] += 1
+
+            text_file.write("----- SEVERITY OF ISSUES FOUND -----\n")
+            for sev in sorted(severity_counts, reverse=True):
+                severity_level_text = {
+                    5: "Critical",
+                    4: "High",
+                    3: "Medium",
+                    2: "Low",
+                    1: "Informational",
+                }.get(sev, f"Severity {sev}")
+                text_file.write(
+                    f"{severity_level_text} Issues:   {severity_counts[sev]}\n"
+                )
+            text_file.write("\n")
+
+            text_file.write("----- MOST COMMON ISSUES DETECTED -----\n")
+            top_anomalies = Counter(anomaly_counts).most_common(5)
+            if top_anomalies:
+                text_file.write(
+                    "The most frequent types of issues detected were:\n"
+                )  # More descriptive intro
+                for anomaly_type, count in top_anomalies:
+                    # More user-friendly phrasing for anomaly types
+                    anomaly_description = anomaly_type.replace("_", " ").title()
+                    text_file.write(
+                        f"- {anomaly_description}: Detected in {count} webpages\n"
+                    )
+            else:
+                text_file.write("No common issues were detected across the webpages.\n")
+            text_file.write("\n")
+
+            if failed_tests > 0:  # Conditionally add detailed results section
+                text_file.write(
+                    "----- WEBPAGES WITH DETECTED ISSUES (Details) -----\n"
+                )  # Section title only if there are failures
+                for test_name, tdata in self.results.items():
+                    if (
+                        tdata["status"] == "failed"
+                    ):  # Only show details for failed tests
+                        text_file.write(f"\n--- Webpage File: {test_name} ---\n")
+                        # Status and Duration are still useful, but less technical
+                        test_status_text = (
+                            "Failed with Issues"
+                            if tdata["status"] == "failed"
+                            else "Passed"
+                        )  # User-friendly status text
+                        text_file.write(f"Test Result: {test_status_text}\n")
+                        text_file.write(
+                            f"Test Duration: {tdata['metrics'].get('duration', 0):.2f} seconds\n"
+                        )  # "seconds" unit for clarity
+                        if tdata["root_cause"] != "N/A":
+                            root_cause_text = (
+                                tdata["root_cause"].replace("-", " ").title()
+                            )  # User-friendly root cause
+                            text_file.write(
+                                f"Likely Cause of Crash (if crashed): {root_cause_text}\n"
+                            )  # More descriptive label for root cause
+
+                        if tdata["anomalies"]:
+                            text_file.write(
+                                "Detected Anomalies:\n"
+                            )  # User-friendly heading
+                            for anomaly in tdata["anomalies"]:
+                                anomaly_severity_text = (
+                                    {  # User-friendly severity levels again
+                                        5: "Critical",
+                                        4: "High",
+                                        3: "Medium",
+                                        2: "Low",
+                                        1: "Informational",
+                                    }.get(
+                                        anomaly["severity"],
+                                        f"Severity {anomaly['severity']}",
+                                    )
+                                )
+
+                                anomaly_type_text = (
+                                    anomaly["type"].replace("_", " ").title()
+                                )  # User-friendly anomaly type
+
+                                text_file.write(
+                                    f"  - Issue Type: {anomaly_type_text}, Severity: {anomaly_severity_text}, Detected by: {anomaly['detected_by']}\n"
+                                )  # More descriptive anomaly line
+                                if anomaly["details"]:
+                                    if isinstance(anomaly["details"], dict):
+                                        details_str = "\n".join(
+                                            [
+                                                f"    - {k.replace('_', ' ').title()}: {v}"
+                                                for k, v in anomaly["details"].items()
+                                            ]
+                                        )  # Format dict details
+                                        text_file.write(details_str + "\n")
+                                    else:
+                                        text_file.write(
+                                            f"    - Details: {anomaly['details']}\n"
+                                        )  # Simpler details display
+
+            text_file.write("\n" + "=" * 70 + "\n")
+            text_file.write("       END OF ANOMALY REPORT      \n")
+            text_file.write("=" * 70 + "\n")
+        logger.info(f"[REPORT] Text report generated: {report_path}")
+
+    def generate_json_report(self):
         det_json_path = os.path.join(OUTPUT_DIR, "reports", "detailed_report.json")
         with open(det_json_path, "r", encoding="utf-8") as jf:
             existing = json.load(jf)
         if "tests" not in existing:
             existing["tests"] = {}
-        existing["tests"][test_name] = tdata
+        existing["tests"] = self.results  # Directly assign all results
         existing["metadata"]["execution_time"] = datetime.now().isoformat()
         if existing["metadata"].get("chrome_version") == "UNKNOWN":
             try:
-                cver = subprocess.check_output([CHROME_BINARY_PATH, "--version"], text=True).strip()
+                cver = subprocess.check_output(
+                    [CHROME_BINARY_PATH, "--version"], text=True
+                ).strip()
                 existing["metadata"]["chrome_version"] = cver
             except Exception:
                 pass
         with open(det_json_path, "w", encoding="utf-8") as jf:
             json.dump(existing, jf, indent=2, default=str)
-        logger.info("[REPORT] Updated => %s", test_name)
+        logger.info("[REPORT] JSON report generated: %s", det_json_path)
 
     def write_coverage_summary(self) -> None:
         coverage_summary = {"files": {}}
+        logger.debug(
+            f"[write_coverage_summary] self.coverage_map keys: {self.coverage_map.keys()}"
+        )  # ADDED DEBUG LOGGING HERE
         for fname, cov_list in self.coverage_map.items():
+            logger.debug(
+                f"[write_coverage_summary] Processing file: {fname}, Coverage Data: {cov_list}"
+            )  # ADDED DEBUG LOGGING HERE
             script_count = len(cov_list)
             total_funcs, visited_funcs = 0, 0
             total_ranges, visited_ranges = 0, 0
@@ -1039,9 +2257,11 @@ class BestChromeDetector:
                             has_visit = True
                     if has_visit:
                         visited_funcs += 1
-            weighted_score = (visited_ranges * COVERAGE_WEIGHT_LINE +
-                              visited_funcs * COVERAGE_WEIGHT_FUNC +
-                              script_count * COVERAGE_WEIGHT_PATH)
+            weighted_score = (
+                visited_ranges * COVERAGE_WEIGHT_LINE
+                + visited_funcs * COVERAGE_WEIGHT_FUNC
+                + script_count * COVERAGE_WEIGHT_PATH
+            )
             coverage_summary["files"][fname] = {
                 "scriptCount": script_count,
                 "totalFunctions": total_funcs,
@@ -1066,11 +2286,13 @@ class BestChromeDetector:
                 return
             rows = []
             for fname, metrics in data["files"].items():
-                rows.append({
-                    "File": fname,
-                    "VisitedFunctions": metrics.get("visitedFunctions", 0),
-                    "VisitedRanges": metrics.get("visitedRanges", 0),
-                })
+                rows.append(
+                    {
+                        "File": fname,
+                        "VisitedFunctions": metrics.get("visitedFunctions", 0),
+                        "VisitedRanges": metrics.get("visitedRanges", 0),
+                    }
+                )
             df = pd.DataFrame(rows)
             if df.empty:
                 return
@@ -1085,142 +2307,13 @@ class BestChromeDetector:
         except Exception as e:
             logger.warning("Failed to generate coverage chart: %s", e)
 
-    def generate_html_report(self):
-        report_path = os.path.join(OUTPUT_DIR, "reports", "interactive_report.html")
-        template = f"""
-        <html>
-        <head>
-            <title>Security Test Report</title>
-            <style>
-                body {{ font-family: Arial, sans-serif; }}
-                .failed {{ background-color: #ffcccc; }}
-                .passed {{ background-color: #d4edda; }}
-                .anomaly {{ color: #721c24; }}
-                table {{ border-collapse: collapse; width: 100%; }}
-                th, td {{ border: 1px solid #ddd; padding: 8px; }}
-                th {{ background-color: #f2f2f2; }}
-            </style>
-        </head>
-        <body>
-            <h1>Security Test Report - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</h1>
-            {self._generate_summary_table()}
-            {self._generate_anomaly_breakdown()}
-            {self._generate_coverage_visualization()}
-            {self._generate_test_details()}
-        </body>
-        </html>
-        """
-        with open(report_path, 'w') as f:
-            f.write(template)
-        logger.info(f"[REPORT] Interactive HTML report generated: {report_path}")
-
-    def _generate_summary_table(self):
-        total = len(self.results)
-        passed = sum(1 for r in self.results.values() if r['status'] == 'passed')
-        failed = total - passed
-        severity_counts = defaultdict(int)
-        for res in self.results.values():
-            max_sev = max((a['severity'] for a in res['anomalies']), default=0)
-            severity_counts[max_sev] += 1
-        return f"""
-        <div>
-            <h2>Test Summary</h2>
-            <table>
-                <tr><th>Total Tests</th><td>{total}</td></tr>
-                <tr><th>Passed</th><td>{passed}</td></tr>
-                <tr><th>Failed</th><td>{failed}</td></tr>
-                <tr><th>Severity Distribution</th>
-                    <td>
-                        Critical: {severity_counts[5]} |
-                        High: {severity_counts[4]} |
-                        Medium: {severity_counts[3]} |
-                        Low: {severity_counts[2]} |
-                        Info: {severity_counts[1]}
-                    </td>
-                </tr>
-            </table>
-        </div>
-        """
-
-    def _generate_anomaly_breakdown(self):
-        anomaly_counts = defaultdict(int)
-        for res in self.results.values():
-            for a in res['anomalies']:
-                anomaly_counts[a['type']] += 1
-        rows = ''.join([f"<tr><td>{k}</td><td>{v}</td></tr>" for k, v in anomaly_counts.items()])
-        return f"""
-        <div>
-            <h2>Anomaly Breakdown</h2>
-            <table>
-                <tr><th>Anomaly Type</th><th>Count</th></tr>
-                {rows}
-            </table>
-        </div>
-        """
-
-    def _generate_coverage_visualization(self):
-        cov_data = []
-        for test, data in self.coverage_map.items():
-            if data:
-                visited = sum(1 for item in data if any(r.get('count', 0) > 0 for r in item.get('ranges', [])))
-                total = len(data)
-                cov_data.append({'Test': test, 'Coverage': (visited / total) * 100 if total != 0 else 0})
-        if not cov_data:
-            return "<p>No coverage data available for visualization.</p>"
-        df = pd.DataFrame(cov_data)
-        plt.figure(figsize=(10, 6))
-        sns.barplot(x='Coverage', y='Test', data=df)
-        plt.title('Code Coverage by Test')
-        buf = BytesIO()
-        plt.savefig(buf, format='png')
-        buf.seek(0)
-        img_base64 = base64.b64encode(buf.read()).decode('utf-8')
-        plt.close()
-        return f"""
-        <div>
-            <h2>Code Coverage Visualization</h2>
-            <img src='data:image/png;base64,{img_base64}'/>
-        </div>
-        """
-
-    def _generate_test_details(self):
-        rows = []
-        for test, data in self.results.items():
-            anomalies = '<br>'.join([f"{a['type']} ({a['severity']})" for a in data['anomalies']])
-            artifacts = '<br>'.join([f"<a href='{v}'>{k}</a>" for k, v in data['artifacts'].items()])
-            row_class = 'passed' if data['status'] == 'passed' else 'failed'
-            rows.append(f"""
-            <tr class='{row_class}'>
-                <td>{test}</td>
-                <td>{data['status']}</td>
-                <td>{anomalies}</td>
-                <td>{artifacts}</td>
-                <td>{data['metrics'].get('duration', 0):.2f}s</td>
-            </tr>
-            """)
-        return f"""
-        <div>
-            <h2>Detailed Test Results</h2>
-            <table>
-                <tr>
-                    <th>Test File</th>
-                    <th>Status</th>
-                    <th>Anomalies</th>
-                    <th>Artifacts</th>
-                    <th>Duration</th>
-                </tr>
-                {''.join(rows)}
-            </table>
-        </div>
-        """
-
     def print_console_summary(self):
         total = len(self.results)
-        passed = sum(1 for r in self.results.values() if r['status'] == 'passed')
+        passed = sum(1 for r in self.results.values() if r["status"] == "passed")
         failed = total - passed
         severity_counts = defaultdict(int)
         for res in self.results.values():
-            max_sev = max((a['severity'] for a in res['anomalies']), default=0)
+            max_sev = max((a["severity"] for a in res["anomalies"]), default=0)
             severity_counts[max_sev] += 1
         table = [
             ["Total Tests", total],
@@ -1239,25 +2332,37 @@ class BestChromeDetector:
             glob.glob(os.path.join(MUTATION_DIR, "*.html")),
             key=lambda x: os.path.getsize(x),
         )
-        BATCH_SIZE = 10
+        BATCH_SIZE = 4
         from concurrent.futures import ThreadPoolExecutor, as_completed
+
         for i in range(0, len(test_files), BATCH_SIZE):
             batch = test_files[i : i + BATCH_SIZE]
             logger.info(f"Processing batch {i//BATCH_SIZE+1} ({len(batch)} files)")
             if not self.system_health_ok():
                 time.sleep(30)
-            with ThreadPoolExecutor(max_workers=self.calculate_safe_concurrency(), thread_name_prefix="Detector") as executor:
-                future_map = {executor.submit(self.execute_test, tf): tf for tf in batch}
+            with ThreadPoolExecutor(
+                max_workers=self.calculate_safe_concurrency(),
+                thread_name_prefix="Detector",
+            ) as executor:
+                future_map = {
+                    executor.submit(self.execute_test, tf): tf for tf in batch
+                }
                 for fut in as_completed(future_map):
                     fname = future_map[fut]
                     try:
                         fut.result()
                     except Exception as e:
                         logger.error("[ERROR] Test crashed => %s: %s", fname, e)
+
         self.write_coverage_summary()
-        self.generate_coverage_chart()
-        self.generate_html_report()
+        if "chart" in REPORT_FORMATS:
+            self.generate_coverage_chart()
+        if "text" in REPORT_FORMATS:  # Generate text report at the end
+            self.generate_text_report()
+        if "json" in REPORT_FORMATS:  # Generate JSON report at the end
+            self.generate_json_report()
         self.print_console_summary()
+
 
 OUTPUT_DIR = ""
 if os.path.isdir(os.path.dirname(MUTATION_DIR)):
@@ -1265,6 +2370,7 @@ if os.path.isdir(os.path.dirname(MUTATION_DIR)):
 else:
     OUTPUT_DIR = DEFAULT_DETECTION_RESULTS_DIR
 os.makedirs(OUTPUT_DIR, exist_ok=True)
+
 
 def parse_args():
     parser = argparse.ArgumentParser(
@@ -1276,12 +2382,20 @@ def parse_args():
         default=os.getenv("DETECTION_TARGET_DIR", MUTATION_FOLDER),
         help="Directory containing mutated HTML files",
     )
+    parser.add_argument(
+        "--report-formats",
+        default="text,json",
+        help="Comma-separated list of report formats to generate (text,json). Default: text,json",
+    )
     return parser.parse_args()
+
 
 def main() -> None:
     args = parse_args()
-    global MUTATION_DIR, OUTPUT_DIR
+    global MUTATION_DIR, OUTPUT_DIR, REPORT_FORMATS
     MUTATION_DIR = args.mutation_dir
+    REPORT_FORMATS = [fmt.strip().lower() for fmt in args.report_formats.split(",")]
+
     required_paths = [
         (CHROME_BINARY_PATH, "Chrome binary"),
         (CHROMEDRIVER_PATH, "ChromeDriver"),
@@ -1293,9 +2407,11 @@ def main() -> None:
         if not os.path.exists(p):
             logger.error("[FATAL] %s not found => %s", desc, p)
             import sys
+
             sys.exit(1)
     detector = BestChromeDetector()
     detector.run_test_suite()
+
 
 if __name__ == "__main__":
     main()

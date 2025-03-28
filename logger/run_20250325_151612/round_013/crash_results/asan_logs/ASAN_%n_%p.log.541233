@@ -1,0 +1,18 @@
+
+=================================================================
+==541233==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 8 byte(s) in 1 object(s) allocated from:
+    #0 0x61c621509bfd in operator new(unsigned long) /b/s/w/ir/cache/builder/src/third_party/llvm/compiler-rt/lib/asan/asan_new_delete.cpp:86:3
+    #1 0x61c648830d20 in content::ChildThreadImpl::~ChildThreadImpl() third_party/libc++/src/include/__memory/unique_ptr.h:767:26
+    #2 0x61c6359bd71b in non-virtual thunk to content::UtilityThreadImpl::~UtilityThreadImpl() content/utility/utility_thread_impl.cc:179:39
+    #3 0x61c648828222 in content::ChildProcess::~ChildProcess() third_party/libc++/src/include/__memory/unique_ptr.h:78:5
+    #4 0x61c6359baf3f in content::UtilityMain(content::MainFunctionParams) content/utility/utility_main.cc:468:1
+    #5 0x61c637fc4aeb in content::RunOtherNamedProcessTypeMain(std::__Cr::basic_string<char, std::__Cr::char_traits<char>, std::__Cr::allocator<char>> const&, content::MainFunctionParams, content::ContentMainDelegate*) content/app/content_main_runner_impl.cc:779:14
+    #6 0x61c637fc7ba2 in content::ContentMainRunnerImpl::Run() content/app/content_main_runner_impl.cc:1153:10
+    #7 0x61c637fc1d62 in content::RunContentProcess(content::ContentMainParams, content::ContentMainRunner*) content/app/content_main.cc:353:36
+    #8 0x61c637fc236b in content::ContentMain(content::ContentMainParams) content/app/content_main.cc:366:10
+    #9 0x61c62150b520 in ChromeMain chrome/app/chrome_main.cc:222:12
+    #10 0x783963629d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+Indirect leak of 96 byte(s) in 1 object(s) allocated from:

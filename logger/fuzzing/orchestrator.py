@@ -37,7 +37,10 @@ MUTATION_SCRIPT = str(THIS_FOLDER / "mutation_pipeline_deterministic.py")
 CRASH_SCRIPT = str(THIS_FOLDER / "detection.py")
 
 DEFAULT_MUTATIONS = 2
-DEFAULT_ROUNDS = 5
+DEFAULT_ROUNDS = 2
+
+
+
 
 # -------------------------------------------------------------------------
 # Helper: validate_seed, load_coverage_summary, etc.
@@ -86,6 +89,7 @@ def reorder_seeds_based_on_coverage(
     return sorted(seeds, key=get_score, reverse=True)
 
 def gather_new_crash_seeds(run_dir: Path) -> List[Path]:
+    """Gathers newly detected crash seeds and creates seed files with the crashing input."""
     crash_seeds = []
     round_dirs = sorted(d for d in run_dir.iterdir() if d.is_dir() and d.name.startswith("round_"))
     if not round_dirs:
@@ -95,18 +99,66 @@ def gather_new_crash_seeds(run_dir: Path) -> List[Path]:
     unique_crash_file = last_round / "crash_results" / "unique_crashes.json"
     if not unique_crash_file.exists():
         return []
+    
+    detailed_report_file = last_round / "crash_results" / "reports" / "detailed_report.json"
+    detailed_report = {} # init detailed report variable
+
+    if detailed_report_file.exists():
+        try:
+             with open(detailed_report_file, 'r', encoding='utf-8') as f:
+                detailed_report = json.load(f)
+
+        except Exception as e:
+            logger.warning(f"[Detailed Report] Failed to load file {e}")
+
+
 
     try:
         with open(unique_crash_file, "r", encoding="utf-8") as f:
-            data = json.load(f)
-        for sig in data.keys():
-            seed_path = run_dir / f"crash_seed_{sig[:8]}.html"
-            if not seed_path.exists():
-                with open(seed_path, "w", encoding="utf-8") as cf:
-                    cf.write(f"<!-- Crash signature: {sig} -->\n<html><body>New crash seed</body></html>")
-                crash_seeds.append(seed_path)
+            crash_data = json.load(f)
+
+        for signature, crash_info in crash_data.items():
+            seed_path = run_dir / f"crash_seed_{signature[:8]}.html" # creates file based on the signature
+
+
+            # Extract crashing input from the detailed report
+            test_file_name = "" # initialize file name with empty string
+            for test_name, test_data in detailed_report.get("tests",{}).items():
+
+                if test_data.get("root_cause") != "N/A": # if root cause is present
+                   test_file_name = test_name # gets file name
+                   break # exits the loop because the crashing test has been found
+
+
+
+            if test_file_name != "": # if the crashing test has been found
+
+                original_seed_path = last_round / "mutations" / test_file_name # calculates the crashing file path
+                
+                try:
+                    with open(original_seed_path, "r", encoding="utf-8") as original_seed_file:
+                        crashing_input = original_seed_file.read()
+                        with open(seed_path, "w", encoding="utf-8") as crash_seed_file:
+                             crash_seed_file.write(crashing_input)  # Use the crashing input
+
+                    logger.info(f"Crash seed file created: {seed_path} using input {original_seed_path}")
+                    crash_seeds.append(seed_path)
+
+
+                except Exception as e:
+
+                     logger.error(f"Failed to create crash seed file {seed_path} from {original_seed_path}. Error: {e}") # adds details about the error
+
+
+
+
+            else:
+                logger.warning("No suitable crashing file found in detailed_report.json")
+
+
+
     except Exception as e:
-        logger.error("[CRASH-SEEDS] Failed => %s", e)
+        logger.error("[CRASH-SEEDS] Failed to gather crash seeds: %s", e)
 
     return crash_seeds
 
@@ -290,7 +342,7 @@ def main() -> None:
 
     previous_coverage: Dict[str, Any] = {}
     crash_data: Dict[str, Any] = {}
-    
+
     # Track unique crashes and coverage across rounds
     unique_crashes_seen = set()
     cumulative_coverage = {}
@@ -299,7 +351,7 @@ def main() -> None:
         # Create a new random seed for this round based on round number and timestamp
         round_seed = int(time.time()) + round_num * 1000
         os.environ["MUTATION_ROUND_SEED"] = str(round_seed)
-        
+
         round_path = run_dir / f"round_{round_num:03d}"
         round_path.mkdir()
         logger.info("[ROUND %d] => directory => %s", round_num, round_path)
@@ -308,7 +360,7 @@ def main() -> None:
         if round_num > 1:
             prev_round_dir = run_dir / f"round_{round_num - 1:03d}"
             previous_coverage = load_coverage_summary(prev_round_dir)
-            
+
             # Extract crash data from previous round
             crash_file = prev_round_dir / "crash_results" / "unique_crashes.json"
             if crash_file.exists():
@@ -319,6 +371,8 @@ def main() -> None:
                             unique_crashes_seen.add(sig)
                 except Exception as e:
                     logger.error("[CRASH-DATA] Failed to load => %s", e)
+
+            coverage_gaps_data = calculate_coverage_gaps(previous_coverage)  # Calculate coverage gaps here
 
         new_crash_seeds = gather_new_crash_seeds(run_dir)
         seedA, seedB = get_seeds(sys.argv[1:], previous_coverage, new_crash_seeds, top_k=5)
@@ -333,6 +387,8 @@ def main() -> None:
         # run mutation pipeline
         mutations_dir = round_path / "mutations"
         mutations_dir.mkdir()
+        mutation_log_file = round_path / "mutation.log"  # Path to the round-specific log file
+        mutation_cmd = ["python3", MUTATION_SCRIPT, str(mutation_count)]
 
         env = os.environ.copy()
         env.update({
@@ -342,36 +398,39 @@ def main() -> None:
             "MUTATION_ROUND_NUM": str(round_num),
             "MUTATION_ROUND_SEED": str(round_seed),
             "UNIQUE_CRASHES_COUNT": str(len(unique_crashes_seen)),
+            "COVERAGE_GAPS": json.dumps(coverage_gaps_data) if round_num > 1 else "{}"  # ADDED LINE HERE
         })
-        
-        # Add coverage data if available
-        if previous_coverage:
-            env["PREVIOUS_COVERAGE_AVAILABLE"] = "1"
-            coverage_file = round_path / "previous_coverage.json"
-            with open(coverage_file, "w", encoding="utf-8") as f:
-                json.dump(previous_coverage, f)
-            env["PREVIOUS_COVERAGE_FILE"] = str(coverage_file)
-            
-            # Set flags for specific coverage areas to focus on
-            if previous_coverage.get("files"):
-                covered_elements = set()
-                for file_data in previous_coverage["files"].values():
-                    covered_elements.update(file_data.get("coveredElements", []))
-                env["COVERED_ELEMENTS"] = ",".join(list(covered_elements)[:100])  # Limit size
-        
-        mutation_cmd = ["python3", MUTATION_SCRIPT, str(mutation_count)]
-        mut_proc = subprocess.run(mutation_cmd, env=env,
-                                stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
-        logger.info("[ROUND %d] => Mutation => returncode=%d", round_num, mut_proc.returncode)
 
-        # run detection locally
+        try:
+            mut_proc = subprocess.run(mutation_cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, check=True)
+            (round_path / "mutation.log").write_text(mut_proc.stdout)
+            logger.info("[ROUND %d] => Mutation => returncode=%d, logfile=%s", round_num, mut_proc.returncode, mutation_log_file)
+
+        except subprocess.CalledProcessError as e:
+            logger.error(f"[ROUND {round_num}] Mutation process failed with return code {e.returncode}.")
+            logger.error(f"Mutation Output (stderr and stdout):\n{e.output}")  # Print the output of the failed subprocess
+            continue  # Or decide how to handle the error, e.g., break the loop, exit, etc.
+        except Exception as e:
+            logger.exception(f"[ROUND {round_num}] An unexpected error occurred during mutation: {e}")
+            continue # Or decide how to handle the error
+
+        # Run detection
         crash_dir = round_path / "crash_results"
         crash_dir.mkdir()
+        detection_log_file = crash_dir / "detection.log"
         detection_cmd = ["python3", CRASH_SCRIPT, str(mutations_dir)]
-        det_proc = subprocess.run(detection_cmd,
-                                stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
-        (crash_dir / "detection.log").write_text(det_proc.stdout)
-        logger.info("[ROUND %d] => Detection => returncode=%d", round_num, det_proc.returncode)
+
+        try:
+            det_proc = subprocess.run(detection_cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, check=True)  # Capture output
+            (crash_dir / "detection.log").write_text(det_proc.stdout)
+            logger.info("[ROUND %d] => Detection => returncode=%d", round_num, det_proc.returncode)
+        except subprocess.CalledProcessError as e:
+            logger.error(f"[ROUND {round_num}] Detection process failed with return code {e.returncode}.")
+            logger.error(f"Detection Output (stderr and stdout):\n{e.output}") # Print the output of the failed subprocess
+            continue # Or decide how to handle the error
+        except Exception as e:
+            logger.exception(f"[ROUND {round_num}] An unexpected error occurred during detection: {e}")
+            continue # Or decide how to handle the error
 
     # finalize coverage
     aggregate_coverage_across_all_rounds(run_dir)
