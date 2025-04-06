@@ -21,10 +21,7 @@ import contextlib
 from collections import defaultdict
 from typing import Any, Dict, List, Optional, Tuple
 from bs4 import BeautifulSoup, Doctype
-# additional imports for javascript mutation enhancements
-# import esprima  # removed!
-# from esprima.error_handler import Error as EsprimaError  # removed!
-import jsbeautifier # used for basic js checkin
+import jsbeautifier 
 
 
 # shared config for environment, logging, rng seeding
