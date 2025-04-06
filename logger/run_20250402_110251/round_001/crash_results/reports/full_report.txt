@@ -1,0 +1,78 @@
+======================================================================
+        WEBPAGE ANOMALY DETECTION REPORT      
+======================================================================
+
+Report Generation Time: 2025-04-02 11:05:14
+
+----- OVERALL TEST SUMMARY -----
+Total Webpages Tested:        1
+Webpages Passed without Issues: 0
+Webpages with Detected Issues:   1
+
+----- SEVERITY OF ISSUES FOUND -----
+Informational Issues:   1
+
+----- MOST COMMON ISSUES DETECTED -----
+The most frequent types of issues detected were:
+- Console Errors Warnings: Detected in 1 webpages
+- Missing Or Invalid Security Headers: Detected in 1 webpages
+- Storage Error: Detected in 1 webpages
+- Mouseover Event Failed: Detected in 1 webpages
+- Missing Lang Attribute: Detected in 1 webpages
+
+----- WEBPAGES WITH DETECTED ISSUES (Details) -----
+
+--- Webpage File: mutated_0001.html ---
+Test Result: Failed with Issues
+Test Duration: 138.74 seconds
+Detected Anomalies:
+  - Issue Type: Console Errors Warnings, Severity: Informational, Detected by: check_console_errors
+    - Errors Warnings: [{'level': 'SEVERE', 'type': 'javascript_error', 'message': "file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250402_110251/round_001/mutations/mutated_0001.html 2:1583 Uncaught SyntaxError: Unexpected token '<'", 'source': 'javascript', 'url': ''}, {'level': 'SEVERE', 'type': 'javascript_error', 'message': "file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250402_110251/round_001/mutations/mutated_0001.html 2:1780 Uncaught SyntaxError: Unexpected token '<'", 'source': 'javascript', 'url': ''}, {'level': 'SEVERE', 'type': 'javascript_error', 'message': "file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250402_110251/round_001/mutations/mutated_0001.html 2:2058 Uncaught SyntaxError: Unexpected token '<'", 'source': 'javascript', 'url': ''}, {'level': 'SEVERE', 'type': 'javascript_error', 'message': "file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250402_110251/round_001/mutations/mutated_0001.html 10:186 Uncaught SyntaxError: Unexpected token '<'", 'source': 'javascript', 'url': ''}, {'level': 'SEVERE', 'type': 'javascript_error', 'message': "file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250402_110251/round_001/mutations/mutated_0001.html 16:185 Uncaught SyntaxError: Unexpected token '<'", 'source': 'javascript', 'url': ''}, {'level': 'SEVERE', 'type': 'javascript_error', 'message': "file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250402_110251/round_001/mutations/mutated_0001.html 19:186 Uncaught SyntaxError: Unexpected token '<'", 'source': 'javascript', 'url': ''}, {'level': 'SEVERE', 'type': 'javascript_error', 'message': "file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250402_110251/round_001/mutations/mutated_0001.html 25:186 Uncaught SyntaxError: Unexpected token '<'", 'source': 'javascript', 'url': ''}, {'level': 'SEVERE', 'type': 'javascript_error', 'message': "file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250402_110251/round_001/mutations/mutated_0001.html 25:598 Uncaught SyntaxError: Unexpected token '<'", 'source': 'javascript', 'url': ''}, {'level': 'SEVERE', 'type': 'javascript_error', 'message': "file:///home/dhia/browser-fuzzer/Dissertation/logger/run_20250402_110251/round_001/mutations/mutated_0001.html 25:1280 Uncaught SyntaxError: Unexpected token '<'", 'source': 'javascript', 'url': ''}]
+    - Error Counts: {'javascript_error': 9}
+  - Issue Type: Missing Or Invalid Security Headers, Severity: Informational, Detected by: check_security_issues
+    - X-Content-Type-Options: Missing
+    - X-Frame-Options: Missing
+    - Strict-Transport-Security: Missing
+    - Content-Security-Policy: Missing
+    - X-Xss-Protection: Missing
+  - Issue Type: Storage Error, Severity: Informational, Detected by: check_storage
+    - Details: Message: invalid cookie domain
+  (Session info: chrome=135.0.7019.0)
+Stacktrace:
+#0 0x5e44c38380b6 <unknown>
+#1 0x5e44c6ac0ce8 <unknown>
+#2 0x5e44c6a857c9 <unknown>
+#3 0x5e44c3944e80 <unknown>
+#4 0x5e44c3abbb90 <unknown>
+#5 0x5e44c3a4ba25 <unknown>
+#6 0x5e44c3aa058e <unknown>
+#7 0x5e44c3a9f5d9 <unknown>
+#8 0x5e44c3a4eb62 <unknown>
+#9 0x5e44c39e8fc9 <unknown>
+#10 0x5e44c39e5b21 <unknown>
+#11 0x5e44c39e866d <unknown>
+#12 0x5e44c3904d67 <unknown>
+#13 0x5e44c68b9bac <unknown>
+#14 0x5e44c697bdd2 <unknown>
+#15 0x5e44c697a1bc <unknown>
+#16 0x5e44c697d0eb <unknown>
+#17 0x5e44c68fb459 <unknown>
+#18 0x5e44c697e3f0 <unknown>
+#19 0x5e44c687aa31 <unknown>
+#20 0x5e44c6a2d95c <unknown>
+#21 0x5e44c6a2e1e0 <unknown>
+#22 0x5e44c6a73ada <unknown>
+#23 0x5e44c388eb87 <unknown>
+#24 0x705493094ac3 <unknown>
+#25 0x705493126850 <unknown>
+
+  - Issue Type: Mouseover Event Failed, Severity: Informational, Detected by: check_event_handling
+    - Details: Mouseover event handler not executed on element
+  - Issue Type: Missing Lang Attribute, Severity: Informational, Detected by: check_localization
+    - Details: The 'lang' attribute is missing from the <html> tag.
+  - Issue Type: Potential Xss In Html, Severity: Informational, Detected by: check_xss_patterns
+    - Details: [{'pattern': '<script[^>]*>[^<]*</script>', 'match': "<script>console.log('recursive script at step 0');</script>"}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': "<script>console.log('recursive script at step 0');</script>"}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': "<script>console.log('recursive script at step 0');</script>"}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': "<script>console.log('recursive script at step 0');</script>"}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': "<script>console.log('recursive script at step 0');</script>"}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': '<script data-uncovered-attr="fuzz" onblur="triggerFuzz()">console.log(\'Mutation: \');</script>'}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': "<script>console.log('recursive script at step 0');</script>"}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': '<script>function triggerFuzz() {}</script>'}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': '<script async="">\n        window.__jsCoverage = new Proxy({}, {\n            get(t, p) { return t[p] || 0 },\n            set(t, p, v) { t[p] = (t[p] || 0) + 1; return true }\n        });\n        </script>'}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': "<script>console.log('recursive script at step 0');</script>"}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': "<script>console.log('recursive script at step 0');</script>"}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': '<script data-uncovered-attr="fuzz" onabort="triggerFuzz()">console.log(\'recursive script at step 0\');</script>'}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': "<script>console.log('recursive script at step 0');</script>"}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': '<script data-uncovered-attr="fuzz" onerror="triggerFuzz()">console.log(\'recursive script at step 0\');</script>'}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': "<script>console.log('recursive script at step 0');</script>"}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': '<script data-uncovered-attr="fuzz" onblur="triggerFuzz()">console.log(\'recursive script at step 0\');</script>'}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': "<script>console.log('recursive script at step 0');</script>"}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': '<script data-uncovered-attr="fuzz" onabort="triggerFuzz()">console.log(\'recursive script at step 0\');</script>'}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': "<script>console.log('recursive script at step 0');</script>"}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': "<script>console.log('recursive script at step 0');</script>"}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': "<script>console.log('recursive script at step 0');</script>"}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': "<script>console.log('recursive script at step 0');</script>"}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': "<script>console.log('recursive script at step 0');</script>"}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': '<script data-uncovered-attr="fuzz" onerror="triggerFuzz()">console.log(\'recursive script at step 0\');</script>'}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': "<script>console.log('recursive script at step 0');</script>"}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': '<script data-uncovered-attr="fuzz" onabort="triggerFuzz()">console.log(\'recursive script at step 0\');</script>'}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': "<script>console.log('recursive script at step 0');</script>"}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': '<script data-uncovered-attr="fuzz" onerror="triggerFuzz()">console.log(\'recursive script at step 0\');</script>'}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': "<script>console.log('recursive script at step 0');</script>"}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': '<script data-uncovered-attr="fuzz" onblur="triggerFuzz()">console.log(\'recursive script at step 0\');</script>'}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': "<script>console.log('recursive script at step 0');</script>"}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': "<script>console.log('recursive script at step 0');</script>"}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': "<script>console.log('recursive script at step 0');</script>"}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': "<script>console.log('recursive script at step 0');</script>"}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': '<script data-uncovered-attr="fuzz" onblur="triggerFuzz()">console.log(\'recursive script at step 0\');</script>'}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': "<script>console.log('recursive script at step 0');</script>"}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': "<script>console.log('recursive script at step 0');</script>"}, {'pattern': '<script[^>]*>[^<]*</script>', 'match': "<script>console.log('recursive script at step 0');</script>"}]
+
+======================================================================
+       END OF ANOMALY REPORT      
+======================================================================

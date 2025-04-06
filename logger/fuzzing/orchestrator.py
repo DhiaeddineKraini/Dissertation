@@ -36,8 +36,8 @@ THIS_FOLDER = Path(__file__).parent  # e.g. ~/browser-fuzzer/Dissertation/logger
 MUTATION_SCRIPT = str(THIS_FOLDER / "mutation_pipeline_deterministic.py")
 CRASH_SCRIPT = str(THIS_FOLDER / "detection.py")
 
-DEFAULT_MUTATIONS = 2
-DEFAULT_ROUNDS = 2
+DEFAULT_MUTATIONS = 1
+DEFAULT_ROUNDS = 1
 
 
 
