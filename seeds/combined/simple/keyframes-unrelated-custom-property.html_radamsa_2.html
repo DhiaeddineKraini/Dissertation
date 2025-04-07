@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<style>
+  @keyframes test {
+    0% { --x: green; }
+    100% { --x: green; }
+
+    /* This should not affect the background-color of #div: */
+    0% { --unused: yellow; }
+  }
+  #div {
+    animation: test 10s linear paused;
+    background-color: var(--x, red);
+    width: 100px;
+    height: 100px;
+  }
+</style><style>
+  @keyframes test {
+    0% { --x: green; }
+    100% { --x: green; }
+
+    /* This should not affect the background-color of #div: */
+    0% { --unused: yellow; }
+  }
+  #div {
+    animation: test 10s linear paused;
+    background-color: var(--x, red);
+    width: 100px;
+    height: 100px;
+  }
+</style><title>Unrelated custom properties do not conflict with each other</title>
+<script>
+
+test(() => {
+  assert_equals(getComputedStyle(div).backgroundColor, 'rgb(0, 128, 0)');
+}, 'Unrelated custom properties do not conflict with each other');
+
+</script>
+<div id=div></div>

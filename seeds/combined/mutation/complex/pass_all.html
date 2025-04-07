@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <!-- Provide a valid CSP so it doesn't trigger 'csp_violation' -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; script-src 'self'; style-src 'self';">
+  <title>Pass All Tests</title>
+  <script>
+    // We'll set localStorage properly (so 'check_storage' passes)
+    localStorage.setItem('testKey', 'testValue');
+    // We'll define a click event on body => sets window._eventReceived
+    window._eventReceived = false;
+    function bodyClicked() {
+      window._eventReceived = true;
+    }
+  </script>
+  <style>
+    /* Minimal, static layout => no layout shift, no large animations */
+    body { margin: 0; padding: 20px; }
+    #uniqueContainer { width: 200px; height: 100px; background-color: #acf; }
+  </style>
+</head>
+<body onclick="bodyClicked()">
+  <!-- Unique ID => no duplicates -->
+  <div id="uniqueContainer">
+    <p>This page is well-formed and should pass tests!</p>
+  </div>
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQImWP8////fwYsgBGv9l2VgFVMUgMDAEA0n2exnLuTcAAAAABJRU5ErkJggg==" alt="tiny image">
+  <!-- Minimal static content => no accessibility violations: has alt text, valid markup -->
+</body>
+</html>

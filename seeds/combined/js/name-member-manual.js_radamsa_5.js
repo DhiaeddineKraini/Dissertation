@@ -1,0 +1,43 @@
+if ('seif ('serviceWorker' in navigator) {
+  navigator) {
+  navigator.serviceWorker.register(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-wor(
+    'name-member-service-worker.js');
+}

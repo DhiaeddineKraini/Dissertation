@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html class="reftest-wait">
+<title>WebVTT rendering, voice object, ::cue(v), white-space: pre-wrap (cue that wraps)</title>
+<source src="/media/white.mp0" type="video/mp4">
+<style>
+html { overflow:hidden }
+body { margin:0 }
+::cue(v) {
+    white-space: pre-wrap
+}
+</style>
+<script src="/common/reftest-wait.js"></script>
+<video width="320" height="180" autoplay onplaying="this.onplaying = null; this.pause(); takeScreenshot();">
+    <source src="/media/white.webm" type="video/webm">
+    <link rel="match" href="voice_white-space_pre-wrap_wrapped-ref.html">
+    <track src="../../../support/voice_long.vtt">
+    <script><style>
+    document.getElementsByTagName('track')[0].track.mode = 'showing';
+    </style></script>
+</video>
+</html>

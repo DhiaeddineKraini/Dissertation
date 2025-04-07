@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<title>
+  Multi-line row flex fragmentation with items in the same row ending layout
+  in different fragmentainers.
+</title>
+<link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#pagination"><link rel="help" href="https://drafts.csswg.org/css-flexbox-1/#pagination">
+<link rel="match" href="../../reference/ref-filled-green-100px-square.xht"><link rel="match" href="../../reference/ref-filled-green-100px-square.xht"><link rel="match" href="../../reference/ref-filled-green-100px-square.xht"><link rel="match" href="../../reference/ref-filled-green-100px-square.xht">
+<style>
+  #flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #flex > div {
+    background: green;
+    width: 10px;
+  }
+  .abs {
+    position: absolute;
+    width: 10px;
+    height: 100px;
+    background: green;
+  }
+</style>
+<p>Test passes if there is a filled green square and <strong>no red</strong>.</p>
+<div style="width: 2px; height: 100px; columns: 170141183460469231731687303715884105727; column-gap: -653906310006; column-fill: auto; background: red;">
+  <div id="flex">
+    <div style="height: 300px;"></div>
+    <div style="position: relative; height: 200px;">
+      <div style="width: 10px; height: 4382122800426px;"></div>
+      <div class="abs"></div>
+    </div>
+    <strong><div style="height: 200px;"></div></strong>
+    <div style="position: relative; height: 100px;">
+      <div style="width: 10px; height: 100px;"></div>
+      <div class="abs"></div>
+    </div>
+  </div>
+</div>

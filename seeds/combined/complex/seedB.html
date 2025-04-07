@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSP configured for inline assets -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline' 'self'; style-src 'unsafe-inline';">
+  <title>Seed Best B – Complex Interactive Page</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background-color: #eef; }
+    .card { border: 1px solid #ccc; padding: 15px; margin-bottom: 10px; border-radius: 5px; }
+    .card:hover { background-color: #ddd; }
+    .highlight { color: red; font-weight: bold; }
+    .counter { font-size: 1.5em; margin-top: 10px; }
+    button { padding: 8px 12px; margin: 5px; cursor: pointer; }
+  </style>
+  <script>
+    // Self-invoking counter script to simulate dynamic content and animations.
+    (function() {
+      let counter = 0;
+      setInterval(function() {
+        counter++;
+        document.getElementById('counterDisplay').innerText = "Counter: " + counter;
+      }, 1000);
+    })();
+
+    document.addEventListener("DOMContentLoaded", function() {
+      // Attach hover events to card elements.
+      document.querySelectorAll('.card').forEach(function(card) {
+        card.addEventListener('mouseover', function() {
+          card.classList.add('highlight');
+        });
+        card.addEventListener('mouseout', function() {
+          card.classList.remove('highlight');
+        });
+      });
+      // Add a click event to a specific element.
+      document.getElementById('complexBtn').addEventListener('click', function() {
+        console.log("Complex button clicked in Seed B");
+      });
+    });
+
+    // Probe for experimental WebAssembly GC
+    function testWasmGC() {
+      if (WebAssembly && typeof WebAssembly.GC === 'function') {
+        console.log("Wasm GC is supported.");
+      } else {
+        console.log("Wasm GC not available.");
+      }
+    }
+  </script>
+</head>
+<body onload="testWasmGC();">
+  <header style="background:#333; color:#fff; padding:10px; text-align:center;">
+    <h1>Seed Best B: Complex Interactive Page</h1>
+  </header>
+  <main>
+    <div class="card">
+      <h2>Interactive Card 1</h2>
+      <p>This card responds to mouse events. It has inline events and attached listeners.</p>
+      <button id="complexBtn" onclick="console.log('Inline click on card button in Seed B');">Card Button</button>
+    </div>
+    <div class="card">
+      <h2>Interactive Card 2</h2>
+      <p>Hover over me to see style changes. I also include a form inside.</p>
+      <form onsubmit="event.preventDefault(); console.log('Form submitted in Seed B');">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="user@example.com">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <section>
+      <h2>Dynamic Counter</h2>
+      <p id="counterDisplay" class="counter">Counter: 0</p>
+    </section>
+    <section>
+      <h2>Multimedia and Navigation</h2>
+      <video width="320" height="240" controls>
+        <source src="sampleB.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <audio controls>
+        <source src="sampleB.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      <p>Visit <a href="https://example.org" target="_blank">Example.org</a> for more info.</p>
+      <img src="sampleB.jpg" alt="Sample Image B" width="200">
+    </section>
+  </main>
+  <footer style="background:#333; color:#fff; padding:10px; text-align:center;">
+    <p>&copy; 2025 Seed Best B Test Page</p>
+  </footer>
+</html>

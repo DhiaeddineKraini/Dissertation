@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!-- file_b_potential_hang.html -->
+<html>
+<head>
+    <title>hang / timeout demo</title>
+</head>
+<body>
+    <h1>potential hang trigger</h1>
+    <p>this script might make the browser unresponsive.</p>
+    <div id="outputArea" style="height: 100px; overflow: auto; border: 1px solid black;"></div>
+
+    <script>
+        let counter = 0;
+        function recursiveDomFiller() {
+            // simulate condition check maybe removed by mutation
+            // if (counter > 500) { console.log('limit reached'); return; }
+
+            counter++;
+            let output = document.getElementById('outputArea');
+            if (output) {
+                // heavy dom operation inside loop
+                let newItem = document.createElement('span');
+                newItem.textContent = ' item ' + counter + ' (' + Math.random() + ') ';
+                // simulate mutation making dom manipulation excessive
+                for (let i=0; i<5; i++) { // add multiple copies per iteration
+                    output.appendChild(newItem.cloneNode(true));
+                }
+                // scroll to bottom, also adds load
+                output.scrollTop = output.scrollHeight;
+            }
+
+            if (counter % 100 === 0) {
+                 console.log('hang check counter:', counter);
+            }
+
+            // *** recursive call with settimeout(0) ***
+            // this yields to event loop but keeps adding tasks indefinitely
+            // very likely to cause renderer hang / timeout in detection.py
+            setTimeout(recursiveDomFiller, 0);
+        }
+
+        console.log('starting recursive dom filler...');
+        recursiveDomFiller(); // start the loop
+
+        // add unrelated noise
+        try { eval('console.log("mutated eval ' + Math.random() + '")'); } catch(e){}
+        document.body.style.backgroundColor = 'light' + String.fromCharCode(20) + 'blue';
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSP allowing inline scripts and styles -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline' 'self'; style-src 'unsafe-inline';">
+  <title>Seed Best A – Functional Core</title>
+  <style>
+    body { background-color: #fafafa; font-family: sans-serif; margin: 20px; }
+    header, footer { background: #007BFF; color: #fff; padding: 10px; text-align: center; }
+    .btn { padding: 10px 15px; margin: 5px; background-color: #28a745; border: none; color: #fff; cursor: pointer; }
+    .input-field { padding: 5px; margin: 5px 0; }
+    .interactive:hover { background-color: #ddd; }
+  </style>
+  <script>
+    function initPage() {
+      // Add an event listener via script to complement inline handlers.
+      document.getElementById('actionBtn').addEventListener('click', function() {
+        console.log("Button clicked via addEventListener in Seed A");
+      });
+    }
+    // Probe for WebGPU (experimental)
+    function testWebGPU() {
+      if (navigator.gpu) {
+        navigator.gpu.requestAdapter().then(adapter => {
+          if(adapter) {
+            console.log("WebGPU supported and adapter obtained.");
+          } else {
+            console.log("WebGPU adapter not available.");
+          }
+        });
+      } else {
+        console.log("WebGPU not supported.");
+      }
+    }
+  </script>
+</head>
+<body onload="initPage(); testWebGPU();">
+  <header>
+    <h1>Seed Best A: Functional Core Page</h1>
+  </header>
+  <main>
+    <p>This page is designed to test a wide range of functionalities. It includes interactive buttons, forms, media elements, and probes for newer web APIs.</p>
+    <button id="actionBtn" class="btn" onclick="console.log('Inline button click in Seed A');">Click Me</button>
+    <section class="interactive" style="padding:10px; border:1px solid #ccc;">
+      <h2>Interactive Section</h2>
+      <p>Hover over this area or click the button to see event handling in action.</p>
+    </section>
+    <form onsubmit="event.preventDefault(); console.log('Form submitted in Seed A');">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" class="input-field" value="tester">
+      <button type="submit" class="btn">Submit</button>
+    </form>
+    <div>
+      <h3>Media Elements</h3>
+      <video width="320" height="240" controls>
+        <source src="sample.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <audio controls>
+        <source src="sample.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <div>
+      <h3>Miscellaneous</h3>
+      <p>Click <a href="http://example.com" target="_blank">this link</a> to test navigation and mixed content checks.</p>
+      <img src="sample.jpg" alt="Sample Image" width="200">
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2025 Seed Best A Test Page</p>
+  </footer>
+
+  <!-- This script instantiates a small WebAssembly module that performs an out-of-bounds memory write,
+       which is expected to trigger AddressSanitizer (ASan) when running in an ASan-enabled Chrome -->
+  <script>
+    (async function triggerASan() {
+      // Base64-encoded WASM module compiled from:
+      // (module
+      //   (memory (export "mem") 1)
+      //   (func (export "crash")
+      //     i32.const 70000
+      //     i32.const 0
+      //     i32.store)
+      // )
+      const base64Wasm = "AGFzbQEAAAABCAJgAX8AYAAABwEDfwF+IwUBAgMEfwFB/w==";
+      const binaryString = atob(base64Wasm);
+      const len = binaryString.length;
+      const bytes = new Uint8Array(len);
+      for (let i = 0; i < len; i++) {
+        bytes[i] = binaryString.charCodeAt(i);
+      }
+      try {
+        const wasmModule = await WebAssembly.compile(bytes);
+        const instance = await WebAssembly.instantiate(wasmModule);
+        console.log("Calling crash function to trigger ASan");
+        instance.exports.crash();
+      } catch (e) {
+        console.error("Expected crash triggered:", e);
+      }
+    })();
+  </script>
+</body>
+</html>

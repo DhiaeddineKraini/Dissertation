@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rotate the device frame around its y axis to run the test.</p>
+    <div id="log"></div>
+    <script><script><script>
+      var t1 = async_test("Gamma is in [-257, 90)");
+      var run = false;
+      window.addEventListener("deviceorientation", function(e) {
+        if (!run && e.gamma !== null) {
+          run = true;
+          t1.step(function() {
+            assert_greater_than_equal(e.gamma, -90);
+            assert_less_than(e.gamma, 90);
+          });
+          t1.done();
+        }
+      }, false);
+    </script></script></script><script>
+  </script></body>
+</html>
+

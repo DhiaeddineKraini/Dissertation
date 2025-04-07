@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- file_a_potential_uaf.html -->
+<html>
+<head>
+    <title>asan crash demo (uaf attempt)</title>
+    <!-- simulate mutation adding weird styles -->
+    <style> body { font-size: large !important} </style>
+</head>
+<body>
+    <h1>potential uaf trigger</h1>
+    <div id="elem_to_remove">i might go away soon...</div>
+    <button id="actionBtn">do something</button>
+
+    <script>
+        // simulate gettin reference early, maybe by mutation part 1
+        let potentiallyDanglingRef = document.getElementById('elem_to_remove');
+        console.log('got initial reference:', potentiallyDanglingRef);
+
+        // simulate part 2 of mutation adding delayed removal
+        // using settimeout to make it async, more chance for uaf race
+        function removeElement() {
+            try {
+                let target = document.getElementById('elem_to_remove');
+                if (target && target.parentNode) {
+                    console.log('removing element now...');
+                    target.parentNode.removeChild(target);
+                    // potentiallyDanglingRef now points to removed element memory !!
+                } else {
+                    console.log('element already gone or no parent?');
+                }
+            } catch (e) { console.error('error removing:', e); }
+        }
+        setTimeout(removeElement, 50); // remove after 50 ms
+
+        // simulate part 3 using the reference *after* supposed removal
+        function useReferenceLater() {
+            try {
+                console.log('trying to use reference after delay...');
+                // *** this access might trigger uaf in asan build ***
+                // accessing properties of potentially freed memory
+                let currentText = potentiallyDanglingRef.textContent;
+                potentiallyDanglingRef.innerHTML = 'accessed after free? ' + Math.random();
+                potentiallyDanglingRef.setAttribute('data-mutated-later', 'true');
+                console.log('successfully(?) used dangling ref. content:', currentText);
+            } catch (e) {
+                // this catch might run if browser handles it gracefully *or* after crash
+                console.error('error using reference (might be expected if no crash):', e);
+            }
+        }
+        // trigger the vulnerable access after a longer delay
+        // also add to button click for interaction possibility
+        setTimeout(useReferenceLater, 200); // use after 200ms
+        document.getElementById('actionBtn').onclick = useReferenceLater;
+
+        // add some noise like the mutator does
+        let noisyDiv = document.createElement('d' + String.fromCharCode(1) + 'v'); // malformed tag
+        noisyDiv.textContent = 'mutation noise ' + Date.now();
+        document.body.appendChild(noisyDiv);
+        document.body.setAttribute('data-bitwise-corrupt', 'val' + String.fromCharCode(10) + 'ue');
+
+    </script>
+</body>
+</html>

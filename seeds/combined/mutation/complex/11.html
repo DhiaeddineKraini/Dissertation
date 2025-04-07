@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- broken_page.html -->
+<html>
+<head>
+    <title>Web Platform Stress Test</title>
+    <style>
+        .leak-box {
+            position: absolute;
+            background: linear-gradient(45deg, #ff0000, #0000ff);
+        }
+        
+        @keyframes crash-anim {
+            0% {transform: rotate(0deg);}
+            100% {transform: rotate(360deg);}
+        }
+    </style>
+</head>
+<body>
+    <!-- Memory Error Triggers -->
+    <button onclick="triggerWasmOverflow()">Buffer Overflow</button>
+    <button onclick="triggerUAF()">UAF</button>
+
+    <!-- Resource Exhaustion -->
+    <div id="leak-container"></div>
+    
+    <!-- Visual Anomalies -->
+    <canvas id="corrupt-canvas" width="500" height="500"></canvas>
+    <div id="layout-shift" style="width: 100px; transition: all 0.3s;"></div>
+
+    <!-- WebAssembly Memory Errors -->
+    <script type="text/wasm">
+        ;; (WASM bytecode with intentional vulnerabilities)
+    </script>
+
+    <script>
+        // JavaScript Memory Errors
+        let danglingPtr;
+        function triggerUAF() {
+            const arr = new Uint8Array(1024);
+            danglingPtr = arr;
+            setTimeout(() => danglingPtr[0] = 42, 1000);
+        }
+
+        // Resource Exhaustion
+        let leakCache = [];
+        function startLeak() {
+            setInterval(() => {
+                leakCache.push(new ArrayBuffer(1e6));
+                document.getElementById('leak-container').appendChild(
+                    document.createElement('div')).className = 'leak-box';
+            }, 10);
+        }
+
+        // Performance Issues
+        function forceLayoutThrashing() {
+            const el = document.getElementById('layout-shift');
+            setInterval(() => {
+                el.style.width = `${Math.random() * 200}px`;
+                void el.offsetWidth;
+            }, 50);
+        }
+
+        // Console Errors
+        undefinedFunction();
+        window.onerror = () => setTimeout(() => document.write(''), 0);
+    </script>
+</body>
+</html>
